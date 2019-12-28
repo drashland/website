@@ -27,8 +27,9 @@ _The installer warns you about setting Python binaries to your `$PATH` variable.
 ## Running The Development Environment
 
 The dev environment requires two shells:
-    * A shell to run the `docs.ts` Drash server; and
-    * A shell to run `webpack`.
+
+  * A shell to run the `docs.ts` Drash server; and
+  * A shell to run `webpack`.
 
 The dev environment is watched by `watchmedo`. `watchmedo` is like `nodemon` for Node.js. Every time you save a file, the dev environment's server will reload with your changes. However, the browser will not reload on its own.
 
@@ -46,7 +47,11 @@ npm run dev-webpack-watch
 
 ## Compile SASS to CSS
 
-* `webpack` doesn't currently watch the `.scss` files. So, if you make changes to a `.scss` file, then make sure you run `npm run sass` to compile your changes.
+```shell
+npm run sass
+```
+
+`webpack` doesn't currently watch the `.scss` files. So, if you make changes to a `.scss` file, then make sure you run `npm run sass` to compile your changes.
 
 ## .DS_Store Cleanup
 
