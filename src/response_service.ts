@@ -23,6 +23,18 @@ export function getAppData() {
     bundleVersion = ".min";
   }
 
+  Deno.writeFileSync(
+    config.server.directory + "/public/assets/js/bundle_app_data.js",
+    Encoder.encode("const app_data = " + JSON.stringify({
+      example_code: getExampleCode(),
+      store: {
+        page_data: {
+          api_reference: getPageDataApiReference()
+        }
+      }
+    }) + ";")
+  );
+
   return {
     // The below is transferred to index.ejs
     scripts: {
@@ -30,6 +42,7 @@ export function getAppData() {
         "/public/assets/vendor/prismjs/prism.js",
         "/public/assets/vendor/jquery-3.3.1/jquery.min.js",
         "/public/assets/vendor/bootstrap-4.1.3-dist/js/bootstrap.min.js",
+        `/public/assets/js/bundle_app_data.js?version=${buildTimestamp}`,
         `/public/assets/js/bundle${bundleVersion}.js?version=${buildTimestamp}`
       ],
       external: ["https://unpkg.com/axios/dist/axios.min.js"]
@@ -39,16 +52,6 @@ export function getAppData() {
         ? Deno.env().DOCS_BASE_URL
         : ""
     },
-
-    // The below is transferred to vue_app_root.vue
-    app_data: JSON.stringify({
-      example_code: getExampleCode(),
-      store: {
-        page_data: {
-          api_reference: getPageDataApiReference()
-        }
-      }
-    }) // close app_data
   };
 }
 

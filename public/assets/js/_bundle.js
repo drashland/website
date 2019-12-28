@@ -19,9 +19,11 @@ Vue.use(VueRouter);
 Vue.filter('markdown-it', function(value) {
   return window.markdownIt.render(value);
 });
-Vue.prototype.$app_data = window.app_data; // The `app_data` variable comes from response_service.ts
+// The `app_data` variable comes from `response_service.ts`. `response_server.ts` writes app_data to
+// `bundle_app_data.js`.
+Vue.prototype.$app_data = app_data;
 Vue.prototype.$conf = conf;
-Vue.prototype.$store = window.app_data.store;
+Vue.prototype.$store = app_data.store;
 
 // Vue Router
 import router from "/public/assets/js/router.js";

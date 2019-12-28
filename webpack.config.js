@@ -74,7 +74,7 @@ module.exports = envVars => {
 function getBaseUrl(envVars) {
   if (envVars.environment !=  "production") {
     return envVars.base_url
-      ? url
+      ? envVars.base_url
       : "";
   }
 
