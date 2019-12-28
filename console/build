@@ -1,25 +1,19 @@
 #!/bin/bash
 
 (
-  echo "Performing production compilation of webpack bundle.js"
+  echo -n "Performing production compilation of webpack bundle.js ..."
+  console/webpack --env.environment="production"
+  echo "... done."
 
-  npm run prod-webpack
-
-  echo "Done."
-
-  echo "Performing build using build.ts ..."
-
+  echo -n "Performing build using build.ts ..."
   deno --allow-all console/build.ts
+  echo "... done."
 
-  echo "Done."
-
-  echo "Performing git commit ..."
-
+  echo -n "Performing git commit ..."
   git add index.html
   git add public/assets/js/bundle.min.js
   git commit -m "npm run build ($(date))"
+  echo "... done."
 
-  echo "Done."
-
-  echo "Build is ready to be pushed to the repository"
+  echo "Build is ready to be pushed to the repository."
 )

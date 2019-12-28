@@ -2,7 +2,7 @@
 
 (
   node_modules/.bin/webpack \
-    --env.base_url="$DRASH_DOCS_BASE_URL" \
+    --env.base_url="$DRASH_DOCS_BASE_URL" \ # only used in non-prod environments
     --env.build_date="$(date)" \
     --env.deno_version="$(deno --version)" \
     --env.drash_latest_release="v0.27.4" \

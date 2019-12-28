@@ -71,15 +71,19 @@ module.exports = envVars => {
   };
 };
 
-function getBaseUrl(url) {
-  return url
-    ? url
-    : "";
+function getBaseUrl(envVars) {
+  if (envVars.environment !=  "production") {
+    return envVars.base_url
+      ? url
+      : "";
+  }
+
+  return "/deno-drash-docs";
 }
 
 function getConf(envVars) {
   return {
-    base_url: getBaseUrl(envVars.base_url),
+    base_url: getBaseUrl(envVars),
     build_date: envVars.build_date,
     deno_version: getDenoVersion(envVars.deno_version), // Used in sidebar.vue
     environment: envVars.environment,
