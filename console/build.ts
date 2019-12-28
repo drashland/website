@@ -1,9 +1,8 @@
-import Drash from "../../mod.ts";
+import Drash from "../deno-drash/mod.ts";
 import * as ResponseService from "../src/response_service.ts";
-
-const drashDirRoot = Deno.env().DRASH_DIR_ROOT;
+import config from "./conf/app.ts";
 
 ResponseService.compile(
-  `${drashDirRoot}/docs/index.ejs`,
-  `${drashDirRoot}/docs/index.html`
+  `${config.server.directory}/index.ejs`,
+  `${config.server.directory}/index.html`
 );

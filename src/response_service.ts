@@ -1,5 +1,6 @@
-import Drash from "../../mod.ts";
+import Drash from "../../deno-drash/mod.ts";
 import { renderFile } from "https://deno.land/x/dejs@0.3.0/dejs.ts";
+import config from "../conf/app.ts";
 const Decoder = new TextDecoder();
 const Encoder = new TextEncoder();
 
@@ -14,7 +15,7 @@ export async function compile(inputFile, outputFile): Promise<any> {
 export function getAppData() {
   const buildTimestamp = new Date().getTime();
   const env =
-    Deno.env().DRASH_DOCS_BASE_URL == "/deno-drash"
+    config.server.docs_base_url == "/deno-drash-docs"
       ? "production"
       : "development";
   let bundleVersion = "";
@@ -34,8 +35,8 @@ export function getAppData() {
       external: ["https://unpkg.com/axios/dist/axios.min.js"]
     },
     conf: {
-      base_url: Deno.env().DRASH_DOCS_BASE_URL
-        ? Deno.env().DRASH_DOCS_BASE_URL
+      base_url: config.server.docs_base_url
+        ? config.server.docs_base_url
         : ""
     },
 
@@ -83,10 +84,10 @@ function getExampleCode() {
 
   let ignore = ["api_reference", ".DS_Store"];
 
-  let files = Drash.Util.Exports.getFileSystemStructure(`${Deno.env().DRASH_DIR_ROOT}/docs/src/example_code`);
+  let files = Drash.Util.Exports.getFileSystemStructure(`${config.server.directory}/src/example_code`);
 
   files.forEach(file => {
-    let pathname = file.pathname.replace(Deno.env().DRASH_DIR_ROOT, "");
+    let pathname = file.pathname.replace(config.server.directory, "");
     if (!exampleCode[pathname]) {
       exampleCode[pathname] = {};
     }

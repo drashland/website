@@ -1,7 +1,6 @@
 # files
-*conf.json
+*sample.js
 .DS_Store
-.env
 bundle.js
 compiled_*.js
 compiled_*.json

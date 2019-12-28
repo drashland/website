@@ -1,5 +1,6 @@
-import Drash from "../../mod.ts";
+import Drash from "../../deno-drash/mod.ts";
 import * as ResponseService from "./response_service.ts";
+import config from "../conf/app.ts";
 
 export default class AppResponse extends Drash.Http.Response {
   /**
@@ -11,9 +12,7 @@ export default class AppResponse extends Drash.Http.Response {
     switch (this.headers.get("Content-Type")) {
       // Handle HTML
       case "text/html":
-        let indexEjsFile = `${
-          Deno.env().DRASH_DIR_ROOT
-        }/docs/index.ejs`;
+        let indexEjsFile = `${config.server.directory}/index.ejs`;
         Drash.Members.ConsoleLogger.debug("Rendering HTML response.");
         try {
           body = await ResponseService.getAppDataInHtml(indexEjsFile);

@@ -1,4 +1,4 @@
-import Drash from "../../mod.ts";
+import Drash from "../../deno-drash/mod.ts";
 
 export default class AppResource extends Drash.Http.Resource {
   static paths = ["*"];

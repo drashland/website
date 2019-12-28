@@ -12,14 +12,13 @@
 
   echo "Done."
 
-  echo "Performing build using build.ts..."
+  echo "Performing build using build.ts ..."
 
-  deno --allow-all $DRASH_DIR_ROOT/docs/console/docs.ts
-  deno --allow-all $DRASH_DIR_ROOT/docs/console/build.ts
+  deno --allow-all ./build.ts
 
   echo "Done."
 
-  echo "Performing git commit..."
+  echo "Performing git commit ..."
 
   git add index.html
   git add public/assets/js/bundle.min.js
@@ -27,9 +26,5 @@
 
   echo "Done."
 
-  echo "Performing git push..."
-
-  git push https://$GIT_USER:$GIT_PASSWORD@github.com/crookse/deno-drash.git HEAD:master
-
-  echo "Done."
+  echo "Build is ready to be pushed to the repository"
 )
