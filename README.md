@@ -1,6 +1,6 @@
 # deno-drash Documentation
 
-Technology Stack
+## Technology Stack
 
 * [dejs](https://github.com/syumai/dejs) for its template engine;
 * [npm](https://www.npmjs.com) to map console scripts to the `npm run` command;
@@ -24,11 +24,13 @@ npm run install-watchdog
 
 _The installer warns you about setting Python binaries to your `$PATH` variable. Pay attention to that message._
 
-## Running Dev Environment
+## Running The Development Environment
 
-The dev environment requires two shells: a shell to run the `docs.ts` app server and a shell to run `webpack`.
+The dev environment requires two shells:
+    * A shell to run the `docs.ts` Drash server; and
+    * A shell to run `webpack`.
 
-The dev environment is watched by `watchmedo`. `watchmedo` acts like `nodemon` for Node.js projects. Every time you save a file, the dev environment will be reloaded.
+The dev environment is watched by `watchmedo`. `watchmedo` is like `nodemon` for Node.js. Every time you save a file, the dev environment's server will reload with your changes. However, the browser will not reload on its own.
 
 Run the `docs.ts` app server.
 
