@@ -83,7 +83,7 @@ function getConf(envVars) {
     build_date: envVars.build_date,
     deno_version: getDenoVersion(envVars.deno_version), // Used in sidebar.vue
     environment: envVars.environment,
-    latest_release: envVars.latest_release,
+    drash_latest_release: envVars.drash_latest_release,
     module_name: "Drash", // Used in HTML <title> element
   };
 }

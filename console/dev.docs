@@ -1,27 +1,30 @@
 #!/bin/bash
 
 (
-  for pid in $(ps aux | grep 'docs.ts' | grep 'deno' | awk '{print $2}'); do
-    echo "[watchmedo] Killing deno docs.ts $pid"
-    kill -9 $pid
-    echo "[watchmedo] PID $pid killed."
-  done
+  # Kill all traces of previously run apps
+  console/dev.kill
 
-  if [[ $1 == "restart" ]]; then
-    echo -e "[watchmedo] Restarting docs.ts app..."
+  echo -n "[watchmedo] Compiling API Reference pages ..."
+  deno --allow-read --allow-write --allow-env --allow-net ./compile_api_reference_pages.ts
+  echo "... done."
+
+  echo -n "[watchmedo] Compiling Vue global components ..."
+  deno --allow-read --allow-write --allow-env --allow-net ./compile_vue_global_components.ts
+  echo "... done."
+
+  echo -n "[watchmedo] Compiling Vue route components ..."
+  deno --allow-read --allow-write --allow-env --allow-net ./compile_vue_route_components.ts
+  echo "... done."
+
+  # Are we restarting or now just starting up?
+  if [[ $1 == "restart-by-watchdog" ]]; then
+    echo -n "[watchmedo] Restarting docs.ts app ..."
   else
-    echo -e "[watchmedo] Starting docs.ts app..."
+    echo -n "[watchmedo] Starting docs.ts app ..."
   fi
-
   deno --allow-read --allow-write --allow-env --allow-net ./docs.ts &
+  echo "... done."
 
-  echo -e "[watchmedo] docs.ts app started.\n"
-  echo -e "[watchmedo] !!! IMPORTANT !!!"
-  echo -e "[watchmedo] [ctrl] + [c] will NOT kill the docs.ts app. Run the following to kill the app:"
-  echo -e "    \`npm run dev-kill\`\n"
-
-  if [[ -z $1 ]]; then
-    echo -e "[watchmedo] Don't forget to run the following:"
-    echo -e "    \`npm run webpack-dev-watch\`\n"
-  fi
+  echo -e "[watchmedo] Make sure you are running webpack:"
+  echo -e "\n    \`npm run dev-webpack -- --watch\`\n"
 )

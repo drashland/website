@@ -3,13 +3,7 @@
 (
   echo "Performing production compilation of webpack bundle.js"
 
-  node_modules/.bin/webpack \
-    --env.base_url="/deno-drash" \
-    --env.build_date="$(date)" \
-    --env.deno_version="$(deno --version)" \
-    --env.environment="production" \
-    --env.latest_release="v0.27.4" \
-    --hide-modules
+  ./webpack
 
   echo "Done."
 

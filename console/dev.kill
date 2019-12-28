@@ -2,14 +2,14 @@
 
 (
   for pid in $(ps aux | grep 'docs.ts' | grep 'deno' | awk '{print $2}'); do
-    echo "[watchmedo] Killing deno docs.ts $pid"
+    echo -n "[watchmedo] Killing deno docs.ts (PID $pid) ..."
     kill -9 $pid
-    echo "[watchmedo] PID $pid killed."
+    echo "... killed."
   done
 
   for pid in $(ps aux | grep 'dev-docs' | grep 'deno' | awk '{print $2}'); do
-    echo "[watchmedo] Killing npm run dev-docs $pid"
+    echo -n "[watchmedo] Killing npm run dev-docs (PID $pid) ..."
     kill -9 $pid
-    echo "[watchmedo] PID $pid killed."
+    echo "... killed."
   done
 )

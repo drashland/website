@@ -35,7 +35,7 @@ div
           code-block-slotted(language="typescript" :header="false")
             template(v-slot:code)
               | // Import Drash latest release
-              | import Drash from "https://deno.land/x/drash@{{ $conf.latest_release }}/mod.ts";
+              | import Drash from "https://deno.land/x/drash@{{ $conf.drash_latest_release }}/mod.ts";
               | 
               | // Import Drash master
               | import Drash from "https://deno.land/x/drash/mod.ts";

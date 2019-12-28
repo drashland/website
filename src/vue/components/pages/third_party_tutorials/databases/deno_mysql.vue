@@ -36,13 +36,15 @@ page-tutorial(
       p This tutorial will be written using the following database:
       p
         code-block-slotted
-          template(v-slot:title) database: deno_mysql
+          template(v-slot:title) database: deno_mysql<br>table: users
           template(v-slot:code)
+            | mysql> select * from users;
             | +------+------+
             | | name | sex  |
             | +------+------+
             | | eric | m    |
             | +------+------+
+            | 1 row in set (0.00 sec)
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
     div.col

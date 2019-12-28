@@ -23,19 +23,11 @@
     "webpack-cli": "^3.2.3"
   },
   "scripts": {
-    "build": "console/build",
-    "build-dry-run": "console/build.dryrun",
-    "docs-deploy": "console/build",
     "dev": "console/dev",
-    "dev-docs": "console/dev.docs",
-    "dev-kill": "console/dev.kill",
-    "dev-webpack": "console/webpack.dev",
-    "dev-webpack-watch": "console/webpack.dev --watch",
-    "delete-ds-store": "find . -name '.DS_Store' -type f -delete",
+    "dev-webpack": "export DRASH_DOCS_BASE_URL=''; console/webpack --env.environment=development",
+    "dev-webpack-watch": "export DRASH_DOCS_BASE_URL='/deno-drash-docs'; console/webpack --env.environment=development --watch",
+    "prod-webpack": "console/webpack --env.environment=production",
     "install-watchdog": "console/pip.install.watchdog",
-    "prettier": "../console/prettier",
-    "sass": "sass public/assets/css/style-docs.scss public/assets/css/style-docs.css",
-    "test": "npm run tests",
-    "tests": "../console/tests"
+    "sass": "sass public/assets/css/style-docs.scss public/assets/css/style-docs.css"
   }
 }

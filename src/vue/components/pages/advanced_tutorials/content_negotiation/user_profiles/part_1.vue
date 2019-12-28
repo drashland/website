@@ -2,16 +2,16 @@
 export const resource = {
     paths: ["/advanced-tutorials/content-negotiation/user-profiles/part-1"],
     meta: {
-        title: "Content Negotation: User Profiles",
-        subtitle: "Part 1: Simulate Database Records",
-        source_code_uri: "/advanced_tutorials/content_negotiation/user_profiles/part_1"
+      title: "Content Negotation: User Profiles",
+      subtitle: "Part 1: Simulate Database Records",
+      source_code_uri: "/advanced_tutorials/content_negotiation/user_profiles/part_1"
     }
 }
 
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/docs/src/example_code' + resource.meta.source_code_uri],
+      example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 1,
       parts: 5,
       toc: {

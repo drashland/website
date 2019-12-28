@@ -1,13 +1,14 @@
 #!/bin/bash
 
 (
-  npm run dev-docs
+  console/dev.docs
+
   watchmedo shell-command \
-    --command='npm run dev-docs -- restart' \
-    --recursive \
+    --command='console/dev.docs restart-by-watchdog' \
     --drop \
     --ignore-directories \
-    --patterns="*.ts;*.json;*/console/*/*;*.vue;*.js;*.ejs" \
     --ignore-pattern="*/compiled_*.json;*/compiled_*.js;*/compiled_routes.js;*/api_reference.json;*/.#*.ts;*.swp" \
+    --patterns="*.ts;*.json;*/console/*/*;*.vue;*.js;*.ejs" \
+    --recursive \
     ./
 )
