@@ -3,6 +3,8 @@
 (
   export DOCS_BASE_URL="/deno-drash-docs"
 
+  console/delete_ds_store
+
   echo -n "Performing production compilation of webpack bundle.js ..."
   console/webpack --env.environment="production"
   echo "... done."

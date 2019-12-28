@@ -4,6 +4,9 @@
   # Kill all traces of previously run apps
   console/dev.kill
 
+  # Delete stupid .DS_Store files
+  console/delete_ds_store
+
   echo -n "[watchmedo] Compiling API Reference pages ..."
   deno --allow-read --allow-write --allow-env --allow-net ./compile_api_reference_pages.ts
   echo "... done."
