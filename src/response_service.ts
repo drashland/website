@@ -15,7 +15,7 @@ export async function compile(inputFile, outputFile): Promise<any> {
 export function getAppData() {
   const buildTimestamp = new Date().getTime();
   const env =
-    config.server.docs_base_url == "/deno-drash-docs"
+    Deno.env().DOCS_BASE_URL == "/deno-drash-docs"
       ? "production"
       : "development";
   let bundleVersion = "";
@@ -35,8 +35,8 @@ export function getAppData() {
       external: ["https://unpkg.com/axios/dist/axios.min.js"]
     },
     conf: {
-      base_url: config.server.docs_base_url
-        ? config.server.docs_base_url
+      base_url: Deno.env().DOCS_BASE_URL
+        ? Deno.env().DOCS_BASE_URL
         : ""
     },
 

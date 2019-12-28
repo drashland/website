@@ -1,6 +1,8 @@
 #!/bin/bash
 
 (
+  export DOCS_BASE_URL="/deno-drash-docs"
+
   echo -n "Performing production compilation of webpack bundle.js ..."
   console/webpack --env.environment="production"
   echo "... done."
