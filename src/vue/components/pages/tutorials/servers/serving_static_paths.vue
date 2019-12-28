@@ -10,8 +10,8 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/docs/src/example_code/tutorials/servers/serving_static_paths'],
-      example_code_public: this.$app_data.example_code['/docs/src/example_code/tutorials/servers/serving_static_paths/public'],
+      example_code: this.$app_data.example_code['/src/example_code/tutorials/servers/serving_static_paths'],
+      example_code_public: this.$app_data.example_code['/src/example_code/tutorials/servers/serving_static_paths/public'],
       toc: {
         items: [
           "Before You Get Started",
@@ -70,6 +70,6 @@ page-tutorial(
             template(v-slot:code)
               | curl localhost:1447
           p You should receive the following response:
-          a(href="/deno-drash/public/assets/img/example_code/tutorials/serving_static_paths/verification_1.png")
+          a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/serving_static_paths/verification_1.png")
             img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/serving_static_paths/verification_1.png'")
 </template>

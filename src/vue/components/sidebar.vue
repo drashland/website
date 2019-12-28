@@ -1,8 +1,8 @@
 <template lang="pug">
 div.c-sidebar
-    div(v-if="$conf.webpack_mode != 'production'")
+    div(v-if="$conf.environment != 'production'")
         p.l-environment-text(style="position:fixed; right: 0")
-            span.text ENVIRONMENT: {{ $conf.webpack_mode }}
+            span.text ENVIRONMENT: {{ $conf.environment }}
     div.c-sidebar__header(style="padding: 2rem 0;")
         div.row.align-items-center.text-align--center
             div.col
@@ -20,6 +20,7 @@ div.c-sidebar
                 a(:href="$conf.base_url + '/#/introduction#features'") Features
                 a(:href="$conf.base_url + '/#/introduction#about-these-docs'") About These Docs
                 a(:href="$conf.base_url + '/#/introduction#file-an-issue'") File An Issue
+                a(:href="$conf.base_url + '/#/introduction#requirements'") Requirements
             a.heading-link(:href="$conf.base_url + '/#/tutorials/introduction'") Tutorials
             div.c-sidebar__menu-body
                 a(:href="$conf.base_url + '/#/tutorials/introduction'") Introduction
@@ -94,7 +95,6 @@ div.c-sidebar
                     a(href="https://github.com/crookse/deno-drash", target="_BLANK")
                         i.fab.fa-github
                 hr
-                p Drash {{ $conf.latest_release }} was developed using {{ $conf.deno_version }}.
                 p Drash Documentation was last updated on {{ $conf.build_date }}
 </template>
 

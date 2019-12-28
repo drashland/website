@@ -10,20 +10,13 @@ Drash Docs uses the following:
 
 ## Setup
 
-Add environment variables.
+Install dependencies.
 
 ```shell
-export DRASH_DIR_ROOT="/path/to/deno-drash"
-```
-
-Change to `/docs` directory and install node modules.
-
-```shell
-cd /path/to/deno-drash/docs
 npm install
 ```
 
-Install watchdog.
+Install watchdog for file watching.
 
 ```shell
 npm run install-watchdog

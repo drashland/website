@@ -2,48 +2,19 @@ const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
-// Versions
-const latestRelease = "v0.27.4";
-const denoVersion = "0.27.0";
-const denoStdVersion = "0.27.0";
-
-function getConf(envVars) {
-
-  let conf = {
-    base_url: !envVars.base_url
-      ? ""
-      : envVars.base_url,
-    build_date: envVars.build_date,
-    deno_version: envVars.deno_version.replace("deno: ", "Deno v")
-      .replace("\nv8: ", ", V8 v")
-      .replace("\ntypescript: ", ", and TypeScript v"),
-    deno_version_requirement: `v${denoVersion}`,
-    deno_std_version: denoStdVersion,
-    latest_release: `${latestRelease}`,
-    module_name: "Drash",
-    module_namespace: "Drash",
-    shields: {
-      requires_deno: `https://img.shields.io/badge/requires%20deno-v${denoVersion}-brightgreen.svg`,
-    },
-    webpack_mode: envVars.environment
-  };
-
-  return conf;
-}
-
 module.exports = envVars => {
   let conf = getConf(envVars);
 
-  console.log(`\nRunning "${envVars.environment}" configs.\n`);
+  console.log(`\nRunning "${conf.environment}" configs.\n`);
 
   let bundleVersion = "";
-  if (envVars.environment == "production") {
+  if (conf.environment == "production") {
     bundleVersion = ".min";
   }
 
   return {
     entry: path.resolve(__dirname, "public/assets/js/_bundle.js"),
-    mode: envVars.environment,
+    mode: conf.environment,
     output: {
       path: path.resolve(__dirname, "public/assets/js/"),
       filename: `bundle${bundleVersion}.js`
@@ -89,7 +60,7 @@ module.exports = envVars => {
     resolve: {
       alias: {
         vue:
-          envVars.environment == "production"
+          conf.environment == "production"
             ? "vue/dist/vue.min.js"
             : "vue/dist/vue.js",
         "/src": path.resolve(__dirname, "src"),
@@ -99,3 +70,27 @@ module.exports = envVars => {
     }
   };
 };
+
+function getBaseUrl(url) {
+  return url
+    ? url
+    : "";
+}
+
+function getConf(envVars) {
+  return {
+    base_url: getBaseUrl(envVars.base_url),
+    build_date: envVars.build_date,
+    deno_version: getDenoVersion(envVars.deno_version), // Used in sidebar.vue
+    environment: envVars.environment,
+    latest_release: envVars.latest_release,
+    module_name: "Drash", // Used in HTML <title> element
+  };
+}
+
+function getDenoVersion(version) {
+  return version
+    .replace("deno: ", "Deno v")
+    .replace("\nv8: ", ", V8 v")
+    .replace("\ntypescript: ", ", and TypeScript v");
+}

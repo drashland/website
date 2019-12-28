@@ -12,7 +12,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/docs/src/example_code/tutorials/middleware/introduction'],
+      example_code: this.$app_data.example_code['/src/example_code/tutorials/middleware/introduction'],
       toc: {
         items: [
           "Basics",
