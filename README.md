@@ -1,6 +1,6 @@
-# Drash Docs
+# deno-drash Documentation
 
-Drash Docs uses the following:
+Technology Stack
 
 * [dejs](https://github.com/syumai/dejs) for its template engine;
 * [npm](https://www.npmjs.com) to map console scripts to the `npm run` command;
