@@ -42,27 +42,9 @@ Run `webpack` and have it watch for file changes.
 npm run dev-webpack-watch
 ```
 
-## Deployment Dry Runs
-
-Run `npm run build-dry-run` to see if the docs can be built using the currently used deno version, deno standard modules version, and dejs module version. If the command fails, then there is a compatibility issue between the deno version, deno standard modules version, and the dejs module version.
-
 ## Compile SASS to CSS
 
 * `webpack` doesn't currently watch the `.scss` files. So, if you make changes to a `.scss` file, then make sure you run `npm run sass` to compile your changes.
-
-## Formatting Code
-
-Deno's style guidelines enforce the use of the `prettier` module. You can use `npm` to run it:
-
-```shell
-npm run prettier
-```
-
-## Unit Tests
-
-```shell
-npm run tests
-```
 
 ## .DS_Store Cleanup
 
