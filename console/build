@@ -3,13 +3,13 @@
 (
   echo "Performing production compilation of webpack bundle.js"
 
-  ./webpack
+  npm run prod-webpack
 
   echo "Done."
 
   echo "Performing build using build.ts ..."
 
-  deno --allow-all ./build.ts
+  deno --allow-all console/build.ts
 
   echo "Done."
 
