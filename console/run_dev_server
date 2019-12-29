@@ -1,16 +1,11 @@
 #!/bin/bash
-#
-# DOCS_BASE_URL will be appended to drashland.github.io (e.g., drashland.github.io/deno-drash-docs)
-#
 
 (
-  export DOCS_BASE_URL=""
-  export DOCS_ENVIRONMENT="development"
+  export DENO_DRASH_DOCS_BASE_URL=""
+  export DENO_DRASH_DOCS_ENVIRONMENT="development"
 
   console/dev_kill
-
   console/delete_ds_store
-
   console/compile_assets
 
   # Are we restarting or now just starting up?
@@ -22,6 +17,9 @@
   deno --allow-read --allow-write --allow-env --allow-net ./docs.ts &
   echo "... done."
 
-  echo -e "[watchdog] Make sure you are running webpack:"
-  echo -e "\n    \`npm run dev-webpack -- --watch\`\n"
+  echo -e "[watchdog] Make sure you run webpack:"
+  echo -e "\n    Single compilations:"
+  echo -e "\n    \`npm run webpack\`\n"
+  echo -e "\n    Continuous compilations:"
+  echo -e "\n    \`npm run webpack -- --watch\`\n"
 )

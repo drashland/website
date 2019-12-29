@@ -4,17 +4,14 @@
 #
 
 (
-  export DOCS_BASE_URL="/deno-drash-docs"
-  export DOCS_ENVIRONMENT="production"
+  export DENO_DRASH_DOCS_BASE_URL="/deno-drash-docs"
+  export DENO_DRASH_DOCS_ENVIRONMENT="production"
 
   console/delete_ds_store
-
   console/compile_assets
-
-  console/webpack --env.environment="$DOCS_ENVIRONMENT"
-
+  console/run_webpack
   console/compile_index_ejs
 
   echo -e "Build is ready to be pushed to the repository."
-  echo -e "\n    Use \`console/commit\`"
+  echo -e "\n    Use \`console/deploy\`"
 )

@@ -85,16 +85,8 @@ function getConf(envVars) {
   return {
     base_url: getBaseUrl(envVars),
     build_date: envVars.build_date,
-    deno_version: getDenoVersion(envVars.deno_version), // Used in sidebar.vue
     environment: envVars.environment,
     drash_latest_release: envVars.drash_latest_release,
-    module_name: "Drash", // Used in HTML <title> element
+    module_name: envVars.module_name, // Used in HTML <title> element for .ejs and .vue files
   };
-}
-
-function getDenoVersion(version) {
-  return version
-    .replace("deno: ", "Deno v")
-    .replace("\nv8: ", ", V8 v")
-    .replace("\ntypescript: ", ", and TypeScript v");
 }

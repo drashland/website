@@ -23,11 +23,8 @@
     "webpack-cli": "^3.2.3"
   },
   "scripts": {
-    "deploy": "console/deploy",
     "dev": "console/dev",
-    "dev-webpack": "export DRASH_DOCS_BASE_URL=''; console/webpack --env.environment=development",
-    "dev-webpack-watch": "export DRASH_DOCS_BASE_URL='/deno-drash-docs'; console/webpack --env.environment=development --watch",
-    "install-watchdog": "console/pip.install.watchdog",
+    "webpack": "console/webpack",
     "sass": "sass public/assets/css/style-docs.scss public/assets/css/style-docs.css"
   }
 }
