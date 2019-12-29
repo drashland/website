@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# DOCS_BASE_URL will be appended to drashland.github.io (e.g., drashland.github.io/deno-drash-docs)
+#
+
+(
+  export DENO_DRASH_DOCS_BASE_URL="/deno-drash-docs/staging"
+  export DENO_DRASH_DOCS_ENVIRONMENT="production"
+
+  console/delete_ds_store
+  console/compile_assets
+  console/run_webpack
+  console/compile_index_ejs
+
+  cp -r index.html staging/index.html
+  cp -r public staging/public
+
+  echo -e "Build is ready to be pushed to the repository."
+)
