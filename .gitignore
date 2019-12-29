@@ -3,6 +3,7 @@
 .DS_Store
 bundle.js
 compiled_*.js
+!compiled_app_data.js
 compiled_*.json
 conf/*
 deps.ts
