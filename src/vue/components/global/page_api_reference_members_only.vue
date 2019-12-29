@@ -72,7 +72,7 @@ div.page.page--reference
             div.col
                 h2 {{ data.fully_qualified_name }}
                 p
-                    a(:href="'https://github.com/crookse/deno-drash/tree/master' + link" target="_BLANK" v-if="link") View raw code
+                    a(:href="'https://github.com/drashland/deno-drash/tree/master' + link" target="_BLANK" v-if="link") View raw code
                 p Below is a list of members that don't belong to a class. They only belong to a namespace. They are considered "members only" and are exported for use via <code>{{ data.fully_qualified_name }}.{memberName}</code>.
         hr
         div.row(v-for="member in data.namespace")

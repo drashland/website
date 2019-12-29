@@ -92,7 +92,7 @@ div.c-sidebar
         div.row
             div.col.text-align--center
                 p.l-icons
-                    a(href="https://github.com/crookse/deno-drash", target="_BLANK")
+                    a(href="https://github.com/drashland/deno-drash", target="_BLANK")
                         i.fab.fa-github
                 hr
                 p Drash Documentation was last updated on {{ $conf.build_date }}

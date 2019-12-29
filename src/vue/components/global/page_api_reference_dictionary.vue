@@ -72,7 +72,7 @@ div.page.page--reference
             div.col
                 h2 {{ data.class.fully_qualified_name }}
                 p
-                    a(:href="'https://github.com/crookse/deno-drash/tree/master' + link" target="_BLANK" v-if="link") View raw code
+                    a(:href="'https://github.com/drashland/deno-drash/tree/master' + link" target="_BLANK" v-if="link") View raw code
                 p(v-for="description in  data.class.description" :inner-html.prop="description | markdown-it")
         hr
         div.row

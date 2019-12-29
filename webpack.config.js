@@ -21,6 +21,7 @@ module.exports = envVars => {
     fav_icon_url: "/deno-drash-docs",
     drash_latest_release: envVars.drash_latest_release,
     module_name: envVars.module_name, // Used in HTML <title> element for .vue files
+    requirements_url: "https://github.com/drashland/deno-drash/blob/master/REQUIREMENTS.md"
   };
 
   if (isPublicFacingEnv(conf)) {

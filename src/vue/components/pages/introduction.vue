@@ -6,8 +6,8 @@ div
         img.drash-logo(alt="Drash" :src="$conf.base_url + '/public/assets/img/logo_drash.png'" style="display: none;")
         h1.c-heading.c-heading--style-2 Drash
         p.shields
-          a(href="https://github.com/crookse/deno-drash/releases" target="_BLANK")
-            img.margin-bottom--0(alt="GitHub release" src="https://img.shields.io/github/release/crookse/deno-drash.svg?color=brightgreen&label=latest" width="auto" height="20")
+          a(href="https://github.com/drashland/deno-drash/releases" target="_BLANK")
+            img.margin-bottom--0(alt="GitHub release" src="https://img.shields.io/github/release/drashland/deno-drash.svg?color=brightgreen&label=latest" width="auto" height="20")
           a(href="https://travis-ci.org/crookse/deno-drash" target="_BLANK")
             img.margin-bottom--0(alt="Travis CI Build Master" src="https://img.shields.io/travis/crookse/deno-drash/master?label=master" width="auto" height="20")
   div.c-page__body
@@ -50,7 +50,7 @@ div
             p Drash uses HTTP resources. It doesn't use controllers and it doesn't use <code>app.get('/', someHandler())</code>-like syntax. You create a resource class, define its URIs, and give it the HTTP methods you want it to handle/allow (e.g., <code>GET()</code>, <code>POST()</code>, <code>PUT()</code>, <code>DELETE()</code>, etc.).
           li 
             strong Content Negotiation
-            p Drash is based on resources and you can't have true resources unless clients can request different representations of those resources. Out of the box, Drash can send the following responses content types: <code>application/json</code>, <code>text/html</code>, <code>application/xml</code>, and <code>text/xml</code>. Adding more content types is simple. Read the <a :href="$conf.base_url + '/#/tutorials/adding-content-types'">Adding Content Types</a> tutorial for more information.
+            p Drash is based on resources and you can't have true resources unless clients can request different representations of those resources. Out of the box, Drash can send the following responses content types: <code>application/json</code>, <code>text/html</code>, <code>application/xml</code>, and <code>text/xml</code>.
           li 
             strong Middleware
             p Drash can execute middleware before requests and after requests. They can be used to filter all requests or requests to specific resources.
@@ -78,14 +78,14 @@ div
     div.row
       div.col
         h2-hash File An Issue
-        p File an issue regarding Drash (bugs, feature requests, testing, etc.) <a href="https://github.com/crookse/deno-drash/issues" target="_BLANK">here</a>.
+        p File an issue regarding Drash (bugs, feature requests, testing, etc.) <a href="https://github.com/drashland/deno-drash/issues" target="_BLANK">here</a>.
         p File an issue regarding Drash Documentation (bugs, tutorials, etc.) here <a href="https://github.com/drashland/deno-drash-docs/issues" target="_BLANK">here</a>.
         p We would love to hear from you!
     hr
     div.row
       div.col
         h2-hash Requirements
-        p Requirements for Drash can be found here.
+        p Requirements for each Drash version can be found <a :href="$conf.requirements_url" target="_BLANK">here</a>.
 </template>
 
 <script>
