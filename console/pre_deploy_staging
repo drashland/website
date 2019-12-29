@@ -5,7 +5,7 @@
 
 (
   export DENO_DRASH_DOCS_BASE_URL="/deno-drash-docs/staging"
-  export DENO_DRASH_DOCS_ENVIRONMENT="production"
+  export DENO_DRASH_DOCS_ENVIRONMENT="staging"
 
   console/delete_ds_store
   console/compile_assets
