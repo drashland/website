@@ -2,14 +2,14 @@
 
 (
   echo -n "Compiling API Reference pages ..."
-  deno --allow-read --allow-write --allow-env --allow-net ./compile_api_reference_pages.ts
+  deno --allow-read --allow-write --allow-env --allow-net console/ts/compile_api_reference_pages.ts
   echo "... done."
 
   echo -n "Compiling Vue global components ..."
-  deno --allow-read --allow-write --allow-env --allow-net ./compile_vue_global_components.ts
+  deno --allow-read --allow-write --allow-env --allow-net console/ts/compile_vue_global_components.ts
   echo "... done."
 
   echo -n "Compiling Vue route components ..."
-  deno --allow-read --allow-write --allow-env --allow-net ./compile_vue_route_components.ts
+  deno --allow-read --allow-write --allow-env --allow-net console/ts/compile_vue_route_components.ts
   echo "... done."
 )

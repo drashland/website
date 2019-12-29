@@ -28,22 +28,30 @@ _The installer warns you about setting Python binaries to your `$PATH` variable.
 
 The dev environment requires two shells:
 
-  * A shell to run the `docs.ts` Drash server; and
-  * A shell to run `webpack`.
+  * A shell to run the dev server; and
+  * A shell to run webpack.
 
-The dev environment is watched by `watchmedo`. `watchmedo` is like `nodemon` for Node.js. Every time you save a file, the dev environment's server will reload with your changes. However, the browser will not reload on its own.
+The dev server is watched by `watchmedo`. `watchmedo` is like `nodemon` for Node.js. Every time you save a file, the dev server will reload with your changes. The browser will not reload on its own. You have to do that yourself.
 
-Run the `docs.ts` app server.
+Step 1: Run the dev server.
 
 ```shell
 npm run dev
 ```
 
-Run `webpack` and have it watch for file changes.
+Step 2: Run `webpack`.
 
 ```shell
-npm run dev-webpack-watch
+npm run webpack
 ```
+
+... or ...
+
+```shell
+npm run webpack -- {args}
+```
+
+`node_modules/.bin/webpack --help` for more information on acceptable `{args}`
 
 ## Compile SASS to CSS
 
@@ -52,20 +60,6 @@ npm run sass
 ```
 
 `webpack` doesn't currently watch the `.scss` files. So, if you make changes to a `.scss` file, then make sure you run `npm run sass` to compile your changes.
-
-## .DS_Store Cleanup
-
-```shell
-npm run delete-ds-store
-```
-
-## Debugging
-
-`watchdog` kills the `docs.ts` app server before reloading, but sometimes it fails to do it. You can manually kill the app server by running:
-
-```shell
-npm run dev-kill
-```
 
 ## Screenshots
 

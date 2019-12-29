@@ -13,7 +13,7 @@ class Response extends Drash.Http.Response {
     switch (this.headers.get("Content-Type")) {
       // Handle HTML
       case "text/html":
-        template = `${config.server.directory}/index.ejs`;
+        template = `${config.server.directory}/src/templates/ejs/index.ejs`;
         Drash.Members.ConsoleLogger.debug("Rendering HTML response.");
 
         try {
@@ -23,7 +23,7 @@ class Response extends Drash.Http.Response {
           Drash.Members.ConsoleLogger.error(`Attempted rendering file: ${template}`);
           Drash.Members.ConsoleLogger.error("Error below:");
           console.log(error);
-          template = Decoder.decode(Deno.readFileSync(`${config.server.directory}/500.html`));
+          template = Decoder.decode(Deno.readFileSync(`${config.server.directory}/src/templates/html/500.html`));
           body = template.replace(/\{\{ error \}\}/g, error);
         }
 
