@@ -1,7 +1,4 @@
 #!/bin/bash
-#
-# DOCS_BASE_URL will be appended to drashland.github.io (e.g., drashland.github.io/deno-drash-docs)
-#
 
 (
   echo -n "Compiling API Reference pages ..."
