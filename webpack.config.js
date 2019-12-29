@@ -1,21 +1,30 @@
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-let conf = {};
 
 module.exports = envVars => {
-  conf = getConf(envVars);
+  const conf = {
+    base_url: getBaseUrl(envVars),
+    build_date: envVars.build_date,
+    environment: envVars.environment,
+    drash_latest_release: envVars.drash_latest_release,
+    module_name: envVars.module_name, // Used in HTML <title> element for .vue files
+  };
 
-  console.log(`\nRunning "${getMode()}" configs.\n`);
+  if (isPublicFacingEnv(conf)) {
+    conf.base_url = "/deno-drash-docs";
+  }
+
+  console.log(`\nRunning "${getMode(conf)}" configs.\n`);
 
   let bundleVersion = "";
-  if (isPublicFacingEnv()) {
+  if (isPublicFacingEnv(conf)) {
     bundleVersion = ".min";
   }
 
   return {
     entry: path.resolve(__dirname, "public/assets/js/_bundle.js"),
-    mode: getMode(),
+    mode: getMode(conf),
     output: {
       path: path.resolve(__dirname, "public/assets/js/"),
       filename: `bundle${bundleVersion}.js`
@@ -60,7 +69,7 @@ module.exports = envVars => {
     ],
     resolve: {
       alias: {
-        vue: isPublicFacingEnv()
+        vue: isPublicFacingEnv(conf)
           ? "vue/dist/vue.min.js"
           : "vue/dist/vue.js",
         "/src": path.resolve(__dirname, "src"),
@@ -76,24 +85,10 @@ function getBaseUrl(envVars) {
     ? envVars.base_url
     : "";
 
-  if (isPublicFacingEnv()) {
-    baseUrl = "/deno-drash-docs";
-  }
-
   return baseUrl;
 }
 
-function getConf(envVars) {
-  return {
-    base_url: getBaseUrl(envVars),
-    build_date: envVars.build_date,
-    environment: envVars.environment,
-    drash_latest_release: envVars.drash_latest_release,
-    module_name: envVars.module_name, // Used in HTML <title> element for .ejs and .vue files
-  };
-}
-
-function getMode() {
+function getMode(conf) {
   let mode = "production";
 
   if (conf.environment == "development") {
@@ -103,6 +98,6 @@ function getMode() {
   return mode;
 }
 
-function isPublicFacingEnv() {
+function isPublicFacingEnv(conf) {
     return conf.environment == "production" || conf.environment == "staging";
 }
