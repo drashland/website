@@ -1,20 +1,21 @@
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+let conf = {};
 
 module.exports = envVars => {
-  let conf = getConf(envVars);
+  conf = getConf(envVars);
 
-  console.log(`\nRunning "${conf.environment}" configs.\n`);
+  console.log(`\nRunning "${getMode()}" configs.\n`);
 
   let bundleVersion = "";
-  if (conf.environment == "production") {
+  if (isPublicFacingEnv()) {
     bundleVersion = ".min";
   }
 
   return {
     entry: path.resolve(__dirname, "public/assets/js/_bundle.js"),
-    mode: conf.environment,
+    mode: getMode(),
     output: {
       path: path.resolve(__dirname, "public/assets/js/"),
       filename: `bundle${bundleVersion}.js`
@@ -59,10 +60,9 @@ module.exports = envVars => {
     ],
     resolve: {
       alias: {
-        vue:
-          conf.environment == "production"
-            ? "vue/dist/vue.min.js"
-            : "vue/dist/vue.js",
+        vue: isPublicFacingEnv()
+          ? "vue/dist/vue.min.js"
+          : "vue/dist/vue.js",
         "/src": path.resolve(__dirname, "src"),
         "/components": path.resolve(__dirname, "src/vue/components"),
         "/public": path.resolve(__dirname, "public")
@@ -72,13 +72,15 @@ module.exports = envVars => {
 };
 
 function getBaseUrl(envVars) {
-  if (envVars.environment !=  "production") {
-    return envVars.base_url
-      ? envVars.base_url
-      : "";
+  let baseUrl = envVars.base_url
+    ? envVars.base_url
+    : "";
+
+  if (isPublicFacingEnv()) {
+    baseUrl = "/deno-drash-docs";
   }
 
-  return "/deno-drash-docs";
+  return baseUrl;
 }
 
 function getConf(envVars) {
@@ -89,4 +91,18 @@ function getConf(envVars) {
     drash_latest_release: envVars.drash_latest_release,
     module_name: envVars.module_name, // Used in HTML <title> element for .ejs and .vue files
   };
+}
+
+function getMode() {
+  let mode = "production";
+
+  if (conf.environment == "development") {
+    mode = "development";
+  }
+
+  return mode;
+}
+
+function isPublicFacingEnv() {
+    return conf.environment == "production" || conf.environment == "staging";
 }
