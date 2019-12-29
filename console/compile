@@ -16,5 +16,5 @@
   console/compile_index_ejs
 
   echo -e "Build is ready to be pushed to the repository."
-  echo -e "\n    Use \`console/deploy\`"
+  echo -e "\n    Use \`console/commit\`"
 )

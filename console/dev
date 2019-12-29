@@ -1,10 +1,10 @@
 #!/bin/bash
 
 (
-  console/dev.docs
+  console/dev_docs
 
   watchmedo shell-command \
-    --command='console/dev.docs restart-by-watchdog' \
+    --command='console/dev_docs restart-by-watchdog' \
     --drop \
     --ignore-directories \
     --ignore-pattern="*/compiled_*.json;*/compiled_*.js;*/compiled_routes.js;*/api_reference.json;*/.#*.ts;*.swp;bundle_app_data.js" \

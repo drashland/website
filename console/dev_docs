@@ -7,13 +7,10 @@
   export DOCS_BASE_URL=""
   export DOCS_ENVIRONMENT="development"
 
-  # Kill all traces of previously run apps
-  console/dev.kill
+  console/dev_kill
 
-  # Delete stupid .DS_Store files
   console/delete_ds_store
 
-  # Compile all necessary assets
   console/compile_assets
 
   # Are we restarting or now just starting up?
