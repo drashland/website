@@ -1,5 +1,5 @@
-import Drash from "../deno-drash/mod.ts";
-import config from "./conf/app.ts";
+import Drash from "../../deps.ts";
+import config from "../../conf/app.ts";
 const Encoder = new TextEncoder();
 
 let files = Drash.Util.Exports.getFileSystemStructure(`${config.server.directory}/src/vue/components/global`);
