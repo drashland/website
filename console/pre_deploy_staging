@@ -15,5 +15,8 @@
   cp -r index.html staging/index.html
   cp -r public staging/public
 
+  git checkout -- index.html
+  git checkout -- public/*
+
   echo -e "Build is ready to be pushed to the repository."
 )
