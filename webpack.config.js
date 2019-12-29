@@ -3,9 +3,20 @@ const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = envVars => {
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+  //                                                                                              //
+  // MAKE SURE THIS CONF SHIT IS REFLECTED IN RESPONSE_SERVICE.TS WHERE REQUIRED                  //
+  // MAKE SURE THIS CONF SHIT IS REFLECTED IN RESPONSE_SERVICE.TS WHERE REQUIRED                  //
+  // MAKE SURE THIS CONF SHIT IS REFLECTED IN RESPONSE_SERVICE.TS WHERE REQUIRED                  //
+  // MAKE SURE THIS CONF SHIT IS REFLECTED IN RESPONSE_SERVICE.TS WHERE REQUIRED                  //
+  //                                                                                              //
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////////
   const conf = {
     base_url: getBaseUrl(envVars),
     build_date: envVars.build_date,
+    bundle_version: "",
     environment: envVars.environment,
     drash_latest_release: envVars.drash_latest_release,
     module_name: envVars.module_name, // Used in HTML <title> element for .vue files
@@ -13,21 +24,18 @@ module.exports = envVars => {
 
   if (isPublicFacingEnv(conf)) {
     conf.base_url = "/deno-drash-docs";
+    conf.bundle_version = ".min";
   }
 
   console.log(`\nRunning "${getMode(conf)}" configs.\n`);
-
-  let bundleVersion = "";
-  if (isPublicFacingEnv(conf)) {
-    bundleVersion = ".min";
-  }
+  console.log(conf);
 
   return {
     entry: path.resolve(__dirname, "public/assets/js/_bundle.js"),
     mode: getMode(conf),
     output: {
       path: path.resolve(__dirname, "public/assets/js/"),
-      filename: `bundle${bundleVersion}.js`
+      filename: `bundle${conf.bundle_version}.js`
     },
     module: {
       rules: [

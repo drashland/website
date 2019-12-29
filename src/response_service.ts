@@ -16,7 +16,7 @@ export async function compile(inputFile, outputFile): Promise<any> {
 
 export function getAppData() {
   const buildTimestamp = new Date().getTime();
-  const bundleVersion = (ENVIRONMENT == "production")
+  const bundleVersion = (ENVIRONMENT == "production" || ENVIRONMENT == "staging")
     ? ".min"
     : "";
 
