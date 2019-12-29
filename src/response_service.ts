@@ -1,4 +1,4 @@
-import Drash from "../../deno-drash/mod.ts";
+import Drash from "../deps.ts";
 import { renderFile } from "https://deno.land/x/dejs@0.3.0/dejs.ts";
 import config from "../conf/app.ts";
 const Decoder = new TextDecoder();

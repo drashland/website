@@ -1,4 +1,4 @@
-import Drash from "../deno-drash/mod.ts";
+import Drash from "./deps.ts";
 import config from "./conf/app.ts";
 
 import "./src/console_logger.ts";

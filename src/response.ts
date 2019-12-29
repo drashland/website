@@ -1,4 +1,4 @@
-import Drash from "../../deno-drash/mod.ts";
+import Drash from "../deps.ts";
 import * as ResponseService from "./response_service.ts";
 import config from "../conf/app.ts";
 const Decoder = new TextDecoder();
