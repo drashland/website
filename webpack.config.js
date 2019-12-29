@@ -18,6 +18,7 @@ module.exports = envVars => {
     build_date: envVars.build_date,
     bundle_version: "",
     environment: envVars.environment,
+    fav_icon_url: "/deno-drash-docs",
     drash_latest_release: envVars.drash_latest_release,
     module_name: envVars.module_name, // Used in HTML <title> element for .vue files
   };
