@@ -1,6 +1,8 @@
 import Drash from "../deps.ts";
 import { renderFile } from "https://deno.land/x/dejs@0.3.0/dejs.ts";
 import config from "../conf/app.ts";
+const BASE_URL = Deno.env().DENO_DRASH_DOCS_BASE_URL;
+const ENVIRONMENT = Deno.env().DENO_DRASH_DOCS_ENVIRONMENT
 const Decoder = new TextDecoder();
 const Encoder = new TextEncoder();
 
@@ -14,7 +16,7 @@ export async function compile(inputFile, outputFile): Promise<any> {
 
 export function getAppData() {
   const buildTimestamp = new Date().getTime();
-  const bundleVersion = (Deno.env().DOCS_ENVIRONMENT == "production")
+  const bundleVersion = (ENVIRONMENT == "production")
     ? ".min"
     : "";
 
@@ -43,8 +45,8 @@ export function getAppData() {
       external: ["https://unpkg.com/axios/dist/axios.min.js"]
     },
     conf: {
-      base_url: Deno.env().DOCS_BASE_URL
-        ? Deno.env().DOCS_BASE_URL
+      base_url: BASE_URL
+        ? BASE_URL
         : ""
     },
   };

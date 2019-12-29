@@ -15,8 +15,8 @@
   echo "... done."
 
   echo -e "[watchdog] Make sure you run webpack:"
-  echo -e "\n    Single compilations:"
+  echo -e "\n    Compile once:"
   echo -e "\n    \`npm run webpack\`\n"
-  echo -e "\n    Continuous compilations:"
+  echo -e "\n    Compile on every file change:"
   echo -e "\n    \`npm run webpack -- --watch\`\n"
 )
