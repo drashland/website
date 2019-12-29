@@ -13,7 +13,7 @@
   console/compile_index_ejs
 
   cp -r index.html staging/index.html
-  cp -r public staging/public
+  cp -r public staging
 
   git checkout -- index.html
   git checkout -- public/*
