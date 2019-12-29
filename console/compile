@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# DOCS_BASE_URL will be appended to drashland.github.io (e.g., drashland.github.io/deno-drash-docs)
+#
+
+(
+  export DOCS_BASE_URL="/deno-drash-docs"
+  export DOCS_ENVIRONMENT="production"
+
+  console/delete_ds_store
+
+  console/compile_assets
+
+  console/webpack --env.environment="$DOCS_ENVIRONMENT"
+
+  console/compile_index_ejs
+
+  echo -e "Build is ready to be pushed to the repository."
+  echo -e "\n    Use \`console/deploy\`"
+)

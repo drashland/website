@@ -2,8 +2,8 @@ import Drash from "../deno-drash/mod.ts";
 import config from "./conf/app.ts";
 
 const consoleLogger = new Drash.Loggers.ConsoleLogger({
-  enabled: true,
-  level: "debug",
+  enabled: config.logger.enabled,
+  level: config.logger.level,
   tag_string: "{date} | {level} |",
   tag_string_fns: {
     date: function() {

@@ -1,33 +1,30 @@
 #!/bin/bash
+#
+# DOCS_BASE_URL will be appended to drashland.github.io (e.g., drashland.github.io/deno-drash-docs)
+#
 
 (
+  export DOCS_BASE_URL=""
+  export DOCS_ENVIRONMENT="development"
+
   # Kill all traces of previously run apps
   console/dev.kill
 
   # Delete stupid .DS_Store files
   console/delete_ds_store
 
-  echo -n "[watchmedo] Compiling API Reference pages ..."
-  deno --allow-read --allow-write --allow-env --allow-net ./compile_api_reference_pages.ts
-  echo "... done."
-
-  echo -n "[watchmedo] Compiling Vue global components ..."
-  deno --allow-read --allow-write --allow-env --allow-net ./compile_vue_global_components.ts
-  echo "... done."
-
-  echo -n "[watchmedo] Compiling Vue route components ..."
-  deno --allow-read --allow-write --allow-env --allow-net ./compile_vue_route_components.ts
-  echo "... done."
+  # Compile all necessary assets
+  console/compile_assets
 
   # Are we restarting or now just starting up?
   if [[ $1 == "restart-by-watchdog" ]]; then
-    echo -n "[watchmedo] Restarting docs.ts app ..."
+    echo -n "[watchdog] Restarting docs.ts app ..."
   else
-    echo -n "[watchmedo] Starting docs.ts app ..."
+    echo -n "[watchdog] Starting docs.ts app ..."
   fi
   deno --allow-read --allow-write --allow-env --allow-net ./docs.ts &
   echo "... done."
 
-  echo -e "[watchmedo] Make sure you are running webpack:"
+  echo -e "[watchdog] Make sure you are running webpack:"
   echo -e "\n    \`npm run dev-webpack -- --watch\`\n"
 )

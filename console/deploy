@@ -1,23 +1,9 @@
 #!/bin/bash
 
 (
-  export DOCS_BASE_URL="/deno-drash-docs"
-
-  console/delete_ds_store
-
-  echo -n "Performing production compilation of webpack bundle.js ..."
-  console/webpack --env.environment="production"
-  echo "... done."
-
-  echo -n "Performing build using build.ts ..."
-  deno --allow-all console/build.ts
-  echo "... done."
-
   echo -n "Performing git commit ..."
   git add index.html
   git add public/assets/js/bundle.min.js
   git commit -m "npm run build ($(date))"
   echo "... done."
-
-  echo "Build is ready to be pushed to the repository."
 )

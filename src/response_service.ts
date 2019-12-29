@@ -14,14 +14,9 @@ export async function compile(inputFile, outputFile): Promise<any> {
 
 export function getAppData() {
   const buildTimestamp = new Date().getTime();
-  const env =
-    Deno.env().DOCS_BASE_URL == "/deno-drash-docs"
-      ? "production"
-      : "development";
-  let bundleVersion = "";
-  if (env == "production") {
-    bundleVersion = ".min";
-  }
+  const bundleVersion = (Deno.env().DOCS_ENVIRONMENT == "production")
+    ? ".min"
+    : "";
 
   Deno.writeFileSync(
     config.server.directory + "/public/assets/js/bundle_app_data.js",

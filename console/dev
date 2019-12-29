@@ -7,7 +7,7 @@
     --command='console/dev.docs restart-by-watchdog' \
     --drop \
     --ignore-directories \
-    --ignore-pattern="*/compiled_*.json;*/compiled_*.js;*/compiled_routes.js;*/api_reference.json;*/.#*.ts;*.swp" \
+    --ignore-pattern="*/compiled_*.json;*/compiled_*.js;*/compiled_routes.js;*/api_reference.json;*/.#*.ts;*.swp;bundle_app_data.js" \
     --patterns="*.ts;*.json;*/console/*/*;*.vue;*.js;*.ejs" \
     --recursive \
     ./

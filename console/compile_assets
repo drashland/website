@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# DOCS_BASE_URL will be appended to drashland.github.io (e.g., drashland.github.io/deno-drash-docs)
+#
+
+(
+  echo -n "Compiling API Reference pages ..."
+  deno --allow-read --allow-write --allow-env --allow-net ./compile_api_reference_pages.ts
+  echo "... done."
+
+  echo -n "Compiling Vue global components ..."
+  deno --allow-read --allow-write --allow-env --allow-net ./compile_vue_global_components.ts
+  echo "... done."
+
+  echo -n "Compiling Vue route components ..."
+  deno --allow-read --allow-write --allow-env --allow-net ./compile_vue_route_components.ts
+  echo "... done."
+)
