@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const webpackConfigFns = require("./src/webpack_config_functions_compiled").default;
 
 module.exports = envVars => {
   //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -14,9 +15,9 @@ module.exports = envVars => {
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////
   const conf = {
-    base_url: getBaseUrl(envVars),
+    base_url: webpackConfigFns.getBaseUrl(envVars),
     build_date: envVars.build_date,
-    bundle_version: "",
+    bundle_version: webpackConfigFns.getBundleVersion(envVars),
     environment: envVars.environment,
     fav_icon_url: "/deno-drash-docs",
     drash_latest_release: envVars.drash_latest_release,
@@ -24,17 +25,12 @@ module.exports = envVars => {
     requirements_url: "https://github.com/drashland/deno-drash/blob/master/REQUIREMENTS.md"
   };
 
-  if (isPublicFacingEnv(conf)) {
-    conf.base_url = "/deno-drash-docs";
-    conf.bundle_version = ".min";
-  }
-
-  console.log(`\nRunning "${getMode(conf)}" configs.\n`);
+  console.log(`\nRunning "${webpackConfigFns.getMode(envVars)}" configs.\n`);
   console.log(conf);
 
   return {
     entry: path.resolve(__dirname, "public/assets/js/_bundle.js"),
-    mode: getMode(conf),
+    mode: webpackConfigFns.getMode(envVars),
     output: {
       path: path.resolve(__dirname, "public/assets/js/"),
       filename: `bundle${conf.bundle_version}.js`
@@ -53,7 +49,7 @@ module.exports = envVars => {
         // AND `<script>` blocks in `.vue` files
         {
           test: /\.js$/,
-          loader: "babel-loader"
+          loader: "babel-loader",
         },
         // this will apply to both plain `.css` files
         // AND `<style>` blocks in `.vue` files
@@ -79,9 +75,7 @@ module.exports = envVars => {
     ],
     resolve: {
       alias: {
-        vue: isPublicFacingEnv(conf)
-          ? "vue/dist/vue.min.js"
-          : "vue/dist/vue.js",
+        vue: webpackConfigFns.getResolveAliasVue(envVars),
         "/src": path.resolve(__dirname, "src"),
         "/components": path.resolve(__dirname, "src/vue/components"),
         "/public": path.resolve(__dirname, "public")
@@ -89,25 +83,3 @@ module.exports = envVars => {
     }
   };
 };
-
-function getBaseUrl(envVars) {
-  let baseUrl = envVars.base_url
-    ? envVars.base_url
-    : "";
-
-  return baseUrl;
-}
-
-function getMode(conf) {
-  let mode = "production";
-
-  if (conf.environment == "development") {
-    mode = "development";
-  }
-
-  return mode;
-}
-
-function isPublicFacingEnv(conf) {
-    return conf.environment == "production" || conf.environment == "staging";
-}

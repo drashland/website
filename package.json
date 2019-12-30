@@ -2,7 +2,9 @@
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.3.4",
+    "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
     "css-loader": "^2.1.0",
     "markdown-it": "^8.4.2",
     "mime-types": "^2.1.22",
@@ -13,7 +15,7 @@
     "sass-loader": "^7.1.0",
     "scss-loader": "0.0.1",
     "style-loader": "^0.23.1",
-    "typedoc": "^0.14.2",
+    "typedoc": "^0.15.6",
     "vue": "^2.6.7",
     "vue-loader": "^15.6.4",
     "vue-router": "^3.0.2",

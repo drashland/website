@@ -1,10 +1,14 @@
 import Drash from "../deps.ts";
 import { renderFile } from "https://deno.land/x/dejs@0.3.0/dejs.ts";
 import config from "../conf/app.ts";
-const BASE_URL = Deno.env().DENO_DRASH_DOCS_BASE_URL;
-const ENVIRONMENT = Deno.env().DENO_DRASH_DOCS_ENVIRONMENT
+import webpackConfigFns from "./webpack_config_functions.js";
 const Decoder = new TextDecoder();
 const Encoder = new TextEncoder();
+
+const envVars = {
+  base_url: Deno.env().DENO_DRASH_DOCS_BASE_URL,
+  environment: Deno.env().DENO_DRASH_DOCS_ENVIRONMENT
+};
 
 // FILE MARKER: FUNCTIONS - EXPORTED ///////////////////////////////////////////
 
@@ -16,9 +20,7 @@ export async function compile(inputFile, outputFile): Promise<any> {
 
 export function getAppData() {
   const buildTimestamp = new Date().getTime();
-  const bundleVersion = (ENVIRONMENT == "production" || ENVIRONMENT == "staging")
-    ? ".min"
-    : "";
+  const bundleVersion = webpackConfigFns.getBundleVersion(envVars);
 
   Deno.writeFileSync(
     config.server.directory + "/public/assets/js/compiled_app_data.js",
@@ -45,9 +47,7 @@ export function getAppData() {
       external: ["https://unpkg.com/axios/dist/axios.min.js"]
     },
     conf: {
-      base_url: BASE_URL
-        ? BASE_URL
-        : ""
+      base_url: webpackConfigFns.getBaseUrl(envVars)
     },
   };
 }
@@ -111,7 +111,6 @@ function getExampleCode() {
 
   return exampleCode;
 }
-
 
 function getTitleOfFile(file, fileExtension) {
   let title =
