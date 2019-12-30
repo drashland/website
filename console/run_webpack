@@ -1,17 +1,12 @@
 #!/bin/bash
 #
-# --env.base_url is only used in non-prod environments
+# All env variables should be set before running this script
 #
 
 (
   echo -n "Compiling webpack bundle.js ..."
 
   node_modules/.bin/webpack \
-    --env.base_url="$DENO_DRASH_DOCS_BASE_URL" \
-    --env.build_date="$(date)" \
-    --env.drash_latest_release="v0.27.4" \
-    --env.module_name="Drash" \
-    --env.environment="$DENO_DRASH_DOCS_ENVIRONMENT" \
     --hide-modules \
     $@
 

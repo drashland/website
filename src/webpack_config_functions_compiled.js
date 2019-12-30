@@ -4,28 +4,28 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = {
-  getBaseUrl: function getBaseUrl(envVars) {
-    var baseUrl = envVars.base_url ? envVars.base_url : "";
+  getBaseUrl: function getBaseUrl(conf) {
+    var baseUrl = conf.base_url ? conf.base_url : "";
 
-    if (this.isPublicFacingEnv(envVars)) {
+    if (this.isPublicFacingEnv(conf)) {
       baseUrl = "/deno-drash-docs";
     }
 
     return baseUrl;
   },
-  getBundleVersion: function getBundleVersion(envVars) {
+  getBundleVersion: function getBundleVersion(conf) {
     var bundleVersion = "";
 
-    if (this.isPublicFacingEnv(envVars)) {
+    if (this.isPublicFacingEnv(conf)) {
       bundleVersion = ".min";
     }
 
     return bundleVersion;
   },
-  getMode: function getMode(envVars) {
+  getMode: function getMode(conf) {
     var mode = "production";
 
-    switch (envVars.environment) {
+    switch (conf.environment) {
       case "development":
         mode = "development";
         break;
@@ -35,12 +35,12 @@ exports.default = {
 
     return mode;
   },
-  getResolveAliasVue: function getResolveAliasVue(envVars) {
-    return this.isPublicFacingEnv(envVars) ? "vue/dist/vue.min.js" : "vue/dist/vue.js";
+  getResolveAliasVue: function getResolveAliasVue(conf) {
+    return this.isPublicFacingEnv(conf) ? "vue/dist/vue.min.js" : "vue/dist/vue.js";
   },
-  isPublicFacingEnv: function isPublicFacingEnv(envVars) {
+  isPublicFacingEnv: function isPublicFacingEnv(conf) {
     var publicFacingEnvs = ["production", "staging"];
 
-    return publicFacingEnvs.indexOf(envVars.environment) != -1;
+    return publicFacingEnvs.indexOf(conf.environment) != -1;
   }
 };

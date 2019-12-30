@@ -4,12 +4,9 @@
 #
 
 (
-  export DENO_DRASH_DOCS_BASE_URL="/deno-drash-docs/staging"
-  export DENO_DRASH_DOCS_ENVIRONMENT="staging"
-
   console/delete_ds_store
   console/compile_assets
-  console/run_webpack
+  console/run_webpack --env.environment="staging"
   console/compile_index_ejs
 
   cp -r index.html staging/index.html

@@ -10,15 +10,6 @@ export default {
 
     return baseUrl;
   },
-  getBundleVersion: function(envVars) {
-    let bundleVersion = "";
-
-    if (this.isPublicFacingEnv(envVars)) {
-      bundleVersion = ".min";
-    }
-
-    return bundleVersion;
-  },
   getMode: function(envVars) {
     let mode = "production";
 

@@ -4,33 +4,15 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const webpackConfigFns = require("./src/webpack_config_functions_compiled").default;
 
 module.exports = envVars => {
-  //////////////////////////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////////////////////////
-  //                                                                                              //
-  // MAKE SURE THIS CONF SHIT IS REFLECTED IN RESPONSE_SERVICE.TS WHERE REQUIRED                  //
-  // MAKE SURE THIS CONF SHIT IS REFLECTED IN RESPONSE_SERVICE.TS WHERE REQUIRED                  //
-  // MAKE SURE THIS CONF SHIT IS REFLECTED IN RESPONSE_SERVICE.TS WHERE REQUIRED                  //
-  // MAKE SURE THIS CONF SHIT IS REFLECTED IN RESPONSE_SERVICE.TS WHERE REQUIRED                  //
-  //                                                                                              //
-  //////////////////////////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////////////////////////
-  const conf = {
-    base_url: webpackConfigFns.getBaseUrl(envVars),
-    build_date: envVars.build_date,
-    bundle_version: webpackConfigFns.getBundleVersion(envVars),
-    environment: envVars.environment,
-    fav_icon_url: "/deno-drash-docs",
-    drash_latest_release: envVars.drash_latest_release,
-    module_name: envVars.module_name, // Used in HTML <title> element for .vue files
-    requirements_url: "https://github.com/drashland/deno-drash/blob/master/REQUIREMENTS.md"
-  };
+  const confPath = "./conf/env_vars_" + envVars.environment + ".json";
+  const conf = require(confPath);
 
-  console.log(`\nRunning "${webpackConfigFns.getMode(envVars)}" configs.\n`);
+  console.log(`\nRunning "${webpackConfigFns.getMode(conf)}" configs from ${confPath}.\n`);
   console.log(conf);
 
   return {
     entry: path.resolve(__dirname, "public/assets/js/_bundle.js"),
-    mode: webpackConfigFns.getMode(envVars),
+    mode: webpackConfigFns.getMode(conf),
     output: {
       path: path.resolve(__dirname, "public/assets/js/"),
       filename: `bundle${conf.bundle_version}.js`
@@ -66,16 +48,10 @@ module.exports = envVars => {
     plugins: [
       // make sure to include the plugin!
       new VueLoaderPlugin(),
-      // Add compile time vars
-      new webpack.DefinePlugin({
-        "process.env": {
-          conf: JSON.stringify(conf)
-        }
-      })
     ],
     resolve: {
       alias: {
-        vue: webpackConfigFns.getResolveAliasVue(envVars),
+        vue: webpackConfigFns.getResolveAliasVue(conf),
         "/src": path.resolve(__dirname, "src"),
         "/components": path.resolve(__dirname, "src/vue/components"),
         "/public": path.resolve(__dirname, "public")

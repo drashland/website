@@ -26,7 +26,7 @@
   },
   "scripts": {
     "dev": "console/dev",
-    "webpack": "export DENO_DRASH_DOCS_BASE_URL=''; export DENO_DRASH_DOCS_ENVIRONMENT='development'; console/run_webpack",
+    "webpack": "console/run_webpack --env.environment='development'",
     "sass": "sass public/assets/css/style-docs.scss public/assets/css/style-docs.css"
   }
 }

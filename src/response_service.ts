@@ -1,17 +1,9 @@
 import Drash from "../deps.ts";
 import { renderFile } from "https://deno.land/x/dejs@0.3.0/dejs.ts";
 import config from "../conf/app.ts";
-import webpackConfigFns from "./webpack_config_functions.js";
+import env from "../conf/env_vars_staging.json";
 const Decoder = new TextDecoder();
 const Encoder = new TextEncoder();
-
-const envVars = {
-  base_url: Deno.env().DENO_DRASH_DOCS_BASE_URL,
-  environment: Deno.env().DENO_DRASH_DOCS_ENVIRONMENT
-};
-
-console.log("Environment Variables:\n");
-console.log(JSON.stringify(envVars, null, 2));
 
 // FILE MARKER: FUNCTIONS - EXPORTED ///////////////////////////////////////////
 
@@ -22,8 +14,8 @@ export async function compile(inputFile, outputFile): Promise<any> {
 }
 
 export function getAppData() {
-  const buildTimestamp = new Date().getTime();
-  const bundleVersion = webpackConfigFns.getBundleVersion(envVars);
+  const cacheBuster = new Date().getTime();
+  const bundleVersion = env.bundle_version
 
   Deno.writeFileSync(
     config.server.directory + "/public/assets/js/compiled_app_data.js",
@@ -33,7 +25,7 @@ export function getAppData() {
         page_data: {
           api_reference: getPageDataApiReference()
         }
-      }
+      },
     }) + ";")
   );
 
@@ -44,13 +36,13 @@ export function getAppData() {
         "/public/assets/vendor/prismjs/prism.js",
         "/public/assets/vendor/jquery-3.3.1/jquery.min.js",
         "/public/assets/vendor/bootstrap-4.1.3-dist/js/bootstrap.min.js",
-        `/public/assets/js/compiled_app_data.js?version=${buildTimestamp}`,
-        `/public/assets/js/bundle${bundleVersion}.js?version=${buildTimestamp}`
+        `/public/assets/js/compiled_app_data.js?version=${cacheBuster}`,
+        `/public/assets/js/bundle${bundleVersion}.js?version=${cacheBuster}`
       ],
       external: ["https://unpkg.com/axios/dist/axios.min.js"]
     },
     conf: {
-      base_url: webpackConfigFns.getBaseUrl(envVars)
+      base_url: env.base_url
     },
   };
 }
