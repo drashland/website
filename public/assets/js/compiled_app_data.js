@@ -1,10 +1,11 @@
 const app_data = {
     "conf": {
-        "base_url": "",
-        "bundle_version": "",
+        "base_url": "/deno-drash-docs",
+        "bundle_version": ".min",
         "drash_latest_release": "v0.27.4",
-        "environment": "development",
-        "module_name": "Drash"
+        "environment": "production",
+        "module_name": "Drash",
+        "requirements_url": "https://github.com/drashland/deno-drash/blob/master/REQUIREMENTS.md"
     },
     "example_code": {
         "/src": {
