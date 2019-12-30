@@ -30,10 +30,45 @@ page-tutorial(
     div.row
       div.col
         hr
-        h2-hash Handling Request Params
-        p This resource checks for the request's path params, URL query params, and body params at the <code>/</code> and <code>/:something_cool</code> URIs. If a client makes a request to these URIs, this resource would handle that request.
+        h2-hash Path Params
+        p Resources are able to specify path params in their paths to allow them to cover multiple endpoints.
         p
-          code-block(:data="example_code.my_resource_handles_params")
+          code-block(:data="example_code.my_resource_path_params")
+        p Examples of URIs that this resource would handle:
+        ul
+          li
+            request(method="get" url="/users/1")
+          li
+            request(method="get" url="/users/2")
+          li
+            request(method="get" url="/users/hello")
+    div.row
+      div.col
+        hr
+        h2-hash Regular Expression URIs
+        p Resources are able to specify regular expressions in their paths to allow them to cover multiple endpoints.
+        p
+          code-block(:data="example_code.my_resource_regular_expression")
+        p Examples of URIs that this resource would handle:
+        ul
+          li
+            request(method="get" url="/user/1")
+          li
+            request(method="get" url="/users/1")
+          li
+            request(method="get" url="/user/9")
+          li
+            request(method="get" url="/users/9")
+        p This resource would not handle the following URIs because they do not match the regular expression:
+        ul
+          li
+            request(method="get" url="/user/11")
+          li
+            request(method="get" url="/users/11")
+          li
+            request(method="get" url="/user/99")
+          li
+            request(method="get" url="/users/99")
 </template>
 
 <script>

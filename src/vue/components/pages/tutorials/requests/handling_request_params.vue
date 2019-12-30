@@ -24,7 +24,6 @@ export default {
 }
 </script>
 
-
 <template lang="pug">
 page-tutorial(
   :toc="toc"
@@ -34,8 +33,27 @@ page-tutorial(
       hr
       h2-hash Before You Get Started
       p
-        code-block-slotted(:header="false" language="typescript" line_highlight="7")
-          template(v-slot:code) {{ example_code.registering_resources.contents }}
+        p There are multiple ways in which you can parse params in/on a request in Drash:
+        code-block-slotted(:header="false" language="typescript")
+          template(v-slot:code)
+            | // Path Params (e.g., /users/:id/profile, /users/{id}/profile)
+            | request.getPathParam("id") == "value of :id or {id}"
+            |
+            | // URL Query Params (e.g., /products?name=beignet&action=purchase)
+            | request.getQueryParam("name") == "beignet"
+            | request.getQueryParam("action") == "purchase"
+            |
+            | // Body Params Using application/x-www-form-urlencoded (e.g., username=root&password=alpine)
+            | request.getBodyParam("username") == "root"
+            | request.getBodyParam("password") == "alpine"
+            |
+            | // Body Params Using application/json (e.g., {"username":"root","password":"alpine"})
+            | request.getBodyParam("username") == "root"
+            | request.getBodyParam("password") == "alpine"
+            |
+            | // Header Params (e.g., {"Some-Header":"Some Value"})
+            | request.getHeaderParam("Some-Header") == "Some Value"
+            | request.headers.get("Some-Header") == "Some Value") // <- default TypeScript way
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
     div.col
@@ -49,9 +67,52 @@ page-tutorial(
         li Create your resource file.
           p
             code-block(:data="example_code.home_resource")
-          p Your resource will checks for the request's path params, URL query params, and body params at the <code>/</code> and <code>/:something_cool</code> URIs. If a client makes a request to these URIs, this resource would handle that request.
+          p Your resource will check for the <code>something</code> param in the following locations:
+          ul
+            li Path
+            li URL
+            li Body
+            li Header
         li Create your app file.
           code-block(:data="example_code.app")
-          p Your app file will register your resource via the <code>resources</code> config.
-          p By default, your Drash server will send <code>application/json</code> responses via the <code>resposne_output</code>. More information about using this config can be found in the Content Negotiation tutorial.
+  div.row
+    div.col
+      h2-hash Verification
+      ol
+        li Run your app.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | deno --allow-net app.ts
+          p-deno-flag-allow-net
+        li Using Postman (or similar app), make a <code>GET</code> request to <code>localhost:1447/</code>.
+          p You should receive the following response:
+          // a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/handling_request_params/verification_1.png")
+            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_1.png'")
+        li Make a <code>GET</code> request to <code>localhost:1447/hello</code>.
+          p You should receive the following response:
+          // a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/handling_request_params/verification_2.png")
+            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_2.png'")
+        li Make a <code>GET</code> request to <code>localhost:1447/</code> with the following URL query param:
+          code-block-slotted(:header="false")
+            template(v-slot:code)
+              | ?something=hello
+          p You should receive the following response:
+          // a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/handling_request_params/verification_3.png")
+            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_3.png'")
+        li Make a <code>GET</code> request to <code>localhost:1447</code> with the following JSON body:
+          code-block-slotted(:header="false")
+            template(v-slot:code)
+              | {"something":"hello"}
+          p You should receive the following response:
+          // a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/handling_request_params/verification_4.png")
+            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_4.png'")
+        li Make a <code>GET</code> request to <code>localhost:1447</code> with the following header:
+          code-block-slotted(:header="false")
+            template(v-slot:code)
+              | {"Something":"Hello"}
+          p You should receive the following response:
+          // a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/handling_request_params/verification_4.png")
+            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_4.png'")
 </template>
