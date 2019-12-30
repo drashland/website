@@ -16,5 +16,6 @@
   git checkout -- index.html
   git checkout -- public/*
 
+  echo -e "Done building staging-ready files."
   echo -e "Build is ready to be pushed to the repository."
 )

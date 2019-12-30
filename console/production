@@ -8,6 +8,6 @@
   console/run_webpack --env.environment="$DENO_DRASH_DOCS_ENVIRONMENT"
   console/compile_ejs_templates
 
-  echo -e "Build is ready to be pushed to the repository."
-  echo -e "\n    Use \`console/deploy\`"
+  echo -e "Done building production-ready files."
+  echo -e "\n    \`console/deploy && git push\`"
 )
