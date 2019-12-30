@@ -1,6 +1,8 @@
 #!/bin/bash
 
 (
+  export DENO_DRASH_DOCS_ENVIRONMENT="development"
+
   console/dev_kill
   console/delete_ds_store
   console/compile_assets

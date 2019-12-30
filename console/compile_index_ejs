@@ -4,6 +4,7 @@
 #
 
 (
+  export DENO_DRASH_DOCS_ENVIRONMENT="$1"
   echo -n "Compiling .ejs templates to .html files ..."
   deno --allow-read --allow-write --allow-env --allow-net console/ts/compile_ejs_templates.ts
   echo "... done."

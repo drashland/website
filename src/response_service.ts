@@ -1,7 +1,9 @@
 import Drash from "../deps.ts";
 import { renderFile } from "https://deno.land/x/dejs@0.3.0/dejs.ts";
-import config from "../conf/app.ts";
-import env from "../conf/env_vars_staging.json";
+import docsConfig from "../conf/app.ts";
+let env = Deno.env().DENO_DRASH_DOCS_ENVIRONMENT;
+let path = "../conf/env_vars_" + env + ".json";
+let envConfig = await import(path);
 const Decoder = new TextDecoder();
 const Encoder = new TextEncoder();
 
@@ -14,12 +16,10 @@ export async function compile(inputFile, outputFile): Promise<any> {
 }
 
 export function getAppData() {
-  const cacheBuster = new Date().getTime();
-  const bundleVersion = env.bundle_version
-
   Deno.writeFileSync(
-    config.server.directory + "/public/assets/js/compiled_app_data.js",
+    docsConfig.server.directory + "/public/assets/js/compiled_app_data.js",
     Encoder.encode("const app_data = " + JSON.stringify({
+      conf: envConfig.default,
       example_code: getExampleCode(),
       store: {
         page_data: {
@@ -32,7 +32,9 @@ export function getAppData() {
   // The below is transferred to index.ejs
   return {
     conf: {
-      base_url: env.base_url
+      base_url: envConfig.default.base_url,
+      bundle_version: envConfig.default.bundle_version,
+      cache_buster: new Date().getTime(),
     },
   };
 }
@@ -69,10 +71,10 @@ function getExampleCode() {
 
   let ignore = ["api_reference", ".DS_Store"];
 
-  let files = Drash.Util.Exports.getFileSystemStructure(`${config.server.directory}/src/example_code`);
+  let files = Drash.Util.Exports.getFileSystemStructure(`${docsConfig.server.directory}/src/example_code`);
 
   files.forEach(file => {
-    let pathname = file.pathname.replace(config.server.directory, "");
+    let pathname = file.pathname.replace(docsConfig.server.directory, "");
     if (!exampleCode[pathname]) {
       exampleCode[pathname] = {};
     }
