@@ -48,6 +48,12 @@ module.exports = envVars => {
     plugins: [
       // make sure to include the plugin!
       new VueLoaderPlugin(),
+      // Add compile time vars
+      new webpack.DefinePlugin({
+        "process.env": {
+          conf: JSON.stringify(conf)
+        }
+      })
     ],
     resolve: {
       alias: {
