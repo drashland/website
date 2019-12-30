@@ -15,26 +15,36 @@ export async function compile(inputFile, outputFile): Promise<any> {
 }
 
 export function getAppData() {
-  Deno.writeFileSync(
-    docsConfig.server.directory + "/public/assets/js/app_data." + env.environment + ".js",
-    Encoder.encode("const app_data = " + JSON.stringify({
-      example_code: getExampleCode(),
-      store: {
-        page_data: {
-          api_reference: getPageDataApiReference()
-        }
-      },
-    }, null, 4) + ";")
-  );
-
-  // The below is transferred to index.ejs
-  return {
+  let templateVariables: any = {
     conf: {
       base_url: env.base_url,
       environment: env.environment,
       cache_buster: new Date().getTime(),
     },
   };
+
+  let appDataJson = JSON.stringify({
+    example_code: getExampleCode(),
+    store: {
+      page_data: {
+        api_reference: getPageDataApiReference()
+      }
+    },
+  }, null, 2);
+
+  // All public-facing environments get their variables from
+  // app_data.{environment}.js. The development environment cannot keep writing
+  // app_data.development.js on every request, so we serve `app_data` on the fly
+  if (env.environment != "development") {
+    Deno.writeFileSync(
+      docsConfig.server.directory + "/public/assets/js/app_data." + env.environment + ".js",
+      Encoder.encode("const app_data = " + appDataJson + ";")
+    );
+    return templateVariables;
+  }
+
+  templateVariables.app_data = appDataJson;
+  return templateVariables;
 }
 
 export async function getAppDataInHtml(inputFile) {

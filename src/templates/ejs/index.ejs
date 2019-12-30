@@ -25,7 +25,11 @@
 		<script src="<%= conf.base_url %>/public/assets/vendor/prismjs/prism.js"></script>
 		<script src="<%= conf.base_url %>/public/assets/vendor/jquery-3.3.1/jquery.min.js"></script>
 		<script src="<%= conf.base_url %>/public/assets/vendor/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+		<% if (conf.environment != "development") { %>
 		<script src="<%= conf.base_url %>/public/assets/js/app_data.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
+		<% } else { %>
+		<script>const app_data = <%- app_data %>;</script>
+		<% } %>
 		<script src="<%= conf.base_url %>/public/assets/js/bundle.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
 	</body>
 </html>
