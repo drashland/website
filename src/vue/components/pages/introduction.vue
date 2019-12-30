@@ -8,8 +8,8 @@ div
         p.shields
           a(href="https://github.com/drashland/deno-drash/releases" target="_BLANK")
             img.margin-bottom--0(alt="GitHub release" src="https://img.shields.io/github/release/drashland/deno-drash.svg?color=brightgreen&label=latest" width="auto" height="20")
-          a(href="https://travis-ci.org/crookse/deno-drash" target="_BLANK")
-            img.margin-bottom--0(alt="Travis CI Build Master" src="https://img.shields.io/travis/crookse/deno-drash/master?label=master" width="auto" height="20")
+          a(href="https://travis-ci.org/drashland/deno-drash" target="_BLANK")
+            img.margin-bottom--0(alt="Travis CI Build Master" src="https://img.shields.io/travis/drashland/deno-drash/master?label=master" width="auto" height="20")
   div.c-page__body
     hr
     div.row
