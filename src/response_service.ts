@@ -29,18 +29,8 @@ export function getAppData() {
     }) + ";")
   );
 
+  // The below is transferred to index.ejs
   return {
-    // The below is transferred to index.ejs
-    scripts: {
-      local: [
-        "/public/assets/vendor/prismjs/prism.js",
-        "/public/assets/vendor/jquery-3.3.1/jquery.min.js",
-        "/public/assets/vendor/bootstrap-4.1.3-dist/js/bootstrap.min.js",
-        `/public/assets/js/compiled_app_data.js?version=${cacheBuster}`,
-        `/public/assets/js/bundle${bundleVersion}.js?version=${cacheBuster}`
-      ],
-      external: ["https://unpkg.com/axios/dist/axios.min.js"]
-    },
     conf: {
       base_url: env.base_url
     },
