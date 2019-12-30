@@ -1,0 +1,20 @@
+#!/bin/bash
+
+(
+  export DENO_DRASH_DOCS_ENVIRONMENT="staging"
+
+  console/delete_ds_store
+  console/compile_assets
+  console/run_webpack --env.environment="$DENO_DRASH_DOCS_ENVIRONMENT"
+  console/compile_ejs_templates
+
+  # Copy what was build for prod env; use for the staging env
+  cp -r index.html staging/index.html
+  cp -r public staging
+
+  # Discard changes made to the prod env
+  git checkout -- index.html
+  git checkout -- public/*
+
+  echo -e "Build is ready to be pushed to the repository."
+)
