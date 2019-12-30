@@ -16,7 +16,7 @@ module.exports = envVars => {
     mode: webpackConfigFns.getMode(conf),
     output: {
       path: path.resolve(__dirname, "public/assets/js/"),
-      filename: `bundle${conf.bundle_version}.js`
+      filename: `bundle.${conf.environment}.js`
     },
     module: {
       rules: [

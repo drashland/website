@@ -407,6 +407,11 @@ const app_data = {
                 "filename": "resources",
                 "title": "/path/to/your/project/resources"
             },
+            "requests": {
+                "contents": "",
+                "filename": "requests",
+                "title": "/path/to/your/project/requests"
+            },
             "logging": {
                 "contents": "",
                 "filename": "logging",
@@ -599,6 +604,35 @@ const app_data = {
                 "filename": "my_resource_get_post.ts",
                 "language": "typescript",
                 "title": "/path/to/your/project/my_resource_get_post.ts"
+            }
+        },
+        "/src/example_code/tutorials/requests": {
+            "handling_request_params": {
+                "contents": "",
+                "filename": "handling_request_params",
+                "title": "/path/to/your/project/handling_request_params"
+            }
+        },
+        "/src/example_code/tutorials/requests/handling_request_params": {
+            "app": {
+                "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\", // Accepts text/html, text/xml, application/xml\n  resources: [HomeResource],\n});\n\nserver.run();\n",
+                "extension": "ts",
+                "filename": "app.ts",
+                "language": "typescript",
+                "title": "/path/to/your/project/app.ts"
+            },
+            "folder_structure": {
+                "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n",
+                "extension": "txt",
+                "filename": "folder_structure.txt",
+                "title": "Project Folder Structure"
+            },
+            "home_resource": {
+                "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class MyResource extends Drash.Http.Resource {\n  static paths = [\n    \"/\",\n    \"/:something_cool\"\n  ];\n\n  public GET() {\n    this.response.body = \"GET request received!\";\n\n    let pathParam = this.request.getPathParam('something_cool');\n    if (pathParam) {\n      this.response.body += ` Path param \"${pathParam}\" received!`;\n    }\n\n    let queryParam = this.request.getQueryParam('something_cool');\n    if (queryParam) {\n      this.response.body += ` URL query param \"${queryParam}\" received!`;\n    }\n\n    let bodyParam = this.request.getBodyParam('something_cool');\n    if (bodyParam) {\n      this.response.body += ` Body param \"${bodyParam}\" received!`;\n    }\n\n    return this.response;\n  }\n}\n",
+                "extension": "ts",
+                "filename": "home_resource.ts",
+                "language": "typescript",
+                "title": "/path/to/your/project/home_resource.ts"
             }
         },
         "/src/example_code/tutorials/logging": {

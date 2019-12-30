@@ -4,11 +4,12 @@ page
         div.col
             hr
             h2-hash About The Third Party Tutorials
-            p The third party tutorials assume you have read through the following tutorials:
+            p These tutorials assume you have read through the following tutorials:
             ul
               li Resources
+              li Requests
               li Server
-            p Drash does not manage or contribute to any of the third party modules mentioned in the third party tutorials.
+            p Drash does not manage or contribute to any of the third party modules mentioned in the third party tutorials. Plese take issues regarding third party modules to their authors.
     div.row
         div.col
             hr

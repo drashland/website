@@ -1,6 +1,5 @@
 {
   "base_url": "/staging",
-  "bundle_version": ".min",
   "drash_latest_release": "v0.27.4",
   "environment": "staging",
   "module_name": "Drash",

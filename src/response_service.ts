@@ -16,7 +16,7 @@ export async function compile(inputFile, outputFile): Promise<any> {
 
 export function getAppData() {
   Deno.writeFileSync(
-    docsConfig.server.directory + "/public/assets/js/compiled_app_data.js",
+    docsConfig.server.directory + "/public/assets/js/app_data." + env.environment + ".js",
     Encoder.encode("const app_data = " + JSON.stringify({
       example_code: getExampleCode(),
       store: {
@@ -31,7 +31,7 @@ export function getAppData() {
   return {
     conf: {
       base_url: env.base_url,
-      bundle_version: env.bundle_version,
+      environment: env.environment,
       cache_buster: new Date().getTime(),
     },
   };

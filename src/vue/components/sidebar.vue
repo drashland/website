@@ -34,6 +34,9 @@ div.c-sidebar
                 a Resources
                 div.l-submenu-1
                     a(:href="$conf.base_url + '/#/tutorials/resources/creating-a-resource'") Creating A Resource
+                a Requests
+                div.l-submenu-1
+                    a(:href="$conf.base_url + '/#/tutorials/requests/handling-request-params'") Handling Request Params
                 a Servers
                 div.l-submenu-1
                     a(:href="$conf.base_url + '/#/tutorials/servers/creating-a-server'") Creating A Server

@@ -3,7 +3,6 @@
 conf/app.ts
 bundle.js
 compiled_*.js
-!compiled_app_data.js
 compiled_*.json
 deps.ts
 doc_blocks_output_actual.json

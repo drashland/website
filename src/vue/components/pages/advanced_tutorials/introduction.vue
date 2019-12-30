@@ -4,10 +4,11 @@ page
         div.col
             hr
             h2-hash About The Advanced Tutorials
-            p The advanced tutorials assume you have read through the following tutorials:
+            p These tutorials assume you have read through the following tutorials:
             ul
               li Resources
-              li Server
+              li Requests
+              li Servers
     div.row
         div.col
             hr
