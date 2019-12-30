@@ -1,0 +1,11 @@
+#!/bin/bash
+
+(
+  console/delete_ds_store
+  console/compile_assets
+  console/run_webpack --env.environment="production"
+  console/compile_index_ejs "production"
+
+  echo -e "Build is ready to be pushed to the repository."
+  echo -e "\n    Use \`console/deploy\`"
+)
