@@ -1,9 +1,9 @@
 const app_data = {
     "conf": {
-        "base_url": "/deno-drash-docs",
-        "bundle_version": ".min",
+        "base_url": "",
+        "bundle_version": "",
         "drash_latest_release": "v0.27.4",
-        "environment": "production",
+        "environment": "development",
         "module_name": "Drash"
     },
     "example_code": {
