@@ -4,6 +4,7 @@
   export DENO_DRASH_DOCS_ENVIRONMENT="development"
 
   console/run_dev_server
+  console/run_webpack --env.environment="$DENO_DRASH_DOCS_ENVIRONMENT" --watch &
 
   # Run watchdog so it can reload the server on file changes
   watchmedo shell-command \
