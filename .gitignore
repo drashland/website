@@ -1,11 +1,10 @@
 # files
-!conf/*.sample.js
 .DS_Store
+conf/app.ts
 bundle.js
 compiled_*.js
 !compiled_app_data.js
 compiled_*.json
-conf/*
 deps.ts
 doc_blocks_output_actual.json
 package-lock.json
