@@ -7,7 +7,7 @@ module.exports = envVars => {
   const confPath = "./conf/env_vars_" + envVars.environment + ".json";
   const conf = require(confPath);
 
-  console.log(`\nRunning "${webpackConfigFns.getMode(conf)}" configs from ${confPath}.\n`);
+  console.log(`\nRunning "${webpackConfigFns.getMode(conf)}" mode using ${confPath} configs.\n`);
   console.log(conf);
 
   return {

@@ -26,7 +26,7 @@ export function getAppData() {
           api_reference: getPageDataApiReference()
         }
       },
-    }) + ";")
+    }, null, 4) + ";")
   );
 
   // The below is transferred to index.ejs
