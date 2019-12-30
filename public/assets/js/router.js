@@ -49,7 +49,11 @@ router.beforeEach((to, from, next) => {
   if (!to.meta.title) {
     to.meta.title = "404 (Not Found)";
   }
-  document.title = conf.module_name + " - " + to.meta.title;
+  let env = "";
+  if (conf.environment != "production") {
+    env = ` [${conf.environment}]`;
+  }
+  document.title = conf.module_name + env + " - " + to.meta.title;
   next();
 });
 
