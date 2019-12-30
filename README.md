@@ -26,32 +26,15 @@ _The installer warns you about setting Python binaries to your `$PATH` variable.
 
 ## Running The Development Environment
 
-The dev environment requires two shells:
-
-  * A shell to run the dev server; and
-  * A shell to run webpack.
-
-The dev server is watched by `watchmedo`. `watchmedo` is like `nodemon` for Node.js. Every time you save a file, the dev server will reload with your changes. The browser will not reload on its own. You have to do that yourself.
-
 Step 1: Run the dev server.
 
 ```shell
 npm run dev
 ```
 
-Step 2: Run `webpack`.
+The dev server is watched by `watchdog`. `watchdog` is like `nodemon` for Node.js. Every time you save changes, the dev server will reload with your changes. The browser will not reload on its own. You have to do that yourself.
 
-```shell
-npm run webpack
-```
-
-... or ...
-
-```shell
-npm run webpack -- {args}
-```
-
-`node_modules/.bin/webpack --help` for more information on acceptable `{args}`
+The dev server starts webpack in the background with the `--watch` flag. You do not need to worry about recompiling the Vue components. However, if you make a change to `webpack.config.js`, then you will need to reload the dev server. The dev server does not reload with changes made to `webpack.config.js`.
 
 ## Compile SASS to CSS
 
@@ -59,7 +42,7 @@ npm run webpack -- {args}
 npm run sass
 ```
 
-`webpack` doesn't currently watch the `.scss` files. So, if you make changes to a `.scss` file, then make sure you run `npm run sass` to compile your changes.
+`.scss` files are currently NOT being watched. So, if you make changes to a `.scss` file, then make sure you run the above command to compile your changes.
 
 ## Screenshots
 
