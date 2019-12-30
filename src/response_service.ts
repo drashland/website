@@ -10,6 +10,9 @@ const envVars = {
   environment: Deno.env().DENO_DRASH_DOCS_ENVIRONMENT
 };
 
+console.log("Environment Variables:\n");
+console.log(JSON.stringify(envVars, null, 2));
+
 // FILE MARKER: FUNCTIONS - EXPORTED ///////////////////////////////////////////
 
 export async function compile(inputFile, outputFile): Promise<any> {
