@@ -1,13 +1,4 @@
 const app_data = {
-    "conf": {
-        "base_url": "/deno-drash-docs/staging",
-        "bundle_version": ".min",
-        "drash_latest_release": "v0.27.4",
-        "environment": "staging",
-        "module_name": "Drash",
-        "requirements_url": "https://github.com/drashland/deno-drash/blob/master/REQUIREMENTS.md",
-        "build_date": "2019-12-30 08:47:25.192 EST"
-    },
     "example_code": {
         "/src": {
             "example_code": {
