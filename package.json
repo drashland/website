@@ -29,6 +29,6 @@
     "production": "console/production",
     "sass": "sass public/assets/css/style-docs.scss public/assets/css/style-docs.css",
     "staging": "console/staging",
-    "webpack": "console/run_webpack --env.environment='development'"
+    "webpack": "console/run_webpack"
   }
 }
