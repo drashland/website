@@ -10,6 +10,13 @@ div.c-sidebar
                     a(:href="$conf.base_url + '/#/'")
                         img.margin-bottom--0(alt="Drash" :src="$conf.base_url + '/public/assets/img/logo_drash.png'" width="auto" height="80")
                         span.text-hide Drash
+        div.row
+          div.col
+            p.shields.text-align--center(style="margin-top: 1rem; margin-bottom: 0")
+              a(href="https://github.com/drashland/deno-drash/releases" target="_BLANK")
+                img.margin-bottom--0(alt="GitHub release" src="https://img.shields.io/github/release/drashland/deno-drash.svg?color=brightgreen&label=latest" width="auto" height="20")
+              a(href="https://travis-ci.org/drashland/deno-drash" target="_BLANK")
+                img.margin-bottom--0(alt="Travis CI Build Master" src="https://img.shields.io/travis/drashland/deno-drash/master?label=master" width="auto" height="20")
     div.c-sidebar__body
         div.c-sidebar__menu
             a.heading-link(:href="$conf.base_url + '/#/introduction#top'") Introduction
