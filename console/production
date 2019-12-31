@@ -10,7 +10,7 @@
 
   echo -n "Performing git commit ..."
   git add .
-  git commit -m "build/deploy production ($(date))"
+  git commit -m "npm run production ($(date))"
   echo "... done."
 
   echo -n "Pushing to repository ..."
