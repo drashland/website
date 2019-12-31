@@ -54,7 +54,7 @@ jobs:
         git config user.email $CI_USER_EMAIL
         git config user.name $CI_USER_NAME
         git checkout staging
-        git merge origin/master -m "merge master before staging build"
+        git merge master -m "merge master before staging build"
         export DENO_DRASH_DOCS_ENVIRONMENT="staging"
         export PATH=$DENO_INSTALL/bin:$PATH
         console/compile_assets
@@ -74,7 +74,7 @@ jobs:
         git config user.email $CI_USER_EMAIL
         git config user.name $CI_USER_NAME
         git checkout production
-        git merge origin/master -m "merge master before production build"
+        git merge master -m "merge master before production build"
         export DENO_DRASH_DOCS_ENVIRONMENT="production"
         export PATH=$DENO_INSTALL/bin:$PATH
         console/compile_assets
