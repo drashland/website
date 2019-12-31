@@ -1,0 +1,15 @@
+name: staging ci
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: build and deploy staging branch
+    runs-on: ubuntu-latest
+    steps:
+    - name: npm run staging
+      run: |
+        npm run staging
