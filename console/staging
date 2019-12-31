@@ -1,7 +1,6 @@
 #!/bin/bash
 
 (
-
   # Clean that shit up
   rm -rf staging/public/*
 

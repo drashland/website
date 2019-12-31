@@ -15,10 +15,12 @@ jobs:
       DENO_INSTALL: '/home/runner/.local'
       DENO_LATEST_VERSION: 'v0.27.0'
       GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
+
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [12.x]
+
     steps:
     - uses: actions/checkout@v1
 
@@ -52,7 +54,6 @@ jobs:
         console/compile_assets
         console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
         console/compile_ejs_templates
-        export PATH=$DENO_INSTALL/bin:$PATH
         npm run staging
 
     - name: npm run production
@@ -63,7 +64,6 @@ jobs:
         console/compile_assets
         console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
         console/compile_ejs_templates
-        npm run production
 
     - name: commit and push
       run: |
