@@ -1683,9 +1683,7 @@
                     "params": null,
                     "returns": [
                         {
-                            "description": [
-                                "This method resolves `this.body_parsed`, but only for testing purposes.\nThis method can be called without assigning its resolved data to a\nvariable. For example, you can call `await request.parseBody();` and\naccess `request.body_parsed` immediately after. Before this method\nresolves `this.body_parsed`, it assigns the parsed request body to\n`this.body_parsed`."
-                            ],
+                            "description": [],
                             "annotation": {
                                 "line": "@return any",
                                 "data_type": "any",

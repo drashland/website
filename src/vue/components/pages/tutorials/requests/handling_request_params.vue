@@ -88,31 +88,31 @@ page-tutorial(
           p-deno-flag-allow-net
         li Using Postman (or similar app), make a <code>GET</code> request to <code>localhost:1447/</code>.
           p You should receive the following response:
-          // a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/handling_request_params/verification_1.png")
+          a(:href="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_1.png'")
             img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_1.png'")
         li Make a <code>GET</code> request to <code>localhost:1447/hello</code>.
           p You should receive the following response:
-          // a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/handling_request_params/verification_2.png")
+          a(:href="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_2.png'")
             img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_2.png'")
         li Make a <code>GET</code> request to <code>localhost:1447/</code> with the following URL query param:
           code-block-slotted(:header="false")
             template(v-slot:code)
               | ?something=hello
           p You should receive the following response:
-          // a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/handling_request_params/verification_3.png")
+          a(:href="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_3.png'")
             img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_3.png'")
-        li Make a <code>GET</code> request to <code>localhost:1447</code> with the following JSON body:
+        li Make a <code>GET</code> request to <code>localhost:1447</code> with the following <code>x-www-form-urlencoded</code> body:
           code-block-slotted(:header="false")
             template(v-slot:code)
-              | {"something":"hello"}
+              | something=hello
           p You should receive the following response:
-          // a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/handling_request_params/verification_4.png")
+          a(:href="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_4.png'")
             img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_4.png'")
         li Make a <code>GET</code> request to <code>localhost:1447</code> with the following header:
           code-block-slotted(:header="false")
             template(v-slot:code)
               | {"Something":"Hello"}
           p You should receive the following response:
-          // a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/handling_request_params/verification_4.png")
-            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_4.png'")
+          a(:href="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_5.png'")
+            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/handling_request_params/verification_5.png'")
 </template>
