@@ -39,9 +39,10 @@ jobs:
       run: |
         git clone https://github.com/drashland/deno-drash.git ../deno-drash
 
-    - name: make deps.ts from deps.sample.ts
+    - name: copy .ts files
       run: |
         cp deps.sample.ts deps.ts
+        cp conf/app.staging.ts conf/app.ts
 
     - name: compile assets, webpack, and ejs templates
       run: |
