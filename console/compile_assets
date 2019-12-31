@@ -12,5 +12,4 @@
   echo -n "Compiling Vue route components ..."
   deno --allow-read --allow-write --allow-env --allow-net console/ts/compile_vue_route_components.ts
   echo "... done."
-
 )
