@@ -14,13 +14,21 @@ export default class UsersResource extends Drash.Http.Resource {
   }
 
   protected getUser(userId) {
+    let user = null;
+
     try {
       let users = this.readFileContents("./users.json");
       users = JSON.parse(users);
-      return users[userId];
+      user = users[userId];
     } catch (error) {
+      throw new Drash.Exceptions.HttpException(400, `Error getting user with ID "${userId}". Error: ${error.message}.`);
+    }
+
+    if (!user) {
       throw new Drash.Exceptions.HttpException(404, `User with ID "${userId}" not found.`);
     }
+
+    return user;
   }
 
   protected readFileContents(file: string) {
