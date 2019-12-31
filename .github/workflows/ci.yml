@@ -46,7 +46,7 @@ jobs:
         cp deps.sample.ts deps.ts
         cp conf/app.ci.ts conf/app.ts
 
-    - name: npm run staging
+    - name: deploy staging
       if: github.ref == 'refs/heads/staging'
       run: |
         export DENO_DRASH_DOCS_ENVIRONMENT='staging'
@@ -55,8 +55,15 @@ jobs:
         console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
         console/compile_ejs_templates
         npm run staging
+        git remote rm origin
+        git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
+        git config user.email $CI_USER_EMAIL
+        git config user.name $CI_USER_NAME
+        git add staging/*
+        git commit -m 'staging build ($(date))'
+        git push origin HEAD:master
 
-    - name: npm run production
+    - name: deploy production
       if: github.ref == 'refs/heads/production'
       run: |
         export DENO_DRASH_DOCS_ENVIRONMENT='production'
@@ -64,17 +71,10 @@ jobs:
         console/compile_assets
         console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
         console/compile_ejs_templates
-
-    - name: commit and push
-      run: |
-        if [ -z '$(git status --porcelain)' ]; then
-          echo 'master branch clean'
-        else
-          git remote rm origin
-          git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
-          git config user.email $CI_USER_EMAIL
-          git config user.name $CI_USER_NAME
-          git add staging/*
-          git commit -m 'build ($(date))'
-          git push origin HEAD:master
-        fi
+        git remote rm origin
+        git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
+        git config user.email $CI_USER_EMAIL
+        git config user.name $CI_USER_NAME
+        git add staging/*
+        git commit -m 'production build ($(date))'
+        git push origin HEAD:master
