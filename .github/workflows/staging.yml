@@ -8,11 +8,12 @@ on:
 jobs:
   build:
     env:
-      DENO_DRASH_DOCS_ENVIRONMENT: "staging"
-      DENO_LATEST_VERSION: "v0.27.0"
+      CI: true
       CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
       CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-      CI: true
+      DENO_DRASH_DOCS_ENVIRONMENT: "staging"
+      DENO_LATEST_VERSION: "v0.27.0"
+      GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -54,6 +55,8 @@ jobs:
 
     - name: commit and push
       run: |
+        git remote rm origin
+        git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
         git config user.email $CI_USER_EMAIL
         git config user.name $CI_USER_NAME
         git add staging/*
