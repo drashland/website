@@ -2,40 +2,46 @@
 
 (
   export DENO_DRASH_DOCS_ENVIRONMENT="staging"
+  export DENO_LATEST_VERSION="v0.27.0"
 
-  console/delete_ds_store
+  curl -fsSL https://deno.land/x/install/install.sh | sh -s $DENO_LATEST_VERSION
+  export PATH="$HOME/.local/bin:$PATH" #make sure deno is accessible
+
+  npm install
+
   console/compile_assets
   console/run_webpack --env.environment="$DENO_DRASH_DOCS_ENVIRONMENT"
   console/compile_ejs_templates
 
   # Clean that shit up
   rm -rf staging/public/*
-  mkdir -p staging/public/assets
-  mkdir staging/public/assets/css
-  mkdir staging/public/assets/img
-  mkdir staging/public/assets/js
-  mkdir staging/public/assets/vendor
 
-  # Copy what was build for prod env; use for the staging env
+  # Make all necessary directories so the terminal doesn't get mad
+  mkdir -p staging/public/assets
+  mkdir    staging/public/assets/css
+  mkdir    staging/public/assets/img
+  mkdir    staging/public/assets/js
+  mkdir    staging/public/assets/vendor
+
+  # Copy what was built for prod; use that for staging
   cp    index.html staging/index.html
   cp    public/assets/css/style-docs.css     staging/public/assets/css/style-docs.css
   cp    public/assets/css/style-docs.css.map staging/public/assets/css/style-docs.css.map
   cp    public/assets/js/bundle.staging.js   staging/public/assets/js/bundle.staging.js
   cp    public/assets/js/app_data.staging.js staging/public/assets/js/app_data.staging.js
-  cp -r public/assets/img                  staging/public/assets/
-  cp -r public/assets/vendor               staging/public/assets/
+  cp -r public/assets/img                    staging/public/assets/
+  cp -r public/assets/vendor                 staging/public/assets/
 
-  # Discard changes made to the prod env
+  # Discard changes made to prod
   git checkout -- index.html
   git checkout -- public/*
 
+  # Ugh... we need a user
+  git config user.email $CI_USER_EMAIL
+  git config user.name $CI_USER_NAME
 
-  echo -n "Committing to repository ..."
+  # Pushing the staging build
   git add staging/*
-  git commit -m "build/deploy staging ($(date))"
-  echo "... done."
-
-  echo -n "Pushing to repository ..."
-  git push
-  echo "... done."
+  git commit -m "npm run staging ($(date))"
+  git push origin master
 )
