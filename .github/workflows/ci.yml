@@ -47,7 +47,7 @@ jobs:
     - name: npm run staging
       if: github.ref == 'refs/heads/staging'
       run: |
-        expot DENO_DRASH_DOCS_ENVIRONMENT='staging'
+        export DENO_DRASH_DOCS_ENVIRONMENT='staging'
         export PATH=$DENO_INSTALL/bin:$PATH
         console/compile_assets
         console/run_webpack --env.environment='$DENO_DRASH_DOCS_ENVIRONMENT'
@@ -58,7 +58,7 @@ jobs:
     - name: npm run production
       if: github.ref == 'refs/heads/production'
       run: |
-        expot DENO_DRASH_DOCS_ENVIRONMENT='production'
+        export DENO_DRASH_DOCS_ENVIRONMENT='production'
         export PATH=$DENO_INSTALL/bin:$PATH
         console/compile_assets
         console/run_webpack --env.environment='$DENO_DRASH_DOCS_ENVIRONMENT'
