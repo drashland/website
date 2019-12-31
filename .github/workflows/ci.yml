@@ -45,16 +45,16 @@ jobs:
       run: |
         cp deps.sample.ts deps.ts
         cp conf/app.ci.ts conf/app.ts
-
-    - name: deploy staging
-      if: github.ref == 'refs/heads/staging'
+    - name: setup git
       run: |
         git remote rm origin
         git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
         git config user.email $CI_USER_EMAIL
         git config user.name $CI_USER_NAME
-        git checkout staging
-        git merge master -m "merge master before staging build"
+
+    - name: deploy staging
+      if: github.ref == 'refs/heads/staging'
+      run: |
         export DENO_DRASH_DOCS_ENVIRONMENT="staging"
         export PATH=$DENO_INSTALL/bin:$PATH
         console/compile_assets
@@ -69,12 +69,6 @@ jobs:
     - name: deploy production
       if: github.ref == 'refs/heads/production'
       run: |
-        git remote rm origin
-        git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
-        git config user.email $CI_USER_EMAIL
-        git config user.name $CI_USER_NAME
-        git checkout production
-        git merge master -m "merge master before production build"
         export DENO_DRASH_DOCS_ENVIRONMENT="production"
         export PATH=$DENO_INSTALL/bin:$PATH
         console/compile_assets
