@@ -1,3 +1,29 @@
+<script>
+export const resource = {
+  paths: ["/tutorials/resources/creating-a-resource"],
+  meta: {
+    title: "Creating A Resource",
+    source_code_uri: "/resources/creating_a_resource"
+  }
+}
+
+export default {
+  data() {
+    return {
+      example_code: this.$app_data.example_code['/src/example_code/tutorials/resources/creating_a_resource'],
+      toc: {
+        items: [
+          "Before You Get Started",
+          "Creating A Resource",
+          "Path Params",
+          "Regular Expression URIs",
+        ]
+      }
+    };
+  },
+}
+</script>
+
 <template lang="pug">
 page-tutorial(
   :toc="toc"
@@ -70,29 +96,3 @@ page-tutorial(
           li
             request(method="get" url="/users/99")
 </template>
-
-<script>
-export const resource = {
-  paths: ["/tutorials/resources/creating-a-resource"],
-  meta: {
-    title: "Creating A Resource",
-    source_code_uri: "/resources/creating_a_resource"
-  }
-}
-
-export default {
-  data() {
-    return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/resources/creating_a_resource'],
-      toc: {
-        items: [
-          "Before You Get Started",
-          "Creating A Basic Resource",
-          "Handling Request Params",
-        ]
-      }
-    };
-  },
-}
-</script>
-
