@@ -12,5 +12,5 @@ jobs:
     steps:
     - name: npm run staging
       run: |
-        cd /home/runner/work/deno-drash-docs/
+        npm install
         npm run staging
