@@ -1,6 +1,5 @@
 {
   "base_url": "",
-  "drash_latest_release": "v0.27.6",
   "environment": "production",
   "module_name": "Drash",
   "requirements_url": "https://github.com/drashland/deno-drash/blob/master/REQUIREMENTS.md"

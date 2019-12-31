@@ -29,12 +29,13 @@ div
         p
           code-block-slotted(language="typescript" :header="false")
             template(v-slot:code)
-              | // Import Drash latest release
-              | import Drash from "https://deno.land/x/drash@{{ $conf.drash_latest_release }}/mod.ts";
+              | // Import specific version
+              | import Drash from "https://deno.land/x/drash@{version}/mod.ts";
               | 
-              | // Import Drash master
+              | // Import master
               | import Drash from "https://deno.land/x/drash/mod.ts";
-        p It is recommended that you import the latest release of Drash or a specific release to prevent breaking changes. Drash's master branch tries to keep up with the latest Deno code and is subject to Deno's "disruptive renames" as stated in the Deno project.
+        p It is recommended that you import the latest version or a specific version of Drash to prevent your applications from experiencing breaking changes. Drash's master branch tries to keep up with the latest Deno code and is subject to Deno's "disruptive renames" as stated in the Deno project.
+        p Drash versions can be found <a href="https://github.com/drashland/deno-drash/releases" target="_BLANK">here</a>.
     hr
     div.row
       div.col
@@ -74,7 +75,7 @@ div
       div.col
         h2-hash File An Issue
         p File an issue regarding Drash (bugs, feature requests, testing, etc.) <a href="https://github.com/drashland/deno-drash/issues" target="_BLANK">here</a>.
-        p File an issue regarding Drash Documentation (bugs, tutorials, etc.) here <a href="https://github.com/drashland/deno-drash-docs/issues" target="_BLANK">here</a>.
+        p File an issue regarding Drash Documentation (bugs, tutorials, etc.) <a href="https://github.com/drashland/deno-drash-docs/issues" target="_BLANK">here</a>.
         p We would love to hear from you!
     hr
     div.row
