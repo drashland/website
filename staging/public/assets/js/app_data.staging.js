@@ -577,13 +577,6 @@ const app_data = {
       }
     },
     "/src/example_code/tutorials/resources/creating_a_resource": {
-      "my_resource_handles_params": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class MyResource extends Drash.Http.Resource {\n  static paths = [\n    \"/\",\n    \"/:something_cool\"\n  ];\n\n  public GET() {\n    this.response.body = \"GET request received!\";\n\n    let pathParam = this.request.getPathParam('something_cool');\n    if (pathParam) {\n      this.response.body += ` Path param \"${pathParam}\" received!`;\n    }\n\n    let queryParam = this.request.getQueryParam('something_cool');\n    if (queryParam) {\n      this.response.body += ` URL query param \"${queryParam}\" received!`;\n    }\n\n    let bodyParam = this.request.getBodyParam('something_cool');\n    if (bodyParam) {\n      this.response.body += ` Body param \"${bodyParam}\" received!`;\n    }\n\n    return this.response;\n  }\n}\n",
-        "extension": "ts",
-        "filename": "my_resource_handles_params.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/my_resource_handles_params.ts"
-      },
       "my_resource_get_post_put_delete": {
         "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class MyResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n\n  public GET() {\n    this.response.body = \"GET request received!\";\n    return this.response;\n  }\n\n  public POST() {\n    this.response.body = \"POST request received!\";\n    return this.response;\n  }\n\n  public PUT() {\n    this.response.body = \"PUT request received!\";\n    return this.response;\n  }\n\n  public DELETE() {\n    this.response.body = \"DELETE request received!\";\n    return this.response;\n  }\n}\n",
         "extension": "ts",
@@ -598,12 +591,26 @@ const app_data = {
         "language": "typescript",
         "title": "/path/to/your/project/registering_resources.ts"
       },
+      "my_resource_path_params": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class MyResource extends Drash.Http.Resource {\n  static paths = [\n    \"/users/:user_id\",\n    \"/users/:user_id/\",\n  ];\n\n  public GET() {\n    this.response.body = \"GET request received!\";\n\n    let userId = this.request.getPathParam('user_id');\n\n    this.response.body += ` Parsing User #${userId} data!`;\n\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "my_resource_path_params.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/my_resource_path_params.ts"
+      },
       "my_resource_get_post": {
         "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class MyResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n\n  public GET() {\n    this.response.body = \"GET request received!\";\n    return this.response;\n  }\n\n  public POST() {\n    this.response.body = \"POST request received!\";\n    return this.response;\n  }\n}\n",
         "extension": "ts",
         "filename": "my_resource_get_post.ts",
         "language": "typescript",
         "title": "/path/to/your/project/my_resource_get_post.ts"
+      },
+      "my_resource_regular_expression": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class MyResource extends Drash.Http.Resource {\n  static paths = [\n    \"/(users?)/([0-9]$)\",\n  ];\n\n  public GET() {\n    this.response.body = \"GET request received!\";\n\n    let userId = this.request.getPathParam('user_id');\n\n    this.response.body += ` Parsing User #${userId} data!`;\n\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "my_resource_regular_expression.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/my_resource_regular_expression.ts"
       }
     },
     "/src/example_code/tutorials/requests": {
@@ -615,7 +622,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/requests/handling_request_params": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\", // Accepts text/html, text/xml, application/xml\n  resources: [HomeResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -628,7 +635,7 @@ const app_data = {
         "title": "Project Folder Structure"
       },
       "home_resource": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class MyResource extends Drash.Http.Resource {\n  static paths = [\n    \"/\",\n    \"/:something_cool\"\n  ];\n\n  public GET() {\n    this.response.body = \"GET request received!\";\n\n    let pathParam = this.request.getPathParam('something_cool');\n    if (pathParam) {\n      this.response.body += ` Path param \"${pathParam}\" received!`;\n    }\n\n    let queryParam = this.request.getQueryParam('something_cool');\n    if (queryParam) {\n      this.response.body += ` URL query param \"${queryParam}\" received!`;\n    }\n\n    let bodyParam = this.request.getBodyParam('something_cool');\n    if (bodyParam) {\n      this.response.body += ` Body param \"${bodyParam}\" received!`;\n    }\n\n    return this.response;\n  }\n}\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n  static paths = [\n    \"/\",\n    \"/:something\"\n  ];\n\n  public GET() {\n    this.response.body = \"GET request received!\";\n\n    let pathParam = this.request.getPathParam(\"something\");\n    if (pathParam) {\n      this.response.body += ` Path param \"${pathParam}\" received!`;\n    }\n\n    let queryParam = this.request.getQueryParam(\"something\");\n    if (queryParam) {\n      this.response.body += ` URL query param \"${queryParam}\" received!`;\n    }\n\n    let bodyParam = this.request.getBodyParam(\"something\");\n    if (bodyParam) {\n      this.response.body += ` Body param \"${bodyParam}\" received!`;\n    }\n\n    let headerParam = this.request.getHeaderParam(\"Something\");\n    if (headerParam) {\n      this.response.body += ` Header param \"${headerParam}\" received!`;\n    }\n\n    return this.response;\n  }\n}\n",
         "extension": "ts",
         "filename": "home_resource.ts",
         "language": "typescript",
@@ -2551,9 +2558,7 @@ const app_data = {
                 "params": null,
                 "returns": [
                   {
-                    "description": [
-                      "This method resolves `this.body_parsed`, but only for testing purposes.\nThis method can be called without assigning its resolved data to a\nvariable. For example, you can call `await request.parseBody();` and\naccess `request.body_parsed` immediately after. Before this method\nresolves `this.body_parsed`, it assigns the parsed request body to\n`this.body_parsed`."
-                    ],
+                    "description": [],
                     "annotation": {
                       "line": "@return any",
                       "data_type": "any",
