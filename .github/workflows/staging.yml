@@ -58,4 +58,4 @@ jobs:
         git config user.name $CI_USER_NAME
         git add staging/*
         git commit -m "npm run staging ($(date))"
-        git push origin master
+        git push
