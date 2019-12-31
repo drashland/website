@@ -19,33 +19,41 @@ jobs:
         node-version: [12.x]
     steps:
     - uses: actions/checkout@v1
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+
     - name: npm install
       run: |
         npm install
+
     - name: install deno
       run: |
         curl -fsSL https://deno.land/x/install/install.sh | sh -s $DENO_LATEST_VERSION
         export PATH="$HOME/.local/bin:$PATH" #make sure deno is accessible
+
     - name: git clone deno-drash
       run: |
         git clone https://github.com/drashland/deno-drash.git ../deno-drash
+
     - name: make deps.ts from deps.sample.ts
       run: |
         cp deps.sample.ts deps.ts
+
     - name: compile assets, webpack, and ejs templates
       run: |
         console/compile_assets
         console/run_webpack --env.environment="$DENO_DRASH_DOCS_ENVIRONMENT"
         console/compile_ejs_templates
+
     - name: npm run staging
       run: |
         npm run staging
+
     - name: commit and push
-    - run: |
+      run: |
         git config user.email $CI_USER_EMAIL
         git config user.name $CI_USER_NAME
         git add staging/*
