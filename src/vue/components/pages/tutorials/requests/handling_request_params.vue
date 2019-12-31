@@ -3,7 +3,7 @@ export const resource = {
   paths: ["/tutorials/requests/handling-request-params"],
   meta: {
     title: "Handling Request Params",
-    source_code_uri: "/resources/handling_request_params"
+    source_code_uri: "/requests/handling_request_params"
   }
 }
 
