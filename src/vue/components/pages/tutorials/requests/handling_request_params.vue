@@ -77,6 +77,7 @@ page-tutorial(
           code-block(:data="example_code.app")
   div.row
     div.col
+      hr
       h2-hash Verification
       ol
         li Run your app.
