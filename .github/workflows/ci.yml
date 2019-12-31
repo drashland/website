@@ -12,8 +12,8 @@ jobs:
       CI: true
       CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
       CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-      DENO_INSTALL: '/home/runner/.local'
-      DENO_LATEST_VERSION: 'v0.27.0'
+      DENO_INSTALL: "/home/runner/.local"
+      DENO_LATEST_VERSION: "v0.27.0"
       GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
 
     runs-on: ubuntu-latest
@@ -49,7 +49,7 @@ jobs:
     - name: deploy staging
       if: github.ref == 'refs/heads/staging'
       run: |
-        export DENO_DRASH_DOCS_ENVIRONMENT='staging'
+        export DENO_DRASH_DOCS_ENVIRONMENT="staging"
         export PATH=$DENO_INSTALL/bin:$PATH
         console/compile_assets
         console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
@@ -60,5 +60,21 @@ jobs:
         git config user.email $CI_USER_EMAIL
         git config user.name $CI_USER_NAME
         git add staging/*
-        git commit -m 'staging build ($(date))'
+        git commit -m "staging build ($(date))"
+        git push origin HEAD:master
+
+    - name: deploy production
+      if: github.ref == 'refs/heads/production'
+      run: |
+        export DENO_DRASH_DOCS_ENVIRONMENT="production"
+        export PATH=$DENO_INSTALL/bin:$PATH
+        console/compile_assets
+        console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
+        console/compile_ejs_templates
+        git remote rm origin
+        git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
+        git config user.email $CI_USER_EMAIL
+        git config user.name $CI_USER_NAME
+        git add staging/*
+        git commit -m "production build ($(date))"
         git push origin HEAD:master
