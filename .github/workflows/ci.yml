@@ -53,6 +53,7 @@ jobs:
         git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
         git config user.email $CI_USER_EMAIL
         git config user.name $CI_USER_NAME
+        git checkout staging
         git merge origin/master -m "merge master before staging build"
         export DENO_DRASH_DOCS_ENVIRONMENT="staging"
         export PATH=$DENO_INSTALL/bin:$PATH
@@ -72,6 +73,7 @@ jobs:
         git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
         git config user.email $CI_USER_EMAIL
         git config user.name $CI_USER_NAME
+        git checkout production
         git merge origin/master -m "merge master before production build"
         export DENO_DRASH_DOCS_ENVIRONMENT="production"
         export PATH=$DENO_INSTALL/bin:$PATH
