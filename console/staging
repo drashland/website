@@ -29,6 +29,13 @@
   git checkout -- index.html
   git checkout -- public/*
 
-  echo -e "Done building staging-ready files."
-  echo -e "Build is ready to be pushed to the repository."
+
+  echo -n "Committing to repository ..."
+  git add staging/*
+  git commit -m "build/deploy staging ($(date))"
+  echo "... done."
+
+  echo -n "Pushing to repository ..."
+  git push
+  echo "... done."
 )
