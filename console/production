@@ -1,0 +1,13 @@
+#!/bin/bash
+
+(
+  export DENO_DRASH_DOCS_ENVIRONMENT='production'
+
+  console/compile_assets
+  console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
+  console/compile_ejs_templates
+
+  git add .
+  git commit -m 'production build ($(date))'
+  git push origin HEAD:master
+)
