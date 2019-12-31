@@ -62,7 +62,7 @@ jobs:
         git add staging/*
         git commit -m "staging build ($(date))"
         git push origin HEAD:master
-        git merge master -m "auto merge master from ci"
+        git merge origin/master -m "auto merge master from ci"
 
     - name: deploy production
       if: github.ref == 'refs/heads/production'
@@ -79,4 +79,4 @@ jobs:
         git add staging/*
         git commit -m "production build ($(date))"
         git push origin HEAD:master
-        git merge master -m "auto merge master from ci"
+        git merge origin/master -m "auto merge master from ci"
