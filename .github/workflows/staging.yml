@@ -14,6 +14,7 @@ jobs:
       DENO_DRASH_DOCS_ENVIRONMENT: "staging"
       DENO_LATEST_VERSION: "v0.27.0"
       GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
+      DENO_INSTALL: ="/home/runner/.local"
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -33,7 +34,6 @@ jobs:
     - name: install deno
       run: |
         curl -fsSL https://deno.land/x/install/install.sh | sh -s $DENO_LATEST_VERSION
-        export PATH="$HOME/.local/bin:$PATH" #make sure deno is accessible
 
     - name: git clone deno-drash
       run: |
@@ -45,12 +45,14 @@ jobs:
 
     - name: compile assets, webpack, and ejs templates
       run: |
+        export PATH=$DENO_INSTALL/bin:$PATH
         console/compile_assets
         console/run_webpack --env.environment="$DENO_DRASH_DOCS_ENVIRONMENT"
         console/compile_ejs_templates
 
     - name: npm run staging
       run: |
+        export PATH=$DENO_INSTALL/bin:$PATH
         npm run staging
 
     - name: commit and push
