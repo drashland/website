@@ -7,6 +7,12 @@ on:
 
 jobs:
   build:
+    env:
+      DENO_DRASH_DOCS_ENVIRONMENT: "staging"
+      DENO_LATEST_VERSION: "v0.27.0"
+      CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
+      CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
+      CI: true
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -17,10 +23,31 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: npm install
+      run: |
+        npm install
+    - name: install deno
+      run: |
+        curl -fsSL https://deno.land/x/install/install.sh | sh -s $DENO_LATEST_VERSION
+        export PATH="$HOME/.local/bin:$PATH" #make sure deno is accessible
+    - name: git clone deno-drash
+      run: |
+        git clone https://github.com/drashland/deno-drash.git ../deno-drash
+    - name: make deps.ts from deps.sample.ts
+      run: |
+        cp deps.sample.ts deps.ts
+    - name: compile assets, webpack, and ejs templates
+      run: |
+        console/compile_assets
+        console/run_webpack --env.environment="$DENO_DRASH_DOCS_ENVIRONMENT"
+        console/compile_ejs_templates
     - name: npm run staging
       run: |
         npm run staging
-      env:
-        CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
-        CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-        CI: true
+    - name: commit and push
+    - run: |
+        git config user.email $CI_USER_EMAIL
+        git config user.name $CI_USER_NAME
+        git add staging/*
+        git commit -m "npm run staging ($(date))"
+        git push origin master

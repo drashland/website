@@ -1,19 +1,6 @@
 #!/bin/bash
 
 (
-  export DENO_DRASH_DOCS_ENVIRONMENT="staging"
-  export DENO_LATEST_VERSION="v0.27.0"
-
-  curl -fsSL https://deno.land/x/install/install.sh | sh -s $DENO_LATEST_VERSION
-  export PATH="$HOME/.local/bin:$PATH" #make sure deno is accessible
-
-  git clone https://github.com/drashland/deno-drash.git ../deno-drash
-
-  npm install
-
-  console/compile_assets
-  console/run_webpack --env.environment="$DENO_DRASH_DOCS_ENVIRONMENT"
-  console/compile_ejs_templates
 
   # Clean that shit up
   rm -rf staging/public/*
@@ -37,13 +24,4 @@
   # Discard changes made to prod
   git checkout -- index.html
   git checkout -- public/*
-
-  # Ugh... we need a user
-  git config user.email $CI_USER_EMAIL
-  git config user.name $CI_USER_NAME
-
-  # Pushing the staging build
-  git add staging/*
-  git commit -m "npm run staging ($(date))"
-  git push origin master
 )
