@@ -49,6 +49,7 @@ jobs:
     - name: deploy staging
       if: github.ref == 'refs/heads/staging'
       run: |
+        git merge origin/master -m "merge master before staging build"
         export DENO_DRASH_DOCS_ENVIRONMENT="staging"
         export PATH=$DENO_INSTALL/bin:$PATH
         console/compile_assets
@@ -62,11 +63,12 @@ jobs:
         git add staging/*
         git commit -m "staging build ($(date))"
         git push origin HEAD:master
-        git merge origin/master -m "auto merge master from ci"
+        git merge origin/master -m "merge master after staging build"
 
     - name: deploy production
       if: github.ref == 'refs/heads/production'
       run: |
+        git merge origin/master -m "merge master before production build"
         export DENO_DRASH_DOCS_ENVIRONMENT="production"
         export PATH=$DENO_INSTALL/bin:$PATH
         console/compile_assets
@@ -79,4 +81,4 @@ jobs:
         git add staging/*
         git commit -m "production build ($(date))"
         git push origin HEAD:master
-        git merge origin/master -m "auto merge master from ci"
+        git merge origin/master -m "merge master after production build"
