@@ -14,6 +14,9 @@ jobs:
       DENO_DRASH_DOCS_ENVIRONMENT: "staging"
       DENO_LATEST_VERSION: "v0.27.0"
       GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
+      DENO_INSTALL: ="/home/runner/.local"
+    run: |
+      export PATH=$DENO_INSTALL/bin:$PATH
     runs-on: ubuntu-latest
     strategy:
       matrix:
