@@ -5,7 +5,7 @@ export const resource = {
   ],
   meta: {
     title: "Introduction To Middleware",
-    source_code_uri: "/middleware/introduction"
+    source_code_uri: "/tutorials/middleware/introduction"
   }
 }
 

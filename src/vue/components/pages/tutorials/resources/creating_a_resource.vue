@@ -3,7 +3,7 @@ export const resource = {
   paths: ["/tutorials/resources/creating-a-resource"],
   meta: {
     title: "Creating A Resource",
-    source_code_uri: "/resources/creating_a_resource"
+    source_code_uri: "/tutorials/resources/creating_a_resource"
   }
 }
 
