@@ -1,9 +1,0 @@
-#!/bin/bash
-
-(
-  echo -n "Performing git commit ..."
-  git add index.html
-  git add public/assets/js/bundle.min.js
-  git commit -m "npm run build ($(date))"
-  echo "... done."
-)
