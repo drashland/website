@@ -12,7 +12,7 @@ jobs:
       CI: true
       CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
       CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-      DENO_INSTALL: "/home/runner/.local"
+      DENO_INSTALL: "/Users/runner/.local"
       DENO_LATEST_VERSION: "v0.27.0"
       GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
     runs-on: macOS-latest
