@@ -45,13 +45,13 @@ jobs:
       run: |
         cp deps.sample.ts deps.ts
         cp conf/app.ci.ts conf/app.ts
+
     - name: setup git
       run: |
         git remote rm origin
         git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
         git config user.email $CI_USER_EMAIL
         git config user.name $CI_USER_NAME
-        git checkout master
         git pull origin master
 
     - name: deploy staging
