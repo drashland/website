@@ -47,7 +47,7 @@ jobs:
         cp deps.sample.ts deps.ts
         cp conf/app.ci.ts conf/app.ts
 
-    - name: setup git
+    - name: configure git
       run: |
         git remote rm origin
         git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
@@ -72,8 +72,8 @@ jobs:
     - name: deploy production
       if: github.ref == 'refs/heads/production'
       run: |
-        export DENO_DRASH_DOCS_ENVIRONMENT="production"
         export PATH=$DENO_INSTALL/bin:$PATH
+<<<<<<< HEAD
         console/compile_assets
         console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
         console/compile_ejs_templates
@@ -82,3 +82,7 @@ jobs:
         git commit -m "production build ($(date))"
         git push origin HEAD:master
         git merge origin/master -m "merge master after production build"
+=======
+        npm run production
+        git merge origin/master -m "auto merge master from ci"
+>>>>>>> master
