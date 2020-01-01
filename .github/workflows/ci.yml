@@ -12,8 +12,8 @@ jobs:
       CI: true
       CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
       CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-      DENO_INSTALL: '/home/runner/.local'
-      DENO_LATEST_VERSION: 'v0.27.0'
+      DENO_INSTALL: "/home/runner/.local"
+      DENO_LATEST_VERSION: "v0.27.0"
       GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
     runs-on: macOS-latest
     strategy:
@@ -34,7 +34,7 @@ jobs:
 
     - name: install deno
       run: |
-        sudo curl -fsSL https://deno.land/x/install/install.sh | sh -s $DENO_LATEST_VERSION
+        curl -fsSL https://deno.land/x/install/install.sh | sh -s $DENO_LATEST_VERSION
 
     - name: git clone deno-drash
       run: |
@@ -62,14 +62,9 @@ jobs:
         console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
         console/compile_ejs_templates
         npm run staging
-        git add staging/*
-        git commit -m "staging build ($(date))"
-        git push origin HEAD:master
-        git merge origin/master -m "merge master after staging build"
 
     - name: deploy production
       if: github.ref == 'refs/heads/production'
       run: |
         export PATH=$DENO_INSTALL/bin:$PATH
         npm run production
-        git merge origin/master -m "auto merge master from ci"
