@@ -80,22 +80,23 @@ page-tutorial-part(
             template(v-slot:title) Terminal
             template(v-slot:code)
               | deno --allow-net --allow-read app.ts
-        li Make a request in your browser and specify that you want the <code>text/html</code> representation of <code>/users/1</code>.
+
+        li Make a request to <code>localhost:1447/users/1</code> in your browser and specify that you want the <code>text/html</code> representation.
           code-block-slotted(:header="false")
             template(v-slot:code)
               | localhost:1447/users/1?response_content_type=text/html
           p You should receive the following response:
           img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/verification_2.png'")
-        li Make a request in your browser and specify that you want the <code>application/xml</code> representation of <code>/users/2</code>.
+        li Make the same request, but specify that you want the <code>application/xml</code> representation.
           code-block-slotted(:header="false")
             template(v-slot:code)
-              | localhost:1447/users/2?response_content_type=application/xml
+              | localhost:1447/users/1?response_content_type=application/xml
           p You should receive the following response:
           img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/verification_3.png'")
-        li Make a request in your browser and specify that you want the <code>text/plain</code> representation of <code>/users/3</code>.
+        li Make the same request, but specify that you want the <code>text/plain</code> representation.
           code-block-slotted(:header="false")
             template(v-slot:code)
-              | localhost:1447/users/3?response_content_type=text/plain
+              | localhost:1447/users/1?response_content_type=text/plain
           p You should receive the following response:
           img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/verification_4.png'")
 </template>

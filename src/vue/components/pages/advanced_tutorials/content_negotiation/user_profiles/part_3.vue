@@ -80,7 +80,7 @@ page-tutorial-part(
             template(v-slot:code)
               | deno --allow-net --allow-read app.ts
           p This time, your app requires two flags to run. You already know what the <code>--allow-net</code> flag does from Part 2. <code>--allow-read</code> is required because your resource requires read access to read your <code>users.json</code> file. You can learn more about the <code>--allow-read</code> flag at <a href="https://deno.land/std/manual.md" target="_BLANK">https://deno.land/std/manual.md</a>.
-        li Make a request using <code>curl</code> like below or go to <code>localhost:1447</code> in your browser.
+        li Make a request using <code>curl</code> like below or go to <code>localhost:1447/users/1</code> in your browser.
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
@@ -89,21 +89,11 @@ page-tutorial-part(
           code-block-slotted(:header="false" language="javascript")
             template(v-slot:code)
               | {
-              |   "status_code": 200,
-              |   "status_message": "OK",
-              |   "body": {
               |     "id": 1,
               |     "alias": "Captain America",
               |     "name": "Steve Rogers",
               |     "api_key": "46096ec9-5bf9-4978-b77b-07018dc32a74",
               |     "api_secret": "1b64d3ac-7e19-4018-ab99-29f50e097f4b"
-              |   },
-              |   "request": {
-              |     "method": "GET",
-              |     "uri": "/users/1",
-              |     "url_query_params": {},
-              |     "url": "localhost:1447/users/1"
-              |   }
               | }
         li Make another request.
           code-block-slotted
@@ -114,21 +104,11 @@ page-tutorial-part(
           code-block-slotted(:header="false" language="javascript")
             template(v-slot:code)
               | {
-              |   "status_code": 200,
-              |   "status_message": "OK",
-              |   "body": {
               |     "id": 2,
               |     "alias": "Black Widow",
               |     "name": "Natasha Romanoff",
               |     "api_key": "3d93a3f9-c5ad-439d-bacb-75a9e4fb2b42",
               |     "api_secret": "e5b11faa-629f-4255-bf3a-ee736dc9468d"
-              |   },
-              |   "request": {
-              |     "method": "GET",
-              |     "uri": "/users/2",
-              |     "url_query_params": {},
-              |     "url": "localhost:1447/users/2"
-              |   }
               | }
         li Make a bad request.
           code-block-slotted
@@ -138,15 +118,5 @@ page-tutorial-part(
           p You should receive the following response (we pretty-printed the response for you):
           code-block-slotted(:header="false" language="javascript")
             template(v-slot:code)
-              | {
-              |   "status_code": 404,
-              |   "status_message": "Not Found",
-              |   "body": "User not found",
-              |   "request": {
-              |     "method": "GET",
-              |     "uri": "/users/4",
-              |     "url_query_params": {},
-              |     "url": "localhost:1447/users/4"
-              |   }
-              | }
+              | "User with ID \"4\" not found."
 </template>

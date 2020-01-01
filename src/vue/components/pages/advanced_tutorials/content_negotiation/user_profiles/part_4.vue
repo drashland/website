@@ -71,8 +71,8 @@ page-tutorial-part(
           code-block(:data="example_code.user" language="html" line_highlight="14,21")
           p When a request is made to your resource for the <code>text/html</code> representation of its data, this is the HTML file that will be sent as the response. After your resource reads this HTML file, it will replace the highlighted variables (<code>alias</code> and <code>name</code>) with the requested user's data. This replacement process is basically the process a template engine would perform, but in a much simpler way.
         li
-          p Modify your resource (by adding the highlighted code) so that it can generate a <code>text/html</code> representation of its data.
-          code-block(:data="example_code.users_resource" language="typescript" line_highlight="12-22,37-47")
+          p Modify your resource by adding the highlighted code so that it can generate a <code>text/html</code> representation of its data. Also, organize your code with specific response-generating methods (e.g., <code>generateHtml()</code> and <code>generateJson()</code>) for readability.
+          code-block(:data="example_code.users_resource" language="typescript" line_highlight="13-23, 44-61")
           p The highlighted code will check what content type the request wants to receive and will make sure that the user data is sent in the requested format. If the request does not specify a content type, then the server object will default to the one you specified in its <code>response_output</code> config, which should be <code>application/json</code> like below.
           code-block(:data="example_code.app" language="typescript" line_highlight="7")
   div.row
@@ -86,36 +86,19 @@ page-tutorial-part(
             template(v-slot:title) /path/to/your/project/app.ts
             template(v-slot:code)
               | deno --allow-net --allow-read app.ts
-        li Make a request (in another terminal session).
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | curl localhost:1447/users/1
-          p You should receive the following response (we pretty-printedthe response for you):
+        li Make a request to <code>localhost:1447/users/1</code> in your browser.
+          p You should receive the following response (we pretty-printed the response for you):
           code-block-slotted(language="javascript")
             template(v-slot:title) Terminal
             template(v-slot:code)
               | {
-              |   "status_code": 200,
-              |   "status_message": "OK",
-              |   "body": {
               |     "id": 1,
               |     "alias": "Captain America",
               |     "name": "Steve Rogers",
-              |     "api_key": "46096ec9-5bf9-4978-b77b-07018dc32a74",
-              |     "api_secret": "1b64d3ac-7e19-4018-ab99-29f50e097f4b"
-              |   },
-              |   "request": {
-              |     "method": "GET",
-              |     "uri": "/users/1",
-              |     "url_query_params": {},
-              |     "url": "localhost:1447/users/1"
-              |   }
+              |     "api_key": "**********",
+              |     "api_secret": "**********"
               | }
-        li Make a request in your browser and specify that you want the <code>text/html</code> representation of <code>/users/1</code>.
-          code-block-slotted(:header="false")
-            template(v-slot:code)
-              | localhost:1447/users/1?response_content_type=text/html
+        li Make a request to <code>localhost:1447/users/1?response_content_type=text/html</code> in your browser&ndash;specifying you want the <code>text/html</code> representation of <code>/users/1</code>.
           p You should receive the following response:
           img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3.png'")
 </template>
