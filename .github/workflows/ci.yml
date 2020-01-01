@@ -12,8 +12,8 @@ jobs:
       CI: true
       CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
       CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-      DENO_INSTALL: "/home/runner/.local"
-      DENO_LATEST_VERSION: "v0.27.0"
+      DENO_INSTALL: '/home/runner/.local'
+      DENO_LATEST_VERSION: 'v0.27.0'
       GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
     runs-on: macOS-latest
     strategy:
@@ -34,7 +34,6 @@ jobs:
 
     - name: install deno
       run: |
-        mkdir -p $DENO_INSTALL/bin
         curl -fsSL https://deno.land/x/install/install.sh | sh -s $DENO_LATEST_VERSION
 
     - name: git clone deno-drash
