@@ -9,5 +9,5 @@
   git add index.html
   git add public/*
   git commit -m "production build ($(date))"
-  git push
+  git push origin HEAD:master
 )
