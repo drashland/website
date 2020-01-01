@@ -1,6 +1,6 @@
 export default {
   deno_drash: {
-    directory: "/home/runner/work/deno-drash-docs/deno-drash",
+    directory: "/Users/runner/runners/2.163.1/work/deno-drash-docs/deno-drash",
   },
   logger: {
     enabled: false,
@@ -13,6 +13,6 @@ export default {
     },
   },
   server: {
-    directory: "/home/runner/work/deno-drash-docs/deno-drash-docs",
+    directory: "/Users/runner/runners/2.163.1/work/deno-drash-docs/deno-drash-docs",
   }
 }
