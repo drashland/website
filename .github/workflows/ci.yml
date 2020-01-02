@@ -5,6 +5,7 @@ on:
     branches:
       - staging
       - production
+      - master
 
 jobs:
   build:
@@ -49,8 +50,8 @@ jobs:
       run: |
         git remote rm origin
         git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
-        git config user.email drash.crooks@gmail.com
-        git config user.name drashbot
+        git config user.email $CI_USER_EMAIL
+        git config user.name $CI_USER_NAME
         git pull origin master
 
     - name: deploy staging
@@ -68,3 +69,11 @@ jobs:
       run: |
         export PATH=$DENO_INSTALL/bin:$PATH
         npm run production
+
+    - name: update long-running branches
+      if: github.ref == 'refs/heads/master'
+      run: |
+        git checkout staging
+        git merge master
+        git checkout production
+        git merge master
