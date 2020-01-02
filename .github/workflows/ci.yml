@@ -78,6 +78,8 @@ jobs:
     - name: update long-running branches
       if: github.ref == 'refs/heads/master'
       run: |
-        git pull
+        git pull origin master
+        git pull origin staging
+        git pull origin production
         git checkout staging && git merge origin/master
         git checkout production && git merge origin/master
