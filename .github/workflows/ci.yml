@@ -79,7 +79,5 @@ jobs:
       if: github.ref == 'refs/heads/master'
       run: |
         git pull
-        git checkout staging
-        git merge origin/master
-        git checkout production
-        git merge origin/master
+        git checkout staging && git merge origin/master
+        git checkout production && git merge origin/master
