@@ -16,10 +16,6 @@ jobs:
 
     runs-on: macOS-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
     - uses: actions/checkout@v1
 
