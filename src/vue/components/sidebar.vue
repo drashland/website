@@ -62,12 +62,23 @@ div.c-sidebar
                 div.l-submenu-1
                   a(:href="$conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles'") User Profiles
                   div.l-submenu-2
+                    link
                     a(:href="$conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/introduction'") Introduction
                     a(:href="$conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/part-1'") Part 1: Simulate Database Records
                     a(:href="$conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/part-2'") Part 2: Creating The Server
                     a(:href="$conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/part-3'") Part 3: Creating The Resource
                     a(:href="$conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/part-4'") Part 4: Handling Representations
                     a(:href="$conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/part-5'") Part 5: Adding More Content Types
+                a Creating An API
+                div.l-submenu-1
+                  a-link(href="/advanced-tutorials/creating-an-api/coffee-and-tea") Coffee And Tea
+                  div.l-submenu-2
+                    a-link(href="/advanced-tutorials/creating-an-api/coffee-and-tea/introduction") Introduction
+                    a-link(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-1") Part 1: Simulate Database Records
+                    a-link(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-2") Part 2: Creating The Server
+                    a-link(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-3") Part 3: Creating The Coffee Resource
+                    a-link(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-3") Part 4: Creating The Tea Resource
+                    a-link(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-5") Part 5: Modifying The Response Object Schema
             a.heading-link Third Party Tutorials
             div.c-sidebar__menu-body
                 a(:href="$conf.base_url + '/#/third-party-tutorials/introduction'") Introduction
