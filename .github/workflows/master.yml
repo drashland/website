@@ -25,7 +25,7 @@ jobs:
 
     - name: update long-running branches
       run: |
-        configure_git
+        console/configure_git
         git pull origin master
         git pull origin staging
         git pull origin production

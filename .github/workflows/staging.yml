@@ -44,7 +44,7 @@ jobs:
 
     - name: configure git
       run: |
-        configure_git
+        console/configure_git
 
     - name: deploy staging
       if: github.ref == 'refs/heads/staging'
