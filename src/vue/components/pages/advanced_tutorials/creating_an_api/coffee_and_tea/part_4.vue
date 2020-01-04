@@ -1,10 +1,10 @@
 <script>
 export const resource = {
-    paths: ["/advanced-tutorials/content-negotiation/user-profiles/part-4"],
+    paths: ["/advanced-tutorials/creating-an-api/coffee-and-tea/part-4"],
     meta: {
-        title: "Content Negotation: User Profiles",
-        subtitle: "Part 4: Handling Representations",
-        source_code_uri: "/advanced_tutorials/content_negotiation/user_profiles/part_4"
+        title: "Creating An API",
+        subtitle: "Part 4: Modifying The Response Schema",
+        source_code_uri: "/advanced_tutorials/creating_an_api/coffee_and_tea/part_4"
     }
 }
 
@@ -13,7 +13,7 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 4,
-      parts: 5,
+      parts: 4,
       toc: {
         items: [
           "Before You Get Started",
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/content-negotiation/user-profiles"
+      uri: "/advanced-tutorials/creating-an-api/coffee-and-tea"
     };
   },
 }
@@ -39,23 +39,51 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
+      p Currently, when clients make requests to your records, they receive the following response schema for <code>200</code> responses ...
       p
-        strong
-          em Before getting into the nitty-gritty of having your resource handle HTML representations of itself, you need to understand how the <code>Content-Type</code> header and MIME types play their roles in Drash's request-resource-response lifecycle. So, please read the entire block below.
-      div.jumbotron
-        p First and foremost, Drash DOES NOT use the <code>Accept</code> header to determine what representation of a resource a request wants. It uses its own <code>Response-Content-Type</code> header; and clients can only specify one content type in this header.
-        p When a Drash server processes a request, it checks what content type the request wants to receive by checking the following in order:
-        ul
-          li Did the request specify a <code>Response-Content-Type</code> header? If so, then use that.
-          li Did the request specify a <code>response_content_type</code> URL query param? If so, then use that; and do not use the header.
-          li Did the request specify a <code>response_content_type</code> body param? If so, then use that; and do not use the URL query param.
-          li Did the request specify a response content type at all? If not, then default to the <code>response_output</code> config that was used during the server object's creation.
-          li Was the <code>response_output</code> config used? If not, then default to <code>application/json</code> (Drash's default response content type).
-        p Once the server object figures out what content type to use, it sets that content type on the request as <code>request.response_content_type</code>. After the response content type is set, the server object creates the response object (<code>Drash.Http.Response</code>). The response object uses the value of <code>request.response_content_type</code> as its <code>Content-Type</code> header and uses it to decide how it should generate a response in its <code><a href="https://github.com/drashland/deno-drash/blob/master/src/http/response.ts#L68" target="_BLANK">generateResponse()</a></code> method.
-        p Drash defaults to setting the response object's <code>Content-Type</code> header this way to ensure clients can properly handle Drash's response objects. For example, if a browser is the client and it receives a response with a <code>Content-Type</code> header set to <code>text/html</code>, then the browser will know that it needs to display the response as an HTML document. Same thing goes for <code>application/json</code> responses (displays as JSON), <code>application/pdf</code> responses (displays as a PDF document), etc.
-        p If a request specifies a content type that is not supported in the response object (that is, a content type that is not in <code>generateResponse()</code>),then Drash will throw a <code>400 Bad Request</code> error stating that the content type the request specified is unknown.
-      p Now that your server can use your users resource to serve user data, you can have your resource change the representation (the content type) of its user data before it is sent back to the client. Drash defines content types according to the MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type" target="_BLANK">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type</a>.
-      p In this tutorial part, you will create a profile card in HTML using Tailwind CSS. When clients make requests to your users resource, they will be able to specify how they want to your data. They will be able to pass in a content type using the <code>response_content_type</code> URL query param. For example, if the client wants the <code>text/html</code> representation of your users resource's data, then they can make the following <code>GET</code> request: <code>localhost:1447/users/1?response_content_type=text/html</code>.
+        code-block-slotted(:header="false" language="javascript")
+          template(v-slot:code)
+            | {
+            |   "id": 50,
+            |   "name": "Earl Gray",
+            |   "price": 4
+            | }
+      p ... and the following response schema for error responses (like the <code>404</code> response below) ...
+      p
+        code-block-slotted(:header="false" language="javascript")
+          template(v-slot:code)
+            | "Tea with ID \"2710\" not found."
+      p This is perfectly fine to some clients, but to others it does not contain enough information. Some clients want a <code>200</code> response schema like ...
+      p
+        code-block-slotted(:header="false" language="javascript")
+          template(v-slot:code)
+            | {
+            |   "status_code": 200,
+            |   "status_text": "OK",
+            |   "data": {
+            |     "id": 50,
+            |     "name": "Earl Gray",
+            |     "price": 4
+            |   },
+            |   "request": {
+            |     "method": "GET",
+            |     "uri": "/tea/50"
+            |   }
+            | }
+      p ... and an error response schema like ...
+      p
+        code-block-slotted(:header="false" language="javascript")
+          template(v-slot:code)
+            | {
+            |   "status_code": 404,
+            |   "status_text": "Not Found",
+            |   "data": null,
+            |   "request": {
+            |     "method": "GET",
+            |     "uri": "/tea/2710"
+            |   }
+            | }
+      p In this tutorial part, you will override and replace <code>Drash.Http.Response</code> so that it can send a more informative response schema.
       p-view-source-code
   div.row
     div.col
@@ -67,38 +95,100 @@ page-tutorial-part(
       h2-hash Steps
       ol
         li
-          p Add your <code>profile_card.html</code> file.
-          code-block(:data="example_code.user" language="html" line_highlight="14,21")
-          p When a request is made to your resource for the <code>text/html</code> representation of its data, this is the HTML file that will be sent as the response. After your resource reads this HTML file, it will replace the highlighted variables (<code>alias</code> and <code>name</code>) with the requested user's data. This replacement process is basically the process a template engine would perform, but in a much simpler way.
+          p Create your <code>response.ts</code> file that will be used to override <code>Drash.Http.Response</code>.
+          p
+            code-block(:data="example_code.response" language="typescript")
+          p The only method you need to override is <code>generateResponse()</code>. The following methods and objects are accessible from the <code>Drash.Http.Response</code>.
+          ul
+            li
+              code this.status_code
+            li
+              code this.getStatusMessage()
+            li
+              code this.body
+            li
+              code this.request
+          p See <a href="/#/api-reference/http/response" target="_BLANK"><code>Drash.Http.Response</code></a> in the API Reference for more information on its members.
         li
-          p Modify your resource by adding the highlighted code so that it can generate a <code>text/html</code> representation of its data. Also, organize your code with specific response-generating methods (e.g., <code>generateHtml()</code> and <code>generateJson()</code>) for readability.
-          code-block(:data="example_code.users_resource" language="typescript" line_highlight="13-23, 44-61")
-          p The highlighted code will check what content type the request wants to receive and will make sure that the user data is sent in the requested format. If the request does not specify a content type, then the server object will default to the one you specified in its <code>response_output</code> config, which should be <code>application/json</code> like below.
-          code-block(:data="example_code.app" language="typescript" line_highlight="7")
+          p Import your <code>response.ts</code> file and replace <code>Drash.Http.Response</code> in your <code>app.ts</code>.
+          p
+            code-block(:data="example_code.app" language="typescript" line_highlight="3-4")
+          p Now, when your Drash server runs, it will use your response class instead of its original <code>Drash.Http.Response</code>.
   div.row
     div.col
       hr
       h2-hash Verification
-      p You now have the option to specify which content type you want to receive: <code>application/json</code> or <code>text/html</code>. Verify that your resource can serve both content types of itself.
+      p Now that you have your new response object that can generate a more informative response schema, you can restart your server and test it out.
       ol
         li Run your app.
-          code-block-slotted
-            template(v-slot:title) /path/to/your/project/app.ts
-            template(v-slot:code)
-              | deno --allow-net --allow-read app.ts
-        li Make a request to <code>localhost:1447/users/1</code> in your browser.
+          p
+            code-block-slotted
+              template(v-slot:title) /path/to/your/project/app.ts
+              template(v-slot:code)
+                | deno --allow-net --allow-read app.ts
+        li Make a coffee request using <code>curl</code> like below or go to <code>localhost:1447/coffee/17</code> in your browser.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | curl localhost:1447/coffee/17
           p You should receive the following response (we pretty-printed the response for you):
-          code-block-slotted(language="javascript")
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | {
-              |     "id": 1,
-              |     "alias": "Captain America",
-              |     "name": "Steve Rogers",
-              |     "api_key": "**********",
-              |     "api_secret": "**********"
-              | }
-        li Make a request to <code>localhost:1447/users/1?response_content_type=text/html</code> in your browser&ndash;specifying you want the <code>text/html</code> representation of <code>/users/1</code>.
-          p You should receive the following response:
-          img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3.png'")
+            code-block-slotted(:header="false" language="javascript")
+              template(v-slot:code)
+                | {
+                |   "status_code": 200,
+                |   "status_message": "OK",
+                |   "data": {
+                |     "id": 17,
+                |     "name": "Light Roast: Breakfast Blend",
+                |     "price": 2.25
+                |   },
+                |   "request": {
+                |     "method": "GET",
+                |     "uri": "/coffee/17"
+                |   }
+                | }
+        li Make a bad coffee request to <code>localhost:1447/coffee/9000</code>. You should receive the following response (we pretty-printed the response for you):
+          p
+            code-block-slotted(:header="false" language="javascript")
+              template(v-slot:code)
+                | {
+                |   "status_code": 404,
+                |   "status_message": "Not Found",
+                |   "data": "Coffee with ID \"9000\" not found.",
+                |   "request": {
+                |     "method": "GET",
+                |     "uri": "/coffee/9000"
+                |   }
+                | }
+        li Make a tea request to <code>localhost:1447/tea/50</code>. You should receive the following response (we pretty-printed the response for you):
+          p
+            code-block-slotted(:header="false" language="javascript")
+              template(v-slot:code)
+                | {
+                |   "status_code": 200,
+                |   "status_message": "OK",
+                |   "data": {
+                |     "id": 50,
+                |     "name": "Earl Gray",
+                |     "price": 4
+                |   },
+                |   "request": {
+                |     "method": "GET",
+                |     "uri": "/tea/50"
+                |   }
+                | }
+        li Make a bad tea request to <code>localhost:1447/tea/1337</code>. You should receive the following response (we pretty-printed the response for you):
+          p
+            code-block-slotted(:header="false" language="javascript")
+              template(v-slot:code)
+                | {
+                |   "status_code": 404,
+                |   "status_message": "Not Found",
+                |   "data": "Tea with ID \"1337\" not found.",
+                |   "request": {
+                |     "method": "GET",
+                |     "uri": "/tea/1337"
+                |   }
+                | }
 </template>
