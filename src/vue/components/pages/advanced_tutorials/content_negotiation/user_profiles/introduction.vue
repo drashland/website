@@ -5,7 +5,7 @@ export const resource = {
     "/advanced-tutorials/content-negotiation/user-profiles/introduction",
   ],
   meta: {
-    title: "Content Negotation: User Profiles",
+    title: "Content Negotation",
     subtitle: "Introduction",
     source_code_uri: "/advanced_tutorials/content_negotiation/user_profiles"
   }
@@ -31,8 +31,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Overview
-      p In this tutorial, you will learn how to implement <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation" target="_BLANK">content negotation</a> in a Drash server. You will learn how to make a Drash server serve different representations of a resource. For simplicity, the only two representations this tutorial will cover are <code>application/json</code> and <code>text/html</code>. However, this tutorial will set your resource up in a way that will allow you to add more representations. The resource you will be creating is a users resource. It will contain data about users and will be able to display a single user's data as profile card in HTML or as JSON. The client (your browser in this case) will decide what representation to receive.
-      p-tutorial-comes-in-multiple-parts
+      p In this tutorial series, you will learn how to implement <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation" target="_BLANK">content negotation</a> in a Drash server. You will learn how to make a Drash server serve different representations of a resource. For simplicity, the only two representations this tutorial will cover are <code>application/json</code> and <code>text/html</code>. However, this tutorial will set your resource up in a way that will allow you to add more representations. The resource you will be creating is a users resource. It will contain data about users and will be able to display a single user's data as profile card in HTML or as JSON. The client (your browser in this case) will decide what representation to receive.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
         a.btn.btn-success(href="/#/advanced-tutorials/content-negotiation/user-profiles/part-1") Get Started

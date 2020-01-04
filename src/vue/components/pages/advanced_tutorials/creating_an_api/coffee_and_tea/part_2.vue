@@ -1,10 +1,10 @@
 <script>
 export const resource = {
-    paths: ["/advanced-tutorials/content-negotiation/user-profiles/part-2"],
+    paths: ["/advanced-tutorials/creating-an-api/coffee-and-tea/part-2"],
     meta: {
-        title: "Content Negotation",
+        title: "Creating An API",
         subtitle: "Part 2: Creating The Server",
-        source_code_uri: "/advanced_tutorials/content_negotiation/user_profiles/part_2"
+        source_code_uri: "/advanced_tutorials/creating_an_api/coffee_and_tea/part_2"
     }
 }
 
@@ -13,7 +13,7 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 2,
-      parts: 5,
+      parts: 4,
       toc: {
         items: [
           "Before You Get Started",
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/content-negotiation/user-profiles"
+      uri: "/advanced-tutorials/creating-an-api/coffee-and-tea"
     };
   },
 }
@@ -39,7 +39,12 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
-      p Now that you have your user records from your "database" in place from Part 1, you need a server to handle requests for that data. The server you will create in this tutorial part will be very basic. It will only handle requests to one resource. This resource will be your users resource.
+      p Now that you have your "database" records in place from Part 1, you need a server to handle requests for that data. The server you will create in this tutorial part will handle requests via the following resources:
+      ul
+        li
+          code CoffeeResource
+        li
+          code TeaResource
       p-view-source-code
   div.row
     div.col
@@ -52,27 +57,31 @@ page-tutorial-part(
       ol
         li
           p Create your app file.
-          code-block(:data="example_code.app" language="javascript" line_highlight="3,8")
+          code-block(:data="example_code.app" language="javascript" line_highlight="3-4,10-11")
           p When this file is run, it will load in Drash, set up your server, and start your server.
-          p You will notice that there is an <code>import</code> statement for a <code>users_resource.ts</code> file (highlighted). You will be creating this file in the next tutorial part. For now, you just need to make sure your server expects and registers this resource file.
+          p You will notice that there are <code>import</code> statements for your resource files (highlighted). You will be creating these files in the next tutorial part. For now, you just need to make sure your server expects and registers them.
   div.row
     div.col
       hr
       h2-hash Verification
-      p If you run your app in its current state, you will get an error. The TypeScript compiler will throw an error stating it cannot resolve the <code>users_resource.ts</code> module. So, before you verify that your server is working, you need to comment out the lines relevant to <code>users_resource.ts</code>.
+      p If you run your app in its current state, you will get an error. The TypeScript compiler will throw an error stating it cannot resolve your resource files. So, before you verify that your server is working, you need to comment out the lines relevant to your resource files.
       ol
-        li Comment out the <code>import</code> statement and <code>resources</code> config.
-          code-block-slotted(language="typescript" line_highlight="3,8")
+        li Comment out the code relevant to your resource files.
+          code-block-slotted(language="typescript" line_highlight="3-4,10-11")
             template(v-slot:title) /path/to/your/project/app.ts
             template(v-slot:code)
               | import Drash from "https://deno.land/x/drash/mod.ts";
               |
-              | // import UsersResource from "./users_resource.ts";
+              | // import CoffeeResource from "./coffee_resource.ts";
+              | // import TeaResource from "./tea_resource.ts";
               |
               | let server = new Drash.Http.Server({
               |   address: "localhost:1447",
               |   response_output: "application/json",
-              |   // resources: [UsersResource],
+              |   resources: [
+              |     // CoffeeResource,
+              |     // TeaResource
+              |   ],
               | });
               |
               | server.run();
@@ -97,18 +106,22 @@ page-tutorial-part(
             template(v-slot:code)
               | "Not Found"
           p You will receive a <code>404 Not Found</code> error because your server does not have any resources. This is expected. You will be creating your resources next.
-        li Uncomment the <code>import</code> statement and <code>resources</code> config before moving on to the next part.
-          code-block-slotted(language="typescript" line_highlight="3,8")
+        li Before moving on, uncomment the code you commented out.
+          code-block-slotted(language="typescript" line_highlight="3-4,10-11")
             template(v-slot:title) /path/to/your/project/app.ts
             template(v-slot:code)
               | import Drash from "https://deno.land/x/drash/mod.ts";
               |
-              | import UsersResource from "./users_resource.ts";
+              | import CoffeeResource from "./coffee_resource.ts";
+              | import TeaResource from "./tea_resource.ts";
               |
               | let server = new Drash.Http.Server({
               |   address: "localhost:1447",
               |   response_output: "application/json",
-              |   resources: [UsersResource],
+              |   resources: [
+              |     CoffeeResource,
+              |     TeaResource
+              |   ],
               | });
               |
               | server.run();

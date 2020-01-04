@@ -4,7 +4,7 @@ page
         div.col
             hr
             h2-hash About The Third Party Tutorials
-            p These tutorials assume you have read through the following tutorials:
+            p The third party tutorials assume you have read through the following tutorials:
             ul
               li Resources
               li Requests
