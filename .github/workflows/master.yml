@@ -1,0 +1,29 @@
+name: master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    env:
+      CI: true
+      CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
+      CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
+      GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: update long-running branches
+      run: |
+        console/configure_git
+        git pull origin master
+        git pull origin staging
+        git pull origin production
+        git checkout staging && git merge origin/master
+        git checkout production && git merge origin/master
