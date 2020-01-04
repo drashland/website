@@ -35,7 +35,7 @@ jobs:
 
     - name: install deno
       run: |
-        curl -fsSL https://deno.land/x/install/install.sh | sh -s $DENO_LATEST_VERSION
+        console/install_deno
 
     - name: git clone deno-drash
       run: |
