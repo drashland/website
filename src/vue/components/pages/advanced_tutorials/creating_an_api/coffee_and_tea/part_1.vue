@@ -2,7 +2,7 @@
 export const resource = {
     paths: ["/advanced-tutorials/creating-an-api/coffee-and-tea/part-1"],
     meta: {
-      title: "Creating An API: Coffee And Tea",
+      title: "Creating An API",
       subtitle: "Part 1: Simulate Database Records",
       source_code_uri: "/advanced_tutorials/creating_an_api/coffee_and_tea/part_1"
     }
@@ -13,7 +13,7 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 1,
-      parts: 5,
+      parts: 4,
       toc: {
         items: [
           "Before You Get Started",

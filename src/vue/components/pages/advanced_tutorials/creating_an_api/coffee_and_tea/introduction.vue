@@ -5,9 +5,9 @@ export const resource = {
     "/advanced-tutorials/creating-an-api/coffee-and-tea/introduction",
   ],
   meta: {
-    title: "Content Negotation: User Profiles",
+    title: "Creating An API",
     subtitle: "Introduction",
-    source_code_uri: "/advanced_tutorials/creating_an_api/user_profiles"
+    source_code_uri: "/advanced_tutorials/creating_an_api/coffee_and_tea"
   }
 }
 
@@ -31,7 +31,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Overview
-      p In this tutorial, you will learn how to create a simple API powered by Drash. You will learn how to make a Drash server serve <code>application/json</code> responses to clients based on the clients' requests. The data your Drash server will serve will be data on coffees and teas.
+      p In this tutorial series, you will learn how to create a simple API powered by Drash. You will learn how to make a Drash server serve <code>application/json</code> responses to clients based on the clients' requests. The data your Drash server will serve will be data on coffees and teas.
       p-tutorial-comes-in-multiple-parts
       p-view-source-code
       p.text-center(style="margin-bottom: 0")

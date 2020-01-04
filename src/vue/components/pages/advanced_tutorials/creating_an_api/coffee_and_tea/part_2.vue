@@ -2,7 +2,7 @@
 export const resource = {
     paths: ["/advanced-tutorials/creating-an-api/coffee-and-tea/part-2"],
     meta: {
-        title: "Creating An API: Coffee And Tea",
+        title: "Creating An API",
         subtitle: "Part 2: Creating The Server",
         source_code_uri: "/advanced_tutorials/creating_an_api/coffee_and_tea/part_2"
     }
@@ -13,7 +13,7 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 2,
-      parts: 5,
+      parts: 4,
       toc: {
         items: [
           "Before You Get Started",
@@ -39,10 +39,12 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
-      p Now that you have your "database" records in place from Part 1, you need a server to handle requests for that data. The server you will create in this tutorial part will handle requests to two resources:
+      p Now that you have your "database" records in place from Part 1, you need a server to handle requests for that data. The server you will create in this tutorial part will handle requests via the following resources:
       ul
-        li A coffee resource; and
-        li A tea resource.
+        li
+          code CoffeeResource
+        li
+          code TeaResource
       p-view-source-code
   div.row
     div.col
@@ -57,7 +59,7 @@ page-tutorial-part(
           p Create your app file.
           code-block(:data="example_code.app" language="javascript" line_highlight="3-4,10-11")
           p When this file is run, it will load in Drash, set up your server, and start your server.
-          p You will notice that there are <code>import</code> statements for resource files (highlighted). You will be creating these files in the next tutorial part. For now, you just need to make sure your server expects and registers them.
+          p You will notice that there are <code>import</code> statements for your resource files (highlighted). You will be creating these files in the next tutorial part. For now, you just need to make sure your server expects and registers them.
   div.row
     div.col
       hr
