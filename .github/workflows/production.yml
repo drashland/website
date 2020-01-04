@@ -1,13 +1,13 @@
-name: ci
+name: production
 
 on:
   push:
     branches:
-      - staging
       - production
 
 jobs:
   build:
+
     env:
       CI: true
       CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
@@ -15,7 +15,9 @@ jobs:
       DENO_INSTALL: "/Users/runner/.local"
       DENO_LATEST_VERSION: "v0.27.0"
       GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
+
     runs-on: macOS-latest
+
     strategy:
       matrix:
         node-version: [12.x]
@@ -40,31 +42,20 @@ jobs:
       run: |
         git clone https://github.com/drashland/deno-drash.git ../deno-drash
 
-    - name: copy .ts files
-      run: |
-        cp deps.sample.ts deps.ts
-        cp conf/app.ci.ts conf/app.ts
-
     - name: configure git
       run: |
-        git remote rm origin
-        git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
-        git config user.email $CI_USER_EMAIL
-        git config user.name $CI_USER_NAME
-        git pull origin master
-
-    - name: deploy staging
-      if: github.ref == 'refs/heads/staging'
-      run: |
-        export DENO_DRASH_DOCS_ENVIRONMENT="staging"
-        export PATH=$DENO_INSTALL/bin:$PATH
-        console/compile_assets
-        console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
-        console/compile_ejs_templates
-        npm run staging
+        console/configure_git
 
     - name: deploy production
       if: github.ref == 'refs/heads/production'
       run: |
         export PATH=$DENO_INSTALL/bin:$PATH
-        npm run production
+        export DENO_DRASH_DOCS_ENVIRONMENT="production"
+        console/copy_config_files
+        console/compile_assets
+        console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
+        console/compile_ejs_templates
+        git add index.html
+        git add public/*
+        git commit -m "production build ($(date))"
+        git push origin HEAD:master
