@@ -58,26 +58,21 @@ div.c-sidebar
             a-base-url.heading-link(href="/advanced-tutorials") Advanced Tutorials
             div.c-sidebar__menu-body
                 a-base-url(href="/advanced-tutorials/introduction") Introduction
-                a Content Negotiation
+                a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles") Content Negotiation
                 div.l-submenu-1
-                  a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles") User Profiles
-                  div.l-submenu-2
-                    link
-                    a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/introduction") Introduction
-                    a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-1") Part 1: Simulate Database Records
-                    a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-2") Part 2: Creating The Server
-                    a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-3") Part 3: Creating The Resource
-                    a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-4") Part 4: Handling Representations
-                    a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-5") Part 5: Adding More Content Types
-                a Creating An API
+                  a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/introduction") Introduction
+                  a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-1") Part 1: Simulate Database Records
+                  a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-2") Part 2: Creating The Server
+                  a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-3") Part 3: Creating The Resource
+                  a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-4") Part 4: Handling Representations
+                  a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-5") Part 5: Adding More Content Types
+                a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea") Creating An API
                 div.l-submenu-1
-                  a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea") Coffee And Tea
-                  div.l-submenu-2
-                    a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/introduction") Introduction
-                    a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-1") Part 1: Simulate Database Records
-                    a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-2") Part 2: Creating The Server
-                    a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-3") Part 3: Creating The Resources
-                    a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-4") Part 4: Modifying The Response Object Schema
+                  a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/introduction") Introduction
+                  a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-1") Part 1: Simulate Database Records
+                  a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-2") Part 2: Creating The Server
+                  a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-3") Part 3: Creating The Resources
+                  a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-4") Part 4: Modifying The Response Schema
             a.heading-link Third Party Tutorials
             div.c-sidebar__menu-body
                 a-base-url(href="/third-party-tutorials/introduction") Introduction
