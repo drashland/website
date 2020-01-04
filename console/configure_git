@@ -2,7 +2,7 @@
 
 (
   git remote rm origin
-  git remote add origin https://$GIT_PUSHER_BOT@github.com/drashland/deno-drash-docs.git
+  git remote add origin https://$CI_USER_PAT@github.com/drashland/deno-drash-docs.git
   git config user.email $CI_USER_EMAIL
   git config user.name $CI_USER_NAME
   git pull origin master
