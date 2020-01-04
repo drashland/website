@@ -19,12 +19,4 @@
   cp    public/assets/js/app_data.staging.js staging/public/assets/js/app_data.staging.js
   cp -r public/assets/img                    staging/public/assets/
   cp -r public/assets/vendor                 staging/public/assets/
-
-  # Discard changes made to prod
-  git checkout -- index.html
-  git checkout -- public/*
-
-  git add staging/*
-  git commit -m "staging build ($(date))"
-  git push origin HEAD:master
 )

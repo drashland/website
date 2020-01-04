@@ -1,0 +1,61 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  build:
+
+    env:
+      CI: true
+      CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
+      CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
+      DENO_INSTALL: "/Users/runner/.local"
+      DENO_LATEST_VERSION: "v0.27.0"
+      GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
+
+    runs-on: macOS-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: npm install
+      run: |
+        npm install
+
+    - name: install deno
+      run: |
+        curl -fsSL https://deno.land/x/install/install.sh | sh -s $DENO_LATEST_VERSION
+
+    - name: git clone deno-drash
+      run: |
+        git clone https://github.com/drashland/deno-drash.git ../deno-drash
+
+    - name: configure git
+      run: |
+        configure_git
+
+    - name: deploy production
+      if: github.ref == 'refs/heads/production'
+      run: |
+        export PATH=$DENO_INSTALL/bin:$PATH
+        export DENO_DRASH_DOCS_ENVIRONMENT="production"
+        console/copy_config_files
+        console/compile_assets
+        console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
+        console/compile_ejs_templates
+        git add index.html
+        git add public/*
+        git commit -m "production build ($(date))"
+        git push origin HEAD:master
