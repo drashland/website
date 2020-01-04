@@ -2,7 +2,7 @@
 export const resource = {
     paths: ["/advanced-tutorials/content-negotiation/user-profiles/part-2"],
     meta: {
-        title: "Content Negotation: User Profiles",
+        title: "Content Negotation",
         subtitle: "Part 2: Creating The Server",
         source_code_uri: "/advanced_tutorials/content_negotiation/user_profiles/part_2"
     }
@@ -81,7 +81,7 @@ page-tutorial-part(
             template(v-slot:title) Terminal
             template(v-slot:code)
               | deno --allow-net app.ts
-          p <code>--allow-net</code> is required because you want to allow clients to access your network. Your server will be running on your network; therefore, access to your network must be granted. You can learn more about the <code>--allow-net</code> flag at <a href="https://deno.land/std/manual.md" target="_BLANK">https://deno.land/std/manual.md</a>.
+          p-deno-flag-allow-net
           p When you run your app, you should see the following:
           code-block-slotted
             template(v-slot:title) Terminal
@@ -95,8 +95,8 @@ page-tutorial-part(
           p You should receive the following response:
           code-block-slotted(:header="false")
             template(v-slot:code)
-              | {"status_code":404,"status_message":"Not Found","body":"Not Found","request":{"method":"GET","uri":"/","url_query_params":{},"url":"localhost:1447/"}}
-          p You will receive a <code>404</code> error because your server does not have any resources. This is expected. You will be creating your <code>users_resources.ts</code> file in the next part.
+              | "Not Found"
+          p You will receive a <code>404 Not Found</code> error because your server does not have any resources. This is expected. You will be creating your resources next.
         li Uncomment the <code>import</code> statement and <code>resources</code> config before moving on to the next part.
           code-block-slotted(language="typescript" line_highlight="3,8")
             template(v-slot:title) /path/to/your/project/app.ts
