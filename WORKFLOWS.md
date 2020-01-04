@@ -1,16 +1,20 @@
 # Workflows
 
+## Updating Branches
+
+* The `staging` and `production` branches do not have to be updated from your local machine. The CI/CD process makes sure they are up to date with `master` before any branch is merged into them. All branches are based off of `master`, so there should not be any misalignments with tracking.
+
 ## New Features
 
 * Set up your branch
 
 ```
-git checkout staging
+git checkout master
 git pull
 git checkout -b "your-branch-with-the-issue-number"
 ```
 
-_Note: All new feature branches must be based off of the `staging` branch._
+_Note: All new feature branches must be based off of the `master` branch._
 
 * Make and commit changes.
 * Make a pull request from your branch to  `staging`.
@@ -23,7 +27,7 @@ _Note: All new feature branches must be based off of the `staging` branch._
 
 ## Production Deployments
 
-Production deployments are triggered when a branch is merged into the `production` branch. The only branch that should be merged into the `production` branch is `staging`.
+Production deployments are triggered when a branch is merged into the `production` branch. The only branch that should be merged into the `production` branch should be `staging`.
 
 ### Handling Hotfixes
 
