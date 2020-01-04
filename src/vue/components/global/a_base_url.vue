@@ -17,6 +17,3 @@ let component = {
 
 export default component;
 </script>
-
-
-
