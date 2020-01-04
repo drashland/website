@@ -18,6 +18,9 @@ div
   div.row(v-if="part != -1 && part != parts")
     div.col
       p.alert.alert-info You can now move on to the next tutorial part.
+  div.row(v-if="part == parts")
+    div.col
+      p.alert.alert-success You have completed this tutorial series.
   div.row
     div.col
       hr
