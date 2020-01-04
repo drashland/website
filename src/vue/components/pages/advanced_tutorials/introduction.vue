@@ -9,7 +9,7 @@ page
               li Resources
               li Requests
               li Servers
-            p All advanced tutorials come as a series of tutorial parts. Each part (after Part 1) builds off the previous part.
+            p All advanced tutorials come as a series of tutorial parts. The parts are ordered in a way to help you build towards the tutorial's end state from scratch. In each part, you will see a Folder Structure End State section. That section shows you what your project's folder structure should look like by the time you finish the part you are on. In addition, there will be a Verification section (the last section of each part) to help you match your end state to the tutorial's end state.
     div.row
         div.col
             hr
