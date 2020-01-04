@@ -2,7 +2,7 @@
 export const resource = {
     paths: ["/advanced-tutorials/content-negotiation/user-profiles/part-1"],
     meta: {
-      title: "Content Negotation: User Profiles",
+      title: "Content Negotation",
       subtitle: "Part 1: Simulate Database Records",
       source_code_uri: "/advanced_tutorials/content_negotiation/user_profiles/part_1"
     }
