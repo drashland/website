@@ -76,9 +76,8 @@ div.c-sidebar
                     a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/introduction") Introduction
                     a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-1") Part 1: Simulate Database Records
                     a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-2") Part 2: Creating The Server
-                    a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-3") Part 3: Creating The Coffee Resource
-                    a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-3") Part 4: Creating The Tea Resource
-                    a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-5") Part 5: Modifying The Response Object Schema
+                    a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-3") Part 3: Creating The Resources
+                    a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-4") Part 4: Modifying The Response Object Schema
             a.heading-link Third Party Tutorials
             div.c-sidebar__menu-body
                 a-base-url(href="/third-party-tutorials/introduction") Introduction

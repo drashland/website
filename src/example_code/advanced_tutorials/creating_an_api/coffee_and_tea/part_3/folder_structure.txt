@@ -1,4 +1,6 @@
 ▾ /path/to/your/project/
 	app.ts
-	users.json
-	users_resource.ts
+	coffee.json
+	coffee_resource.ts
+	tea.json
+	tea_resource.ts

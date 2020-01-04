@@ -1,10 +1,10 @@
 <script>
 export const resource = {
-    paths: ["/advanced-tutorials/content-negotiation/user-profiles/part-3"],
+    paths: ["/advanced-tutorials/creating-an-api/coffee-and-tea/part-3"],
     meta: {
-        title: "Content Negotation: User Profiles",
-        subtitle: "Part 3: Creating The Resource",
-        source_code_uri: "/advanced_tutorials/content_negotiation/user_profiles/part_3"
+        title: "Creating An API: Coffee And Tea",
+        subtitle: "Part 3: Creating The Resources",
+        source_code_uri: "/advanced_tutorials/creating_an_api/coffee_and_tea/part_3"
     }
 }
 
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/content-negotiation/user-profiles",
+      uri: "/advanced-tutorials/creating-an-api/coffee-and-tea",
     };
   },
 }
@@ -39,7 +39,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
-      p Your server will not be able to handle requests for your user records until you give it a resource that grants clients access to your user records. In Part 2, you made your server expect the <code>users_resource.ts</code> file. You will create this file next and make sure your server runs properly with it in the Verification section.
+      p Your server will not be able to handle requests for your coffee and tea records until you give it resources that grant access to them. In Part 2, you made your server expect a coffee resource and a tea resource. You will create these files next and will verify your server runs properly with them in the Verification section.
       p-view-source-code
   div.row
     div.col
@@ -51,72 +51,73 @@ page-tutorial-part(
       h2-hash Steps
       ol
         li
-          p Create your users resource file.
-          code-block(:data="example_code.users_resource" language="typescript")
-          p Your resource will only handle <code>GET</code> requests at the following URIs:
-          ul
-            li
-              code /users/:id
-            li
-              code /users/:id/
-          p Note that the above URIs are different. <em>Drash does not automatically append a trailing slash to the paths you specify. You must be explicit in this regard.</em>
-          p When a <code>GET</code> request is made to the above URIs, your resource will handle the request by:
-          ol
-            li Checking if an <code>id</code> path param was specified in the URI (e.g., if the request was to <code>/users/1</code>, then <code>1</code> would be the <code>id</code>).
-            li Using the <code>id</code> path param to match it to a user's ID in your user records; and
-            ul
-              li setting the user's record in the body of the response if the <code>id</code> path param is matched; or
-              li throwing a <code>404 Not Found</code> error with <code>User not found.</code> as the response body if the <code>id</code> path param is not matched.
-            li Sending the response back to the server object for further processing back to the client that made the request.
+          p Create your coffee resource file.
+          code-block(:data="example_code.coffee_resource" language="typescript")
+          p Your coffee resource will try to match the specified coffee <code>id</code> path param to a coffee ID in your "database". If the <code>id</code> is matched, then the record will be sent as the response. If not, then an error response will be sent.
+        li
+          p Create your tea resource file.
+          code-block(:data="example_code.tea_resource" language="typescript")
+          p Your tea resource will try to match the specified tea <code>id</code> path param to a tea ID in your "database". If the <code>id</code> is matched, then the record will be sent as the response. If not, then an error response will be sent.
   div.row
     div.col
       hr
       h2-hash Verification
-      p Stop your server (<code>ctrl + c</code>) if you still have it running from Part 2. Now that you have the resource file that your server is expecting, you can start your server and make a <code>GET</code> request to one of your resource's URIs.
+      p Stop your server (<code>ctrl + c</code>) if you still have it running from Part 2. Now that you have your resource files that your server is expecting, you can start your server and make <code>GET</code> requests to them.
       ol
         li Run your app.
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
               | deno --allow-net --allow-read app.ts
-          p This time, your app requires two flags to run. You already know what the <code>--allow-net</code> flag does from Part 2. <code>--allow-read</code> is required because your resource requires read access to read your <code>users.json</code> file. You can learn more about the <code>--allow-read</code> flag at <a href="https://deno.land/std/manual.md" target="_BLANK">https://deno.land/std/manual.md</a>.
-        li Make a request using <code>curl</code> like below or go to <code>localhost:1447/users/1</code> in your browser.
+          p This time, your app requires two flags to run. You already know what the <code>--allow-net</code> flag does from Part 2. <code>--allow-read</code> is required because your resource requires read access to read your <code>.json</code> files. You can learn more about the <code>--allow-read</code> flag at <a href="https://deno.land/std/manual.md" target="_BLANK">https://deno.land/std/manual.md</a>.
+        li Make a coffee request using <code>curl</code> like below or go to <code>localhost:1447/coffee/17</code> in your browser.
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | curl localhost:1447/users/1
+              | curl localhost:1447/coffee/17
           p You should receive the following response (we pretty-printed the response for you):
           code-block-slotted(:header="false" language="javascript")
             template(v-slot:code)
               | {
-              |     "id": 1,
-              |     "alias": "Captain America",
-              |     "name": "Steve Rogers",
-              |     "api_key": "46096ec9-5bf9-4978-b77b-07018dc32a74",
-              |     "api_secret": "1b64d3ac-7e19-4018-ab99-29f50e097f4b"
+              |   "id": 17,
+              |   "name": "Light Roast: Breakfast Blend",
+              |   "price": 2.25
               | }
-        li Make another request.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | curl localhost:1447/users/2
+        li Make a coffee request to <code>localhost:1447/coffee/32</code>.
           p You should receive the following response (we pretty-printed the response for you):
           code-block-slotted(:header="false" language="javascript")
             template(v-slot:code)
               | {
-              |     "id": 2,
-              |     "alias": "Black Widow",
-              |     "name": "Natasha Romanoff",
-              |     "api_key": "3d93a3f9-c5ad-439d-bacb-75a9e4fb2b42",
-              |     "api_secret": "e5b11faa-629f-4255-bf3a-ee736dc9468d"
+              |   "id": 32,
+              |   "name": "Medium Roast: Premium Single Origin (Sumatra)",
+              |   "price": 3.5
               | }
-        li Make a bad request.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | curl localhost:1447/users/4
+        li Make a bad coffee request to <code>localhost:1447/coffee/9000</code>.
           p You should receive the following response (we pretty-printed the response for you):
           code-block-slotted(:header="false" language="javascript")
             template(v-slot:code)
-              | "User with ID \"4\" not found."
+              | "Coffee with ID \"9000\" not found."
+        li Make a tea request to <code>localhost:1447/tea/50</code>.
+          p You should receive the following response (we pretty-printed the response for you):
+          code-block-slotted(:header="false" language="javascript")
+            template(v-slot:code)
+              | {
+              |   "id": 50,
+              |   "name": "Earl Gray",
+              |   "price": 4
+              | }
+        li Make a tea request to <code>localhost:1447/tea/68</code>.
+          p You should receive the following response (we pretty-printed the response for you):
+          code-block-slotted(:header="false" language="javascript")
+            template(v-slot:code)
+              | {
+              |   "id": 68,
+              |   "name": "Citrus Chamomile",
+              |   "price": 3.5
+              | }
+        li Make a bad tea request to <code>localhost:1447/tea/2710</code>.
+          p You should receive the following response (we pretty-printed the response for you):
+          code-block-slotted(:header="false" language="javascript")
+            template(v-slot:code)
+              | "Tea with ID \"2710\" not found."
 </template>
