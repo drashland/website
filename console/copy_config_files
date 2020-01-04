@@ -1,0 +1,6 @@
+#!/bin/bash
+
+(
+  cp deps.sample.ts deps.ts
+  cp conf/app.ci.ts conf/app.ts
+)
