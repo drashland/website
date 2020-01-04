@@ -1,10 +1,10 @@
 <script>
 export const resource = {
-    paths: ["/advanced-tutorials/content-negotiation/user-profiles/part-1"],
+    paths: ["/advanced-tutorials/creating-an-api/coffee-and-tea/part-1"],
     meta: {
-      title: "Content Negotation: User Profiles",
+      title: "Creating An API: Coffee And Tea",
       subtitle: "Part 1: Simulate Database Records",
-      source_code_uri: "/advanced_tutorials/content_negotiation/user_profiles/part_1"
+      source_code_uri: "/advanced_tutorials/creating_an_api/coffee_and_tea/part_1"
     }
 }
 
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/content-negotiation/user-profiles"
+      uri: "/advanced-tutorials/creating-an-api/coffee-and-tea"
     };
   },
 }
@@ -39,7 +39,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
-      p Before you start building your application, you need the data that will drive this tutorial. For simplicity, you will simulate retrieving records from a database. You will pretend that you have queried a database and retrieved three user records. This data will be parsable as JSON.
+      p Before you start building your application, you need the data that will drive this tutorial. For simplicity, you will simulate retrieving records from a database. You will pretend that you have queried a database for coffee and tea records. This data will be parsable as JSON.
       p-view-source-code
   div.row
     div.col
@@ -50,13 +50,15 @@ page-tutorial-part(
       hr
       h2-hash Steps
       ol
-        li Create the <code>users.json</code> file.
-          code-block(:data="example_code.users" language="javascript")
+        li Create the <code>coffee.json</code> file.
+          code-block(:data="example_code.coffee" language="javascript")
+        li Create the <code>tea.json</code> file.
+          code-block(:data="example_code.tea" language="javascript")
   div.row
     div.col
       hr
       h2-hash Verification (optional)
-      p Since you just made a JSON file and will be parsing this file as JSON in a later part, you should test that deno can parse it as JSON.
+      p Since you just made JSON files and will be parsing these files as JSON in a later part, you should test that deno can parse it as JSON.
       ol
         li Open up the deno REPL by typing in <code>deno</code> in your terminal.
           code-block-slotted
@@ -64,21 +66,24 @@ page-tutorial-part(
             template(v-slot:code)
               | deno
               | >
-        li Parse your file.
+        li Parse your files.
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | > let fileContents = Deno.readFileSync("./users.json");
+              | > let coffee = Deno.readFileSync("./coffee.json");
+              | undefined
+              |
+              | > let tea = Deno.readFileSync("./tea.json");
               | undefined
               |
               | > const decoder = new TextDecoder();
               | undefined
-              | 
-              | > let decoded = decoder.decode(fileContents);
-              | undefined
-              | 
-              | > JSON.parse(decoded);
-              | [ { id: 1, alias: "Captain America", name: "Steve Rogers", api_key: "46096ec9-5bf9-4978-b77b-07018dc32a74", api_secret: "1b64d3ac-7e19-4018-ab99-29f50e097f4b" }, { id: 2, alias: "Black Widow", name: "Natasha Romanoff", api_key: "3d93a3f9-c5ad-439d-bacb-75a9e4fb2b42", api_secret: "e5b11faa-629f-4255-bf3a-ee736dc9468d" }, { id: 3, alias: "Thor", name: "Thor Odinson", api_key: "7442f354-2a89-47ef-a3ce-5a7c68e82157", api_secret: "365e362f-fa21-4e5a-bb84-9da76e1c5f49" } ]
-              | 
+              |
+              | > JSON.parse(decoder.decode(coffee));
+              | { 17: { id: 17, name: "Light Roast: Breakfast Blend", price: 2.25 }, 28: { id: 28, name: "Medium Roast: Classico", price: 2.5 }, 32: { id: 32, name: "Medium Roast: Premium Single Origin (Sumatra)", price: 3.5 } }
+              |
+              | > JSON.parse(decoder.decode(tea));
+              | { 50: { id: 50, name: "Earl Gray", price: 4 }, 68: { id: 68, name: "Citrus Chamomile", price: 3.5 }, 83: { id: 83, name: "Imperial Blend", price: 4.5 } }
+              |
               | >
 </template>
