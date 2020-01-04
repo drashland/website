@@ -24,7 +24,7 @@ export default {
 page-tutorial-part(
   :introduction="true",
   :part="-1"
-  :parts="5",
+  :parts="4",
   :uri="uri"
 )
   div.row
