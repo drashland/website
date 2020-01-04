@@ -12,7 +12,7 @@ jobs:
       CI: true
       CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
       CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-      GIT_PUSHER_BOT: ${{ secrets.GIT_PUSHER_BOT }}
+      CI_USER_PAT: ${{ secrets.CI_USER_PAT }}
 
     runs-on: macOS-latest
 

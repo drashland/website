@@ -39,6 +39,11 @@ const app_data = {
         "contents": "",
         "filename": "creating_a_web_app",
         "title": "/path/to/your/project/creating_a_web_app"
+      },
+      "creating_an_api": {
+        "contents": "",
+        "filename": "creating_an_api",
+        "title": "/path/to/your/project/creating_an_api"
       }
     },
     "/src/example_code/advanced_tutorials/content_negotiation": {
@@ -389,6 +394,210 @@ const app_data = {
         "extension": "txt",
         "filename": "output.txt",
         "title": "/path/to/your/project/output.txt"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_an_api": {
+      "coffee_and_tea": {
+        "contents": "",
+        "filename": "coffee_and_tea",
+        "title": "/path/to/your/project/coffee_and_tea"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_an_api/coffee_and_tea": {
+      "part_5": {
+        "contents": "",
+        "filename": "part_5",
+        "title": "/path/to/your/project/part_5"
+      },
+      "part_2": {
+        "contents": "",
+        "filename": "part_2",
+        "title": "/path/to/your/project/part_2"
+      },
+      "part_3": {
+        "contents": "",
+        "filename": "part_3",
+        "title": "/path/to/your/project/part_3"
+      },
+      "part_4": {
+        "contents": "",
+        "filename": "part_4",
+        "title": "/path/to/your/project/part_4"
+      },
+      "part_1": {
+        "contents": "",
+        "filename": "part_1",
+        "title": "/path/to/your/project/part_1"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/part_5": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport response from \"./response.ts\";\nDrash.Http.Response = response;\n\nimport UsersResource from \"./users_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "coffee": {
+        "contents": "{\n  \"17\": {\n    \"id\": 17,\n    \"name\": \"Light Roast: Breakfast Blend\",\n    \"price\": 2.25\n  },\n  \"28\": {\n    \"id\": 28,\n    \"name\": \"Medium Roast: Classico\",\n    \"price\": 2.50\n  },\n  \"32\": {\n    \"id\": 32,\n    \"name\": \"Medium Roast: Premium Single Origin (Sumatra)\",\n    \"price\": 3.50\n  }\n}\n",
+        "extension": "json",
+        "filename": "coffee.json",
+        "title": "/path/to/your/project/coffee.json"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\tprofile_card.html\n\tusers.json\n\tusers_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "response": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class Response extends Drash.Http.Response {\n  public generateResponse(): any {\n    let contentType = this.headers.get(\"Content-Type\")\n\n    switch (contentType) {\n      case \"application/json\":\n        return JSON.stringify(this.body);\n      case \"application/xml\":\n      case \"text/html\":\n      case \"text/xml\":\n      case \"text/plain\":\n        return this.body;\n    }\n\n    throw new Drash.Exceptions.HttpResponseException(400, `Response Content-Type \"${contentType}\" unknown.`);\n  }\n}\n\n",
+        "extension": "ts",
+        "filename": "response.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/response.ts"
+      },
+      "tea": {
+        "contents": "{\n  \"50\": {\n    \"id\": 50,\n    \"name\": \"Earl Gray\",\n    \"price\": 4.00\n  },\n  \"68\": {\n    \"id\": 68,\n    \"name\": \"Citrus Chamomile\",\n    \"price\": 3.50\n  },\n  \"83\": {\n    \"id\": 83,\n    \"name\": \"Imperial Blend\",\n    \"price\": 4.50\n  }\n}\n",
+        "extension": "json",
+        "filename": "tea.json",
+        "title": "/path/to/your/project/tea.json"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/part_2": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport CoffeeResource from \"./coffee_resource.ts\";\nimport TeaResource from \"./tea_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    CoffeeResource,\n    TeaResource\n  ],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "coffee": {
+        "contents": "{\n  \"17\": {\n    \"id\": 17,\n    \"name\": \"Light Roast: Breakfast Blend\",\n    \"price\": 2.25\n  },\n  \"28\": {\n    \"id\": 28,\n    \"name\": \"Medium Roast: Classico\",\n    \"price\": 2.50\n  },\n  \"32\": {\n    \"id\": 32,\n    \"name\": \"Medium Roast: Premium Single Origin (Sumatra)\",\n    \"price\": 3.50\n  }\n}\n",
+        "extension": "json",
+        "filename": "coffee.json",
+        "title": "/path/to/your/project/coffee.json"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\tcoffee.json\n\ttea.json\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "tea": {
+        "contents": "{\n  \"50\": {\n    \"id\": 50,\n    \"name\": \"Earl Gray\",\n    \"price\": 4.00\n  },\n  \"68\": {\n    \"id\": 68,\n    \"name\": \"Citrus Chamomile\",\n    \"price\": 3.50\n  },\n  \"83\": {\n    \"id\": 83,\n    \"name\": \"Imperial Blend\",\n    \"price\": 4.50\n  }\n}\n",
+        "extension": "json",
+        "filename": "tea.json",
+        "title": "/path/to/your/project/tea.json"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/part_3": {
+      "coffee_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class CoffeeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/coffee/:id\",\n    \"/coffee/:id/\"\n  ];\n\n  public GET() {\n    let coffeeId = this.request.getPathParam(\"id\");\n    this.response.body = this.getCoffee(coffeeId);\n    return this.response;\n  }\n\n  protected getCoffee(coffeeId: number) {\n    let record = null;\n\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./coffee.json\");\n      let decoder = new TextDecoder();\n      let records = decoder.decode(fileContentsRaw);\n      records = JSON.parse(records);\n      record = records[coffeeId];\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error getting coffee with ID \"${coffeeId}\". Error: ${error.message}.`\n      );\n    }\n\n    if (!record) {\n      throw new Drash.Exceptions.HttpException(\n        404,\n        `Coffee with ID \"${coffeeId}\" not found.`\n      );\n    }\n\n    return record;\n  }\n}\n\n",
+        "extension": "ts",
+        "filename": "coffee_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/coffee_resource.ts"
+      },
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport CoffeeResource from \"./coffee_resource.ts\";\nimport TeaResource from \"./tea_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    CoffeeResource,\n    TeaResource\n  ],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "coffee": {
+        "contents": "{\n  \"17\": {\n    \"id\": 17,\n    \"name\": \"Light Roast: Breakfast Blend\",\n    \"price\": 2.25\n  },\n  \"28\": {\n    \"id\": 28,\n    \"name\": \"Medium Roast: Classico\",\n    \"price\": 2.50\n  },\n  \"32\": {\n    \"id\": 32,\n    \"name\": \"Medium Roast: Premium Single Origin (Sumatra)\",\n    \"price\": 3.50\n  }\n}\n",
+        "extension": "json",
+        "filename": "coffee.json",
+        "title": "/path/to/your/project/coffee.json"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\tcoffee.json\n\tcoffee_resource.ts\n\ttea.json\n\ttea_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "tea_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class TeaResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/tea/:id\",\n    \"/tea/:id/\"\n  ];\n\n  public GET() {\n    let teaId = this.request.getPathParam(\"id\");\n    this.response.body = this.getTea(teaId);\n    return this.response;\n  }\n\n  protected getTea(teaId: number) {\n    let record = null;\n\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./tea.json\");\n      let decoder = new TextDecoder();\n      let records = decoder.decode(fileContentsRaw);\n      records = JSON.parse(records);\n      record = records[teaId];\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error getting tea with ID \"${teaId}\". Error: ${error.message}.`\n      );\n    }\n\n    if (!record) {\n      throw new Drash.Exceptions.HttpException(\n        404,\n        `Tea with ID \"${teaId}\" not found.`\n      );\n    }\n\n    return record;\n  }\n}\n\n",
+        "extension": "ts",
+        "filename": "tea_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/tea_resource.ts"
+      },
+      "tea": {
+        "contents": "{\n  \"50\": {\n    \"id\": 50,\n    \"name\": \"Earl Gray\",\n    \"price\": 4.00\n  },\n  \"68\": {\n    \"id\": 68,\n    \"name\": \"Citrus Chamomile\",\n    \"price\": 3.50\n  },\n  \"83\": {\n    \"id\": 83,\n    \"name\": \"Imperial Blend\",\n    \"price\": 4.50\n  }\n}\n",
+        "extension": "json",
+        "filename": "tea.json",
+        "title": "/path/to/your/project/tea.json"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/part_4": {
+      "coffee_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class CoffeeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/coffee/:id\",\n    \"/coffee/:id/\"\n  ];\n\n  public GET() {\n    let coffeeId = this.request.getPathParam(\"id\");\n    this.response.body = this.getCoffee(coffeeId);\n    return this.response;\n  }\n\n  protected getCoffee(coffeeId: number) {\n    let record = null;\n\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./coffee.json\");\n      let decoder = new TextDecoder();\n      let records = decoder.decode(fileContentsRaw);\n      records = JSON.parse(records);\n      record = records[coffeeId];\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error getting coffee with ID \"${coffeeId}\". Error: ${error.message}.`\n      );\n    }\n\n    if (!record) {\n      throw new Drash.Exceptions.HttpException(\n        404,\n        `Coffee with ID \"${coffeeId}\" not found.`\n      );\n    }\n\n    return record;\n  }\n}\n\n",
+        "extension": "ts",
+        "filename": "coffee_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/coffee_resource.ts"
+      },
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport response from \"./response.ts\";\nDrash.Http.Response = response;\n\nimport CoffeeResource from \"./coffee_resource.ts\";\nimport TeaResource from \"./tea_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    CoffeeResource,\n    TeaResource\n  ],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "coffee": {
+        "contents": "{\n  \"17\": {\n    \"id\": 17,\n    \"name\": \"Light Roast: Breakfast Blend\",\n    \"price\": 2.25\n  },\n  \"28\": {\n    \"id\": 28,\n    \"name\": \"Medium Roast: Classico\",\n    \"price\": 2.50\n  },\n  \"32\": {\n    \"id\": 32,\n    \"name\": \"Medium Roast: Premium Single Origin (Sumatra)\",\n    \"price\": 3.50\n  }\n}\n",
+        "extension": "json",
+        "filename": "coffee.json",
+        "title": "/path/to/your/project/coffee.json"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\tcoffee.json\n\tcoffee_resource.ts\n\ttea.json\n\ttea_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "response": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class Response extends Drash.Http.Response {\n  public generateResponse(): any {\n    let schema = {\n      status_code: this.status_code,\n      status_message: this.getStatusMessage(),\n      data: this.body,\n      request: {\n        method: this.request.method,\n        uri: this.request.uri\n      }\n    };\n\n    return JSON.stringify(schema);\n  }\n}\n",
+        "extension": "ts",
+        "filename": "response.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/response.ts"
+      },
+      "tea_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class TeaResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/tea/:id\",\n    \"/tea/:id/\"\n  ];\n\n  public GET() {\n    let teaId = this.request.getPathParam(\"id\");\n    this.response.body = this.getTea(teaId);\n    return this.response;\n  }\n\n  protected getTea(teaId: number) {\n    let record = null;\n\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./tea.json\");\n      let decoder = new TextDecoder();\n      let records = decoder.decode(fileContentsRaw);\n      records = JSON.parse(records);\n      record = records[teaId];\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error getting tea with ID \"${teaId}\". Error: ${error.message}.`\n      );\n    }\n\n    if (!record) {\n      throw new Drash.Exceptions.HttpException(\n        404,\n        `Tea with ID \"${teaId}\" not found.`\n      );\n    }\n\n    return record;\n  }\n}\n\n",
+        "extension": "ts",
+        "filename": "tea_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/tea_resource.ts"
+      },
+      "tea": {
+        "contents": "{\n  \"50\": {\n    \"id\": 50,\n    \"name\": \"Earl Gray\",\n    \"price\": 4.00\n  },\n  \"68\": {\n    \"id\": 68,\n    \"name\": \"Citrus Chamomile\",\n    \"price\": 3.50\n  },\n  \"83\": {\n    \"id\": 83,\n    \"name\": \"Imperial Blend\",\n    \"price\": 4.50\n  }\n}\n",
+        "extension": "json",
+        "filename": "tea.json",
+        "title": "/path/to/your/project/tea.json"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/part_1": {
+      "coffee": {
+        "contents": "{\n  \"17\": {\n    \"id\": 17,\n    \"name\": \"Light Roast: Breakfast Blend\",\n    \"price\": 2.25\n  },\n  \"28\": {\n    \"id\": 28,\n    \"name\": \"Medium Roast: Classico\",\n    \"price\": 2.50\n  },\n  \"32\": {\n    \"id\": 32,\n    \"name\": \"Medium Roast: Premium Single Origin (Sumatra)\",\n    \"price\": 3.50\n  }\n}\n",
+        "extension": "json",
+        "filename": "coffee.json",
+        "title": "/path/to/your/project/coffee.json"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tcoffee.json\n\ttea.json\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "tea": {
+        "contents": "{\n  \"50\": {\n    \"id\": 50,\n    \"name\": \"Earl Gray\",\n    \"price\": 4.00\n  },\n  \"68\": {\n    \"id\": 68,\n    \"name\": \"Citrus Chamomile\",\n    \"price\": 3.50\n  },\n  \"83\": {\n    \"id\": 83,\n    \"name\": \"Imperial Blend\",\n    \"price\": 4.50\n  }\n}\n",
+        "extension": "json",
+        "filename": "tea.json",
+        "title": "/path/to/your/project/tea.json"
       }
     },
     "/src/example_code/tutorials": {
