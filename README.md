@@ -1,5 +1,9 @@
 # deno-drash Documentation
 
+<a href="https://github.com/drashland/deno-drash-docs/actions?query=workflow%3Aci">
+  <img src="https://img.shields.io/github/workflow/status/drashland/deno-drash-docs/ci?label=ci">
+</a>
+
 ## Technology Stack
 
 * [dejs](https://github.com/syumai/dejs) for its template engine;
