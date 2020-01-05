@@ -1,6 +1,0 @@
-#!/bin/bash
-
-(
-  export DRASH_LATEST_RELEASE="v$(git ls-remote --tags https://github.com/drashland/deno-drash.git | awk '{print $2}' | sort -V | tail -1 | sed 's/refs.*v//g')"
-  echo -e "\nDrash Latest Release: $DRASH_LATEST_RELEASE\n"
-)
