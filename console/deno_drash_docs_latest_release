@@ -1,6 +1,0 @@
-#!/bin/bash
-
-(
-  export DENO_DRASH_DOCS_LATEST_RELEASE="$(git tag | sort -V)"
-  echo -e "\ndeno-drash-docs latest release: $DENO_DRASH_DOCS_LATEST_RELEASE"
-)
