@@ -1,8 +1,9 @@
 name: staging
 
-on: [push, pull_request]
-  branches:
-    - staging
+on:
+  [push, pull_request]:
+    branches:
+      - staging
 
 jobs:
   build:
