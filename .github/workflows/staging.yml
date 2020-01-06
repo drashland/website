@@ -33,6 +33,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: npm install
+      if: github.event_name == 'push'
       run: |
         npm install
 
@@ -49,6 +50,7 @@ jobs:
       run: |
         export PATH=$DENO_INSTALL/bin:$PATH
         console/set_common_env_vars
+        console/copy_config_files
         console/tests
 
     - name: configure git
