@@ -1,9 +1,8 @@
 name: staging
 
-on:
-  push:
-    branches:
-      - staging
+on: [push, pull_request]
+  branches:
+    - staging
 
 jobs:
   build:
@@ -40,6 +39,11 @@ jobs:
     - name: git clone deno-drash
       run: |
         git clone https://github.com/drashland/deno-drash.git ../deno-drash
+
+    - name: unit tests
+      if: github.event_name == 'push'
+      run: |
+        console/tests
 
     - name: configure git
       run: |
