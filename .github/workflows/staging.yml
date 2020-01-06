@@ -49,7 +49,7 @@ jobs:
       if: github.ref == 'refs/heads/staging'
       run: |
         export DENO_DRASH_DOCS_ENVIRONMENT="staging"
-        export PATH=$DENO_INSTALL/bin:$PATH
+        console/set_common_env_vars
         console/copy_config_files
         console/compile_assets
         console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
