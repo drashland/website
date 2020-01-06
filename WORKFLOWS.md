@@ -6,12 +6,12 @@
 
 ## New Features
 
-* Set up your branch
+* Set up your branch (example below)
 
 ```
 git checkout master
 git pull
-git checkout -b "your-branch-with-the-issue-number"
+git checkout -b "ft-#1-doing-the-thing"
 ```
 
 _Note: All new feature branches must be based off of the `master` branch._
