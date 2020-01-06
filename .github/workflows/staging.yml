@@ -47,6 +47,7 @@ jobs:
     - name: unit tests
       if: github.event_name == 'pull_request'
       run: |
+        console/set_common_env_vars
         console/tests
 
     - name: configure git
