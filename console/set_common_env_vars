@@ -7,8 +7,6 @@
 
   echo -e "Setting environment variables ...\n"
 
-  export PATH=$DENO_INSTALL/bin:$PATH
-
   export DENO_DRASH_DOCS_LATEST_RELEASE="$(git tag | sort -V)"
   export DENO_DRASH_LATEST_RELEASE="v$(git ls-remote --tags https://github.com/drashland/deno-drash.git | awk '{print $2}' | sort -V | tail -1 | sed 's/refs.*v//g')"
 

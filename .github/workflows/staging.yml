@@ -47,6 +47,7 @@ jobs:
     - name: unit tests
       if: github.event_name == 'pull_request'
       run: |
+        export PATH=$DENO_INSTALL/bin:$PATH
         console/set_common_env_vars
         console/tests
 
@@ -57,6 +58,7 @@ jobs:
     - name: deploy staging
       if: github.ref == 'refs/heads/staging'
       run: |
+        export PATH=$DENO_INSTALL/bin:$PATH
         export DENO_DRASH_DOCS_ENVIRONMENT="staging"
         console/set_common_env_vars
         console/copy_config_files
