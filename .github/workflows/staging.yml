@@ -1,7 +1,10 @@
 name: staging
 
 on:
-  [push, pull_request]:
+  push:
+    branches:
+      - staging
+  pull_request:
     branches:
       - staging
 
