@@ -1,4 +1,5 @@
-let Drash = (await import(Deno.env().DENO_DRASH)).default;
+const Drash = (await import(Deno.env().DENO_DRASH)).default;
+const members = (await import(Deno.env().DENO_DRASH_DOCS_MEMBERS)).default;
 
 import response from "./part_4/response.ts";
 Drash.Http.Response = response;
@@ -9,8 +10,6 @@ import TeaResource from "./part_4/tea_resource.ts";
 let server = new Drash.Http.Server({
   resources: [CoffeeResource, TeaResource]
 });
-
-let members = (await import(Deno.env().DENO_DRASH_DOCS_MEMBERS_PATH)).default;
 
 members.test("response", async () => {
 

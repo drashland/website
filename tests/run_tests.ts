@@ -1,12 +1,17 @@
-import members from "./members.ts";
+const Drash = (await import(Deno.env().DENO_DRASH)).default;
+const members = (await import(Deno.env().DENO_DRASH_DOCS_MEMBERS)).default;
 
-let dir = "";
-let fullDir = "";
+/**
+ * Change the current working dir.
+ */
+function change(path) {
+  let directory = Deno.env().DENO_DRASH_DOCS_PATH + path.replace("..", "");
+  Deno.chdir(directory);
+}
 
-dir = "/src/example_code/advanced_tutorials/creating_an_api/coffee_and_tea";
-fullDir = Deno.env().DENO_DRASH_DOCS_PATH + dir;
-Deno.chdir(fullDir + "/part_4");
-console.log("currently testing:" +  Deno.cwd());
-import "../src/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/tests.ts";
+let test = "";
+
+change("../src/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/part_4");
+import "../src/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/test.ts";
 
 members.runTests();
