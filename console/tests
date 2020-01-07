@@ -3,5 +3,6 @@
 (
   export DENO_DRASH=$PWD/../deno-drash/mod.ts
   export DENO_DRASH_DOCS_MEMBERS_PATH=$PWD/tests/members.ts
-  deno --allow-read --allow-write --allow-env tests/run_tests.ts
+  export DENO_DRASH_DOCS_PATH=$PWD
+  deno --allow-net --allow-read --allow-write --allow-env tests/run_tests.ts
 )
