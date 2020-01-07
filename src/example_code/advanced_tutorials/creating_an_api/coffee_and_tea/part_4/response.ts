@@ -7,7 +7,7 @@ export default class Response extends Drash.Http.Response {
       status_message: this.getStatusMessage(),
       data: this.body,
       request: {
-        method: this.request.method,
+        method: this.request.method.toUpperCase(),
         uri: this.request.uri
       }
     };

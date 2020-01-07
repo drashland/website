@@ -48,6 +48,7 @@ jobs:
     - name: deploy production
       if: github.ref == 'refs/heads/production'
       run: |
+        export PATH=$DENO_INSTALL/bin:$PATH
         export DENO_DRASH_DOCS_ENVIRONMENT="production"
         console/set_common_env_vars
         console/copy_config_files

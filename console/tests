@@ -1,0 +1,8 @@
+#!/bin/bash
+
+(
+  export DENO_DRASH=$PWD/../deno-drash/mod.ts
+  export DENO_DRASH_DOCS_MEMBERS=$PWD/tests/members.ts
+  export DENO_DRASH_DOCS_PATH=$PWD
+  deno --allow-net --allow-read --allow-write --allow-env tests/run_tests.ts
+)
