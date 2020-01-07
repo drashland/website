@@ -11,17 +11,41 @@ let server = new Drash.Http.Server({
   resources: [CoffeeResource, TeaResource]
 });
 
-members.test("response", async () => {
+members.test("Advanced Tutorials - Creating An API (coffee_and_tea) - responses", async () => {
+  let request;
+  let actual;
 
-  let request = members.mockRequest("/coffee/17");
-  let actual = await server.handleHttpRequest(request);
-  // This test is failing because the tutorial does:
-  //
-  //     Deno.readFileSync("./coffee.json")
-  //
-  // The current working directory is being prepended to coffee.json like
-  //
-  //    /path/to/deno-drash-docs/coffee.json
-  //
-  members.assert.equals("test", members.decoder.decode(actual.body));
+  request = members.mockRequest("/coffee/17");
+  actual = await server.handleHttpRequest(request);
+  members.assert.responseJsonEquals(
+    actual.body,
+    {
+      status_code: 200,
+      status_message: "OK",
+      data: {
+        id: 17,
+        name: "Light Roast: Breakfast Blend",
+        price: 2.25
+      },
+      request: {
+        method: "GET",
+        uri: "/coffee/17"
+      }
+    }
+  );
+
+  request = members.mockRequest("/coffee/15");
+  actual = await server.handleHttpRequest(request);
+  members.assert.responseJsonEquals(
+    actual.body,
+    {
+      status_code: 404,
+      status_message: "Not Found",
+      data: "Coffee with ID \"15\" not found.",
+      request: {
+        method: "GET",
+        uri: "/coffee/15"
+      }
+    }
+  );
 });
