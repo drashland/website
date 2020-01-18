@@ -1,6 +1,6 @@
 {
   "private": true,
-  "deno-drash": "v0.29.0",
+  "deno-drash": "v0.30.0",
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "babel-cli": "^6.26.0",

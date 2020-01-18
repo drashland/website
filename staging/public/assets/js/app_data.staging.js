@@ -1629,6 +1629,20 @@ const app_data = {
               "Server handles the entire request-resource-response lifecycle. It is in\ncharge of handling HTTP requests to resources, static paths, sending\nappropriate responses, and handling any errors that bubble up within the\nrequest-resource-response lifecycle."
             ],
             "properties": {
+              "deno_server": {
+                "access_modifier": "public",
+                "description": [
+                  "A property to hold the Deno server. This property is set in\n`this.run()` like so: ` this.deno_server =\nserve(this.configs.address);`. `serve()` is imported from\n[https://deno.land/x/http/server.ts](https://deno.land/x/http/server.ts)."
+                ],
+                "annotation": {
+                  "line": "@property any deno_server",
+                  "data_type": "any",
+                  "name": "deno_server"
+                },
+                "signature": "public deno_server: any",
+                "name": "deno_server",
+                "fully_qualified_name": "Drash.Http.Server.deno_server"
+              },
               "logger": {
                 "access_modifier": "public",
                 "description": [
@@ -1670,20 +1684,6 @@ const app_data = {
                 "signature": "protected directory: string",
                 "name": "directory",
                 "fully_qualified_name": "Drash.Http.Server.directory"
-              },
-              "deno_server": {
-                "access_modifier": "protected",
-                "description": [
-                  "A property to hold the Deno server. This property is set in\n`this.run()` like so: ` this.deno_server =\nserve(this.configs.address);`. `serve()` is imported from\n[https://deno.land/x/http/server.ts](https://deno.land/x/http/server.ts)."
-                ],
-                "annotation": {
-                  "line": "@property any deno_server",
-                  "data_type": "any",
-                  "name": "deno_server"
-                },
-                "signature": "protected deno_server: any",
-                "name": "deno_server",
-                "fully_qualified_name": "Drash.Http.Server.deno_server"
               },
               "resources": {
                 "access_modifier": "protected",
@@ -2737,15 +2737,15 @@ const app_data = {
                   {
                     "description": [],
                     "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
+                      "line": "@return Promise<any>",
+                      "data_type": "Promise<any>",
                       "name": null
                     }
                   }
                 ],
                 "throws": null,
-                "signature": "public getHttpRequestBodyParsed(request): any",
-                "is_async": false,
+                "signature": "public async getHttpRequestBodyParsed(request): Promise<any>",
+                "is_async": true,
                 "fully_qualified_name": "Drash.Services.HttpService.getHttpRequestBodyParsed"
               },
               "hydrateHttpRequest": {
@@ -2993,6 +2993,38 @@ const app_data = {
                 "signature": "public parseQueryParamsString(queryParamsString: string): any",
                 "is_async": false,
                 "fully_qualified_name": "Drash.Services.HttpService.parseQueryParamsString"
+              },
+              "requestHasBody": {
+                "access_modifier": "public",
+                "name": "requestHasBody",
+                "description": [
+                  "Does the specified request have a body?"
+                ],
+                "params": {
+                  "request": {
+                    "name": "request",
+                    "description": [],
+                    "annotation": {
+                      "line": "@param any request",
+                      "data_type": "any",
+                      "name": "request"
+                    }
+                  }
+                },
+                "returns": [
+                  {
+                    "description": [],
+                    "annotation": {
+                      "line": "@return boolean",
+                      "data_type": "boolean",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public requestHasBody(request: any): boolean",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Services.HttpService.requestHasBody"
               }
             }
           }
