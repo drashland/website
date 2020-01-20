@@ -13,22 +13,27 @@ let server = new Drash.Http.Server({
 
 // Set up the database
 
-import { Client } from "https://deno.land/x/postgres/mod.ts";
+import { Client } from "https://deno.land/x/mysql/mod.ts";
 
-const denoPostgres = new Client({
-  database: "deno_postgres",
-  host: "localhost",
-  port: "5432",
-  user: "crookse", // specify your db user
+const denoMysql = await new Client().connect({
+  hostname: "127.0.0.1",
+  username: "root", // specify your username
+  db: "deno_mysql",
+  // password: "password", // uncomment and specify your password if using a password
 });
 
 export {
-  denoPostgres
+  denoMysql
 }
 
-members.test("deno-postgres", async () => {
+members.test("deno_mysql", async () => {
   server.run();
   const response = await members.fetch.get("http://localhost:1447");
-  members.assert.responseJsonEquals(await response.text(), [["eric","m"]]);
+  members.assert.responseJsonEquals(await response.text(), [
+    {
+      "name": "manyuanrong",
+      "role": "author"
+    }
+  ]);
   server.deno_server.close();
 });

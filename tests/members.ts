@@ -1,3 +1,7 @@
+console.log = function() {
+  return true;
+};
+
 import {
   Drash,
   ServerRequest,
