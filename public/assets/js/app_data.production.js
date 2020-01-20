@@ -419,13 +419,6 @@ const app_data = {
         "filename": "part_4",
         "title": "/path/to/your/project/part_4"
       },
-      "test": {
-        "contents": "const Drash = (await import(Deno.env().DENO_DRASH)).default;\nconst members = (await import(Deno.env().DENO_DRASH_DOCS_MEMBERS)).default;\n\nimport response from \"./part_4/response.ts\";\nDrash.Http.Response = response;\n\nimport CoffeeResource from \"./part_4/coffee_resource.ts\";\nimport TeaResource from \"./part_4/tea_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  resources: [CoffeeResource, TeaResource]\n});\n\nmembers.test(\"Advanced Tutorials - Creating An API (coffee_and_tea) - responses\", async () => {\n  let request;\n  let actual;\n\n  request = members.mockRequest(\"/coffee/17\");\n  actual = await server.handleHttpRequest(request);\n  members.assert.responseJsonEquals(\n    actual.body,\n    {\n      status_code: 200,\n      status_message: \"OK\",\n      data: {\n        id: 17,\n        name: \"Light Roast: Breakfast Blend\",\n        price: 2.25\n      },\n      request: {\n        method: \"GET\",\n        uri: \"/coffee/17\"\n      }\n    }\n  );\n\n  request = members.mockRequest(\"/coffee/15\");\n  actual = await server.handleHttpRequest(request);\n  members.assert.responseJsonEquals(\n    actual.body,\n    {\n      status_code: 404,\n      status_message: \"Not Found\",\n      data: \"Coffee with ID \\\"15\\\" not found.\",\n      request: {\n        method: \"GET\",\n        uri: \"/coffee/15\"\n      }\n    }\n  );\n});\n",
-        "extension": "ts",
-        "filename": "test.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/test.ts"
-      },
       "part_1": {
         "contents": "",
         "filename": "part_1",
@@ -996,10 +989,64 @@ const app_data = {
       }
     },
     "/src/example_code/third_party_tutorials/databases": {
+      "deno_postgres_test": {
+        "contents": "",
+        "filename": "deno_postgres_test",
+        "title": "/path/to/your/project/deno_postgres_test"
+      },
+      "deno_postgres": {
+        "contents": "",
+        "filename": "deno_postgres",
+        "title": "/path/to/your/project/deno_postgres"
+      },
       "deno_mysql": {
         "contents": "",
         "filename": "deno_mysql",
         "title": "/path/to/your/project/deno_mysql"
+      }
+    },
+    "/src/example_code/third_party_tutorials/databases/deno_postgres_test": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport members from \"../../../../../tests/members.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\nserver.run();\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/postgres/mod.ts\";\n\nconst denoPostgres = new Client({\n  database: \"deno_postgres\",\n  host: \"localhost\",\n  port: \"5432\",\n  user: \"crookse\", // specify your db user\n});\n\nexport {\n  denoPostgres\n}\n\nmembers.test(\"deno-postgres\", async () => {\n  const response = await members.fetch.get(\"http://localhost:1447\");\n  members.assert.responseJsonEquals(await response.text(), [[\"eric\",\"m\"]]);\n  server.deno_server.close();\n});\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { denoPostgres } from \"./app.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\"/\"];\n\n  public async GET() {\n    await denoPostgres.connect();\n    let result = await denoPostgres.query(\"SELECT * FROM users;\");\n    this.response.body = result.rows;\n    await denoPostgres.end();\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/third_party_tutorials/databases/deno_postgres": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\nserver.run();\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/postgres/mod.ts\";\n\nconst denoPostgres = new Client({\n  database: \"deno_postgres\",\n  host: \"localhost\",\n  port: \"5432\",\n  user: \"user\", // specify your db user\n});\n\nexport {\n  denoPostgres\n}\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { denoPostgres } from \"./app.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\"/\"];\n\n  public async GET() {\n    await denoPostgres.connect();\n    let result = await denoPostgres.query(\"SELECT * FROM users;\");\n    this.response.body = result.rows;\n    await denoPostgres.end();\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
       }
     },
     "/src/example_code/third_party_tutorials/databases/deno_mysql": {
