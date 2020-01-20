@@ -1,4 +1,4 @@
-import Drash from "../deps.ts";
+import { Drash } from "../deps.ts";
 import { renderFile } from "https://deno.land/x/dejs@0.3.4/mod.ts";
 import docsConfig from "../conf/app.ts";
 let envVarsPath = "../conf/env_vars_" + Deno.env().DENO_DRASH_DOCS_ENVIRONMENT + ".json";

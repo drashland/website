@@ -1,4 +1,4 @@
-import Drash from "../../deps.ts";
+import { Drash } from "../../deps.ts";
 import config from "../../conf/app.ts";
 import * as ResponseService from "../../src/response_service.ts";
 

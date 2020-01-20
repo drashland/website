@@ -1,4 +1,4 @@
-import Drash from "../../deps.ts";
+import { Drash } from "../../deps.ts";
 import config from "../../conf/app.ts";
 const Encoder = new TextEncoder();
 
