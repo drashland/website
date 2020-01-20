@@ -80,6 +80,9 @@ div.c-sidebar
                 div.l-submenu-1
                   a-base-url(href="/third-party-tutorials/databases/deno-mysql") deno_mysql
                   a-base-url(href="/third-party-tutorials/databases/deno-postgres") deno-postgres
+                a Template Engines
+                div.l-submenu-1
+                  a-base-url(href="/third-party-tutorials/template-engines/dejs") dejs
             a.heading-link API Reference
             div.c-sidebar__menu-body
                 a Exceptions
