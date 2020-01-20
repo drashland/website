@@ -1003,11 +1003,16 @@ const app_data = {
         "contents": "",
         "filename": "deno_mysql",
         "title": "/path/to/your/project/deno_mysql"
+      },
+      "deno_mysql_test": {
+        "contents": "",
+        "filename": "deno_mysql_test",
+        "title": "/path/to/your/project/deno_mysql_test"
       }
     },
     "/src/example_code/third_party_tutorials/databases/deno_postgres_test": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport members from \"../../../../../tests/members.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\nserver.run();\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/postgres/mod.ts\";\n\nconst denoPostgres = new Client({\n  database: \"deno_postgres\",\n  host: \"localhost\",\n  port: \"5432\",\n  user: \"crookse\", // specify your db user\n});\n\nexport {\n  denoPostgres\n}\n\nmembers.test(\"deno-postgres\", async () => {\n  const response = await members.fetch.get(\"http://localhost:1447\");\n  members.assert.responseJsonEquals(await response.text(), [[\"eric\",\"m\"]]);\n  server.deno_server.close();\n});\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport members from \"../../../../../tests/members.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/postgres/mod.ts\";\n\nconst denoPostgres = new Client({\n  database: \"deno_postgres\",\n  host: \"localhost\",\n  port: \"5432\",\n  user: \"crookse\", // specify your db user\n});\n\nexport {\n  denoPostgres\n}\n\nmembers.test(\"deno-postgres\", async () => {\n  server.run();\n  const response = await members.fetch.get(\"http://localhost:1447\");\n  members.assert.responseJsonEquals(await response.text(), [[\"eric\",\"m\"]]);\n  server.deno_server.close();\n});\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1052,6 +1057,28 @@ const app_data = {
     "/src/example_code/third_party_tutorials/databases/deno_mysql": {
       "app": {
         "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\nserver.run();\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/mysql/mod.ts\";\n\nconst denoMysql = await new Client().connect({\n  hostname: \"127.0.0.1\",\n  username: \"username\", // specify your username\n  db: \"deno_mysql\",\n  // password: \"password\", // uncomment and specify your password if using a password\n});\n\nexport {\n  denoMysql\n}\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { denoMysql } from \"./app.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\"/\"];\n\n  public async GET() {\n    this.response.body = await denoMysql.query(`select * from users`);\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/third_party_tutorials/databases/deno_mysql_test": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport members from \"../../../../../tests/members.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/mysql/mod.ts\";\n\nconst denoMysql = await new Client().connect({\n  hostname: \"127.0.0.1\",\n  username: \"root\", // specify your username\n  db: \"deno_mysql\",\n  // password: \"password\", // uncomment and specify your password if using a password\n});\n\nexport {\n  denoMysql\n}\n\nmembers.test(\"deno_mysql\", async () => {\n  server.run();\n  const response = await members.fetch.get(\"http://localhost:1447\");\n  members.assert.responseJsonEquals(await response.text(), [\n    {\n      \"name\": \"manyuanrong\",\n      \"role\": \"author\"\n    }\n  ]);\n  server.deno_server.close();\n});\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
