@@ -79,6 +79,7 @@ div.c-sidebar
                 a Databases
                 div.l-submenu-1
                   a-base-url(href="/third-party-tutorials/databases/deno-mysql") deno_mysql
+                  a-base-url(href="/third-party-tutorials/databases/deno-postgres") deno-postgres
             a.heading-link API Reference
             div.c-sidebar__menu-body
                 a Exceptions
