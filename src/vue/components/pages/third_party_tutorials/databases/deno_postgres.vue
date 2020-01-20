@@ -39,9 +39,9 @@ page-tutorial(
           template(v-slot:title) database: deno_postgres<br>table: users
           template(v-slot:code)
             | deno_postgres=# SELECT * FROM users;
-            |  name | sex
-            | ------+-----
-            |  eric | m
+            |  name        | role
+            | -------------+--------
+            |  bartlomieju | author
             | (1 row)
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
@@ -80,7 +80,7 @@ page-tutorial(
             template(v-slot:code)
               | [
               |   [
-              |     "eric",
-              |     "m"
+              |     "bartlomieju",
+              |     "author"
               |   ]
               | ]
