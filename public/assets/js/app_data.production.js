@@ -986,6 +986,11 @@ const app_data = {
         "contents": "",
         "filename": "databases",
         "title": "/path/to/your/project/databases"
+      },
+      "template_engines": {
+        "contents": "",
+        "filename": "template_engines",
+        "title": "/path/to/your/project/template_engines"
       }
     },
     "/src/example_code/third_party_tutorials/databases": {
@@ -1092,6 +1097,74 @@ const app_data = {
       },
       "home_resource": {
         "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { denoMysql } from \"./app.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\"/\"];\n\n  public async GET() {\n    this.response.body = await denoMysql.query(`select * from users`);\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/third_party_tutorials/template_engines": {
+      "dejs_test": {
+        "contents": "",
+        "filename": "dejs_test",
+        "title": "/path/to/your/project/dejs_test"
+      },
+      "dejs": {
+        "contents": "",
+        "filename": "dejs",
+        "title": "/path/to/your/project/dejs"
+      }
+    },
+    "/src/example_code/third_party_tutorials/template_engines/dejs_test": {
+      "index": {
+        "contents": "<!DOCTYPE html>\n<html class=\"h-full w-full\">\n\t<head>\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>Drash + dejs</title>\n\t\t<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css\">\n\t</head>\n\t<body class=\"h-full w-full\">\n\t\t<div class=\"flex h-full w-full items-center justify-center\">\n\t\t\t<div class=\"max-w-sm rounded overflow-hidden shadow-lg\">\n\t\t\t\t<img class=\"w-full\" src=\"https://tailwindcss.com/img/card-top.jpg\" alt=\"Sunset in the mountains\">\n\t\t\t\t<div class=\"px-6\">\n\t\t\t\t<div class=\"font-bold text-xl mt-4 mb-2\">Drash + dejs</div>\n\t\t\t\t\t<div class=\"mb-4\">\n\t\t\t\t\t\t<p class=\"text-grey-darker text-base\">Hello, <%= name %>! Drash + dejs is cool!</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<hr class=\"border-b border-gray\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"px-6 py-4\">\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2\">#deno</span>\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2\">#drash</span>\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker\">#dejs</span>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>\n",
+        "extension": "ejs",
+        "filename": "index.ejs",
+        "title": "/path/to/your/project/index.ejs"
+      },
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport members from \"../../../../../tests/members.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nlet expected = `<!DOCTYPE html>\n<html class=\"h-full w-full\">\n\t<head>\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>Drash + dejs</title>\n\t\t<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css\">\n\t</head>\n\t<body class=\"h-full w-full\">\n\t\t<div class=\"flex h-full w-full items-center justify-center\">\n\t\t\t<div class=\"max-w-sm rounded overflow-hidden shadow-lg\">\n\t\t\t\t<img class=\"w-full\" src=\"https://tailwindcss.com/img/card-top.jpg\" alt=\"Sunset in the mountains\">\n\t\t\t\t<div class=\"px-6\">\n\t\t\t\t<div class=\"font-bold text-xl mt-4 mb-2\">Drash + dejs</div>\n\t\t\t\t\t<div class=\"mb-4\">\n\t\t\t\t\t\t<p class=\"text-grey-darker text-base\">Hello, (name not specified)! Drash + dejs is cool!</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<hr class=\"border-b border-gray\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"px-6 py-4\">\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2\">#deno</span>\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2\">#drash</span>\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker\">#dejs</span>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>\n`;\n\nmembers.test(\"dejs\", async () => {\n  server.run();\n  const response = await members.fetch.get(\"http://localhost:1447\");\n  members.assert.equals(await response.text(), expected);\n  server.deno_server.close();\n});\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n\tindex.ejs\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs@0.3.4/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\"/\"];\n\n  public async GET() {\n    // Set the data if any\n    let data = {\n      name: this.request.getQueryParam(\"name\")\n        ? this.request.getQueryParam(\"name\")\n        : \"(name not specified)\"\n    };\n    // Render and serve the template to the client\n    const output = await renderFile(\"./src/example_code/third_party_tutorials/template_engines/dejs_test/index.ejs\", data);\n    this.response.body = output.toString();\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/third_party_tutorials/template_engines/dejs": {
+      "index": {
+        "contents": "<!DOCTYPE html>\n<html class=\"h-full w-full\">\n\t<head>\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>Drash + dejs</title>\n\t\t<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css\">\n\t</head>\n\t<body class=\"h-full w-full\">\n\t\t<div class=\"flex h-full w-full items-center justify-center\">\n\t\t\t<div class=\"max-w-sm rounded overflow-hidden shadow-lg\">\n\t\t\t\t<img class=\"w-full\" src=\"https://tailwindcss.com/img/card-top.jpg\" alt=\"Sunset in the mountains\">\n\t\t\t\t<div class=\"px-6\">\n\t\t\t\t<div class=\"font-bold text-xl mt-4 mb-2\">Drash + dejs</div>\n\t\t\t\t\t<div class=\"mb-4\">\n\t\t\t\t\t\t<p class=\"text-grey-darker text-base\">Hello, <%= name %>! Drash + dejs is cool!</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<hr class=\"border-b border-gray\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"px-6 py-4\">\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2\">#deno</span>\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2\">#drash</span>\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker\">#dejs</span>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>\n",
+        "extension": "ejs",
+        "filename": "index.ejs",
+        "title": "/path/to/your/project/index.ejs"
+      },
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n\tindex.ejs\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs@0.3.4/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\"/\"];\n\n  public async GET() {\n    // Set the data if any\n    let data = {\n      name: this.request.getQueryParam(\"name\")\n        ? this.request.getQueryParam(\"name\")\n        : \"(name not specified)\"\n    };\n    // Render and serve the template to the client\n    const output = await renderFile(\"./index.ejs\", data);\n    this.response.body = output.toString();\n    return this.response;\n  }\n}\n",
         "extension": "ts",
         "filename": "home_resource.ts",
         "language": "typescript",
