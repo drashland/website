@@ -1,0 +1,5 @@
+▾ /path/to/your/project/
+	app.ts
+	home_resource.ts
+	orders_resource.ts
+	users_resource.ts
