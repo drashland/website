@@ -43,15 +43,15 @@ page-tutorial(
       hr
       h2-hash Steps
       ol
-        li Create your dejs template.
+        li
+          p Create your dejs template. Your resource will render this template using dejs.
           code-block(:data="example_code.index" language="html")
-          p Your resource will render this template using dejs.
-        li Create your resource file.
+        li 
+          p Create your resource file.
           code-block(:data="example_code.home_resource")
-          p Your resource will use dejs to render the <code>index.ejs</code> template.
-        li Create your app file.
+        li
+          p Create your app file. Your server will need to default to <code>text/html</code> responses (see highlighted server config).
           code-block(:data="example_code.app" line_highlight="7")
-          p Your server will need to default to <code>text/html</code> responses (see highlighted server config).
   div.row
     div.col
       hr
@@ -61,11 +61,12 @@ page-tutorial(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net --allow-write app.ts
+              | deno --allow-net --allow-read app.ts
           p-deno-flag-allow-net
-        li Make a request using <code>curl</code> like below or go to <code>localhost:1447/</code> in your browser.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | curl localhost:1447/
-          p You should receive the following response (we pretty-printed the response for you):
+          p <code>--allow-read</code> is required because dejs needs to read your <code>index.ejs</code>. You can learn more about the <code>--allow-read</code> flag at <a href="https://deno.land/std/manual.md" target="_BLANK">https://deno.land/std/manual.md</a>.
+        li
+          p Make a request to <code>localhost:1447</code> in your browser. You should receive the following response:
+          img(:src="$conf.base_url + '/public/assets/img/example_code/third_party_tutorials/template_engines/dejs/verification_1.png'")
+        li
+          p Make the same request, but specify <code>?name=syumai</code> in the URL: <code>localhost:1447?name=syumai</code>. You should receive the following response:
+          img(:src="$conf.base_url + '/public/assets/img/example_code/third_party_tutorials/template_engines/dejs/verification_2.png'")
