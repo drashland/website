@@ -11,15 +11,11 @@ export default class UsersResource extends Drash.Http.Resource {
   protected database = {
     1388873: {
       id: 1388873,
-      name: "Gadgets",
-      quantity: 50,
-      price: 1000
+      name: "Seller",
     },
     1983765: {
       id: 1983765,
-      name: "Gizmos",
-      quantity: 25,
-      price: 2000
+      name: "Buyer",
     },
   };
 

@@ -2,4 +2,6 @@
 	app.ts
 	home_resource.ts
 	orders_resource.ts
+	run_tests.ts
+	tests.ts
 	users_resource.ts
