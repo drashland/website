@@ -6,6 +6,8 @@
 
 ## Technology Stack
 
+* [deno](https://deno.land) for its web server;
+* [Drash](https://drash.land) for its web server framework;
 * [dejs](https://github.com/syumai/dejs) for its template engine;
 * [npm](https://www.npmjs.com) to map console scripts to the `npm run` command;
 * [Vue](https://vuejs.org) for its front-end framework;
