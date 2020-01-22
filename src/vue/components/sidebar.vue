@@ -51,6 +51,9 @@ div.c-sidebar
                     a-base-url(href="/tutorials/logging/logging-to-the-terminal") Logging To The Terminal
                     a-base-url(href="/tutorials/logging/logging-to-files") Logging To Files
                     router-link(href="/tutorials/logging/logging-using-log-from-deno-std") Logging Using Log From deno_std
+                a Testing
+                div.l-submenu-1
+                    a-base-url(href="/tutorials/testing/unit-testing") Unit Testing
                 a Misc
                 div.l-submenu-1
                     a-base-url(href="/tutorials/misc/adding-global-members") Adding Global Members
