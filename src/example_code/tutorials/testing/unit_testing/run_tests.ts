@@ -23,8 +23,7 @@ server.run();
 
 import "./tests.ts";
 
-// Run the tests and then SHUT DOWN THE SERVER WHEN DONE. As you can see, the
-// deno server is accessible via `server.deno_server`.
+// Run your tests and then shut down the server when done
 
 runTests()
   .then(() => {

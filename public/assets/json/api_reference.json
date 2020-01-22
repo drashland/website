@@ -903,6 +903,19 @@
                     "is_async": true,
                     "fully_qualified_name": "Drash.Http.Server.run"
                 },
+                "close": {
+                    "access_modifier": "public",
+                    "name": "close",
+                    "description": [
+                        "Close the server."
+                    ],
+                    "params": null,
+                    "returns": null,
+                    "throws": null,
+                    "signature": "public close()",
+                    "is_async": false,
+                    "fully_qualified_name": "Drash.Http.Server.close"
+                },
                 "addHttpResource": {
                     "access_modifier": "protected",
                     "name": "addHttpResource",
