@@ -582,6 +582,11 @@ const app_data = {
         "filename": "requests",
         "title": "/path/to/your/project/requests"
       },
+      "testing": {
+        "contents": "",
+        "filename": "testing",
+        "title": "/path/to/your/project/testing"
+      },
       "logging": {
         "contents": "",
         "filename": "logging",
@@ -810,6 +815,63 @@ const app_data = {
         "filename": "home_resource.ts",
         "language": "typescript",
         "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/tutorials/testing": {
+      "unit_testing": {
+        "contents": "",
+        "filename": "unit_testing",
+        "title": "/path/to/your/project/unit_testing"
+      }
+    },
+    "/src/example_code/tutorials/testing/unit_testing": {
+      "tests": {
+        "contents": "import { assertEquals } from \"https://deno.land/std/testing/asserts.ts\";\nimport { test } from \"https://deno.land/std/testing/mod.ts\";\n\ntest({\n  name: \"HomeResource - GET /\",\n  async fn(): Promise<any> {\n    let response = await fetch(\"http://localhost:1447\", {\n      method: \"GET\",\n    });\n    assertEquals(JSON.parse(await response.text()), \"Welcome home!\");\n  }\n});\n\ntest({\n  name: \"UsersResource - GET /users/1\",\n  async fn(): Promise<any> {\n    let response = await fetch(\"http://localhost:1447/users/1\", {\n      method: \"GET\",\n    });\n    assertEquals(JSON.parse(await response.text()), \"User #1 not found.\");\n  }\n});\n\ntest({\n  name: \"UsersResource - GET /users/1388873\",\n  async fn(): Promise<any> {\n    let response = await fetch(\"http://localhost:1447/users/1388873\", {\n      method: \"GET\",\n    });\n    assertEquals(JSON.parse(await response.text()), {\n      id: 1388873,\n      name: \"Seller\",\n    });\n  }\n});\n\ntest({\n  name: \"UsersResource - GET /users/1983765\",\n  async fn(): Promise<any> {\n    let response = await fetch(\"http://localhost:1447/users/1983765\", {\n      method: \"GET\",\n    });\n    assertEquals(JSON.parse(await response.text()), {\n      id: 1983765,\n      name: \"Buyer\",\n    });\n  }\n});\n\ntest({\n  name: \"OrdersResource - GET /orders/1\",\n  async fn(): Promise<any> {\n    let response = await fetch(\"http://localhost:1447/orders/1\", {\n      method: \"GET\",\n    });\n    assertEquals(JSON.parse(await response.text()), \"Order #1 not found.\");\n  }\n});\n\ntest({\n  name: \"OrdersResource - GET /orders/1090987\",\n  async fn(): Promise<any> {\n    let response = await fetch(\"http://localhost:1447/orders/1090987\", {\n      method: \"GET\",\n    });\n    assertEquals(JSON.parse(await response.text()), {\n      id: 1090987,\n      name: \"Gadgets\",\n      quantity: 50,\n      price: 1000\n    });\n  }\n});\n\ntest({\n  name: \"OrdersResource - GET /orders/8878213\",\n  async fn(): Promise<any> {\n    let response = await fetch(\"http://localhost:1447/orders/8878213\", {\n      method: \"GET\",\n    });\n    assertEquals(JSON.parse(await response.text()), {\n      id: 8878213,\n      name: \"Gizmos\",\n      quantity: 25,\n      price: 2000\n    });\n  }\n});\n",
+        "extension": "ts",
+        "filename": "tests.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/tests.ts"
+      },
+      "orders_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class OrdersResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/orders/:id\",\n    \"/orders/:id/\"\n  ];\n\n  // Simulate a database with order records\n  protected database = {\n    1090987: {\n      id: 1090987,\n      name: \"Gadgets\",\n      quantity: 50,\n      price: 1000\n    },\n    8878213: {\n      id: 8878213,\n      name: \"Gizmos\",\n      quantity: 25,\n      price: 2000\n    },\n  };\n\n  public GET() {\n    this.response.body = this.getOrder(this.request.getPathParam(\"id\"));\n    return this.response;\n  }\n\n  protected getOrder(id) {\n    if (this.database[id]) {\n      return this.database[id];\n    }\n\n    throw new Drash.Exceptions.HttpException(404, `Order #${id} not found.`);\n  }\n}\n",
+        "extension": "ts",
+        "filename": "orders_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/orders_resource.ts"
+      },
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport OrdersResource from \"./orders_resource.ts\";\nimport UsersResource from \"./users_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource,\n    OrdersResource,\n    UsersResource\n  ]\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "users_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class UsersResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/users/:id\",\n    \"/users/:id/\"\n  ];\n\n  // Simulate a database with user records\n  protected database = {\n    1388873: {\n      id: 1388873,\n      name: \"Seller\",\n    },\n    1983765: {\n      id: 1983765,\n      name: \"Buyer\",\n    },\n  };\n\n  public GET() {\n    this.response.body = this.getUser(this.request.getPathParam(\"id\"));\n    return this.response;\n  }\n\n  protected getUser(id) {\n    if (this.database[id]) {\n      return this.database[id];\n    }\n\n    throw new Drash.Exceptions.HttpException(404, `User #${id} not found.`);\n  }\n}\n",
+        "extension": "ts",
+        "filename": "users_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/users_resource.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n\torders_resource.ts\n\trun_tests.ts\n\ttests.ts\n\tusers_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\"/\"];\n\n  public GET() {\n    this.response.body = \"Welcome home!\";\n    return this.response;\n  }\n}\n\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
+      },
+      "run_tests": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { runTests } from \"https://deno.land/std/testing/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport OrdersResource from \"./orders_resource.ts\";\nimport UsersResource from \"./users_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource,\n    OrdersResource,\n    UsersResource\n  ],\n});\n\n// Run your server\n\nserver.run();\n\n// Import your tests so they can be run\n\nimport \"./tests.ts\";\n\n// Run your tests and then shut down the server when done\n\nrunTests()\n  .then(() => {\n    server.close();\n  });\n",
+        "extension": "ts",
+        "filename": "run_tests.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/run_tests.ts"
       }
     },
     "/src/example_code/tutorials/logging": {
@@ -2101,6 +2163,19 @@ const app_data = {
                 "signature": "public async run(): Promise<void>",
                 "is_async": true,
                 "fully_qualified_name": "Drash.Http.Server.run"
+              },
+              "close": {
+                "access_modifier": "public",
+                "name": "close",
+                "description": [
+                  "Close the server."
+                ],
+                "params": null,
+                "returns": null,
+                "throws": null,
+                "signature": "public close()",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Http.Server.close"
               },
               "addHttpResource": {
                 "access_modifier": "protected",
