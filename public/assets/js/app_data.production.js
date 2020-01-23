@@ -706,6 +706,13 @@ const app_data = {
         "filename": "sorting.ts",
         "language": "typescript",
         "title": "/path/to/your/project/sorting.ts"
+      },
+      "location_resource_level_server": {
+        "contents": "let server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    resource_level: [\n      MyFirstMiddleware,\n      MySecondMiddleware,\n      MyThirdMiddleware\n    ]\n  },\n  resources: [\n    HomeResource\n  ],\n  response_output: \"application/json\",\n});\n",
+        "extension": "ts",
+        "filename": "location_resource_level_server.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/location_resource_level_server.ts"
       }
     },
     "/src/example_code/tutorials/middleware/adding_resource_level_middleware": {
