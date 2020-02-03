@@ -112,6 +112,7 @@ div.c-sidebar
         a Services
         div.l-submenu-1
           a-base-url(href="/api-reference/services/http-service") HttpService
+          a-base-url(href="/api-reference/services/http-request-service") HttpRequestService
         a Util
         div.l-submenu-1
           a-base-url(href="/api-reference/util/exports") Exports
