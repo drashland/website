@@ -2,7 +2,7 @@
 export const resource = {
   paths: ["/tutorials/requests/handling-multipart-form-data-bodies"],
   meta: {
-    title: "Handling multipart/form-data Bodies",
+    title: "Handling multipart/form-data Request Bodies",
     source_code_uri: "/tutorials/requests/handling_multipart_form_data_bodies"
   }
 }

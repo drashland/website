@@ -7,12 +7,12 @@ export default class HomeResource extends Drash.Http.Resource {
   ];
 
   public POST() {
-    const param = this.request.getBodyParam("name");
+    const param = this.request.getBodyParam("snack");
 
     if (!param) {
       throw new Drash.Exceptions.HttpException(
         400,
-        "This resource requires the `name` body param."
+        "This resource requires the `snack` body param."
       );
     }
 
