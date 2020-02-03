@@ -33,6 +33,12 @@ page-tutorial(
       hr
       h2-hash Before You Get Started
       p Drash's <code>multipart/form-data</code> parser uses Deno Standard Modules' <code><a href="https://github.com/denoland/deno/blob/master/std/mime/multipart.ts#L254" target="_BLANK">MultipartReader</a></code>.
+      p Getting a value from a <code>multipart/form-data</code> request's body can be done using the following call:
+      p
+        code-block-slotted(:header="false" language="typescript")
+          template(v-slot:title)
+          template(v-slot:code)
+            | const file = this.request.getBodyFile("file_name");
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
     div.col
