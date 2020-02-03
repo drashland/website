@@ -82,7 +82,7 @@ const app_data = {
     },
     "/src/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport response from \"./response.ts\";\nDrash.Http.Response = response;\n\nimport UsersResource from \"./users_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport response from \"./response.ts\";\nDrash.Http.Response = response;\n\nimport UsersResource from \"./users_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -123,7 +123,7 @@ const app_data = {
     },
     "/src/example_code/advanced_tutorials/content_negotiation/user_profiles/part_2": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport UsersResource from \"./users_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport UsersResource from \"./users_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -144,7 +144,7 @@ const app_data = {
     },
     "/src/example_code/advanced_tutorials/content_negotiation/user_profiles/part_3": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport UsersResource from \"./users_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport UsersResource from \"./users_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -172,7 +172,7 @@ const app_data = {
     },
     "/src/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport UsersResource from \"./users_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport UsersResource from \"./users_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -255,7 +255,7 @@ const app_data = {
         "title": "/path/to/your/project/index.ejs"
       },
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs/dejs.ts\";\n\nclass Response extends Drash.Http.Response {\n  public async generateHtmlResponse(): Promise<any> {\n    let rawOutput = await renderFile(Deno.cwd() + \"/index.ejs\", {\n      body: this.body\n    });\n    let html = rawOutput.toString();\n    return html;\n  }\n}\n\nDrash.Http.Response = Response;\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n}\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1337\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs/dejs.ts\";\n\nclass Response extends Drash.Http.Response {\n  public async generateHtmlResponse(): Promise<any> {\n    let rawOutput = await renderFile(Deno.cwd() + \"/index.ejs\", {\n      body: this.body\n    });\n    let html = rawOutput.toString();\n    return html;\n  }\n}\n\nDrash.Http.Response = Response;\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1337\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -289,7 +289,7 @@ const app_data = {
         "title": "/path/to/your/project/index.ejs"
       },
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs/dejs.ts\";\n\nclass Response extends Drash.Http.Response {\n  public async generateHtmlResponse(): Promise<any> {\n    let rawOutput = await renderFile(Deno.cwd() + \"/index.ejs\", {\n      body: this.body\n    });\n    let html = rawOutput.toString();\n    return html;\n  }\n}\n\nDrash.Http.Response = Response;\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n  public POST() {\n    this.response.body = \"POST request received!\";\n    let name = this.request.body_parsed.name;\n    if (name) {\n      this.response.body += ` Thanks for the request, ${name}!`;\n    }\n    return this.response;\n  }\n}\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1337\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs/dejs.ts\";\n\nclass Response extends Drash.Http.Response {\n  public async generateHtmlResponse(): Promise<any> {\n    let rawOutput = await renderFile(Deno.cwd() + \"/index.ejs\", {\n      body: this.body\n    });\n    let html = rawOutput.toString();\n    return html;\n  }\n}\n\nDrash.Http.Response = Response;\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n  public POST() {\n    this.response.body = \"POST request received!\";\n    let name = this.request.body_parsed.name;\n    if (name) {\n      this.response.body += ` Thanks for the request, ${name}!`;\n    }\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1337\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -323,7 +323,7 @@ const app_data = {
         "title": "/path/to/your/project/index.ejs"
       },
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs/dejs.ts\";\n\nclass Response extends Drash.Http.Response {\n  public async generateHtmlResponse(): Promise<any> {\n    let rawOutput = await renderFile(Deno.cwd() + \"/index.ejs\", {\n      body: this.body\n    });\n    let html = rawOutput.toString();\n    return html;\n  }\n}\n\nDrash.Http.Response = Response;\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n  public POST() {\n    this.response.body = \"POST request received!\";\n    let name = this.request.body_parsed.name;\n    if (name) {\n      this.response.body += ` Thanks for the request, ${name}!`;\n    }\n    return this.response;\n  }\n}\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1337\",\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  logger: new Drash.Loggers.ConsoleLogger({\n    enabled: true,\n    level: \"debug\",\n    tag_string: \"{datetime} | {level} | \",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs/dejs.ts\";\n\nclass Response extends Drash.Http.Response {\n  public async generateHtmlResponse(): Promise<any> {\n    let rawOutput = await renderFile(Deno.cwd() + \"/index.ejs\", {\n      body: this.body\n    });\n    let html = rawOutput.toString();\n    return html;\n  }\n}\n\nDrash.Http.Response = Response;\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n  public POST() {\n    this.response.body = \"POST request received!\";\n    let name = this.request.body_parsed.name;\n    if (name) {\n      this.response.body += ` Thanks for the request, ${name}!`;\n    }\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1337\",\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  logger: new Drash.Loggers.ConsoleLogger({\n    enabled: true,\n    level: \"debug\",\n    tag_string: \"{datetime} | {level} | \",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -364,7 +364,7 @@ const app_data = {
     },
     "/src/example_code/advanced_tutorials/creating_a_web_app/hello_world/part_1": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n}\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1337\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1337\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -427,7 +427,7 @@ const app_data = {
     },
     "/src/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/part_2": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport CoffeeResource from \"./coffee_resource.ts\";\nimport TeaResource from \"./tea_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    CoffeeResource,\n    TeaResource\n  ],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport CoffeeResource from \"./coffee_resource.ts\";\nimport TeaResource from \"./tea_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    CoffeeResource,\n    TeaResource\n  ],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -461,7 +461,7 @@ const app_data = {
         "title": "/path/to/your/project/coffee_resource.ts"
       },
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport CoffeeResource from \"./coffee_resource.ts\";\nimport TeaResource from \"./tea_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    CoffeeResource,\n    TeaResource\n  ],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport CoffeeResource from \"./coffee_resource.ts\";\nimport TeaResource from \"./tea_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    CoffeeResource,\n    TeaResource\n  ],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -502,7 +502,7 @@ const app_data = {
         "title": "/path/to/your/project/coffee_resource.ts"
       },
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport response from \"./response.ts\";\nDrash.Http.Response = response;\n\nimport CoffeeResource from \"./coffee_resource.ts\";\nimport TeaResource from \"./tea_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    CoffeeResource,\n    TeaResource\n  ],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport response from \"./response.ts\";\nDrash.Http.Response = response;\n\nimport CoffeeResource from \"./coffee_resource.ts\";\nimport TeaResource from \"./tea_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    CoffeeResource,\n    TeaResource\n  ],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -658,7 +658,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/middleware/adding_server_level_middleware": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport VerifyTokenMiddleware from \"./verify_token_middleware.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    server_level: {\n      before_request: [\n        VerifyTokenMiddleware\n      ]\n    }\n  },\n  resources: [\n    HomeResource\n  ],\n  response_output: \"application/json\",\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport VerifyTokenMiddleware from \"./verify_token_middleware.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    server_level: {\n      before_request: [\n        VerifyTokenMiddleware\n      ]\n    }\n  },\n  resources: [\n    HomeResource\n  ],\n  response_output: \"application/json\",\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -694,21 +694,21 @@ const app_data = {
         "title": "/path/to/your/project/location_resource_level.ts"
       },
       "location_server_level": {
-        "contents": "let server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    server_level: {\n      before_request: [\n        AuthMiddleware,\n        CacheMiddleware,\n      ],\n      after_request: [\n        SomeOtherMiddleware,\n      ]\n    }\n  },\n  resources: [\n    HomeResource\n  ],\n  response_output: \"application/json\",\n});\n",
+        "contents": "const server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    server_level: {\n      before_request: [\n        AuthMiddleware,\n        CacheMiddleware,\n      ],\n      after_request: [\n        SomeOtherMiddleware,\n      ]\n    }\n  },\n  resources: [\n    HomeResource\n  ],\n  response_output: \"application/json\",\n});\n",
         "extension": "ts",
         "filename": "location_server_level.ts",
         "language": "typescript",
         "title": "/path/to/your/project/location_server_level.ts"
       },
       "sorting": {
-        "contents": "let server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    server_level: {\n      before_request: [\n        OneMiddleware,\n        TwoMiddleware\n      ]\n    },\n    resource_level: [\n      RedMiddleware,\n      BlueMiddleware\n    ]\n  },\n  resources: [\n    HomeResource\n  ],\n  response_output: \"application/json\",\n});\n",
+        "contents": "const server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    server_level: {\n      before_request: [\n        OneMiddleware,\n        TwoMiddleware\n      ]\n    },\n    resource_level: [\n      RedMiddleware,\n      BlueMiddleware\n    ]\n  },\n  resources: [\n    HomeResource\n  ],\n  response_output: \"application/json\",\n});\n",
         "extension": "ts",
         "filename": "sorting.ts",
         "language": "typescript",
         "title": "/path/to/your/project/sorting.ts"
       },
       "location_resource_level_server": {
-        "contents": "let server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    resource_level: [\n      MyFirstMiddleware,\n      MySecondMiddleware,\n      MyThirdMiddleware\n    ]\n  },\n  resources: [\n    HomeResource\n  ],\n  response_output: \"application/json\",\n});\n",
+        "contents": "const server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    resource_level: [\n      MyFirstMiddleware,\n      MySecondMiddleware,\n      MyThirdMiddleware\n    ]\n  },\n  resources: [\n    HomeResource\n  ],\n  response_output: \"application/json\",\n});\n",
         "extension": "ts",
         "filename": "location_resource_level_server.ts",
         "language": "typescript",
@@ -717,7 +717,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/middleware/adding_resource_level_middleware": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport SecretResource from \"./secret_resource.ts\";\nimport VerifyTokenMiddleware from \"./verify_token_middleware.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    resource_level: [\n      VerifyTokenMiddleware\n    ]\n  },\n  resources: [\n    HomeResource,\n    SecretResource\n  ],\n  response_output: \"application/json\",\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport SecretResource from \"./secret_resource.ts\";\nimport VerifyTokenMiddleware from \"./verify_token_middleware.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    resource_level: [\n      VerifyTokenMiddleware\n    ]\n  },\n  resources: [\n    HomeResource,\n    SecretResource\n  ],\n  response_output: \"application/json\",\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -767,7 +767,7 @@ const app_data = {
         "title": "/path/to/your/project/my_resource_get_post_put_delete.ts"
       },
       "registering_resources": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "registering_resources.ts",
         "language": "typescript",
@@ -824,7 +824,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/requests/handling_url_query_params": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -846,7 +846,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/requests/handling_application_json_bodies": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -909,7 +909,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/requests/handling_application_x_www_form_urlencoded_bodies": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -931,7 +931,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/requests/handling_path_params": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport UsersResource from \"./users_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport UsersResource from \"./users_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -974,7 +974,7 @@ const app_data = {
         "title": "/path/to/your/project/orders_resource.ts"
       },
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport OrdersResource from \"./orders_resource.ts\";\nimport UsersResource from \"./users_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource,\n    OrdersResource,\n    UsersResource\n  ]\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport OrdersResource from \"./orders_resource.ts\";\nimport UsersResource from \"./users_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource,\n    OrdersResource,\n    UsersResource\n  ]\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1001,7 +1001,7 @@ const app_data = {
         "title": "/path/to/your/project/home_resource.ts"
       },
       "run_tests": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { runTests } from \"https://deno.land/std/testing/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport OrdersResource from \"./orders_resource.ts\";\nimport UsersResource from \"./users_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource,\n    OrdersResource,\n    UsersResource\n  ],\n});\n\n// Run your server\n\nserver.run();\n\n// Import your tests so they can be run\n\nimport \"./tests.ts\";\n\n// Run your tests and then shut down the server when done\n\nrunTests()\n  .then(() => {\n    server.close();\n  });\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { runTests } from \"https://deno.land/std/testing/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport OrdersResource from \"./orders_resource.ts\";\nimport UsersResource from \"./users_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource,\n    OrdersResource,\n    UsersResource\n  ],\n});\n\n// Run your server\n\nserver.run();\n\n// Import your tests so they can be run\n\nimport \"./tests.ts\";\n\n// Run your tests and then shut down the server when done\n\nrunTests()\n  .then(() => {\n    server.close();\n  });\n",
         "extension": "ts",
         "filename": "run_tests.ts",
         "language": "typescript",
@@ -1027,7 +1027,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/logging/logging_to_the_terminal": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource],\n  logger: new Drash.Loggers.ConsoleLogger({\n    enabled: true,\n    level: \"all\",\n    tag_string: \"{datetime} | {level} |\",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource],\n  logger: new Drash.Loggers.ConsoleLogger({\n    enabled: true,\n    level: \"all\",\n    tag_string: \"{datetime} | {level} |\",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1049,7 +1049,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/logging/logging_using_log_from_deno_std": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1065,7 +1065,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/logging/logging_to_files": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource],\n  logger: new Drash.Loggers.FileLogger({\n    enabled: true,\n    level: \"all\",\n    file: \"./server.log\",\n    tag_string: \"{datetime} | {level} |\",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource],\n  logger: new Drash.Loggers.FileLogger({\n    enabled: true,\n    level: \"all\",\n    file: \"./server.log\",\n    tag_string: \"{datetime} | {level} |\",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1105,7 +1105,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/servers/serving_static_paths": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  directory: \"/path/to/your/project\",\n  resources: [HomeResource],\n  response_output: \"text/html\",\n  static_paths: [\"/public\"]\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  directory: \"/path/to/your/project\",\n  resources: [HomeResource],\n  response_output: \"text/html\",\n  static_paths: [\"/public\"]\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1141,7 +1141,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/servers/creating_a_server": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\", // Accepts text/html, text/xml, application/xml\n  resources: [HomeResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\", // Accepts text/html, text/xml, application/xml\n  resources: [HomeResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1213,7 +1213,7 @@ const app_data = {
     },
     "/src/example_code/third_party_tutorials/databases/deno_postgres_test": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport members from \"../../../../../tests/members.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/postgres/mod.ts\";\n\nconst denoPostgres = new Client({\n  database: \"deno_postgres\",\n  host: \"localhost\",\n  port: \"5432\",\n  user: \"crookse\", // specify your db user\n});\n\nexport {\n  denoPostgres\n}\n\nmembers.test(\"deno-postgres\", async () => {\n  server.run();\n  const response = await members.fetch.get(\"http://localhost:1447\");\n  members.assert.responseJsonEquals(await response.text(), [[\"eric\",\"m\"]]);\n  server.deno_server.close();\n});\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport members from \"../../../../../tests/members.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/postgres/mod.ts\";\n\nconst denoPostgres = new Client({\n  database: \"deno_postgres\",\n  host: \"localhost\",\n  port: \"5432\",\n  user: \"crookse\", // specify your db user\n});\n\nexport {\n  denoPostgres\n}\n\nmembers.test(\"deno-postgres\", async () => {\n  server.run();\n  const response = await members.fetch.get(\"http://localhost:1447\");\n  members.assert.responseJsonEquals(await response.text(), [[\"eric\",\"m\"]]);\n  server.deno_server.close();\n});\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1235,7 +1235,7 @@ const app_data = {
     },
     "/src/example_code/third_party_tutorials/databases/deno_postgres": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\nserver.run();\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/postgres/mod.ts\";\n\nconst denoPostgres = new Client({\n  database: \"deno_postgres\",\n  host: \"localhost\",\n  port: \"5432\",\n  user: \"user\", // specify your db user\n});\n\nexport {\n  denoPostgres\n}\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\nserver.run();\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/postgres/mod.ts\";\n\nconst denoPostgres = new Client({\n  database: \"deno_postgres\",\n  host: \"localhost\",\n  port: \"5432\",\n  user: \"user\", // specify your db user\n});\n\nexport {\n  denoPostgres\n}\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1257,7 +1257,7 @@ const app_data = {
     },
     "/src/example_code/third_party_tutorials/databases/deno_mysql": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\nserver.run();\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/mysql/mod.ts\";\n\nconst denoMysql = await new Client().connect({\n  hostname: \"127.0.0.1\",\n  username: \"username\", // specify your username\n  db: \"deno_mysql\",\n  // password: \"password\", // uncomment and specify your password if using a password\n});\n\nexport {\n  denoMysql\n}\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\nserver.run();\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/mysql/mod.ts\";\n\nconst denoMysql = await new Client().connect({\n  hostname: \"127.0.0.1\",\n  username: \"username\", // specify your username\n  db: \"deno_mysql\",\n  // password: \"password\", // uncomment and specify your password if using a password\n});\n\nexport {\n  denoMysql\n}\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1279,7 +1279,7 @@ const app_data = {
     },
     "/src/example_code/third_party_tutorials/databases/deno_mysql_test": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport members from \"../../../../../tests/members.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/mysql/mod.ts\";\n\nconst denoMysql = await new Client().connect({\n  hostname: \"127.0.0.1\",\n  username: \"root\", // specify your username\n  db: \"deno_mysql\",\n  // password: \"password\", // uncomment and specify your password if using a password\n});\n\nexport {\n  denoMysql\n}\n\nmembers.test(\"deno_mysql\", async () => {\n  server.run();\n  const response = await members.fetch.get(\"http://localhost:1447\");\n  members.assert.responseJsonEquals(await response.text(), [\n    {\n      \"name\": \"manyuanrong\",\n      \"role\": \"author\"\n    }\n  ]);\n  server.deno_server.close();\n});\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport members from \"../../../../../tests/members.ts\";\n\n// Set up the server\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource]\n});\n\n// Set up the database\n\nimport { Client } from \"https://deno.land/x/mysql/mod.ts\";\n\nconst denoMysql = await new Client().connect({\n  hostname: \"127.0.0.1\",\n  username: \"root\", // specify your username\n  db: \"deno_mysql\",\n  // password: \"password\", // uncomment and specify your password if using a password\n});\n\nexport {\n  denoMysql\n}\n\nmembers.test(\"deno_mysql\", async () => {\n  server.run();\n  const response = await members.fetch.get(\"http://localhost:1447\");\n  members.assert.responseJsonEquals(await response.text(), [\n    {\n      \"name\": \"manyuanrong\",\n      \"role\": \"author\"\n    }\n  ]);\n  server.deno_server.close();\n});\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1319,7 +1319,7 @@ const app_data = {
         "title": "/path/to/your/project/index.ejs"
       },
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport members from \"../../../../../tests/members.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nlet expected = `<!DOCTYPE html>\n<html class=\"h-full w-full\">\n\t<head>\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>Drash + dejs</title>\n\t\t<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css\">\n\t</head>\n\t<body class=\"h-full w-full\">\n\t\t<div class=\"flex h-full w-full items-center justify-center\">\n\t\t\t<div class=\"max-w-sm rounded overflow-hidden shadow-lg\">\n\t\t\t\t<img class=\"w-full\" src=\"https://tailwindcss.com/img/card-top.jpg\" alt=\"Sunset in the mountains\">\n\t\t\t\t<div class=\"px-6\">\n\t\t\t\t<div class=\"font-bold text-xl mt-4 mb-2\">Drash + dejs</div>\n\t\t\t\t\t<div class=\"mb-4\">\n\t\t\t\t\t\t<p class=\"text-grey-darker text-base\">Hello, (name not specified)! Drash + dejs is cool!</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<hr class=\"border-b border-gray\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"px-6 py-4\">\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2\">#deno</span>\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2\">#drash</span>\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker\">#dejs</span>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>\n`;\n\nmembers.test(\"dejs\", async () => {\n  server.run();\n  const response = await members.fetch.get(\"http://localhost:1447\");\n  members.assert.equals(await response.text(), expected);\n  server.deno_server.close();\n});\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport members from \"../../../../../tests/members.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nlet expected = `<!DOCTYPE html>\n<html class=\"h-full w-full\">\n\t<head>\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>Drash + dejs</title>\n\t\t<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css\">\n\t</head>\n\t<body class=\"h-full w-full\">\n\t\t<div class=\"flex h-full w-full items-center justify-center\">\n\t\t\t<div class=\"max-w-sm rounded overflow-hidden shadow-lg\">\n\t\t\t\t<img class=\"w-full\" src=\"https://tailwindcss.com/img/card-top.jpg\" alt=\"Sunset in the mountains\">\n\t\t\t\t<div class=\"px-6\">\n\t\t\t\t<div class=\"font-bold text-xl mt-4 mb-2\">Drash + dejs</div>\n\t\t\t\t\t<div class=\"mb-4\">\n\t\t\t\t\t\t<p class=\"text-grey-darker text-base\">Hello, (name not specified)! Drash + dejs is cool!</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<hr class=\"border-b border-gray\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"px-6 py-4\">\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2\">#deno</span>\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2\">#drash</span>\n\t\t\t\t\t<span class=\"inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker\">#dejs</span>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>\n`;\n\nmembers.test(\"dejs\", async () => {\n  server.run();\n  const response = await members.fetch.get(\"http://localhost:1447\");\n  members.assert.equals(await response.text(), expected);\n  server.deno_server.close();\n});\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1347,7 +1347,7 @@ const app_data = {
         "title": "/path/to/your/project/index.ejs"
       },
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1376,7 +1376,7 @@ const app_data = {
     },
     "/src/example_code/getting_started/quickstart": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n}\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource]\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
