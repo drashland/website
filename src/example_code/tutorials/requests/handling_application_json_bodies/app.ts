@@ -4,7 +4,7 @@ import HomeResource from "./home_resource.ts";
 
 let server = new Drash.Http.Server({
   address: "localhost:1447",
-  response_output: "application/json",
+  response_output: "text/plain",
   resources: [HomeResource],
 });
 

@@ -36,8 +36,8 @@ div.c-sidebar
           a-base-url(href="/tutorials/resources/creating-a-resource") Creating A Resource
         a Requests
         div.l-submenu-1
-          a-base-url(href="/tutorials/requests/handling-request-params") Handling Request Params
-          a-base-url(href="/tutorials/requests/handling-multipart-form-data") Handling multipart/form-data
+          a-base-url(href="/tutorials/requests/handling-application-json-bodies") Handling application/json Bodies
+          a-base-url(href="/tutorials/requests/handling-multipart-form-data-bodies") Handling multipart/form-data Bodies
         a Servers
         div.l-submenu-1
           a-base-url(href="/tutorials/servers/creating-a-server") Creating A Server

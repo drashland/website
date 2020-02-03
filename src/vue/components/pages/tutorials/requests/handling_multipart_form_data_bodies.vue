@@ -1,16 +1,16 @@
 <script>
 export const resource = {
-  paths: ["/tutorials/requests/handling-multipart-form-data"],
+  paths: ["/tutorials/requests/handling-multipart-form-data-bodies"],
   meta: {
-    title: "Handling multipart/form-data",
-    source_code_uri: "/tutorials/requests/handling_multipart_form_data"
+    title: "Handling multipart/form-data Bodies",
+    source_code_uri: "/tutorials/requests/handling_multipart_form_data_bodies"
   }
 }
 
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/requests/handling_multipart_form_data'],
+      example_code: this.$app_data.example_code['/src/example_code/tutorials/requests/handling_multipart_form_data_bodies'],
       toc: {
         items: [
           "Before You Get Started",
@@ -32,8 +32,7 @@ page-tutorial(
     div.col
       hr
       h2-hash Before You Get Started
-      p
-        p Drash's <code>multipart/form-data</code> parser uses Deno Standard Modules' <code><a href="https://github.com/denoland/deno/blob/master/std/mime/multipart.ts#L254" target="_BLANK">MultipartReader</a></code>.
+      p Drash's <code>multipart/form-data</code> parser uses Deno Standard Modules' <code><a href="https://github.com/denoland/deno/blob/master/std/mime/multipart.ts#L254" target="_BLANK">MultipartReader</a></code>.
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
     div.col
@@ -45,15 +44,17 @@ page-tutorial(
       h2-hash Steps
       ol
         li
-          p Create your resource file. Your resource will check for the <code>my_file</code> file. If it exists, it will write its contents to <code>outputFile</code>. If it does not exist, then it will throw a <code>400 Bad Request</code> response.
+          p Create your resource file. Your resource file will check for the <code>my_file</code> file in the request's body. If it exists, then it will write its contents to <code>outputFile</code>. If it does not exist, then it will throw a <code>400 Bad Request</code> response.
           p
             code-block(:data="example_code.files_resource")
         li
           p Create your <code>my_file.txt</code> file so that it can be passed in the request body.
           p
             code-block(:data="example_code.my_file")
-        li Create your app file.
-          code-block(:data="example_code.app")
+        li
+          p Create your app file.
+          p
+            code-block(:data="example_code.app")
   div.row
     div.col
       hr
@@ -71,7 +72,7 @@ page-tutorial(
         li
           p Create your <code>uploads</code> folder in your project's directory. This is where the output file will be stored. If you skip this step, you will get the following error: <code>"No such file or directory (os error 2)"</code>.
         li
-          p Using <code>curl</code> (or similar command), make a <code>POST</code> request to <code>localhost:1447/files</code> and pass in <code>my_file.txt</code> in the request. The name of the file is before <code>=@</code>. This is the name your resource will check for when trying to get the file.
+          p Using <code>curl</code> (or similar command), make a <code>POST</code> request to <code>localhost:1447/files</code> and pass in <code>my_file.txt</code> in the request body. The name of the file is before <code>=@</code>. This is the name your resource will check for when trying to get the file.
           p
             code-block-slotted
               template(v-slot:title) Terminal
