@@ -75,7 +75,7 @@ page-tutorial-part(
               | // import CoffeeResource from "./coffee_resource.ts";
               | // import TeaResource from "./tea_resource.ts";
               |
-              | let server = new Drash.Http.Server({
+              | const server = new Drash.Http.Server({
               |   address: "localhost:1447",
               |   response_output: "application/json",
               |   resources: [
@@ -115,7 +115,7 @@ page-tutorial-part(
               | import CoffeeResource from "./coffee_resource.ts";
               | import TeaResource from "./tea_resource.ts";
               |
-              | let server = new Drash.Http.Server({
+              | const server = new Drash.Http.Server({
               |   address: "localhost:1447",
               |   response_output: "application/json",
               |   resources: [

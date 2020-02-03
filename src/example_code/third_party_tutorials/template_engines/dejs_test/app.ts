@@ -3,7 +3,7 @@ import members from "../../../../../tests/members.ts";
 
 import HomeResource from "./home_resource.ts";
 
-let server = new Drash.Http.Server({
+const server = new Drash.Http.Server({
   address: "localhost:1447",
   response_output: "text/html",
   resources: [HomeResource]

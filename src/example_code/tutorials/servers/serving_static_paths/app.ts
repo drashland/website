@@ -2,7 +2,7 @@ import Drash from "https://deno.land/x/drash/mod.ts";
 
 import HomeResource from "./home_resource.ts";
 
-let server = new Drash.Http.Server({
+const server = new Drash.Http.Server({
   address: "localhost:1447",
   directory: "/path/to/your/project",
   resources: [HomeResource],
