@@ -3,20 +3,20 @@ import Drash from "https://deno.land/x/drash/mod.ts";
 export default class HomeResource extends Drash.Http.Resource {
 
   static paths = [
-    "/"
+    "/users/:id"
   ];
 
-  public POST() {
-    const param = this.request.getBodyParam("name");
+  public GET() {
+    const userId = parseInt(this.request.getPathParam("id"));
 
-    if (!param) {
+    if (isNaN(userId)) {
       throw new Drash.Exceptions.HttpException(
         400,
-        "This resource requires the `name` body param."
+        "This resource requires the `:id` path param to be a number."
       );
     }
 
-    this.response.body = `You passed in the following body param: ${param}`;
+    this.response.body = `You passed in the following user ID as the path param: ${userId}`;
 
     return this.response;
   }
