@@ -796,15 +796,35 @@ const app_data = {
       }
     },
     "/src/example_code/tutorials/requests": {
-      "handling_request_params": {
+      "handling_url_query_params": {
         "contents": "",
-        "filename": "handling_request_params",
-        "title": "/path/to/your/project/handling_request_params"
+        "filename": "handling_url_query_params",
+        "title": "/path/to/your/project/handling_url_query_params"
+      },
+      "handling_application_json_bodies": {
+        "contents": "",
+        "filename": "handling_application_json_bodies",
+        "title": "/path/to/your/project/handling_application_json_bodies"
+      },
+      "handling_multipart_form_data_bodies": {
+        "contents": "",
+        "filename": "handling_multipart_form_data_bodies",
+        "title": "/path/to/your/project/handling_multipart_form_data_bodies"
+      },
+      "handling_application_x_www_form_urlencoded_bodies": {
+        "contents": "",
+        "filename": "handling_application_x_www_form_urlencoded_bodies",
+        "title": "/path/to/your/project/handling_application_x_www_form_urlencoded_bodies"
+      },
+      "handling_path_params": {
+        "contents": "",
+        "filename": "handling_path_params",
+        "title": "/path/to/your/project/handling_path_params"
       }
     },
-    "/src/example_code/tutorials/requests/handling_request_params": {
+    "/src/example_code/tutorials/requests/handling_url_query_params": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -817,11 +837,118 @@ const app_data = {
         "title": "Project Folder Structure"
       },
       "home_resource": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n  static paths = [\n    \"/\",\n    \"/:something\"\n  ];\n\n  public GET() {\n    this.response.body = \"GET request received!\";\n\n    let pathParam = this.request.getPathParam(\"something\");\n    if (pathParam) {\n      this.response.body += ` Path param \"${pathParam}\" received!`;\n    }\n\n    let queryParam = this.request.getQueryParam(\"something\");\n    if (queryParam) {\n      this.response.body += ` URL query param \"${queryParam}\" received!`;\n    }\n\n    let bodyParam = this.request.getBodyParam(\"something\");\n    if (bodyParam) {\n      this.response.body += ` Body param \"${bodyParam}\" received!`;\n    }\n\n    let headerParam = this.request.getHeaderParam(\"Something\");\n    if (headerParam) {\n      this.response.body += ` Header param \"${headerParam}\" received!`;\n    }\n\n    return this.response;\n  }\n}\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/users\"\n  ];\n\n  public GET() {\n    let userId = this.request.getUrlQueryParam(\"id\");\n\n    if (!userId) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        \"This resource requires the `id` URL query param.\"\n      );\n    }\n\n    userId = parseInt(userId);\n    if (isNaN(userId)) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        \"This resource requires the `id` URL query param to be a number.\"\n      );\n    }\n\n    this.response.body = `You passed in the following user ID as the URL query param: ${userId}`;\n\n    return this.response;\n  }\n\n}\n",
         "extension": "ts",
         "filename": "home_resource.ts",
         "language": "typescript",
         "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/tutorials/requests/handling_application_json_bodies": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public POST() {\n    const param = this.request.getBodyParam(\"name\");\n\n    if (!param) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        \"This resource requires the `name` body param.\"\n      );\n    }\n\n    this.response.body = `You passed in the following body param: ${param}`;\n\n    return this.response;\n  }\n\n}\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/tutorials/requests/handling_multipart_form_data_bodies": {
+      "my_file": {
+        "contents": "Hello, world!\n\nI am a simple text file.\n",
+        "extension": "txt",
+        "filename": "my_file.txt",
+        "title": "/path/to/your/project/my_file.txt"
+      },
+      "files_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/files\"\n  ];\n\n  public POST() {\n    const decoder = new TextDecoder();\n    const file = this.request.getBodyFile(\"my_file\");\n\n    if (!file) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        \"This resource requires files to be uploaded via the request body.\"\n      );\n    }\n\n    const outputFile = \"./uploads/my_uploaded_file.txt\";\n\n    Deno.writeFileSync(outputFile, file.content);\n\n    this.response.body = `You uploaded the following to ${outputFile}: `\n      + `\\n${decoder.decode(file.content)}`;\n\n    return this.response;\n  }\n\n}\n",
+        "extension": "ts",
+        "filename": "files_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/files_resource.ts"
+      },
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport FilesResource from \"./files_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [FilesResource],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "uploads": {
+        "contents": "",
+        "filename": "uploads",
+        "title": "/path/to/your/project/uploads"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\t▾ uploads/\n\t\tmy_uploaded_file.txt\n\tapp.ts\n\tfiles_resource.ts\n\tmy_file.txt\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      }
+    },
+    "/src/example_code/tutorials/requests/handling_multipart_form_data_bodies/uploads": {
+      "my_uploaded_file": {
+        "contents": "Hello, world!\n\nI am a simple text file.\n",
+        "extension": "txt",
+        "filename": "my_uploaded_file.txt",
+        "title": "/path/to/your/project/my_uploaded_file.txt"
+      }
+    },
+    "/src/example_code/tutorials/requests/handling_application_x_www_form_urlencoded_bodies": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [HomeResource],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public POST() {\n    const param = this.request.getBodyParam(\"snack\");\n\n    if (!param) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        \"This resource requires the `snack` body param.\"\n      );\n    }\n\n    this.response.body = `You passed in the following body param: ${param}`;\n\n    return this.response;\n  }\n\n}\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/tutorials/requests/handling_path_params": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport UsersResource from \"./users_resource.ts\";\n\nlet server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [UsersResource],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "users_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nexport default class UsersResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/users/:id\"\n  ];\n\n  public GET() {\n    const userId = parseInt(this.request.getPathParam(\"id\"));\n\n    if (isNaN(userId)) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        \"This resource requires the `:id` path param to be a number.\"\n      );\n    }\n\n    this.response.body = `You passed in the following user ID as the path param: ${userId}`;\n\n    return this.response;\n  }\n\n}\n",
+        "extension": "ts",
+        "filename": "users_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/users_resource.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\tusers_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
       }
     },
     "/src/example_code/tutorials/testing": {
@@ -1973,8 +2100,8 @@ const app_data = {
                       "The request object."
                     ],
                     "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
+                      "line": "@param any request",
+                      "data_type": "any",
                       "name": "request"
                     }
                   }
@@ -1982,7 +2109,7 @@ const app_data = {
                 "returns": [
                   {
                     "description": [
-                      "Returns the `ServerRequest` object with more properties and methods."
+                      "Returns any \"request\" object with more properties and methods that\nDrash uses. For example, deno uses the `ServerRequest` object; and this\nmethod takes that object and hydrates it with more properties and\nmethods."
                     ],
                     "annotation": {
                       "line": "@return any",
@@ -1992,8 +2119,8 @@ const app_data = {
                   }
                 ],
                 "throws": null,
-                "signature": "public getRequest(request: any): any",
-                "is_async": false,
+                "signature": "public async getRequest(request: any): Promise<any>",
+                "is_async": true,
                 "fully_qualified_name": "Drash.Http.Server.getRequest"
               },
               "handleHttpRequest": {
@@ -2009,8 +2136,8 @@ const app_data = {
                       "The request object."
                     ],
                     "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
+                      "line": "@param any request",
+                      "data_type": "any",
                       "name": "request"
                     }
                   }
@@ -2045,8 +2172,8 @@ const app_data = {
                       "The request object."
                     ],
                     "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
+                      "line": "@param any request",
+                      "data_type": "any",
                       "name": "request"
                     }
                   },
@@ -2090,8 +2217,8 @@ const app_data = {
                     "name": "request",
                     "description": [],
                     "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
+                      "line": "@param any request",
+                      "data_type": "any",
                       "name": "request"
                     }
                   }
@@ -2124,8 +2251,8 @@ const app_data = {
                     "name": "request",
                     "description": [],
                     "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
+                      "line": "@param any request",
+                      "data_type": "any",
                       "name": "request"
                     }
                   }
@@ -2167,7 +2294,7 @@ const app_data = {
                   }
                 ],
                 "throws": null,
-                "signature": "public async run(): Promise<void>",
+                "signature": "public async run(options?: RunOptions): Promise<void>",
                 "is_async": true,
                 "fully_qualified_name": "Drash.Http.Server.run"
               },
@@ -2420,8 +2547,8 @@ const app_data = {
                       "The request object."
                     ],
                     "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
+                      "line": "@param any request",
+                      "data_type": "any",
                       "name": "request"
                     }
                   }
@@ -2455,8 +2582,8 @@ const app_data = {
                     "name": "request",
                     "description": [],
                     "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
+                      "line": "@param any request",
+                      "data_type": "any",
                       "name": "request"
                     }
                   }
@@ -2952,175 +3079,6 @@ const app_data = {
             ],
             "properties": {},
             "methods": {
-              "getHttpRequestBodyParsed": {
-                "access_modifier": "public",
-                "name": "getHttpRequestBodyParsed",
-                "description": [
-                  "Parse the body of the request so that it can be used as an associative\narray.",
-                  "If the request body's content type is `application/json`, then\n`{\"username\":\"root\",\"password\":\"alpine\"}` becomes `{ username: \"root\", password: \"alpine\" }`.",
-                  "If the request body's content type is\n`application/x-www-form-urlencoded`, then\n`username=root&password=alpine` becomes `{ username: \"root\", password: \"alpine\" }`.",
-                  "If the body can't be parsed, then this method will set\n`this.body_parsed` to `false` to denote that the request body was not\nparsed."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return Promise<any>",
-                      "data_type": "Promise<any>",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public async getHttpRequestBodyParsed(request): Promise<any>",
-                "is_async": true,
-                "fully_qualified_name": "Drash.Services.HttpService.getHttpRequestBodyParsed"
-              },
-              "hydrateHttpRequest": {
-                "access_modifier": "public",
-                "name": "hydrateHttpRequest",
-                "description": [
-                  "Hydrate the request with data that is useful for the\n`Drash.Http.Server` class."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
-                      "name": "request"
-                    }
-                  },
-                  "options": {
-                    "name": "options",
-                    "description": [
-                      "A list of options."
-                    ],
-                    "annotation": {
-                      "line": "@param any options",
-                      "data_type": "any",
-                      "name": "options"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "public hydrateHttpRequest(request, options?: any)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpService.hydrateHttpRequest"
-              },
-              "getHttpRequestUrlPath": {
-                "access_modifier": "public",
-                "name": "getHttpRequestUrlPath",
-                "description": [
-                  "Get the specified HTTP request's URL path."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the URL path."
-                    ],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getHttpRequestUrlPath(request): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpService.getHttpRequestUrlPath"
-              },
-              "getHttpRequestUrlQueryString": {
-                "access_modifier": "public",
-                "name": "getHttpRequestUrlQueryString",
-                "description": [
-                  "Get the specified HTTP request's URL query string."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the URL query string (e.g., key1=value1&key2=value2) without\nthe leading \"?\" character."
-                    ],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getHttpRequestUrlQueryString(request): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpService.getHttpRequestUrlQueryString"
-              },
-              "getHttpRequestUrlQueryParams": {
-                "access_modifier": "public",
-                "name": "getHttpRequestUrlQueryParams",
-                "description": [
-                  "Get the HTTP request's URL query params by parsing the URL query string."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the URL query string in key-value pair format."
-                    ],
-                    "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getHttpRequestUrlQueryParams(request): any",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpService.getHttpRequestUrlQueryParams"
-              },
               "getMimeType": {
                 "access_modifier": "public",
                 "name": "getMimeType",
@@ -3168,92 +3126,6 @@ const app_data = {
                 "signature": "public getMimeType(filePath: string, fileIsUrl: boolean = false): string",
                 "is_async": false,
                 "fully_qualified_name": "Drash.Services.HttpService.getMimeType"
-              },
-              "getResponseContentType": {
-                "access_modifier": "public",
-                "name": "getResponseContentType",
-                "description": [
-                  "Get the request's requested content type.",
-                  "There are three ways to get this value: (1) the request's headers by\nsetting `Response-Content-Type: \"type\"`, (2) the request's URL query\nparams by setting `?response_content_type=type`, and the request's body\nby setting `{response_content_type: \"type\"}`.",
-                  "The request's body takes precedence over all other settings.",
-                  "The request's URL query params takes precedence over the header setting\nand the default setting.",
-                  "The request's header setting takes precedence over the default setting.",
-                  "If no content type is specified by the request's body, URL query\nparams, or header, then the default content type will be used. The\ndefault content type is the content type defined in the\n`Drash.Http.Server` object's `response_output` config."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getResponseContentType(request): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpService.getResponseContentType"
-              },
-              "parseQueryParamsString": {
-                "access_modifier": "public",
-                "name": "parseQueryParamsString",
-                "description": [
-                  "Parse a URL query string in it's raw form.",
-                  "If the request body's content type is application/json, then\n`{\"username\":\"root\",\"password\":\"alpine\"}` becomes\n`{ username: \"root\", password: \"alpine\" }`.",
-                  "If the request body's content type is\napplication/x-www-form-urlencoded, then `username=root&password=alpine`\nbecomes `{ username: \"root\", password: \"alpine\" }`."
-                ],
-                "params": {
-                  "queryParamsString": {
-                    "name": "queryParamsString",
-                    "description": [
-                      "The query params string (e.g., hello=world&ok=then&git=hub)"
-                    ],
-                    "annotation": {
-                      "line": "@param string queryParamsString",
-                      "data_type": "string",
-                      "name": "queryParamsString"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "public parseQueryParamsString(queryParamsString: string): any",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpService.parseQueryParamsString"
-              },
-              "requestHasBody": {
-                "access_modifier": "public",
-                "name": "requestHasBody",
-                "description": [
-                  "Does the specified request have a body?"
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return boolean",
-                      "data_type": "boolean",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public requestHasBody(request: any): boolean",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpService.requestHasBody"
               }
             }
           }
