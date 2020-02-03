@@ -9,9 +9,9 @@
 
 ## Environments
 
-* [Production: https://drash.land](https://drash.land)
+* Production: [https://drash.land](https://drash.land)
     * This environment includes code that is released and stable.
-* [Staging: https://drash.land](https://drash.land/staging)
+* Staging: [https://drash.land](https://drash.land/staging)
     * This environment includes code that is still under development, but ready to be realeased soon.
 
 ## Technology Stack
