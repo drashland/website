@@ -3174,8 +3174,8 @@ const app_data = {
                       "Returns a body as a parsable JSON object where the first level of keys\nare the names of the parts. For example, if the name of the first part\nis `file_number_one`, then it will be accessible in the returned object\nas `{returned_object}.file_number_one`."
                     ],
                     "annotation": {
-                      "line": "@return Promise<any>",
-                      "data_type": "Promise<any>",
+                      "line": "@return any",
+                      "data_type": "any",
                       "name": null
                     }
                   }
@@ -3225,7 +3225,7 @@ const app_data = {
                   }
                 ],
                 "throws": null,
-                "signature": "public getRequestHeaderParam(request: any, input: string): any",
+                "signature": "public getRequestHeaderParam(request: any, input: string): string",
                 "is_async": false,
                 "fully_qualified_name": "Drash.Services.HttpRequestService.getRequestHeaderParam"
               },
@@ -3388,8 +3388,8 @@ const app_data = {
                       "Returns `true` if the request has a body. Returns `false` if not."
                     ],
                     "annotation": {
-                      "line": "@return boolean",
-                      "data_type": "boolean",
+                      "line": "@return Promise<any>",
+                      "data_type": "Promise<any>",
                       "name": null
                     }
                   }
@@ -3412,8 +3412,8 @@ const app_data = {
                       "Returns a hydrated request object. For example, deno uses the\n`ServerRequest` object. This method takes that object and adds more\nporperties and methods to it. This makes it easier for Drash to process\nthe object for its own purposes."
                     ],
                     "annotation": {
-                      "line": null,
-                      "data_type": null,
+                      "line": "@return Promise<any>",
+                      "data_type": "Promise<any>",
                       "name": null
                     }
                   }
@@ -3447,8 +3447,8 @@ const app_data = {
                   {
                     "description": [],
                     "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
+                      "line": "@return Promise<any>",
+                      "data_type": "Promise<any>",
                       "name": null
                     }
                   }
@@ -3469,8 +3469,8 @@ const app_data = {
                   {
                     "description": [],
                     "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
+                      "line": "@return Promise<any>",
+                      "data_type": "Promise<any>",
                       "name": null
                     }
                   }
@@ -3489,7 +3489,9 @@ const app_data = {
                 "params": {
                   "body": {
                     "name": "body",
-                    "description": [],
+                    "description": [
+                      "The request's body."
+                    ],
                     "annotation": {
                       "line": "@param Reader body",
                       "data_type": "Reader",
@@ -3498,7 +3500,9 @@ const app_data = {
                   },
                   "boundary": {
                     "name": "boundary",
-                    "description": [],
+                    "description": [
+                      "The boundary of the part (e.g., `----------437192313`)"
+                    ],
                     "annotation": {
                       "line": "@param string boundary",
                       "data_type": "string",
@@ -3507,7 +3511,9 @@ const app_data = {
                   },
                   "maxMemory": {
                     "name": "maxMemory",
-                    "description": [],
+                    "description": [
+                      "The maximum memory to allocate to this process in megabytes."
+                    ],
                     "annotation": {
                       "line": "@param number maxMemory",
                       "data_type": "number",
@@ -3519,8 +3525,8 @@ const app_data = {
                   {
                     "description": [],
                     "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
+                      "line": "@return Promise<any>",
+                      "data_type": "Promise<any>",
                       "name": null
                     }
                   }
