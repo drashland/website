@@ -34,26 +34,51 @@ page-tutorial(
       h2-hash Before You Get Started
       p
         p There are multiple ways in which you can parse params in/on a request in Drash:
-        code-block-slotted(:header="false" language="typescript")
-          template(v-slot:code)
-            | // Path Params (e.g., /users/:id/profile, /users/{id}/profile)
-            | request.getPathParam("id") == "value of :id or {id}"
-            |
-            | // URL Query Params (e.g., /products?name=beignet&action=purchase)
-            | request.getQueryParam("name") == "beignet"
-            | request.getQueryParam("action") == "purchase"
-            |
-            | // Body Params Using application/x-www-form-urlencoded (e.g., username=root&password=alpine)
-            | request.getBodyParam("username") == "root"
-            | request.getBodyParam("password") == "alpine"
-            |
-            | // Body Params Using application/json (e.g., {"username":"root","password":"alpine"})
-            | request.getBodyParam("username") == "root"
-            | request.getBodyParam("password") == "alpine"
-            |
-            | // Header Params (e.g., {"Some-Header":"Some Value"})
-            | request.getHeaderParam("Some-Header") == "Some Value"
-            | request.headers.get("Some-Header") == "Some Value") // <- default TypeScript way
+        ul
+          li
+            p Path Params (e.g., <code>/users/:id/profile</code>, <code>/users/{id}/profile</code>)
+            p
+              code-block-slotted(:header="false" language="typescript")
+                template(v-slot:code)
+                  | request.getPathParam("id") == "value of :id or {id}"
+          li
+            p URL Query Params (e.g., /products?name=beignet&action=purchase)
+            p
+              code-block-slotted(:header="false" language="typescript")
+                template(v-slot:code)
+                  | request.getQueryParam("name") == "beignet"
+                  | request.getQueryParam("action") == "purchase"
+          li
+            p Body Params Using application/x-www-form-urlencoded (e.g., username=root&password=alpine)
+            p
+              code-block-slotted(:header="false" language="typescript")
+                template(v-slot:code)
+                  | request.getBodyParam("username") == "root"
+                  | request.getBodyParam("password") == "alpine"
+          li
+            p Body Params Using application/json (e.g., {"username":"root","password":"alpine"})
+            p 
+              code-block-slotted(:header="false" language="typescript")
+                template(v-slot:code)
+                  | request.getBodyParam("username") == "root"
+                  | request.getBodyParam("password") == "alpine"
+          li
+            p Body Files Using multipart/form-data (e.g., <code>curl -F 'my_file=@/path/to/my_file.txt' localhost:1447</code>)
+            p
+              code-block-slotted(:header="false" language="typescript")
+                template(v-slot:code)
+                  | request.getBodyFile("my_file") == {
+                  |   filename: "test.txt",
+                  |   type: "text/plain",
+                  |   content: Uint8Array [ 104, 101, 108, 108, 111, 10 ]
+                  | }
+          li
+            p Header Params (e.g., <code>{"Some-Header":"Some Value"}</code>)
+            p
+              code-block-slotted(:header="false" language="typescript")
+                template(v-slot:code)
+                  | request.getHeaderParam("Some-Header") == "Some Value"
+                  | request.headers.get("Some-Header") == "Some Value") // <- default TypeScript way
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
     div.col
