@@ -758,7 +758,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/middleware/morgan_style_logging_middleware": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport MorganStyleLoggingMiddleware from \"./morgan_style_logging_middleware.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    server_level: {\n      before_request: [\n        MorganStyleLoggingMiddleware\n      ]\n    }\n  },\n  resources: [\n    HomeResource\n  ],\n  response_output: \"application/json\",\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport MorganStyleLoggingMiddleware from \"./morgan_style_logging_middleware.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  middleware: {\n    server_level: {\n      before_request: [\n        MorganStyleLoggingMiddleware\n      ],\n      after_request: [\n        MorganStyleLoggingMiddleware\n      ]\n    }\n  },\n  resources: [\n    HomeResource\n  ],\n  response_output: \"application/json\",\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -778,7 +778,7 @@ const app_data = {
         "title": "/path/to/your/project/home_resource.ts"
       },
       "morgan_style_logging_middleware": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nconst logger = new Drash.Loggers.ConsoleLogger({\n  enabled: true,\n  level: \"all\",\n  tag_string: \"{datetime} | {level} |\",\n  tag_string_fns: {\n    datetime() {\n      return new Date().toISOString().replace(\"T\", \" \");\n    }\n  }\n});\n\nexport default class MorganStyleLoggingMiddleware extends Drash.Http.Middleware {\n  public run() {\n    logger.info(this.request.method + \" \" + this.request.url);\n  }\n}\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nconst logger = new Drash.Loggers.ConsoleLogger({\n  enabled: true,\n  level: \"all\",\n  tag_string: \"{datetime} | {level} |\",\n  tag_string_fns: {\n    datetime() {\n      return new Date().toISOString().replace(\"T\", \" \");\n    }\n  }\n});\n\nexport default class MorganStyleLoggingMiddleware extends Drash.Http.Middleware {\n  public run() {\n    if (!this.response) {\n      logger.info(`Request received: ${this.request.method} ${this.request.url}`);\n    }\n    if (this.response) {\n      logger.info(`Response: ${this.response.status_code} ${this.response.getStatusMessage()}`);\n    }\n  }\n}\n",
         "extension": "ts",
         "filename": "morgan_style_logging_middleware.ts",
         "language": "typescript",
@@ -1621,6 +1621,20 @@ const app_data = {
                 "name": "resource",
                 "fully_qualified_name": "Drash.Http.Middleware.resource"
               },
+              "response": {
+                "access_modifier": "protected",
+                "description": [
+                  "A property to hold the response object. This property will only contain\nthe response object if the server was able to get a response from the\nresource."
+                ],
+                "annotation": {
+                  "line": "@property Drash.Http.Resource resource",
+                  "data_type": "Drash.Http.Resource",
+                  "name": "resource"
+                },
+                "signature": "protected response: Drash.Http.Response",
+                "name": "response",
+                "fully_qualified_name": "Drash.Http.Middleware.response"
+              },
               "server": {
                 "access_modifier": "protected",
                 "description": [
@@ -1678,7 +1692,7 @@ const app_data = {
                 },
                 "returns": null,
                 "throws": null,
-                "signature": "constructor(request: any, server: Drash.Http.Server, resource?: Drash.Http.Resource)",
+                "signature": "constructor(request: any, server: Drash.Http.Server, resource?: Drash.Http.Resource, response?: Drash.Http.Response)",
                 "is_async": false,
                 "fully_qualified_name": "Drash.Http.Middleware()"
               }
@@ -2448,11 +2462,11 @@ const app_data = {
                 "is_async": false,
                 "fully_qualified_name": "Drash.Http.Server.addStaticPath"
               },
-              "executeMiddlewareBeforeRequest": {
+              "executeMiddlewareResourceLevelBeforeRequest": {
                 "access_modifier": "protected",
-                "name": "executeMiddlewareBeforeRequest",
+                "name": "executeMiddlewareResourceLevelBeforeRequest",
                 "description": [
-                  "Execute middleware before the request."
+                  "Execute resource-level middleware before the request."
                 ],
                 "params": {
                   "request": {
@@ -2489,15 +2503,15 @@ const app_data = {
                   }
                 ],
                 "throws": null,
-                "signature": "protected executeMiddlewareBeforeRequest(request, resource)",
+                "signature": "protected executeMiddlewareResourceLevelBeforeRequest(request, resource)",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.executeMiddlewareBeforeRequest"
+                "fully_qualified_name": "Drash.Http.Server.executeMiddlewareResourceLevelBeforeRequest"
               },
-              "executeMiddlewareAfterRequest": {
+              "executeMiddlewareServerLevelBeforeRequest": {
                 "access_modifier": "protected",
-                "name": "executeMiddlewareAfterRequest",
+                "name": "executeMiddlewareServerLevelBeforeRequest",
                 "description": [
-                  "Execute middleware after the request."
+                  "Execute server-level middleware before the request."
                 ],
                 "params": {
                   "request": {
@@ -2534,9 +2548,9 @@ const app_data = {
                   }
                 ],
                 "throws": null,
-                "signature": "protected executeMiddlewareAfterRequest(request, resource)",
+                "signature": "protected executeMiddlewareServerLevelBeforeRequest(request)",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.executeMiddlewareAfterRequest"
+                "fully_qualified_name": "Drash.Http.Server.executeMiddlewareServerLevelBeforeRequest"
               },
               "httpErrorResponse": {
                 "access_modifier": "protected",
