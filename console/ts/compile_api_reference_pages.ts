@@ -14,6 +14,7 @@ let DrashNamespaceMembers = [
   "/src/loggers/console_logger.ts",
   "/src/loggers/file_logger.ts",
   "/src/services/http_service.ts",
+  "/src/services/http_request_service.ts",
   "/src/util/object_parser.ts",
   "/src/util/members.ts",
 ].map(value => {

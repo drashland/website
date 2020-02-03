@@ -3128,6 +3128,441 @@ const app_data = {
                 "fully_qualified_name": "Drash.Services.HttpService.getMimeType"
               }
             }
+          },
+          "HttpRequestService": {
+            "fully_qualified_name": "Drash.Services.HttpRequestService",
+            "namespace": "Drash.Services",
+            "name": "HttpRequestService",
+            "description": [
+              "This class helps perform HTTP request related processes."
+            ],
+            "properties": {},
+            "methods": {
+              "getRequestBodyFile": {
+                "access_modifier": "public",
+                "name": "getRequestBodyFile",
+                "description": [
+                  "Parse this request's body as `multipart/form-data` and get the\nrequested input."
+                ],
+                "params": {
+                  "file": {
+                    "name": "file",
+                    "description": [
+                      "The file to get by its name."
+                    ],
+                    "annotation": {
+                      "line": "@param string file",
+                      "data_type": "string",
+                      "name": "file"
+                    }
+                  },
+                  "maxMemory": {
+                    "name": "maxMemory",
+                    "description": [
+                      "The max memory to allocate for this process. Defaults to 1MB."
+                    ],
+                    "annotation": {
+                      "line": "@param number maxMemory",
+                      "data_type": "number",
+                      "name": "maxMemory"
+                    }
+                  }
+                },
+                "returns": [
+                  {
+                    "description": [
+                      "Returns a body as a parsable JSON object where the first level of keys\nare the names of the parts. For example, if the name of the first part\nis `file_number_one`, then it will be accessible in the returned object\nas `{returned_object}.file_number_one`."
+                    ],
+                    "annotation": {
+                      "line": "@return Promise<any>",
+                      "data_type": "Promise<any>",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public getRequestBodyFile(parsedBody: ParsedBody, input: string): any",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.getRequestBodyFile"
+              },
+              "getRequestBodyParam": {
+                "access_modifier": "public",
+                "name": "getRequestBodyParam",
+                "description": [
+                  "Get the value of one of this request's body params by its input name.\nFirst, check the Content-Type of the request so that we know how to\nparse the body. Then parse the body accordingly and retrieve the\nrequested value."
+                ],
+                "params": null,
+                "returns": [
+                  {
+                    "description": [],
+                    "annotation": {
+                      "line": "@return any",
+                      "data_type": "any",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public getRequestBodyParam(parsedBody: ParsedBody, input: string): any",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.getRequestBodyParam"
+              },
+              "getRequestHeaderParam": {
+                "access_modifier": "public",
+                "name": "getRequestHeaderParam",
+                "description": [
+                  "Get the value of one of this request's headers by its input name."
+                ],
+                "params": null,
+                "returns": [
+                  {
+                    "description": [],
+                    "annotation": {
+                      "line": "@return string",
+                      "data_type": "string",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public getRequestHeaderParam(request: any, input: string): any",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.getRequestHeaderParam"
+              },
+              "getRequestPathParam": {
+                "access_modifier": "public",
+                "name": "getRequestPathParam",
+                "description": [
+                  "Get the value of one of this request's path params by its input name."
+                ],
+                "params": null,
+                "returns": [
+                  {
+                    "description": [],
+                    "annotation": {
+                      "line": "@return string",
+                      "data_type": "string",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public getRequestPathParam(request: any, input: string): string",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.getRequestPathParam"
+              },
+              "getRequestUrlQueryParam": {
+                "access_modifier": "public",
+                "name": "getRequestUrlQueryParam",
+                "description": [
+                  "Get the value of one of this request's query params by its input name."
+                ],
+                "params": null,
+                "returns": [
+                  {
+                    "description": [],
+                    "annotation": {
+                      "line": "@return string",
+                      "data_type": "string",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public getRequestUrlQueryParam(request: any, input: string): string",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.getRequestUrlQueryParam"
+              },
+              "getResponseContentType": {
+                "access_modifier": "public",
+                "name": "getResponseContentType",
+                "description": [
+                  "Get the request's requested content type.",
+                  "There are three ways to get this value: (1) the request's headers by\nsetting `Response-Content-Type: \"type\"`, (2) the request's URL query\nparams by setting `?response_content_type=type`, and the request's body\nby setting `{response_content_type: \"type\"}`.",
+                  "The request's body takes precedence over all other settings.",
+                  "The request's URL query params takes precedence over the header setting\nand the default setting.",
+                  "The request's header setting takes precedence over the default setting.",
+                  "If no content type is specified by the request's body, URL query\nparams, or header, then the default content type will be used. The\ndefault content type is the content type defined in the\n`Drash.Http.Server` object's `response_output` config. If a default is\nnot specified, then \"application/json\" will be used."
+                ],
+                "params": null,
+                "returns": null,
+                "throws": null,
+                "signature": "public getResponseContentType(request: any, defaultContentType: string = \"application/json\"): void",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.getResponseContentType"
+              },
+              "getUrlPath": {
+                "access_modifier": "public",
+                "name": "getUrlPath",
+                "description": [
+                  "Get this request's URL path."
+                ],
+                "params": null,
+                "returns": [
+                  {
+                    "description": [
+                      "Returns the URL path."
+                    ],
+                    "annotation": {
+                      "line": "@return string",
+                      "data_type": "string",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public getUrlPath(request): string",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.getUrlPath"
+              },
+              "getUrlQueryParams": {
+                "access_modifier": "public",
+                "name": "getUrlQueryParams",
+                "description": [
+                  "Get the request's URL query params by parsing its URL query string."
+                ],
+                "params": {
+                  "request": {
+                    "name": "request",
+                    "description": [
+                      "The request object."
+                    ],
+                    "annotation": {
+                      "line": "@param any request",
+                      "data_type": "any",
+                      "name": "request"
+                    }
+                  }
+                },
+                "returns": [
+                  {
+                    "description": [
+                      "Returns the URL query string in key-value pair format."
+                    ],
+                    "annotation": {
+                      "line": "@return any",
+                      "data_type": "any",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public getUrlQueryParams(request: any): any",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.getUrlQueryParams"
+              },
+              "getUrlQueryString": {
+                "access_modifier": "public",
+                "name": "getUrlQueryString",
+                "description": [
+                  "Get the specified HTTP request's URL query string."
+                ],
+                "params": null,
+                "returns": [
+                  {
+                    "description": [
+                      "Returns the URL query string (e.g., key1=value1&key2=value2) without\nthe leading \"?\" character."
+                    ],
+                    "annotation": {
+                      "line": "@return string",
+                      "data_type": "string",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public getUrlQueryString(request: any): string",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.getUrlQueryString"
+              },
+              "hasBody": {
+                "access_modifier": "public",
+                "name": "hasBody",
+                "description": [
+                  "Does the specified request have a body?"
+                ],
+                "params": null,
+                "returns": [
+                  {
+                    "description": [
+                      "Returns `true` if the request has a body. Returns `false` if not."
+                    ],
+                    "annotation": {
+                      "line": "@return boolean",
+                      "data_type": "boolean",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public async hasBody(request: any): Promise<any>",
+                "is_async": true,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.hasBody"
+              },
+              "hydrate": {
+                "access_modifier": "public",
+                "name": "hydrate",
+                "description": [
+                  "Hydrate the specified request object."
+                ],
+                "params": null,
+                "returns": [
+                  {
+                    "description": [
+                      "Returns a hydrated request object. For example, deno uses the\n`ServerRequest` object. This method takes that object and adds more\nporperties and methods to it. This makes it easier for Drash to process\nthe object for its own purposes."
+                    ],
+                    "annotation": {
+                      "line": null,
+                      "data_type": null,
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public async hydrate(request: any, options?: any): Promise<any>",
+                "is_async": true,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.hydrate"
+              },
+              "parseBody": {
+                "access_modifier": "public",
+                "name": "parseBody",
+                "description": [
+                  "Parse the specified request's body."
+                ],
+                "params": null,
+                "returns": null,
+                "throws": null,
+                "signature": "public async parseBody(request: any, options: any =): Promise<ParsedBody> {",
+                "is_async": true,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.parseBody"
+              },
+              "parseBodyAsFormUrlEncoded": {
+                "access_modifier": "public",
+                "name": "parseBodyAsFormUrlEncoded",
+                "description": [
+                  "Parse this request's body as application/x-www-form-url-encoded."
+                ],
+                "params": null,
+                "returns": [
+                  {
+                    "description": [],
+                    "annotation": {
+                      "line": "@return any",
+                      "data_type": "any",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public async parseBodyAsFormUrlEncoded(request: any): Promise<any>",
+                "is_async": true,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.parseBodyAsFormUrlEncoded"
+              },
+              "parseBodyAsJson": {
+                "access_modifier": "public",
+                "name": "parseBodyAsJson",
+                "description": [
+                  "Parse this request's body as application/json."
+                ],
+                "params": null,
+                "returns": [
+                  {
+                    "description": [],
+                    "annotation": {
+                      "line": "@return any",
+                      "data_type": "any",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public async parseBodyAsJson(request: any): Promise<any>",
+                "is_async": true,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.parseBodyAsJson"
+              },
+              "parseBodyAsMultipartFormData": {
+                "access_modifier": "public",
+                "name": "parseBodyAsMultipartFormData",
+                "description": [
+                  "Parse this request's body as multipart/form-data."
+                ],
+                "params": {
+                  "body": {
+                    "name": "body",
+                    "description": [],
+                    "annotation": {
+                      "line": "@param Reader body",
+                      "data_type": "Reader",
+                      "name": "body"
+                    }
+                  },
+                  "boundary": {
+                    "name": "boundary",
+                    "description": [],
+                    "annotation": {
+                      "line": "@param string boundary",
+                      "data_type": "string",
+                      "name": "boundary"
+                    }
+                  },
+                  "maxMemory": {
+                    "name": "maxMemory",
+                    "description": [],
+                    "annotation": {
+                      "line": "@param number maxMemory",
+                      "data_type": "number",
+                      "name": "maxMemory"
+                    }
+                  }
+                },
+                "returns": [
+                  {
+                    "description": [],
+                    "annotation": {
+                      "line": "@return any",
+                      "data_type": "any",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public async parseBodyAsMultipartFormData(body: Reader, boundary: string, maxMemory: number): Promise<any>",
+                "is_async": true,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.parseBodyAsMultipartFormData"
+              },
+              "setHeaders": {
+                "access_modifier": "public",
+                "name": "setHeaders",
+                "description": [
+                  "Set headers on the request."
+                ],
+                "params": {
+                  "request": {
+                    "name": "request",
+                    "description": [],
+                    "annotation": {
+                      "line": "@param any request",
+                      "data_type": "any",
+                      "name": "request"
+                    }
+                  },
+                  "headers": {
+                    "name": "headers",
+                    "description": [],
+                    "annotation": {
+                      "line": "@param any headers",
+                      "data_type": "any",
+                      "name": "headers"
+                    }
+                  }
+                },
+                "returns": null,
+                "throws": null,
+                "signature": "public setHeaders(request: any, headers: any)",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Services.HttpRequestService.setHeaders"
+              }
+            }
           }
         },
         "Drash.Util": {
