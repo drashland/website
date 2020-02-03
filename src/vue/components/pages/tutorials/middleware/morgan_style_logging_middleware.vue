@@ -35,7 +35,7 @@ page-tutorial(
     div.col
       hr
       h2-hash Before You Get Started
-      p This middleware is inspired by expressjs/morgan.
+      p This very basic middleware was inspired by <a href="https://github.com/expressjs/morgan" target="_BLANK">expressjs/morgan</a>.
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
     div.col
