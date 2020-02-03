@@ -9,6 +9,9 @@ const server = new Drash.Http.Server({
     server_level: {
       before_request: [
         MorganStyleLoggingMiddleware
+      ],
+      after_request: [
+        MorganStyleLoggingMiddleware
       ]
     }
   },

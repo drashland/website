@@ -79,9 +79,19 @@ page-tutorial(
                 | curl localhost:1447/
           p <code>MorganStyleLoggingMiddleware</code> is run on every request because it was specified as server-level middleware. Therefore, it logs information about all requests. If you check your console after making the above request, you should see something similar to the following:
           p
+            code-block-slotted(:header="false")
+              template(v-slot:code)
+                | 2020-02-03 12:47:01.162Z | INFO | Request received: GET /
+                | 2020-02-03 12:47:01.163Z | INFO | Response: 200 OK
+        li Make another request, but to <code>localhost:1447/this-path-does-not-exist</code>.
+          p
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | 2020-02-03 05:13:55.563Z | INFO | GET /
-
+                | curl localhost:1447/this-path-does-not-exist
+          p
+            code-block-slotted(:header="false")
+              template(v-slot:code)
+                | 2020-02-03 12:48:57.150Z | INFO | Request received: GET /this-path-does-not-exist
+                | 2020-02-03 12:48:57.152Z | INFO | Response: 404 Not Found
 </template>

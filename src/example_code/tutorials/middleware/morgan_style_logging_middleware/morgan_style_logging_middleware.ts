@@ -1,4 +1,5 @@
 import Drash from "https://deno.land/x/drash/mod.ts";
+
 const logger = new Drash.Loggers.ConsoleLogger({
   enabled: true,
   level: "all",
@@ -12,6 +13,11 @@ const logger = new Drash.Loggers.ConsoleLogger({
 
 export default class MorganStyleLoggingMiddleware extends Drash.Http.Middleware {
   public run() {
-    logger.info(this.request.method + " " + this.request.url);
+    if (!this.response) {
+      logger.info(`Request received: ${this.request.method} ${this.request.url}`);
+    }
+    if (this.response) {
+      logger.info(`Response: ${this.response.status_code} ${this.response.getStatusMessage()}`);
+    }
   }
 }

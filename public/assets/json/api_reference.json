@@ -192,6 +192,20 @@
                     "name": "resource",
                     "fully_qualified_name": "Drash.Http.Middleware.resource"
                 },
+                "response": {
+                    "access_modifier": "protected",
+                    "description": [
+                        "A property to hold the response object. This property will only contain\nthe response object if the server was able to get a response from the\nresource."
+                    ],
+                    "annotation": {
+                        "line": "@property Drash.Http.Resource resource",
+                        "data_type": "Drash.Http.Resource",
+                        "name": "resource"
+                    },
+                    "signature": "protected response: Drash.Http.Response",
+                    "name": "response",
+                    "fully_qualified_name": "Drash.Http.Middleware.response"
+                },
                 "server": {
                     "access_modifier": "protected",
                     "description": [
@@ -249,7 +263,7 @@
                     },
                     "returns": null,
                     "throws": null,
-                    "signature": "constructor(request: any, server: Drash.Http.Server, resource?: Drash.Http.Resource)",
+                    "signature": "constructor(request: any, server: Drash.Http.Server, resource?: Drash.Http.Resource, response?: Drash.Http.Response)",
                     "is_async": false,
                     "fully_qualified_name": "Drash.Http.Middleware()"
                 }
@@ -1019,11 +1033,11 @@
                     "is_async": false,
                     "fully_qualified_name": "Drash.Http.Server.addStaticPath"
                 },
-                "executeMiddlewareBeforeRequest": {
+                "executeMiddlewareResourceLevelBeforeRequest": {
                     "access_modifier": "protected",
-                    "name": "executeMiddlewareBeforeRequest",
+                    "name": "executeMiddlewareResourceLevelBeforeRequest",
                     "description": [
-                        "Execute middleware before the request."
+                        "Execute resource-level middleware before the request."
                     ],
                     "params": {
                         "request": {
@@ -1060,15 +1074,15 @@
                         }
                     ],
                     "throws": null,
-                    "signature": "protected executeMiddlewareBeforeRequest(request, resource)",
+                    "signature": "protected executeMiddlewareResourceLevelBeforeRequest(request, resource)",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Http.Server.executeMiddlewareBeforeRequest"
+                    "fully_qualified_name": "Drash.Http.Server.executeMiddlewareResourceLevelBeforeRequest"
                 },
-                "executeMiddlewareAfterRequest": {
+                "executeMiddlewareServerLevelBeforeRequest": {
                     "access_modifier": "protected",
-                    "name": "executeMiddlewareAfterRequest",
+                    "name": "executeMiddlewareServerLevelBeforeRequest",
                     "description": [
-                        "Execute middleware after the request."
+                        "Execute server-level middleware before the request."
                     ],
                     "params": {
                         "request": {
@@ -1105,9 +1119,9 @@
                         }
                     ],
                     "throws": null,
-                    "signature": "protected executeMiddlewareAfterRequest(request, resource)",
+                    "signature": "protected executeMiddlewareServerLevelBeforeRequest(request)",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Http.Server.executeMiddlewareAfterRequest"
+                    "fully_qualified_name": "Drash.Http.Server.executeMiddlewareServerLevelBeforeRequest"
                 },
                 "httpErrorResponse": {
                     "access_modifier": "protected",
