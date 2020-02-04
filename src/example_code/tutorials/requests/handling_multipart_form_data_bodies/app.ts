@@ -5,6 +5,9 @@ const server = new Drash.Http.Server({
   address: "localhost:1447",
   response_output: "text/plain",
   resources: [FilesResource],
+  memory_allocation: {
+    multipart_form_data: 128
+  },
 });
 
 server.run();

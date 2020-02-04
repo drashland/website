@@ -58,7 +58,7 @@ page-tutorial(
           p
             code-block(:data="example_code.my_file")
         li
-          p Create your app file.
+          p Create your app file. The <code>memory_allocation.multipart_form_data</code> config is how much memory in megabytes you want to allow the <code>multipart/form-data</code> reader to allocate to reading files. If you do not specify this config, Drash will default to <code>10</code> megabytes.
           p
             code-block(:data="example_code.app")
   div.row
