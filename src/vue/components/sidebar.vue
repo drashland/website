@@ -104,6 +104,9 @@ div.c-sidebar
           a-base-url(href="/api-reference/http/resource") Resource
           a-base-url(href="/api-reference/http/response") Response
           a-base-url(href="/api-reference/http/server") Server
+        a Interfaces
+        div.l-submenu-1
+          a-base-url(href="/api-reference/interfaces/logger-configs") LoggerConfigs
         a Loggers
         div.l-submenu-1
           a-base-url(href="/api-reference/loggers/logger") Logger
