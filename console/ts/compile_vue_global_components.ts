@@ -11,7 +11,7 @@ files.forEach(pathObj => {
   }
   let snakeCasedNoExtension = pathObj.filename
     .replace(".vue", "") // take out the .vue extension
-    .replace(/_/g, "-"); // change all underscores to - so that the component name is `some-name` and not `some_name`
+    .replace(/_/g, "-"); // change all underscores to - so the component name is `some-name` and not `some_name`
   importString += 'import ' + pathObj.snake_cased + ' from \"' + pathObj.path + '\";\nVue.component(\"' + snakeCasedNoExtension + '\", ' + pathObj.snake_cased + ');\n\n';
 });
 

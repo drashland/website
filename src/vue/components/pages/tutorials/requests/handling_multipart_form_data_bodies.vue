@@ -54,7 +54,7 @@ page-tutorial(
           p
             code-block(:data="example_code.files_resource")
         li
-          p Create your <code>my_file.txt</code> file so that it can be passed in the request body.
+          p Create your <code>my_file.txt</code> file so it can be passed in the request body.
           p
             code-block(:data="example_code.my_file")
         li

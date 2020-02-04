@@ -64,7 +64,7 @@ page-tutorial(
       h2-hash Writing Your Tests
       ol
         li
-          p Create your test runner file. Your test runner file will run your server, import and run your tests, and shut down your server when all tests have been run. Your server needs to run so that the testing module can make requests to your server using <code>fetch()</code> and receive the responses you expect.
+          p Create your test runner file. Your test runner file will run your server, import and run your tests, and shut down your server when all tests have been run. Your server needs to run so the testing module can make requests to your server using <code>fetch()</code> and receive the responses you expect.
           code-block(:data="example_code.run_tests")
         li
           p Write your tests.
