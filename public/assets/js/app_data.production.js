@@ -915,7 +915,7 @@ const app_data = {
         "title": "/path/to/your/project/files_resource.ts"
       },
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport FilesResource from \"./files_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [FilesResource],\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport FilesResource from \"./files_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/plain\",\n  resources: [FilesResource],\n  memory_allocation: {\n    multipart_form_data: 128\n  },\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
