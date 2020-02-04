@@ -10,7 +10,7 @@ div
     div.row
       div.col
         h2-hash Drash In A Nutshell
-        p Drash is a microframework for <a href="https://deno.land" target="_BLANK">Deno</a> focused on <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web" target="_BLANK">resource</a> creation and <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation" target="_BLANK">content negotiation</a>.
+        p Drash is a REST microframework for <a href="https://deno.land" target="_BLANK">Deno</a>.
         p Drash is designed to help you build your projects quickly with the ability to scale. You can build an API, a web app, an SPA (like these documentation pages), or even a static HTML site. How you use Drash is up to you, so that it can be everything you need and nothing you don't &mdash; like a DRASH tent.
         p Learn more about drash 
           a-base-url(href="/about-drash") here
