@@ -8,21 +8,18 @@ ul
 import Vue from "vue";
 
 let component = {
-    props: [
-        "data",
-    ],
-    methods: {
-        normalize(item) {
-            item = item.replace(/ /g, '-');
-            if (/\?/.test(item)) {
-                item = item.replace(/\?/g, "");
-            }
-            if (/\,/.test(item)) {
-                item = item.replace(/\,/g, "");
-            }
-            return item.toLowerCase();
-        }
+  props: [
+    "data",
+  ],
+  methods: {
+    normalize(item) {
+      item = item
+        .replace(/ /g, '-')
+        .replace(/\?/g, "")
+        .replace(/\,/g, "");
+      return item.toLowerCase();
     }
+  }
 };
 
 Vue.component("ul-toc", component);

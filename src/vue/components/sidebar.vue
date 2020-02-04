@@ -25,9 +25,8 @@ div.c-sidebar
         a-base-url(href="/introduction#quickstart") Quickstart
         a-base-url(href="/introduction#importing") Importing
         a-base-url(href="/introduction#features") Features
-        a-base-url(href="/introduction#about-these-docs") About These Docs
+        a-base-url(href="/about-drash") About Drash
         a-base-url(href="/introduction#file-an-issue") File An Issue
-        a-base-url(href="/introduction#requirements") Requirements
       a-base-url.heading-link(href="/tutorials") Tutorials
       div.c-sidebar__menu-body
         a-base-url(href="/tutorials/introduction") Introduction

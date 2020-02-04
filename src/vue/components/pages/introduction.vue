@@ -9,9 +9,12 @@ div
     hr
     div.row
       div.col
-        h2-hash What is Drash?
+        h2-hash Drash In A Nutshell
         p Drash is a microframework for <a href="https://deno.land" target="_BLANK">Deno</a> focused on <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web" target="_BLANK">resource</a> creation and <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation" target="_BLANK">content negotiation</a>.
-        p Drash is designed to help you build your projects quickly with the ability to scale. You can build an API, a SaaS, a web app, an SPA (like these documentation pages), or even a static HTML site. How you use Drash is up to you, so that it can be everything you need and nothing you don't&mdash;like a DRASH tent.
+        p Drash is designed to help you build your projects quickly with the ability to scale. You can build an API, a web app, an SPA (like these documentation pages), or even a static HTML site. How you use Drash is up to you, so that it can be everything you need and nothing you don't &mdash; like a DRASH tent.
+        p Learn more about drash 
+          a-base-url(href="/about-drash") here
+          | .
     hr
     div.row
       div.col
@@ -41,35 +44,24 @@ div
       div.col
         h2-hash Features
         ul
-          li 
-            strong HTTP Resources
-            p Drash uses HTTP resources. It doesn't use controllers and it doesn't use <code>app.get('/', someHandler())</code>-like syntax. You create a resource class, define its URIs, and give it the HTTP methods you want it to handle/allow (e.g., <code>GET()</code>, <code>POST()</code>, <code>PUT()</code>, <code>DELETE()</code>, etc.).
-          li 
-            strong Content Negotiation
-            p Drash is based on resources and you can't have true resources unless clients can request different representations of those resources. Out of the box, Drash can send the following responses content types: <code>application/json</code>, <code>text/html</code>, <code>application/xml</code>, and <code>text/xml</code>.
-          li 
-            strong Middleware
-            p Drash can execute middleware before requests and after requests. They can be used to filter all requests or requests to specific resources.
-          li  
-            strong Request Path Params (e.g., <code>/users/:id</code>)
-            p Resources can access their URI's path params via <code>this.request.getPathParam('some_param')</code>--allowing you to build RESTful/ish APIs.
-          li 
-            strong Request URL Query Params (e.g., <code>/users?id=1234</code>)
-            p Resources can access the request's URL query params via <code>this.request.getQueryParam('some_param')</code>.
-          li 
-            strong Request Body (e.g., <code>{"id":"1234"}</code>)
-            p Resources can access the request's body via <code>this.request.getBodyParam('some_param')</code>. Supported content types are <code>application/json</code> and <code>application/x-www-form-urlencoded</code>.
-          li 
-            strong Request Headers
-            p Resources can access the request's headers via <code>this.request.getHeaderParam('some_param')</code>.
-          li 
-            strong Semantic Method Names
-            p If you want your resource class to allow <code>GET</code> requests, then give it a <code>GET()</code> method. If you want your resource class to allow <code>POST</code> requests, then give it a <code>POST()</code> method. If you don't want your resource class to allow <code>DELETE</code> requests, then don't give your resource class a <code>DELETE()</code> method. Pretty simple ideology and very semantic.
-    hr
-    div.row
-      div.col
-        h2-hash About These Docs
-        p Most of the pages on this site are written in a tutorial format. You are given an introduction to the page, example code, and an end state that you can work towards. These pages mostly assume you have no working knowledge of Drash and try to be explicit as possible in the instructions. If you find that something needs more clarification, please do not hesitate to file an issue.
+          li
+            a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles") Content Negotiation
+          li
+            a-base-url(href="/tutorials/servers/serving-static-paths") Static Path Routing
+          li
+            a-base-url(href="/tutorials/resources/creating-a-resource#regular-expression-uris") Regex Path Routing
+          li
+            a-base-url(href="/tutorials/middleware/introduction") Middleware
+          li
+            a-base-url(href="/tutorials/requests/handling-application-json-bodies") Body Handling: application/json
+          li
+            a-base-url(href="/tutorials/requests/handling-application-x-www-form-urlencoded-bodies") Body Handling: application/x-www-form-urlencoded
+          li
+            a-base-url(href="/tutorials/requests/handling-multipart-form-data-bodies") Body Handling: multipart/form-data
+          li
+            a-base-url(href="/tutorials/requests/handling-path-params") Handling Path Params
+          li
+            a-base-url(href="/tutorials/requests/handling-url-query-params") Handling URL Query Params
     hr
     div.row
       div.col
@@ -77,11 +69,6 @@ div
         p File an issue regarding Drash (bugs, feature requests, testing, etc.) <a href="https://github.com/drashland/deno-drash/issues" target="_BLANK">here</a>.
         p File an issue regarding Drash Documentation (bugs, tutorials, etc.) <a href="https://github.com/drashland/deno-drash-docs/issues" target="_BLANK">here</a>.
         p We would love to hear from you!
-    hr
-    div.row
-      div.col
-        h2-hash Requirements
-        p Requirements for each Drash version can be found <a :href="$conf.requirements_url" target="_BLANK">here</a>.
 </template>
 
 <script>
