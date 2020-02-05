@@ -24,13 +24,13 @@ export default {
     this.fetchIssues();
   },
   methods: {
-    async fetchIssues() {
+    fetchIssues() {
       const client = new this.$api_service("https://api.github.com");
-      const issuesDrash = await client.makeRequest("get", "/repos/drashland/deno-drash/issues");
+      const issuesDrash = client.makeRequest("get", "/repos/drashland/deno-drash/issues");
       if (issuesDrash) {
         this.issues_drash = issuesDrash;
       }
-      const issuesDrashDocs = await client.makeRequest("get", "/repos/drashland/deno-drash-docs/issues");
+      const issuesDrashDocs = client.makeRequest("get", "/repos/drashland/deno-drash-docs/issues");
       if (issuesDrash) {
         this.issues_drash_docs = issuesDrashDocs;
       }
