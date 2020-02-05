@@ -55,13 +55,13 @@ page(
       hr
       h2-hash Current Issues
       div.row
-        div.col
+        div.col-md
           h3 Drash ({{ issues_drash.length }})
           a.card-a(v-for="issue in issues_drash" :href="issue.html_url" target="_BLANK")
             div.alert(:class="issue.assignee ? 'alert-secondary' : 'alert-light'")
               h4(style="padding-right: 5rem;") {{ issue.title }}
               span.badge.badge-success(style="display: inline-block; font-size: 1rem; position: absolute; top: 1rem; right: 1rem;" v-if="issue.assignee") Assigned
-        div.col
+        div.col-md
           h3 Drash Documentation ({{ issues_drash_docs.length }})
           a.card-a(v-for="issue in issues_drash_docs" :href="issue.html_url" target="_BLANK")
             div.alert(:class="issue.assignee ? 'alert-secondary' : 'alert-light'" style="position: relative;")
