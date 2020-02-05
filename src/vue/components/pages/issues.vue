@@ -26,14 +26,18 @@ export default {
   methods: {
     fetchIssues() {
       const client = new this.$api_service("https://api.github.com");
-      const issuesDrash = client.makeRequest("get", "/repos/drashland/deno-drash/issues");
-      if (issuesDrash) {
-        this.issues_drash = issuesDrash;
-      }
-      const issuesDrashDocs = client.makeRequest("get", "/repos/drashland/deno-drash-docs/issues");
-      if (issuesDrash) {
-        this.issues_drash_docs = issuesDrashDocs;
-      }
+      client.makeRequest("get", "/repos/drashland/deno-drash/issues")
+        .then((response) => {
+          if (response) {
+            this.issues_drash = response;
+          }
+        });
+      client.makeRequest("get", "/repos/drashland/deno-drash-docs/issues")
+        .then((response) => {
+          if (response) {
+            this.issues_drash_docs = response;
+          }
+        });
     },
   }
 }
