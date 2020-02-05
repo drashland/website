@@ -84,6 +84,6 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code/getting_started/quickstart']
     };
-  },
+  }
 }
 </script>
