@@ -19,6 +19,10 @@ div.c-sidebar
             img.margin-bottom--0(alt="Travis CI Build Master" src="https://img.shields.io/travis/drashland/deno-drash/master?label=master" width="auto" height="20")
           a(href="https://gitter.im/drashspace/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge" target="_BLANK")
             img.margin-bottom--0(src="https://badges.gitter.im/drashspace/community.svg")
+          a(href="https://github.com/drashland/deno-drash" target="_BLANK")
+            img.margin-bottom--0(src="https://img.shields.io/badge/github-drash-brightgreen")
+          a(href="https://github.com/drashland/deno-drash-docs" target="_BLANK")
+            img.margin-bottom--0(src="https://img.shields.io/badge/github-drash--docs-brightgreen")
   </a>
   div.c-sidebar__body
     div.c-sidebar__menu
