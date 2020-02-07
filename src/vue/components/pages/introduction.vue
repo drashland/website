@@ -62,13 +62,6 @@ div
             a-base-url(href="/tutorials/requests/handling-path-params") Handling Path Params
           li
             a-base-url(href="/tutorials/requests/handling-url-query-params") Handling URL Query Params
-    hr
-    div.row
-      div.col
-        h2-hash File An Issue
-        p File an issue regarding Drash (bugs, feature requests, testing, etc.) <a href="https://github.com/drashland/deno-drash/issues" target="_BLANK">here</a>.
-        p File an issue regarding Drash Documentation (bugs, tutorials, etc.) <a href="https://github.com/drashland/deno-drash-docs/issues" target="_BLANK">here</a>.
-        p We would love to hear from you!
 </template>
 
 <script>
