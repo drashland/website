@@ -41,7 +41,7 @@ page-tutorial(
           template(v-slot:title) deps.ts
           template(v-slot:code)
             | {{ example_code.deps.contents }}
-      p For example, Drash's <code>response.ts</code> file requires some dependencies. Instead of grabbing dependencies directly from a URL, it references the <code>deps.ts</code> file &mdash; allowing it to use the same dependencies that other files in Drash are allowed to use. Some concerns regarding this method as a dependency management tool are addressed in <a href="https://deno.land/std/manual.md#linking-to-third-party-code" target="_BLANK">Linking to third party code</a> in Deno's <a href="https://deno.land/std/manual.md" target="_BLANK">Manual</a>..
+      p For example, Drash's <code>response.ts</code> file requires some dependencies. Instead of grabbing dependencies directly from a URL, it references the <code>deps.ts</code> file &mdash; allowing it to use the same dependencies that other files in Drash are allowed to use. Some concerns regarding this method as a dependency management tool are addressed in <a href="https://deno.land/std/manual.md#linking-to-third-party-code" target="_BLANK">Linking to third party code</a> in Deno's <a href="https://deno.land/std/manual.md" target="_BLANK">Manual</a>.
       p
         code-block-slotted(language="typescript")
           template(v-slot:title) response.ts
