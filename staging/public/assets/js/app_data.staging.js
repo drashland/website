@@ -2656,7 +2656,197 @@ const app_data = {
             }
           }
         },
+        "Drash.Interfaces.LoggerConfigs": {
+          "LoggerConfigs": {
+            "exported": true,
+            "name": "LoggerConfigs",
+            "description": [
+              "`enabled`: Is the logger enabled? This is useful if you have a config\nfile that can toggle this option between `true` and `false`.",
+              "`level`: Options are `all`, `trace`, `debug`, `info`, `warn`, `error`, `fatal`, and `off`.",
+              "`tag_string`: This only takes a string with tags as `{tag}`. For example, `{some_tag} | {some_tag} * {some_tag} [{some_tag}]`.",
+              "`tag_string_fns`: This takes an object of key-value pairs where the key is the name of the tag defined in the `tag_string` config. This object is used to replace tags in the `tag_string` config by matching keys to tags and replacing tags with the values of the keys. For example, if `tag_string` was `{my_cool_tag}` and `tags_string_fns.my_cool_tag` returns `\"HELLO\"`, then `{my_cool_tag}` would be replaced with `HELLO`."
+            ],
+            "signature": "export interface LoggerConfigs {\n  enabled: boolean;\n  level: string;\n  tag_string: string;\n  tag_string_fns: any;\n}",
+            "is_interface": true,
+            "fully_qualified_name": "Drash.Interfaces.LoggerConfigs.LoggerConfigs"
+          }
+        },
         "Drash.Loggers": {
+          "ConsoleLogger": {
+            "fully_qualified_name": "Drash.Loggers.ConsoleLogger",
+            "namespace": "Drash.Loggers",
+            "name": "ConsoleLogger",
+            "description": [
+              "This logger allows you to log messages to the console."
+            ],
+            "properties": {},
+            "methods": {
+              "constructor": {
+                "access_modifier": "public",
+                "name": "constructor",
+                "description": [
+                  "Construct an object of this class."
+                ],
+                "params": {
+                  "configs": {
+                    "name": "configs",
+                    "description": [
+                      "See `Drash.Loggers.Logger.configs`."
+                    ],
+                    "annotation": {
+                      "line": "@param any configs",
+                      "data_type": "any",
+                      "name": "configs"
+                    }
+                  }
+                },
+                "returns": null,
+                "throws": null,
+                "signature": "constructor(configs)",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Loggers.ConsoleLogger()"
+              },
+              "write": {
+                "access_modifier": "public",
+                "name": "write",
+                "description": [
+                  "Write a log message to the console.",
+                  "This method is not intended to be called directly. It is already used\nin the base class (`Logger`) and automatically called."
+                ],
+                "params": {
+                  "logMethodLevelDefinition": {
+                    "name": "logMethodLevelDefinition",
+                    "description": [],
+                    "annotation": {
+                      "line": "@param any logMethodLevelDefinition",
+                      "data_type": "any",
+                      "name": "logMethodLevelDefinition"
+                    }
+                  },
+                  "message": {
+                    "name": "message",
+                    "description": [],
+                    "annotation": {
+                      "line": "@param string message",
+                      "data_type": "string",
+                      "name": "message"
+                    }
+                  }
+                },
+                "returns": [
+                  {
+                    "description": [
+                      "Returns the log message which is used for unit testing purposes."
+                    ],
+                    "annotation": {
+                      "line": "@return string",
+                      "data_type": "string",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public write(logMethodLevelDefinition, message): string",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Loggers.ConsoleLogger.write"
+              }
+            }
+          },
+          "FileLogger": {
+            "fully_qualified_name": "Drash.Loggers.FileLogger",
+            "namespace": "Drash.Loggers",
+            "name": "FileLogger",
+            "description": [
+              "This logger allows you to log messages to a file."
+            ],
+            "properties": {
+              "file": {
+                "access_modifier": "protected",
+                "description": [
+                  "The file this logger will write log messages to."
+                ],
+                "annotation": {
+                  "line": "@property string file",
+                  "data_type": "string",
+                  "name": "file"
+                },
+                "signature": "protected file: string",
+                "name": "file",
+                "fully_qualified_name": "Drash.Loggers.FileLogger.file"
+              }
+            },
+            "methods": {
+              "constructor": {
+                "access_modifier": "public",
+                "name": "constructor",
+                "description": [
+                  "Construct an object of this class."
+                ],
+                "params": {
+                  "configs": {
+                    "name": "configs",
+                    "description": [
+                      "See `Drash.Loggers.Logger.configs`."
+                    ],
+                    "annotation": {
+                      "line": "@param any configs",
+                      "data_type": "any",
+                      "name": "configs"
+                    }
+                  }
+                },
+                "returns": null,
+                "throws": null,
+                "signature": "constructor(configs)",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Loggers.FileLogger()"
+              },
+              "write": {
+                "access_modifier": "public",
+                "name": "write",
+                "description": [
+                  "Write a log message to `this.file`.",
+                  "This method is not intended to be called directly. It is already used\nin the base class (`Logger`) and automatically called."
+                ],
+                "params": {
+                  "logMethodLevelDefinition": {
+                    "name": "logMethodLevelDefinition",
+                    "description": [],
+                    "annotation": {
+                      "line": "@param any logMethodLevelDefinition",
+                      "data_type": "any",
+                      "name": "logMethodLevelDefinition"
+                    }
+                  },
+                  "message": {
+                    "name": "message",
+                    "description": [],
+                    "annotation": {
+                      "line": "@param string message",
+                      "data_type": "string",
+                      "name": "message"
+                    }
+                  }
+                },
+                "returns": [
+                  {
+                    "description": [
+                      "Returns the log message which is used for unit testing purposes."
+                    ],
+                    "annotation": {
+                      "line": "@return string",
+                      "data_type": "string",
+                      "name": null
+                    }
+                  }
+                ],
+                "throws": null,
+                "signature": "public write(logMethodLevelDefinition, message): string",
+                "is_async": false,
+                "fully_qualified_name": "Drash.Loggers.FileLogger.write"
+              }
+            }
+          },
           "Logger": {
             "fully_qualified_name": "Drash.Loggers.Logger",
             "namespace": "Drash.Loggers",
@@ -2668,14 +2858,14 @@ const app_data = {
               "configs": {
                 "access_modifier": "protected",
                 "description": [
-                  "This logger's configs.\n```javascript\n{\n//\n// enabled: boolean\n//\n//     OPTIONS/VALUE\n//         true, false\n//\n//     DEFAULT VALUE\n//         false\n//\n//     DESCRIPTION\n//         Is the logger enabled?\n//\nenabled: true,\n//\n// level: string\n//\n//     OPTIONS/VALUE\n//         all, trace, debug, info, warn, error, fatal, off\n//\n//     DEFAULT VALUE\n//         debug\n//\n//     DESCRIPTION\n//         Control the number of messages logged by the logger.\n//\nlevel: \"debug\",\n//\n// tag_string: string\n//\n//    OPTIONS/VALUE\n//         This only takes a string with tags formatted as {tag}. Example:\n//\n//             {this_tag} | {that_tag} | {another_tag}\n//             {this_tag} * {that_tag} * {another_tag}\n//             [{this_tag}] [{that_tag}] [{another_tag}]\n//\n//     DEFAULT VALUE\n//         None.\n//\n//     DESCRIPTION\n//         This tag string will be parsed by the logger object and tags will\n//         be replaced based on the `tag_string_fns` config.\n//\ntag_string: \"\",\n//\n// tag_string_fns: any\n//\n//     OPTIONS/VALUE\n//         This takes an object of key-value pairs where the key is the name\n//         of a tag defined in the `tag_string` config.\n//\n//     DEFAULT VALUE\n//         None.\n//\n//     DESCRIPTION\n//         This object is used to replace tags in the `tag_string` config by\n//         matching keys to tags and replacing tags with the values of the\n//         keys. For example, if the `tag_string` and `tag_string_fns` configs\n//         were ...\n//\n//             {\n//               enabled: true,\n//               level: \"debug\",\n//               tag_string: \"[ - {datetime} - ] {your_tag} === {level} ===\"\n//               tag_string_fns: {\n//                 datetime: function datetime() {\n//                   let dateTime = new Date();\n//                   dateTime.setUTCHours(dateTime.getUTCHours() - 5);\n//                   return dateTime.toISOString().replace(\"T\", \" \");\n//                 },\n//                 your_tag: \"This-Is-Your-Tag\"\n//               }\n//             }\n//\n//         ... then the tags string would output something like ...\n//\n//             [ - 2018-08-26 00:10:02.590Z - ] This-Is-Your-Tag === DEBUG === {log message would be appended here}\n//\n//         The {level} tag is reserved and cannot be defined. It is replaced\n//         with the level of the current log message being written. For\n//         example, if `MyLogger.info(\"some message\")` is called, then the\n//         {level} tag will be replaced with INFO.\n//\ntag_string_fns: {},\n}\n```"
+                  "This logger's configs. See [LoggerConfigs](/#/api-reference/interfaces/logger-configs)."
                 ],
                 "annotation": {
                   "line": "@property any configs",
                   "data_type": "any",
                   "name": "configs"
                 },
-                "signature": "protected configs: any",
+                "signature": "protected configs: LoggerConfigs",
                 "name": "configs",
                 "fully_qualified_name": "Drash.Loggers.Logger.configs"
               },
@@ -2938,181 +3128,6 @@ const app_data = {
                 "signature": "protected sendToWriteMethod(logMethodLevelDefinition, message): string",
                 "is_async": false,
                 "fully_qualified_name": "Drash.Loggers.Logger.sendToWriteMethod"
-              }
-            }
-          },
-          "ConsoleLogger": {
-            "fully_qualified_name": "Drash.Loggers.ConsoleLogger",
-            "namespace": "Drash.Loggers",
-            "name": "ConsoleLogger",
-            "description": [
-              "This logger allows you to log messages to the console."
-            ],
-            "properties": {},
-            "methods": {
-              "constructor": {
-                "access_modifier": "public",
-                "name": "constructor",
-                "description": [
-                  "Construct an object of this class."
-                ],
-                "params": {
-                  "configs": {
-                    "name": "configs",
-                    "description": [
-                      "See `Drash.Loggers.Logger.configs`."
-                    ],
-                    "annotation": {
-                      "line": "@param any configs",
-                      "data_type": "any",
-                      "name": "configs"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "constructor(configs)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.ConsoleLogger()"
-              },
-              "write": {
-                "access_modifier": "public",
-                "name": "write",
-                "description": [
-                  "Write a log message to the console.",
-                  "This method is not intended to be called directly. It is already used\nin the base class (`Logger`) and automatically called."
-                ],
-                "params": {
-                  "logMethodLevelDefinition": {
-                    "name": "logMethodLevelDefinition",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param any logMethodLevelDefinition",
-                      "data_type": "any",
-                      "name": "logMethodLevelDefinition"
-                    }
-                  },
-                  "message": {
-                    "name": "message",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the log message which is used for unit testing purposes."
-                    ],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public write(logMethodLevelDefinition, message): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.ConsoleLogger.write"
-              }
-            }
-          },
-          "FileLogger": {
-            "fully_qualified_name": "Drash.Loggers.FileLogger",
-            "namespace": "Drash.Loggers",
-            "name": "FileLogger",
-            "description": [
-              "This logger allows you to log messages to a file."
-            ],
-            "properties": {
-              "file": {
-                "access_modifier": "protected",
-                "description": [
-                  "The file this logger will write log messages to."
-                ],
-                "annotation": {
-                  "line": "@property string file",
-                  "data_type": "string",
-                  "name": "file"
-                },
-                "signature": "protected file: string",
-                "name": "file",
-                "fully_qualified_name": "Drash.Loggers.FileLogger.file"
-              }
-            },
-            "methods": {
-              "constructor": {
-                "access_modifier": "public",
-                "name": "constructor",
-                "description": [
-                  "Construct an object of this class."
-                ],
-                "params": {
-                  "configs": {
-                    "name": "configs",
-                    "description": [
-                      "See `Drash.Loggers.Logger.configs`."
-                    ],
-                    "annotation": {
-                      "line": "@param any configs",
-                      "data_type": "any",
-                      "name": "configs"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "constructor(configs)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.FileLogger()"
-              },
-              "write": {
-                "access_modifier": "public",
-                "name": "write",
-                "description": [
-                  "Write a log message to `this.file`.",
-                  "This method is not intended to be called directly. It is already used\nin the base class (`Logger`) and automatically called."
-                ],
-                "params": {
-                  "logMethodLevelDefinition": {
-                    "name": "logMethodLevelDefinition",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param any logMethodLevelDefinition",
-                      "data_type": "any",
-                      "name": "logMethodLevelDefinition"
-                    }
-                  },
-                  "message": {
-                    "name": "message",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the log message which is used for unit testing purposes."
-                    ],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public write(logMethodLevelDefinition, message): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.FileLogger.write"
               }
             }
           }
