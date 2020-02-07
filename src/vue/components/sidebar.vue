@@ -34,6 +34,7 @@ div.c-sidebar
         a-base-url(href="/introduction#features") Features
         a-base-url(href="/about-drash") About Drash
         a-base-url(href="/api-reference") API Reference
+        a-base-url(href="/dependency-management") Dependency Management
         a-base-url(href="/issues") Issues
       a-base-url.heading-link(href="/tutorials") Tutorials
       div.c-sidebar__menu-body
@@ -71,7 +72,6 @@ div.c-sidebar
         a Misc
         div.l-submenu-1
           a-base-url(href="/tutorials/misc/adding-global-members") Adding Global Members
-          a-base-url(href="/tutorials/misc/dependency-management") Dependency Management
           //- a-base-url(href="/tutorials/misc/adding-third-party-modules") Adding Third-Party Modules
       a-base-url.heading-link(href="/advanced-tutorials") Advanced Tutorials
       div.c-sidebar__menu-body
