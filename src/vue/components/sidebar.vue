@@ -33,8 +33,8 @@ div.c-sidebar
         a-base-url(href="/introduction#importing") Importing
         a-base-url(href="/introduction#features") Features
         a-base-url(href="/about-drash") About Drash
-        a-base-url(href="/issues") Issues
         a-base-url(href="/api-reference") API Reference
+        a-base-url(href="/issues") Issues
       a-base-url.heading-link(href="/tutorials") Tutorials
       div.c-sidebar__menu-body
         a-base-url(href="/tutorials/introduction") Introduction
