@@ -81,11 +81,6 @@ page()
             li
               p
                 a(@click="member.data.class=$store.page_data.api_reference['Drash.Services'].HttpRequestService") HttpRequestService
-          h2 Util
-          ul
-            li
-              p
-                a(@click="member.data.class=$store.page_data.api_reference['Drash.Util'].ObjectParser") ObjectParser
         div.col-8
           template
             page-body-api-reference(:data="member.data" link="/src/exceptions/http_exception.ts")
