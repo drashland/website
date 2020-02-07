@@ -19,6 +19,10 @@ div.c-sidebar
             img.margin-bottom--0(alt="Travis CI Build Master" src="https://img.shields.io/travis/drashland/deno-drash/master?label=master" width="auto" height="20")
           a(href="https://gitter.im/drashspace/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge" target="_BLANK")
             img.margin-bottom--0(src="https://badges.gitter.im/drashspace/community.svg")
+          a(href="https://github.com/drashland/deno-drash" target="_BLANK")
+            img.margin-bottom--0(src="https://img.shields.io/badge/github-drash-brightgreen")
+          a(href="https://github.com/drashland/deno-drash-docs" target="_BLANK")
+            img.margin-bottom--0(src="https://img.shields.io/badge/github-drash--docs-brightgreen")
   </a>
   div.c-sidebar__body
     div.c-sidebar__menu
@@ -29,6 +33,7 @@ div.c-sidebar
         a-base-url(href="/introduction#importing") Importing
         a-base-url(href="/introduction#features") Features
         a-base-url(href="/about-drash") About Drash
+        a-base-url(href="/api-reference") API Reference
         a-base-url(href="/issues") Issues
       a-base-url.heading-link(href="/tutorials") Tutorials
       div.c-sidebar__menu-body
@@ -95,34 +100,6 @@ div.c-sidebar
         a Template Engines
         div.l-submenu-1
           a-base-url(href="/third-party-tutorials/template-engines/dejs") dejs
-      a.heading-link API Reference
-      div.c-sidebar__menu-body
-        a Exceptions
-        div.l-submenu-1
-          a-base-url(href="/api-reference/exceptions/http-exception") HttpException
-          a-base-url(href="/api-reference/exceptions/http-middleware-exception") HttpMiddlewareException
-        a Http
-        div.l-submenu-1
-          a-base-url(href="/api-reference/http/middleware") Middleware
-          a-base-url(href="/api-reference/http/resource") Resource
-          a-base-url(href="/api-reference/http/response") Response
-          a-base-url(href="/api-reference/http/server") Server
-        a Interfaces
-        div.l-submenu-1
-          a-base-url(href="/api-reference/interfaces/logger-configs") LoggerConfigs
-        a Loggers
-        div.l-submenu-1
-          a-base-url(href="/api-reference/loggers/logger") Logger
-          a-base-url(href="/api-reference/loggers/console-logger") ConsoleLogger
-          a-base-url(href="/api-reference/loggers/file-logger") FileLogger
-        a Services
-        div.l-submenu-1
-          a-base-url(href="/api-reference/services/http-service") HttpService
-          a-base-url(href="/api-reference/services/http-request-service") HttpRequestService
-        a Util
-        div.l-submenu-1
-          a-base-url(href="/api-reference/util/exports") Exports
-          a-base-url(href="/api-reference/util/object-parser") ObjectParser
   div.c-sidebar__footer
     div.row
       div.col.text-align--center
