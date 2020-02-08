@@ -19,12 +19,32 @@ div
     div.row
       div.col
         h2-hash Quickstart
-        p Write your <code>app.ts</code> file...
-        p
-          code-block(:data="example_code.app")
-        p ... and run your <code>app.ts</code> file.
-        p
-          code-block(:data="example_code.execute")
+        ol
+          li
+            p Install Deno.
+            p
+              code-block-slotted(language="text")
+                template(v-slot:title) Terminal
+                template(v-slot:code)
+                  | curl -fsSL https://deno.land/x/install/install.sh | sh
+          li
+            p Write your <code>app.ts</code> file.
+            p
+              code-block-slotted(language="typescript")
+                template(v-slot:title) app.ts
+                template(v-slot:code)
+                  | {{ example_code.app.contents }}
+          li
+            p Run your <code>app.ts</code> file.
+            p
+              code-block(:data="example_code.execute")
+          li
+            p Make a request.
+              code-block-slotted(language="text")
+                template(v-slot:title) Terminal
+                template(v-slot:code)
+                  | curl localhost:1447
+                  | Hello World!
     hr
     div.row
       div.col
