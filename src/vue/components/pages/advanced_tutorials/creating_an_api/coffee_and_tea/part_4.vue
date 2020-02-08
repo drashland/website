@@ -83,7 +83,7 @@ page-tutorial-part(
             |     "uri": "/tea/2710"
             |   }
             | }
-      p In this tutorial part, you will override and replace <code>Drash.Http.Response</code> so that it can send a more informative response schema.
+      p In this tutorial part, you will override and replace <code>Drash.Http.Response</code> so it can send a more informative response schema.
       p-view-source-code
   div.row
     div.col

@@ -39,11 +39,11 @@ page-tutorial(
           template(v-slot:title) database: deno_mysql<br>table: users
           template(v-slot:code)
             | mysql> select * from users;
-            | +------+------+
-            | | name | sex  |
-            | +------+------+
-            | | eric | m    |
-            | +------+------+
+            | +-------------+--------+
+            | | name        | role   |
+            | +-------------+--------+
+            | | manyuanrong | author |
+            | +-------------+--------+
             | 1 row in set (0.00 sec)
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
@@ -83,7 +83,7 @@ page-tutorial(
             template(v-slot:code)
               | [
               |   {
-              |     "name": "eric",
-              |     "sex": "m"
+              |     "name": "manyuanrong",
+              |     "role": "author"
               |   }
               | ]

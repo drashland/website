@@ -9,7 +9,7 @@ page
     div.col
       hr
       h2-hash Example Code
-      p All tutorials have example code blocks that work if copied and pasted. This is for your convenience. Also, almost all code blocks in the tutorials can be found in the repository at <a href="https://github.com/drashland/deno-drash/tree/master/src/example_code/tutorials" target="_BLANK">https://github.com/drashland/deno-drash/tree/master/src/example_code/tutorials</a>.
+      p All tutorials have example code blocks that work if copied and pasted. This is for your convenience. Also, almost all code blocks in the tutorials can be found in the repository <a href="https://github.com/drashland/deno-drash-docs/tree/master/src/example_code" target="_BLANK">here</a>.
 </template>
 
 <script>

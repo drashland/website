@@ -1,11 +1,23 @@
 # deno-drash Documentation
 
+<a href="https://github.com/drashland/deno-drash/">
+  <img src="https://img.shields.io/github/release/drashland/deno-drash.svg?color=bright_green&label=drash%20latest">
+</a> 
 <a href="https://github.com/drashland/deno-drash-docs/actions?query=workflow%3Aci">
-  <img src="https://img.shields.io/github/workflow/status/drashland/deno-drash-docs/master?label=master">
+  <img src="https://img.shields.io/github/workflow/status/drashland/deno-drash-docs/master?label=docs%20master">
 </a>
+
+## Environments
+
+* Production: [https://drash.land](https://drash.land)
+    * This environment includes code that is released and stable.
+* Staging: [https://drash.land](https://drash.land/staging)
+    * This environment includes code that is still under development, but ready to be realeased soon.
 
 ## Technology Stack
 
+* [deno](https://deno.land) for its web server;
+* [Drash](https://drash.land) for its web server framework;
 * [dejs](https://github.com/syumai/dejs) for its template engine;
 * [npm](https://www.npmjs.com) to map console scripts to the `npm run` command;
 * [Vue](https://vuejs.org) for its front-end framework;

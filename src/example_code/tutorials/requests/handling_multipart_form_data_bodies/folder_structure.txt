@@ -1,0 +1,6 @@
+▾ /path/to/your/project/
+	▾ uploads/
+		my_uploaded_file.txt
+	app.ts
+	files_resource.ts
+	my_file.txt

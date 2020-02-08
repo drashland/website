@@ -9,6 +9,7 @@ import VueRouter from "vue-router";
 import VueAppRoot from "/components/vue_app_root.vue";
 import Sidebar from "/components/sidebar.vue";
 import GlobalComponents from "/public/assets/js/compiled_vue_global_components.js";
+import Client from "/public/assets/js/axios.js";
 
 // Vendor
 import MarkdownIt from "markdown-it";
@@ -24,6 +25,7 @@ Vue.filter('markdown-it', function(value) {
 Vue.prototype.$app_data = app_data;
 Vue.prototype.$conf = conf;
 Vue.prototype.$store = app_data.store;
+Vue.prototype.$api_service = Client;
 
 // Vue Router
 import router from "/public/assets/js/router.js";

@@ -1,4 +1,4 @@
-import Drash from "../../deps.ts";
+import { Drash } from "../../deps.ts";
 import config from "../../conf/app.ts";
 const Encoder = new TextEncoder();
 
@@ -10,10 +10,12 @@ let DrashNamespaceMembers = [
   "/src/http/resource.ts",
   "/src/http/response.ts",
   "/src/http/server.ts",
-  "/src/loggers/logger.ts",
+  "/src/interfaces/logger_configs.ts",
   "/src/loggers/console_logger.ts",
   "/src/loggers/file_logger.ts",
+  "/src/loggers/logger.ts",
   "/src/services/http_service.ts",
+  "/src/services/http_request_service.ts",
   "/src/util/object_parser.ts",
   "/src/util/members.ts",
 ].map(value => {

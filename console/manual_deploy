@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# All env variables should be set before running this script
+#
+
+(
+  export DENO_DRASH_DOCS_ENVIRONMENT="production"
+  console/run_webpack --env.environment="production"
+  console/compile_assets
+  console/compile_ejs_templates
+  git add .
+  git commit -m "$(date) - manual build"
+)

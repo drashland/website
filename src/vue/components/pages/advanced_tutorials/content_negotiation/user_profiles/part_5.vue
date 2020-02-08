@@ -47,7 +47,7 @@ page-tutorial-part(
         li <code>application/xml</code>
         li <code>text/xml</code>
       p Sometimes you will have clients that want to request content types of your resources other than the ones listed above. If you ever need Drash's response object to support more content types, then you will need to override and replace <code>Drash.Http.Response</code>.
-      p In this tutorial part, you will override and replace <code>Drash.Http.Response</code> so that it can send the content types listed above and <code>text/plain</code>.
+      p In this tutorial part, you will override and replace <code>Drash.Http.Response</code> so it can send the content types listed above and <code>text/plain</code>.
       p-view-source-code
   div.row
     div.col
