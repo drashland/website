@@ -615,7 +615,7 @@
                         "data_type": "Drash.Loggers.ConsoleLogger|Drash.Loggers.FileLogger",
                         "name": "logger"
                     },
-                    "signature": "public logger: Drash.Loggers.ConsoleLogger | Drash.Loggers.FileLogger",
+                    "signature": "public logger: Drash.CoreLoggers.ConsoleLogger | Drash.CoreLoggers.FileLogger",
                     "name": "logger",
                     "fully_qualified_name": "Drash.Http.Server.logger"
                 },
@@ -1262,7 +1262,7 @@
                         "configs": {
                             "name": "configs",
                             "description": [
-                                "See `Drash.Loggers.Logger.configs`."
+                                "See `Drash.CoreLoggers.Logger.configs`."
                             ],
                             "annotation": {
                                 "line": "@param any configs",
@@ -1357,7 +1357,7 @@
                         "configs": {
                             "name": "configs",
                             "description": [
-                                "See `Drash.Loggers.Logger.configs`."
+                                "See `Drash.CoreLoggers.Logger.configs`."
                             ],
                             "annotation": {
                                 "line": "@param any configs",
@@ -1423,7 +1423,7 @@
             "namespace": "Drash.Loggers",
             "name": "Logger",
             "description": [
-                "This logger is the base logger class for all logger classes."
+                "This Logger is the base logger class for all logger classes."
             ],
             "properties": {
                 "configs": {
@@ -1466,7 +1466,7 @@
                         "configs": {
                             "name": "configs",
                             "description": [
-                                "See [Drash.Loggers.Logger.configs](/#/api-reference/loggers/logger#configs)."
+                                "See [Drash.CoreLoggers.Logger.configs](/#/api-reference/loggers/logger#configs)."
                             ],
                             "annotation": {
                                 "line": "@param any configs",
