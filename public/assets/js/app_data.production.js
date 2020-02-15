@@ -2070,7 +2070,7 @@ const app_data = {
                   "data_type": "Drash.Loggers.ConsoleLogger|Drash.Loggers.FileLogger",
                   "name": "logger"
                 },
-                "signature": "public logger: Drash.Loggers.ConsoleLogger | Drash.Loggers.FileLogger",
+                "signature": "public logger: Drash.CoreLoggers.ConsoleLogger | Drash.CoreLoggers.FileLogger",
                 "name": "logger",
                 "fully_qualified_name": "Drash.Http.Server.logger"
               },
@@ -2717,7 +2717,7 @@ const app_data = {
                   "configs": {
                     "name": "configs",
                     "description": [
-                      "See `Drash.Loggers.Logger.configs`."
+                      "See `Drash.CoreLoggers.Logger.configs`."
                     ],
                     "annotation": {
                       "line": "@param any configs",
@@ -2812,7 +2812,7 @@ const app_data = {
                   "configs": {
                     "name": "configs",
                     "description": [
-                      "See `Drash.Loggers.Logger.configs`."
+                      "See `Drash.CoreLoggers.Logger.configs`."
                     ],
                     "annotation": {
                       "line": "@param any configs",
@@ -2878,7 +2878,7 @@ const app_data = {
             "namespace": "Drash.Loggers",
             "name": "Logger",
             "description": [
-              "This logger is the base logger class for all logger classes."
+              "This Logger is the base logger class for all logger classes."
             ],
             "properties": {
               "configs": {
@@ -2921,7 +2921,7 @@ const app_data = {
                   "configs": {
                     "name": "configs",
                     "description": [
-                      "See [Drash.Loggers.Logger.configs](/#/api-reference/loggers/logger#configs)."
+                      "See [Drash.CoreLoggers.Logger.configs](/#/api-reference/loggers/logger#configs)."
                     ],
                     "annotation": {
                       "line": "@param any configs",
