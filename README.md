@@ -26,6 +26,12 @@
 
 ## Setup
 
+Install Sass.
+
+```
+brew install sass/sass/sass
+```
+
 Install dependencies.
 
 ```shell
@@ -35,7 +41,13 @@ npm install
 Install watchdog for file watching.
 
 ```shell
-npm run install-watchdog
+console/pip.install.watchdog
+```
+
+Add the following to your `$PATH` variable.
+
+```
+~/Library/Python/2.7/bin 
 ```
 
 _The installer warns you about setting Python binaries to your `$PATH` variable. Pay attention to that message._
@@ -51,6 +63,18 @@ npm run dev
 The dev server is watched by `watchdog`. `watchdog` is like `nodemon` for Node.js. Every time you save changes, the dev server will reload with your changes. The browser will not reload on its own. You have to do that yourself.
 
 The dev server starts webpack in the background with the `--watch` flag. You do not need to worry about recompiling the Vue components. However, if you make a change to `webpack.config.js`, then you will need to reload the dev server. The dev server does not reload with changes made to `webpack.config.js`.
+
+###
+
+Problem with node-sass?
+
+```
+npm rebuild node-sass
+```
+
+Problem with watchdog?
+
+Make sure you have Python 2.7 installed.
 
 ## Compile SASS to CSS
 
