@@ -64,7 +64,7 @@ The dev server is watched by `watchdog`. `watchdog` is like `nodemon` for Node.j
 
 The dev server starts webpack in the background with the `--watch` flag. You do not need to worry about recompiling the Vue components. However, if you make a change to `webpack.config.js`, then you will need to reload the dev server. The dev server does not reload with changes made to `webpack.config.js`.
 
-###
+### Troubleshooting
 
 Problem with node-sass?
 
