@@ -49,11 +49,6 @@ const app_data = {
         "contents": "",
         "filename": "creating_an_api",
         "title": "/path/to/your/project/creating_an_api"
-      },
-      "creating_an_spa": {
-        "contents": "",
-        "filename": "creating_an_spa",
-        "title": "/path/to/your/project/creating_an_spa"
       }
     },
     "/src/example_code/advanced_tutorials/content_negotiation": {
@@ -333,7 +328,7 @@ const app_data = {
         "title": "/path/to/your/project/index.ejs"
       },
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs/dejs.ts\";\n\nclass Response extends Drash.Http.Response {\n  public async generateHtmlResponse(): Promise<any> {\n    let rawOutput = await renderFile(Deno.cwd() + \"/index.ejs\", {\n      body: this.body\n    });\n    let html = rawOutput.toString();\n    return html;\n  }\n}\n\nDrash.Http.Response = Response;\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n  public POST() {\n    this.response.body = \"POST request received!\";\n    let name = this.request.body_parsed.name;\n    if (name) {\n      this.response.body += ` Thanks for the request, ${name}!`;\n    }\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1337\",\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  logger: new Drash.Loggers.ConsoleLogger({\n    enabled: true,\n    level: \"debug\",\n    tag_string: \"{datetime} | {level} | \",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs/dejs.ts\";\n\nclass Response extends Drash.Http.Response {\n  public async generateHtmlResponse(): Promise<any> {\n    let rawOutput = await renderFile(Deno.cwd() + \"/index.ejs\", {\n      body: this.body\n    });\n    let html = rawOutput.toString();\n    return html;\n  }\n}\n\nDrash.Http.Response = Response;\n\nclass HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    this.response.body = \"Hello World!\";\n    return this.response;\n  }\n  public POST() {\n    this.response.body = \"POST request received!\";\n    let name = this.request.body_parsed.name;\n    if (name) {\n      this.response.body += ` Thanks for the request, ${name}!`;\n    }\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1337\",\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  logger: new Drash.CoreLoggers.ConsoleLogger({\n    enabled: true,\n    level: \"debug\",\n    tag_string: \"{datetime} | {level} | \",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -578,13 +573,6 @@ const app_data = {
         "filename": "response.ts",
         "language": "typescript",
         "title": "/path/to/your/project/response.ts"
-      },
-      "deps": {
-        "contents": "export {\n  serve,\n  ServerRequest\n} from \"https://deno.land/std@v0.32.0/http/server.ts\";\n\nexport {\n  STATUS_TEXT,\n  Status\n} from \"https://deno.land/std@v0.32.0/http/http_status.ts\";\n\nexport {\n  walkSync\n} from \"https://deno.land/std@v0.32.0/fs/mod.ts\";\n\nexport {\n  runTests,\n  test\n} from \"https://deno.land/std@v0.32.0/testing/mod.ts\";\n\nexport {\n  assertEquals\n} from \"https://deno.land/std@v0.32.0/testing/asserts.ts\";\n\nexport {\n  contentType\n} from \"https://deno.land/std@v0.32.0/media_types/mod.ts\";\n\nexport {\n  BufReader,\n  ReadLineResult\n} from \"https://deno.land/std@v0.32.0/io/bufio.ts\";\n\nexport {\n  StringReader\n} from \"https://deno.land/std@v0.32.0/io/readers.ts\";\n\nexport {\n  MultipartReader\n} from \"https://deno.land/std@v0.32.0/mime/multipart.ts\";\n",
-        "extension": "ts",
-        "filename": "deps.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/deps.ts"
       }
     },
     "/src/example_code/tutorials": {
@@ -804,7 +792,7 @@ const app_data = {
         "title": "/path/to/your/project/home_resource.ts"
       },
       "morgan_style_logging_middleware": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nconst logger = new Drash.Loggers.ConsoleLogger({\n  enabled: true,\n  level: \"all\",\n  tag_string: \"{datetime} | {level} |\",\n  tag_string_fns: {\n    datetime() {\n      return new Date().toISOString().replace(\"T\", \" \");\n    }\n  }\n});\n\nexport default class MorganStyleLoggingMiddleware extends Drash.Http.Middleware {\n  public run() {\n    if (!this.response) {\n      logger.info(`Request received: ${this.request.method} ${this.request.url}`);\n    }\n    if (this.response) {\n      logger.info(`Response: ${this.response.status_code} ${this.response.getStatusMessage()}`);\n    }\n  }\n}\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nconst logger = new Drash.CoreLoggers.ConsoleLogger({\n  enabled: true,\n  level: \"all\",\n  tag_string: \"{datetime} | {level} |\",\n  tag_string_fns: {\n    datetime() {\n      return new Date().toISOString().replace(\"T\", \" \");\n    }\n  }\n});\n\nexport default class MorganStyleLoggingMiddleware extends Drash.Http.Middleware {\n  public run() {\n    if (!this.response) {\n      logger.info(`Request received: ${this.request.method} ${this.request.url}`);\n    }\n    if (this.response) {\n      logger.info(`Response: ${this.response.status_code} ${this.response.getStatusMessage()}`);\n    }\n  }\n}\n",
         "extension": "ts",
         "filename": "morgan_style_logging_middleware.ts",
         "language": "typescript",
@@ -1087,7 +1075,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/logging/logging_to_the_terminal": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource],\n  logger: new Drash.Loggers.ConsoleLogger({\n    enabled: true,\n    level: \"all\",\n    tag_string: \"{datetime} | {level} |\",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource],\n  logger: new Drash.CoreLoggers.ConsoleLogger({\n    enabled: true,\n    level: \"all\",\n    tag_string: \"{datetime} | {level} |\",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -1125,7 +1113,7 @@ const app_data = {
     },
     "/src/example_code/tutorials/logging/logging_to_files": {
       "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource],\n  logger: new Drash.Loggers.FileLogger({\n    enabled: true,\n    level: \"all\",\n    file: \"./server.log\",\n    tag_string: \"{datetime} | {level} |\",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
+        "contents": "import Drash from \"https://deno.land/x/drash/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [HomeResource],\n  logger: new Drash.CoreLoggers.FileLogger({\n    enabled: true,\n    level: \"all\",\n    file: \"./server.log\",\n    tag_string: \"{datetime} | {level} |\",\n    tag_string_fns: {\n      datetime() {\n        return new Date().toISOString().replace(\"T\", \" \");\n      }\n    }\n  })\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -2697,10 +2685,10 @@ const app_data = {
             "fully_qualified_name": "Drash.Interfaces.LoggerConfigs.LoggerConfigs"
           }
         },
-        "Drash.Loggers": {
+        "Drash.CoreLoggers": {
           "ConsoleLogger": {
-            "fully_qualified_name": "Drash.Loggers.ConsoleLogger",
-            "namespace": "Drash.Loggers",
+            "fully_qualified_name": "Drash.CoreLoggers.ConsoleLogger",
+            "namespace": "Drash.CoreLoggers",
             "name": "ConsoleLogger",
             "description": [
               "This logger allows you to log messages to the console."
@@ -2730,7 +2718,7 @@ const app_data = {
                 "throws": null,
                 "signature": "constructor(configs)",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.ConsoleLogger()"
+                "fully_qualified_name": "Drash.CoreLoggers.ConsoleLogger()"
               },
               "write": {
                 "access_modifier": "public",
@@ -2774,13 +2762,13 @@ const app_data = {
                 "throws": null,
                 "signature": "public write(logMethodLevelDefinition, message): string",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.ConsoleLogger.write"
+                "fully_qualified_name": "Drash.CoreLoggers.ConsoleLogger.write"
               }
             }
           },
           "FileLogger": {
-            "fully_qualified_name": "Drash.Loggers.FileLogger",
-            "namespace": "Drash.Loggers",
+            "fully_qualified_name": "Drash.CoreLoggers.FileLogger",
+            "namespace": "Drash.CoreLoggers",
             "name": "FileLogger",
             "description": [
               "This logger allows you to log messages to a file."
@@ -2798,7 +2786,7 @@ const app_data = {
                 },
                 "signature": "protected file: string",
                 "name": "file",
-                "fully_qualified_name": "Drash.Loggers.FileLogger.file"
+                "fully_qualified_name": "Drash.CoreLoggers.FileLogger.file"
               }
             },
             "methods": {
@@ -2825,7 +2813,7 @@ const app_data = {
                 "throws": null,
                 "signature": "constructor(configs)",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.FileLogger()"
+                "fully_qualified_name": "Drash.CoreLoggers.FileLogger()"
               },
               "write": {
                 "access_modifier": "public",
@@ -2869,13 +2857,13 @@ const app_data = {
                 "throws": null,
                 "signature": "public write(logMethodLevelDefinition, message): string",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.FileLogger.write"
+                "fully_qualified_name": "Drash.CoreLoggers.FileLogger.write"
               }
             }
           },
           "Logger": {
-            "fully_qualified_name": "Drash.Loggers.Logger",
-            "namespace": "Drash.Loggers",
+            "fully_qualified_name": "Drash.CoreLoggers.Logger",
+            "namespace": "Drash.CoreLoggers",
             "name": "Logger",
             "description": [
               "This Logger is the base logger class for all logger classes."
@@ -2893,7 +2881,7 @@ const app_data = {
                 },
                 "signature": "protected configs: LoggerConfigs",
                 "name": "configs",
-                "fully_qualified_name": "Drash.Loggers.Logger.configs"
+                "fully_qualified_name": "Drash.CoreLoggers.Logger.configs"
               },
               "current_log_message_level_name": {
                 "access_modifier": "protected",
@@ -2907,7 +2895,7 @@ const app_data = {
                 },
                 "signature": "protected current_log_message_level_name: string",
                 "name": "current_log_message_level_name",
-                "fully_qualified_name": "Drash.Loggers.Logger.current_log_message_level_name"
+                "fully_qualified_name": "Drash.CoreLoggers.Logger.current_log_message_level_name"
               }
             },
             "methods": {
@@ -2934,7 +2922,7 @@ const app_data = {
                 "throws": null,
                 "signature": "constructor(configs: any)",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.Logger()"
+                "fully_qualified_name": "Drash.CoreLoggers.Logger()"
               },
               "debug": {
                 "access_modifier": "public",
@@ -2959,7 +2947,7 @@ const app_data = {
                 "throws": null,
                 "signature": "public debug(message)",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.Logger.debug"
+                "fully_qualified_name": "Drash.CoreLoggers.Logger.debug"
               },
               "error": {
                 "access_modifier": "public",
@@ -2984,7 +2972,7 @@ const app_data = {
                 "throws": null,
                 "signature": "public error(message)",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.Logger.error"
+                "fully_qualified_name": "Drash.CoreLoggers.Logger.error"
               },
               "fatal": {
                 "access_modifier": "public",
@@ -3009,7 +2997,7 @@ const app_data = {
                 "throws": null,
                 "signature": "public fatal(message)",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.Logger.fatal"
+                "fully_qualified_name": "Drash.CoreLoggers.Logger.fatal"
               },
               "info": {
                 "access_modifier": "public",
@@ -3034,7 +3022,7 @@ const app_data = {
                 "throws": null,
                 "signature": "public info(message)",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.Logger.info"
+                "fully_qualified_name": "Drash.CoreLoggers.Logger.info"
               },
               "trace": {
                 "access_modifier": "public",
@@ -3059,7 +3047,7 @@ const app_data = {
                 "throws": null,
                 "signature": "public trace(message)",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.Logger.trace"
+                "fully_qualified_name": "Drash.CoreLoggers.Logger.trace"
               },
               "warn": {
                 "access_modifier": "public",
@@ -3084,7 +3072,7 @@ const app_data = {
                 "throws": null,
                 "signature": "public warn(message)",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.Logger.warn"
+                "fully_qualified_name": "Drash.CoreLoggers.Logger.warn"
               },
               "getTagStringParsed": {
                 "access_modifier": "protected",
@@ -3106,7 +3094,7 @@ const app_data = {
                 "throws": null,
                 "signature": "protected getTagStringParsed(): string",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.Logger.getTagStringParsed"
+                "fully_qualified_name": "Drash.CoreLoggers.Logger.getTagStringParsed"
               },
               "sendToWriteMethod": {
                 "access_modifier": "protected",
@@ -3153,7 +3141,7 @@ const app_data = {
                 "throws": null,
                 "signature": "protected sendToWriteMethod(logMethodLevelDefinition, message): string",
                 "is_async": false,
-                "fully_qualified_name": "Drash.Loggers.Logger.sendToWriteMethod"
+                "fully_qualified_name": "Drash.CoreLoggers.Logger.sendToWriteMethod"
               }
             }
           }
