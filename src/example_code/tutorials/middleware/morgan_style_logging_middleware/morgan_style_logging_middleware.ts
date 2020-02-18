@@ -1,6 +1,6 @@
 import Drash from "https://deno.land/x/drash/mod.ts";
 
-const logger = new Drash.Loggers.ConsoleLogger({
+const logger = new Drash.CoreLoggers.ConsoleLogger({
   enabled: true,
   level: "all",
   tag_string: "{datetime} | {level} |",

@@ -1242,10 +1242,10 @@
             "fully_qualified_name": "Drash.Interfaces.LoggerConfigs.LoggerConfigs"
         }
     },
-    "Drash.Loggers": {
+    "Drash.CoreLoggers": {
         "ConsoleLogger": {
-            "fully_qualified_name": "Drash.Loggers.ConsoleLogger",
-            "namespace": "Drash.Loggers",
+            "fully_qualified_name": "Drash.CoreLoggers.ConsoleLogger",
+            "namespace": "Drash.CoreLoggers",
             "name": "ConsoleLogger",
             "description": [
                 "This logger allows you to log messages to the console."
@@ -1275,7 +1275,7 @@
                     "throws": null,
                     "signature": "constructor(configs)",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.ConsoleLogger()"
+                    "fully_qualified_name": "Drash.CoreLoggers.ConsoleLogger()"
                 },
                 "write": {
                     "access_modifier": "public",
@@ -1319,13 +1319,13 @@
                     "throws": null,
                     "signature": "public write(logMethodLevelDefinition, message): string",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.ConsoleLogger.write"
+                    "fully_qualified_name": "Drash.CoreLoggers.ConsoleLogger.write"
                 }
             }
         },
         "FileLogger": {
-            "fully_qualified_name": "Drash.Loggers.FileLogger",
-            "namespace": "Drash.Loggers",
+            "fully_qualified_name": "Drash.CoreLoggers.FileLogger",
+            "namespace": "Drash.CoreLoggers",
             "name": "FileLogger",
             "description": [
                 "This logger allows you to log messages to a file."
@@ -1343,7 +1343,7 @@
                     },
                     "signature": "protected file: string",
                     "name": "file",
-                    "fully_qualified_name": "Drash.Loggers.FileLogger.file"
+                    "fully_qualified_name": "Drash.CoreLoggers.FileLogger.file"
                 }
             },
             "methods": {
@@ -1370,7 +1370,7 @@
                     "throws": null,
                     "signature": "constructor(configs)",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.FileLogger()"
+                    "fully_qualified_name": "Drash.CoreLoggers.FileLogger()"
                 },
                 "write": {
                     "access_modifier": "public",
@@ -1414,13 +1414,13 @@
                     "throws": null,
                     "signature": "public write(logMethodLevelDefinition, message): string",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.FileLogger.write"
+                    "fully_qualified_name": "Drash.CoreLoggers.FileLogger.write"
                 }
             }
         },
         "Logger": {
-            "fully_qualified_name": "Drash.Loggers.Logger",
-            "namespace": "Drash.Loggers",
+            "fully_qualified_name": "Drash.CoreLoggers.Logger",
+            "namespace": "Drash.CoreLoggers",
             "name": "Logger",
             "description": [
                 "This Logger is the base logger class for all logger classes."
@@ -1438,7 +1438,7 @@
                     },
                     "signature": "protected configs: LoggerConfigs",
                     "name": "configs",
-                    "fully_qualified_name": "Drash.Loggers.Logger.configs"
+                    "fully_qualified_name": "Drash.CoreLoggers.Logger.configs"
                 },
                 "current_log_message_level_name": {
                     "access_modifier": "protected",
@@ -1452,7 +1452,7 @@
                     },
                     "signature": "protected current_log_message_level_name: string",
                     "name": "current_log_message_level_name",
-                    "fully_qualified_name": "Drash.Loggers.Logger.current_log_message_level_name"
+                    "fully_qualified_name": "Drash.CoreLoggers.Logger.current_log_message_level_name"
                 }
             },
             "methods": {
@@ -1479,7 +1479,7 @@
                     "throws": null,
                     "signature": "constructor(configs: any)",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.Logger()"
+                    "fully_qualified_name": "Drash.CoreLoggers.Logger()"
                 },
                 "debug": {
                     "access_modifier": "public",
@@ -1504,7 +1504,7 @@
                     "throws": null,
                     "signature": "public debug(message)",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.Logger.debug"
+                    "fully_qualified_name": "Drash.CoreLoggers.Logger.debug"
                 },
                 "error": {
                     "access_modifier": "public",
@@ -1529,7 +1529,7 @@
                     "throws": null,
                     "signature": "public error(message)",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.Logger.error"
+                    "fully_qualified_name": "Drash.CoreLoggers.Logger.error"
                 },
                 "fatal": {
                     "access_modifier": "public",
@@ -1554,7 +1554,7 @@
                     "throws": null,
                     "signature": "public fatal(message)",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.Logger.fatal"
+                    "fully_qualified_name": "Drash.CoreLoggers.Logger.fatal"
                 },
                 "info": {
                     "access_modifier": "public",
@@ -1579,7 +1579,7 @@
                     "throws": null,
                     "signature": "public info(message)",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.Logger.info"
+                    "fully_qualified_name": "Drash.CoreLoggers.Logger.info"
                 },
                 "trace": {
                     "access_modifier": "public",
@@ -1604,7 +1604,7 @@
                     "throws": null,
                     "signature": "public trace(message)",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.Logger.trace"
+                    "fully_qualified_name": "Drash.CoreLoggers.Logger.trace"
                 },
                 "warn": {
                     "access_modifier": "public",
@@ -1629,7 +1629,7 @@
                     "throws": null,
                     "signature": "public warn(message)",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.Logger.warn"
+                    "fully_qualified_name": "Drash.CoreLoggers.Logger.warn"
                 },
                 "getTagStringParsed": {
                     "access_modifier": "protected",
@@ -1651,7 +1651,7 @@
                     "throws": null,
                     "signature": "protected getTagStringParsed(): string",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.Logger.getTagStringParsed"
+                    "fully_qualified_name": "Drash.CoreLoggers.Logger.getTagStringParsed"
                 },
                 "sendToWriteMethod": {
                     "access_modifier": "protected",
@@ -1698,7 +1698,7 @@
                     "throws": null,
                     "signature": "protected sendToWriteMethod(logMethodLevelDefinition, message): string",
                     "is_async": false,
-                    "fully_qualified_name": "Drash.Loggers.Logger.sendToWriteMethod"
+                    "fully_qualified_name": "Drash.CoreLoggers.Logger.sendToWriteMethod"
                 }
             }
         }

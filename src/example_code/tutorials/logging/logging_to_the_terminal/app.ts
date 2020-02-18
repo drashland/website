@@ -6,7 +6,7 @@ const server = new Drash.Http.Server({
   address: "localhost:1447",
   response_output: "application/json",
   resources: [HomeResource],
-  logger: new Drash.Loggers.ConsoleLogger({
+  logger: new Drash.CoreLoggers.ConsoleLogger({
     enabled: true,
     level: "all",
     tag_string: "{datetime} | {level} |",

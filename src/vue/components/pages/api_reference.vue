@@ -62,17 +62,17 @@ page()
             li
               p
                 a(@click="member.data.class=$store.page_data.api_reference['Drash.Interfaces'].LoggerConfigs") LoggerConfigs
-          h2 Loggers
+          h2 CoreLoggers
           ul
             li
               p
-                a(@click="member.data.class=$store.page_data.api_reference['Drash.Loggers'].Logger") Logger
+                a(@click="member.data.class=$store.page_data.api_reference['Drash.CoreLoggers'].Logger") Logger
             li
               p
-                a(@click="member.data.class=$store.page_data.api_reference['Drash.Loggers'].ConsoleLogger") ConsoleLogger
+                a(@click="member.data.class=$store.page_data.api_reference['Drash.CoreLoggers'].ConsoleLogger") ConsoleLogger
             li
               p
-                a(@click="member.data.class=$store.page_data.api_reference['Drash.Loggers'].FileLogger") FileLogger
+                a(@click="member.data.class=$store.page_data.api_reference['Drash.CoreLoggers'].FileLogger") FileLogger
           h2 Services
           ul
             li

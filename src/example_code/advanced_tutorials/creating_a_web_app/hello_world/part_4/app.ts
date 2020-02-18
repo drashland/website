@@ -33,7 +33,7 @@ const server = new Drash.Http.Server({
   address: "localhost:1337",
   response_output: "text/html",
   resources: [HomeResource],
-  logger: new Drash.Loggers.ConsoleLogger({
+  logger: new Drash.CoreLoggers.ConsoleLogger({
     enabled: true,
     level: "debug",
     tag_string: "{datetime} | {level} | ",

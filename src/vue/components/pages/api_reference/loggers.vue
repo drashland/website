@@ -8,15 +8,15 @@ div.page.page--reference
         hr
         div.row
             div.col
-                h2 Drash.Loggers
+                h2 Drash.CoreLoggers
                 p Below are the list of classes under this namespace:
                 ul
                     li
-                        a(:href="$conf.base_url + '/#/api-reference/loggers/logger'") Drash.Loggers.Logger
+                        a(:href="$conf.base_url + '/#/api-reference/loggers/logger'") Drash.CoreLoggers.Logger
                     li
-                        a(:href="$conf.base_url + '/#/api-reference/loggers/console-logger'") Drash.Loggers.ConsoleLogger
+                        a(:href="$conf.base_url + '/#/api-reference/loggers/console-logger'") Drash.CoreLoggers.ConsoleLogger
                     li
-                        a(:href="$conf.base_url + '/#/api-reference/loggers/file-logger'") Drash.Loggers.FileLogger
+                        a(:href="$conf.base_url + '/#/api-reference/loggers/file-logger'") Drash.CoreLoggers.FileLogger
 </template>
 
 <script>
