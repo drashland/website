@@ -70,27 +70,22 @@ div.page.page--reference
         hr
         div.row
             div.col
-                h2 {{ data.fully_qualified_name }}
+                h2 {{ data.interface_name }}
                 p
                     a(:href="'https://github.com/drashland/deno-drash/tree/master' + link" target="_BLANK" v-if="link") View raw code
-                p Below is a list of members that don't belong to a class. They only belong to a namespace. They are considered "members only" and are exported for use via <code>{{ data.fully_qualified_name }}.{memberName}</code>.
         hr
-        div.row(v-for="member in data.namespace")
+        div.row(v-for="member in data.interface")
             div.col
-                h2 {{ member.fully_qualified_name }}
                 div.exported
-                    div.card.--exported
+                    div.card.--exported(v-for="(member) in data.interface")
                         div.card-body
-                            div.card-title(v-if="member.is_interface")
-                                pre
-                                    code.c-code-signature.language-typescript(v-html="member.signature")
-                            div.card-title(v-else)
+                            div.card-title
                                 code.c-code-signature.language-typescript {{ member.signature }}
                             hr(style="margin: 1rem 0")
-                            div.tag-row(v-show="member.description && member.description.length > 0")
-                                strong.tag-row__heading Description
-                                ul
-                                    li(v-for="description in member.description" :inner-html.prop="description | markdown-it")
+                            p
+                              code-block-slotted(language="typescript" :header="false")
+                                template(v-slot:code)
+                                  | {{ member.doc_block }}
 </template>
 
 <script>

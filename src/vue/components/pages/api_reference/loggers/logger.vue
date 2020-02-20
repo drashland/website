@@ -4,9 +4,9 @@ page-api-reference(:data="data" link="/src/loggers/logger.ts")
 
 <script>
 export const resource = {
-    paths: ["/api-reference/loggers/console-logger"],
+    paths: ["/api-reference/loggers/logger"],
     meta: {
-        title: "ConsoleLogger",
+        title: "Logger",
     }
 }
 
@@ -14,7 +14,8 @@ export default {
     data() {
         return {
             data: {
-                class: this.$store.page_data.api_reference["Drash.CoreLoggers"].ConsoleLogger
+              class_name: "Drash.Loggers.Logger",
+              class: this.$store.page_data.api_reference.Loggers.Logger
             }
         };
     }

@@ -14,7 +14,8 @@ export default {
     data() {
         return {
             data: {
-                class: this.$store.page_data.api_reference["Drash.Services"].HttpService
+              class_name: "Drash.Services.HttpService",
+              class: this.$store.page_data.api_reference.Services.HttpService
             }
         };
     }

@@ -1,10 +1,6 @@
 #!/bin/bash
 
 (
-  echo -n "Compiling API Reference pages ..."
-  deno --allow-read --allow-write --allow-env --allow-net console/ts/compile_api_reference_pages.ts
-  echo "... done."
-
   echo -n "Compiling Vue global components ..."
   deno --allow-read --allow-write --allow-env --allow-net console/ts/compile_vue_global_components.ts
   echo "... done."

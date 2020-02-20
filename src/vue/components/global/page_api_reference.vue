@@ -29,6 +29,12 @@ $g-font-family-code: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Cou
             padding: 0.5rem 1rem;
             // border-bottom: 4px solid #03a9f4;
         }
+        &.--class {
+            color: #efefef;
+            background: #000000;
+            padding: 0.5rem 1rem;
+            // border-bottom: 4px solid #03a9f4;
+        }
     }
     .card {
         margin-bottom: 2rem;
@@ -37,6 +43,9 @@ $g-font-family-code: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Cou
         }
         &.--property {
             border-left: 10px solid #03a9f4;
+        }
+        &.--class {
+            border-left: 10px solid #000000;
         }
     }
     .card-title {
@@ -76,79 +85,60 @@ div.page.page--reference
         hr
         div.row
             div.col
-                h2 {{ data.class.fully_qualified_name }}
+                h2 {{ data.class_name }}
                 p
                     a(:href="'https://github.com/drashland/deno-drash/tree/master' + link" target="_BLANK" v-if="link") View raw code
-                p(v-for="description in  data.class.description" :inner-html.prop="description | markdown-it")
+        hr
+        div.row
+            div.col
+                //- CLASS PROPERTIES
+                h2.type-heading.--class Class
+                div.properites
+                    div.card.--class(v-for="(member) in data.class" v-if="member.member_type == 'class'")
+                        div.card-body
+                            div.card-title
+                                code.c-code-signature.language-typescript {{ member.signature }}
+                            hr(style="margin: 1rem 0")
+                            p
+                              code-block-slotted(language="typescript" :header="false")
+                                template(v-slot:code)
+                                  | {{ member.doc_block }}
         hr
         div.row
             div.col
                 //- CLASS PROPERTIES
                 h2.type-heading.--properties Properties
                 div.properites
-                    div.card.--property(v-for="(property, name) in data.class.properties" v-show="!empty(data.class.properties)")
+                    div.card.--property(v-for="(member) in data.class" v-if="member.member_type == 'property'")
                         div.card-body
                             div.card-title
-                                code.c-code-signature.language-typescript {{ property.signature }}
+                                code.c-code-signature.language-typescript {{ member.signature }}
                             hr(style="margin: 1rem 0")
-                            //- DESCRIPTIONS
-                            div.tag-row(v-show="property.description && property.description.length > 0")
-                                strong.tag-row__heading Description
-                                ul
-                                    li(v-for="description in property.description" :inner-html.prop="description | markdown-it")
-                            //- TYPE
-                            div.tag-row(v-show="property.data_type")
-                                strong.tag-row__heading Type
-                                ul
-                                    li
-                                        code.c-code-data-type {{ property.data_type }}
-                    div.card(v-show="empty(data.class.properties)")
+                            p
+                              code-block-slotted(language="typescript" :header="false")
+                                template(v-slot:code)
+                                  | {{ member.doc_block }}
+                    div.card.--property(v-show="!has_properties")
                         div.card-body
-                            div.tag-row
-                                p This class doesn't have any properties.
+                            span This class does not have any properties.
         hr
         div.row
             div.col
                 //- CLASS METHODS
                 h2.type-heading.--methods Methods
                 div.methods
-                    div.card.--method(v-for="(method, methodName) in data.class.methods" v-show="!empty(data.class.methods)")
+                    div.card.--method(v-for="(member) in data.class" v-if="member.member_type == 'method'")
                         div.card-body
                             div.card-title
-                                code.c-code-signature.language-typescript {{ method.signature }}
+                                code.c-code-signature.language-typescript {{ member.signature }}
                             hr(style="margin: 1rem 0")
-                            //- DESCRIPTIONS
-                            div.tag-row(v-show="method.description && method.description.length > 0")
-                                strong.tag-row__heading Description
-                                ul
-                                    li(v-for="description in method.description" :inner-html.prop="description | markdown-it")
-                            div.tag-row(v-show="!empty(method.params)")
-                                strong.tag-row__heading Params
-                                ul
-                                    li(v-for="(param, paramname) in method.params")
-                                        code.c-code-parameter {{ param.name }}
-                                        span : 
-                                        code.c-code-data-type {{ param.annotation.data_type }}
-                                        ul(v-show="param.description && param.description.length > 0")
-                                            li(v-for="description in param.description" :inner-html.prop="description | markdown-it")
-                            div.tag-row(v-show="method.returns && method.returns.length > 0")
-                                strong.tag-row__heading Returns
-                                ul
-                                    li(v-for="ret in method.returns")
-                                        code.c-code-data-type {{ ret.annotation.data_type }}
-                                        ul(v-show="ret.description && ret.description.length > 0")
-                                            li(v-for="description in ret.description" :inner-html.prop="description | markdown-it")
-                            div.tag-row(v-show="method.throws && method.throws.length > 0")
-                                strong.tag-row__heading Throws
-                                ul
-                                    li(v-for="ret in method.throws")
-                                        code.c-code-data-type {{ ret.annotation.data_type }}
-                                        ul(v-show="ret.description && ret.description.length > 0")
-                                            li(v-for="description in ret.description" :inner-html.prop="description | markdown-it")
-                    div.card(v-show="empty(data.class.methods)")
+                            p
+                              code-block-slotted(language="typescript" :header="false")
+                                template(v-slot:code)
+                                  | {{ member.doc_block }}
+                    div.card.--method(v-show="!has_methods")
                         div.card-body
-                            div.tag-row
-                                p This class doesn't have any methods.
+                            span This class does not have any methods.
 </template>
 
 <script>
@@ -161,6 +151,18 @@ export default {
         return {
             raw_code_data: ""
         };
+    },
+    computed: {
+      has_methods() {
+        return this.data.class.filter((datum) => {
+          return datum.member_type == "method";
+        }).length > 0;
+      },
+      has_properties() {
+        return this.data.class.filter((datum) => {
+          return datum.member_type == "property";
+        }).length > 0;
+      }
     },
     watch: {
         raw_code_data() {

@@ -1,5 +1,5 @@
 <template lang="pug">
-page-api-reference-members-only(:data="data" link="/src/loggers/interfaces/logger_configs.ts")
+page-api-reference-interface(:data="data" link="/src/interfaces/logger_configs.ts")
 </template>
 
 <script>
@@ -14,8 +14,8 @@ export default {
     data() {
         return {
             data: {
-                namespace: this.$store.page_data.api_reference["Drash.Interfaces.LoggerConfigs"],
-                fully_qualified_name: "Drash.Interfaces.LoggerConfigs"
+                interface_name: "Drash.Interfaces.LoggerConfigs",
+                interface: this.$store.page_data.api_reference.Interfaces.LoggerConfigs,
             }
         };
     }
