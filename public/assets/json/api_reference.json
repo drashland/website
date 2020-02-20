@@ -321,7 +321,7 @@
                     "name": "paths",
                     "fully_qualified_name": "Drash.Http.Resource.paths"
                 },
-                "request;": {
+                "request": {
                     "access_modifier": "protected",
                     "description": [
                         "The request object."
@@ -331,9 +331,9 @@
                         "data_type": "ServerRequest",
                         "name": "request"
                     },
-                    "signature": "protected request",
-                    "name": "request;",
-                    "fully_qualified_name": "Drash.Http.Resource.request;"
+                    "signature": "protected request: any",
+                    "name": "request",
+                    "fully_qualified_name": "Drash.Http.Resource.request"
                 },
                 "response": {
                     "access_modifier": "protected",
@@ -402,7 +402,7 @@
                     "name": "headers",
                     "fully_qualified_name": "Drash.Http.Response.headers"
                 },
-                "request;": {
+                "request": {
                     "access_modifier": "public",
                     "description": [
                         "The request object."
@@ -412,9 +412,9 @@
                         "data_type": "ServerRequest",
                         "name": "request"
                     },
-                    "signature": "public request",
-                    "name": "request;",
-                    "fully_qualified_name": "Drash.Http.Response.request;"
+                    "signature": "public request: any",
+                    "name": "request",
+                    "fully_qualified_name": "Drash.Http.Response.request"
                 },
                 "status_code": {
                     "access_modifier": "public",
@@ -570,14 +570,14 @@
                         {
                             "description": [],
                             "annotation": {
-                                "line": "@return any",
-                                "data_type": "any",
-                                "name": null
+                                "line": "@return {status: number, headers: Headers, body: any}",
+                                "data_type": "{status:",
+                                "name": "number,"
                             }
                         }
                     ],
                     "throws": null,
-                    "signature": "public sendStatic(file): any",
+                    "signature": "public sendStatic(file: string):status: number, headers: Headers, body: any {",
                     "is_async": false,
                     "fully_qualified_name": "Drash.Http.Response.sendStatic"
                 }
@@ -629,7 +629,7 @@
                         "data_type": "any",
                         "name": "configs"
                     },
-                    "signature": "protected configs: any",
+                    "signature": "protected configs: ServerConfigs",
                     "name": "configs",
                     "fully_qualified_name": "Drash.Http.Server.configs"
                 },
@@ -702,7 +702,7 @@
                     },
                     "returns": null,
                     "throws": null,
-                    "signature": "constructor(configs: any)",
+                    "signature": "constructor(configs: ServerConfigs)",
                     "is_async": false,
                     "fully_qualified_name": "Drash.Http.Server()"
                 },
@@ -848,14 +848,14 @@
                                 "Returns the response as stringified JSON. This is only used for unit\ntesting purposes."
                             ],
                             "annotation": {
-                                "line": "@return any",
-                                "data_type": "any",
+                                "line": "@return string",
+                                "data_type": "string",
                                 "name": null
                             }
                         }
                     ],
                     "throws": null,
-                    "signature": "public handleHttpRequestForFavicon(request): any",
+                    "signature": "public handleHttpRequestForFavicon(request): string",
                     "is_async": false,
                     "fully_qualified_name": "Drash.Http.Server.handleHttpRequestForFavicon"
                 },
@@ -893,6 +893,37 @@
                     "is_async": false,
                     "fully_qualified_name": "Drash.Http.Server.handleHttpRequestForStaticPathAsset"
                 },
+                "getResourceObject": {
+                    "access_modifier": "public",
+                    "name": "getResourceObject",
+                    "description": null,
+                    "params": {
+                        "undefined": {
+                            "description": [],
+                            "annotation": {
+                                "line": "@param request ",
+                                "data_type": "request",
+                                "name": null
+                            }
+                        }
+                    },
+                    "returns": [
+                        {
+                            "description": [
+                                "Returns an instance of the resourceClass passed in, and setting the\n`paths` and `middleware` properties"
+                            ],
+                            "annotation": {
+                                "line": "@return resourceClass",
+                                "data_type": "resourceClass",
+                                "name": null
+                            }
+                        }
+                    ],
+                    "throws": null,
+                    "signature": "public getResourceObject(resourceClass: any, request: any): Resource",
+                    "is_async": false,
+                    "fully_qualified_name": "Drash.Http.Server.getResourceObject"
+                },
                 "run": {
                     "access_modifier": "public",
                     "name": "run",
@@ -926,7 +957,7 @@
                     "params": null,
                     "returns": null,
                     "throws": null,
-                    "signature": "public close()",
+                    "signature": "public close(): void",
                     "is_async": false,
                     "fully_qualified_name": "Drash.Http.Server.close"
                 },
@@ -1074,7 +1105,7 @@
                         }
                     ],
                     "throws": null,
-                    "signature": "protected executeMiddlewareResourceLevelBeforeRequest(request, resource)",
+                    "signature": "protected executeMiddlewareResourceLevelBeforeRequest(request, resource): void",
                     "is_async": false,
                     "fully_qualified_name": "Drash.Http.Server.executeMiddlewareResourceLevelBeforeRequest"
                 },
@@ -1119,7 +1150,7 @@
                         }
                     ],
                     "throws": null,
-                    "signature": "protected executeMiddlewareServerLevelBeforeRequest(request)",
+                    "signature": "protected executeMiddlewareServerLevelBeforeRequest(request): void",
                     "is_async": false,
                     "fully_qualified_name": "Drash.Http.Server.executeMiddlewareServerLevelBeforeRequest"
                 },
@@ -1223,6 +1254,40 @@
                     "signature": "protected requestTargetsStaticPath(request): boolean",
                     "is_async": false,
                     "fully_qualified_name": "Drash.Http.Server.requestTargetsStaticPath"
+                },
+                "logDebug": {
+                    "access_modifier": "protected",
+                    "name": "logDebug",
+                    "description": [
+                        "Log a debug message"
+                    ],
+                    "params": {
+                        "message": {
+                            "name": "message",
+                            "description": [
+                                "Message to log"
+                            ],
+                            "annotation": {
+                                "line": "@param string message",
+                                "data_type": "string",
+                                "name": "message"
+                            }
+                        }
+                    },
+                    "returns": [
+                        {
+                            "description": [],
+                            "annotation": {
+                                "line": "@return void",
+                                "data_type": "void",
+                                "name": null
+                            }
+                        }
+                    ],
+                    "throws": null,
+                    "signature": "protected logDebug(message: string): void",
+                    "is_async": false,
+                    "fully_qualified_name": "Drash.Http.Server.logDebug"
                 }
             }
         }
@@ -1237,7 +1302,7 @@
                 "`tag_string`: This only takes a string with tags as `{tag}`. For example, `{some_tag} | {some_tag} * {some_tag} [{some_tag}]`.",
                 "`tag_string_fns`: This takes an object of key-value pairs where the key is the name of the tag defined in the `tag_string` config. This object is used to replace tags in the `tag_string` config by matching keys to tags and replacing tags with the values of the keys. For example, if `tag_string` was `{my_cool_tag}` and `tags_string_fns.my_cool_tag` returns `\"HELLO\"`, then `{my_cool_tag}` would be replaced with `HELLO`."
             ],
-            "signature": "export interface LoggerConfigs {\n  enabled: boolean;\n  level: string;\n  tag_string: string;\n  tag_string_fns: any;\n}",
+            "signature": "export interface LoggerConfigs {\n  ",
             "is_interface": true,
             "fully_qualified_name": "Drash.Interfaces.LoggerConfigs.LoggerConfigs"
         }
@@ -1273,7 +1338,7 @@
                     },
                     "returns": null,
                     "throws": null,
-                    "signature": "constructor(configs)",
+                    "signature": "constructor(configs: LoggerConfigs)",
                     "is_async": false,
                     "fully_qualified_name": "Drash.CoreLoggers.ConsoleLogger()"
                 },
@@ -1317,7 +1382,7 @@
                         }
                     ],
                     "throws": null,
-                    "signature": "public write(logMethodLevelDefinition, message): string",
+                    "signature": "public write(logMethodLevelDefinition: any, message: string): string|void",
                     "is_async": false,
                     "fully_qualified_name": "Drash.CoreLoggers.ConsoleLogger.write"
                 }
@@ -1360,15 +1425,15 @@
                                 "See `Drash.CoreLoggers.Logger.configs`."
                             ],
                             "annotation": {
-                                "line": "@param any configs",
-                                "data_type": "any",
+                                "line": "@param LoggerConfigs configs",
+                                "data_type": "LoggerConfigs",
                                 "name": "configs"
                             }
                         }
                     },
                     "returns": null,
                     "throws": null,
-                    "signature": "constructor(configs)",
+                    "signature": "constructor(configs: LoggerConfigs)",
                     "is_async": false,
                     "fully_qualified_name": "Drash.CoreLoggers.FileLogger()"
                 },
@@ -1477,7 +1542,7 @@
                     },
                     "returns": null,
                     "throws": null,
-                    "signature": "constructor(configs: any)",
+                    "signature": "constructor(configs: LoggerConfigs)",
                     "is_async": false,
                     "fully_qualified_name": "Drash.CoreLoggers.Logger()"
                 },
@@ -2022,14 +2087,14 @@
                                 "Returns `true` if the request has a body. Returns `false` if not."
                             ],
                             "annotation": {
-                                "line": "@return Promise<any>",
-                                "data_type": "Promise<any>",
+                                "line": "@return Promise<boolean>",
+                                "data_type": "Promise<boolean>",
                                 "name": null
                             }
                         }
                     ],
                     "throws": null,
-                    "signature": "public async hasBody(request: any): Promise<any>",
+                    "signature": "public async hasBody(request: any): Promise<boolean>",
                     "is_async": true,
                     "fully_qualified_name": "Drash.Services.HttpRequestService.hasBody"
                 },
@@ -2046,14 +2111,14 @@
                                 "Returns a hydrated request object. For example, deno uses the\n`ServerRequest` object. This method takes that object and adds more\nporperties and methods to it. This makes it easier for Drash to process\nthe object for its own purposes."
                             ],
                             "annotation": {
-                                "line": "@return Promise<any>",
-                                "data_type": "Promise<any>",
+                                "line": "@return Promise<boolean>",
+                                "data_type": "Promise<boolean>",
                                 "name": null
                             }
                         }
                     ],
                     "throws": null,
-                    "signature": "public async hydrate(request: any, options?: any): Promise<any>",
+                    "signature": "public async hydrate(request: any, options?: OptionsConfig): Promise<boolean>",
                     "is_async": true,
                     "fully_qualified_name": "Drash.Services.HttpRequestService.hydrate"
                 },
@@ -2063,10 +2128,40 @@
                     "description": [
                         "Parse the specified request's body."
                     ],
-                    "params": null,
-                    "returns": null,
+                    "params": {
+                        "request": {
+                            "name": "request",
+                            "description": [],
+                            "annotation": {
+                                "line": "@param any request",
+                                "data_type": "any",
+                                "name": "request"
+                            }
+                        },
+                        "options": {
+                            "name": "options",
+                            "description": [],
+                            "annotation": {
+                                "line": "@param OptionsConfig options",
+                                "data_type": "OptionsConfig",
+                                "name": "options"
+                            }
+                        }
+                    },
+                    "returns": [
+                        {
+                            "description": [
+                                "Returns the content type of the body, and based on this\nthe body itself in that format. If there is no body, it\nreturns an empty properties"
+                            ],
+                            "annotation": {
+                                "line": "@returns {content_type: string, data: any}",
+                                "data_type": "{content_type:",
+                                "name": "string,"
+                            }
+                        }
+                    ],
                     "throws": null,
-                    "signature": "public async parseBody(request: any, options: any =): Promise<ParsedBody> {",
+                    "signature": "public async parseBody(request: any, options: OptionsConfig): Promise<ParsedBody>",
                     "is_async": true,
                     "fully_qualified_name": "Drash.Services.HttpRequestService.parseBody"
                 },
@@ -2079,16 +2174,18 @@
                     "params": null,
                     "returns": [
                         {
-                            "description": [],
+                            "description": [
+                                "Returns an empty object if no body exists, else a key/value pair\narray e.g. returnValue['someKey']"
+                            ],
                             "annotation": {
-                                "line": "@return Promise<any>",
-                                "data_type": "Promise<any>",
+                                "line": "@return Promise<object|Array<>>",
+                                "data_type": "Promise<object|Array<>>",
                                 "name": null
                             }
                         }
                     ],
                     "throws": null,
-                    "signature": "public async parseBodyAsFormUrlEncoded(request: any): Promise<any>",
+                    "signature": "public async parseBodyAsFormUrlEncoded(request: any): Promise<object|Array<any>>",
                     "is_async": true,
                     "fully_qualified_name": "Drash.Services.HttpRequestService.parseBodyAsFormUrlEncoded"
                 },
@@ -2101,16 +2198,18 @@
                     "params": null,
                     "returns": [
                         {
-                            "description": [],
+                            "description": [
+                                "JSON object - the decoded request body"
+                            ],
                             "annotation": {
-                                "line": "@return Promise<any>",
-                                "data_type": "Promise<any>",
+                                "line": "@return Promise<object>",
+                                "data_type": "Promise<object>",
                                 "name": null
                             }
                         }
                     ],
                     "throws": null,
-                    "signature": "public async parseBodyAsJson(request: any): Promise<any>",
+                    "signature": "public async parseBodyAsJson(request: any): Promise<object>",
                     "is_async": true,
                     "fully_qualified_name": "Drash.Services.HttpRequestService.parseBodyAsJson"
                 },
@@ -2157,16 +2256,18 @@
                     },
                     "returns": [
                         {
-                            "description": [],
+                            "description": [
+                                "Returned values can be seen here (look for `readForm`:\nhttps://deno.land/std@v0.32.0/mime/multipart.ts"
+                            ],
                             "annotation": {
-                                "line": "@return Promise<any>",
-                                "data_type": "Promise<any>",
-                                "name": null
+                                "line": "@return Promise<{ [key: string]: string | FormFile }>",
+                                "data_type": "Promise<{",
+                                "name": "[key:"
                             }
                         }
                     ],
                     "throws": null,
-                    "signature": "public async parseBodyAsMultipartFormData(body: Reader, boundary: string, maxMemory: number): Promise<any>",
+                    "signature": "public async parseBodyAsMultipartFormData(body: Reader, boundary: string, maxMemory: number): Promise< [key: string]: string | FormFile > {",
                     "is_async": true,
                     "fully_qualified_name": "Drash.Services.HttpRequestService.parseBodyAsMultipartFormData"
                 },
@@ -2196,9 +2297,18 @@
                             }
                         }
                     },
-                    "returns": null,
+                    "returns": [
+                        {
+                            "description": [],
+                            "annotation": {
+                                "line": "@return void",
+                                "data_type": "void",
+                                "name": null
+                            }
+                        }
+                    ],
                     "throws": null,
-                    "signature": "public setHeaders(request: any, headers: any)",
+                    "signature": "public setHeaders(request: any, headers: Headers): void",
                     "is_async": false,
                     "fully_qualified_name": "Drash.Services.HttpRequestService.setHeaders"
                 }
