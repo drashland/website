@@ -30,7 +30,6 @@ div.c-sidebar
         a-base-url(href="/introduction#features") Features
         a-base-url(href="/about-drash") About Drash
         a-base-url(href="/lifecycle-diagram") Drash Lifecycle Diagram
-        a-base-url(href="/api-reference") API Reference
         a-base-url(href="/dependency-management") Dependency Management
         a(href="https://github.com/drashland/deno-drash" target="_BLANK") View On GitHub &mdash; Drash
         a(href="https://github.com/drashland/deno-drash-docs" target="_BLANK") View On GitHub &mdash; Drash Docs
@@ -99,6 +98,30 @@ div.c-sidebar
         a Template Engines
         div.l-submenu-1
           a-base-url(href="/third-party-tutorials/template-engines/dejs") dejs
+      a.heading-link API Reference
+      div.c-sidebar__menu-body
+        a Exceptions
+        div.l-submenu-1
+          a-base-url(href="/api-reference/exceptions/http-exception") HttpException
+          a-base-url(href="/api-reference/exceptions/http-middleware-exception") HttpMiddlewareException
+        a Http
+        div.l-submenu-1
+          a-base-url(href="/api-reference/http/middleware") Middleware
+          a-base-url(href="/api-reference/http/resource") Resource
+          a-base-url(href="/api-reference/http/response") Response
+          a-base-url(href="/api-reference/http/server") Server
+        a Interfaces
+        div.l-submenu-1
+          a-base-url(href="/api-reference/interfaces/logger-configs") LoggerConfigs
+        a Loggers
+        div.l-submenu-1
+          a-base-url(href="/api-reference/loggers/logger") Logger
+          a-base-url(href="/api-reference/loggers/console-logger") ConsoleLogger
+          a-base-url(href="/api-reference/loggers/file-logger") FileLogger
+        a Services
+        div.l-submenu-1
+          a-base-url(href="/api-reference/services/http-service") HttpService
+          a-base-url(href="/api-reference/services/http-request-service") HttpRequestService
   div.c-sidebar__footer
     div.row
       div.col.text-align--center
