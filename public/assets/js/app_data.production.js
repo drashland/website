@@ -49,6 +49,11 @@ const app_data = {
         "contents": "",
         "filename": "creating_an_api",
         "title": "/path/to/your/project/creating_an_api"
+      },
+      "creating_an_spa": {
+        "contents": "",
+        "filename": "creating_an_spa",
+        "title": "/path/to/your/project/creating_an_spa"
       }
     },
     "/src/example_code/advanced_tutorials/content_negotiation": {
@@ -573,6 +578,13 @@ const app_data = {
         "filename": "response.ts",
         "language": "typescript",
         "title": "/path/to/your/project/response.ts"
+      },
+      "deps": {
+        "contents": "export {\n  serve,\n  ServerRequest\n} from \"https://deno.land/std@v0.32.0/http/server.ts\";\n\nexport {\n  STATUS_TEXT,\n  Status\n} from \"https://deno.land/std@v0.32.0/http/http_status.ts\";\n\nexport {\n  walkSync\n} from \"https://deno.land/std@v0.32.0/fs/mod.ts\";\n\nexport {\n  runTests,\n  test\n} from \"https://deno.land/std@v0.32.0/testing/mod.ts\";\n\nexport {\n  assertEquals\n} from \"https://deno.land/std@v0.32.0/testing/asserts.ts\";\n\nexport {\n  contentType\n} from \"https://deno.land/std@v0.32.0/media_types/mod.ts\";\n\nexport {\n  BufReader,\n  ReadLineResult\n} from \"https://deno.land/std@v0.32.0/io/bufio.ts\";\n\nexport {\n  StringReader\n} from \"https://deno.land/std@v0.32.0/io/readers.ts\";\n\nexport {\n  MultipartReader\n} from \"https://deno.land/std@v0.32.0/mime/multipart.ts\";\n",
+        "extension": "ts",
+        "filename": "deps.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/deps.ts"
       }
     },
     "/src/example_code/tutorials": {
@@ -1442,2354 +1454,576 @@ const app_data = {
   "store": {
     "page_data": {
       "api_reference": {
-        "Drash.Exceptions": {
-          "HttpException": {
-            "fully_qualified_name": "Drash.Exceptions.HttpException",
-            "namespace": "Drash.Exceptions",
-            "name": "HttpException",
-            "description": [
-              "This class gives you a way to throw HTTP errors semantically.",
-              "This class extends `Error`."
-            ],
-            "properties": {
-              "code": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold the HTTP response code associated with this\nexception."
-                ],
-                "annotation": {
-                  "line": "@property number code",
-                  "data_type": "number",
-                  "name": "code"
-                },
-                "signature": "public code: number",
-                "name": "code",
-                "fully_qualified_name": "Drash.Exceptions.HttpException.code"
-              }
+        "Exceptions": {
+          "HttpException": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Exceptions\n* @class HttpException\n*\n* @description\n*     This class gives you a way to throw HTTP errors semantically.\n*/\n",
+              "signature": "export default class HttpException extends Error { }",
+              "member_type": "class"
             },
-            "methods": {
-              "constructor": {
-                "access_modifier": "public",
-                "name": "constructor",
-                "description": [
-                  "Construct an object of this class."
-                ],
-                "params": {
-                  "code": {
-                    "name": "code",
-                    "description": [
-                      "The HTTP response code associated with this exception."
-                    ],
-                    "annotation": {
-                      "line": "@param number code",
-                      "data_type": "number",
-                      "name": "code"
-                    }
-                  },
-                  "message": {
-                    "name": "message",
-                    "description": [
-                      "(optional) The exception message."
-                    ],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "constructor(code: number, message?: string)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Exceptions.HttpException()"
-              }
-            }
-          },
-          "HttpMiddlewareException": {
-            "fully_qualified_name": "Drash.Exceptions.HttpMiddlewareException",
-            "namespace": "Drash.Exceptions",
-            "name": "HttpMiddlewareException",
-            "description": [
-              "This class gives you a way to throw HTTP errors semantically in the\nmiddleware classes. The difference between this class and `HttpException`\ncomes when you want to check which exception was thrown via\n`exception.constructor.name`.",
-              "This class extends `Error`."
-            ],
-            "properties": {
-              "code": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold the HTTP response code associated with this\nexception."
-                ],
-                "annotation": {
-                  "line": "@property number code",
-                  "data_type": "number",
-                  "name": "code"
-                },
-                "signature": "public code: number",
-                "name": "code",
-                "fully_qualified_name": "Drash.Exceptions.HttpMiddlewareException.code"
-              }
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the HTTP response code associated with this\n*     exception.\n*\n* @property number code\n*/\n",
+              "signature": "public code: number;",
+              "member_type": "property"
             },
-            "methods": {
-              "constructor": {
-                "access_modifier": "public",
-                "name": "constructor",
-                "description": [
-                  "Construct an object of this class."
-                ],
-                "params": {
-                  "code": {
-                    "name": "code",
-                    "description": [
-                      "The HTTP response code associated with this exception."
-                    ],
-                    "annotation": {
-                      "line": "@param number code",
-                      "data_type": "number",
-                      "name": "code"
-                    }
-                  },
-                  "message": {
-                    "name": "message",
-                    "description": [
-                      "(optional) The exception message."
-                    ],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "constructor(code: number, message?: string)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Exceptions.HttpMiddlewareException()"
-              }
+            {
+              "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param number code\n*     The HTTP response code associated with this exception.\n* @param string message\n*     (optional) The exception message.\n*/\n",
+              "signature": "constructor(code: number, message?: string) { }",
+              "member_type": "method"
             }
-          }
+          ],
+          "HttpMiddlewareException": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Exceptions\n* @class HttpMiddlewareException\n*\n* @description\n*     This class gives you a way to throw HTTP errors semantically in the\n*     middleware classes. The difference between this class and HttpException\n*     comes when you want to check which exception was thrown via\n*     exception.constructor.name.\n*/\n",
+              "signature": "export default class HttpMiddlewareException extends Error { }",
+              "member_type": "class"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the HTTP response code associated with this\n*     exception.\n*\n* @property number code\n*/\n",
+              "signature": "public code: number;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param number code\n*     The HTTP response code associated with this exception.\n* @param string message\n*     (optional) The exception message.\n*/\n",
+              "signature": "constructor(code: number, message?: string) { }",
+              "member_type": "method"
+            }
+          ]
         },
-        "Drash.Http": {
-          "Middleware": {
-            "fully_qualified_name": "Drash.Http.Middleware",
-            "namespace": "Drash.Http",
-            "name": "Middleware",
-            "description": [
-              "This is the base middleware class for all middleware classes."
-            ],
-            "properties": {
-              "location": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold the location that this middleware should process."
-                ],
-                "annotation": {
-                  "line": "@property string location",
-                  "data_type": "string",
-                  "name": "location"
-                },
-                "signature": "public location: string",
-                "name": "location",
-                "fully_qualified_name": "Drash.Http.Middleware.location"
-              },
-              "name": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold the name of this middleware class. This property is\nused by `Drash.Http.Server` to help it store middleware in the correct\n`middleware_*` property."
-                ],
-                "annotation": {
-                  "line": "@property string name",
-                  "data_type": "string",
-                  "name": "name"
-                },
-                "signature": "public name: string",
-                "name": "name",
-                "fully_qualified_name": "Drash.Http.Middleware.name"
-              },
-              "request": {
-                "access_modifier": "protected",
-                "description": [
-                  "A property to hold the request object."
-                ],
-                "annotation": {
-                  "line": "@property any request",
-                  "data_type": "any",
-                  "name": "request"
-                },
-                "signature": "protected request: any",
-                "name": "request",
-                "fully_qualified_name": "Drash.Http.Middleware.request"
-              },
-              "resource": {
-                "access_modifier": "protected",
-                "description": [
-                  "A property to hold the resource object. This property will only contain\nthe resource object if this middleware is a resource-level middleware."
-                ],
-                "annotation": {
-                  "line": "@property Drash.Http.Resource resource",
-                  "data_type": "Drash.Http.Resource",
-                  "name": "resource"
-                },
-                "signature": "protected resource: Drash.Http.Resource",
-                "name": "resource",
-                "fully_qualified_name": "Drash.Http.Middleware.resource"
-              },
-              "response": {
-                "access_modifier": "protected",
-                "description": [
-                  "A property to hold the response object. This property will only contain\nthe response object if the server was able to get a response from the\nresource."
-                ],
-                "annotation": {
-                  "line": "@property Drash.Http.Resource resource",
-                  "data_type": "Drash.Http.Resource",
-                  "name": "resource"
-                },
-                "signature": "protected response: Drash.Http.Response",
-                "name": "response",
-                "fully_qualified_name": "Drash.Http.Middleware.response"
-              },
-              "server": {
-                "access_modifier": "protected",
-                "description": [
-                  "A property to hold the server object handling this middleware."
-                ],
-                "annotation": {
-                  "line": "@property Drash.Http.Server server",
-                  "data_type": "Drash.Http.Server",
-                  "name": "server"
-                },
-                "signature": "protected server: Drash.Http.Server",
-                "name": "server",
-                "fully_qualified_name": "Drash.Http.Middleware.server"
-              }
+        "Http": {
+          "Middleware": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Http\n* @class Middleware\n*\n* @description\n*     This is the base middleware class for all middleware classes.\n*/\n",
+              "signature": "export default abstract class Middleware { }",
+              "member_type": "class"
             },
-            "methods": {
-              "constructor": {
-                "access_modifier": "public",
-                "name": "constructor",
-                "description": null,
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  },
-                  "server": {
-                    "name": "server",
-                    "description": [
-                      "The server object handling this middleware."
-                    ],
-                    "annotation": {
-                      "line": "@param Drash.Http.Server server",
-                      "data_type": "Drash.Http.Server",
-                      "name": "server"
-                    }
-                  },
-                  "resource": {
-                    "name": "resource",
-                    "description": [
-                      "(optional) If this is a resource-level middleware, then it will have\naccess to the resource that uses it."
-                    ],
-                    "annotation": {
-                      "line": "@param Drash.Http.Resource resource",
-                      "data_type": "Drash.Http.Resource",
-                      "name": "resource"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "constructor(request: any, server: Drash.Http.Server, resource?: Drash.Http.Resource, response?: Drash.Http.Response)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Middleware()"
-              }
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the location that this middleware should process.\n*\n* @property string location\n*/\n",
+              "signature": "public location: string;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the name of this middleware class. This property is\n*     used by Drash.Http.Server to help it store middleware in the correct\n*     middleware_* property.\n*\n* @property string name\n*/\n",
+              "signature": "public name: string;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the request object.\n*\n* @property any request\n*/\n",
+              "signature": "protected request: any;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the resource object. This property will only contain\n*     the resource object if this middleware is a resource-level middleware.\n*\n* @property Drash.Http.Resource resource\n*/\n",
+              "signature": "protected resource: Drash.Http.Resource;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the response object. This property will only contain\n*     the response object if the server was able to get a response from the\n*     resource.\n*\n* @property Drash.Http.Resource resource\n*/\n",
+              "signature": "protected response: Drash.Http.Response;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the server object handling this middleware.\n*\n* @property Drash.Http.Server server\n*/\n",
+              "signature": "protected server: Drash.Http.Server;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @param any request\n*     The request object.\n* @param Drash.Http.Server server\n*     The server object handling this middleware.\n* @param Drash.Http.Resource resource\n*     (optional) If this is a resource-level middleware, then it will have\n*     access to the resource that uses it.\n*/\n",
+              "signature": "constructor(request: any,server: Drash.Http.Server,resource?: Drash.Http.Resource,response?: Drash.Http.Response) { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Run this middleware.\n*/\n",
+              "signature": "abstract run();",
+              "member_type": "method"
             }
-          },
-          "Resource": {
-            "fully_qualified_name": "Drash.Http.Resource",
-            "namespace": "Drash.Http",
-            "name": "Resource",
-            "description": [
-              "This is the base resource class for all resources. All resource classes\nmust be derived from this class."
-            ],
-            "properties": {
-              "middleware": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold the middleware this resource uses.",
-                  "All derived middleware classes MUST define this property as `static`\n(e.g., `static middleware = [\"MiddlewareClass\"];`)"
-                ],
-                "annotation": {
-                  "line": "@property string[] middleware",
-                  "data_type": "string[]",
-                  "name": "middleware"
-                },
-                "signature": "public middleware: string[]",
-                "name": "middleware",
-                "fully_qualified_name": "Drash.Http.Resource.middleware"
-              },
-              "name": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold the name of this resource. This property is used by\n`Drash.Http.Server` to help it store resources in its `resources`\nproperty by name."
-                ],
-                "annotation": {
-                  "line": "@property string name",
-                  "data_type": "string",
-                  "name": "name"
-                },
-                "signature": "public name: string",
-                "name": "name",
-                "fully_qualified_name": "Drash.Http.Resource.name"
-              },
-              "paths": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold the paths to access this resource.",
-                  "All derived resource classes MUST define this property as `static`\n(e.g., `static paths = [\"path\"];`)"
-                ],
-                "annotation": {
-                  "line": "@property string[] paths",
-                  "data_type": "string[]",
-                  "name": "paths"
-                },
-                "signature": "public paths: string[]",
-                "name": "paths",
-                "fully_qualified_name": "Drash.Http.Resource.paths"
-              },
-              "request;": {
-                "access_modifier": "protected",
-                "description": [
-                  "The request object."
-                ],
-                "annotation": {
-                  "line": "@property ServerRequest request",
-                  "data_type": "ServerRequest",
-                  "name": "request"
-                },
-                "signature": "protected request",
-                "name": "request;",
-                "fully_qualified_name": "Drash.Http.Resource.request;"
-              },
-              "response": {
-                "access_modifier": "protected",
-                "description": [
-                  "The response object."
-                ],
-                "annotation": {
-                  "line": "@property Drash.Http.Response response",
-                  "data_type": "Drash.Http.Response",
-                  "name": "response"
-                },
-                "signature": "protected response: Drash.Http.Response",
-                "name": "response",
-                "fully_qualified_name": "Drash.Http.Resource.response"
-              },
-              "server": {
-                "access_modifier": "protected",
-                "description": [
-                  "The server object."
-                ],
-                "annotation": {
-                  "line": "@property Drash.Http.Server server",
-                  "data_type": "Drash.Http.Server",
-                  "name": "server"
-                },
-                "signature": "protected server: Drash.Http.Server",
-                "name": "server",
-                "fully_qualified_name": "Drash.Http.Resource.server"
-              }
+          ],
+          "Resource": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Http\n* @class Resource\n*\n* @description\n*     This is the base resource class for all resources. All resource classes\n*     must be derived from this class.\n*/\n",
+              "signature": "export default class Resource { }",
+              "member_type": "class"
             },
-            "methods": {}
-          },
-          "Response": {
-            "fully_qualified_name": "Drash.Http.Response",
-            "namespace": "Drash.Http",
-            "name": "Response",
-            "description": [
-              "Response handles sending a response to the client making the request."
-            ],
-            "properties": {
-              "body": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold the body of this response."
-                ],
-                "annotation": {
-                  "line": "@property any body",
-                  "data_type": "any",
-                  "name": "body"
-                },
-                "signature": "public body: any = {}",
-                "name": "body",
-                "fully_qualified_name": "Drash.Http.Response.body"
-              },
-              "headers": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold this response's headers."
-                ],
-                "annotation": {
-                  "line": "@property Headers headers",
-                  "data_type": "Headers",
-                  "name": "headers"
-                },
-                "signature": "public headers: Headers",
-                "name": "headers",
-                "fully_qualified_name": "Drash.Http.Response.headers"
-              },
-              "request;": {
-                "access_modifier": "public",
-                "description": [
-                  "The request object."
-                ],
-                "annotation": {
-                  "line": "@property ServerRequest request",
-                  "data_type": "ServerRequest",
-                  "name": "request"
-                },
-                "signature": "public request",
-                "name": "request;",
-                "fully_qualified_name": "Drash.Http.Response.request;"
-              },
-              "status_code": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold this response's status code (e.g., 200 for OK).\nThis class uses `Status` and `STATUS_TEXT` from the Deno Standard\nModules' http_status module for response codes."
-                ],
-                "annotation": {
-                  "line": "@property number status_code",
-                  "data_type": "number",
-                  "name": "status_code"
-                },
-                "signature": "public status_code: number = Status.OK",
-                "name": "status_code",
-                "fully_qualified_name": "Drash.Http.Response.status_code"
-              }
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the middleware this resource uses.\n*\n*     All derived middleware classes MUST define this property as static\n*     (e.g., static middleware = [\"MiddlewareClass\"];)\n*\n* @property string[] middleware\n*/\n",
+              "signature": "public middleware: string[];",
+              "member_type": "property"
             },
-            "methods": {
-              "constructor": {
-                "access_modifier": "public",
-                "name": "constructor",
-                "description": [
-                  "Construct an object of this class."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param ServerRequest request",
-                      "data_type": "ServerRequest",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "constructor(request)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Response()"
-              },
-              "generateResponse": {
-                "access_modifier": "public",
-                "name": "generateResponse",
-                "description": [
-                  "Generate a response."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public generateResponse(): any",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Response.generateResponse"
-              },
-              "getStatusMessage": {
-                "access_modifier": "public",
-                "name": "getStatusMessage",
-                "description": [
-                  "Get the status message based on the status code."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the status message associated with `this.status_code`. For\nexample, if the response's `status_code` is `200`, then this method\nwill return \"OK\" as the status message."
-                    ],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getStatusMessage(): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Response.getStatusMessage"
-              },
-              "getStatusMessageFull": {
-                "access_modifier": "public",
-                "name": "getStatusMessageFull",
-                "description": [
-                  "Get the full status message based on the status code. This is just the\nstatus code and the status message together (e.g., `200 (OK)`, `401\n(Unauthorized)`, etc.)."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getStatusMessageFull(): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Response.getStatusMessageFull"
-              },
-              "send": {
-                "access_modifier": "public",
-                "name": "send",
-                "description": [
-                  "Send the response to the client making the request."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the output which is passed to `request.respond()`. The output\nis only returned for unit testing purposes. It is not intended to be\nused elsewhere as this call is the last call in the\nrequest-resource-response lifecycle."
-                    ],
-                    "annotation": {
-                      "line": "@return Promise<any>",
-                      "data_type": "Promise<any>",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public async send(): Promise<any>",
-                "is_async": true,
-                "fully_qualified_name": "Drash.Http.Response.send"
-              },
-              "sendStatic": {
-                "access_modifier": "public",
-                "name": "sendStatic",
-                "description": [
-                  "Send the response of a static asset (e.g., a CSS file, JS file, PDF\nfile, etc.) to the client making the request."
-                ],
-                "params": {
-                  "file": {
-                    "name": "file",
-                    "description": [
-                      "The file that will be served to the client."
-                    ],
-                    "annotation": {
-                      "line": "@param string file",
-                      "data_type": "string",
-                      "name": "file"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public sendStatic(file): any",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Response.sendStatic"
-              }
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the name of this resource. This property is used by\n*     Drash.Http.Server to help it store resources in its resources property\n*     by name.\n*\n* @property string name\n*/\n",
+              "signature": "public name: string;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the paths to access this resource.\n*\n*     All derived resource classes MUST define this property as static\n*     (e.g., static paths = [\"path\"];)\n*\n* @property string[] paths\n*/\n",
+              "signature": "public paths: string[];",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     The request object.\n*\n* @property ServerRequest request\n*/\n",
+              "signature": "protected request: any;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     The response object.\n*\n* @property Drash.Http.Response response\n*/\n",
+              "signature": "protected response: Drash.Http.Response;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     The server object.\n*\n* @property Drash.Http.Server server\n*/\n",
+              "signature": "protected server: Drash.Http.Server;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param ServerRequest request\n*     The request object.\n* @param Drash.Http.Response response\n*     The response object.\n* @param Drash.Http.Server server\n*     The server object.\n*/\n",
+              "signature": "constructor(request,response: Drash.Http.Response,server: Drash.Http.Server) { }",
+              "member_type": "method"
             }
-          },
-          "Server": {
-            "fully_qualified_name": "Drash.Http.Server",
-            "namespace": "Drash.Http",
-            "name": "Server",
-            "description": [
-              "Server handles the entire request-resource-response lifecycle. It is in\ncharge of handling HTTP requests to resources, static paths, sending\nappropriate responses, and handling any errors that bubble up within the\nrequest-resource-response lifecycle."
-            ],
-            "properties": {
-              "deno_server": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold the Deno server. This property is set in\n`this.run()` like so: ` this.deno_server =\nserve(this.configs.address);`. `serve()` is imported from\n[https://deno.land/x/http/server.ts](https://deno.land/x/http/server.ts)."
-                ],
-                "annotation": {
-                  "line": "@property any deno_server",
-                  "data_type": "any",
-                  "name": "deno_server"
-                },
-                "signature": "public deno_server: any",
-                "name": "deno_server",
-                "fully_qualified_name": "Drash.Http.Server.deno_server"
-              },
-              "logger": {
-                "access_modifier": "public",
-                "description": [
-                  "A property to hold this server's logger."
-                ],
-                "annotation": {
-                  "line": "@property Drash.Loggers.ConsoleLogger|Drash.Loggers.FileLogger logger",
-                  "data_type": "Drash.Loggers.ConsoleLogger|Drash.Loggers.FileLogger",
-                  "name": "logger"
-                },
-                "signature": "public logger: Drash.CoreLoggers.ConsoleLogger | Drash.CoreLoggers.FileLogger",
-                "name": "logger",
-                "fully_qualified_name": "Drash.Http.Server.logger"
-              },
-              "configs": {
-                "access_modifier": "protected",
-                "description": [
-                  "A property to hold this server's configs."
-                ],
-                "annotation": {
-                  "line": "@property any configs",
-                  "data_type": "any",
-                  "name": "configs"
-                },
-                "signature": "protected configs: any",
-                "name": "configs",
-                "fully_qualified_name": "Drash.Http.Server.configs"
-              },
-              "directory": {
-                "access_modifier": "protected",
-                "description": [
-                  "A property to hold the location of this server on the filesystem. This\nproperty is used when resolving static paths."
-                ],
-                "annotation": {
-                  "line": "@property string directory",
-                  "data_type": "string",
-                  "name": "directory"
-                },
-                "signature": "protected directory: string",
-                "name": "directory",
-                "fully_qualified_name": "Drash.Http.Server.directory"
-              },
-              "resources": {
-                "access_modifier": "protected",
-                "description": [
-                  "A property to hold the resources passed in from the configs."
-                ],
-                "annotation": {
-                  "line": "@property any[] resources",
-                  "data_type": "any[]",
-                  "name": "resources"
-                },
-                "signature": "protected resources: any[] = []",
-                "name": "resources",
-                "fully_qualified_name": "Drash.Http.Server.resources"
-              },
-              "static_paths": {
-                "access_modifier": "protected",
-                "description": [
-                  "This server's list of static paths. HTTP requests to a static path are\nusually intended to retrieve some type of concrete resource (e.g., a\nCSS file or a JS file). If an HTTP request is matched to a static path\nand the resource the HTTP request is trying to get is found, then\n`Drash.Http.Response` will use its `sendStatic()` method to send the\nstatic asset back to the client."
-                ],
-                "annotation": {
-                  "line": "@property string[] static_paths",
-                  "data_type": "string[]",
-                  "name": "static_paths"
-                },
-                "signature": "protected static_paths: string[] = []",
-                "name": "static_paths",
-                "fully_qualified_name": "Drash.Http.Server.static_paths"
-              }
+          ],
+          "Response": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Http\n* @class Response\n*\n* @description\n*     Response handles sending a response to the client making the request.\n*/\n",
+              "signature": "export default class Response { }",
+              "member_type": "class"
             },
-            "methods": {
-              "constructor": {
-                "access_modifier": "public",
-                "name": "constructor",
-                "description": [
-                  "Construct an object of this class."
-                ],
-                "params": {
-                  "configs": {
-                    "name": "configs",
-                    "description": [
-                      "`address`: `string`",
-                      "`logger`: `Drash.Loggers.ConsoleLogger|Drash.Loggers.FileLogger`",
-                      "`response_output`: `string` (a proper MIME type)",
-                      "`resources`: `Drash.Http.Resource[]`",
-                      "`static_paths`: `string[]`"
-                    ],
-                    "annotation": {
-                      "line": "@param any configs",
-                      "data_type": "any",
-                      "name": "configs"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "constructor(configs: any)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server()"
-              },
-              "getRequest": {
-                "access_modifier": "public",
-                "name": "getRequest",
-                "description": [
-                  "Get the request object with more properties and methods."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns any \"request\" object with more properties and methods that\nDrash uses. For example, deno uses the `ServerRequest` object; and this\nmethod takes that object and hydrates it with more properties and\nmethods."
-                    ],
-                    "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public async getRequest(request: any): Promise<any>",
-                "is_async": true,
-                "fully_qualified_name": "Drash.Http.Server.getRequest"
-              },
-              "handleHttpRequest": {
-                "access_modifier": "public",
-                "name": "handleHttpRequest",
-                "description": [
-                  "Handle an HTTP request from the Deno server."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "See `Drash.Http.Response.send()`."
-                    ],
-                    "annotation": {
-                      "line": "@return Promise<any>",
-                      "data_type": "Promise<any>",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public async handleHttpRequest(request): Promise<any>",
-                "is_async": true,
-                "fully_qualified_name": "Drash.Http.Server.handleHttpRequest"
-              },
-              "handleHttpRequestError": {
-                "access_modifier": "public",
-                "name": "handleHttpRequestError",
-                "description": [
-                  "Handle cases when an error is thrown when handling an HTTP request."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  },
-                  "error": {
-                    "name": "error",
-                    "description": [
-                      "The error object."
-                    ],
-                    "annotation": {
-                      "line": "@param any error",
-                      "data_type": "any",
-                      "name": "error"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "See `Drash.Http.Response.send()`."
-                    ],
-                    "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public handleHttpRequestError(request: any, error: any, resource: Drash.Http.Resource = null, response: Drash.Http.Response = null): any",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.handleHttpRequestError"
-              },
-              "handleHttpRequestForFavicon": {
-                "access_modifier": "public",
-                "name": "handleHttpRequestForFavicon",
-                "description": [
-                  "Handle HTTP requests for the favicon. This method only exists to\nshort-circuit favicon requests--preventing the requests from clogging\nthe logs."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the response as stringified JSON. This is only used for unit\ntesting purposes."
-                    ],
-                    "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public handleHttpRequestForFavicon(request): any",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.handleHttpRequestForFavicon"
-              },
-              "handleHttpRequestForStaticPathAsset": {
-                "access_modifier": "public",
-                "name": "handleHttpRequestForStaticPathAsset",
-                "description": [
-                  "Handle HTTP requests for static path assets."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the response as stringified JSON. This is only used for unit\ntesting purposes."
-                    ],
-                    "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public handleHttpRequestForStaticPathAsset(request): any",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.handleHttpRequestForStaticPathAsset"
-              },
-              "run": {
-                "access_modifier": "public",
-                "name": "run",
-                "description": [
-                  "Run the Deno server at the address specified in the configs. This\nmethod takes each HTTP request and creates a new and more workable\nrequest object and passes it to\n`Drash.Http.Server.handleHttpRequest()`."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [
-                      "This method just listens for requests at the address you provide in the\nconfigs."
-                    ],
-                    "annotation": {
-                      "line": "@return Promise<void>",
-                      "data_type": "Promise<void>",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public async run(options?: RunOptions): Promise<void>",
-                "is_async": true,
-                "fully_qualified_name": "Drash.Http.Server.run"
-              },
-              "close": {
-                "access_modifier": "public",
-                "name": "close",
-                "description": [
-                  "Close the server."
-                ],
-                "params": null,
-                "returns": null,
-                "throws": null,
-                "signature": "public close()",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.close"
-              },
-              "addHttpResource": {
-                "access_modifier": "protected",
-                "name": "addHttpResource",
-                "description": [
-                  "Add an HTTP resource to the server which can be retrieved at specific\nURIs.",
-                  "Drash defines an HTTP resource according to the MDN Web docs\n[here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web)."
-                ],
-                "params": {
-                  "resourceClass": {
-                    "name": "resourceClass",
-                    "description": [
-                      "A child object of the `Drash.Http.Resource` class."
-                    ],
-                    "annotation": {
-                      "line": "@param Drash.Http.Resource resourceClass",
-                      "data_type": "Drash.Http.Resource",
-                      "name": "resourceClass"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "This method just adds `resourceClass` to `this.resources` so it can be\nused (if matched) during an HTTP request."
-                    ],
-                    "annotation": {
-                      "line": "@return void",
-                      "data_type": "void",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "protected addHttpResource(resourceClass: Drash.Http.Resource): void",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.addHttpResource"
-              },
-              "addMiddleware": {
-                "access_modifier": "protected",
-                "name": "addMiddleware",
-                "description": [
-                  "Add server-level and resource-level middleware."
-                ],
-                "params": {
-                  "middleware": {
-                    "name": "middleware",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param any middleware",
-                      "data_type": "any",
-                      "name": "middleware"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return void",
-                      "data_type": "void",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "protected addMiddleware(middleware: any): void",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.addMiddleware"
-              },
-              "addStaticPath": {
-                "access_modifier": "protected",
-                "name": "addStaticPath",
-                "description": [
-                  "Add a static path for serving static assets like CSS files, JS files,\nPDF files, etc."
-                ],
-                "params": {
-                  "path": {
-                    "name": "path",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param string path",
-                      "data_type": "string",
-                      "name": "path"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "This method just adds `path` to `this.static_paths` so it can be used (if\nmatched) during an HTTP request."
-                    ],
-                    "annotation": {
-                      "line": "@return void",
-                      "data_type": "void",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "protected addStaticPath(path: string): void",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.addStaticPath"
-              },
-              "executeMiddlewareResourceLevelBeforeRequest": {
-                "access_modifier": "protected",
-                "name": "executeMiddlewareResourceLevelBeforeRequest",
-                "description": [
-                  "Execute resource-level middleware before the request."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  },
-                  "resource": {
-                    "name": "resource",
-                    "description": [
-                      "The resource object."
-                    ],
-                    "annotation": {
-                      "line": "@param Drash.Http.Resource resource",
-                      "data_type": "Drash.Http.Resource",
-                      "name": "resource"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return void",
-                      "data_type": "void",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "protected executeMiddlewareResourceLevelBeforeRequest(request, resource)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.executeMiddlewareResourceLevelBeforeRequest"
-              },
-              "executeMiddlewareServerLevelBeforeRequest": {
-                "access_modifier": "protected",
-                "name": "executeMiddlewareServerLevelBeforeRequest",
-                "description": [
-                  "Execute server-level middleware before the request."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  },
-                  "resource": {
-                    "name": "resource",
-                    "description": [
-                      "The resource object."
-                    ],
-                    "annotation": {
-                      "line": "@param Drash.Http.Resource resource",
-                      "data_type": "Drash.Http.Resource",
-                      "name": "resource"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return void",
-                      "data_type": "void",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "protected executeMiddlewareServerLevelBeforeRequest(request)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.executeMiddlewareServerLevelBeforeRequest"
-              },
-              "httpErrorResponse": {
-                "access_modifier": "protected",
-                "name": "httpErrorResponse",
-                "description": null,
-                "params": {
-                  "code": {
-                    "name": "code",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param number code",
-                      "data_type": "number",
-                      "name": "code"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return Drash.Exceptions.HttpException",
-                      "data_type": "Drash.Exceptions.HttpException",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "protected httpErrorResponse(code: number): Drash.Exceptions.HttpException",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.httpErrorResponse"
-              },
-              "getResourceClass": {
-                "access_modifier": "protected",
-                "name": "getResourceClass",
-                "description": [
-                  "Get the resource class."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns a `Drash.Http.Resource` object if the URL path of the request\ncan be matched to a `Drash.Http.Resource` object's paths.",
-                      "Returns `undefined` if a `Drash.Http.Resource` object can't be matched."
-                    ],
-                    "annotation": {
-                      "line": "@return Drash.Http.Resource|undefined",
-                      "data_type": "Drash.Http.Resource|undefined",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "protected getResourceClass(request): Drash.Http.Resource | undefined",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.getResourceClass"
-              },
-              "requestTargetsStaticPath": {
-                "access_modifier": "protected",
-                "name": "requestTargetsStaticPath",
-                "description": [
-                  "Is the request targeting a static path?"
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns true if the request targets a static path."
-                    ],
-                    "annotation": {
-                      "line": "@return boolean",
-                      "data_type": "boolean",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "protected requestTargetsStaticPath(request): boolean",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Http.Server.requestTargetsStaticPath"
-              }
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the body of this response.\n*\n* @property any body\n*/\n",
+              "signature": "public body: any = {};",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold this response's headers.\n*\n* @property Headers headers\n*/\n",
+              "signature": "public headers: Headers;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     The request object.\n*\n* @property ServerRequest request\n*/\n",
+              "signature": "public request: any;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold this response's status code (e.g., 200 for OK).\n*     This class uses Status and STATUS_TEXT from the Deno Standard\n*     Modules' http_status module for response codes.\n*\n* @property number status_code\n*/\n",
+              "signature": "public status_code: number = Status.OK;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param ServerRequest request\n*/\n",
+              "signature": "constructor(request) { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Generate a response.\n*\n* @return any\n*/\n",
+              "signature": "public generateResponse(): any { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the status message based on the status code.\n*\n* @return string\n*     Returns the status message associated with this.status_code. For\n*     example, if the response's status_code is 200, then this method\n*     will return \"OK\" as the status message.\n*/\n",
+              "signature": "public getStatusMessage(): string { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the full status message based on the status code. This is just the\n*     status code and the status message together. For example:\n*\n*         If the status code is 200, then this will return \"200 (OK)\"\n*         If the status code is 404, then this will return \"404 (Not Found)\"\n*\n* @return string\n*/\n",
+              "signature": "public getStatusMessageFull(): string { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Send the response to the client making the request.\n*\n* @return Promise<any>\n*     Returns the output which is passed to `request.respond()`. The output\n*     is only returned for unit testing purposes. It is not intended to be\n*     used elsewhere as this call is the last call in the\n*     request-resource-response lifecycle.\n*/\n",
+              "signature": "public async send(): Promise<any> { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Send the response of a static asset (e.g., a CSS file, JS file, PDF\n*     file, etc.) to the client making the request.\n*\n* @param string file\n*     The file that will be served to the client.\n*\n* @return {status: number, headers: Headers, body: any}\n*/\n",
+              "signature": "public sendStatic(file: string): { }status: number, headers: Headers, body: any} {",
+              "member_type": "method"
             }
-          }
+          ],
+          "Server": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Http\n* @class Server\n*\n* @description\n*     Server handles the entire request-resource-response lifecycle. It is in\n*     charge of handling HTTP requests to resources, static paths, sending\n*     appropriate responses, and handling any errors that bubble up within the\n*     request-resource-response lifecycle.\n*/\n",
+              "signature": "export default class Server { }",
+              "member_type": "class"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the Deno server. This property is set in\n*     this.run() like so:\n*\n*         this.deno_server = serve(this.configs.address);\n*\n*     serve() is imported from https://deno.land/x/http/server.ts.\n*\n* @property any deno_server\n*/\n",
+              "signature": "public deno_server: any;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold this server's logger.\n*\n* @property Drash.Loggers.ConsoleLogger|Drash.Loggers.FileLogger logger\n*/\n",
+              "signature": "public logger: Drash.CoreLoggers.ConsoleLogger | Drash.CoreLoggers.FileLogger;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold this server's configs.\n*\n* @property any configs\n*/\n",
+              "signature": "protected configs: ServerConfigs;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the location of this server on the filesystem. This\n*     property is used when resolving static paths.\n*\n* @property string directory\n*/\n",
+              "signature": "protected directory: string;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold middleware.\n*\n* @property any middleware\n*/\n",
+              "signature": "protected middleware: any = { }",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     A property to hold the resources passed in from the configs.\n*\n* @property any[] resources\n*/\n",
+              "signature": "protected resources: any[] = [];",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     This server's list of static paths. HTTP requests to a static path are\n*     usually intended to retrieve some type of concrete resource (e.g., a\n*     CSS file or a JS file). If an HTTP request is matched to a static path\n*     and the resource the HTTP request is trying to get is found, then\n*     Drash.Http.Response will use its sendStatic() method to send the\n*     static asset back to the client.\n*\n* @property string[] static_paths\n*/\n",
+              "signature": "protected static_paths: string[] = [];",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param ServerConfigs configs\n*     See Drash.Interfaces.ServerConfigs\n*/\n",
+              "signature": "constructor(configs: ServerConfigs) { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the request object with more properties and methods.\n*\n* @param any request\n*     The request object.\n*\n* @return any\n*     Returns any \"request\" object with more properties and methods that\n*     Drash uses. For example, deno uses the `ServerRequest` object; and this\n*     method takes that object and hydrates it with more properties and\n*     methods.\n*/\n",
+              "signature": "public async getRequest(request: any): Promise<any> { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Handle an HTTP request from the Deno server.\n*\n* @param any request\n*     The request object.\n*\n* @return Promise<any>\n*    See `Drash.Http.Response.send()`.\n*/\n",
+              "signature": "public async handleHttpRequest(request): Promise<any> { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Handle cases when an error is thrown when handling an HTTP request.\n*\n* @param any request\n*     The request object.\n* @param any error\n*     The error object.\n*\n* @return any\n*     See `Drash.Http.Response.send()`.\n*/\n",
+              "signature": "public handleHttpRequestError(request: any,error: any,resource: Drash.Http.Resource = null,response: Drash.Http.Response = null): any { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Handle HTTP requests for the favicon. This method only exists to\n*     short-circuit favicon requests--preventing the requests from clogging\n*     the logs.\n*\n* @param any request\n*\n* @return string\n*     Returns the response as stringified JSON. This is only used for unit\n*     testing purposes.\n*/\n",
+              "signature": "public handleHttpRequestForFavicon(request): string { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Handle HTTP requests for static path assets.\n*\n* @param any request\n*\n* @return any\n*     Returns the response as stringified JSON. This is only used for unit\n*     testing purposes.\n*/\n",
+              "signature": "public handleHttpRequestForStaticPathAsset(request): any { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* \n* @param resourceClass \n* @param request \n* \n* @return resourceClass\n*     Returns an instance of the resourceClass passed in, and setting the\n*     `paths` and `middleware` properties\n*/\n",
+              "signature": "public getResourceObject(resourceClass: any, request: any): Resource { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Run the Deno server at the address specified in the configs. This\n*     method takes each HTTP request and creates a new and more workable\n*     request object and passes it to\n*     `Drash.Http.Server.handleHttpRequest()`.\n*\n* @return Promise<void>\n*     This method just listens for requests at the address you provide in the\n*     configs.\n*/\n",
+              "signature": "public async run(options?: RunOptions): Promise<void> { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Close the server.\n*/\n",
+              "signature": "public close(): void { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Add an HTTP resource to the server which can be retrieved at specific\n*     URIs.\n*\n*     Drash defines an HTTP resource according to the MDN Web docs\n*     [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web).\n*\n* @param Drash.Http.Resource resourceClass\n*     A child object of the `Drash.Http.Resource` class.\n*\n* @return void\n*     This method just adds `resourceClass` to `this.resources` so it can be\n*     used (if matched) during an HTTP request.\n*/\n",
+              "signature": "protected addHttpResource(resourceClass: Drash.Http.Resource): void { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Add server-level and resource-level middleware.\n*\n* @param any middleware\n*\n* @return void\n*/\n",
+              "signature": "protected addMiddleware(middleware: any): void { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Add a static path for serving static assets like CSS files, JS files,\n*     PDF files, etc.\n*\n* @param string path\n*\n* @return void\n*     This method just adds `path` to `this.static_paths` so it can be used (if\n*     matched) during an HTTP request.\n*/\n",
+              "signature": "protected addStaticPath(path: string): void { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Execute resource-level middleware after the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
+              "signature": "protected executeMiddlewareResourceLevelAfterRequest(request,resource,response): void { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Execute resource-level middleware before the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
+              "signature": "protected executeMiddlewareResourceLevelBeforeRequest(request, resource): void { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Execute server-level middleware before the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
+              "signature": "protected executeMiddlewareServerLevelBeforeRequest(request): void { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Execute server-level middleware after the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
+              "signature": "protected executeMiddlewareServerLevelAfterRequest(request,resource,response): void { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* Get an HTTP error response exception object.\n*\n* @param number code\n*\n* @return Drash.Exceptions.HttpException\n*/\n",
+              "signature": "protected httpErrorResponse(code: number): Drash.Exceptions.HttpException { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the resource class.\n*\n* @param any request\n*     The request object.\n*\n* @return Drash.Http.Resource|undefined\n*     Returns a `Drash.Http.Resource` object if the URL path of the request\n*     can be matched to a `Drash.Http.Resource` object's paths.\n*\n*     Returns `undefined` if a `Drash.Http.Resource` object can't be matched.\n*/\n",
+              "signature": "protected getResourceClass(request): Drash.Http.Resource | undefined { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Is the request targeting a static path?\n*\n* @param any request\n*\n* @return boolean\n*     Returns true if the request targets a static path.\n*/\n",
+              "signature": "protected requestTargetsStaticPath(request): boolean { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Log a debug message\n* \n* @param string message\n*     Message to log\n* \n* @return void\n*/\n",
+              "signature": "protected logDebug(message: string): void { }",
+              "member_type": "method"
+            }
+          ]
         },
-        "Drash.Interfaces.LoggerConfigs": {
-          "LoggerConfigs": {
-            "exported": true,
-            "name": "LoggerConfigs",
-            "description": [
-              "`enabled`: Is the logger enabled? This is useful if you have a config\nfile that can toggle this option between `true` and `false`.",
-              "`level`: Options are `all`, `trace`, `debug`, `info`, `warn`, `error`, `fatal`, and `off`.",
-              "`tag_string`: This only takes a string with tags as `{tag}`. For example, `{some_tag} | {some_tag} * {some_tag} [{some_tag}]`.",
-              "`tag_string_fns`: This takes an object of key-value pairs where the key is the name of the tag defined in the `tag_string` config. This object is used to replace tags in the `tag_string` config by matching keys to tags and replacing tags with the values of the keys. For example, if `tag_string` was `{my_cool_tag}` and `tags_string_fns.my_cool_tag` returns `\"HELLO\"`, then `{my_cool_tag}` would be replaced with `HELLO`."
-            ],
-            "signature": "export interface LoggerConfigs {\n  enabled: boolean;\n  level: string;\n  tag_string: string;\n  tag_string_fns: any;\n}",
-            "is_interface": true,
-            "fully_qualified_name": "Drash.Interfaces.LoggerConfigs.LoggerConfigs"
-          }
-        },
-        "Drash.CoreLoggers": {
-          "ConsoleLogger": {
-            "fully_qualified_name": "Drash.CoreLoggers.ConsoleLogger",
-            "namespace": "Drash.CoreLoggers",
-            "name": "ConsoleLogger",
-            "description": [
-              "This logger allows you to log messages to the console."
-            ],
-            "properties": {},
-            "methods": {
-              "constructor": {
-                "access_modifier": "public",
-                "name": "constructor",
-                "description": [
-                  "Construct an object of this class."
-                ],
-                "params": {
-                  "configs": {
-                    "name": "configs",
-                    "description": [
-                      "See `Drash.CoreLoggers.Logger.configs`."
-                    ],
-                    "annotation": {
-                      "line": "@param any configs",
-                      "data_type": "any",
-                      "name": "configs"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "constructor(configs)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.ConsoleLogger()"
-              },
-              "write": {
-                "access_modifier": "public",
-                "name": "write",
-                "description": [
-                  "Write a log message to the console.",
-                  "This method is not intended to be called directly. It is already used\nin the base class (`Logger`) and automatically called."
-                ],
-                "params": {
-                  "logMethodLevelDefinition": {
-                    "name": "logMethodLevelDefinition",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param any logMethodLevelDefinition",
-                      "data_type": "any",
-                      "name": "logMethodLevelDefinition"
-                    }
-                  },
-                  "message": {
-                    "name": "message",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the log message which is used for unit testing purposes."
-                    ],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public write(logMethodLevelDefinition, message): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.ConsoleLogger.write"
-              }
+        "Interfaces": {
+          "LogLevelStructure": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface LogLevelStructure\n*\n* @description\n*     name: The name of the log level (e.g., \"debug\").\n*\n*     rank: The rank of the log level. See the\n*     Drash.Dictionaries.LogLevels.LogLevel enum member to see the ranking\n*     structure of the log levels.\n*/\n",
+              "signature": "export interface LogLevelStructure { }",
+              "member_type": "method"
             }
-          },
-          "FileLogger": {
-            "fully_qualified_name": "Drash.CoreLoggers.FileLogger",
-            "namespace": "Drash.CoreLoggers",
-            "name": "FileLogger",
-            "description": [
-              "This logger allows you to log messages to a file."
-            ],
-            "properties": {
-              "file": {
-                "access_modifier": "protected",
-                "description": [
-                  "The file this logger will write log messages to."
-                ],
-                "annotation": {
-                  "line": "@property string file",
-                  "data_type": "string",
-                  "name": "file"
-                },
-                "signature": "protected file: string",
-                "name": "file",
-                "fully_qualified_name": "Drash.CoreLoggers.FileLogger.file"
-              }
+          ],
+          "LoggerConfigs": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface LoggerConfigs\n*\n* @description\n*     enabled: Is the logger enabled? This is useful if you have a config file\n*     that can toggle this option between `true` and `false`.\n*\n*     level: Options are\n*\n*         all\n*         trace\n*         debug\n*         info\n*         warn\n*         error\n*         fatal\n*         off\n*\n*     tag_string: A string with tags. Tags must be wrapped in brackets in order\n*     for the logger classes to properly identify them. For example,\n*\n*         {some_tag} | {some_tag} * {some_tag} [{some_tag}]`.\n*\n*     tag_string_fns: This takes an object of key-value pairs where the key is\n*     the name of the tag defined in the `tag_string` config. This object is\n*     used to replace tags in the `tag_string` config by matching keys to tags\n*     and replacing tags with the values of the keys. For example, if\n*     `tag_string` was `{my_cool_tag}` and `tags_string_fns.my_cool_tag`\n*     returns `\"HELLO\"`, then `{my_cool_tag}` would be replaced with `HELLO`.\n*\n*     file: The filename to log to (used in Drash.Loggers.FileLogger).\n*/\n",
+              "signature": "export interface LoggerConfigs { }",
+              "member_type": "method"
+            }
+          ],
+          "ParsedRequestBody": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface ParsedRequestBody\n*\n* @description\n*     content_type: The Content-Type of the request body. For example, if the\n*     body is JSON, then the Content-Type should be application/json.\n*\n*     data: The data passed in the body of the request.\n*/\n",
+              "signature": "export interface ParsedRequestBody { }",
+              "member_type": "method"
+            }
+          ],
+          "ServerConfigs": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface ServerConfigs\n*\n* @description\n*     address: The hostname and port that the server will run on. For example,\n*\n*         address: \"localhost:1337\"\n*\n*     directory: The path to the directory of the server on the filesystem.\n*     This is used when resolving static paths, so make sure you have this set\n*     correctly if you are serving static paths.\n*\n*     logger: The server's logger.\n*\n*     memory_allocation: How much memory should be allocated to certain parts\n*     of the codebase. For example, the multipart reader uses a default of\n*     10MB, but you can override that default by specifying the following:\n*\n*         memory_allocation: {\n*           multipart_form_data: 128 // Would be translated to 128MB\n*         }\n*\n*     middleware: The middleware that the server should use. Server-level\n*     middleware should be placed in middleware.server_level. Resource-level\n*     middleware should be placed in middleware.resource_level. For example,\n*\n*         middleware: {\n*           resource_level: { ... },\n*           server_level: { ... }\n*         }\n*\n*     resources: An array of resources that the server should register. Passing\n*     in 0 resources means clients can't access anything on the server--because\n*     there aren't any resources.\n*\n*     response_output: The fallback response Content-Type that the server\n*     should use. For example, the following would have the server default to\n*     JSON responses. The response_output MUST be a proper MIME type.\n*\n*         response_output: \"application/json\"\n*\n*     static_paths: An array of static paths. Static paths are made public to\n*     clients. This means they can access anything in static paths. For\n*     example, if you have /public as a static path, then clients can look at\n*     things under your /path/to/your/server/public directory.\n*/\n",
+              "signature": "export interface ServerConfigs { }",
+              "member_type": "method"
+            }
+          ]
+        },
+        "Loggers": {
+          "ConsoleLogger": [
+            {
+              "doc_block": "/**\n* @memberof Drash.CoreLoggers\n* @class ConsoleLogger\n*\n* @description\n*     This logger allows you to log messages to the console.\n*/\n",
+              "signature": "export default class ConsoleLogger extends Logger { }",
+              "member_type": "class"
             },
-            "methods": {
-              "constructor": {
-                "access_modifier": "public",
-                "name": "constructor",
-                "description": [
-                  "Construct an object of this class."
-                ],
-                "params": {
-                  "configs": {
-                    "name": "configs",
-                    "description": [
-                      "See `Drash.CoreLoggers.Logger.configs`."
-                    ],
-                    "annotation": {
-                      "line": "@param any configs",
-                      "data_type": "any",
-                      "name": "configs"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "constructor(configs)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.FileLogger()"
-              },
-              "write": {
-                "access_modifier": "public",
-                "name": "write",
-                "description": [
-                  "Write a log message to `this.file`.",
-                  "This method is not intended to be called directly. It is already used\nin the base class (`Logger`) and automatically called."
-                ],
-                "params": {
-                  "logMethodLevelDefinition": {
-                    "name": "logMethodLevelDefinition",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param any logMethodLevelDefinition",
-                      "data_type": "any",
-                      "name": "logMethodLevelDefinition"
-                    }
-                  },
-                  "message": {
-                    "name": "message",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the log message which is used for unit testing purposes."
-                    ],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public write(logMethodLevelDefinition, message): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.FileLogger.write"
-              }
-            }
-          },
-          "Logger": {
-            "fully_qualified_name": "Drash.CoreLoggers.Logger",
-            "namespace": "Drash.CoreLoggers",
-            "name": "Logger",
-            "description": [
-              "This Logger is the base logger class for all logger classes."
-            ],
-            "properties": {
-              "configs": {
-                "access_modifier": "protected",
-                "description": [
-                  "This logger's configs. See [LoggerConfigs](/#/api-reference/interfaces/logger-configs)."
-                ],
-                "annotation": {
-                  "line": "@property any configs",
-                  "data_type": "any",
-                  "name": "configs"
-                },
-                "signature": "protected configs: LoggerConfigs",
-                "name": "configs",
-                "fully_qualified_name": "Drash.CoreLoggers.Logger.configs"
-              },
-              "current_log_message_level_name": {
-                "access_modifier": "protected",
-                "description": [
-                  "The level of the log message currently being written."
-                ],
-                "annotation": {
-                  "line": "@property string current_log_message_level_name",
-                  "data_type": "string",
-                  "name": "current_log_message_level_name"
-                },
-                "signature": "protected current_log_message_level_name: string",
-                "name": "current_log_message_level_name",
-                "fully_qualified_name": "Drash.CoreLoggers.Logger.current_log_message_level_name"
-              }
+            {
+              "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param any configs\n*     See Drash.Interfaces.LoggerConfigs.\n*/\n",
+              "signature": "constructor(configs: LoggerConfigs) { }",
+              "member_type": "method"
             },
-            "methods": {
-              "constructor": {
-                "access_modifier": "public",
-                "name": "constructor",
-                "description": [
-                  "Construct an object of this class."
-                ],
-                "params": {
-                  "configs": {
-                    "name": "configs",
-                    "description": [
-                      "See [Drash.CoreLoggers.Logger.configs](/#/api-reference/loggers/logger#configs)."
-                    ],
-                    "annotation": {
-                      "line": "@param any configs",
-                      "data_type": "any",
-                      "name": "configs"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "constructor(configs: any)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.Logger()"
-              },
-              "debug": {
-                "access_modifier": "public",
-                "name": "debug",
-                "description": [
-                  "Output a DEBUG level log message."
-                ],
-                "params": {
-                  "message": {
-                    "name": "message",
-                    "description": [
-                      "The log message."
-                    ],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "public debug(message)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.Logger.debug"
-              },
-              "error": {
-                "access_modifier": "public",
-                "name": "error",
-                "description": [
-                  "Output an ERROR level log message."
-                ],
-                "params": {
-                  "message": {
-                    "name": "message",
-                    "description": [
-                      "The log message."
-                    ],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "public error(message)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.Logger.error"
-              },
-              "fatal": {
-                "access_modifier": "public",
-                "name": "fatal",
-                "description": [
-                  "Output a FATAL level log message."
-                ],
-                "params": {
-                  "message": {
-                    "name": "message",
-                    "description": [
-                      "The log message."
-                    ],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "public fatal(message)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.Logger.fatal"
-              },
-              "info": {
-                "access_modifier": "public",
-                "name": "info",
-                "description": [
-                  "Output an INFO level log message."
-                ],
-                "params": {
-                  "message": {
-                    "name": "message",
-                    "description": [
-                      "The log message."
-                    ],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "public info(message)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.Logger.info"
-              },
-              "trace": {
-                "access_modifier": "public",
-                "name": "trace",
-                "description": [
-                  "Output a TRACE level log message."
-                ],
-                "params": {
-                  "message": {
-                    "name": "message",
-                    "description": [
-                      "The log message."
-                    ],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "public trace(message)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.Logger.trace"
-              },
-              "warn": {
-                "access_modifier": "public",
-                "name": "warn",
-                "description": [
-                  "Output a WARN level log message."
-                ],
-                "params": {
-                  "message": {
-                    "name": "message",
-                    "description": [
-                      "The log message."
-                    ],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "public warn(message)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.Logger.warn"
-              },
-              "getTagStringParsed": {
-                "access_modifier": "protected",
-                "name": "getTagStringParsed",
-                "description": [
-                  "Get the parsed version of the raw tag string."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "protected getTagStringParsed(): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.Logger.getTagStringParsed"
-              },
-              "sendToWriteMethod": {
-                "access_modifier": "protected",
-                "name": "sendToWriteMethod",
-                "description": [
-                  "Send the message to the write method (which should be in the child\nclass).  Also, do some prechecks before sending to see if the log\nmessage should be written."
-                ],
-                "params": {
-                  "logMethodLevelDefinition": {
-                    "name": "logMethodLevelDefinition",
-                    "description": [
-                      "The dictionary definition of the log message's level."
-                    ],
-                    "annotation": {
-                      "line": "@param any logMethodLevelDefinition",
-                      "data_type": "any",
-                      "name": "logMethodLevelDefinition"
-                    }
-                  },
-                  "message": {
-                    "name": "message",
-                    "description": [
-                      "The log message."
-                    ],
-                    "annotation": {
-                      "line": "@param string message",
-                      "data_type": "string",
-                      "name": "message"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the log message which is used for unit testing purposes."
-                    ],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "protected sendToWriteMethod(logMethodLevelDefinition, message): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.CoreLoggers.Logger.sendToWriteMethod"
-              }
+            {
+              "doc_block": "/**\n* @description\n*     Write a log message to the console.\n*\n*     This method is not intended to be called directly. It is already used\n*     in the base class (Logger) and automatically called.\n*\n* @param any logMethodLevelDefinition\n* @param string message\n*\n* @return string\n*     Returns the log message which is used for unit testing purposes.\n*/\n",
+              "signature": "public write(logMethodLevelDefinition: any, message: string): string|void { }",
+              "member_type": "method"
             }
-          }
-        },
-        "Drash.Services": {
-          "HttpService": {
-            "fully_qualified_name": "Drash.Services.HttpService",
-            "namespace": "Drash.Services",
-            "name": "HttpService",
-            "description": [
-              "This class helps perform HTTP-related processes."
-            ],
-            "properties": {},
-            "methods": {
-              "getMimeType": {
-                "access_modifier": "public",
-                "name": "getMimeType",
-                "description": [
-                  "Get a MIME type for a file based on its extension."
-                ],
-                "params": {
-                  "filePath": {
-                    "name": "filePath",
-                    "description": [
-                      "The file path in question."
-                    ],
-                    "annotation": {
-                      "line": "@param string filePath",
-                      "data_type": "string",
-                      "name": "filePath"
-                    }
-                  },
-                  "fileIsUrl": {
-                    "name": "fileIsUrl",
-                    "description": [
-                      "(optional) Is the file path  a URL to a file? Defaults to false.",
-                      "If the file path is a URL, then this method will make sure the URL\nquery string is not included while doing a lookup of the file's\nextension."
-                    ],
-                    "annotation": {
-                      "line": "@param boolean fileIsUrl",
-                      "data_type": "boolean",
-                      "name": "fileIsUrl"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the name of the MIME type based on the extension of the\nfile path ."
-                    ],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getMimeType(filePath: string, fileIsUrl: boolean = false): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpService.getMimeType"
-              }
-            }
-          },
-          "HttpRequestService": {
-            "fully_qualified_name": "Drash.Services.HttpRequestService",
-            "namespace": "Drash.Services",
-            "name": "HttpRequestService",
-            "description": [
-              "This class helps perform HTTP request related processes."
-            ],
-            "properties": {},
-            "methods": {
-              "getRequestBodyFile": {
-                "access_modifier": "public",
-                "name": "getRequestBodyFile",
-                "description": [
-                  "Parse this request's body as `multipart/form-data` and get the\nrequested input."
-                ],
-                "params": {
-                  "file": {
-                    "name": "file",
-                    "description": [
-                      "The file to get by its name."
-                    ],
-                    "annotation": {
-                      "line": "@param string file",
-                      "data_type": "string",
-                      "name": "file"
-                    }
-                  },
-                  "maxMemory": {
-                    "name": "maxMemory",
-                    "description": [
-                      "The max memory to allocate for this process. Defaults to 1MB."
-                    ],
-                    "annotation": {
-                      "line": "@param number maxMemory",
-                      "data_type": "number",
-                      "name": "maxMemory"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns a body as a parsable JSON object where the first level of keys\nare the names of the parts. For example, if the name of the first part\nis `file_number_one`, then it will be accessible in the returned object\nas `{returned_object}.file_number_one`."
-                    ],
-                    "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getRequestBodyFile(parsedBody: ParsedBody, input: string): any",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.getRequestBodyFile"
-              },
-              "getRequestBodyParam": {
-                "access_modifier": "public",
-                "name": "getRequestBodyParam",
-                "description": [
-                  "Get the value of one of this request's body params by its input name.\nFirst, check the Content-Type of the request so that we know how to\nparse the body. Then parse the body accordingly and retrieve the\nrequested value."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getRequestBodyParam(parsedBody: ParsedBody, input: string): any",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.getRequestBodyParam"
-              },
-              "getRequestHeaderParam": {
-                "access_modifier": "public",
-                "name": "getRequestHeaderParam",
-                "description": [
-                  "Get the value of one of this request's headers by its input name."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getRequestHeaderParam(request: any, input: string): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.getRequestHeaderParam"
-              },
-              "getRequestPathParam": {
-                "access_modifier": "public",
-                "name": "getRequestPathParam",
-                "description": [
-                  "Get the value of one of this request's path params by its input name."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getRequestPathParam(request: any, input: string): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.getRequestPathParam"
-              },
-              "getRequestUrlQueryParam": {
-                "access_modifier": "public",
-                "name": "getRequestUrlQueryParam",
-                "description": [
-                  "Get the value of one of this request's query params by its input name."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getRequestUrlQueryParam(request: any, input: string): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.getRequestUrlQueryParam"
-              },
-              "getResponseContentType": {
-                "access_modifier": "public",
-                "name": "getResponseContentType",
-                "description": [
-                  "Get the request's requested content type.",
-                  "There are three ways to get this value: (1) the request's headers by\nsetting `Response-Content-Type: \"type\"`, (2) the request's URL query\nparams by setting `?response_content_type=type`, and the request's body\nby setting `{response_content_type: \"type\"}`.",
-                  "The request's body takes precedence over all other settings.",
-                  "The request's URL query params takes precedence over the header setting\nand the default setting.",
-                  "The request's header setting takes precedence over the default setting.",
-                  "If no content type is specified by the request's body, URL query\nparams, or header, then the default content type will be used. The\ndefault content type is the content type defined in the\n`Drash.Http.Server` object's `response_output` config. If a default is\nnot specified, then \"application/json\" will be used."
-                ],
-                "params": null,
-                "returns": null,
-                "throws": null,
-                "signature": "public getResponseContentType(request: any, defaultContentType: string = \"application/json\"): void",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.getResponseContentType"
-              },
-              "getUrlPath": {
-                "access_modifier": "public",
-                "name": "getUrlPath",
-                "description": [
-                  "Get this request's URL path."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the URL path."
-                    ],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getUrlPath(request): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.getUrlPath"
-              },
-              "getUrlQueryParams": {
-                "access_modifier": "public",
-                "name": "getUrlQueryParams",
-                "description": [
-                  "Get the request's URL query params by parsing its URL query string."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [
-                      "The request object."
-                    ],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the URL query string in key-value pair format."
-                    ],
-                    "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getUrlQueryParams(request: any): any",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.getUrlQueryParams"
-              },
-              "getUrlQueryString": {
-                "access_modifier": "public",
-                "name": "getUrlQueryString",
-                "description": [
-                  "Get the specified HTTP request's URL query string."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the URL query string (e.g., key1=value1&key2=value2) without\nthe leading \"?\" character."
-                    ],
-                    "annotation": {
-                      "line": "@return string",
-                      "data_type": "string",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getUrlQueryString(request: any): string",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.getUrlQueryString"
-              },
-              "hasBody": {
-                "access_modifier": "public",
-                "name": "hasBody",
-                "description": [
-                  "Does the specified request have a body?"
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [
-                      "Returns `true` if the request has a body. Returns `false` if not."
-                    ],
-                    "annotation": {
-                      "line": "@return Promise<any>",
-                      "data_type": "Promise<any>",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public async hasBody(request: any): Promise<any>",
-                "is_async": true,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.hasBody"
-              },
-              "hydrate": {
-                "access_modifier": "public",
-                "name": "hydrate",
-                "description": [
-                  "Hydrate the specified request object."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [
-                      "Returns a hydrated request object. For example, deno uses the\n`ServerRequest` object. This method takes that object and adds more\nporperties and methods to it. This makes it easier for Drash to process\nthe object for its own purposes."
-                    ],
-                    "annotation": {
-                      "line": "@return Promise<any>",
-                      "data_type": "Promise<any>",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public async hydrate(request: any, options?: any): Promise<any>",
-                "is_async": true,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.hydrate"
-              },
-              "parseBody": {
-                "access_modifier": "public",
-                "name": "parseBody",
-                "description": [
-                  "Parse the specified request's body."
-                ],
-                "params": null,
-                "returns": null,
-                "throws": null,
-                "signature": "public async parseBody(request: any, options: any =): Promise<ParsedBody> {",
-                "is_async": true,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.parseBody"
-              },
-              "parseBodyAsFormUrlEncoded": {
-                "access_modifier": "public",
-                "name": "parseBodyAsFormUrlEncoded",
-                "description": [
-                  "Parse this request's body as application/x-www-form-url-encoded."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return Promise<any>",
-                      "data_type": "Promise<any>",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public async parseBodyAsFormUrlEncoded(request: any): Promise<any>",
-                "is_async": true,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.parseBodyAsFormUrlEncoded"
-              },
-              "parseBodyAsJson": {
-                "access_modifier": "public",
-                "name": "parseBodyAsJson",
-                "description": [
-                  "Parse this request's body as application/json."
-                ],
-                "params": null,
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return Promise<any>",
-                      "data_type": "Promise<any>",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public async parseBodyAsJson(request: any): Promise<any>",
-                "is_async": true,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.parseBodyAsJson"
-              },
-              "parseBodyAsMultipartFormData": {
-                "access_modifier": "public",
-                "name": "parseBodyAsMultipartFormData",
-                "description": [
-                  "Parse this request's body as multipart/form-data."
-                ],
-                "params": {
-                  "body": {
-                    "name": "body",
-                    "description": [
-                      "The request's body."
-                    ],
-                    "annotation": {
-                      "line": "@param Reader body",
-                      "data_type": "Reader",
-                      "name": "body"
-                    }
-                  },
-                  "boundary": {
-                    "name": "boundary",
-                    "description": [
-                      "The boundary of the part (e.g., `----------437192313`)"
-                    ],
-                    "annotation": {
-                      "line": "@param string boundary",
-                      "data_type": "string",
-                      "name": "boundary"
-                    }
-                  },
-                  "maxMemory": {
-                    "name": "maxMemory",
-                    "description": [
-                      "The maximum memory to allocate to this process in megabytes."
-                    ],
-                    "annotation": {
-                      "line": "@param number maxMemory",
-                      "data_type": "number",
-                      "name": "maxMemory"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [],
-                    "annotation": {
-                      "line": "@return Promise<any>",
-                      "data_type": "Promise<any>",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public async parseBodyAsMultipartFormData(body: Reader, boundary: string, maxMemory: number): Promise<any>",
-                "is_async": true,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.parseBodyAsMultipartFormData"
-              },
-              "setHeaders": {
-                "access_modifier": "public",
-                "name": "setHeaders",
-                "description": [
-                  "Set headers on the request."
-                ],
-                "params": {
-                  "request": {
-                    "name": "request",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param any request",
-                      "data_type": "any",
-                      "name": "request"
-                    }
-                  },
-                  "headers": {
-                    "name": "headers",
-                    "description": [],
-                    "annotation": {
-                      "line": "@param any headers",
-                      "data_type": "any",
-                      "name": "headers"
-                    }
-                  }
-                },
-                "returns": null,
-                "throws": null,
-                "signature": "public setHeaders(request: any, headers: any)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Services.HttpRequestService.setHeaders"
-              }
-            }
-          }
-        },
-        "Drash.Util": {
-          "ObjectParser": {
-            "fully_qualified_name": "Drash.Util.ObjectParser",
-            "namespace": "Drash.Util",
-            "name": "ObjectParser",
-            "description": [
-              "A util class to help parse objects."
-            ],
-            "properties": {},
-            "methods": {
-              "getNestedPropertyValue": {
-                "access_modifier": "public",
-                "name": "getNestedPropertyValue",
-                "description": [
-                  "Get the value of a deeply nested property."
-                ],
-                "params": {
-                  "inputObject": {
-                    "name": "inputObject",
-                    "description": [
-                      "The object containing the deeply nested property."
-                    ],
-                    "annotation": {
-                      "line": "@param any inputObject",
-                      "data_type": "any",
-                      "name": "inputObject"
-                    }
-                  },
-                  "properties": {
-                    "name": "properties",
-                    "description": [
-                      "The rest of the arguments as strings to use as property names when\nfinding the nested property's value. The last argument that the rest\nparameter finds is the nested property you are targeting."
-                    ],
-                    "annotation": {
-                      "line": "@param ...string properties",
-                      "data_type": "...string",
-                      "name": "properties"
-                    }
-                  }
-                },
-                "returns": [
-                  {
-                    "description": [
-                      "Returns the value of the targeted property."
-                    ],
-                    "annotation": {
-                      "line": "@return any",
-                      "data_type": "any",
-                      "name": null
-                    }
-                  }
-                ],
-                "throws": null,
-                "signature": "public getNestedPropertyValue(inputObject: any, ...properties)",
-                "is_async": false,
-                "fully_qualified_name": "Drash.Util.ObjectParser.getNestedPropertyValue"
-              }
-            }
-          }
-        },
-        "Drash.Util.Exports": {
-          "ColorizeOptions": {
-            "exported": true,
-            "name": "ColorizeOptions",
-            "description": [
-              "An interface to hold the `colorize()` function's options."
-            ],
-            "signature": "export interface ColorizeOptions {\n  color?: string;\n  background?: string;\n  style?: string;\n}",
-            "is_interface": true,
-            "fully_qualified_name": "Drash.Util.Exports.ColorizeOptions"
-          },
-          "colorize": {
-            "exported": true,
-            "name": "colorize",
-            "description": [
-              "A util function that helps colorize text in the console."
-            ],
-            "params": {
-              "message": {
-                "name": "message",
-                "description": [
-                  "The text to colorize."
-                ],
-                "annotation": {
-                  "line": "@param string message",
-                  "data_type": "string",
-                  "name": "message"
-                }
-              },
-              "options": {
-                "name": "options",
-                "description": [
-                  "See `Drash.Utils.Exports.ColorizeOptions` interface."
-                ],
-                "annotation": {
-                  "line": "@param ColorizeOptions options",
-                  "data_type": "ColorizeOptions",
-                  "name": "options"
-                }
-              }
+          ],
+          "FileLogger": [
+            {
+              "doc_block": "/**\n* @memberof Drash.CoreLoggers\n* @class FileLogger\n*\n* @description\n*     This logger allows you to log messages to a file.\n*/\n",
+              "signature": "export default class FileLogger extends Logger { }",
+              "member_type": "class"
             },
-            "returns": [
-              {
-                "description": [
-                  "Returns the colorized message."
-                ],
-                "annotation": {
-                  "line": "@return string",
-                  "data_type": "string",
-                  "name": null
-                }
-              }
-            ],
-            "throws": null,
-            "signature": "export function colorize(message: string, options: ColorizeOptions): string",
-            "is_function": true,
-            "fully_qualified_name": "Drash.Util.Exports.colorize"
-          },
-          "getFileSystemStructure": {
-            "exported": true,
-            "name": "getFileSystemStructure",
-            "description": [
-              "Get the filesystem structure of the directory (recursively)."
-            ],
-            "params": null,
-            "returns": [
-              {
-                "description": [
-                  "Returns the following object:\n{\nbasename: \"filename\",\nextension: extension, // does not account for .min.extension or similar extensions\nfilename: filename.extension,\npath: \"/path/to/the/file/dir/filename.extension\",\npathname: \"/path/to/the/file/dir\",\nsnake_cased: filename_extension\n}"
-                ],
-                "annotation": {
-                  "line": "@return string",
-                  "data_type": "string",
-                  "name": null
-                }
-              }
-            ],
-            "throws": null,
-            "signature": "export function getFileSystemStructure(dir: string): any",
-            "is_function": true,
-            "fully_qualified_name": "Drash.Util.Exports.getFileSystemStructure"
-          }
+            {
+              "doc_block": "/**\n* @description\n*     The file this logger will write log messages to.\n*\n* @property string file\n*/\n",
+              "signature": "protected file: string;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param LoggerConfigs configs\n*     See Drash.Interfaces.LoggerConfigs.\n*\n*/\n",
+              "signature": "constructor(configs: LoggerConfigs) { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Write a log message to this.file.\n*\n*     This method is not intended to be called directly. It is already used\n*     in the base class (Logger) and automatically called.\n*\n* @param any logMethodLevelDefinition\n* @param string message\n*\n* @return string\n*     Returns the log message which is used for unit testing purposes.\n*/\n",
+              "signature": "public write(logMethodLevelDefinition, message): string { }",
+              "member_type": "method"
+            }
+          ],
+          "Logger": [
+            {
+              "doc_block": "/**\n* @memberof Drash.CoreLoggers\n* @class Logger\n*\n* @description\n*     This Logger is the base logger class for all logger classes.\n*/\n",
+              "signature": "export default abstract class Logger { }",
+              "member_type": "class"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     See Drash.Interfaces.LoggerConfigs\n*\n* @property any configs\n*/\n",
+              "signature": "protected configs: LoggerConfigs;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     The level of the log message currently being written.\n*\n* @property string current_log_message_level_name\n*/\n",
+              "signature": "protected current_log_message_level_name: string;",
+              "member_type": "property"
+            },
+            {
+              "doc_block": "/**\n* @doc-blocks-to-json ignore-doc-block\n*/\n",
+              "signature": "protected test: boolean = false;",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param LoggerConfigs configs\n*     See Drash.Interfaces.LoggerConfigs.\n*/\n",
+              "signature": "constructor(configs: LoggerConfigs) { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Write a log message. All extended classes must implement this method.\n*     See Drash.CoreLoggers.ConsoleLogger/FileLogger for examples.\n*\n* @param any logMethodLevelDefinition\n* @param string message\n*/\n",
+              "signature": "abstract write(logMethodLevelDefinition, message);",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Output a DEBUG level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
+              "signature": "public debug(message) { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Output an ERROR level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
+              "signature": "public error(message) { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Output a FATAL level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
+              "signature": "public fatal(message) { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Output an INFO level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
+              "signature": "public info(message) { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Output a TRACE level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
+              "signature": "public trace(message) { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Output a WARN level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
+              "signature": "public warn(message) { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the parsed version of the raw tag string.\n*\n* @return string\n*/\n",
+              "signature": "protected getTagStringParsed(): string { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Send the message to the write method (which should be in the child\n*     class).  Also, do some prechecks before sending to see if the log\n*     message should be written.\n*\n* @param any logMethodLevelDefinition\n*     The dictionary definition of the log message's level.\n* @param string message\n*     The log message.\n*\n* @return string\n*     Returns the log message which is used for unit testing purposes.\n*/\n",
+              "signature": "protected sendToWriteMethod(logMethodLevelDefinition, message): string { }",
+              "member_type": "method"
+            }
+          ],
+          "Server": ""
+        },
+        "Services": {
+          "HttpService": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Services\n* @class HttpService\n*\n* @description\n*     This class helps perform HTTP-related processes.\n*/\n",
+              "signature": "export default class HttpService { }",
+              "member_type": "class"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get a MIME type for a file based on its extension.\n*\n* @param string filePath\n*     The file path in question.\n* @param boolean fileIsUrl\n*     (optional) Is the file path  a URL to a file? Defaults to false.\n*\n*     If the file path is a URL, then this method will make sure the URL\n*     query string is not included while doing a lookup of the file's\n*     extension.\n*\n* @return string\n*     Returns the name of the MIME type based on the extension of the\n*     file path .\n*/\n",
+              "signature": "public getMimeType(filePath: string, fileIsUrl: boolean = false): string { }",
+              "member_type": "method"
+            }
+          ],
+          "HttpRequestService": [
+            {
+              "doc_block": "/**\n* @memberof Drash.Services\n* @class HttpRequestService\n*\n* @description\n*     This class helps perform HTTP request related processes.\n*/\n",
+              "signature": "export default class HttpRequestService { }",
+              "member_type": "class"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Parse this request's body as `multipart/form-data` and get the\n*     requested input.\n*\n* @param string file\n*     The file to get by its name.\n* @param number maxMemory\n*     The max memory to allocate for this process. Defaults to 1MB.\n*\n* @return any\n*     Returns a body as a parsable JSON object where the first level of keys\n*     are the names of the parts. For example, if the name of the first part\n*     is `file_number_one`, then it will be accessible in the returned object\n*     as `{returned_object}.file_number_one`.\n*/\n",
+              "signature": "public getRequestBodyFile(parsedBody: ParsedRequestBody, input: string): any { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the value of one of this request's body params by its input name.\n*     First, check the Content-Type of the request so that we know how to\n*     parse the body. Then parse the body accordingly and retrieve the\n*     requested value.\n*\n* @return any\n*/\n",
+              "signature": "public getRequestBodyParam(parsedBody: ParsedRequestBody, input: string): any { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the value of one of this request's headers by its input name.\n*\n* @return string\n*/\n",
+              "signature": "public getRequestHeaderParam(request: any, input: string): string { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the value of one of this request's path params by its input name.\n*\n* @return string\n*/\n",
+              "signature": "public getRequestPathParam(request: any, input: string): string { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the value of one of this request's query params by its input name.\n*\n* @return string\n*/\n",
+              "signature": "public getRequestUrlQueryParam(request: any, input: string): string { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the request's requested content type.\n*\n*     There are three ways to get this value: (1) the request's headers by\n*     setting `Response-Content-Type: \"type\"`, (2) the request's URL query\n*     params by setting `?response_content_type=type`, and the request's body\n*     by setting `{response_content_type: \"type\"}`.\n*\n*     The request's body takes precedence over all other settings.\n*\n*     The request's URL query params takes precedence over the header setting\n*     and the default setting.\n*\n*     The request's header setting takes precedence over the default setting.\n*\n*     If no content type is specified by the request's body, URL query\n*     params, or header, then the default content type will be used. The\n*     default content type is the content type defined in the\n*     `Drash.Http.Server` object's `response_output` config. If a default is\n*     not specified, then \"application/json\" will be used.\n*/\n",
+              "signature": "public getResponseContentType(request: any,defaultContentType: string = \"application/json\"): void { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get this request's URL path.\n*\n* @return string\n*     Returns the URL path.\n*/\n",
+              "signature": "public getUrlPath(request): string { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the request's URL query params by parsing its URL query string.\n*\n* @param any request\n*     The request object.\n*\n* @return any\n*     Returns the URL query string in key-value pair format.\n*/\n",
+              "signature": "public getUrlQueryParams(request: any): any { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Get the specified HTTP request's URL query string.\n*\n* @return string\n*     Returns the URL query string (e.g., key1=value1&key2=value2) without\n*     the leading \"?\" character.\n*/\n",
+              "signature": "public getUrlQueryString(request: any): string { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Does the specified request have a body?\n*\n* @return Promise<boolean>\n*     Returns `true` if the request has a body. Returns `false` if not.\n*/\n",
+              "signature": "public async hasBody(request: any): Promise<boolean> { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Hydrate the specified request object.\n*\n* @return Promise<boolean>\n*     Returns a hydrated request object. For example, deno uses the\n*     `ServerRequest` object. This method takes that object and adds more\n*     porperties and methods to it. This makes it easier for Drash to process\n*     the object for its own purposes.\n*/\n",
+              "signature": "public async hydrate(request: any, options?: OptionsConfig): Promise<boolean> { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Parse the specified request's body.\n* \n* @param any request\n* @param OptionsConfig options\n* \n* @returns {content_type: string, data: any}\n*     Returns the content type of the body, and based on this\n*     the body itself in that format. If there is no body, it\n*     returns an empty properties\n*/\n",
+              "signature": "public async parseBody(request: any, options: OptionsConfig): Promise<ParsedRequestBody> { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*    Parse this request's body as application/x-www-form-url-encoded.\n*\n* @return Promise<object|Array<>>\n*    Returns an empty object if no body exists, else a key/value pair\n*    array e.g. returnValue['someKey']\n*/\n",
+              "signature": "public async parseBodyAsFormUrlEncoded(request: any): Promise<object|Array<any>> { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*    Parse this request's body as application/json.\n*\n* @return Promise<object>\n*    JSON object - the decoded request body\n*/\n",
+              "signature": "public async parseBodyAsJson(request: any): Promise<object> { }",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*    Parse this request's body as multipart/form-data.\n*\n* @param Reader body\n*     The request's body.\n* @param string boundary\n*     The boundary of the part (e.g., `----------437192313`)\n* @param number maxMemory\n*     The maximum memory to allocate to this process in megabytes.\n*\n* @return Promise<{ [key: string]: string | FormFile }>\n*     Returned values can be seen here (look for `readForm`:\n*     https://deno.land/std@v0.32.0/mime/multipart.ts\n*/\n",
+              "signature": "public async parseBodyAsMultipartFormData(body: Reader,boundary: string,maxMemory: number): Promise<{ } [key: string]: string | FormFile }> {",
+              "member_type": "method"
+            },
+            {
+              "doc_block": "/**\n* @description\n*     Set headers on the request.\n*\n* @param any request\n* @param any headers\n* \n* @return void\n*/\n",
+              "signature": "public setHeaders(request: any, headers: Headers): void { }",
+              "member_type": "method"
+            }
+          ]
         }
       }
     }
