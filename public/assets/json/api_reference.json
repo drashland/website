@@ -43,13 +43,8 @@
                 "member_type": "class"
             },
             {
-                "doc_block": "/**\n* @description\n*     A property to hold the location that this middleware should process.\n*\n* @property string location\n*/\n",
-                "signature": "public location: string;",
-                "member_type": "property"
-            },
-            {
                 "doc_block": "/**\n* @description\n*     A property to hold the name of this middleware class. This property is\n*     used by Drash.Http.Server to help it store middleware in the correct\n*     middleware_* property.\n*\n* @property string name\n*/\n",
-                "signature": "public name: string;",
+                "signature": "public name: string = \"\";",
                 "member_type": "property"
             },
             {
@@ -58,13 +53,13 @@
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @description\n*     A property to hold the resource object. This property will only contain\n*     the resource object if this middleware is a resource-level middleware.\n*\n* @property Drash.Http.Resource resource\n*/\n",
-                "signature": "protected resource: Drash.Http.Resource;",
+                "doc_block": "/**\n* @description\n*     A property to hold the resource object. This property will only contain\n*     the resource object if this middleware is a resource-level middleware.\n*\n* @property Drash.Http.Resource|null resource\n*/\n",
+                "signature": "protected resource: Drash.Http.Resource|null;",
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @description\n*     A property to hold the response object. This property will only contain\n*     the response object if the server was able to get a response from the\n*     resource.\n*\n* @property Drash.Http.Resource resource\n*/\n",
-                "signature": "protected response: Drash.Http.Response;",
+                "doc_block": "/**\n* @description\n*     A property to hold the response object. This property will only contain\n*     the response object if the server was able to get a response from the\n*     resource.\n*\n* @property Drash.Http.Resource|null resource\n*/\n",
+                "signature": "protected response: Drash.Http.Response|null;",
                 "member_type": "property"
             },
             {
@@ -73,13 +68,13 @@
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @param any request\n*     The request object.\n* @param Drash.Http.Server server\n*     The server object handling this middleware.\n* @param Drash.Http.Resource resource\n*     (optional) If this is a resource-level middleware, then it will have\n*     access to the resource that uses it.\n*/\n",
-                "signature": "constructor(request: any,server: Drash.Http.Server,resource?: Drash.Http.Resource,response?: Drash.Http.Response) { }",
+                "doc_block": "/**\n* @param any request\n*     The request object.\n* @param Drash.Http.Server server\n*     The server object handling this middleware.\n* @param Drash.Http.Resource|null resource\n*     (optional) If this is a resource-level middleware, then it will have\n*     access to the resource that uses it.\n* @param Drash.Http.Response|null response\n*     (optional) The response object from the resource. This is only set if\n*     this middleware is a resource-level middleware and the resource\n*     successfully returned a response. That response will be passed as the\n*     argument here.\n*/\n",
+                "signature": "constructor(request: any,server: Drash.Http.Server,resource?: Drash.Http.Resource|null,response?: Drash.Http.Response|null) { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Run this middleware.\n*/\n",
-                "signature": "abstract run();",
+                "signature": "abstract run(): any|void;",
                 "member_type": "method"
             }
         ],
@@ -91,17 +86,17 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     A property to hold the middleware this resource uses.\n*\n*     All derived middleware classes MUST define this property as static\n*     (e.g., static middleware = [\"MiddlewareClass\"];)\n*\n* @property string[] middleware\n*/\n",
-                "signature": "public middleware: string[];",
+                "signature": "public middleware: {after_request?: [], before_request?: []} = {};",
                 "member_type": "property"
             },
             {
                 "doc_block": "/**\n* @description\n*     A property to hold the name of this resource. This property is used by\n*     Drash.Http.Server to help it store resources in its resources property\n*     by name.\n*\n* @property string name\n*/\n",
-                "signature": "public name: string;",
+                "signature": "public name: string = \"\";",
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @description\n*     A property to hold the paths to access this resource.\n*\n*     All derived resource classes MUST define this property as static\n*     (e.g., static paths = [\"path\"];)\n*\n* @property string[] paths\n*/\n",
-                "signature": "public paths: string[];",
+                "doc_block": "/**\n* @description\n*     A property to hold the paths to access this resource.\n*\n*     All derived resource classes MUST define this property as static\n*     (e.g., static paths = [\"path\"];)\n*\n* @property any[] paths\n*/\n",
+                "signature": "public paths: any[] = [];",
                 "member_type": "property"
             },
             {
@@ -121,7 +116,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param ServerRequest request\n*     The request object.\n* @param Drash.Http.Response response\n*     The response object.\n* @param Drash.Http.Server server\n*     The server object.\n*/\n",
-                "signature": "constructor(request,response: Drash.Http.Response,server: Drash.Http.Server) { }",
+                "signature": "constructor(request: any,response: Drash.Http.Response,server: Drash.Http.Server) { }",
                 "member_type": "method"
             }
         ],
@@ -133,7 +128,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     A property to hold the body of this response.\n*\n* @property any body\n*/\n",
-                "signature": "public body: any = {};",
+                "signature": "public body: any = \"\";",
                 "member_type": "property"
             },
             {
@@ -152,8 +147,8 @@
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param ServerRequest request\n*/\n",
-                "signature": "constructor(request) { }",
+                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param any request\n*/\n",
+                "signature": "constructor(request: any) { }",
                 "member_type": "method"
             },
             {
@@ -162,13 +157,13 @@
                 "member_type": "method"
             },
             {
-                "doc_block": "/**\n* @description\n*     Get the status message based on the status code.\n*\n* @return string\n*     Returns the status message associated with this.status_code. For\n*     example, if the response's status_code is 200, then this method\n*     will return \"OK\" as the status message.\n*/\n",
-                "signature": "public getStatusMessage(): string { }",
+                "doc_block": "/**\n* @description\n*     Get the status message based on the status code.\n*\n* @return null|string\n*     Returns the status message associated with this.status_code. For\n*     example, if the response's status_code is 200, then this method\n*     will return \"OK\" as the status message.\n*/\n",
+                "signature": "public getStatusMessage(): null|string { }",
                 "member_type": "method"
             },
             {
-                "doc_block": "/**\n* @description\n*     Get the full status message based on the status code. This is just the\n*     status code and the status message together. For example:\n*\n*         If the status code is 200, then this will return \"200 (OK)\"\n*         If the status code is 404, then this will return \"404 (Not Found)\"\n*\n* @return string\n*/\n",
-                "signature": "public getStatusMessageFull(): string { }",
+                "doc_block": "/**\n* @description\n*     Get the full status message based on the status code. This is just the\n*     status code and the status message together. For example:\n*\n*         If the status code is 200, then this will return \"200 (OK)\"\n*         If the status code is 404, then this will return \"404 (Not Found)\"\n*\n* @return null|string\n*/\n",
+                "signature": "public getStatusMessageFull(): null|string { }",
                 "member_type": "method"
             },
             {
@@ -204,8 +199,8 @@
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @description\n*     A property to hold the location of this server on the filesystem. This\n*     property is used when resolving static paths.\n*\n* @property string directory\n*/\n",
-                "signature": "protected directory: string;",
+                "doc_block": "/**\n* @description\n*     A property to hold the location of this server on the filesystem. This\n*     property is used when resolving static paths.\n*\n* @property null|string directory\n*/\n",
+                "signature": "protected directory: string|undefined = undefined;",
                 "member_type": "property"
             },
             {
@@ -215,7 +210,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     A property to hold the resources passed in from the configs.\n*\n* @property any[] resources\n*/\n",
-                "signature": "protected resources: any[] = [];",
+                "signature": "protected resources: {[key: string]: Drash.Http.Resource} = {};",
                 "member_type": "property"
             },
             {
@@ -235,22 +230,22 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Handle an HTTP request from the Deno server.\n*\n* @param any request\n*     The request object.\n*\n* @return Promise<any>\n*    See `Drash.Http.Response.send()`.\n*/\n",
-                "signature": "public async handleHttpRequest(request): Promise<any> { }",
+                "signature": "public async handleHttpRequest(request: any): Promise<any> { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Handle cases when an error is thrown when handling an HTTP request.\n*\n* @param any request\n*     The request object.\n* @param any error\n*     The error object.\n*\n* @return any\n*     See `Drash.Http.Response.send()`.\n*/\n",
-                "signature": "public handleHttpRequestError(request: any,error: any,resource: Drash.Http.Resource = null,response: Drash.Http.Response = null): any { }",
+                "signature": "public handleHttpRequestError(request: any,error: any,resource: Drash.Http.Resource|any = { }},",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Handle HTTP requests for the favicon. This method only exists to\n*     short-circuit favicon requests--preventing the requests from clogging\n*     the logs.\n*\n* @param any request\n*\n* @return string\n*     Returns the response as stringified JSON. This is only used for unit\n*     testing purposes.\n*/\n",
-                "signature": "public handleHttpRequestForFavicon(request): string { }",
+                "signature": "public handleHttpRequestForFavicon(request: any): string { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Handle HTTP requests for static path assets.\n*\n* @param any request\n*\n* @return any\n*     Returns the response as stringified JSON. This is only used for unit\n*     testing purposes.\n*/\n",
-                "signature": "public handleHttpRequestForStaticPathAsset(request): any { }",
+                "signature": "public handleHttpRequestForStaticPathAsset(request: any): any { }",
                 "member_type": "method"
             },
             {
@@ -285,22 +280,22 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Execute resource-level middleware after the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
-                "signature": "protected executeMiddlewareResourceLevelAfterRequest(request,resource,response): void { }",
+                "signature": "protected executeMiddlewareResourceLevelAfterRequest(request: any,resource: Drash.Http.Resource,response: Drash.Http.Response): void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Execute resource-level middleware before the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
-                "signature": "protected executeMiddlewareResourceLevelBeforeRequest(request, resource): void { }",
+                "signature": "protected executeMiddlewareResourceLevelBeforeRequest(request: any,resource: Drash.Http.Resource): void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Execute server-level middleware before the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
-                "signature": "protected executeMiddlewareServerLevelBeforeRequest(request): void { }",
+                "signature": "protected executeMiddlewareServerLevelBeforeRequest(request: any): void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Execute server-level middleware after the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
-                "signature": "protected executeMiddlewareServerLevelAfterRequest(request,resource,response): void { }",
+                "signature": "protected executeMiddlewareServerLevelAfterRequest(request: any,resource: Drash.Http.Resource|null,response: Drash.Http.Response|null): void { }",
                 "member_type": "method"
             },
             {
@@ -310,12 +305,12 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Get the resource class.\n*\n* @param any request\n*     The request object.\n*\n* @return Drash.Http.Resource|undefined\n*     Returns a `Drash.Http.Resource` object if the URL path of the request\n*     can be matched to a `Drash.Http.Resource` object's paths.\n*\n*     Returns `undefined` if a `Drash.Http.Resource` object can't be matched.\n*/\n",
-                "signature": "protected getResourceClass(request): Drash.Http.Resource | undefined { }",
+                "signature": "protected getResourceClass(request: any): Drash.Http.Resource|undefined { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Is the request targeting a static path?\n*\n* @param any request\n*\n* @return boolean\n*     Returns true if the request targets a static path.\n*/\n",
-                "signature": "protected requestTargetsStaticPath(request): boolean { }",
+                "signature": "protected requestTargetsStaticPath(request: any): boolean { }",
                 "member_type": "method"
             },
             {
@@ -381,7 +376,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     The file this logger will write log messages to.\n*\n* @property string file\n*/\n",
-                "signature": "protected file: string;",
+                "signature": "protected file: string = \"tmp_log.log\";",
                 "member_type": "property"
             },
             {
@@ -391,7 +386,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Write a log message to this.file.\n*\n*     This method is not intended to be called directly. It is already used\n*     in the base class (Logger) and automatically called.\n*\n* @param any logMethodLevelDefinition\n* @param string message\n*\n* @return string\n*     Returns the log message which is used for unit testing purposes.\n*/\n",
-                "signature": "public write(logMethodLevelDefinition, message): string { }",
+                "signature": "public write(logMethodLevelDefinition: any, message: string): string { }",
                 "member_type": "method"
             }
         ],
@@ -408,7 +403,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     The level of the log message currently being written.\n*\n* @property string current_log_message_level_name\n*/\n",
-                "signature": "protected current_log_message_level_name: string;",
+                "signature": "protected current_log_message_level_name: string = \"\";",
                 "member_type": "property"
             },
             {
@@ -423,37 +418,37 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Write a log message. All extended classes must implement this method.\n*     See Drash.CoreLoggers.ConsoleLogger/FileLogger for examples.\n*\n* @param any logMethodLevelDefinition\n* @param string message\n*/\n",
-                "signature": "abstract write(logMethodLevelDefinition, message);",
+                "signature": "abstract write(logMethodLevelDefinition: any, message: string): string|void;",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Output a DEBUG level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
-                "signature": "public debug(message) { }",
+                "signature": "public debug(message: string): string|void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Output an ERROR level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
-                "signature": "public error(message) { }",
+                "signature": "public error(message: string): string|void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Output a FATAL level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
-                "signature": "public fatal(message) { }",
+                "signature": "public fatal(message: string): string|void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Output an INFO level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
-                "signature": "public info(message) { }",
+                "signature": "public info(message: string): string|void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Output a TRACE level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
-                "signature": "public trace(message) { }",
+                "signature": "public trace(message: string): string|void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Output a WARN level log message.\n*\n* @param string message\n*     The log message.\n*/\n",
-                "signature": "public warn(message) { }",
+                "signature": "public warn(message: string): string|void { }",
                 "member_type": "method"
             },
             {
@@ -463,7 +458,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Send the message to the write method (which should be in the child\n*     class).  Also, do some prechecks before sending to see if the log\n*     message should be written.\n*\n* @param any logMethodLevelDefinition\n*     The dictionary definition of the log message's level.\n* @param string message\n*     The log message.\n*\n* @return string\n*     Returns the log message which is used for unit testing purposes.\n*/\n",
-                "signature": "protected sendToWriteMethod(logMethodLevelDefinition, message): string { }",
+                "signature": "protected sendToWriteMethod(logMethodLevelDefinition: any, message: string): string|void { }",
                 "member_type": "method"
             }
         ],
@@ -478,7 +473,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Get a MIME type for a file based on its extension.\n*\n* @param string filePath\n*     The file path in question.\n* @param boolean fileIsUrl\n*     (optional) Is the file path  a URL to a file? Defaults to false.\n*\n*     If the file path is a URL, then this method will make sure the URL\n*     query string is not included while doing a lookup of the file's\n*     extension.\n*\n* @return string\n*     Returns the name of the MIME type based on the extension of the\n*     file path .\n*/\n",
-                "signature": "public getMimeType(filePath: string, fileIsUrl: boolean = false): string { }",
+                "signature": "public getMimeType(filePath: string, fileIsUrl: boolean = false): string|undefined { }",
                 "member_type": "method"
             }
         ],
@@ -515,12 +510,12 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Get the request's requested content type.\n*\n*     There are three ways to get this value: (1) the request's headers by\n*     setting `Response-Content-Type: \"type\"`, (2) the request's URL query\n*     params by setting `?response_content_type=type`, and the request's body\n*     by setting `{response_content_type: \"type\"}`.\n*\n*     The request's body takes precedence over all other settings.\n*\n*     The request's URL query params takes precedence over the header setting\n*     and the default setting.\n*\n*     The request's header setting takes precedence over the default setting.\n*\n*     If no content type is specified by the request's body, URL query\n*     params, or header, then the default content type will be used. The\n*     default content type is the content type defined in the\n*     `Drash.Http.Server` object's `response_output` config. If a default is\n*     not specified, then \"application/json\" will be used.\n*/\n",
-                "signature": "public getResponseContentType(request: any,defaultContentType: string = \"application/json\"): void { }",
+                "signature": "public getResponseContentType(request: any,defaultContentType: string = \"application/json\"): string { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Get this request's URL path.\n*\n* @return string\n*     Returns the URL path.\n*/\n",
-                "signature": "public getUrlPath(request): string { }",
+                "signature": "public getUrlPath(request: any): string { }",
                 "member_type": "method"
             },
             {
@@ -529,8 +524,8 @@
                 "member_type": "method"
             },
             {
-                "doc_block": "/**\n* @description\n*     Get the specified HTTP request's URL query string.\n*\n* @return string\n*     Returns the URL query string (e.g., key1=value1&key2=value2) without\n*     the leading \"?\" character.\n*/\n",
-                "signature": "public getUrlQueryString(request: any): string { }",
+                "doc_block": "/**\n* @description\n*     Get the specified HTTP request's URL query string.\n*\n* @return null|string\n*     Returns the URL query string (e.g., key1=value1&key2=value2) without\n*     the leading \"?\" character.\n*/\n",
+                "signature": "public getUrlQueryString(request: any): null|string { }",
                 "member_type": "method"
             },
             {
@@ -560,12 +555,12 @@
             },
             {
                 "doc_block": "/**\n* @description\n*    Parse this request's body as multipart/form-data.\n*\n* @param Reader body\n*     The request's body.\n* @param string boundary\n*     The boundary of the part (e.g., `----------437192313`)\n* @param number maxMemory\n*     The maximum memory to allocate to this process in megabytes.\n*\n* @return Promise<{ [key: string]: string | FormFile }>\n*     Returned values can be seen here (look for `readForm`:\n*     https://deno.land/std@v0.32.0/mime/multipart.ts\n*/\n",
-                "signature": "public async parseBodyAsMultipartFormData(body: Reader,boundary: string,maxMemory: number): Promise<{ } [key: string]: string | FormFile }> {",
+                "signature": "public async parseBodyAsMultipartFormData(body: Reader,boundary: string,maxMemory: number): Promise<{ } [key: string]: string | FormFile | null}> {",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Set headers on the request.\n*\n* @param any request\n* @param any headers\n* \n* @return void\n*/\n",
-                "signature": "public setHeaders(request: any, headers: Headers): void { }",
+                "signature": "public setHeaders(request: any, headers: any): void { }",
                 "member_type": "method"
             }
         ]
