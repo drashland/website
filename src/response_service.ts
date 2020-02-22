@@ -3,14 +3,21 @@ import { renderFile } from "https://deno.land/x/dejs@0.3.4/mod.ts";
 import docsConfig from "../conf/app.ts";
 let envVarsPath = "../conf/env_vars_" + Deno.env().DENO_DRASH_DOCS_ENVIRONMENT + ".json";
 let env = (await import(envVarsPath)).default;
-const Decoder = new TextDecoder();
-const Encoder = new TextEncoder();
+const decoder = new TextDecoder();
+const encoder = new TextEncoder();
+
+function switchVersion(fileContents: string): string {
+return fileContents.replace(
+    `import Drash from "https://deno.land/x/drash/mod.ts";`,
+    docsConfig.example_code_versions.drash
+  );
+}
 
 // FILE MARKER: FUNCTIONS - EXPORTED ///////////////////////////////////////////
 
 export async function compile(inputFile: any, outputFile: any): Promise<any> {
   let body = await getAppDataInHtml(inputFile);
-  let encoded = Encoder.encode(body);
+  let encoded = encoder.encode(body);
   Deno.writeFileSync(outputFile, encoded);
 }
 
@@ -30,6 +37,9 @@ export function getAppData() {
         api_reference: getPageDataApiReference()
       }
     },
+    example_code_versions: {
+      deno: docsConfig.example_code_versions.deno
+    }
   }, null, 2);
 
   // All public-facing environments get their variables from
@@ -38,7 +48,7 @@ export function getAppData() {
   if (env.environment != "development") {
     Deno.writeFileSync(
       docsConfig.server.directory + "/public/assets/js/app_data." + env.environment + ".js",
-      Encoder.encode("const app_data = " + appDataJson + ";")
+      encoder.encode("const app_data = " + appDataJson + ";")
     );
     return templateVariables;
   }
@@ -58,7 +68,7 @@ export async function getAppDataInHtml(inputFile: any) {
 function getPageDataApiReference(): any {
   let contents: string = "";
   try {
-    contents = Decoder.decode(
+    contents = decoder.decode(
       Deno.readFileSync(`./public/assets/json/api_reference.json`)
     );
   } catch (error) {
@@ -92,9 +102,9 @@ function getExampleCode() {
     }
 
     let fileContentsRaw = Deno.readFileSync(file.path);
-    let fileContents = Decoder.decode(fileContentsRaw);
+    let fileContents = decoder.decode(fileContentsRaw);
     fileContents = fileContents.replace(/<\/script>/g, "<//script>");
-
+    fileContents = switchVersion(fileContents);
     exampleCode[pathname][file.basename] = {
       contents: fileContents,
       extension: file.extension,

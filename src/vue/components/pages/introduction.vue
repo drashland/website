@@ -26,7 +26,7 @@ div
               code-block-slotted(language="text")
                 template(v-slot:title) Terminal
                 template(v-slot:code)
-                  | curl -fsSL https://deno.land/x/install/install.sh | sh
+                  | curl -fsSL https://deno.land/x/install/install.sh | sh -s {{ $app_data.example_code_versions.deno }}
           li
             p Write your <code>app.ts</code> file.
             p
