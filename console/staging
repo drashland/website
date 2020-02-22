@@ -15,8 +15,7 @@
   cp    index.html staging/index.html
   cp    public/assets/css/style-docs.css     staging/public/assets/css/style-docs.css
   cp    public/assets/css/style-docs.css.map staging/public/assets/css/style-docs.css.map
-  cp    public/assets/js/bundle.staging.js   staging/public/assets/js/bundle.staging.js
-  cp    public/assets/js/app_data.staging.js staging/public/assets/js/app_data.staging.js
+  cp    public/assets/js                     staging/public/assets/js/
   cp -r public/assets/img                    staging/public/assets/
   cp -r public/assets/vendor                 staging/public/assets/
 )
