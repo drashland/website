@@ -1,5 +1,0 @@
-#!/bin/bash
-
-(
-  deno --allow-all tests/run_tests.ts
-)

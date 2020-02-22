@@ -2,14 +2,14 @@ import { Drash } from "../../deps.ts";
 import config from "../../conf/app.ts";
 const Encoder = new TextEncoder();
 
-let uniqueId = 0;
-let files = Drash.Util.Exports.getFileSystemStructure(`${config.server.directory}/src/vue/components/pages`);
-let importString = "";
-let componentName = "";
-let components = [];
+let uniqueId: number = 0;
+let files: any = Drash.Util.Exports.getFileSystemStructure(`${config.server.directory}/src/vue/components/pages`);
+let importString: string = "";
+let componentName: string = "";
+let components: any = [];
 
 // Write the `import` lines
-files.forEach(pathObj => {
+files.forEach((pathObj: any) => {
   componentName = pathObj.snake_cased + '_' + uniqueId;
   if (pathObj.isDirectory()) {
     return;
@@ -21,7 +21,7 @@ files.forEach(pathObj => {
 
 // Write the `export` block
 importString += "\nexport default [\n";
-components.forEach(component => {
+components.forEach((component: any) => {
   importString += `  ${component},\n`;
 });
 importString += "];";

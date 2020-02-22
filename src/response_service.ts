@@ -8,7 +8,7 @@ const Encoder = new TextEncoder();
 
 // FILE MARKER: FUNCTIONS - EXPORTED ///////////////////////////////////////////
 
-export async function compile(inputFile, outputFile): Promise<any> {
+export async function compile(inputFile: any, outputFile: any): Promise<any> {
   let body = await getAppDataInHtml(inputFile);
   let encoded = Encoder.encode(body);
   Deno.writeFileSync(outputFile, encoded);
@@ -23,7 +23,7 @@ export function getAppData() {
     },
   };
 
-  let appDataJson = JSON.stringify({
+  let appDataJson: any = JSON.stringify({
     example_code: getExampleCode(),
     store: {
       page_data: {
@@ -47,16 +47,16 @@ export function getAppData() {
   return templateVariables;
 }
 
-export async function getAppDataInHtml(inputFile) {
-  const output = await renderFile(inputFile, getAppData());
-  let html = output.toString();
+export async function getAppDataInHtml(inputFile: any) {
+  const output: any = await renderFile(inputFile, getAppData());
+  let html: any = output.toString();
   return html;
 }
 
 // FILE MARKER: FUNCTIONS - LOCAL //////////////////////////////////////////////
 
-function getPageDataApiReference() {
-  let contents = "";
+function getPageDataApiReference(): any {
+  let contents: string = "";
   try {
     contents = Decoder.decode(
       Deno.readFileSync(`./public/assets/json/api_reference.json`)
@@ -68,20 +68,20 @@ function getPageDataApiReference() {
 }
 
 function getExampleCode() {
-  let languages = {
+  let languages: any = {
     sh: "shell",
     ts: "typescript",
     css: "css",
     js: "javascript"
   };
 
-  let exampleCode = {};
+  let exampleCode: any = {};
 
-  let ignore = ["api_reference", ".DS_Store"];
+  let ignore: string[] = ["api_reference", ".DS_Store"];
 
-  let files = Drash.Util.Exports.getFileSystemStructure(`${docsConfig.server.directory}/src/example_code`);
+  let files: any = Drash.Util.Exports.getFileSystemStructure(`${docsConfig.server.directory}/src/example_code`);
 
-  files.forEach(file => {
+  files.forEach((file: any) => {
     let pathname = file.pathname.replace(docsConfig.server.directory, "");
     if (!exampleCode[pathname]) {
       exampleCode[pathname] = {};
@@ -107,7 +107,7 @@ function getExampleCode() {
   return exampleCode;
 }
 
-function getTitleOfFile(file, fileExtension) {
+function getTitleOfFile(file: any, fileExtension: any): string {
   let title =
     fileExtension == "sh" ? "Terminal" : `/path/to/your/project/${file.filename}`;
 

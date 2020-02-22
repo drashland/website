@@ -4,7 +4,7 @@ const Encoder = new TextEncoder();
 
 let files = Drash.Util.Exports.getFileSystemStructure(`${config.server.directory}/src/vue/components/global`);
 let importString = 'import Vue from \"vue\";\n\n';
-files.forEach(pathObj => {
+files.forEach((pathObj: any) => {
 
   if (pathObj.isDirectory()) {
     return;
