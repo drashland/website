@@ -1,6 +1,9 @@
 // Webpack
 let conf = process.env.conf; // This variable comes from webpack.config.js under `plugins`
 
+// Vue
+import Vue from "vue";
+
 // Vue Router
 import VueRouter from "vue-router";
 
@@ -62,3 +65,5 @@ router.afterEach((to, from) => {
 });
 
 export default router;
+window.VueRouter = VueRouter;
+window.router = router;

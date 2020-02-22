@@ -12,11 +12,20 @@ module.exports = envVars => {
   console.log(conf);
 
   return {
-    entry: path.resolve(__dirname, "public/assets/js/_bundle.js"),
+    entry: {
+      bundle: path.resolve(__dirname, "public/assets/js/_bundle.js"),
+      router: path.resolve(__dirname, "public/assets/js/_router.js"),
+      app: path.resolve(__dirname, "public/assets/js/_app.js")
+    },
     mode: webpackConfigFns.getMode(conf),
     output: {
       path: path.resolve(__dirname, "public/assets/js/"),
-      filename: `bundle.${conf.environment}.js`
+      filename: `[name].${conf.environment}.js`
+    },
+    optimization: {
+      splitChunks: {
+        chunks: 'all'
+      }
     },
     module: {
       rules: [

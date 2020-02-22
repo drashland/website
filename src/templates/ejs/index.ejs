@@ -29,6 +29,13 @@
 		<% } else { %>
 		<script>const app_data = <%- app_data %>;</script>
 		<% } %>
+		<script src="<%= conf.base_url %>/public/assets/js/vendors~app~bundle.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
+		<script src="<%= conf.base_url %>/public/assets/js/vendors~app~bundle~router.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
+		<script src="<%= conf.base_url %>/public/assets/js/vendors~app~router.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
+		<script src="<%= conf.base_url %>/public/assets/js/vendors~bundle.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
+		<script src="<%= conf.base_url %>/public/assets/js/vendors~bundle~router.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
 		<script src="<%= conf.base_url %>/public/assets/js/bundle.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
+		<script src="<%= conf.base_url %>/public/assets/js/router.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
+		<script src="<%= conf.base_url %>/public/assets/js/app.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
 	</body>
 </html>
