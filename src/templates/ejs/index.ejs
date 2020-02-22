@@ -27,8 +27,9 @@
 		<% if (conf.environment != "development") { %>
 		<script src="<%= conf.base_url %>/public/assets/js/app_data.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
 		<script src="<%= conf.base_url %>/public/assets/js/vendors~app.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
-		<script src="<%= conf.base_url %>/public/assets/js/vendors~router.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
 		<script src="<%= conf.base_url %>/public/assets/js/vendors~app~bundle.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
+		<script src="<%= conf.base_url %>/public/assets/js/vendors~bundle.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
+		<script src="<%= conf.base_url %>/public/assets/js/vendors~router.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
 		<% } else { %>
 		<script>const app_data = <%- app_data %>;</script>
 		<script src="<%= conf.base_url %>/public/assets/js/vendors~app~bundle.<%= conf.environment %>.js?version=<%= conf.cache_buster %>"></script>
