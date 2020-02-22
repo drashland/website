@@ -31,6 +31,7 @@ div.c-sidebar
         a-base-url(href="/about-drash") About Drash
         a-base-url(href="/lifecycle-diagram") Drash Lifecycle Diagram
         a-base-url(href="/dependency-management") Dependency Management
+        a-base-url(href="/issues") Issues
         a(href="https://github.com/drashland/deno-drash" target="_BLANK") View On GitHub &mdash; Drash
         a(href="https://github.com/drashland/deno-drash-docs" target="_BLANK") View On GitHub &mdash; Drash Docs
       a-base-url.heading-link(href="/tutorials") Tutorials
