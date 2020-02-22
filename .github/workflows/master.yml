@@ -26,6 +26,6 @@ jobs:
         git pull origin staging
         git pull origin production
         git checkout staging && git merge origin/master
-        git push
+        git push origin HEAD:staging
         git checkout production && git merge origin/master
-        git push
+        git push origin HEAD:production
