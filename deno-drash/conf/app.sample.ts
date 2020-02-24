@@ -1,9 +1,13 @@
 export default {
+  example_code_versions: {
+    deno: "v0.34.0",
+    drash: `import Drash from "https://deno.land/x/drash@v0.34.0/mod.ts";`
+  },
   deno_drash: {
-    directory: "/var/proj/deno-drash",
+    directory: "/var/src/drashland/deno-drash",
   },
   logger: {
-    enabled: false,
+    enabled: true,
     level: "info",
     tag_string: "{date} | {level} |",
     tag_string_fns: {
@@ -13,6 +17,6 @@ export default {
     },
   },
   server: {
-    directory: "/var/proj/deno-drash-docs",
+    directory: "/var/src/drashland/deno-drash-docs/deno-drash",
   }
 }
