@@ -4,5 +4,5 @@ import * as ResponseService from "../../src/response_service.ts";
 
 ResponseService.compile(
   `${config.server.directory}/src/templates/ejs/index.ejs`,
-  `${config.server.directory}/deno-drash.html`
+  `${config.server.directory}/deno-drash/index.html`
 );
