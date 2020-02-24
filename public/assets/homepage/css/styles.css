@@ -1963,11 +1963,11 @@ CAROUSEL AND SLIDERS
 }
 
 .bg-pattern-dots--light {
-  background-image: url("../assets/images/pattern-white-dots.png");
+  background-image: url("../images/pattern-white-dots.png");
 }
 
 .bg-pattern-dots--dark {
-  background-image: url("../assets/images/pattern-dark-dots.png");
+  background-image: url("../images/pattern-dark-dots.png");
 }
 
 .bg-center-cover {
