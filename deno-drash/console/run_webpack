@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# All env variables should be set before running this script
+#
+
+(
+  echo -n "Compiling webpack bundle.js ..."
+
+  node_modules/.bin/webpack \
+    --hide-modules \
+    $@
+
+  echo "... done."
+)

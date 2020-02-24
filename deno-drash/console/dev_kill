@@ -1,0 +1,15 @@
+#!/bin/bash
+
+(
+  for pid in $(ps aux | grep 'docs.ts' | grep 'deno' | awk '{print $2}'); do
+    echo -n "[watchmedo] Killing deno docs.ts (PID $pid) ..."
+    kill -9 $pid
+    echo "... killed."
+  done
+
+  for pid in $(ps aux | grep 'dev-docs' | grep 'deno' | awk '{print $2}'); do
+    echo -n "[watchmedo] Killing npm run dev-docs (PID $pid) ..."
+    kill -9 $pid
+    echo "... killed."
+  done
+)

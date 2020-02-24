@@ -1,0 +1,15 @@
+#!/bin/bash
+
+(
+  export PATH=$DENO_INSTALL/bin:$PATH
+  export DENO_DRASH_DOCS_ENVIRONMENT="staging"
+  console/set_common_env_vars
+  console/compile_assets
+  console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
+  console/compile_ejs_templates
+  console/staging
+  git checkout -- index.html
+  git checkout -- public/*
+  git add staging/*
+  git commit -m "staging build ($(date))"
+)
