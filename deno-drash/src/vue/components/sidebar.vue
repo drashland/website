@@ -117,10 +117,10 @@ div.c-sidebar
         div.l-submenu-1
           a-base-url(href="/api-reference/services/http-service") HttpService
           a-base-url(href="/api-reference/services/http-request-service") HttpRequestService
-  div.c-sidebar__footer
+  div.c-sidebar__footer(style="background: #000000")
     div.row
       div.col.text-align--center
-        p(style="color: #ffffff; font-size: .85rem") Drash Documentation was last updated on {{ $conf.build_date }}
+        p(style="margin-top: 2rem; color: #ffffff; font-size: .9rem") Drash Documentation was last updated on {{ $conf.build_date }}
 </template>
 
 <script>
