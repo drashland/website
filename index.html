@@ -1,38 +1,336 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, minimum-scale=1.0, user-scalable=no"/>
-		<meta name="msapplication-TileColor" content="#da532c">
-		<meta name="theme-color" content="#ffffff">
-		<title>Drash</title>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico"/>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito&display=swap"/>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"/>
-		<link rel="stylesheet" href="/public/assets/vendor/bootstrap-4.1.3-dist/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="/public/assets/vendor/prismjs/prism.css"/>
-		<link rel="stylesheet" href="/public/assets/css/style-docs.css"/>
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-	</head>
-	<body>
-		<div class="hide--soft" id="vue_app_mount">
-			<vue-app-root></vue-app-root>
-		</div>
-		<script src="/public/assets/vendor/prismjs/prism.js"></script>
-		<script src="/public/assets/vendor/jquery-3.3.1/jquery.min.js"></script>
-		<script src="/public/assets/vendor/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
-		
-		<script src="/public/assets/js/app_data.production.js?version=1582351912736"></script>
-		<script src="/public/assets/js/vendors~app.production.js?version=1582351912736"></script>
-		<script src="/public/assets/js/vendors~app~bundle.production.js?version=1582351912736"></script>
-		<script src="/public/assets/js/vendors~bundle.production.js?version=1582351912736"></script>
-		<script src="/public/assets/js/vendors~router.production.js?version=1582351912736"></script>
-		
-		<script src="/public/assets/js/bundle.production.js?version=1582351912736"></script>
-		<script src="/public/assets/js/router.production.js?version=1582351912736"></script>
-		<script src="/public/assets/js/app.production.js?version=1582351912736"></script>
-	</body>
+<html lang="en">
+  <head>
+    <title>Drash</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta property="og:title" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:image:width" content="1300">
+    <meta name="twitter:image:height" content="697">
+    <meta name="twitter:url" content="">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/827ebac507.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body class="has-sticky-navbar">
+    <div id="loading">
+      <div class="ripple ripple1"></div>
+      <div class="ripple ripple2"></div>
+      <div class="ripple ripple3"></div>
+      <div class="ripple ripple4"></div>
+    </div> 
+
+    <!-- ========== HEADER ========== -->
+    <nav class="navbar affix navbar-expand-lg fixed-top navbar-light">
+      <div class="container-fluid align-items-center">
+        <a class="navbar-brand" href="/">
+          Drash
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="menu-icon">
+              <span class="menu-icon__bar"></span>
+              <span class="menu-icon__bar"></span>
+              <span class="menu-icon__bar"></span>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <div class="site-header--right d-flex align-items-center">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="#overview" class="nav-link">Overview</a>
+              </li>
+              <li class="nav-item">
+                <a href="#features" class="nav-link">Features</a>
+              </li>
+              <li class="nav-item">
+                <a href="#stack" class="nav-link">Stack</a>
+              </li>
+              <li class="nav-item">
+                <a href="#gitter" class="nav-link">Gitter</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- ========== END HEADER ========== -->
+
+    <!-- ========== HERO SECTION ========== -->
+    <div class="intro" id="home">
+      <div class="screen-v-100">
+        <div class="l-v-center">
+          <div class="container">
+            <div class="intro-content">
+              <div class="row align-items-lg-center text-center">
+                <div class="col-12">
+                  <img src="assets/images/drash.png" class="img-fluid mb-3" alt="Drash" style="max-width: 200px">
+                  <h1 class="intro-lead-title mb-3">Drash</h1>
+                  <p class="lead">A REST microframework for Deno</p>
+                  <div class="intro-cta-group">
+                    <a href="" class="btn btn-xl btn-primary">Get started</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="img-shape absolute-bottom">
+        <img src="assets/images/wave.svg" alt="Image">
+      </figure>
+    </div>
+    <!-- ========== END HERO SECTION ========== -->
+
+    <!-- ========== OVERVIEW SECTION ========== -->
+    <section id="overview">
+      <div class="container">
+        <header class="text-center">
+          <h3 class="text-muted">Compatible with the technologies you love</h3>
+        </header>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="client-logos mt-4 text-center">
+              <img class="m-3" src="assets/images/deno.png" alt="Deno">
+              <img class="m-3" src="assets/images/vue.png" alt="Vue">
+              <img class="m-3" src="assets/images/react.png" alt="React">
+              <img class="m-3" src="assets/images/ts.png" alt="TypeScript">
+              <img class="m-3" src="assets/images/node.png" alt="Node">
+              <img class="m-3" src="assets/images/webpack.png" alt="webpack">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-spacer">
+      <div class="container">
+        <div class="row mb-5 mb-md-0">
+          <div class="col-md-7">
+            <div class="content">
+              <div class="row">
+                <div class="col-md-3 mb-3  mb-md-0">
+                  <span class="h5 text-muted">Get started</span>
+                  <h2 class="mt-0">quickly</h2>
+                </div>
+                <div class="col-md-9">
+                  <header class="section-header">
+                    <p class="lead">With documentation-driven development at its forefront, getting started with Drash is quick and painless.</p>
+                  </header>
+                  <div class="feature-boxes m-tb-40">
+                    <div class="feature-box mb-5">
+                      <h2 class="feature-box--title">Read</h2>
+                      <small class="feature-box--text">guided tutorials</small>
+                    </div>
+                    <div class="feature-box mb-5">
+                      <h2 class="feature-box--title">Write</h2>
+                      <small class="feature-box--text">minimal code</small>
+                    </div>
+                    <div class="feature-box mb-5">
+                      <h2 class="feature-box--title">Deploy</h2>
+                      <small class="feature-box--text">awesome projects</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <img class="img-fluid" src="assets/images/drash_800.png" alt="Drash">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END OVERVIEW SECTION ========== -->
+
+    <!-- ========== FEATURES SECTION ========== -->
+    <section class="section-spacer u-bg-gradient--primary u-text--light" id="features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 mx-auto">
+            <header class="section-header text-center">
+              <h2 class="section-title h1">Features</h2>
+              <p class="lead">Even though it's micro, Drash comes with some power.</p>
+            </header>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9 mx-auto">
+            <div class="row text-center">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="feature-list feature-list-md">
+                  <i class="fas fa-clone fa-3x mb-4"></i>
+                  <h3>Resources</h3>
+                  <p>Create resources, define their URIs, and allow clients to make requests to them.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="feature-list feature-list-md">
+                  <i class="fas fa-file-alt fa-3x mb-4"></i>
+                  <h3>Content Negotiation</h3>
+                  <p>Send clients the representations they request &mdash; JSON, XML, HTML, etc.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="feature-list feature-list-md">
+                  <i class="fas fa-layer-group fa-3x mb-4"></i>
+                  <h3>Middleware</h3>
+                  <p>Filter requests globally, or be more granular with resource-level middleware.</p>
+                </div>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="feature-list feature-list-md">
+                  <i class="fas fa-book-reader fa-3x mb-4"></i>
+                  <h3>Request Body Parsing</h3>
+                  <p>Parse JSON, URL encoded, and multipart bodies with a single method call.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="feature-list feature-list-md">
+                  <i class="fas fa-code-branch fa-3x mb-4"></i>
+                  <h3>Route Path Params</h3>
+                  <p>Support your REST API endpoints with route path params.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="feature-list feature-list-md">
+                  <i class="fas fa-file-code fa-3x mb-4"></i>
+                  <h3>Serve Static Assets</h3>
+                  <p>Serve static assets like stylesheets and JavaScript files &mdash; good for web apps.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END FEATURES SECTION ========== -->
+
+    <!-- ========== STACK SECTION ========== -->
+    <section class="section-spacer" id="stack">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="section-header">
+              <h2 class="section-title h1">Stack</h2>
+              <p>Stack your project with other Deno modules</p>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-9">
+            <div class="row">
+              <div class="col-md-4 col-sm-6">
+                <a href="#" class="card integration-card">
+                  <div class="card-header">
+                    <h4>deno_mysql</h4>
+                    <span class="integration-type">A MySQL driver for Deno</span>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Add a MySQL driver to your project so you can serve more dynamic data.
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <a href="#" class="card integration-card">
+                  <div class="card-header">
+                    <h4>deno-postgres</h4>
+                    <span class="integration-type">A PostgreSQL driver for Deno</span>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Add a PostgreSQL driver to your project so you can serve more dynamic data.
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <a href="#" class="card integration-card">
+                  <div class="card-header">
+                    <h4>dejs</h4>
+                    <span class="integration-type">An ejs template engine for Deno</span>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Add a template engine to your project to serve server-rendered HTML.
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END STACK SECTION ========== -->
+
+    <!-- ========== GITTER  SECTION ========== -->
+    <section class="section-spacer u-bg--default" id="gitter">
+      <div class="container">
+        <div class="row text-center">
+        <div class="col-md-12">
+            <h2>Join The Gitter Community</h2>
+            <p class="lead">Join the community to discuss features, issues, or just to leave some feedback. Everyone is welcomed.</p>
+            <a href="https://gitter.im/drashspace/community" class="btn btn-xl btn-primary" target="_BLANK">Join</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END GITTER  SECTION ========== -->
+
+    <!-- ========== CONTACT  SECTION ========== -->
+    <section class="section-spacer u-bg--primary bg-pattern-dots--light" id="sec-contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 mx-auto">
+            <header class="section-header text-center u-text--light">
+              <p class="lead">Develop with confidence.</p>
+              <p>Released under the MIT License.</p>
+              <a href="https://github.com/drashland/deno-drash" target="_BLANK" class="text-white mb-3">
+                <i class="fab fa-github fa-3x"></i>
+              </a>
+            </header>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END CONTACT SECTION ========== -->
+
+
+    <script src="js/vendors/jquery.min.js"></script>
+    <script src="js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="js/vendors/jquery.magnific-popup.min.js"></script>
+    <script src="js/vendors/owl.carousel.min.js"></script>
+    <script src="js/vendors/jquery.easing.min.js"></script>
+    <script src="js/vendors/swiper.min.js"></script>
+    <script src="js/vendors/holder.min.js"></script>
+    <script src="js/ambassador.js"></script>
+  </body>
 </html>
