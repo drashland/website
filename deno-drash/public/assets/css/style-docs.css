@@ -178,7 +178,7 @@ ol li ul {
   color: #fff;
   border-bottom: 1px solid #3f3955; }
   .c-sidebar__menu .c-sidebar__menu-body a {
-    padding: 0.3625rem 1.0875rem 0.3625rem 1.45rem; }
+    padding: 0.145rem 1.45rem; }
     @media screen and (min-width: 951px) {
       .c-sidebar__menu .c-sidebar__menu-body a {
         font-size: 1.0875rem; } }
