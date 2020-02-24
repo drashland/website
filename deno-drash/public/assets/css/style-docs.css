@@ -9,7 +9,7 @@ address {
   font-style: italic; }
 
 body {
-  background: #f4f4f4;
+  background: #fff;
   color: #333333;
   font-family: 'Nunito', Arial, Helvetica, sans-serif;
   line-height: 1.75;
@@ -94,8 +94,7 @@ ol li ul {
 
 .c-sidebar {
   -webkit-overflow-scrolling: touch;
-  background: #282633;
-  color: #efefef;
+  background-image: linear-gradient(180deg, #153bb5 -10%, #2f5be7 100%);
   display: block;
   height: 100%;
   left: 0;
@@ -103,19 +102,18 @@ ol li ul {
   position: fixed;
   top: 0;
   width: 350px;
+  border-right: 1px solid #e8e8e8;
+  box-shadow: 7px 0 12px -6px rgba(100, 100, 100, 0.2);
   z-index: 10; }
   .c-sidebar a {
-    color: #efefef; }
+    color: #fff; }
     .c-sidebar a:hover {
       text-decoration: none; }
-  .c-sidebar i {
-    color: #ffffff; }
   .c-sidebar .l-environment-text {
-    background: #008080;
-    color: #ffffff;
+    background: #000000;
+    color: #efefef;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 0.87rem;
     padding: 0.725rem;
     margin-bottom: 0; }
 
@@ -123,8 +121,6 @@ ol li ul {
   padding: 0.725rem; }
   .l-latest-release-text .text {
     background: #000000;
-    color: #ffffff;
-    font-size: 0.87rem;
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.725rem; }
@@ -132,67 +128,67 @@ ol li ul {
       margin-right: 0.3625rem; }
 
 .c-sidebar .heading-link {
-  background: #282633;
-  border-bottom: 1px solid #413e52;
-  font-size: 1.015rem;
+  background: #1a3fb5;
+  border-bottom: 1px solid #243d8c;
   font-weight: bold;
   letter-spacing: 0.10875rem;
   margin: 0;
   padding: 0.725rem 1.45rem;
   text-transform: uppercase; }
+  .c-sidebar .heading-link:hover {
+    color: #333; }
 
 .c-sidebar__header {
   padding: 0.725rem 0;
-  border-bottom: 1px solid #413e52; }
+  border-bottom: 1px solid #243d8c; }
   .c-sidebar__header .h1-project-name {
-    font-size: 1.45rem;
     font-style: italic;
     margin-bottom: 0;
     padding: 1.015rem 0;
     text-align: center; }
     .c-sidebar__header .h1-project-name .text {
-      background-color: #e40002;
       display: inline-block; }
 
 .c-sidebar__footer {
-  font-size: 0.87rem;
   padding: 2.175rem 1.45rem 3.625rem 1.45rem; }
   .c-sidebar__footer .l-icons a {
     margin-right: 1.0875rem; }
     .c-sidebar__footer .l-icons a:last-of-type {
       margin-right: 0; }
-  .c-sidebar__footer .l-icons i {
-    font-size: 2.175rem; }
 
-.c-sidebar__menu {
-  background: #19181e; }
-  .c-sidebar__menu i {
-    margin-right: 0.54375rem; }
-  .c-sidebar__menu a {
-    display: block; }
-    .c-sidebar__menu a:hover {
-      background: #282633; }
-  .c-sidebar__menu .c-sidebar__menu-header {
-    background: #282633;
-    border-bottom: 1px solid #413e52; }
-  .c-sidebar__menu .c-sidebar__menu-header--is-link a {
-    font-size: 1.015rem;
-    font-weight: bold;
-    letter-spacing: 0.10875rem;
-    margin: 0;
-    padding: 0.725rem 1.45rem;
-    text-transform: uppercase; }
-  .c-sidebar__menu .c-sidebar__menu-body {
-    border-bottom: 1px solid #413e52; }
-    .c-sidebar__menu .c-sidebar__menu-body a {
-      padding: 0.3625rem 1.0875rem 0.3625rem 1.45rem; }
-      @media screen and (min-width: 951px) {
-        .c-sidebar__menu .c-sidebar__menu-body a {
-          font-size: 0.87rem; } }
-    .c-sidebar__menu .c-sidebar__menu-body .l-submenu-1 a {
-      padding-left: 2.9rem; }
-    .c-sidebar__menu .c-sidebar__menu-body .l-submenu-2 a {
-      padding-left: 4.35rem; }
+.c-sidebar__menu i {
+  margin-right: 0.54375rem; }
+.c-sidebar__menu a {
+  display: block;
+  transition-property: color background;
+  transition-duration: 0.2s; }
+.c-sidebar__menu a[href]:hover {
+  color: #333;
+  background: #f4f4f4; }
+.c-sidebar__menu .c-sidebar__menu-header {
+  background: #282633;
+  border-bottom: 1px solid #243d8c; }
+.c-sidebar__menu .c-sidebar__menu-header--is-link a {
+  font-weight: bold;
+  letter-spacing: 0.10875rem;
+  margin: 0;
+  padding: 0.725rem 1.45rem;
+  text-transform: uppercase; }
+.c-sidebar__menu .c-sidebar__menu-body {
+  color: #fff;
+  border-bottom: 1px solid #243d8c; }
+  .c-sidebar__menu .c-sidebar__menu-body a {
+    padding: 0.3625rem 1.0875rem 0.3625rem 1.45rem; }
+    @media screen and (min-width: 951px) {
+      .c-sidebar__menu .c-sidebar__menu-body a {
+        font-size: 1.0875rem; } }
+  .c-sidebar__menu .c-sidebar__menu-body .l-submenu-1 a:hover,
+  .c-sidebar__menu .c-sidebar__menu-body .l-submenu-2 a:hover {
+    color: #333; }
+  .c-sidebar__menu .c-sidebar__menu-body .l-submenu-1 a {
+    padding-left: 2.9rem; }
+  .c-sidebar__menu .c-sidebar__menu-body .l-submenu-2 a {
+    padding-left: 4.35rem; }
 
 .c-btn {
   cursor: pointer;
@@ -217,7 +213,7 @@ ol li ul {
   -webkit-overflow-scrolling: touch;
   margin-top: 0.725rem; }
   .b-code-example .header {
-    background: #ff7700;
+    background: #454545;
     border-radius: 1.0875rem 1.0875rem 0 0;
     padding: 0.725rem;
     margin-bottom: 0; }

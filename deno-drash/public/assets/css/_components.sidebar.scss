@@ -1,7 +1,8 @@
 .c-sidebar {
     -webkit-overflow-scrolling: touch;
-    background: #282633;
-    color: #efefef;
+    // background: #282633;
+    background-image: linear-gradient(180deg, #153bb5 -10%, #2f5be7 100%);
+    // background: #f4f4f4;
     display: block;
     height: 100%;
     left: 0;
@@ -9,26 +10,23 @@
     position: fixed;
     top: 0;
     width: $g-width-c-sidebar;
+    border-right: 1px solid #e8e8e8;
+    box-shadow: 7px 0 12px -6px rgba(100,100,100,0.2);
     z-index: 10;
     a {
-        // color: #ff7700;
-        color: #efefef;
+        color: #fff;
         &:hover {
             text-decoration: none;
         }
-    }
-    i {
-        color: #ffffff;
     }
     //
     // Environment text
     //
     .l-environment-text {
-        background: #008080;
-        color: #ffffff;
+        background: #000000;
+        color: #efefef;
         font-weight: bold;
         text-transform: uppercase;
-        font-size: rem(1.2);
         padding: rem(1);
         margin-bottom: 0;
     }
@@ -43,8 +41,6 @@
     padding: rem(1);
     .text {
         background: #000000;
-        color: #ffffff;
-        font-size: rem(1.2);
         font-weight: bold;
         text-transform: uppercase;
         padding: rem(1);
@@ -63,9 +59,11 @@
 // These are the big bars with capitalized text
 //
 .c-sidebar .heading-link {
-    background: #282633;
-    border-bottom: 1px solid #413e52;
-    font-size: rem(1.4);
+    &:hover {
+        color: #333;
+    }
+    background: #1a3fb5;
+    border-bottom: 1px solid #243d8c;
     font-weight: bold;
     letter-spacing: rem(0.15);
     margin: 0;
@@ -81,18 +79,16 @@
 //
 .c-sidebar__header {
     padding: rem(1) 0;
-    border-bottom: 1px solid #413e52;
+    border-bottom: 1px solid #243d8c;
     //
     // Main heading
     //
     .h1-project-name {
-        font-size: rem(2);
         font-style: italic;
         margin-bottom: 0;
         padding: rem(1.4) 0;
         text-align: center;
         .text {
-            background-color: $g-color-that-red;
             display: inline-block;
         }
     }
@@ -114,7 +110,6 @@
 // Sidebar footer
 //
 .c-sidebar__footer {
-    font-size: rem(1.2);
     padding: rem(3) rem(2) rem(5) rem(2);
     .l-icons {
         a {
@@ -122,9 +117,6 @@
             &:last-of-type {
                 margin-right: 0;
             }
-        }
-        i {
-            font-size: rem(3)
         }
     }
 }
@@ -136,7 +128,7 @@
 // Sidebar menus
 //
 .c-sidebar__menu {
-    background: $g-colorset-sidebar-background;
+    // background: $g-colorset-sidebar-background;
     //
     // Icons
     //
@@ -148,8 +140,13 @@
     //
     a {
         display: block;
+        transition-property: color background;
+        transition-duration: 0.2s;
+    }
+    a[href] {
         &:hover {
-            background: #282633;
+            color: #333;
+            background: #f4f4f4;
         }
     }
     //
@@ -157,7 +154,7 @@
     //
     .c-sidebar__menu-header {
         background: #282633;
-        border-bottom: 1px solid #413e52;
+        border-bottom: 1px solid #243d8c;
     }
         //
         // Modifier: is-link
@@ -166,7 +163,6 @@
         //
         .c-sidebar__menu-header--is-link {
             a {
-                font-size: rem(1.4);
                 font-weight: bold;
                 letter-spacing: rem(0.15);
                 margin: 0;
@@ -178,12 +174,19 @@
     // Menu bodies
     //
     .c-sidebar__menu-body {
-        border-bottom: 1px solid #413e52;
+        color: #fff;
+        border-bottom: 1px solid #243d8c;
         a {
             @media screen and (min-width: 951px) {
-                font-size: rem(1.2);
+                font-size: rem(1.5);
             }
             padding: rem(0.5) rem(1.5) rem(0.5) rem(2);
+        }
+        .l-submenu-1 a,
+        .l-submenu-2 a {
+            &:hover {
+                color: #333;
+            }
         }
         .l-submenu-1 a {
             padding-left: rem(4);
