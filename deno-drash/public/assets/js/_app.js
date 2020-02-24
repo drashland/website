@@ -16,8 +16,8 @@ Vue.prototype.$api_service = Client;
 // Vue - Components
 import VueAppRoot from "/components/vue_app_root.vue";
 import Sidebar from "/components/sidebar.vue";
-import GlobalComponents from "/public/assets/deno-drash/js/compiled_vue_global_components.js";
-import Client from "/public/assets/deno-drash/js/axios.js";
+import GlobalComponents from "/public/assets/js/compiled_vue_global_components.js";
+import Client from "/public/assets/js/axios.js";
 
 // Vue - Global registration
 Vue.filter('markdown-it', function(value) {

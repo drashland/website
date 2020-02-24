@@ -47,7 +47,7 @@ export function getAppData() {
   // app_data.development.js on every request, so we serve `app_data` on the fly
   if (env.environment != "development") {
     Deno.writeFileSync(
-      docsConfig.server.directory + "/public/assets/deno-drash/js/app_data." + env.environment + ".js",
+      docsConfig.server.directory + "/public/assets/js/app_data." + env.environment + ".js",
       encoder.encode("const app_data = " + appDataJson + ";")
     );
     return templateVariables;
@@ -69,7 +69,7 @@ function getPageDataApiReference(): any {
   let contents: string = "";
   try {
     contents = decoder.decode(
-      Deno.readFileSync(`./public/assets/deno-drash/json/api_reference.json`)
+      Deno.readFileSync(`./public/assets/json/api_reference.json`)
     );
   } catch (error) {
   }
