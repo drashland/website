@@ -94,7 +94,7 @@ ol li ul {
 
 .c-sidebar {
   -webkit-overflow-scrolling: touch;
-  background-image: linear-gradient(180deg, #153bb5 -10%, #2f5be7 100%);
+  background-image: linear-gradient(180deg, #3d539c -10%, #283661 100%);
   display: block;
   height: 100%;
   left: 0;
@@ -128,7 +128,7 @@ ol li ul {
       margin-right: 0.3625rem; }
 
 .c-sidebar .heading-link {
-  background: #1a3fb5;
+  background: #2d385d;
   border-bottom: 1px solid #243d8c;
   font-weight: bold;
   letter-spacing: 0.10875rem;
