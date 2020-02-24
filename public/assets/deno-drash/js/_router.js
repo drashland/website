@@ -7,7 +7,7 @@ import Vue from "vue";
 // Vue Router
 import VueRouter from "vue-router";
 
-import compiledRoutes from "/public/assets/js/compiled_routes.js"
+import compiledRoutes from "/public/assets/deno-drash/js/compiled_routes.js"
 
 let routes = [];
 let routesForErrors = {};

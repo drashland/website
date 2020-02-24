@@ -66,7 +66,7 @@ page-tutorial(
           p <code>--allow-read</code> is required because dejs needs to read your <code>index.ejs</code>. You can learn more about the <code>--allow-read</code> flag at <a href="https://deno.land/std/manual.md" target="_BLANK">https://deno.land/std/manual.md</a>.
         li
           p Make a request to <code>localhost:1447</code> in your browser. You should receive the following response:
-          img(:src="$conf.base_url + '/public/assets/img/example_code/third_party_tutorials/template_engines/dejs/verification_1.png'")
+          img(:src="$conf.base_url + '/public/assets/deno-drash/img/example_code/third_party_tutorials/template_engines/dejs/verification_1.png'")
         li
           p Make the same request, but specify <code>?name=syumai</code> in the URL: <code>localhost:1447?name=syumai</code>. You should receive the following response:
-          img(:src="$conf.base_url + '/public/assets/img/example_code/third_party_tutorials/template_engines/dejs/verification_2.png'")
+          img(:src="$conf.base_url + '/public/assets/deno-drash/img/example_code/third_party_tutorials/template_engines/dejs/verification_2.png'")

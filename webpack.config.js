@@ -13,13 +13,13 @@ module.exports = envVars => {
 
   return {
     entry: {
-      bundle: path.resolve(__dirname, "public/assets/js/_bundle.js"),
-      router: path.resolve(__dirname, "public/assets/js/_router.js"),
-      app: path.resolve(__dirname, "public/assets/js/_app.js")
+      bundle: path.resolve(__dirname, "public/assets/deno-drash/js/_bundle.js"),
+      router: path.resolve(__dirname, "public/assets/deno-drash/js/_router.js"),
+      app: path.resolve(__dirname, "public/assets/deno-drash/js/_app.js")
     },
     mode: webpackConfigFns.getMode(conf),
     output: {
-      path: path.resolve(__dirname, "public/assets/js/"),
+      path: path.resolve(__dirname, "public/assets/deno-drash/js/"),
       filename: `[name].${conf.environment}.js`
     },
     optimization: {

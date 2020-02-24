@@ -15,5 +15,5 @@ files.forEach((pathObj: any) => {
   importString += 'import ' + pathObj.snake_cased + ' from \"' + pathObj.path + '\";\nVue.component(\"' + snakeCasedNoExtension + '\", ' + pathObj.snake_cased + ');\n\n';
 });
 
-let outputFile = `${config.server.directory}/public/assets/js/compiled_vue_global_components.js`;
+let outputFile = `${config.server.directory}/public/assets/deno-drash/js/compiled_vue_global_components.js`;
 Deno.writeFileSync(outputFile, Encoder.encode(importString));

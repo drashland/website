@@ -100,5 +100,5 @@ page-tutorial-part(
               | }
         li Make a request to <code>localhost:1447/users/1?response_content_type=text/html</code> in your browser&ndash;specifying you want the <code>text/html</code> representation of <code>/users/1</code>.
           p You should receive the following response:
-          img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3.png'")
+          img(:src="$conf.base_url + '/public/assets/deno-drash/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3.png'")
 </template>

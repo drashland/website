@@ -6,7 +6,7 @@ import Vue from "vue";
 
 // Vue
 import VueRouter from "vue-router";
-import Client from "/public/assets/js/axios.js";
+import Client from "/public/assets/deno-drash/js/axios.js";
 
 // Vendor
 import MarkdownIt from "markdown-it";

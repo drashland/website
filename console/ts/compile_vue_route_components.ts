@@ -25,5 +25,5 @@ components.forEach((component: any) => {
   importString += `  ${component},\n`;
 });
 importString += "];";
-let outputFile = `${config.server.directory}/public/assets/js/compiled_routes.js`;
+let outputFile = `${config.server.directory}/public/assets/deno-drash/js/compiled_routes.js`;
 Deno.writeFileSync(outputFile, Encoder.encode(importString));
