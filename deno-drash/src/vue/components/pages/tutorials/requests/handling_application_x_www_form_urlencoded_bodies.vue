@@ -2,7 +2,7 @@
 export const resource = {
   paths: ["/tutorials/requests/handling-application-x-www-form-urlencoded-bodies"],
   meta: {
-    title: "Handling application/x-www-form-urlencoded Request Bodies",
+    title: "Handling URL Encoded Bodies",
     source_code_uri: "/tutorials/requests/handling_application_x_www_form_urlencoded_bodies"
   }
 }
@@ -75,9 +75,9 @@ page-tutorial(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | curl --header "Content-Type: application/json" \
+                | curl --header "Content-Type: application/x-www-form-urlencoded" \
                 | --request POST \
-                | --data '{"snack":"denosaurus"}' \
+                | --data 'snack=denosaurus' \
                 | localhost:1447
           p You should receive the following response:
             code-block-slotted(:header="false")
@@ -89,9 +89,9 @@ page-tutorial(
             code-block-slotted(line_highlight="3")
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | curl --header "Content-Type: application/json" \
+                | curl --header "Content-Type: application/x-www-form-urlencoded" \
                 | --request POST \
-                | --data '{"meal":"denosaurus"}' \
+                | --data 'snack=denosaurus' \
                 | localhost:1447
           p You should receive the following response:
             code-block-slotted(:header="false")

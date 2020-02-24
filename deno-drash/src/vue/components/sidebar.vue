@@ -32,14 +32,11 @@ div.c-sidebar
           a-base-url(href="/tutorials/resources/creating-a-resource") Creating A Resource
         a Requests
         div.l-submenu-1
-          a-base-url(href="/tutorials/requests/handling-bodies/introduction") Handling Bodies
-          div.l-submenu-2
-            a-base-url(href="/tutorials/requests/handling-bodies/introduction") Introduction
-            a-base-url(href="/tutorials/requests/handling-application-json-bodies") JSON
-            a-base-url(href="/tutorials/requests/handling-application-x-www-form-urlencoded-bodies") URL Encoded
-            a-base-url(href="/tutorials/requests/handling-multipart-form-data-bodies") Multipart
-          a-base-url(href="/tutorials/requests/handling-path-params") Handling Path Params
           a-base-url(href="/tutorials/requests/handling-url-query-params") Handling URL Query Params
+          a-base-url(href="/tutorials/requests/handling-application-json-bodies") Handling JSON Bodies
+          a-base-url(href="/tutorials/requests/handling-application-x-www-form-urlencoded-bodies") Handling URL Encoded Bodies
+          a-base-url(href="/tutorials/requests/handling-multipart-form-data-bodies") Handling Multipart Bodies
+          a-base-url(href="/tutorials/requests/handling-path-params") Handling Path Params
         a Servers
         div.l-submenu-1
           a-base-url(href="/tutorials/servers/creating-a-server") Creating A Server

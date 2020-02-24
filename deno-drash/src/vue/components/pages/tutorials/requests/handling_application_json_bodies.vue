@@ -2,7 +2,7 @@
 export const resource = {
   paths: ["/tutorials/requests/handling-application-json-bodies"],
   meta: {
-    title: "Handling application/json Request Bodies",
+    title: "Handling JSON Bodies",
     source_code_uri: "/tutorials/requests/handling_application_json_bodies"
   }
 }

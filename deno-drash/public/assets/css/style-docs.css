@@ -94,7 +94,7 @@ ol li ul {
 
 .c-sidebar {
   -webkit-overflow-scrolling: touch;
-  background-image: linear-gradient(180deg, #3d539c -10%, #283661 100%);
+  background: #282633;
   display: block;
   height: 100%;
   left: 0;
@@ -128,8 +128,8 @@ ol li ul {
       margin-right: 0.3625rem; }
 
 .c-sidebar .heading-link {
-  background: #2d385d;
-  border-bottom: 1px solid #243d8c;
+  background: #36304a;
+  border-bottom: 1px solid #3f3955;
   font-weight: bold;
   letter-spacing: 0.10875rem;
   margin: 0;
@@ -140,7 +140,7 @@ ol li ul {
 
 .c-sidebar__header {
   padding: 0.725rem 0;
-  border-bottom: 1px solid #243d8c; }
+  border-bottom: 1px solid #3f3955; }
   .c-sidebar__header .h1-project-name {
     font-style: italic;
     margin-bottom: 0;
@@ -167,7 +167,7 @@ ol li ul {
   background: #f4f4f4; }
 .c-sidebar__menu .c-sidebar__menu-header {
   background: #282633;
-  border-bottom: 1px solid #243d8c; }
+  border-bottom: 1px solid #3f3955; }
 .c-sidebar__menu .c-sidebar__menu-header--is-link a {
   font-weight: bold;
   letter-spacing: 0.10875rem;
@@ -176,7 +176,7 @@ ol li ul {
   text-transform: uppercase; }
 .c-sidebar__menu .c-sidebar__menu-body {
   color: #fff;
-  border-bottom: 1px solid #243d8c; }
+  border-bottom: 1px solid #3f3955; }
   .c-sidebar__menu .c-sidebar__menu-body a {
     padding: 0.3625rem 1.0875rem 0.3625rem 1.45rem; }
     @media screen and (min-width: 951px) {
