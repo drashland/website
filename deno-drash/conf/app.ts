@@ -17,6 +17,6 @@ export default {
     },
   },
   server: {
-    directory: "/var/src/drashland/deno-drash-docs/deno-drash",
+    directory: "/var/src/drashland/website/deno-drash",
   }
 }
