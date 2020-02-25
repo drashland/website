@@ -3,8 +3,7 @@ import Drash from "https://deno.land/x/drash/mod.ts";
 export default class UsersResource extends Drash.Http.Resource {
 
   static paths = [
-    "/users/:id",
-    "/users/:id/"
+    "/users/:id"
   ];
 
   public GET() {

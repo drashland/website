@@ -3,8 +3,7 @@ import Drash from "https://deno.land/x/drash/mod.ts";
 export default class TeaResource extends Drash.Http.Resource {
 
   static paths = [
-    "/tea/:id",
-    "/tea/:id/"
+    "/tea/:id"
   ];
 
   public GET() {

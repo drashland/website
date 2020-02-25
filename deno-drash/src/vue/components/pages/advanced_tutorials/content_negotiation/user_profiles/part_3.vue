@@ -53,13 +53,10 @@ page-tutorial-part(
         li
           p Create your users resource file.
           code-block(:data="example_code.users_resource" language="typescript")
-          p Your resource will only handle <code>GET</code> requests at the following URIs:
+          p Your resource will only handle <code>GET</code> requests at the following URI:
           ul
             li
               code /users/:id
-            li
-              code /users/:id/
-          p Note that the above URIs are different. <em>Drash does not automatically append a trailing slash to the paths you specify. You must be explicit in this regard.</em>
           p When a <code>GET</code> request is made to the above URIs, your resource will handle the request by:
           ol
             li Checking if an <code>id</code> path param was specified in the URI (e.g., if the request was to <code>/users/1</code>, then <code>1</code> would be the <code>id</code>).

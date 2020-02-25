@@ -3,8 +3,7 @@ import Drash from "https://deno.land/x/drash/mod.ts";
 export default class OrdersResource extends Drash.Http.Resource {
 
   static paths = [
-    "/orders/:id",
-    "/orders/:id/"
+    "/orders/:id"
   ];
 
   // Simulate a database with order records

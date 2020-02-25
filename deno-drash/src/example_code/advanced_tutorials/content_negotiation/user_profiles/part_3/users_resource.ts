@@ -4,7 +4,6 @@ export default class UsersResource extends Drash.Http.Resource {
 
   static paths = [
     "/users/:id",
-    "/users/:id/"
   ];
 
   public GET() {

@@ -3,8 +3,7 @@ import Drash from "https://deno.land/x/drash/mod.ts";
 export default class CoffeeResource extends Drash.Http.Resource {
 
   static paths = [
-    "/coffee/:id",
-    "/coffee/:id/"
+    "/coffee/:id"
   ];
 
   public GET() {

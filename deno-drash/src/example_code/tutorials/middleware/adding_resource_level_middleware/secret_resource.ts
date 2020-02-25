@@ -2,7 +2,9 @@ import Drash from "https://deno.land/x/drash/mod.ts";
 
 export default class SecretResource extends Drash.Http.Resource {
 
-  static paths = ["/secret", "/secret/"];
+  static paths = [
+    "/secret"
+  ];
 
   static middleware = {
     before_request: [
