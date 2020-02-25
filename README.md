@@ -11,8 +11,8 @@
 
 * Production: [https://drash.land](https://drash.land)
     * This environment includes code that is released and stable.
-* Staging: [https://drash.land](https://drash.land/staging)
-    * This environment includes code that is still under development, but ready to be realeased soon.
+* Staging: [https://drash.land/deno-drash/staging](https://drash.land/deno-drash/staging)
+    * This environment includes code that is still under development, but ready to be realeased soon. This environment might not always be up.
 
 ## Technology Stack
 
