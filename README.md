@@ -1,18 +1,20 @@
-# deno-drash Documentation
+# https://drash.land
 
 <a href="https://github.com/drashland/deno-drash/">
   <img src="https://img.shields.io/github/release/drashland/deno-drash.svg?color=bright_green&label=drash%20latest">
 </a> 
 <a href="https://github.com/drashland/deno-drash-docs/actions?query=workflow%3Aci">
-  <img src="https://img.shields.io/github/workflow/status/drashland/deno-drash-docs/master?label=docs%20master">
+  <img src="https://img.shields.io/github/workflow/status/drashland/deno-drash-docs/master?label=master">
 </a>
 
-## Environments
+## Pages
 
-* Production: [https://drash.land](https://drash.land)
-    * This environment includes code that is released and stable.
-* Staging: [https://drash.land](https://drash.land/staging)
-    * This environment includes code that is still under development, but ready to be realeased soon.
+* Landing Page: [https://drash.land](https://drash.land)
+    * This page serves as the entry point to all Drash modules and documentation.
+* deno-drash Production: [https://drash.land/deno-drash](https://drash.land/deno-drash)
+    * This page includes code that is released and stable.
+* deno-drash Staging: [https://drash.land/deno-drash/staging](https://drash.land/deno-drash/staging)
+    * This page includes code that is still under development, but ready to be realeased soon. This page might not always be accessible.
 
 ## Technology Stack
 
