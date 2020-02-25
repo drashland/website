@@ -1,4 +1,4 @@
-# https://drash.land
+# Drash Land
 
 <a href="https://github.com/drashland/deno-drash/">
   <img src="https://img.shields.io/github/release/drashland/deno-drash.svg?color=bright_green&label=drash%20latest">
@@ -54,11 +54,12 @@ Add the following to your `$PATH` variable.
 
 _The installer warns you about setting Python binaries to your `$PATH` variable. Pay attention to that message._
 
-## Running The Development Environment
+## Running The Development Environment For `/deno-drash`
 
 Step 1: Run the dev server.
 
 ```shell
+cd deno-drash
 npm run dev
 ```
 
