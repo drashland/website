@@ -7,12 +7,14 @@
   <img src="https://img.shields.io/github/workflow/status/drashland/deno-drash-docs/master?label=docs%20master">
 </a>
 
-## Environments
+## Pages
 
-* Production: [https://drash.land](https://drash.land)
-    * This environment includes code that is released and stable.
-* Staging: [https://drash.land/deno-drash/staging](https://drash.land/deno-drash/staging)
-    * This environment includes code that is still under development, but ready to be realeased soon. This environment might not always be up.
+* Landing Page: [https://drash.land](https://drash.land)
+    * This page serves as the entry point to all Drash modules and documentation.
+* deno-drash Production: [https://drash.land/deno-drash](https://drash.land/deno-drash)
+    * This page includes code that is released and stable.
+* deno-drash Staging: [https://drash.land/deno-drash/staging](https://drash.land/deno-drash/staging)
+    * This page includes code that is still under development, but ready to be realeased soon. This page might not always be accessible.
 
 ## Technology Stack
 
