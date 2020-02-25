@@ -28,6 +28,12 @@
 
 ## Setup
 
+Go to the following directory:
+
+```
+cd deno-drash
+```
+
 Install Sass.
 
 ```
@@ -56,10 +62,9 @@ _The installer warns you about setting Python binaries to your `$PATH` variable.
 
 ## Running The Development Environment For `/deno-drash`
 
-Step 1: Run the dev server.
+Step 1: Run the dev server (make sure you are in the `deno-drash` directory).
 
 ```shell
-cd deno-drash
 npm run dev
 ```
 
