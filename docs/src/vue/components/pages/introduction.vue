@@ -3,7 +3,7 @@ div
   div.c-page__header
     div.row
       div.col.bpm-center
-        img.drash-logo(alt="Drash" :src="'/public/assets/img/logo_drash.png'" style="display: none;")
+        img.drash-logo(alt="Drash" :src="'/public/assets/img/drash.png'" style="display: none;")
         h1.c-heading.c-heading--style-2 Drash
     div.row
       div.col
