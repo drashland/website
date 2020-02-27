@@ -573,6 +573,13 @@ const app_data = {
         "filename": "response.ts",
         "language": "typescript",
         "title": "/path/to/your/project/response.ts"
+      },
+      "deps": {
+        "contents": "export {\n  serve,\n  ServerRequest\n} from \"https://deno.land/std@v0.34.0/http/server.ts\";\n\nexport {\n  STATUS_TEXT,\n  Status\n} from \"https://deno.land/std@v0.34.0/http/http_status.ts\";\n\nexport {\n  walkSync\n} from \"https://deno.land/std@v0.34.0/fs/mod.ts\";\n\nexport {\n  assertEquals,\n  assertThrows\n} from \"https://deno.land/std@v0.34.0/testing/asserts.ts\";\n\nexport {\n  contentType\n} from \"https://deno.land/std@v0.34.0/media_types/mod.ts\";\n\nexport {\n  BufReader,\n  ReadLineResult\n} from \"https://deno.land/std@v0.34.0/io/bufio.ts\";\n\nexport {\n  StringReader\n} from \"https://deno.land/std@v0.34.0/io/readers.ts\";\n\nexport {\n  MultipartReader, FormFile\n} from \"https://deno.land/std@v0.34.0/mime/multipart.ts\";\n",
+        "extension": "ts",
+        "filename": "deps.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/deps.ts"
       }
     },
     "/src/example_code/tutorials": {
