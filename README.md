@@ -40,16 +40,14 @@ Install Sass.
 brew install sass/sass/sass
 ```
 
-Install dependencies.
+Download Python v2.7.16
 
-```shell
-npm install
-```
+[https://www.python.org/downloads/release/python-2716/](https://www.python.org/downloads/release/python-2716/)
 
 Install watchdog for file watching.
 
 ```shell
-console/pip.install.watchdog
+console/install_watchdog
 ```
 
 Add the following to your `$PATH` variable.
@@ -59,6 +57,12 @@ Add the following to your `$PATH` variable.
 ```
 
 _The installer warns you about setting Python binaries to your `$PATH` variable. Pay attention to that message._
+
+Install Node modules.
+
+```shell
+npm install
+```
 
 ## Running The Development Environment For `/deno-drash`
 
