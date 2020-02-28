@@ -27,7 +27,6 @@
     "webpack-cli": "^3.2.3"
   },
   "scripts": {
-    "dev": "console/dev",
     "manual-deploy-production": "console/manual_deploy",
     "manual-deploy-staging": "console/manual_deploy_staging",
     "production": "console/production",

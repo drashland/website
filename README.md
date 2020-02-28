@@ -65,7 +65,7 @@ _The installer warns you about setting Python binaries to your `$PATH` variable.
 Step 1: Run the dev server (make sure you are in the `deno-drash` directory).
 
 ```shell
-npm run dev
+console/dev
 ```
 
 The dev server is watched by `watchdog`. `watchdog` is like `nodemon` for Node.js. Every time you save changes, the dev server will reload with your changes. The browser will not reload on its own. You have to do that yourself.
