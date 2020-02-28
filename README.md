@@ -28,6 +28,12 @@
 
 ## Setup
 
+Install the prerequisites:
+
+* [Homebrew](https://brew.sh/)
+* [Python v2.7.16](https://www.python.org/downloads/release/python-2716/)
+* [Node v13.x and npm v6.x](https://nodejs.org/en/download/current/)
+
 Go to the following directory:
 
 ```
@@ -40,23 +46,17 @@ Install Sass.
 brew install sass/sass/sass
 ```
 
-Download Python v2.7.16
-
-[https://www.python.org/downloads/release/python-2716/](https://www.python.org/downloads/release/python-2716/)
-
 Install watchdog for file watching.
 
 ```shell
 console/install_watchdog
 ```
 
-Add the following to your `$PATH` variable.
+Add the following to your `$PATH` variable. _The installer warns you about setting Python binaries to your `$PATH` variable. Please follow Python's instructions._
 
 ```
 ~/Library/Python/2.7/bin 
 ```
-
-_The installer warns you about setting Python binaries to your `$PATH` variable. Pay attention to that message._
 
 Install Node modules.
 
