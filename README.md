@@ -11,9 +11,9 @@
 
 * Landing Page: [https://drash.land](https://drash.land)
     * This page serves as the entry point to all Drash modules and documentation.
-* deno-drash Production: [https://drash.land/deno-drash](https://drash.land/deno-drash)
+* deno-drash Production: [https://drash.land/docs](https://drash.land/docs)
     * This page includes code that is released and stable.
-* deno-drash Staging: [https://drash.land/deno-drash/staging](https://drash.land/deno-drash/staging)
+* deno-drash Staging: [https://drash.land/docs/staging](https://drash.land/deno-drash/staging)
     * This page includes code that is still under development, but ready to be realeased soon. This page might not always be accessible.
 
 ## Technology Stack
@@ -28,6 +28,12 @@
 
 ## Setup
 
+Install the prerequisites:
+
+* [Homebrew](https://brew.sh/)
+* [Python v2.7.16](https://www.python.org/downloads/release/python-2716/)
+* [Node v13.x and npm v6.x](https://nodejs.org/en/download/current/)
+
 Go to the following directory:
 
 ```
@@ -40,23 +46,17 @@ Install Sass.
 brew install sass/sass/sass
 ```
 
-Download Python v2.7.16
-
-[https://www.python.org/downloads/release/python-2716/](https://www.python.org/downloads/release/python-2716/)
-
 Install watchdog for file watching.
 
 ```shell
 console/install_watchdog
 ```
 
-Add the following to your `$PATH` variable.
+Add the following to your `$PATH` variable. _The installer warns you about setting Python binaries to your `$PATH` variable. Please follow Python's instructions._
 
 ```
 ~/Library/Python/2.7/bin 
 ```
-
-_The installer warns you about setting Python binaries to your `$PATH` variable. Pay attention to that message._
 
 Install Node modules.
 
