@@ -8,7 +8,7 @@ div.c-sidebar
       div.col
         h1.module-name.margin-bottom--0
           a(href="/")
-            img.margin-bottom--0(alt="Drash" :src="$conf.base_url + '/public/assets/img/logo_drash.png'" width="auto" height="80")
+            img.margin-bottom--0(alt="Drash" :src="'/public/assets/img/drash.svg'" width="auto" height="130")
             span.text-hide Drash
   div.c-sidebar__body
     div.c-sidebar__menu
