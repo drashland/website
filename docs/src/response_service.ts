@@ -32,15 +32,15 @@ export function getTemplate(inputFile: any) {
       deno: docsConfig.example_code_versions.deno
     }
   }, null, 2);
-  // All public-facing environments get their variables from
-  // app_data.{environment}.js. The development environment cannot keep writing
-  // app_data.development.js on every request, so we serve `app_data` on the fly
-  if (env.environment != "development") {
-    Deno.writeFileSync(
-      docsConfig.server.directory + "/public/assets/js/app_data." + env.environment + ".js",
-      encoder.encode("const app_data = " + appDataJson + ";")
-    );
-  }
+  // // All public-facing environments get their variables from
+  // // app_data.{environment}.js. The development environment cannot keep writing
+  // // app_data.development.js on every request, so we serve `app_data` on the fly
+  // if (env.environment != "development") {
+  //   Deno.writeFileSync(
+  //     docsConfig.server.directory + "/public/assets/js/app_data." + env.environment + ".js",
+  //     encoder.encode("const app_data = " + appDataJson + ";")
+  //   );
+  // }
 
   let environmentScripts = getEnvironmentScripts(
     env.environment,
@@ -64,8 +64,7 @@ export function getTemplate(inputFile: any) {
 
 function getEnvironmentScripts(environment: string, baseUrl: string, appData: any, cacheBuster: string) {
   if (environment != "development") {
-    return `<script src="${baseUrl}/public/assets/js/app_data.${environment}.js?version=${cacheBuster}"></script>
-  <script src="${baseUrl}/public/assets/js/vendors~app.${environment}.js?version=${cacheBuster}"></script>
+    return `<script src="${baseUrl}/public/assets/js/vendors~app.${environment}.js?version=${cacheBuster}"></script>
   <script src="${baseUrl}/public/assets/js/vendors~app~bundle.${environment}.js?version=${cacheBuster}"></script>
   <script src="${baseUrl}/public/assets/js/vendors~bundle.${environment}.js?version=${cacheBuster}"></script>
   <script src="${baseUrl}/public/assets/js/vendors~router.${environment}.js?version=${cacheBuster}"></script>`;
