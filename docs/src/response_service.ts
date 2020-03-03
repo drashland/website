@@ -1,5 +1,4 @@
 import { Drash } from "../deps.ts";
-import { renderFile } from "https://deno.land/x/dejs@0.3.4/mod.ts";
 import docsConfig from "../conf/app.ts";
 let envVarsPath = "../conf/env_vars_" + Deno.env().DENO_DRASH_DOCS_ENVIRONMENT + ".json";
 let env = (await import(envVarsPath)).default;
@@ -16,20 +15,12 @@ return fileContents.replace(
 // FILE MARKER: FUNCTIONS - EXPORTED ///////////////////////////////////////////
 
 export async function compile(inputFile: any, outputFile: any): Promise<any> {
-  let body = await getAppDataInHtml(inputFile);
+  let body = await getTemplate(inputFile);
   let encoded = encoder.encode(body);
   Deno.writeFileSync(outputFile, encoded);
 }
 
-export function getAppData() {
-  let templateVariables: any = {
-    conf: {
-      base_url: env.base_url,
-      environment: env.environment,
-      cache_buster: new Date().getTime(),
-    },
-  };
-
+export function getTemplate(inputFile: any) {
   let appDataJson: any = JSON.stringify({
     example_code: getExampleCode(),
     store: {
@@ -41,7 +32,6 @@ export function getAppData() {
       deno: docsConfig.example_code_versions.deno
     }
   }, null, 2);
-
   // All public-facing environments get their variables from
   // app_data.{environment}.js. The development environment cannot keep writing
   // app_data.development.js on every request, so we serve `app_data` on the fly
@@ -50,20 +40,43 @@ export function getAppData() {
       docsConfig.server.directory + "/public/assets/js/app_data." + env.environment + ".js",
       encoder.encode("const app_data = " + appDataJson + ";")
     );
-    return templateVariables;
   }
 
-  templateVariables.app_data = appDataJson;
-  return templateVariables;
-}
+  let environmentScripts = getEnvironmentScripts(
+    env.environment,
+    env.base_url,
+    appDataJson,
+    new Date().getTime().toString()
+  );
 
-export async function getAppDataInHtml(inputFile: any) {
-  const output: any = await renderFile(inputFile, getAppData());
-  let html: any = output.toString();
-  return html;
+  let template = decoder.decode(Deno.readFileSync(inputFile));
+  template = template
+    .replace(/\{\{ base_url \}\}/g, env.base_url)
+    .replace(/\{\{ environment \}\}/g, env.environment)
+    .replace(/\{\{ cache_buster \}\}/g, new Date().getTime().toString())
+    .replace(/\{\{ environment_scripts \}\}/g, environmentScripts)
+    .replace(/\{\{ app_data \}\}/g, appDataJson)
+
+  return template;
 }
 
 // FILE MARKER: FUNCTIONS - LOCAL //////////////////////////////////////////////
+
+function getEnvironmentScripts(environment: string, baseUrl: string, appData: any, cacheBuster: string) {
+  if (environment != "development") {
+    return `<script src="${baseUrl}/public/assets/js/app_data.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~app.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~app~bundle.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~bundle.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~router.${environment}.js?version=${cacheBuster}"></script>`;
+  }
+
+  return `<script src="${baseUrl}/public/assets/js/vendors~app~bundle.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~app~bundle~router.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~app~router.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~bundle.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~bundle~router.${environment}.js?version=${cacheBuster}"></script>`;
+}
 
 function getPageDataApiReference(): any {
   let contents: string = "";
