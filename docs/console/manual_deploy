@@ -5,6 +5,8 @@
 
 (
   export DENO_DRASH_DOCS_ENVIRONMENT="production"
+  git config user.name "drashbot"
+  git config user.email "drash.crooks@gmail.com"
   console/run_webpack --env.environment="production"
   console/compile_assets
   console/compile_ejs_templates
