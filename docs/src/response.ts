@@ -13,11 +13,10 @@ class Response extends Drash.Http.Response {
     switch (this.headers.get("Content-Type")) {
       // Handle HTML
       case "text/html":
-        template = `${config.server.directory}/src/templates/ejs/index.ejs`;
         Drash.Members.ConsoleLogger.debug("Rendering HTML response.");
 
         try {
-          body = await ResponseService.getAppDataInHtml(template);
+          body = await ResponseService.getTemplate(`${config.server.directory}/src/templates/html/index.html`);
         } catch (error) {
           Drash.Members.ConsoleLogger.error("WTF... tried rendering an HTML response, but I don't even know.");
           Drash.Members.ConsoleLogger.error(`Attempted rendering file: ${template}`);

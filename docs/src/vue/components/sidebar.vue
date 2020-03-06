@@ -47,6 +47,9 @@ div.c-sidebar
           a-base-url(href="/tutorials/middleware/adding-server-level-middleware") Adding Server-Level Middleware
           a-base-url(href="/tutorials/middleware/adding-resource-level-middleware") Adding Resource-Level Middleware
           a-base-url(href="/tutorials/middleware/morgan-style-logging-middleware") Morgan-Style Logging Middleware
+        //a Cookies
+        //div.l-submenu-1
+        //  a-base-url(href="/tutorials/cookies/getting-request-cookies") Getting Request Cookies
         a Logging
         div.l-submenu-1
           a-base-url(href="/tutorials/logging/logging-to-the-terminal") Logging To The Terminal
