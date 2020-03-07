@@ -46,6 +46,36 @@ page-tutorial(
       h2-hash Steps
       ol
         li
-          p Create your resource file.
+          p Create your resource file. This file will get the <code>my_cookie</code> cookie value and use it in the response body.
           code-block(:data="example_code.home_resource")
+          p Create your app file.
+          code-block(:data="example_code.app")
+  div.row
+    div.col
+      hr
+      h2-hash Verification
+      ol
+        li
+          p Run your app.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | deno --allow-net --allow-env app.ts
+          p-deno-flag-allow-net
+          p-deno-flag-allow-env-drash-test
+        li
+          p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/</code> and pass in the following cookie key-value pair: <code>my_cookie=chocolate</code>.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | curl 
+                | --request GET \
+                | -cookie my_cookie=chocolate \
+                | localhost:1447
+          p You should receive the following response:
+            code-block-slotted(:header="false")
+              template(v-slot:code)
+                | You passed in the following cookie value: chocolate
 </template>
