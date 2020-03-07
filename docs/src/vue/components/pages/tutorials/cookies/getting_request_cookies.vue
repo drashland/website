@@ -48,6 +48,7 @@ page-tutorial(
         li
           p Create your resource file. This file will get the <code>my_cookie</code> cookie value and use it in the response body.
           code-block(:data="example_code.home_resource")
+        li
           p Create your app file.
           code-block(:data="example_code.app")
   div.row
@@ -72,7 +73,7 @@ page-tutorial(
               template(v-slot:code)
                 | curl 
                 | --request GET \
-                | -cookie my_cookie=chocolate \
+                | --cookie my_cookie=chocolate \
                 | localhost:1447
           p You should receive the following response:
             code-block-slotted(:header="false")
