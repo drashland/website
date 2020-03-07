@@ -1,17 +1,17 @@
 <script>
 export const resource = {
-  paths: ["/tutorials/cookies/getting-request-cookies"],
+  paths: ["/tutorials/cookies/setting-response-cookies"],
   meta: {
-    title: "Getting Request Cookies",
-    tutorial_title: "Getting Request Cookies",
-    source_code_uri: "/tutorials/cookies/getting_request_cookies"
+    title: "Setting Response Cookies",
+    tutorial_title: "Setting Response Cookies",
+    source_code_uri: "/tutorials/cookies/setting_response_cookies"
   }
 }
 
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/cookies/getting_request_cookies'],
+      example_code: this.$app_data.example_code['/src/example_code/tutorials/cookies/setting_response_cookies'],
       toc: {
         items: [
           "Before You Get Started",
@@ -33,7 +33,7 @@ page-tutorial(
     div.col
       hr
       h2-hash Before You Get Started
-      p In this tutorial, you will learn how to get cookies from a request and parse them into a usable object.
+      p In this tutorial, you will learn how to set cookies on a response object.
       p Drash uses <a href="https://deno.land/std/http/cookie.ts" target="_BLANK">cookie.ts</a> from Deno Standard Modules' HTTP module for its cookie schema.
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
@@ -46,7 +46,7 @@ page-tutorial(
       h2-hash Steps
       ol
         li
-          p Create your resource file. This file will get the <code>my_cookie</code> cookie value and use it in the response body.
+          p Create your resource file. This file will set the <code>my_cookie</code> cookie on the response object.
           code-block(:data="example_code.home_resource")
         li
           p Create your app file.
@@ -66,16 +66,30 @@ page-tutorial(
           p-deno-flag-allow-net
           p-deno-flag-allow-env-drash-test
         li
-          p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/</code> and pass in the following cookie key-value pair: <code>my_cookie=chocolate</code>.
+          p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/</code>.
           p
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | curl 
-                | --cookie my_cookie=chocolate \
+                | curl
+                | --verbose
                 | localhost:1447
           p You should receive the following response:
-            code-block-slotted(:header="false")
+            code-block-slotted(:header="false" line_highlight="11")
               template(v-slot:code)
-                | You passed in the following cookie value: chocolate
+                | *   Trying 127.0.0.1...
+                | * TCP_NODELAY set
+                | * Connected to localhost (127.0.0.1) port 1447 (#0)
+                | > GET / HTTP/1.1
+                | > Host: localhost:1447
+                | > User-Agent: curl/7.64.1
+                | > Accept: */*
+                | >
+                | < HTTP/1.1 200 OK
+                | < content-type: application/json
+                | < set-cookie: my_cookie=chocolate
+                | < content-length: 24
+                | <
+                | * Connection #0 to host localhost left intact
+                | "my_cookie cookie sent!"* Closing connection 0
 </template>

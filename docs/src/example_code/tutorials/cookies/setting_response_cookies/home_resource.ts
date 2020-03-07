@@ -5,8 +5,8 @@ export default class HomeResource extends Drash.Http.Resource {
   static paths = ["/"];
 
   public GET() {
-    const cookieValue = this.request.getCookie("my_cookie");
-    this.response.body = `You passed in the following cookie value: ${cookieValue}`;
+    this.response.setCookie({name: "my_cookie", value: "chocolate"})
+    this.response.body = "my_cookie cookie sent!"
     return this.response;
   }
 }
