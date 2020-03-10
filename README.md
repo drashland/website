@@ -37,7 +37,7 @@ Install the prerequisites:
 Go to the following directory:
 
 ```
-cd deno-drash
+cd docs
 ```
 
 Install Sass.
