@@ -6,7 +6,7 @@ const decoder = new TextDecoder();
 const encoder = new TextEncoder();
 
 function switchVersion(fileContents: string): string {
-return fileContents.replace(
+  return fileContents.replace(
     `import Drash from "https://deno.land/x/drash/mod.ts";`,
     docsConfig.example_code_versions.drash
   );

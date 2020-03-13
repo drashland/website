@@ -71,9 +71,7 @@ page-tutorial(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | curl
-                | --verbose
-                | localhost:1447
+                | curl --verbose localhost:1447
           p You should receive the following response:
             code-block-slotted(:header="false" line_highlight="11")
               template(v-slot:code)
