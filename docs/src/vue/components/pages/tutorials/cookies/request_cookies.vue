@@ -1,17 +1,17 @@
 <script>
 export const resource = {
-  paths: ["/tutorials/cookies/getting-request-cookies"],
+  paths: ["/tutorials/cookies/request-cookies"],
   meta: {
-    title: "Getting Request Cookies",
-    tutorial_title: "Getting Request Cookies",
-    source_code_uri: "/tutorials/cookies/getting_request_cookies"
+    title: "Request Cookies",
+    tutorial_title: "Request Cookies",
+    source_code_uri: "/tutorials/cookies/request_cookies"
   }
 }
 
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/cookies/getting_request_cookies'],
+      example_code: this.$app_data.example_code['/src/example_code/tutorials/cookies/request_cookies'],
       toc: {
         items: [
           "Before You Get Started",
@@ -33,8 +33,14 @@ page-tutorial(
     div.col
       hr
       h2-hash Before You Get Started
-      p In this tutorial, you will learn how to get cookies from a request and parse them into a usable object.
+      p In this tutorial, you will learn how to get cookies from a request and parse them into a key-value pair object.
       p Drash uses <a href="https://deno.land/std/http/cookie.ts" target="_BLANK">cookie.ts</a> from Deno Standard Modules' HTTP module for its cookie schema.
+      p Getting a cookie from a request can be done using the following call:
+      p
+        code-block-slotted(:header="false" language="typescript")
+          template(v-slot:title)
+          template(v-slot:code)
+            | const cookieValue = this.request.getCookie("my_cookie");
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
     div.col
@@ -71,9 +77,7 @@ page-tutorial(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | curl 
-                | --cookie my_cookie=chocolate \
-                | localhost:1447
+                | curl --cookie my_cookie=chocolate localhost:1447
           p You should receive the following response:
             code-block-slotted(:header="false")
               template(v-slot:code)

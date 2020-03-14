@@ -49,8 +49,8 @@ div.c-sidebar
           a-base-url(href="/tutorials/middleware/morgan-style-logging-middleware") Morgan-Style Logging Middleware
         a Cookies
         div.l-submenu-1
-          a-base-url(href="/tutorials/cookies/getting-request-cookies") Getting Request Cookies
-          a-base-url(href="/tutorials/cookies/setting-response-cookies") Setting Response Cookies
+          a-base-url(href="/tutorials/cookies/request-cookies") Request Cookies
+          a-base-url(href="/tutorials/cookies/response-cookies") Response Cookies
         a Logging
         div.l-submenu-1
           a-base-url(href="/tutorials/logging/logging-to-the-terminal") Logging To The Terminal
