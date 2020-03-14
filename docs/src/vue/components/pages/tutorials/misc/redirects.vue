@@ -6,18 +6,20 @@ page-tutorial(
     div.col
       hr
       h2-hash Before You Get Started
-      p Drash defines redirections according to MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections" target="_BLANK">https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections</a>
-      p The <code>redirect</code> method is in the <code>Drash.Http.Response</code> class. To execute a redirect, call <code>this.response.direct(httpStatusCode: number, location: string)</code> in the resource.
-      p Permanently direct to a fully-qualified URL
-        code-block-slotted(:header="false")
+      p Drash defines redirections according to the MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections" target="_BLANK">https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections</a>
+      p Permanently redirect:
+      p
+        code-block-slotted(:header="false" language="typescript")
           template(v-slot:title) Terminal
           template(v-slot:code)
-            | this.response.redirect(301, 'https://drash.land')
-      p Temporarily redirect to a relative path
-        code-block-slotted(:header="false")
+            | this.response.redirect(301, "https://drash.land")
+      p Temporarily redirect:
+      p
+        code-block-slotted(:header="false" language="typescript")
           template(v-slot:title) Terminal
           template(v-slot:code)
-            | this.response.redirect(302, '/cola/1')
+            | this.response.redirect(302, "/cola/1")
+      p You can redirect using a fully-qualified URL or a relative URL as seen in the example code blocks above.
 
   div.row
     div.col
@@ -28,10 +30,10 @@ page-tutorial(
       hr
       h2-hash Steps
       ol
-        li Create your app's entry point.
-          code-block(:data="example_code.app")
-        li Create a resource.
+        li Create your <code>ColaResource</code> file.
           code-block(:data="example_code.cola_resource")
+        li Create your app file.
+          code-block(:data="example_code.app")
   div.row
     div.col
       hr
@@ -41,13 +43,18 @@ page-tutorial(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno app.ts
-          p Make a GET request to your newly created resource.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | curl localhost:8888/cola?id=5
+              | deno --allow-net --allow-env app.ts
+          p-deno-flag-allow-net
+          p-deno-flag-allow-env-drash-test
+        li
+          p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/cola?id=5</code> to be redirected to <code>/cola/1</code>.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | curl localhost:1447/cola?id=5
           p You should receive the following response:
+          p
             code-block-slotted(:header="false")
               template(v-slot:title) Terminal
               template(v-slot:code)

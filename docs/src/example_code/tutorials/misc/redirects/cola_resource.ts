@@ -1,10 +1,10 @@
-import Drash from "/var/src/drashland/deno-drash/mod.ts";
+import Drash from "https://deno.land/x/drash/mod.ts";
 
 export default class ColaResource extends Drash.Http.Resource {
   protected COLAS: any = {
-    1: 'Diet Cola',
-    2: 'Vanilla Cola',
-    3: 'Cherry Cola',
+    1: "Diet Cola",
+    2: "Vanilla Cola",
+    3: "Cherry Cola",
   };
 
   static paths = ["/cola/:id"];
