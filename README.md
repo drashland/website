@@ -1,4 +1,4 @@
-# Drash Land
+# deno-drash-website
 
 <a href="https://github.com/drashland/deno-drash/">
   <img src="https://img.shields.io/github/release/drashland/deno-drash.svg?color=bright_green&label=drash%20latest">
@@ -37,7 +37,7 @@ Install the prerequisites:
 Go to the following directory:
 
 ```
-cd deno-drash
+cd docs
 ```
 
 Install Sass.
@@ -64,11 +64,38 @@ Install Node modules.
 npm install
 ```
 
-## Running The Development Environment For `/deno-drash`
-
-Step 1: Run the dev server (make sure you are in the `deno-drash` directory).
+Set up your `app.ts` config file by first copying the sample config file.
 
 ```shell
+cd docs/conf
+cp app.sample.ts app.ts
+```
+
+Open your `app.ts` config file and make sure your `deno_drash.directory` and `server.directory` configs are set correctly.
+
+* The `deno_drash.directory` config should point to your `deno-drash` local repo.
+* The `server.directory` config should point to your `deno-drash-website` local repo's `docs` directory.
+* You must use absolute paths when setting these configs.
+
+```typescript
+export default {
+  ...
+  deno_drash: {
+    directory: "/var/src/drashland/deno-drash",
+  },
+  ...
+  server: {
+    directory: "/var/src/drashland/deno-drash-website/docs",
+  }
+}
+```
+
+## Running The Development Environment For `/docs`
+
+Step 1: Run the dev server.
+
+```shell
+cd docs
 console/dev
 ```
 
@@ -78,15 +105,13 @@ The dev server starts webpack in the background with the `--watch` flag. You do 
 
 ### Troubleshooting
 
-Problem with node-sass?
+node-sass
 
-```
-npm rebuild node-sass
-```
+* Solution: `npm rebuild node-sass`
 
-Problem with watchdog?
+watchdog
 
-Make sure you have Python 2.7 installed.
+* Solution: Install [Python 2.7](https://www.python.org/download/releases/2.7/)
 
 ## Compile SASS to CSS
 
