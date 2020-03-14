@@ -19,6 +19,6 @@ const server = new Drash.Http.Server({
   logger: Drash.Members.ConsoleLogger,
   resources: [Resource],
   static_paths: ["/public"]
-})
+});
 
 server.run();
