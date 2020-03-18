@@ -8,7 +8,7 @@ class Response extends Drash.Http.Response {
 
   public async send(): Promise<any> {
     let body;
-    let template;
+    let template = `${config.server.directory}/index.template.html`;
 
     switch (this.headers.get("Content-Type")) {
       // Handle HTML
@@ -16,7 +16,7 @@ class Response extends Drash.Http.Response {
         Drash.Members.ConsoleLogger.debug("Rendering HTML response.");
 
         try {
-          body = await ResponseService.getTemplate(`${config.server.directory}/src/templates/html/index.html`);
+          body = await ResponseService.getTemplate(template);
         } catch (error) {
           Drash.Members.ConsoleLogger.error("WTF... tried rendering an HTML response, but I don't even know.");
           Drash.Members.ConsoleLogger.error(`Attempted rendering file: ${template}`);

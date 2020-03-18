@@ -50,6 +50,7 @@ export function getTemplate(inputFile: any) {
   );
 
   let template = decoder.decode(Deno.readFileSync(inputFile));
+  console.log(template);
   template = template
     .replace(/\{\{ base_url \}\}/g, env.base_url)
     .replace(/\{\{ environment \}\}/g, env.environment)
@@ -70,11 +71,17 @@ function getEnvironmentScripts(environment: string, baseUrl: string, appData: an
   <script src="${baseUrl}/public/assets/js/vendors~router.${environment}.js?version=${cacheBuster}"></script>`;
   }
 
-  return `<script src="${baseUrl}/public/assets/js/vendors~app~bundle.${environment}.js?version=${cacheBuster}"></script>
+  return `
   <script src="${baseUrl}/public/assets/js/vendors~app~bundle~router.${environment}.js?version=${cacheBuster}"></script>
-  <script src="${baseUrl}/public/assets/js/vendors~app~router.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~bundle~router.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~app~bundle~router.${environment}.js?version=${cacheBuster}"></script>
   <script src="${baseUrl}/public/assets/js/vendors~bundle.${environment}.js?version=${cacheBuster}"></script>
-  <script src="${baseUrl}/public/assets/js/vendors~bundle~router.${environment}.js?version=${cacheBuster}"></script>`;
+  <script src="${baseUrl}/public/assets/js/bundle.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/router.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~app~bundle.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~app~router.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/app.${environment}.js?version=${cacheBuster}"></script>
+`
 }
 
 function getPageDataApiReference(): any {
