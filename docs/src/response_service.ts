@@ -66,13 +66,13 @@ export function getTemplate(inputFile: any) {
 function getEnvironmentScripts(environment: string, baseUrl: string, appData: any, cacheBuster: string) {
   if (environment != "development") {
     return `
-  <script src="${baseUrl}/public/assets/js/app.${environment}.js?version=${cacheBuster}"></script>
-  <script src="${baseUrl}/public/assets/js/bundle.${environment}.js?version=${cacheBuster}"></script>
-  <script src="${baseUrl}/public/assets/js/router.${environment}.js?version=${cacheBuster}"></script>
-  <script src="${baseUrl}/public/assets/js/vendors~app.${environment}.js?version=${cacheBuster}"></script>
   <script src="${baseUrl}/public/assets/js/vendors~app~bundle.${environment}.js?version=${cacheBuster}"></script>
   <script src="${baseUrl}/public/assets/js/vendors~bundle.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/bundle.${environment}.js?version=${cacheBuster}"></script>
   <script src="${baseUrl}/public/assets/js/vendors~router.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/router.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/vendors~app.${environment}.js?version=${cacheBuster}"></script>
+  <script src="${baseUrl}/public/assets/js/app.${environment}.js?version=${cacheBuster}"></script>
 `;
   }
 
