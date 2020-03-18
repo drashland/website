@@ -7,6 +7,4 @@
   export DENO_DRASH_DOCS_ENVIRONMENT="production"
   console/run_webpack --env.environment="production"
   console/compile_assets
-  git add .
-  git commit -m "$(date) - manual build"
 )

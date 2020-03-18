@@ -32,7 +32,6 @@ window.app = new Vue({
   },
   router: router,
   mounted() {
-    console.log("fuck");
     fade_in_element($("#vue_app_mount"));
   }
 });
