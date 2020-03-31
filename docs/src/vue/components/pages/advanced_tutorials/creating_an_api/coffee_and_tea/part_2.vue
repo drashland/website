@@ -57,9 +57,9 @@ page-tutorial-part(
       ol
         li
           p Create your app file.
-          code-block(:data="example_code.app" language="javascript" line_highlight="3-4,10-11")
           p When this file is run, it will load in Drash, set up your server, and start your server.
           p You will notice that there are <code>import</code> statements for your resource files (highlighted). You will be creating these files in the next tutorial part. For now, you just need to make sure your server expects and registers them.
+          code-block(:data="example_code.app" language="javascript" line_highlight="3-4,10-11")
   div.row
     div.col
       hr
