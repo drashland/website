@@ -82,6 +82,15 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-2") Part 2: Creating The Server
           a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-3") Part 3: Creating The Resources
           a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-4") Part 4: Modifying The Response Schema
+        a-base-url(href="/advanced-tutorials/creating-a-vue-app") Creating A Vue App
+        div.l-submenu-1
+          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/introduction") Introduction
+          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-1") Part 1: Installing Node
+          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-2") Part 2: Installing Dependencies
+          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-3") Part 3: Setting Up webpack
+          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-4") Part 4: Creating The Server
+          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-5") Part 5: Creating The Resource
+          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-6") Part 6: Serving The HTML Template
       a-base-url.heading-link(href="/third-party-tutorials") Third Party Tutorials
       div.c-sidebar__menu-body
         a-base-url(href="/third-party-tutorials/introduction") Introduction
