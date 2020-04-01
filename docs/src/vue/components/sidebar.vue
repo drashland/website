@@ -82,7 +82,7 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-2") Part 2: Creating The Server
           a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-3") Part 3: Creating The Resources
           a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-4") Part 4: Modifying The Response Schema
-        a-base-url(href="/advanced-tutorials/creating-a-vue-app") Creating A Vue App
+        a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno_tweets") Creating A Vue App
         div.l-submenu-1
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/introduction") Introduction
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-1") Part 1: Creating The Server
