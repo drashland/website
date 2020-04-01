@@ -13,7 +13,7 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 2,
-      parts: 5,
+      parts: 4,
       toc: {
         items: [
           "Before You Get Started",
@@ -39,7 +39,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
-      p Your server will not be able to serve your Vue app until you give it the resource that can send the template that will include your Vue app. In Part 1, you made your server expect a home resource. You will create this file next and will verify your server runs properly with it in the Verification section.
+      p Your server will not be able to serve your HTML file until you give it the resource that can do so. In Part 1, you made your server expect a home resource. You will create this file next and will verify your server runs properly with it in the Verification section.
       p-view-source-code
   div.row
     div.col
@@ -66,10 +66,10 @@ page-tutorial-part(
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | deno --allow-net --allow-read --allow-env app.ts
-          p This time, your app requires three flags to run. You already know what the <code>--allow-net</code> flag does from Part 1. <code>--allow-read</code> is required because your resource requires read access to read your <code>index.html</code>. You can learn more about the <code>--allow-read</code> flag at <a href="https://deno.land/std/manual.md" target="_BLANK">https://deno.land/std/manual.md</a>.
-          p-deno-flag-allow-env-drash-test
+          p This time, your app requires three flags to run. You already know what the <code>--allow-net</code> and <code>--allow-env</code> flags do from Part 1.
+          p <code>--allow-read</code> is required because your resource requires read access to read your <code>index.html</code> file. You can learn more about the <code>--allow-read</code> flag at <a href="https://deno.land/std/manual.md" target="_BLANK">https://deno.land/std/manual.md</a>.
         li Go to <code>localhost:1447/</code> in your browser.
-          p You should receive the following response (we pretty-printed the response for you):
+          p You should receive the following response:
           p
             code-block-slotted(:header="false")
               template(v-slot:code)

@@ -5,7 +5,7 @@ export const resource = {
     "/advanced-tutorials/creating-a-vue-app/deno-tweets/introduction",
   ],
   meta: {
-    title: "Creating An API",
+    title: "Creating A Vue App",
     subtitle: "Introduction",
     source_code_uri: "/advanced_tutorials/creating_a_vue_app/deno_tweets"
   }
@@ -39,9 +39,6 @@ page-tutorial-part(
     div.col
       hr
       h2-hash End State
-      p Below are samples of what you will create.
-      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/1.png'")
-      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/2.png'")
-      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/3.png'")
-      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/4.png'")
+      p Below is a sample of what you will create.
+      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_4.png'")
 </template>

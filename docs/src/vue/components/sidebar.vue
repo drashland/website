@@ -89,7 +89,6 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-2") Part 2: Creating The Resource
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-3") Part 3: Creating The Template
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-4") Part 4: Creating The Vue App
-          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-5") Part 5: Server The Template
       a-base-url.heading-link(href="/third-party-tutorials") Third Party Tutorials
       div.c-sidebar__menu-body
         a-base-url(href="/third-party-tutorials/introduction") Introduction

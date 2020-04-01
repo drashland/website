@@ -1,6 +1,4 @@
 ▾ /path/to/your/project/
 	app.ts
-	coffee.json
-	coffee_resource.ts
-	tea.json
-	tea_resource.ts
+	home_resource.ts
+	index.html

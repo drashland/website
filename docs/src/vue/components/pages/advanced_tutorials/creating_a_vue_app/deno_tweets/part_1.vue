@@ -13,7 +13,7 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 1,
-      parts: 5,
+      parts: 4,
       toc: {
         items: [
           "Before You Get Started",
@@ -54,14 +54,14 @@ page-tutorial-part(
           p Create your app file.
           code-block(:data="example_code.app" language="javascript" line_highlight="3")
           p When this file is run, it will load in Drash, set up your server, and start your server.
-          p You will notice that there is <code>import</code> statement for your resource file (highlighted). You will be creating this file in the next tutorial part. For now, you just need to make sure your server expects and registers it.
+          p You will notice that there is an <code>import</code> statement for your resource file (highlighted). You will be creating this file in the next tutorial part. For now, you just need to make sure your server expects and registers it.
   div.row
     div.col
       hr
       h2-hash Verification
-      p If you run your app in its current state, you will get an error. The TypeScript compiler will throw an error stating it cannot resolve your resource files. So, before you verify that your server is working, you need to comment out the lines relevant to your resource files.
+      p If you run your app in its current state, you will get an error. The TypeScript compiler will throw an error stating it cannot resolve your resource file. So, before you verify that your server is working, you need to comment out the lines relevant to your resource file.
       ol
-        li Comment out the code relevant to your resource files.
+        li Comment out the code relevant to your resource file.
           code-block-slotted(language="typescript" line_highlight="3,8")
             template(v-slot:title) /path/to/your/project/app.ts
             template(v-slot:code)
@@ -72,7 +72,7 @@ page-tutorial-part(
               | const server = new Drash.Http.Server({
               |   address: "localhost:1447",
               |   response_output: "text/html",
-              |   resources: [HomeResource],
+              | //  resources: [HomeResource],
               |   directory: "/path/to/your/project",
               |   static_paths: ["/public"]
               | });
@@ -82,8 +82,9 @@ page-tutorial-part(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net app.ts
+              | deno --allow-net --allow-env app.ts
           p-deno-flag-allow-net
+          p-deno-flag-allow-env-drash-test
           p When you run your app, you should see the following:
           code-block-slotted
             template(v-slot:title) Terminal
@@ -105,7 +106,7 @@ page-tutorial-part(
             template(v-slot:code)
               | import Drash from "https://deno.land/x/drash/mod.ts";
               |
-              | // import HomeResource from "./home_resource.ts";
+              | import HomeResource from "./home_resource.ts";
               |
               | const server = new Drash.Http.Server({
               |   address: "localhost:1447",
