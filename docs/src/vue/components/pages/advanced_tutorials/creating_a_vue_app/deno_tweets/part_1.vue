@@ -13,7 +13,7 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 1,
-      parts: 4,
+      parts: 5,
       toc: {
         items: [
           "Before You Get Started",
