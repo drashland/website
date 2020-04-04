@@ -1,5 +1,5 @@
 import Drash from "https://deno.land/x/drash/mod.ts";
-import { renderFile } from "https://deno.land/x/dejs@0.3.4/mod.ts";
+import { renderFile } from "https://deno.land/x/dejs/mod.ts";
 
 export default class HomeResource extends Drash.Http.Resource {
 
@@ -8,8 +8,8 @@ export default class HomeResource extends Drash.Http.Resource {
   public async GET() {
     // Set the data if any
     let data = {
-      name: this.request.getQueryParam("name")
-        ? this.request.getQueryParam("name")
+      name: this.request.geturlQueryParam("name")
+        ? this.request.geturlQueryParam("name")
         : "(name not specified)"
     };
     // Render and serve the template to the client
