@@ -81,6 +81,11 @@
         "contents": "",
         "filename": "creating_a_vue_app",
         "title": "/path/to/your/project/creating_a_vue_app"
+      },
+      "creating_a_static_html_app": {
+        "contents": "",
+        "filename": "creating_a_static_html_app",
+        "title": "/path/to/your/project/creating_a_static_html_app"
       }
     },
     "/src/example_code/advanced_tutorials/content_negotiation": {
@@ -722,6 +727,142 @@
     "/src/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_1": {
       "app": {
         "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \"/path/to/your/project\",\n  static_paths: [\"/public\"]\n});\n\nserver.run();\n\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_static_html_app": {
+      "about_me": {
+        "contents": "",
+        "filename": "about_me",
+        "title": "/path/to/your/project/about_me"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_static_html_app/about_me": {
+      "part_2": {
+        "contents": "",
+        "filename": "part_2",
+        "title": "/path/to/your/project/part_2"
+      },
+      "part_3": {
+        "contents": "",
+        "filename": "part_3",
+        "title": "/path/to/your/project/part_3"
+      },
+      "part_1": {
+        "contents": "",
+        "filename": "part_1",
+        "title": "/path/to/your/project/part_1"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_static_html_app/about_me/part_2": {
+      "about_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\nconst decoder = new TextDecoder();\n\nexport default class AboutResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/about\"\n  ];\n\n  public GET() {\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./html/about.html\");\n      let template = decoder.decode(fileContentsRaw);\n      this.response.body = template;\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error reading HTML template.`\n      );\n    }\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "about_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/about_resource.ts"
+      },
+      "contact_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\nconst decoder = new TextDecoder();\n\nexport default class ContactResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/contact\"\n  ];\n\n  public GET() {\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./html/contact.html\");\n      let template = decoder.decode(fileContentsRaw);\n      this.response.body = template;\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error reading HTML template.`\n      );\n    }\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "contact_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/contact_resource.ts"
+      },
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nimport AboutResource from \"./about_resource.ts\";\nimport ContactResource from \"./contact_resource.ts\";\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [\n    AboutResource,\n    ContactResource,\n    HomeResource,\n  ]\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tabout_resource.ts\n\tapp.ts\n\tcontact_resource.ts\n\thome_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\nconst decoder = new TextDecoder();\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./html/home.html\");\n      let template = decoder.decode(fileContentsRaw);\n      this.response.body = template;\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error reading HTML template.`\n      );\n    }\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_static_html_app/about_me/part_3": {
+      "about_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\nconst decoder = new TextDecoder();\n\nexport default class AboutResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/about\"\n  ];\n\n  public GET() {\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./html/about.html\");\n      let template = decoder.decode(fileContentsRaw);\n      this.response.body = template;\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error reading HTML template.`\n      );\n    }\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "about_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/about_resource.ts"
+      },
+      "contact_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\nconst decoder = new TextDecoder();\n\nexport default class ContactResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/contact\"\n  ];\n\n  public GET() {\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./html/contact.html\");\n      let template = decoder.decode(fileContentsRaw);\n      this.response.body = template;\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error reading HTML template.`\n      );\n    }\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "contact_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/contact_resource.ts"
+      },
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nimport AboutResource from \"./about_resource.ts\";\nimport ContactResource from \"./contact_resource.ts\";\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [\n    AboutResource,\n    ContactResource,\n    HomeResource,\n  ]\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "html": {
+        "contents": "",
+        "filename": "html",
+        "title": "/path/to/your/project/html"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\t▾ html/\n\t\tabout.html\n\t\tcontact.html\n\t\thome.html\n\tabout_resource.ts\n\tapp.ts\n\tcontact_resource.ts\n\thome_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\nconst decoder = new TextDecoder();\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./html/home.html\");\n      let template = decoder.decode(fileContentsRaw);\n      this.response.body = template;\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error reading HTML template.`\n      );\n    }\n    return this.response;\n  }\n}\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_static_html_app/about_me/part_3/html": {
+      "home": {
+        "contents": "<!DOCTYPE html>\n<html class=\"h-full w-full\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, user-scalable=no\"/>\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css\">\n    <title>Home</title>\n  </head>\n  <body style=\"background: #f4f4f4;\">\n    <div style=\"max-width: 640px; margin: 100px auto;\">\n      <h1 class=\"text-5xl\">Home</h1>\n      <p class=\"text-xl mb-5\">This is the home page!</p>\n    </div>\n  </body>\n</html>\n",
+        "extension": "html",
+        "filename": "home.html",
+        "title": "/path/to/your/project/home.html"
+      },
+      "about": {
+        "contents": "<!DOCTYPE html>\n<html class=\"h-full w-full\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, user-scalable=no\"/>\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css\">\n    <title>About</title>\n  </head>\n  <body style=\"background: #f4f4f4;\">\n    <div style=\"max-width: 640px; margin: 100px auto;\">\n      <h1 class=\"text-5xl\">About</h1>\n      <p class=\"text-xl mb-5\">This is the about page!</p>\n    </div>\n  </body>\n</html>\n",
+        "extension": "html",
+        "filename": "about.html",
+        "title": "/path/to/your/project/about.html"
+      },
+      "contact": {
+        "contents": "<!DOCTYPE html>\n<html class=\"h-full w-full\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, user-scalable=no\"/>\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css\">\n    <title>Contact</title>\n  </head>\n  <body style=\"background: #f4f4f4;\">\n    <div style=\"max-width: 640px; margin: 100px auto;\">\n      <h1 class=\"text-5xl\">Contact</h1>\n      <p class=\"text-xl mb-5\">This is the contact page!</p>\n    </div>\n  </body>\n</html>\n",
+        "extension": "html",
+        "filename": "contact.html",
+        "title": "/path/to/your/project/contact.html"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_static_html_app/about_me/part_1": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nimport AboutResource from \"./about_resource.ts\";\nimport ContactResource from \"./contact_resource.ts\";\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [\n    AboutResource,\n    ContactResource,\n    HomeResource,\n  ]\n});\n\nserver.run();\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -2213,13 +2354,13 @@
 };
   </script>
   
-  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586037692579"></script>
-  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586037692579"></script>
-  <script src="/docs/public/assets/js/bundle.production.js?version=1586037692579"></script>
-  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586037692579"></script>
-  <script src="/docs/public/assets/js/router.production.js?version=1586037692579"></script>
-  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586037692579"></script>
-  <script src="/docs/public/assets/js/app.production.js?version=1586037692579"></script>
+  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586044761715"></script>
+  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586044761715"></script>
+  <script src="/docs/public/assets/js/bundle.production.js?version=1586044761715"></script>
+  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586044761715"></script>
+  <script src="/docs/public/assets/js/router.production.js?version=1586044761715"></script>
+  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586044761715"></script>
+  <script src="/docs/public/assets/js/app.production.js?version=1586044761715"></script>
 
 </body>
 </html>
