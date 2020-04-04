@@ -68,27 +68,9 @@ div.c-sidebar
       div.c-sidebar__menu-body
         a-base-url(href="/advanced-tutorials/introduction") Introduction
         a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles") Content Negotiation
-        div.l-submenu-1
-          a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/introduction") Introduction
-          a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-1") Part 1: Simulate Database Records
-          a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-2") Part 2: Creating The Server
-          a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-3") Part 3: Creating The Resource
-          a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-4") Part 4: Handling Representations
-          a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-5") Part 5: Adding More Content Types
-        a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea") Creating An API
-        div.l-submenu-1
-          a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/introduction") Introduction
-          a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-1") Part 1: Simulate Database Records
-          a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-2") Part 2: Creating The Server
-          a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-3") Part 3: Creating The Resources
-          a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-4") Part 4: Modifying The Response Schema
+        a-base-url(href="/advanced-tutorials/creating-a-static-html-app/about-me") Creating A Static HTML App
         a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets") Creating A Vue App
-        div.l-submenu-1
-          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/introduction") Introduction
-          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-1") Part 1: Creating The Server
-          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-2") Part 2: Creating The Resource
-          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-3") Part 3: Creating The Template
-          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-4") Part 4: Creating The Vue App
+        a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea") Creating An API
       a-base-url.heading-link(href="/third-party-tutorials") Third Party Tutorials
       div.c-sidebar__menu-body
         a-base-url(href="/third-party-tutorials/introduction") Introduction
