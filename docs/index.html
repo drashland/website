@@ -897,7 +897,7 @@
         "title": "Project Folder Structure"
       },
       "verify_token_middleware": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nexport default class VerifyTokenMiddleware extends Drash.Http.Middleware {\n  public run() {\n    let token = this.request.getQueryParam('super_secret_token');\n\n    if (!token) {\n      throw new Drash.Exceptions.HttpMiddlewareException(400, \"Where is the token?\");\n    }\n\n    if (token != \"AllYourBaseAreBelongToUs\") {\n      throw new Drash.Exceptions.HttpMiddlewareException(403, `Mmm... \"${token}\" is a bad token.`);\n    }\n  }\n}\n",
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nexport default class VerifyTokenMiddleware extends Drash.Http.Middleware {\n  public run() {\n    let token = this.request.getUrlQueryParam('super_secret_token');\n\n    if (!token) {\n      throw new Drash.Exceptions.HttpMiddlewareException(400, \"Where is the token?\");\n    }\n\n    if (token != \"AllYourBaseAreBelongToUs\") {\n      throw new Drash.Exceptions.HttpMiddlewareException(403, `Mmm... \"${token}\" is a bad token.`);\n    }\n  }\n}\n",
         "extension": "ts",
         "filename": "verify_token_middleware.ts",
         "language": "typescript",
@@ -956,7 +956,7 @@
         "title": "Project Folder Structure"
       },
       "verify_token_middleware": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nexport default class VerifyTokenMiddleware extends Drash.Http.Middleware {\n  public run() {\n    let token = this.request.getQueryParam('super_secret_token');\n\n    if (!token) {\n      throw new Drash.Exceptions.HttpMiddlewareException(400, \"Where is the token?\");\n    }\n\n    if (token != \"AllYourBaseAreBelongToUs\") {\n      throw new Drash.Exceptions.HttpMiddlewareException(403, `Mmm... \"${token}\" is a bad token.`);\n    }\n  }\n}\n",
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nexport default class VerifyTokenMiddleware extends Drash.Http.Middleware {\n  public run() {\n    let token = this.request.getUrlQueryParam('super_secret_token');\n\n    if (!token) {\n      throw new Drash.Exceptions.HttpMiddlewareException(400, \"Where is the token?\");\n    }\n\n    if (token != \"AllYourBaseAreBelongToUs\") {\n      throw new Drash.Exceptions.HttpMiddlewareException(403, `Mmm... \"${token}\" is a bad token.`);\n    }\n  }\n}\n",
         "extension": "ts",
         "filename": "verify_token_middleware.ts",
         "language": "typescript",
@@ -2213,13 +2213,13 @@
 };
   </script>
   
-  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586009307058"></script>
-  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586009307058"></script>
-  <script src="/docs/public/assets/js/bundle.production.js?version=1586009307058"></script>
-  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586009307058"></script>
-  <script src="/docs/public/assets/js/router.production.js?version=1586009307058"></script>
-  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586009307058"></script>
-  <script src="/docs/public/assets/js/app.production.js?version=1586009307058"></script>
+  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586009349031"></script>
+  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586009349031"></script>
+  <script src="/docs/public/assets/js/bundle.production.js?version=1586009349031"></script>
+  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586009349031"></script>
+  <script src="/docs/public/assets/js/router.production.js?version=1586009349031"></script>
+  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586009349031"></script>
+  <script src="/docs/public/assets/js/app.production.js?version=1586009349031"></script>
 
 </body>
 </html>
