@@ -1584,7 +1584,7 @@
         "title": "Project Folder Structure"
       },
       "home_resource": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\"/\"];\n\n  public async GET() {\n    // Set the data if any\n    let data = {\n      name: this.request.geturlQueryParam(\"name\")\n        ? this.request.geturlQueryParam(\"name\")\n        : \"(name not specified)\"\n    };\n    // Render and serve the template to the client\n    const output = await renderFile(\"./index.ejs\", data);\n    this.response.body = output.toString();\n    return this.response;\n  }\n}\n",
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\nimport { renderFile } from \"https://deno.land/x/dejs/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\"/\"];\n\n  public async GET() {\n    // Set the data if any\n    let data = {\n      name: this.request.getUrlQueryParam(\"name\")\n        ? this.request.getUrlQueryParam(\"name\")\n        : \"(name not specified)\"\n    };\n    // Render and serve the template to the client\n    const output = await renderFile(\"./index.ejs\", data);\n    this.response.body = output.toString();\n    return this.response;\n  }\n}\n",
         "extension": "ts",
         "filename": "home_resource.ts",
         "language": "typescript",
@@ -2213,13 +2213,13 @@
 };
   </script>
   
-  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586009181545"></script>
-  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586009181545"></script>
-  <script src="/docs/public/assets/js/bundle.production.js?version=1586009181545"></script>
-  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586009181545"></script>
-  <script src="/docs/public/assets/js/router.production.js?version=1586009181545"></script>
-  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586009181545"></script>
-  <script src="/docs/public/assets/js/app.production.js?version=1586009181545"></script>
+  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586009307058"></script>
+  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586009307058"></script>
+  <script src="/docs/public/assets/js/bundle.production.js?version=1586009307058"></script>
+  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586009307058"></script>
+  <script src="/docs/public/assets/js/router.production.js?version=1586009307058"></script>
+  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586009307058"></script>
+  <script src="/docs/public/assets/js/app.production.js?version=1586009307058"></script>
 
 </body>
 </html>
