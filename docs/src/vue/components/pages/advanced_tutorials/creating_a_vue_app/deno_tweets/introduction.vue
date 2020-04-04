@@ -31,6 +31,8 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Overview
+      p This tutorial assumes you have read the 
+        a(:href="$conf.base_url + '/#/advanced-tutorials'") Advanced Tutorials Introduction
       p In this tutorial series, you will learn how to create a simple Vue application powered by Drash. You will learn how to make a Drash server serve a <code>text/html</code> response to clients. The response will include some Vue code so that it will mount and render on the screen. Your Vue app will display Deno tweets.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
