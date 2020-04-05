@@ -5,7 +5,7 @@ export const resource = {
     "/advanced-tutorials/creating-a-static-html-app/about-me/introduction",
   ],
   meta: {
-    title: "Creating A Vue App",
+    title: "Creating A Static HTML App",
     subtitle: "Introduction",
     source_code_uri: "/advanced_tutorials/creating_a_static_html_app/about_me"
   }
