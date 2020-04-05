@@ -86,8 +86,8 @@ div.c-sidebar
         div.l-submenu-1
           a-base-url(href="/advanced-tutorials/creating-a-static-html-app/about-me/introduction") Introduction
           a-base-url(href="/advanced-tutorials/creating-a-static-html-app/about-me/part-1") Part 1: Creating The Server
-          a-base-url(href="/advanced-tutorials/creating-a-static-html-app/about-me/part-2") Part 3: Creating The Resources
-          a-base-url(href="/advanced-tutorials/creating-a-static-html-app/about-me/part-3") Part 4: Creating The HTML Files
+          a-base-url(href="/advanced-tutorials/creating-a-static-html-app/about-me/part-2") Part 2: Creating The Resources
+          a-base-url(href="/advanced-tutorials/creating-a-static-html-app/about-me/part-3") Part 3: Creating The HTML Files
         a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets") Creating A Vue App
         div.l-submenu-1
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/introduction") Introduction
