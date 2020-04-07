@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  drash:
+    container_name: <your_project_name>_drash
+    build:
+      context: .
+      dockerfile: .docker/drash.dockerfile
+    volumes:
+      - ./src:/var/www/drash
+    working_dir: /var/www/drash
+    ports:
+      - "1447:1447"
+    command: bash -c "deno --allow-net --allow-env app.ts"
