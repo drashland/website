@@ -55,7 +55,24 @@ page-tutorial-part(
           p If you have an existing <code>docker-compose.yml</code> file, then append the below block into the list of services.
           p This file defines what services the docker environment will build and use.
           p You will notice that there is a Dockerfile mentioned. You will be creating this in the next tutorial part.
-          code-block(:data="example_code.docker_compose" language="javascript")
+          code-block-slotted(language="shell")
+            template(v-slot:title) /path/to/your/project/docker-compose.yml
+            template(v-slot:code)
+              | version: '3'
+              |
+              | services:
+              |
+              |   drash:
+              |     container_name: your_project_name_drash
+              |     build:
+              |       context: .
+              |       dockerfile: .docker/drash.dockerfile
+              |     volumes:
+              |       - ./src:/var/www/drash
+              |     working_dir: /var/www/drash
+              |     ports:
+              |       - "1447:1447"
+              |     command: bash -c "deno --allow-net --allow-env app.ts"
           p We are mapping the <code>src</code> directory to a directory inside the container (<code>/var/www/drash</code>).
           p We have also specified a command for the container to run when the container is up. In this case, that command still start the Drash server.
           p You should also note that the ports should be the same as the port your Drash server is listening on.

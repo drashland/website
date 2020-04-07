@@ -26,7 +26,6 @@ export default {
     };
   },
 }
-// TODO :: Adjust the header (path to file) for first step, to say: /path/to/your/project/src/app.ts
 </script>
 
 <template lang="pug">
@@ -53,7 +52,32 @@ page-tutorial-part(
       h2-hash Steps
       ol
         li Create the <code>app.ts</code> file.
-          code-block(:data="example_code.app" language="javascript")
+          code-block-slotted(language="typescript")
+            template(v-slot:title) /path/to/your/project/src/app.ts
+            template(v-slot:code)
+              | import Drash from "https://deno.land/x/drash/mod.ts";
+              |
+              | class HomeResource extends Drash.Http.Resource {
+              |
+              |   static paths = [
+              |     "/"
+              |   ];
+              |
+              |   public GET() {
+              |     this.response.body = 'Hello World!';
+              |     return this.response;
+              |   }
+              | }
+              |
+              | const server = new Drash.Http.Server({
+              |   address: "localhost:1447",
+              |   response_output: "application/json",
+              |   resources: [
+              |     HomeResource
+              |   ],
+              | });
+              |
+              | server.run();
   div.row
     div.col
       hr

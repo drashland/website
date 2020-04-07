@@ -26,7 +26,6 @@ export default {
     };
   },
 }
-// TODO :: Adjust the path in the header for the step with the code
 </script>
 
 <template lang="pug">
