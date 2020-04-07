@@ -95,6 +95,13 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-2") Part 2: Creating The Resource
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-3") Part 3: Creating The Template
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-4") Part 4: Creating The Vue App
+        a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup") Creating a Docker Container
+        div.l-submenu-1
+          a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/introduction") Introduction
+          a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-1") Part 1: Creating The Source Code
+          a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-2") Part 2: Creating The Service
+          a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-3") Part 3: Creating The Dockerfile
+          a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-4") Part 4: Starting The Environment
       a-base-url.heading-link(href="/third-party-tutorials") Third Party Tutorials
       div.c-sidebar__menu-body
         a-base-url(href="/third-party-tutorials/introduction") Introduction
