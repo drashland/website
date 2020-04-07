@@ -95,7 +95,6 @@ export default {
 Step 1: Run the dev server.
 
 ```shell
-cd docs
 console/dev
 ```
 
