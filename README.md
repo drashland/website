@@ -64,6 +64,12 @@ Install Node modules.
 npm install
 ```
 
+Copy the dependency file.
+
+```shell
+cp deps.sample.ts deps.ts
+```
+
 Set up your `app.ts` config file by first copying the sample config file.
 
 ```shell
