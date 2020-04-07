@@ -33,7 +33,7 @@ page-tutorial-part(
       h2-hash Overview
       p This tutorial assumes you have read the 
         a(:href="$conf.base_url + '/#/advanced-tutorials'") Advanced Tutorials Introduction
-      p In this tutorial series, you will learn how to create a Drash server within a Docker environment, using <code>docker-compose</code>. You will learn how to setup the dockerfile and add the container to your Docker orchestration.
+      p In this tutorial series, you will learn how to create a Drash server within a Docker environment, using <code>docker-compose</code> with Nginx or Apache acting as the proxy to pass connections to the Drash server. You will learn how to setup the dockerfile and add the container to your Docker orchestration.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
         a.btn.btn-success(:href="$conf.base_url + '/#/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-1'") Get Started

@@ -13,7 +13,7 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 1,
-      parts: 4,
+      parts: 5,
       toc: {
         items: [
           "Before You Get Started",
@@ -39,8 +39,8 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
-      p You will be creating a basic Drash server. If you are unsure on how to create a Drash server then first read the
-        a(href="/tutorials/servers/creating-a-server")  Creating a Server Section
+      p You will be creating a basic Drash server. If you haven't read the #[a( href="/#/tutorials/servers/creating-a-server") Creating A Server] section then do so before reading his tutorial.
+      p And if you haven't used #[a( href="https://docs.docker.com/compose/" ) Docker Compose] before then read the documentation before starting this tutorial.
       p-view-source-code
   div.row
     div.col
@@ -51,6 +51,11 @@ page-tutorial-part(
       hr
       h2-hash Steps
       ol
+        li Create a <code>src</code> directory.
+          code-block-slotted
+            template(v-slot:title) Terminal
+            template(v-slot:code)
+              | mkdir src
         li Create the <code>app.ts</code> file.
           code-block-slotted(language="typescript")
             template(v-slot:title) /path/to/your/project/src/app.ts
@@ -70,7 +75,7 @@ page-tutorial-part(
               | }
               |
               | const server = new Drash.Http.Server({
-              |   address: "localhost:1447",
+              |   address: ":1447",
               |   response_output: "application/json",
               |   resources: [
               |     HomeResource
@@ -81,14 +86,14 @@ page-tutorial-part(
   div.row
     div.col
       hr
-      h2-hash Verification (optional)
-      p We should verify that the server is working by running it.
+      h2-hash Verification
+      p You should verify that the server is working by running it.
       ol
         li Start the server.
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net --allow-env app.ts
+              | deno --allow-net --allow-env src/app.ts
           p When you start your server, you should see the following:
           code-block-slotted
             template(v-slot:title) Terminal
