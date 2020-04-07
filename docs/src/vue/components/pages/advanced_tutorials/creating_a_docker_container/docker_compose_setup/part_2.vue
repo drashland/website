@@ -3,7 +3,7 @@ export const resource = {
     paths: ["/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-2"],
     meta: {
         title: "Creating A Container in Docket Compose",
-        subtitle: "Part 2: Creating The Service",
+        subtitle: "Part 2: Creating The Services",
         source_code_uri: "/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_2"
     }
 }
@@ -13,7 +13,7 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 2,
-      parts: 4,
+      parts: 5,
       toc: {
         items: [
           "Before You Get Started",
@@ -26,6 +26,7 @@ export default {
     };
   },
 }
+// TODO :: Add apache service block
 </script>
 
 <template lang="pug">
@@ -39,7 +40,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
-      p Now that we have a working Drash server, we can start adding this to the docker orchestration. You will be creating a new service for Docker to build and start.
+      p Now that you have a working Drash server, you can start adding this to the docker orchestration. You will be creating new services for Docker to build and start, such as a Drash container, and an Nginx or Apache container.
       p-view-source-code
   div.row
     div.col
@@ -51,10 +52,9 @@ page-tutorial-part(
       h2-hash Steps
       ol
         li
-          p Create the service block.
-          p If you have an existing <code>docker-compose.yml</code> file, then append the below block into the list of services.
-          p This file defines what services the docker environment will build and use.
-          p You will notice that there is a Dockerfile mentioned. You will be creating this in the next tutorial part.
+          p Create the file and create the service blocks.
+          p You will notice that there are Dockerfiles mentioned, you will be creating this in the next tutorial part.
+          p You can choose to ignore either the Nginx or Apache service block, depending on which one you wish to use for a reverse proxy
           code-block-slotted(language="shell")
             template(v-slot:title) /path/to/your/project/docker-compose.yml
             template(v-slot:code)
@@ -62,20 +62,41 @@ page-tutorial-part(
               |
               | services:
               |
+              |   nginx:
+              |     container_name: drash_app_nginx
+              |     build:
+              |       context: .
+              |       dockerfile: .docker/nginx.dockerfile
+              |     volumes:
+              |       - ./src:/var/www/src
+              |     working_dir: /var/www/src
+              |     depends_on:
+              |       - drash
+              |     ports:
+              |       - "9002:9002"
+              |     networks:
+              |       - drash-app-network
+              |
               |   drash:
-              |     container_name: your_project_name_drash
+              |     container_name: drash_app_drash
               |     build:
               |       context: .
               |       dockerfile: .docker/drash.dockerfile
               |     volumes:
-              |       - ./src:/var/www/drash
-              |     working_dir: /var/www/drash
+              |       - ./src:/var/www/src
+              |     working_dir: /var/www/src
               |     ports:
               |       - "1447:1447"
               |     command: bash -c "deno --allow-net --allow-env app.ts"
-          p We are mapping the <code>src</code> directory to a directory inside the container (<code>/var/www/drash</code>).
-          p We have also specified a command for the container to run when the container is up. In this case, that command still start the Drash server.
-          p You should also note that the ports should be the same as the port your Drash server is listening on.
+              |     networks:
+              |       - drash-app-network
+              |
+              | networks:
+              |   drash-app-network:
+              |     driver: bridge
+          p You are mapping the <code>src</code> directory to a directory inside the containers (<code>/var/www/src</code>).
+          p You have also specified a command for the Drash container to run when the container is up. In this case, that command will start the Drash server.
+          p You should also note that the port for the Drash container is the same as the port the drash server is running on in <code>src/app.ts</code>
   div.row
     div.col
       hr
@@ -87,5 +108,5 @@ page-tutorial-part(
             template(v-slot:title) Terminal
             template(v-slot:code)
               | docker-compose config
-          p You should see no errors when running the above command and instead the contents of the file itself.
+          p You should see no errors when running the above command and instead see the contents of the file itself.
 </template>
