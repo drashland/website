@@ -72,6 +72,11 @@
         "filename": "creating_a_web_app",
         "title": "/path/to/your/project/creating_a_web_app"
       },
+      "creating_a_docker_container": {
+        "contents": "",
+        "filename": "creating_a_docker_container",
+        "title": "/path/to/your/project/creating_a_docker_container"
+      },
       "creating_an_api": {
         "contents": "",
         "filename": "creating_an_api",
@@ -436,6 +441,279 @@
         "extension": "txt",
         "filename": "output.txt",
         "title": "/path/to/your/project/output.txt"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container": {
+      "docker_compose_setup": {
+        "contents": "",
+        "filename": "docker_compose_setup",
+        "title": "/path/to/your/project/docker_compose_setup"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup": {
+      "part_5": {
+        "contents": "",
+        "filename": "part_5",
+        "title": "/path/to/your/project/part_5"
+      },
+      "part_2": {
+        "contents": "",
+        "filename": "part_2",
+        "title": "/path/to/your/project/part_2"
+      },
+      "part_3": {
+        "contents": "",
+        "filename": "part_3",
+        "title": "/path/to/your/project/part_3"
+      },
+      "part_4": {
+        "contents": "",
+        "filename": "part_4",
+        "title": "/path/to/your/project/part_4"
+      },
+      "part_1": {
+        "contents": "",
+        "filename": "part_1",
+        "title": "/path/to/your/project/part_1"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_5": {
+      "": {
+        "contents": "",
+        "extension": "docker",
+        "filename": ".docker",
+        "title": "/path/to/your/project/.docker"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\t▾ .docker/\n\t\t▾ conf/\n\t\t\tapache.conf\n\t\t\tnginx.conf\n\t\tapache.dockerfile\n\t\tdrash.dockerfile\n\t\tnginx.dockerfile\n    ▾ src/\n\t\tapp.ts\n\tdocker-compose.yml\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "src": {
+        "contents": "",
+        "filename": "src",
+        "title": "/path/to/your/project/src"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_5/.docker": {
+      "nginx": {
+        "contents": "FROM nginx:latest\n\nRUN apt update\n\nCOPY ./.docker/conf/nginx.conf /etc/nginx/conf.d/default.conf\n\nENTRYPOINT [\"nginx\"]\nCMD [\"-g\", \"daemon off;\"]\n",
+        "extension": "dockerfile",
+        "filename": "nginx.dockerfile",
+        "title": "/path/to/your/project/nginx.dockerfile"
+      },
+      "apache": {
+        "contents": "FROM httpd:2.4\n\nRUN apt update -y\nCOPY .docker/conf/apache.conf /usr/local/apache2/conf/demoapache.conf\nRUN echo \"\\nInclude /usr/local/apache2/conf/demoapache.conf\" >> /usr/local/apache2/conf/httpd.conf\n",
+        "extension": "dockerfile",
+        "filename": "apache.dockerfile",
+        "title": "/path/to/your/project/apache.dockerfile"
+      },
+      "conf": {
+        "contents": "",
+        "filename": "conf",
+        "title": "/path/to/your/project/conf"
+      },
+      "drash": {
+        "contents": "FROM debian:stable-slim\n\nRUN apt update -y\nRUN apt install bash curl unzip -y\n\nRUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh -s v0.39.0\nRUN export DENO_INSTALL=\"/root/.local\"\nRUN export PATH=\"$DENO_INSTALL/bin:$PATH\"\n",
+        "extension": "dockerfile",
+        "filename": "drash.dockerfile",
+        "title": "/path/to/your/project/drash.dockerfile"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_5/.docker/conf": {
+      "apache": {
+        "contents": "LoadModule proxy_module /usr/local/apache2/modules/mod_proxy.so\nLoadModule proxy_http_module modules/mod_proxy_http.so\n\nServerName localhost\n\n<VirtualHost *:80>\n    ProxyPass / http://drash_app_drash:1447/\n</VirtualHost>\n",
+        "extension": "conf",
+        "filename": "apache.conf",
+        "title": "/path/to/your/project/apache.conf"
+      },
+      "nginx": {
+        "contents": "server {\n    listen 80;\n    location / {\n      proxy_http_version 1.1;\n      proxy_set_header Upgrade $http_upgrade;\n      proxy_set_header Connection 'upgrade';\n      proxy_set_header Host $host;\n      proxy_set_header Origin \"\";\n      proxy_pass http://drash_app_drash:1447;\n    }\n}\n",
+        "extension": "conf",
+        "filename": "nginx.conf",
+        "title": "/path/to/your/project/nginx.conf"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_5/src": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_2": {
+      "docker_compose": {
+        "contents": "version: '3'\n\nservices:\n\n nginx:\n   container_name: drash_app_nginx\n   build:\n     context: .\n     dockerfile: .docker/nginx.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   depends_on:\n     - drash\n   ports:\n     - \"8080:80\"\n   networks:\n     - drash-app-network\n\n apache:\n   container_name: drash_app_apache\n   build:\n     context: .\n     dockerfile: .docker/apache.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   depends_on:\n     - drash\n   ports:\n     - \"8080:80\"\n   networks:\n     - drash-app-network\n\n drash:\n   container_name: drash_app_drash\n   build:\n     context: .\n     dockerfile: .docker/drash.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   ports:\n     - \"1447:1447\"\n   command: bash -c \"deno --allow-net --allow-env app.ts\"\n   networks:\n     - drash-app-network\n\nnetworks:\n drash-app-network:\n   driver: bridge\n\n",
+        "extension": "yml",
+        "filename": "docker_compose.yml",
+        "title": "/path/to/your/project/docker_compose.yml"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\t▾ src/\n\t\tapp.ts\n\tdocker-compose.yml\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "src": {
+        "contents": "",
+        "filename": "src",
+        "title": "/path/to/your/project/src"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_2/src": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_3": {
+      "": {
+        "contents": "",
+        "extension": "docker",
+        "filename": ".docker",
+        "title": "/path/to/your/project/.docker"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\t▾ .docker/\n\t\tapache.dockerfile\n\t\tdrash.dockerfile\n\t\tnginx.dockerfile\n\t▾ src/\n\t\tapp.ts\n\tdocker-compose.yml\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "src": {
+        "contents": "",
+        "filename": "src",
+        "title": "/path/to/your/project/src"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_3/.docker": {
+      "nginx": {
+        "contents": "FROM nginx:latest\n\nRUN apt update\n\nCOPY ./.docker/conf/nginx.conf /etc/nginx/conf.d/default.conf\n\nENTRYPOINT [\"nginx\"]\nCMD [\"-g\", \"daemon off;\"]\n",
+        "extension": "dockerfile",
+        "filename": "nginx.dockerfile",
+        "title": "/path/to/your/project/nginx.dockerfile"
+      },
+      "apache": {
+        "contents": "FROM httpd:2.4\n\nRUN apt update -y\nCOPY .docker/conf/apache.conf /usr/local/apache2/conf/demoapache.conf\nRUN echo \"\\nInclude /usr/local/apache2/conf/demoapache.conf\" >> /usr/local/apache2/conf/httpd.conf\n",
+        "extension": "dockerfile",
+        "filename": "apache.dockerfile",
+        "title": "/path/to/your/project/apache.dockerfile"
+      },
+      "drash": {
+        "contents": "FROM debian:stable-slim\n\nRUN apt update -y\nRUN apt install bash curl unzip -y\n\nRUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh -s v0.39.0\nRUN export DENO_INSTALL=\"/root/.local\"\nRUN export PATH=\"$DENO_INSTALL/bin:$PATH\"\n",
+        "extension": "dockerfile",
+        "filename": "drash.dockerfile",
+        "title": "/path/to/your/project/drash.dockerfile"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_3/src": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_4": {
+      "": {
+        "contents": "",
+        "extension": "docker",
+        "filename": ".docker",
+        "title": "/path/to/your/project/.docker"
+      },
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\t▾ .docker/\n\t\t▾ conf/\n\t\t\tapache.conf\n\t\t\tnginx.conf\n\t\tapache.dockerfile\n\t\tdrash.dockerfile\n\t\tnginx.dockerfile\n    ▾ src/\n\t\tapp.ts\n\tdocker-compose.yml\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "src": {
+        "contents": "",
+        "filename": "src",
+        "title": "/path/to/your/project/src"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_4/.docker": {
+      "nginx": {
+        "contents": "FROM nginx:latest\n\nRUN apt update\n\nCOPY ./.docker/conf/nginx.conf /etc/nginx/conf.d/default.conf\n\nENTRYPOINT [\"nginx\"]\nCMD [\"-g\", \"daemon off;\"]\n",
+        "extension": "dockerfile",
+        "filename": "nginx.dockerfile",
+        "title": "/path/to/your/project/nginx.dockerfile"
+      },
+      "apache": {
+        "contents": "FROM httpd:2.4\n\nRUN apt update -y\nCOPY .docker/conf/apache.conf /usr/local/apache2/conf/demoapache.conf\nRUN echo \"\\nInclude /usr/local/apache2/conf/demoapache.conf\" >> /usr/local/apache2/conf/httpd.conf\n",
+        "extension": "dockerfile",
+        "filename": "apache.dockerfile",
+        "title": "/path/to/your/project/apache.dockerfile"
+      },
+      "conf": {
+        "contents": "",
+        "filename": "conf",
+        "title": "/path/to/your/project/conf"
+      },
+      "drash": {
+        "contents": "FROM debian:stable-slim\n\nRUN apt update -y\nRUN apt install bash curl unzip -y\n\nRUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh -s v0.39.0\nRUN export DENO_INSTALL=\"/root/.local\"\nRUN export PATH=\"$DENO_INSTALL/bin:$PATH\"\n",
+        "extension": "dockerfile",
+        "filename": "drash.dockerfile",
+        "title": "/path/to/your/project/drash.dockerfile"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_4/.docker/conf": {
+      "apache": {
+        "contents": "LoadModule proxy_module /usr/local/apache2/modules/mod_proxy.so\nLoadModule proxy_http_module modules/mod_proxy_http.so\n\nServerName localhost\n\n<VirtualHost *:80>\n    ProxyPass / http://drash_app_drash:1447/\n</VirtualHost>\n",
+        "extension": "conf",
+        "filename": "apache.conf",
+        "title": "/path/to/your/project/apache.conf"
+      },
+      "nginx": {
+        "contents": "server {\n    listen 80;\n    location / {\n      proxy_http_version 1.1;\n      proxy_set_header Upgrade $http_upgrade;\n      proxy_set_header Connection 'upgrade';\n      proxy_set_header Host $host;\n      proxy_set_header Origin \"\";\n      proxy_pass http://drash_app_drash:1447;\n    }\n}\n",
+        "extension": "conf",
+        "filename": "nginx.conf",
+        "title": "/path/to/your/project/nginx.conf"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_4/src": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_1": {
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\t▾ src/\n\t\tapp.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "src": {
+        "contents": "",
+        "filename": "src",
+        "title": "/path/to/your/project/src"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_1/src": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \":1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
       }
     },
     "/src/example_code/advanced_tutorials/creating_an_api": {
@@ -2354,13 +2632,13 @@
 };
   </script>
   
-  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586045180806"></script>
-  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586045180806"></script>
-  <script src="/docs/public/assets/js/bundle.production.js?version=1586045180806"></script>
-  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586045180806"></script>
-  <script src="/docs/public/assets/js/router.production.js?version=1586045180806"></script>
-  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586045180806"></script>
-  <script src="/docs/public/assets/js/app.production.js?version=1586045180806"></script>
+  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586343076122"></script>
+  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586343076122"></script>
+  <script src="/docs/public/assets/js/bundle.production.js?version=1586343076122"></script>
+  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586343076122"></script>
+  <script src="/docs/public/assets/js/router.production.js?version=1586343076122"></script>
+  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586343076122"></script>
+  <script src="/docs/public/assets/js/app.production.js?version=1586343076122"></script>
 
 </body>
 </html>
