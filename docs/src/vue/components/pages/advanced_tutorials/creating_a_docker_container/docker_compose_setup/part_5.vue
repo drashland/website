@@ -1,0 +1,84 @@
+<script>
+export const resource = {
+    paths: ["/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-5"],
+    meta: {
+        title: "Creating A Container in Docker Compose",
+        subtitle: "Part 5: Building and Starting the Environment",
+        source_code_uri: "/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_5"
+    }
+}
+
+export default {
+  data() {
+    return {
+      example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
+      part: 5,
+      parts: 5,
+      toc: {
+        items: [
+          "Before You Get Started",
+          "Folder Structure End State",
+          "Steps",
+          "Verification",
+        ]
+      },
+      uri: "/advanced-tutorials/creating-a-docker-container/docker-compose-setup"
+    };
+  },
+}
+</script>
+
+<template lang="pug">
+page-tutorial-part(
+  :part="part"
+  :parts="parts"
+  :toc="toc"
+  :uri="uri"
+)
+  div.row
+    div.col
+      hr
+      h2-hash Before You Get Started
+      p Now that you have your configuration setup for the containers, you can now build and start the docker environment.
+      p-view-source-code
+  div.row
+    div.col
+      hr
+      div-folder-structure-end-state(:code_block_data="example_code.folder_structure")
+  div.row
+    div.col
+      hr
+      h2-hash Steps
+      ol
+        li
+          p Build the Containers. This could take up to a few minutes.
+          code-block-slotted(language="shell")
+            template(v-slot:title) Terminal
+            template(v-slot:code)
+              | docker-compose build
+  div.row
+    div.col
+      hr
+      h2-hash Verification
+      ol
+        li Start Docker. Running without the <code>-d</code> option will allow you to see all output of the container and Drash server.
+          code-block-slotted
+            template(v-slot:title) Terminal
+            template(v-slot:code)
+              | docker-compose up
+        li You should eventually see once the Drash server has started, that the server is listening.
+          code-block-slotted
+            template(v-slot:title) Terminal
+            template(v-slot:code)
+              | Deno server started at :1447.
+        li Make a request using <code>curl</code> like below or go to <code>localhost:8080</code> in your browser.
+          code-block-slotted
+            template(v-slot:title) Terminal
+            template(v-slot:code)
+              | curl localhost:8080
+          p You should receive the following response:
+          code-block-slotted
+            template(v-slot:title) Terminal
+            template(v-slot:code)
+              | "Hello World!"
+</template>
