@@ -44,5 +44,5 @@ page-tutorial(
           p Create your <code>app.ts</code> file.
           p
             code-block(:data="example_code.app" line_highlight="24-27")
-          p Take note of the highlighted code. This code will help your Angular app by serving your default <code>index.html</code> file. Your default <code>index.html</code> file is the one you define for your Angular app. If a deep link is used, Drash will throw a <code>404</code> error in your Angular app. By adding the highlighted code, you tell Drash to reroute back to your Angular app's <code>index.html</code> on <code>404</code> errors.
+          p Take note of the highlighted code. This code will help your Angular app by serving your default <code>index.html</code> file. Your default <code>index.html</code> file is the one you define for your Angular app. If a deep link is used, Drash will throw a <code>404</code> error in your Angular app. By adding the highlighted code, you tell Drash to reroute back to your Angular app's <code>index.html</code> file on <code>404</code> errors.
 </template>
