@@ -2,7 +2,7 @@
 export const resource = {
     paths: ["/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-1"],
     meta: {
-      title: "Creating A Container in Docker Compose",
+      title: "Creating A Docker Container",
       subtitle: "Part 1: Creating The Source Code",
       source_code_uri: "/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_1"
     }
@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
+      example_code_src: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/src'],
       part: 1,
       parts: 5,
       toc: {
@@ -39,8 +40,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
-      p You will be creating a basic Drash server. If you haven't read the #[a( href="/#/tutorials/servers/creating-a-server") Creating A Server] section then do so before reading his tutorial.
-      p And if you haven't used #[a( href="https://docs.docker.com/compose/" ) Docker Compose] before then read the documentation before starting this tutorial.
+      p You will be creating a basic Drash server. If you haven't read the #[a( href="/#/tutorials/servers/creating-a-server") Creating A Server] section then do so before reading this tutorial.
       p-view-source-code
   div.row
     div.col
@@ -51,50 +51,33 @@ page-tutorial-part(
       hr
       h2-hash Steps
       ol
-        li Create a <code>src</code> directory.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | mkdir src
-        li Create the <code>app.ts</code> file.
-          code-block-slotted(language="typescript")
-            template(v-slot:title) /path/to/your/project/src/app.ts
-            template(v-slot:code)
-              | import Drash from "https://deno.land/x/drash/mod.ts";
-              |
-              | class HomeResource extends Drash.Http.Resource {
-              |
-              |   static paths = [
-              |     "/"
-              |   ];
-              |
-              |   public GET() {
-              |     this.response.body = 'Hello World!';
-              |     return this.response;
-              |   }
-              | }
-              |
-              | const server = new Drash.Http.Server({
-              |   address: ":1447",
-              |   response_output: "application/json",
-              |   resources: [
-              |     HomeResource
-              |   ],
-              | });
-              |
-              | server.run();
+        li
+          p Create your <code>src</code> directory.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | mkdir src
+        li
+          p Create your app file.
+          p Your app file will contain a single resource: <code>HomeResource</code>.
+          p
+            code-block-slotted(language="typescript")
+              template(v-slot:title) /path/to/your/project/src/app.ts
+              template(v-slot:code)
+                | {{ example_code_src.app.contents }}
   div.row
     div.col
       hr
       h2-hash Verification
-      p You should verify that the server is working by running it.
+      p Verify that your app is working by running it.
       ol
-        li Start the server.
+        li Run your app.
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
               | deno --allow-net --allow-env src/app.ts
-          p When you start your server, you should see the following:
+          p You should see something similar following:
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
