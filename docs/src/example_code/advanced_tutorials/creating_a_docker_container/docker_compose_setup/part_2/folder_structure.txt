@@ -1,0 +1,4 @@
+▾ /path/to/your/project/
+	▾ src/
+		app.ts
+	docker-compose.yml
