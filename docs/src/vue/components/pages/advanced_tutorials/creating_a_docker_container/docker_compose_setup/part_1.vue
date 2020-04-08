@@ -51,14 +51,15 @@ page-tutorial-part(
       h2-hash Steps
       ol
         li
-          p Create a <code>src</code> directory.
+          p Create your <code>src</code> directory.
           p
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | mkdir src
         li
-          p Create the <code>app.ts</code> file.
+          p Create your app file.
+          p Your app file will contain a single resource: <code>HomeResource</code>.
           p
             code-block-slotted(language="typescript")
               template(v-slot:title) /path/to/your/project/src/app.ts
@@ -68,14 +69,14 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Verification
-      p You should verify that the server is working by running it.
+      p Verify that your app is working by running it.
       ol
-        li Start the server.
+        li Run your app.
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
               | deno --allow-net --allow-env src/app.ts
-          p When you start your server, you should see the following:
+          p You should see something similar following:
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
