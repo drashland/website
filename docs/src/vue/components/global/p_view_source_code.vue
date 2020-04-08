@@ -9,7 +9,7 @@ export default {
     ],
     computed: {
         source_code_url() {
-            return "https://github.com/drashland/deno-drash-docs/tree/master/src/docs/example_code" + this.$route.meta.source_code_uri
+            return "https://github.com/drashland/deno-drash-docs/tree/master/docs/src/example_code" + this.$route.meta.source_code_uri
         }
     }
 }
