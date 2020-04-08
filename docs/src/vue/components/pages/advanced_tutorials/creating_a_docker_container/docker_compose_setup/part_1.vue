@@ -2,7 +2,7 @@
 export const resource = {
     paths: ["/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-1"],
     meta: {
-      title: "Creating A Container in Docker Compose",
+      title: "Creating A Docker Container",
       subtitle: "Part 1: Creating The Source Code",
       source_code_uri: "/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_1"
     }
@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
+      example_code_src: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/src'],
       part: 1,
       parts: 5,
       toc: {
@@ -64,7 +65,7 @@ page-tutorial-part(
             code-block-slotted(language="typescript")
               template(v-slot:title) /path/to/your/project/src/app.ts
               template(v-slot:code)
-                | {{ example_code.app.contents }}
+                | {{ example_code_src.app.contents }}
   div.row
     div.col
       hr
