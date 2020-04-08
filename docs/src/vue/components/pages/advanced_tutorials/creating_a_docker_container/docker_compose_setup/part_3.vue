@@ -26,7 +26,6 @@ export default {
     };
   },
 }
-// TODO :: Add a create an apaxhe dockerfile section
 </script>
 
 <template lang="pug">
@@ -69,7 +68,7 @@ page-tutorial-part(
         li
           p Create the Nginx Dockerfile
           p If you are instead using Apache, go to the next step below.
-          p This file is being used by the Nginx service block you added in the last part, inside of <code>docker-compose.yml</code>.
+          p This file will be used by the Nginx container.
           code-block-slotted(language="shell")
             template(v-slot:title) /path/to/your/project/.docker/nginx.dockerfile
             template(v-slot:code)
@@ -77,11 +76,23 @@ page-tutorial-part(
               |
               | RUN apt update
               |
-              | COPY ./.docker/conf/drash-app.conf /etc/nginx/conf.d/drash-app.conf
+              | COPY ./.docker/conf/nginx.conf /etc/nginx/conf.d/default.conf
               |
               | ENTRYPOINT ["nginx"]
               | CMD ["-g", "daemon off;"]
           p You will create the configuration file in the next part that Nginx will use to pass connections to the Drash server
+        li
+          p Create the Apache Dockerfile
+          p If you are using Nginx instead, you can skip this step.
+          p This file will be used by the Apache container
+          code-block-slotted(language="shell")
+            template(v-slot:title) /path/to/your/project/.docker/apache.dockerfile
+            template(v-slot:code)
+              | FROM httpd:2.4
+              |
+              | RUN apt update -y
+              | COPY .docker/conf/apache.conf /usr/local/apache2/conf/demoapache.conf
+              | RUN echo "\nInclude /usr/local/apache2/conf/demoapache.conf" >> /usr/local/apache2/conf/httpd.conf
   div.row
     div.col
       hr

@@ -26,7 +26,6 @@ export default {
     };
   },
 }
-// TODO :: Add step for apache configuration
 </script>
 
 <template lang="pug">
@@ -56,10 +55,10 @@ page-tutorial-part(
           p If you are instead using Apache as your proxy server, go the the step below.
           p This file is to configure Nginx to make it act as the proxy server.
           code-block-slotted(language="shell")
-            template(v-slot:title) /path/to/your/project/.docker/conf/drash-app.conf
+            template(v-slot:title) /path/to/your/project/.docker/conf/nginx.conf
             template(v-slot:code)
               | server {
-              |     listen 9002;
+              |     listen 80;
               |     location / {
               |       proxy_http_version 1.1;
               |       proxy_set_header Upgrade $http_upgrade;
@@ -70,6 +69,19 @@ page-tutorial-part(
               |     }
               | }
           p Any HTTP request will be routed to the Drash server.
+        li
+          p Create your Apache configuration file.
+          p If you are using Nginx instead, you can skip this step.
+          p This file will make Apache act as a reverse proxy server, passing requests to the Drash server
+          code-block-slotted(language="shell")
+             template(v-slot:title) /path/to/your/project/.docker/conf/apache.conf
+             template(v-slot:code)
+               | LoadModule proxy_module /usr/local/apache2/modules/mod_proxy.so
+               | LoadModule proxy_http_module modules/mod_proxy_http.so
+               |
+               | &lt;VirtualHost *:80&gt;
+               |     ProxyPass / http://drash_app_drash:1447/
+               | &lt;/VirtualHost&gt;
   div.row
     div.col
       hr

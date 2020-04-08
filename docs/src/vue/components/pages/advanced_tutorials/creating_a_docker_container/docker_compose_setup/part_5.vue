@@ -70,12 +70,12 @@ page-tutorial-part(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | Deno server started at localhost:1447.
-        li Make a request using <code>curl</code> like below or go to <code>localhost:9002</code> in your browser.
+              | Deno server started at :1447.
+        li Make a request using <code>curl</code> like below or go to <code>localhost:8080</code> in your browser.
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | curl localhost:9002
+              | curl localhost:8080
           p You should receive the following response:
           code-block-slotted
             template(v-slot:title) Terminal

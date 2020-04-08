@@ -26,7 +26,6 @@ export default {
     };
   },
 }
-// TODO :: Add apache service block
 </script>
 
 <template lang="pug">
@@ -73,7 +72,22 @@ page-tutorial-part(
               |     depends_on:
               |       - drash
               |     ports:
-              |       - "9002:9002"
+              |       - "8080:80"
+              |     networks:
+              |       - drash-app-network
+              |
+              |   apache:
+              |     container_name: drash_app_apache
+              |     build:
+              |       context: .
+              |       dockerfile: .docker/apache.dockerfile
+              |     volumes:
+              |       - ./src:/var/www/src
+              |     working_dir: /var/www/src
+              |     depends_on:
+              |       - drash
+              |     ports:
+              |       - "8080:80"
               |     networks:
               |       - drash-app-network
               |
