@@ -7,7 +7,7 @@ export const resource = {
   meta: {
     title: "Creating A Docker Container",
     subtitle: "Introduction",
-    source_code_uri: "/advanced_tutorials/creating-a-docker-container/docker-compose-setup"
+    source_code_uri: "/advanced_tutorials/creating_a_docker_container/docker_compose_setup"
   }
 }
 
