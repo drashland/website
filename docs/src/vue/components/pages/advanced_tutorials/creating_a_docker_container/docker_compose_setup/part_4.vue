@@ -3,7 +3,7 @@ export const resource = {
     paths: ["/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-4"],
     meta: {
         title: "Creating A Docker Container",
-        subtitle: "Part 4: Creating The Proxy Server Configuration",
+        subtitle: "Part 4: Creating The Proxy Server",
         source_code_uri: "/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_4"
     }
 }
