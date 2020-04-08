@@ -1215,6 +1215,11 @@
         "filename": "adding_global_members",
         "title": "/path/to/your/project/adding_global_members"
       },
+      "error_handling_angular_deep_linking": {
+        "contents": "",
+        "filename": "error_handling_angular_deep_linking",
+        "title": "/path/to/your/project/error_handling_angular_deep_linking"
+      },
       "redirects": {
         "contents": "",
         "filename": "redirects",
@@ -1248,6 +1253,15 @@
         "filename": "bootstrap.ts",
         "language": "typescript",
         "title": "/path/to/your/project/bootstrap.ts"
+      }
+    },
+    "/src/example_code/tutorials/misc/error_handling_angular_deep_linking": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\nconst decoder = new TextDecoder();\n\nclass MyCustomServer extends Drash.Http.Server {\n  public handleHttpRequestError(\n    request: any,\n    error: any,\n    resource: Drash.Http.Resource | any = {},\n    response: Drash.Http.Response | any = {}\n  ): any {\n\n    if (resource) {\n      if (!response) {\n        if (typeof resource[request.method.toUpperCase()] !== \"function\") {\n          error = new Drash.Exceptions.HttpException(405);\n        }\n      }\n    }\n\n    response = new Drash.Http.Response(request);\n    response.status_code = error.code ? error.code : null;\n    response.body = error.message ? error.message : response.getStatusMessage();\n\n    if (response.status_code == 404) {\n      response.headers.set(\"Content-Type\", \"text/html\");\n      response.body = decoder.decode(Deno.readFileSync(\"/path/to/your/index.html\"));\n    }\n\n    try {\n      this.executeMiddlewareServerLevelAfterRequest(request, null, response);\n    } catch (error) {\n    }\n\n    return response.send();\n  }\n}\nDrash.Http.Server = MyCustomServer;\n\nexport class AngularResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    try {\n      const raw = Deno.readFileSync(\"/path/to/your/index.html\");\n      const template = decoder.decode(raw);\n      this.response.body = template;\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(400, \"Error reading index.html file.\");\n    }\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [AngularResource],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
       }
     },
     "/src/example_code/tutorials/misc/redirects": {
@@ -2625,13 +2639,13 @@
 };
   </script>
   
-  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586347655707"></script>
-  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586347655707"></script>
-  <script src="/docs/public/assets/js/bundle.production.js?version=1586347655707"></script>
-  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586347655707"></script>
-  <script src="/docs/public/assets/js/router.production.js?version=1586347655707"></script>
-  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586347655707"></script>
-  <script src="/docs/public/assets/js/app.production.js?version=1586347655707"></script>
+  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586385366649"></script>
+  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586385366649"></script>
+  <script src="/docs/public/assets/js/bundle.production.js?version=1586385366649"></script>
+  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586385366649"></script>
+  <script src="/docs/public/assets/js/router.production.js?version=1586385366649"></script>
+  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586385366649"></script>
+  <script src="/docs/public/assets/js/app.production.js?version=1586385366649"></script>
 
 </body>
 </html>
