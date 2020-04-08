@@ -39,8 +39,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
-      p You will be creating a basic Drash server. If you haven't read the #[a( href="/#/tutorials/servers/creating-a-server") Creating A Server] section then do so before reading his tutorial.
-      p And if you haven't used #[a( href="https://docs.docker.com/compose/" ) Docker Compose] before then read the documentation before starting this tutorial.
+      p You will be creating a basic Drash server. If you haven't read the #[a( href="/#/tutorials/servers/creating-a-server") Creating A Server] section then do so before reading this tutorial.
       p-view-source-code
   div.row
     div.col
@@ -51,38 +50,20 @@ page-tutorial-part(
       hr
       h2-hash Steps
       ol
-        li Create a <code>src</code> directory.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | mkdir src
-        li Create the <code>app.ts</code> file.
-          code-block-slotted(language="typescript")
-            template(v-slot:title) /path/to/your/project/src/app.ts
-            template(v-slot:code)
-              | import Drash from "https://deno.land/x/drash/mod.ts";
-              |
-              | class HomeResource extends Drash.Http.Resource {
-              |
-              |   static paths = [
-              |     "/"
-              |   ];
-              |
-              |   public GET() {
-              |     this.response.body = 'Hello World!';
-              |     return this.response;
-              |   }
-              | }
-              |
-              | const server = new Drash.Http.Server({
-              |   address: ":1447",
-              |   response_output: "application/json",
-              |   resources: [
-              |     HomeResource
-              |   ],
-              | });
-              |
-              | server.run();
+        li
+          p Create a <code>src</code> directory.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | mkdir src
+        li
+          p Create the <code>app.ts</code> file.
+          p
+            code-block-slotted(language="typescript")
+              template(v-slot:title) /path/to/your/project/src/app.ts
+              template(v-slot:code)
+                | {{ example_code.app.contents }}
   div.row
     div.col
       hr
