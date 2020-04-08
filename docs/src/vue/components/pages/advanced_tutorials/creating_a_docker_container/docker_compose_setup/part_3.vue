@@ -2,7 +2,7 @@
 export const resource = {
     paths: ["/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-3"],
     meta: {
-        title: "Creating A Container in Docker Compose",
+        title: "Creating A Docker Container",
         subtitle: "Part 3: Creating The Dockerfiles",
         source_code_uri: "/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_3"
     }
@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
+      example_code_docker: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/.docker'],
       part: 3,
       parts: 5,
       toc: {
@@ -39,7 +40,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
-      p Now that you have your <code>docker-compose.yml</code> file set up, you now need Dockerfiles for the containers to build from. The Dockerfiles you will create in this tutorial part will be used by each conntainer to build from.
+      p Now that you have your <code>docker-compose.yml</code> file set up, you now need your <code>.dockerfile</code> files (also known as <code>Dockerfile</code> files). These files will tell Docker how it should build. The <code>Dockerfile</code> files you will create in this tutorial part will be used by each container.
       p-view-source-code
   div.row
     div.col
@@ -51,51 +52,36 @@ page-tutorial-part(
       h2-hash Steps
       ol
         li
-          p Create the Drash Dockerfile.
-          p This file is being used by the Drash service block you added in the last part, inside of <code>docker-compose.yml</code>.
-          p You may change the version of Deno to install to suit your requirements.
+          p Create the Drash <code>Dockerfile</code>.
+          p This file will be used by the Drash service block you added in the last tutorial part &mdash; inside of your <code>docker-compose.yml</code> file.
+          p
+            em
+              strong Note that you can change the version of Deno to install to suit your requirements.
           code-block-slotted(language="shell")
             template(v-slot:title) /path/to/your/project/.docker/drash.dockerfile
             template(v-slot:code)
-              | FROM debian:stable-slim
-              |
-              | RUN apt update -y
-              | RUN apt install bash curl unzip -y
-              |
-              | RUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh -s v0.39.0
-              | RUN export DENO_INSTALL="/root/.local"
-              | RUN export PATH="$DENO_INSTALL/bin:$PATH"
+              | {{ example_code_docker.drash.contents }}
         li
-          p Create the Nginx Dockerfile
-          p If you are instead using Apache, go to the next step below.
+          p Create the Nginx <code>Dockerfile</code>.
+          p
+            em If you prefer to use Apache, then skip this step and follow the next step below.
           p This file will be used by the Nginx container.
           code-block-slotted(language="shell")
             template(v-slot:title) /path/to/your/project/.docker/nginx.dockerfile
             template(v-slot:code)
-              | FROM nginx:latest
-              |
-              | RUN apt update
-              |
-              | COPY ./.docker/conf/nginx.conf /etc/nginx/conf.d/default.conf
-              |
-              | ENTRYPOINT ["nginx"]
-              | CMD ["-g", "daemon off;"]
-          p You will create the configuration file in the next part that Nginx will use to pass connections to the Drash server
+              | {{ example_code_docker.nginx.contents }}
+          p You will create the configuration file for Nginx in the next tutorial part. Nginx will use the configuration file pass connections to the Drash server.
         li
-          p Create the Apache Dockerfile
-          p If you are using Nginx instead, you can skip this step.
-          p This file will be used by the Apache container
+          p Create the Apache <code>Dockerfile</code>.
+          p This file will be used by the Apache container.
           code-block-slotted(language="shell")
             template(v-slot:title) /path/to/your/project/.docker/apache.dockerfile
             template(v-slot:code)
-              | FROM httpd:2.4
-              |
-              | RUN apt update -y
-              | COPY .docker/conf/apache.conf /usr/local/apache2/conf/demoapache.conf
-              | RUN echo "\nInclude /usr/local/apache2/conf/demoapache.conf" >> /usr/local/apache2/conf/httpd.conf
+              | {{ example_code_docker.apache.contents }}
+          p You will create the configuration file for Apache in the next tutorial part. Apache will use the configuration file pass connections to the Drash server.
   div.row
     div.col
       hr
       h2-hash Verification
-      p There are no verifications for this stage
+      p There are no verification steps for this tutorial part.
 </template>
