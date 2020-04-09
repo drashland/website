@@ -9,6 +9,7 @@
     "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^2.1.0",
+    "kind-of": ">=6.0.3",
     "markdown-it": "^8.4.2",
     "mime-types": "^2.1.22",
     "node-sass": "^4.13.1",
