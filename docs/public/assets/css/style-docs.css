@@ -136,20 +136,18 @@ ol li ul {
   padding: 0.725rem 1.45rem;
   text-transform: uppercase;
   display: flex; }
-.c-sidebar span.heading button.arrow {
+.c-sidebar span.heading p.arrow {
     font-size: 0.8em;
     color: #BFFFB8;
     background: none;
     margin-right: 1.5em;
-    border: none;
+    margin-top: auto;
+    margin-bottom: auto;
 }
-.c-sidebar span.heading button.arrow:focus {
-  outline: none;
-}
-.c-sidebar .heading button.arrow.down {
+.c-sidebar .heading p.arrow.down {
   transform: scale(1.8, 1) rotate(90deg);
 }
-.c-sidebar span.heading button.arrow.right {
+.c-sidebar span.heading p.arrow.right {
   transform: scale(1, 1.8);
 }
 .c-sidebar span.heading:hover .arrow,
@@ -182,7 +180,7 @@ ol li ul {
   transition-property: color background;
   transition-duration: 0.2s; }
 .c-sidebar__menu span.heading:hover,
-.c-sidebar__menu .c-sidebar__menu-body a:hover {
+.c-sidebar__menu .c-sidebar__menu-body a[href]:hover {
   color: #333;
   background: #f4f4f4; }
 .c-sidebar__menu .c-sidebar__menu-header {
