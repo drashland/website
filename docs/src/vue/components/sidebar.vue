@@ -199,10 +199,13 @@ div.c-sidebar
 
 <script>
     $(document).ready(function () {
-      $('.heading').on('click', function (event) {
-        const $headingBody = $(this).next()
+      /**
+       * @param {jQuery} $headingBody jQuery selected element of the body container for the heading
+       * @param {jQuery} $arrow jquery selected element of the arrow for the heading
+       * @param {Event} event Click event object, to prevent link actions when collapsing
+       */
+      function handleExpandableClick ($headingBody, $arrow, event) {
         $headingBody.toggleClass('hide--soft')
-        const $arrow = $(this).find('.arrow')
         const isExpanded = $arrow.attr('class').indexOf('down') >= 0
         if (isExpanded) {
           $arrow.removeClass('down').addClass('right')
@@ -210,18 +213,17 @@ div.c-sidebar
         } else {
           $arrow.removeClass('right').addClass('down')
         }
+      }
+      const $sidebarBody = $('.c-sidebar .c-sidebar__body')
+      $($sidebarBody.find('.heading')).on('click', function (event) {
+        const $headingBody = $(this).next()
+        const $arrow = $(this).find('.arrow')
+        handleExpandableClick($headingBody, $arrow, event)
       })
-      $('.sub-heading').on('click', function (event) {
+      $($sidebarBody.find('.sub-heading')).on('click', function (event) {
         const $subheadingBody = $(this).next()
-        $subheadingBody.toggleClass('hide--soft')
         const $arrow = $(this).find('.arrow')
-        const isExpanded = $arrow.attr('class').indexOf('down') >= 0
-        if (isExpanded) {
-          $arrow.removeClass('down').addClass('right')
-          event.preventDefault()
-        } else {
-          $arrow.removeClass('right').addClass('down')
-        }
+        handleExpandableClick($subheadingBody, $arrow, event)
       })
     })
 export default {
