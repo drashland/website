@@ -200,18 +200,28 @@ div.c-sidebar
 <script>
     $(document).ready(function () {
       $('.heading').on('click', function (event) {
-        const $body = $(this).next()
+        const $headingBody = $(this).next()
+        $headingBody.toggleClass('hide--soft')
         const $arrow = $(this).find('.arrow')
         const isExpanded = $arrow.attr('class').indexOf('down') >= 0
         if (isExpanded) {
           $arrow.removeClass('down').addClass('right')
-          $body.addClass('hide--soft')
           event.preventDefault()
         } else {
           $arrow.removeClass('right').addClass('down')
-          $body.removeClass('hide--soft')
         }
-
+      })
+      $('.sub-heading').on('click', function (event) {
+        const $subheadingBody = $(this).next()
+        $subheadingBody.toggleClass('hide--soft')
+        const $arrow = $(this).find('.arrow')
+        const isExpanded = $arrow.attr('class').indexOf('down') >= 0
+        if (isExpanded) {
+          $arrow.removeClass('down').addClass('right')
+          event.preventDefault()
+        } else {
+          $arrow.removeClass('right').addClass('down')
+        }
       })
     })
 export default {
