@@ -489,11 +489,6 @@
         "extension": "txt",
         "filename": "folder_structure.txt",
         "title": "Project Folder Structure"
-      },
-      "src": {
-        "contents": "",
-        "filename": "src",
-        "title": "/path/to/your/project/src"
       }
     },
     "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_5/.docker": {
@@ -535,15 +530,6 @@
         "title": "/path/to/your/project/nginx.conf"
       }
     },
-    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_5/src": {
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \":1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
-      }
-    },
     "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_2": {
       "docker_compose": {
         "contents": "version: '3'\n\nservices:\n\n nginx:\n   container_name: drash_app_nginx\n   build:\n     context: .\n     dockerfile: .docker/nginx.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   depends_on:\n     - drash\n   ports:\n     - \"8080:80\"\n   networks:\n     - drash-app-network\n\n apache:\n   container_name: drash_app_apache\n   build:\n     context: .\n     dockerfile: .docker/apache.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   depends_on:\n     - drash\n   ports:\n     - \"8080:80\"\n   networks:\n     - drash-app-network\n\n drash:\n   container_name: drash_app_drash\n   build:\n     context: .\n     dockerfile: .docker/drash.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   ports:\n     - \"1447:1447\"\n   command: bash -c \"deno --allow-net --allow-env app.ts\"\n   networks:\n     - drash-app-network\n\nnetworks:\n drash-app-network:\n   driver: bridge\n\n",
@@ -556,20 +542,6 @@
         "extension": "txt",
         "filename": "folder_structure.txt",
         "title": "Project Folder Structure"
-      },
-      "src": {
-        "contents": "",
-        "filename": "src",
-        "title": "/path/to/your/project/src"
-      }
-    },
-    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_2/src": {
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \":1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
       }
     },
     "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_3": {
@@ -584,11 +556,6 @@
         "extension": "txt",
         "filename": "folder_structure.txt",
         "title": "Project Folder Structure"
-      },
-      "src": {
-        "contents": "",
-        "filename": "src",
-        "title": "/path/to/your/project/src"
       }
     },
     "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_3/.docker": {
@@ -611,15 +578,6 @@
         "title": "/path/to/your/project/drash.dockerfile"
       }
     },
-    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_3/src": {
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \":1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
-      }
-    },
     "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_4": {
       "": {
         "contents": "",
@@ -632,11 +590,6 @@
         "extension": "txt",
         "filename": "folder_structure.txt",
         "title": "Project Folder Structure"
-      },
-      "src": {
-        "contents": "",
-        "filename": "src",
-        "title": "/path/to/your/project/src"
       }
     },
     "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_4/.docker": {
@@ -678,35 +631,12 @@
         "title": "/path/to/your/project/nginx.conf"
       }
     },
-    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_4/src": {
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \":1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
-      }
-    },
     "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_1": {
       "folder_structure": {
         "contents": "▾ /path/to/your/project/\n\t▾ src/\n\t\tapp.ts\n",
         "extension": "txt",
         "filename": "folder_structure.txt",
         "title": "Project Folder Structure"
-      },
-      "src": {
-        "contents": "",
-        "filename": "src",
-        "title": "/path/to/your/project/src"
-      }
-    },
-    "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_1/src": {
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \":1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
       }
     },
     "/src/example_code/advanced_tutorials/creating_an_api": {
@@ -904,13 +834,6 @@
       }
     },
     "/src/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_2": {
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \"/path/to/your/project\",\n  static_paths: [\"/public\"]\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
-      },
       "folder_structure": {
         "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n",
         "extension": "txt",
@@ -932,13 +855,6 @@
         "filename": "index.html",
         "title": "/path/to/your/project/index.html"
       },
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \"/path/to/your/project\",\n  static_paths: [\"/public\"]\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
-      },
       "folder_structure": {
         "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n\tindex.html\n",
         "extension": "txt",
@@ -959,13 +875,6 @@
         "extension": "html",
         "filename": "index.html",
         "title": "/path/to/your/project/index.html"
-      },
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \"/private/var/src/drashland/deno-drash-website/docs/src/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_4\",\n  static_paths: [\"/public\"]\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
       },
       "folder_structure": {
         "contents": "▾ /path/to/your/project/\n\t▾ public/\n\t\tvue_app.js\n\tapp.ts\n\thome_resource.ts\n\tindex.html\n",
@@ -996,13 +905,6 @@
       }
     },
     "/src/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_1": {
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \"/path/to/your/project\",\n  static_paths: [\"/public\"]\n});\n\nserver.run();\n\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
-      },
       "folder_structure": {
         "contents": "▾ /path/to/your/project/\n\tapp.ts\n",
         "extension": "txt",
@@ -1049,13 +951,6 @@
         "language": "typescript",
         "title": "/path/to/your/project/contact_resource.ts"
       },
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nimport AboutResource from \"./about_resource.ts\";\nimport ContactResource from \"./contact_resource.ts\";\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [\n    AboutResource,\n    ContactResource,\n    HomeResource,\n  ]\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
-      },
       "folder_structure": {
         "contents": "▾ /path/to/your/project/\n\tabout_resource.ts\n\tapp.ts\n\tcontact_resource.ts\n\thome_resource.ts\n",
         "extension": "txt",
@@ -1084,13 +979,6 @@
         "filename": "contact_resource.ts",
         "language": "typescript",
         "title": "/path/to/your/project/contact_resource.ts"
-      },
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nimport AboutResource from \"./about_resource.ts\";\nimport ContactResource from \"./contact_resource.ts\";\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [\n    AboutResource,\n    ContactResource,\n    HomeResource,\n  ]\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
       },
       "html": {
         "contents": "",
@@ -1132,13 +1020,6 @@
       }
     },
     "/src/example_code/advanced_tutorials/creating_a_static_html_app/about_me/part_1": {
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\n\nimport AboutResource from \"./about_resource.ts\";\nimport ContactResource from \"./contact_resource.ts\";\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [\n    AboutResource,\n    ContactResource,\n    HomeResource,\n  ]\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
-      },
       "folder_structure": {
         "contents": "▾ /path/to/your/project/\n\tapp.ts\n",
         "extension": "txt",
@@ -1153,13 +1034,6 @@
         "filename": "response.ts",
         "language": "typescript",
         "title": "/path/to/your/project/response.ts"
-      },
-      "deps": {
-        "contents": "export {\n  ServerRequest,\n  serve\n} from \"https://deno.land/std@v0.34.0/http/server.ts\";\n\nexport {\n  STATUS_TEXT,\n  Status\n} from \"https://deno.land/std@v0.34.0/http/http_status.ts\";\n\nexport {\n  walkSync\n} from \"https://deno.land/std@v0.34.0/fs/mod.ts\";\n\nexport {\n  assertEquals,\n  assertThrows\n} from \"https://deno.land/std@v0.34.0/testing/asserts.ts\";\n\nexport {\n  contentType\n} from \"https://deno.land/std@v0.34.0/media_types/mod.ts\";\n\nexport {\n  BufReader,\n  ReadLineResult\n} from \"https://deno.land/std@v0.34.0/io/bufio.ts\";\n\nexport {\n  StringReader\n} from \"https://deno.land/std@v0.34.0/io/readers.ts\";\n\nexport {\n  FormFile,\n  MultipartReader\n} from \"https://deno.land/std@v0.34.0/mime/multipart.ts\";\n",
-        "extension": "ts",
-        "filename": "deps.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/deps.ts"
       }
     },
     "/src/example_code/tutorials": {
@@ -1215,11 +1089,6 @@
         "filename": "adding_global_members",
         "title": "/path/to/your/project/adding_global_members"
       },
-      "error_handling_angular_deep_linking": {
-        "contents": "",
-        "filename": "error_handling_angular_deep_linking",
-        "title": "/path/to/your/project/error_handling_angular_deep_linking"
-      },
       "redirects": {
         "contents": "",
         "filename": "redirects",
@@ -1253,15 +1122,6 @@
         "filename": "bootstrap.ts",
         "language": "typescript",
         "title": "/path/to/your/project/bootstrap.ts"
-      }
-    },
-    "/src/example_code/tutorials/misc/error_handling_angular_deep_linking": {
-      "app": {
-        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.0/mod.ts\";\nconst decoder = new TextDecoder();\n\nclass MyCustomServer extends Drash.Http.Server {\n  public handleHttpRequestError(\n    request: any,\n    error: any,\n    resource: Drash.Http.Resource | any = {},\n    response: Drash.Http.Response | any = {}\n  ): any {\n\n    if (resource) {\n      if (!response) {\n        if (typeof resource[request.method.toUpperCase()] !== \"function\") {\n          error = new Drash.Exceptions.HttpException(405);\n        }\n      }\n    }\n\n    response = new Drash.Http.Response(request);\n    response.status_code = error.code ? error.code : null;\n    response.body = error.message ? error.message : response.getStatusMessage();\n\n    if (response.status_code == 404) {\n      response.headers.set(\"Content-Type\", \"text/html\");\n      response.body = decoder.decode(Deno.readFileSync(\"/path/to/your/index.html\"));\n    }\n\n    try {\n      this.executeMiddlewareServerLevelAfterRequest(request, null, response);\n    } catch (error) {\n    }\n\n    return response.send();\n  }\n}\nDrash.Http.Server = MyCustomServer;\n\nexport class AngularResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    try {\n      const raw = Deno.readFileSync(\"/path/to/your/index.html\");\n      const template = decoder.decode(raw);\n      this.response.body = template;\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(400, \"Error reading index.html file.\");\n    }\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"application/json\",\n  resources: [AngularResource],\n});\n\nserver.run();\n",
-        "extension": "ts",
-        "filename": "app.ts",
-        "language": "typescript",
-        "title": "/path/to/your/project/app.ts"
       }
     },
     "/src/example_code/tutorials/misc/redirects": {
@@ -2639,13 +2499,13 @@
 };
   </script>
   
-  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586385505467"></script>
-  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586385505467"></script>
-  <script src="/docs/public/assets/js/bundle.production.js?version=1586385505467"></script>
-  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586385505467"></script>
-  <script src="/docs/public/assets/js/router.production.js?version=1586385505467"></script>
-  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586385505467"></script>
-  <script src="/docs/public/assets/js/app.production.js?version=1586385505467"></script>
+  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586394528288"></script>
+  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586394528288"></script>
+  <script src="/docs/public/assets/js/bundle.production.js?version=1586394528288"></script>
+  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586394528288"></script>
+  <script src="/docs/public/assets/js/router.production.js?version=1586394528288"></script>
+  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586394528288"></script>
+  <script src="/docs/public/assets/js/app.production.js?version=1586394528288"></script>
 
 </body>
 </html>
