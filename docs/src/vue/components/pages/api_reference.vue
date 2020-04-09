@@ -12,7 +12,7 @@ export default {
     return {
       member: {
         data: {
-          class: this.$store.page_data.api_reference["Drash.Exceptions"].HttpException
+          class: this.$store.page_data.api_reference.Exceptions.HttpException
         }
       }
     };
