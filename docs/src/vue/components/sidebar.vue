@@ -114,7 +114,7 @@ div.c-sidebar
         a Template Engines
         div.l-submenu-1
           a-base-url(href="/third-party-tutorials/template-engines/dejs") dejs
-      a-base-url.heading-link(href="/api-reference") API Reference
+      a-base-url.heading-link(href="/api-reference/exceptions/http-exception") API Reference
       div.c-sidebar__menu-body
         a Exceptions
         div.l-submenu-1
