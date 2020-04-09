@@ -9,7 +9,6 @@ export const resource = {
 
 export default {
   data() {
-    console.log(this.$store.page_data)
     return {
       member: {
         data: {
