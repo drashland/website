@@ -13,7 +13,7 @@ div.c-sidebar
   div.c-sidebar__body
     div.c-sidebar__menu
       span.heading
-        button.arrow.right &#10148;
+        p.arrow.right &#10148;
         a-base-url.heading-link(href="/introduction#top") Introduction
       div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/introduction#drash-in-a-nutshell") Drash In A Nutshell
@@ -27,7 +27,7 @@ div.c-sidebar
         a(href="https://github.com/drashland/deno-drash" target="_BLANK") View On GitHub &mdash; Drash
         a(href="https://github.com/drashland/deno-drash-docs" target="_BLANK") View On GitHub &mdash; Drash Docs
       span.heading
-        button.arrow.right &#10148;
+        p.arrow.right &#10148;
         a-base-url.heading-link(href="/tutorials") Tutorials
       div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/tutorials/introduction") Introduction
@@ -70,7 +70,7 @@ div.c-sidebar
           a-base-url(href="/tutorials/misc/error-handling-angular-deep-linking") Error Handling: Angular Deep Linking
           //- a-base-url(href="/tutorials/misc/adding-third-party-modules") Adding Third-Party Modules
       span.heading
-        button.arrow.right &#10148;
+        p.arrow.right &#10148;
         a-base-url.heading-link(href="/advanced-tutorials") Advanced Tutorials
       div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/advanced-tutorials/introduction") Introduction
@@ -111,9 +111,9 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-4") Part 4: Creating The Proxy Server
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-5") Part 5: Starting The Environment
       span.heading
-        button.arrow.right &#10148;
+        p.arrow.right &#10148;
         a-base-url.heading-link(href="/third-party-tutorials") Third Party Tutorials
-      div.c-sidebar__menu-body
+      div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/third-party-tutorials/introduction") Introduction
         a Databases
         div.l-submenu-1
@@ -123,14 +123,16 @@ div.c-sidebar
         div.l-submenu-1
           a-base-url(href="/third-party-tutorials/template-engines/dejs") dejs
       span.heading
-        button.arrow.right &#10148;
+        p.arrow.right &#10148;
         a-base-url.heading-link(href="/api-reference") API Reference
       div.c-sidebar__menu-body.hide--soft
         a Exceptions
         div.l-submenu-1
           a-base-url(href="/api-reference/exceptions/http-exception") HttpException
           a-base-url(href="/api-reference/exceptions/http-middleware-exception") HttpMiddlewareException
-        a Http
+        span.sub-heading
+          p.arrow.right
+          a Http
         div.l-submenu-1
           a-base-url(href="/api-reference/http/middleware") Middleware
           a-base-url(href="/api-reference/http/resource") Resource
@@ -158,6 +160,22 @@ div.c-sidebar
 </template>
 
 <script>
+    $(document).ready(function () {
+      $('.heading').on('click', function (event) {
+        const $body = $(this).next()
+        const $arrow = $(this).find('.arrow')
+        const isExpanded = $arrow.attr('class').indexOf('down') >= 0
+        if (isExpanded) {
+          $arrow.removeClass('down').addClass('right')
+          $body.addClass('hide--soft')
+          event.preventDefault()
+        } else {
+          $arrow.removeClass('right').addClass('down')
+          $body.removeClass('hide--soft')
+        }
+
+      })
+    })
 export default {
     data() {
         return {};
