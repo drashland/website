@@ -12,8 +12,10 @@ div.c-sidebar
             span.text-hide Drash
   div.c-sidebar__body
     div.c-sidebar__menu
-      a-base-url.heading-link(href="/introduction#top") Introduction
-      div.c-sidebar__menu-body
+      span.heading
+        button.arrow.right &#10148;
+        a-base-url.heading-link(href="/introduction#top") Introduction
+      div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/introduction#drash-in-a-nutshell") Drash In A Nutshell
         a-base-url(href="/introduction#quickstart") Quickstart
         a-base-url(href="/introduction#importing") Importing
@@ -24,8 +26,10 @@ div.c-sidebar
         a-base-url(href="/issues") Issues
         a(href="https://github.com/drashland/deno-drash" target="_BLANK") View On GitHub &mdash; Drash
         a(href="https://github.com/drashland/deno-drash-docs" target="_BLANK") View On GitHub &mdash; Drash Docs
-      a-base-url.heading-link(href="/tutorials") Tutorials
-      div.c-sidebar__menu-body
+      span.heading
+        button.arrow.right &#10148;
+        a-base-url.heading-link(href="/tutorials") Tutorials
+      div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/tutorials/introduction") Introduction
         a Resources
         div.l-submenu-1
@@ -65,8 +69,10 @@ div.c-sidebar
           a-base-url(href="/tutorials/misc/redirects") Redirects
           a-base-url(href="/tutorials/misc/error-handling-angular-deep-linking") Error Handling: Angular Deep Linking
           //- a-base-url(href="/tutorials/misc/adding-third-party-modules") Adding Third-Party Modules
-      a-base-url.heading-link(href="/advanced-tutorials") Advanced Tutorials
-      div.c-sidebar__menu-body
+      span.heading
+        button.arrow.right &#10148;
+        a-base-url.heading-link(href="/advanced-tutorials") Advanced Tutorials
+      div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/advanced-tutorials/introduction") Introduction
         a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles") Content Negotiation
         div.l-submenu-1
@@ -104,7 +110,9 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-3") Part 3: Creating The Dockerfiles
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-4") Part 4: Creating The Proxy Server
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-5") Part 5: Starting The Environment
-      a-base-url.heading-link(href="/third-party-tutorials") Third Party Tutorials
+      span.heading
+        button.arrow.right &#10148;
+        a-base-url.heading-link(href="/third-party-tutorials") Third Party Tutorials
       div.c-sidebar__menu-body
         a-base-url(href="/third-party-tutorials/introduction") Introduction
         a Databases
@@ -114,8 +122,10 @@ div.c-sidebar
         a Template Engines
         div.l-submenu-1
           a-base-url(href="/third-party-tutorials/template-engines/dejs") dejs
-      a-base-url.heading-link(href="/api-reference") API Reference
-      div.c-sidebar__menu-body
+      span.heading
+        button.arrow.right &#10148;
+        a-base-url.heading-link(href="/api-reference") API Reference
+      div.c-sidebar__menu-body.hide--soft
         a Exceptions
         div.l-submenu-1
           a-base-url(href="/api-reference/exceptions/http-exception") HttpException
