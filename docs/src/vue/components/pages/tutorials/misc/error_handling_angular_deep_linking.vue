@@ -15,7 +15,6 @@ export default {
           "Before You Get Started",
           "Folder Structure End State",
           "Steps",
-          "Verification",
         ]
       }
     };
