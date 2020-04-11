@@ -19,6 +19,7 @@ div.c-sidebar
         a-base-url(href="/introduction#importing") Importing
         a-base-url(href="/introduction#features") Features
         a-base-url(href="/about-drash") About Drash
+        a-base-url(href="/examples") Examples
         a-base-url(href="/lifecycle-diagram") Drash Lifecycle Diagram
         a-base-url(href="/dependency-management") Dependency Management
         a-base-url(href="/issues") Issues
