@@ -13,7 +13,6 @@ export default {
       toc: {
         items: [
           "Before You Get Started",
-          "Folder Structure End State",
           "Steps",
         ]
       }
