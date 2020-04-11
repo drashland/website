@@ -510,7 +510,7 @@
         "title": "/path/to/your/project/conf"
       },
       "drash": {
-        "contents": "FROM debian:stable-slim\n\nRUN apt update -y\nRUN apt install bash curl unzip -y\n\nRUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh -s v0.39.1\nRUN export DENO_INSTALL=\"/root/.local\"\nRUN export PATH=\"$DENO_INSTALL/bin:$PATH\"\n",
+        "contents": "FROM debian:stable-slim\n\nRUN apt update -y\nRUN apt install bash curl unzip -y\n\nRUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh -s v0.39.0\nRUN export DENO_INSTALL=\"/root/.local\"\nRUN export PATH=\"$DENO_INSTALL/bin:$PATH\"\n",
         "extension": "dockerfile",
         "filename": "drash.dockerfile",
         "title": "/path/to/your/project/drash.dockerfile"
@@ -572,7 +572,7 @@
         "title": "/path/to/your/project/apache.dockerfile"
       },
       "drash": {
-        "contents": "FROM debian:stable-slim\n\nRUN apt update -y\nRUN apt install bash curl unzip -y\n\nRUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh -s v0.39.1\nRUN export DENO_INSTALL=\"/root/.local\"\nRUN export PATH=\"$DENO_INSTALL/bin:$PATH\"\n",
+        "contents": "FROM debian:stable-slim\n\nRUN apt update -y\nRUN apt install bash curl unzip -y\n\nRUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh -s v0.39.0\nRUN export DENO_INSTALL=\"/root/.local\"\nRUN export PATH=\"$DENO_INSTALL/bin:$PATH\"\n",
         "extension": "dockerfile",
         "filename": "drash.dockerfile",
         "title": "/path/to/your/project/drash.dockerfile"
@@ -611,7 +611,7 @@
         "title": "/path/to/your/project/conf"
       },
       "drash": {
-        "contents": "FROM debian:stable-slim\n\nRUN apt update -y\nRUN apt install bash curl unzip -y\n\nRUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh -s v0.39.1\nRUN export DENO_INSTALL=\"/root/.local\"\nRUN export PATH=\"$DENO_INSTALL/bin:$PATH\"\n",
+        "contents": "FROM debian:stable-slim\n\nRUN apt update -y\nRUN apt install bash curl unzip -y\n\nRUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh -s v0.39.0\nRUN export DENO_INSTALL=\"/root/.local\"\nRUN export PATH=\"$DENO_INSTALL/bin:$PATH\"\n",
         "extension": "dockerfile",
         "filename": "drash.dockerfile",
         "title": "/path/to/your/project/drash.dockerfile"
@@ -1084,15 +1084,34 @@
       }
     },
     "/src/example_code/tutorials/misc": {
+      "pretty_links": {
+        "contents": "",
+        "filename": "pretty_links",
+        "title": "/path/to/your/project/pretty_links"
+      },
       "adding_global_members": {
         "contents": "",
         "filename": "adding_global_members",
         "title": "/path/to/your/project/adding_global_members"
       },
+      "error_handling_angular_deep_linking": {
+        "contents": "",
+        "filename": "error_handling_angular_deep_linking",
+        "title": "/path/to/your/project/error_handling_angular_deep_linking"
+      },
       "redirects": {
         "contents": "",
         "filename": "redirects",
         "title": "/path/to/your/project/redirects"
+      }
+    },
+    "/src/example_code/tutorials/misc/pretty_links": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.1/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  directory: \"/path/to/your/project\",\n  resources: [HomeResource],\n  response_output: \"text/html\",\n  pretty_links: true,\n  static_paths: [\"/public\"]\n});\n\nserver.run();\n\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
       }
     },
     "/src/example_code/tutorials/misc/adding_global_members": {
@@ -1122,6 +1141,15 @@
         "filename": "bootstrap.ts",
         "language": "typescript",
         "title": "/path/to/your/project/bootstrap.ts"
+      }
+    },
+    "/src/example_code/tutorials/misc/error_handling_angular_deep_linking": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.1/mod.ts\";\nconst decoder = new TextDecoder();\n\nclass AngularServer extends Drash.Http.Server {\n  public handleHttpRequestError(\n    request: any,\n    error: any,\n    resource: Drash.Http.Resource | any = {},\n    response: Drash.Http.Response | any = {}\n  ): any {\n\n    if (resource) {\n      if (!response) {\n        if (typeof resource[request.method.toUpperCase()] !== \"function\") {\n          error = new Drash.Exceptions.HttpException(405);\n        }\n      }\n    }\n\n    response = new Drash.Http.Response(request);\n    response.status_code = error.code ? error.code : null;\n    response.body = error.message ? error.message : response.getStatusMessage();\n\n    if (response.status_code == 404) {\n      response.headers.set(\"Content-Type\", \"text/html\");\n      response.body = new TextDecoder().decode(Deno.readFileSync(\"./path/to/your/index.html\"));\n    }\n\n    try {\n      this.executeMiddlewareServerLevelAfterRequest(request, null, response);\n    } catch (error) {\n      // Do nothing\n    }\n\n    return response.send();\n  }\n}\nDrash.Http.Server = AngularServer;\n\nexport class AngularResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n  public GET() {\n    try {\n      const raw = Deno.readFileSync(\"./path/to/your/index.html\");\n      const template = decoder.decode(raw);\n      this.response.body = template;\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(400, \"index error\");\n    }\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [AngularResource],\n  directory: `${await Deno.realpath(\".\")}`,\n  static_paths: [\"/public\"],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
       }
     },
     "/src/example_code/tutorials/misc/redirects": {
@@ -2499,13 +2527,13 @@
 };
   </script>
   
-  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586440537270"></script>
-  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586440537270"></script>
-  <script src="/docs/public/assets/js/bundle.production.js?version=1586440537270"></script>
-  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586440537270"></script>
-  <script src="/docs/public/assets/js/router.production.js?version=1586440537270"></script>
-  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586440537270"></script>
-  <script src="/docs/public/assets/js/app.production.js?version=1586440537270"></script>
+  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586580470633"></script>
+  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586580470633"></script>
+  <script src="/docs/public/assets/js/bundle.production.js?version=1586580470633"></script>
+  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586580470633"></script>
+  <script src="/docs/public/assets/js/router.production.js?version=1586580470633"></script>
+  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586580470633"></script>
+  <script src="/docs/public/assets/js/app.production.js?version=1586580470633"></script>
 
 </body>
 </html>
