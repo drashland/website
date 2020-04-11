@@ -59,8 +59,7 @@ page-tutorial(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net app.ts
-          p-deno-flag-allow-net
+              | deno --allow-net --allow-env app.ts
         li Using Postman (or similar app), make a <code>GET</code> request to <code>localhost:1447</code>.
           p You should receive the following response:
           a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_1.png")

@@ -62,8 +62,6 @@ page-tutorial(
             template(v-slot:title) Terminal
             template(v-slot:code)
               | deno --allow-net --allow-read app.ts
-          p-deno-flag-allow-net
-          p-deno-flag-allow-read-static
         li Make a request in your browser.
           code-block-slotted
             template(v-slot:title) Terminal

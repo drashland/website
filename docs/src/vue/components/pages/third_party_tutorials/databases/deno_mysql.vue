@@ -70,9 +70,7 @@ page-tutorial(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net --allow-write app.ts
-          p-deno-flag-allow-net
-          p <code>--allow-write</code> is required because deno_mysql will write to a <code>mysql.log</code> file in the event it needs to (e.g., when errors are thrown); therefore, write access must be granted.
+              | deno --allow-net --allow-env --allow-write app.ts
         li Make a request using <code>curl</code> like below or go to <code>localhost:1447/</code> in your browser.
           code-block-slotted
             template(v-slot:title) Terminal

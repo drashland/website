@@ -80,8 +80,7 @@ page-tutorial-part(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net app.ts
-          p-deno-flag-allow-net
+              | deno --allow-net --allow-env app.ts
           p When you run your app, you should see the following:
           code-block-slotted
             template(v-slot:title) Terminal
