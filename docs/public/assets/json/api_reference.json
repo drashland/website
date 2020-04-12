@@ -183,7 +183,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Send the response of a static asset (e.g., a CSS file, JS file, PDF\n*     file, etc.) to the client making the request.\n*\n* @param null|string file\n*     The file that will be served to the client.\n*\n* @return {status: number, headers: Headers, body: any}\n*/\n",
-                "signature": "public sendStatic(file: null|string, contents: null|Uint8Array = null): { }",
+                "signature": "public sendStatic(file: null | string, contents: null | Uint8Array = null): { }",
                 "member_type": "method"
             },
             {
@@ -210,7 +210,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     A property to hold this server's configs.\n*\n* @property any configs\n*/\n",
-                "signature": "protected configs: ServerConfigs;",
+                "signature": "protected configs: Drash.Interfaces.ServerConfigs;",
                 "member_type": "property"
             },
             {
@@ -234,8 +234,8 @@
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param ServerConfigs configs\n*     See Drash.Interfaces.ServerConfigs\n*/\n",
-                "signature": "constructor(configs: ServerConfigs) { }",
+                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param Drash.Interfaces.ServerConfigs configs\n*     See Drash.Interfaces.ServerConfigs\n*/\n",
+                "signature": "constructor(configs: Drash.Interfaces.ServerConfigs) { }",
                 "member_type": "method"
             },
             {
@@ -339,28 +339,28 @@
         "LogLevelStructure": [
             {
                 "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface LogLevelStructure\n*\n* @description\n*     name: string\n*\n*         The name of the log level (e.g., \"debug\").\n*\n*     rank: number\n*\n*         The rank of the log level. See the\n*         Drash.Dictionaries.LogLevels.LogLevel enum member to see the ranking\n*         structure of the log levels.\n*/\n",
-                "signature": "export interface LogLevelStructure { }",
+                "signature": "export default interface LogLevelStructure { }",
                 "member_type": "method"
             }
         ],
         "LoggerConfigs": [
             {
                 "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface LoggerConfigs\n*\n* @description\n*     enabled: boolean\n*\n*         Is the logger enabled? This is useful if you have a config file that\n*         can toggle this option between `true` and `false`.\n*\n*     file?: string\n*\n*         The filename to log to (used in Drash.CoreLoggers.FileLogger).\n*\n*     level?: string\n*\n*         Options are:\n*\n*             all\n*             trace\n*             debug\n*             info\n*             warn\n*             error\n*             fatal\n*             off\n*\n*         Defaults to \"debug\".\n*\n*     tag_string?: string\n*\n*         A string with tags. Tags must be wrapped in brackets in order for the\n*         logger classes to properly identify them. For example,\n*\n*             {some_tag} | {some_tag} * {some_tag} [{some_tag}]`.\n*\n*     tag_string_fns?: any\n*\n*         This takes an object of key-value pairs where the key is the name of\n*         the tag defined in the `tag_string` config. This object is used to\n*         replace tags in the `tag_string` config by matching keys to tags and\n*         replacing tags with the values of the keys. For example, if\n*         `tag_string` was `{my_cool_tag}` and `tags_string_fns.my_cool_tag`\n*         returns `\"HELLO\"`, then `{my_cool_tag}` would be replaced with\n*         `HELLO`.\n*\n*     test?: boolean\n*\n*         Is the logger running in a test process? Setting this to true will\n*         silence the console logger from outputting to the console so you can\n*         test without actually logging to the console.\n*/\n",
-                "signature": "export interface LoggerConfigs { }",
+                "signature": "export default interface LoggerConfigs { }",
                 "member_type": "method"
             }
         ],
         "ParsedRequestBody": [
             {
                 "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface ParsedRequestBody\n*\n* @description\n*     content_type: any|undefined\n*\n*         The Content-Type of the request body. For example, if the body is\n*         JSON, then the Content-Type should be application/json.\n*\n*     data: any|undefined\n*\n*         The data passed in the body of the request.\n*/\n",
-                "signature": "export interface ParsedRequestBody { }",
+                "signature": "export default interface ParsedRequestBody { }",
                 "member_type": "method"
             }
         ],
         "ServerConfigs": [
             {
                 "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface ServerConfigs\n*\n* @description\n*     address?: string\n*\n*         The hostname and port that the server will run on. For example,\n*\n*             address: \"localhost:1337\"\n*\n*     directory?: string\n*\n*         The path to the directory of the server on the filesystem.  This is\n*         used when resolving static paths, so make sure you have this set\n*         correctly if you are serving static paths.\n*\n*     logger?: Drash.CoreLoggers.ConsoleLogger | Drash.CoreLoggers.FileLogger\n*\n*         The server's logger.\n*\n*     memory_allocation?: {\n*       multipart_form_data?: number\n*     }\n*         How much memory should be allocated to certain parts of the codebase.\n*         For example, the multipart reader uses a default of 10MB, but you can\n*         override that default by specifying the following:\n*\n*             memory_allocation: {\n*               multipart_form_data: 128 // Would be translated to 128MB\n*             }\n*\n*     middleware?: any\n*\n*         The middleware that the server should use. Server-level middleware\n*         should be placed in middleware.server_level. Resource-level\n*         middleware should be placed in middleware.resource_level. For\n*         example,\n*\n*             middleware: {\n*               resource_level: { ... },\n*               server_level: { ... }\n*             }\n*\n*     pretty_links?: boolean\n*\n*         Enabling pretty links allows your Drash server to check whether or\n*         not an index.html file exists in a static directory. For example, if\n*         /public/app/index.html exists, then you can go to /public/app and it\n*         will serve the index.html in that static directory.\n*\n*     resources: any\n*\n*         An array of resources that the server should register. Passing in 0\n*         resources means clients can't access anything on the server--because\n*         there aren't any resources.\n*\n*     response_output?: string\n*\n*         The fallback response Content-Type that the server should use. For\n*         example, the following would have the server default to JSON\n*         responses. The response_output MUST be a proper MIME type.\n*\n*             response_output: \"application/json\"\n*\n*     static_paths?: string[]\n*\n*         An array of static paths. Static paths are made public to clients.\n*         This means they can access anything in static paths. For example, if\n*         you have /public as a static path, then clients can look at things\n*         under your /path/to/your/server/public directory.\n*/\n",
-                "signature": "export interface ServerConfigs { }",
+                "signature": "export default interface ServerConfigs { }",
                 "member_type": "method"
             }
         ]
@@ -374,7 +374,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param any configs\n*     See Drash.Interfaces.LoggerConfigs.\n*/\n",
-                "signature": "constructor(configs: LoggerConfigs) { }",
+                "signature": "constructor(configs: Drash.Interfaces.LoggerConfigs) { }",
                 "member_type": "method"
             },
             {
@@ -395,8 +395,8 @@
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param LoggerConfigs configs\n*     See Drash.Interfaces.LoggerConfigs.\n*\n*/\n",
-                "signature": "constructor(configs: LoggerConfigs) { }",
+                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param Drash.Interfaces.LoggerConfigs configs\n*     See Drash.Interfaces.LoggerConfigs.\n*\n*/\n",
+                "signature": "constructor(configs: Drash.Interfaces.LoggerConfigs) { }",
                 "member_type": "method"
             },
             {
@@ -413,7 +413,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     See Drash.Interfaces.LoggerConfigs\n*\n* @property any configs\n*/\n",
-                "signature": "protected configs: LoggerConfigs;",
+                "signature": "protected configs: Drash.Interfaces.LoggerConfigs;",
                 "member_type": "property"
             },
             {
@@ -427,8 +427,8 @@
                 "member_type": "method"
             },
             {
-                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param LoggerConfigs configs\n*     See Drash.Interfaces.LoggerConfigs.\n*/\n",
-                "signature": "constructor(configs: LoggerConfigs) { }",
+                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param Drash.Interfaces.LoggerConfigs configs\n*     See Drash.Interfaces.LoggerConfigs.\n*/\n",
+                "signature": "constructor(configs: Drash.Interfaces.LoggerConfigs) { }",
                 "member_type": "method"
             },
             {
@@ -505,12 +505,12 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Parse this request's body as `multipart/form-data` and get the\n*     requested input.\n*\n* @param string file\n*     The file to get by its name.\n* @param number maxMemory\n*     The max memory to allocate for this process. Defaults to 1MB.\n*\n* @return any\n*     Returns a body as a parsable JSON object where the first level of keys\n*     are the names of the parts. For example, if the name of the first part\n*     is `file_number_one`, then it will be accessible in the returned object\n*     as `{returned_object}.file_number_one`.\n*/\n",
-                "signature": "public getRequestBodyFile(parsedBody: ParsedRequestBody,input: string,): any { }",
+                "signature": "public getRequestBodyFile(parsedBody: Drash.Interfaces.ParsedRequestBody,input: string,): any { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Get the value of one of this request's body params by its input name.\n*     First, check the Content-Type of the request so that we know how to\n*     parse the body. Then parse the body accordingly and retrieve the\n*     requested value.\n*\n* @return any\n*/\n",
-                "signature": "public getRequestBodyParam(parsedBody: ParsedRequestBody,input: string,): any { }",
+                "signature": "public getRequestBodyParam(parsedBody: Drash.Interfaces.ParsedRequestBody,input: string,): any { }",
                 "member_type": "method"
             },
             {
