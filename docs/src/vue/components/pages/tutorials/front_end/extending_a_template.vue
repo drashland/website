@@ -60,7 +60,7 @@ page-tutorial(
           p
             code-block-slotted(language="typescript")
               template(v-slot:title) /path/to/your/project/app.ts
-              template(v-slot:code) {{ example_code.server.contents }}
+              template(v-slot:code) {{ example_code.app.contents }}
   div.row
     div.col
       hr
