@@ -4,7 +4,7 @@
 bundle.js
 compiled_*.js
 compiled_*.json
-app.ts
+docs/conf/app.ts
 deps.ts
 doc_blocks_output_actual.json
 
