@@ -14,7 +14,7 @@ export default {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       example_code_conf: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/.docker/conf' ],
       part: 4,
-      parts: 5,
+      parts: 6,
       toc: {
         items: [
           "Before You Get Started",
