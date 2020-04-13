@@ -56,7 +56,15 @@ div.c-sidebar
         div.l-submenu-1
           a-base-url(href="/tutorials/logging/logging-to-the-terminal") Logging To The Terminal
           a-base-url(href="/tutorials/logging/logging-to-files") Logging To Files
-          router-link(href="/tutorials/logging/logging-using-log-from-deno-std") Logging Using Log From deno_std
+          a-base-url(href="/tutorials/logging/logging-using-log-from-deno-std") Logging Using Log From deno_std
+        a Front-end
+        div.l-submenu-1
+          a-base-url(href="/tutorials/front-end/introduction") Introduction
+          a-base-url(href="/tutorials/front-end/creating-a-template") Creating A Template
+          a-base-url(href="/tutorials/front-end/extending-a-template") Extending A Template
+          a-base-url(href="/tutorials/front-end/adding-template-partials") Adding Template Partials
+          a-base-url(href="/tutorials/front-end/if-else-conditionals") If-Else Conditionals
+          a-base-url(href="/tutorials/front-end/for-loops") For Loops
         a Testing
         div.l-submenu-1
           a-base-url(href="/tutorials/testing/unit-testing") Unit Testing
