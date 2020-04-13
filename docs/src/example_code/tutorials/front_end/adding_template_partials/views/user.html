@@ -7,7 +7,10 @@
     <title>Skills</title>
   </head>
   <body style="background: #f4f4f4">
-    <% yield %>
+    <div style="max-width: 640px; margin: 50px auto;">
+      <h1 class="text-5xl"><% user.name %></h1>
+      <h2 class="text-4xl mt-4">Skills</h2>
+      <% include_partial("/skills.html") %>
+    </div>
   </body>
 </html>
-

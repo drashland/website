@@ -1,17 +1,17 @@
 <script>
 export const resource = {
-  paths: ["/tutorials/front-end/creating-a-template"],
+  paths: ["/tutorials/front-end/adding-template-partials"],
   meta: {
-    title: "Creating A Template",
-    source_code_uri: "/tutorials/front_end/creating_a_template"
+    title: "Adding Template Partials",
+    source_code_uri: "/tutorials/front_end/adding_template_partials"
   }
 }
 
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/front_end/creating_a_template'],
-      example_code_views: this.$app_data.example_code['/src/example_code/tutorials/front_end/creating_a_template/views'],
+      example_code: this.$app_data.example_code['/src/example_code/tutorials/front_end/adding_template_partials'],
+      example_code_views: this.$app_data.example_code['/src/example_code/tutorials/front_end/adding_template_partials/views'],
       toc: {
         items: [
           "Before You Get Started",
@@ -33,7 +33,7 @@ page-tutorial(
     div.col
       hr
       h2-hash Before You Get Started
-      p In this tutorial, you will create an HTML template with a <code>&lt;% user.name %&gt;</code> variable.
+      p In this tutorial, you will create an HTML template with template partials using <code>&lt;% include_partial("/skills.html") %&gt;</code>.
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
     div.col
@@ -50,6 +50,13 @@ page-tutorial(
             code-block-slotted(language="html")
               template(v-slot:title) /path/to/your/project/views/user.html
               template(v-slot:code) {{ example_code_views.user.contents }}
+          p The <code>skills.html</code> file must be relative to the <code>views_path</code> server config.
+        li
+          p Create your template partial file.
+          p
+            code-block-slotted(language="html")
+              template(v-slot:title) /path/to/your/project/views/user.html
+              template(v-slot:code) {{ example_code_views.skills.contents }}
         li
           p Create your resource file.
           p
@@ -77,5 +84,5 @@ page-tutorial(
         li
           p Go to <code>localhost:1447/user</code> in your browser.
           p You should receive the following response:
-          img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/front_end/extending_a_template.png'")
+          img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/front_end/adding_template_partials.png'")
 </template>

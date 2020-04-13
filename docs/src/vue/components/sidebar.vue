@@ -63,8 +63,7 @@ div.c-sidebar
           a-base-url(href="/tutorials/front-end/creating-a-template") Creating A Template
           a-base-url(href="/tutorials/front-end/extending-a-template") Extending A Template
           a-base-url(href="/tutorials/front-end/adding-template-partials") Adding Template Partials
-          a-base-url(href="/tutorials/front-end/if-else-conditionals") If-Else Conditionals
-          a-base-url(href="/tutorials/front-end/for-loops") For Loops
+          a-base-url(href="/tutorials/front-end/in-template-javascript") In-Template JavaScript
         a Testing
         div.l-submenu-1
           a-base-url(href="/tutorials/testing/unit-testing") Unit Testing

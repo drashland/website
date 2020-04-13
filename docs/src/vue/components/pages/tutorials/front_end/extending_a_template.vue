@@ -1,17 +1,17 @@
 <script>
 export const resource = {
-  paths: ["/tutorials/front-end/creating-a-template"],
+  paths: ["/tutorials/front-end/extending-a-template"],
   meta: {
-    title: "Creating A Template",
-    source_code_uri: "/tutorials/front_end/creating_a_template"
+    title: "Extending A Template",
+    source_code_uri: "/tutorials/front_end/extending_a_template"
   }
 }
 
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/front_end/creating_a_template'],
-      example_code_views: this.$app_data.example_code['/src/example_code/tutorials/front_end/creating_a_template/views'],
+      example_code: this.$app_data.example_code['/src/example_code/tutorials/front_end/extending_a_template'],
+      example_code_views: this.$app_data.example_code['/src/example_code/tutorials/front_end/extending_a_template/views'],
       toc: {
         items: [
           "Before You Get Started",
@@ -33,7 +33,7 @@ page-tutorial(
     div.col
       hr
       h2-hash Before You Get Started
-      p In this tutorial, you will create an HTML template with a <code>&lt;% user.name %&gt;</code> variable.
+      p In this tutorial, you will create an HTML template that extends another template using <code>&lt;% extends("index.html") %&gt;</code> and <code>&lt;% yield %&gt;</code>.
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
     div.col
@@ -45,11 +45,20 @@ page-tutorial(
       h2-hash Steps
       ol
         li
-          p Create your template file.
+          p Create your top-level template file.
+          p
+            code-block-slotted(language="html")
+              template(v-slot:title) /path/to/your/project/views/user.html
+              template(v-slot:code) {{ example_code_views.index.contents }}
+          p <code>&lt;% yield %&gt;</code> will yield the contents of the template that extends this one. In this case, it is the contents of the template in the next step.
+        li
+          p Create your extended template.
           p
             code-block-slotted(language="html")
               template(v-slot:title) /path/to/your/project/views/user.html
               template(v-slot:code) {{ example_code_views.user.contents }}
+          p The contents of this file will replace the <code>&lt;% yield %&gt;</code> variable.
+          p The <code>index.html</code> file must be relative to the <code>views_path</code> server config.
         li
           p Create your resource file.
           p
