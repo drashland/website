@@ -13,6 +13,9 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       example_code_src: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/src'],
+      example_code_html: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/html'],
+      example_code_css: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/css'],
+      example_code_js: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/js'],
       part: 6,
       parts: 6,
       toc: {
@@ -60,6 +63,11 @@ page-tutorial-part(
                 | {{ example_code_src.app.contents }}
         li
           p Create your HTML file
+          p
+            code-block-slotted(language="html")
+              template(v-slot:title) /path/to/your/project/src/index.html
+              template(v-slot:code)
+                | {{ example_code_html.index.contents }}
         li
           p Create your CSS file
         li
