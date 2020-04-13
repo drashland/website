@@ -1,5 +1,4 @@
-// import Drash from "https://deno.land/x/drash/mod.ts";
-import Drash from "../../../../../../../deno-drash/mod.ts";
+import Drash from "https://deno.land/x/drash/mod.ts";
 
 import UserResource from "./user_resource.ts";
 
