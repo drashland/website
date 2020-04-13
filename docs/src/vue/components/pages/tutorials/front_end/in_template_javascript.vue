@@ -57,8 +57,8 @@ page-tutorial(
             code-block-slotted(:header="false" language="html")
               template(v-slot:code)
                 | &lt;ul&gt;
-                |   <% for (let index in this.skills) { %>
-                |   &lt;li&gt;<% this.skills[index] %>&lt;/li&gt;
+                |   <% for (let index in skills) { %>
+                |   &lt;li&gt;<% skills[index] %>&lt;/li&gt;
                 |   <% } %>
                 | &lt;/ul&gt;
         div.col-6
@@ -95,9 +95,9 @@ page-tutorial(
             code-block-slotted(:header="false" language="html")
               template(v-slot:code)
                 | &lt;ul&gt;
-                |   <% for (let index in this.skills) { %>
-                |     <% if (this.skills[index] != "Agility") { %>
-                |   &lt;li&gt;<% this.skills[index] %>&lt;/li&gt;
+                |   <% for (let index in skills) { %>
+                |     <% if (skills[index] != "Agility") { %>
+                |   &lt;li&gt;<% skills[index] %>&lt;/li&gt;
                 |     <% } %>
                 |   <% } %>
                 | &lt;/ul&gt;
