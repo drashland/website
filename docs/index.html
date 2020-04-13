@@ -632,6 +632,13 @@
       }
     },
     "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_1": {
+      "app": {
+        "contents": "import Drash from \"https://deno.land/x/drash@v0.39.5/mod.ts\";\n\nclass HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    this.response.body = 'Hello World!';\n    return this.response;\n  }\n}\n\nconst server = new Drash.Http.Server({\n  address: \":1447\",\n  response_output: \"application/json\",\n  resources: [\n    HomeResource\n  ],\n});\n\nserver.run();\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
       "folder_structure": {
         "contents": "▾ /path/to/your/project/\n\t▾ src/\n\t\tapp.ts\n",
         "extension": "txt",
@@ -2534,13 +2541,13 @@
 };
   </script>
   
-  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586682755616"></script>
-  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586682755616"></script>
-  <script src="/docs/public/assets/js/bundle.production.js?version=1586682755616"></script>
-  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586682755616"></script>
-  <script src="/docs/public/assets/js/router.production.js?version=1586682755616"></script>
-  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586682755616"></script>
-  <script src="/docs/public/assets/js/app.production.js?version=1586682755616"></script>
+  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1586806602594"></script>
+  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1586806602594"></script>
+  <script src="/docs/public/assets/js/bundle.production.js?version=1586806602594"></script>
+  <script src="/docs/public/assets/js/vendors~router.production.js?version=1586806602594"></script>
+  <script src="/docs/public/assets/js/router.production.js?version=1586806602594"></script>
+  <script src="/docs/public/assets/js/vendors~app.production.js?version=1586806602594"></script>
+  <script src="/docs/public/assets/js/app.production.js?version=1586806602594"></script>
 
 </body>
 </html>
