@@ -70,8 +70,18 @@ page-tutorial-part(
                 | {{ example_code_html.index.contents }}
         li
           p Create your CSS file
+          p
+            code-block-slotted(language="css")
+              template(v-slot:title) /path/to/your/project/src/index.css
+              template(v-slot:code)
+                | {{ example_code_css.index.contents }}
         li
           p Create your JS file
+          p
+            code-block-slotted(language="javascript")
+              template(v-slot:title) /path/to/your/project/src/index.js
+              template(v-slot:code)
+                | {{ example_code_js.index.contents }}
         li
           p Update your Nginx configuration
         li
