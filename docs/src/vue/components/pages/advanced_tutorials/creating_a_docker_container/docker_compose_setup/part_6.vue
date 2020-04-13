@@ -84,8 +84,16 @@ page-tutorial-part(
                 | {{ example_code_js.index.contents }}
         li
           p Update your Nginx configuration
+          p You only need to do this if your are using Nginx as your reverse proxy server.
+          p On any request for a <code>.js</code> or <code>.css</code>, for example <code>index.js</code>, will be passed through this location block which will tell the browser where to look, resulting in the path: <code>/var/www/src/index.js</code>. If you remember, the <code>src</code> directory inside the container holds your source code files.
+          p
+            code-block-slotted(language="shell" line_highlight="3-5")
+              template(v-slot:title) /path/to/your/project/.docker/conf/nginx.conf
+              template(v-slot:code)
+                | {{ example_code.nginx.contents }}
         li
           p Update your Apache configuration
+          p You only need to do this if you are using Apache as your reverse proxy server
   div.row
     div.col
       hr
