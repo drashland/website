@@ -129,5 +129,5 @@ page-tutorial-part(
                 | docker-compose up -d
         li
           p Go to <code>localhost:8080</code> in your browser and you should see the following:
-          p ADD SCREENSHOT HERE AND ADD IT IN THE INTRODUCTION AS WELL
+          img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/2.png'")
 </template>

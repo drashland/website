@@ -44,4 +44,5 @@ page-tutorial-part(
       h2-hash End State
       p Below are samples of what you will create.
       img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/1.png'")
+      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/2.png'")
 </template>
