@@ -104,7 +104,7 @@ page-tutorial-part(
           p These new configuration lines will make sure any requests that are for a <code>.js</code> or a <code>.css</code> will not be passed to your Drash server and will instead be handled by your Apache server.
           p You should note that the below does allow Apache to access the files as it is required for when a request for the JavaScripts or StyleSheets come in, but is very insecure as it is allowing full access to your whole source code. Ideally you would place your assets in a <code>public/</code> folder and modify the below to match this. That way you would only allow your public files to be accessible and you would link your files in your HTML like such: <code>/public/index.css</code>.
           p
-            code-block-slotted(language="shell" line_highlight="7-13")
+            code-block-slotted(language="shell")
               template(v-slot:title) /path/to/your/project/.docker/conf/apache.conf
               template(v-slot:code)
                 | {{ example_code.apache.contents }}
