@@ -55,12 +55,19 @@ page-tutorial-part(
       h2-hash Steps
       ol
         li
-          p Modify the content response type in your Drash server creation
+          p Modify the content response type in your Drash server creation and update the <code>GET</code> request method
           p
-            code-block-slotted(language="typescript" line_highlight="17")
+            code-block-slotted(language="typescript" line_highlight="10-14,20")
               template(v-slot:title) /path/to/your/project/src/app.ts
               template(v-slot:code)
                 | {{ example_code_src.app.contents }}
+        li
+          p Added the <code>--allow-read</code> flag in your <code>docker-compose.yml</code> file
+          p
+            code-block-slotted(language="typescript" line_highlight="9")
+              template(v-slot:title) /path/to/your/project/docker-compose.yml
+              template(v-slot:code)
+                | {{ example_code.docker_compose.contents }}
         li
           p Create your HTML file
           p

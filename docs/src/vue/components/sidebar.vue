@@ -106,6 +106,7 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-3") Part 3: Creating The Dockerfiles
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-4") Part 4: Creating The Proxy Server
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-5") Part 5: Starting The Environment
+          a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-6") Part 6: (Optional) Linking JavaScripts and Stylesheets
       a-base-url.heading-link(href="/third-party-tutorials") Third Party Tutorials
       div.c-sidebar__menu-body
         a-base-url(href="/third-party-tutorials/introduction") Introduction

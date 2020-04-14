@@ -81,5 +81,5 @@ page-tutorial-part(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | Deno server started at localhost:1447
+              | Deno server started at :1447
 </template>

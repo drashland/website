@@ -7,7 +7,10 @@ class HomeResource extends Drash.Http.Resource {
   ];
 
   public GET() {
-    this.response.body = 'Hello World!';
+    let fileContents = Deno.readFileSync("./index.html")
+    const decoder = new TextDecoder();
+    let template = decoder.decode(fileContents);
+    this.response.body = template;
     return this.response;
   }
 }

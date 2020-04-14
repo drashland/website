@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+
+ ...
+
+ drash:
+   ...
+   command: bash -c "deno --allow-net --allow-env --allow-read app.ts"
+   ...
