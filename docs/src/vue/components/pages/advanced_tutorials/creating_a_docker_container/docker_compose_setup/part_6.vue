@@ -108,18 +108,19 @@ page-tutorial-part(
       ol
         li
           p Build docker again. This will update the containers <code>Nginx</code> or <code>Apache</code> configuration file and also restart your server to register the new response type.
-        li
-          p Start docker
-        li
-          p Make a request using <code>curl</code> like below or go to <code>localhost:8080</code> in your browser.
           p
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | ADD REAL COMMAND HERE
-          p You should receive the following response:
+                | docker-compose build
+        li
+          p Start docker
           p
-            code-block-slotted(:header="false")
+            code-block-slotted
+              template(v-slot:title) Terminal
               template(v-slot:code)
-                | ADD REAL RESPONSE HERE
+                | docker-compose up -d
+        li
+          p Go to <code>localhost:8080</code> in your browser and you should see the following:
+          p ADD SCREENSHOT HERE AND ADD IT IN THE INTRODUCTION AS WELL
 </template>
