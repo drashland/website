@@ -55,7 +55,7 @@ page-tutorial-part(
       h2-hash Steps
       ol
         li
-          p Modify the content response type in server
+          p Modify the content response type in your Drash server creation
           p
             code-block-slotted(language="typescript" line_highlight="17")
               template(v-slot:title) /path/to/your/project/src/app.ts
@@ -85,7 +85,7 @@ page-tutorial-part(
         li
           p Update your Nginx configuration
           p You only need to do this if your are using Nginx as your reverse proxy server.
-          p On any request for a <code>.js</code> or <code>.css</code>, for example <code>index.js</code>, will be passed through this location block which will tell the browser where to look, resulting in the path: <code>/var/www/src/index.js</code>. If you remember, the <code>src</code> directory inside the container holds your source code files.
+          p On any request for a <code>.js</code> or <code>.css</code>, for example <code>index.js</code>, will be passed through this location block which will make Nginx look for the requested file in that directory specified.
           p
             code-block-slotted(language="shell" line_highlight="3-5")
               template(v-slot:title) /path/to/your/project/.docker/conf/nginx.conf
@@ -93,7 +93,14 @@ page-tutorial-part(
                 | {{ example_code.nginx.contents }}
         li
           p Update your Apache configuration
-          p You only need to do this if you are using Apache as your reverse proxy server
+          p You only need to do this if you are using Apache as your reverse proxy server.
+          p These new configuration lines will make sure any requests that are for a <code>.js</code> or a <code>.css</code> will not be passed to your Drash server and will instead be handled by your Apache server.
+          p You should note that the below does allow Apache to access the files as it is required for when a request for the JavaScripts or StyleSheets come in, but is very insecure as it is allowing full access to your whole source code. Ideally you would place your assets in a <code>public/</code> folder and modify the below to match this. That way you would only allow your public files to be accessible and you would link your files in your HTML like such: <code>/public/index.css</code>.
+          p
+            code-block-slotted(language="shell" line_highlight="7-13")
+              template(v-slot:title) /path/to/your/project/.docker/conf/apache.conf
+              template(v-slot:code)
+                | {{ example_code.apache.contents }}
   div.row
     div.col
       hr
