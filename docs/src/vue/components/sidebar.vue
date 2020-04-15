@@ -13,9 +13,9 @@ div.c-sidebar
   div.c-sidebar__body
     div.c-sidebar__menu
       span.heading
-        p.arrow.right
-        a-base-url.heading-link Introduction
-      div.c-sidebar__menu-body.hide--soft
+        p.arrow.down
+        span.heading-link Introduction
+      div.c-sidebar__menu-body
         a-base-url(href="/introduction#drash-in-a-nutshell") Drash In A Nutshell
         a-base-url(href="/introduction#quickstart") Quickstart
         a-base-url(href="/introduction#importing") Importing
@@ -29,7 +29,7 @@ div.c-sidebar
         a(href="https://github.com/drashland/deno-drash-docs" target="_BLANK") View On GitHub &mdash; Drash Docs
       span.heading
         p.arrow.right
-        a-base-url.heading-link Tutorials
+        span.heading-link Tutorials
       div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/tutorials/introduction") Introduction
         span.sub-heading
@@ -98,7 +98,7 @@ div.c-sidebar
           //- a-base-url(href="/tutorials/misc/adding-third-party-modules") Adding Third-Party Modules
       span.heading
         p.arrow.right
-        a-base-url.heading-link Advanced Tutorials
+        span.heading-link Advanced Tutorials
       div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/advanced-tutorials/introduction") Introduction
         span.sub-heading
@@ -149,7 +149,7 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-5") Part 5: Starting The Environment
       span.heading
         p.arrow.right
-        a-base-url.heading-link Third Party Tutorials
+        span.heading-link Third Party Tutorials
       div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/third-party-tutorials/introduction") Introduction
         span.sub-heading
@@ -165,7 +165,7 @@ div.c-sidebar
           a-base-url(href="/third-party-tutorials/template-engines/dejs") dejs
       span.heading
         p.arrow.right
-        a-base-url.heading-link API Reference
+        span.heading-link API Reference
       div.c-sidebar__menu-body.hide--soft
         span.sub-heading
           p.arrow.right
@@ -202,7 +202,7 @@ div.c-sidebar
         div.l-submenu-1.hide--soft
           a-base-url(href="/api-reference/services/http-service") HttpService
           a-base-url(href="/api-reference/services/http-request-service") HttpRequestService
-  div.c-sidebar__footer(style="background: #000000")
+  div.c-sidebar__footer
     div.row
       div.col.text-align--center
         p(style="margin-top: 2rem; color: #ffffff; font-size: .9rem") Drash Documentation was last updated on {{ $conf.build_date }}
