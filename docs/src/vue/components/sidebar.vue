@@ -21,6 +21,7 @@ div.c-sidebar
         a-base-url(href="/introduction#importing") Importing
         a-base-url(href="/introduction#features") Features
         a-base-url(href="/about-drash") About Drash
+        a-base-url(href="/examples") Examples
         a-base-url(href="/lifecycle-diagram") Drash Lifecycle Diagram
         a-base-url(href="/dependency-management") Dependency Management
         a-base-url(href="/issues") Issues
@@ -71,7 +72,16 @@ div.c-sidebar
         div.l-submenu-1.hide--soft
           a-base-url(href="/tutorials/logging/logging-to-the-terminal") Logging To The Terminal
           a-base-url(href="/tutorials/logging/logging-to-files") Logging To Files
-          router-link(href="/tutorials/logging/logging-using-log-from-deno-std") Logging Using Log From deno_std
+          a-base-url(href="/tutorials/logging/logging-using-log-from-deno-std") Logging Using Log From deno_std
+        span.sub-heading
+          p.arrow.right
+          a Front-end
+        div.l-submenu-1.hide--soft
+          a-base-url(href="/tutorials/front-end/introduction") Introduction
+          a-base-url(href="/tutorials/front-end/creating-a-template") Creating A Template
+          a-base-url(href="/tutorials/front-end/extending-a-template") Extending A Template
+          a-base-url(href="/tutorials/front-end/adding-template-partials") Adding Template Partials
+          a-base-url(href="/tutorials/front-end/in-template-javascript") In-Template JavaScript
         span.sub-heading
           p.arrow.right
           a Testing
@@ -83,6 +93,7 @@ div.c-sidebar
         div.l-submenu-1.hide--soft
           a-base-url(href="/tutorials/misc/adding-global-members") Adding Global Members
           a-base-url(href="/tutorials/misc/redirects") Redirects
+          a-base-url(href="/tutorials/misc/pretty-links") Pretty Links
           a-base-url(href="/tutorials/misc/error-handling-angular-deep-linking") Error Handling: Angular Deep Linking
           //- a-base-url(href="/tutorials/misc/adding-third-party-modules") Adding Third-Party Modules
       span.heading

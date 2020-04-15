@@ -69,7 +69,7 @@
             },
             {
                 "doc_block": "/**\n* @param any request\n*     The request object.\n* @param Drash.Http.Server server\n*     The server object handling this middleware.\n* @param Drash.Http.Resource|null resource\n*     (optional) If this is a resource-level middleware, then it will have\n*     access to the resource that uses it.\n* @param Drash.Http.Response|null response\n*     (optional) The response object from the resource. This is only set if\n*     this middleware is a resource-level middleware and the resource\n*     successfully returned a response. That response will be passed as the\n*     argument here.\n*/\n",
-                "signature": "constructor(request: any,server: Drash.Http.Server,resource?: Drash.Http.Resource | null,response?: Drash.Http.Response | null) { }",
+                "signature": "constructor(request: any,server: Drash.Http.Server,resource?: Drash.Http.Resource | null,response?: Drash.Http.Response | null,) { }",
                 "member_type": "method"
             },
             {
@@ -86,7 +86,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     A property to hold the middleware this resource uses.\n*\n*     All derived middleware classes MUST define this property as static\n*     (e.g., static middleware = [\"MiddlewareClass\"];)\n*\n* @property string[] middleware\n*/\n",
-                "signature": "public middleware: { after_request?: []; before_request?: []; } = {};",
+                "signature": "public middleware: { after_request?: []; before_request?: [] } = {};",
                 "member_type": "property"
             },
             {
@@ -116,7 +116,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param ServerRequest request\n*     The request object.\n* @param Drash.Http.Response response\n*     The response object.\n* @param Drash.Http.Server server\n*     The server object.\n*/\n",
-                "signature": "constructor(request: any,response: Drash.Http.Response,server: Drash.Http.Server) { }",
+                "signature": "constructor(request: any,response: Drash.Http.Response,server: Drash.Http.Server,) { }",
                 "member_type": "method"
             }
         ],
@@ -147,8 +147,23 @@
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param any request\n*/\n",
-                "signature": "constructor(request: any) { }",
+                "doc_block": "/**\n* @description\n*     A property to hold the path to the users views directory\n*     from their project root\n*\n* @property string views_path\n*/\n",
+                "signature": "private views_path: string | undefined;",
+                "member_type": "property"
+            },
+            {
+                "doc_block": "/**\n* @description\n*     The render method extracted from dejs\n*\n* @property any views_renderer\n*/\n",
+                "signature": "private template_engine: boolean | undefined = false;",
+                "member_type": "property"
+            },
+            {
+                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param any request\n*\n* @param ResponseOptions options\n*     See Drash.Interfaces.ResponseOptions\n*/\n",
+                "signature": "constructor(request: any, options: Drash.Interfaces.ResponseOptions = { }}) {",
+                "member_type": "method"
+            },
+            {
+                "doc_block": "/**\n* @description\n*     Render html files. Can be used with Drash's template engine or basic\n*     HTML files. This method will read a file based on the `views_path`\n*     and filename passed in\n*\n* @param any args\n*\n* @example\n*     // if `views_path` is \"/public/views\",\n*     // file to read is \"/public/views/users/add.html\"\n*     const content = this.response.render('/users/add.html', { name: 'Drash' })\n*     if (!content) throw new Error(...)\n*     this.response.body = content\n*\n* @return string|boolean\n*     The html content of the view, or false if the `views_path` is not set.\n*/\n",
+                "signature": "public render(...args: any): string | boolean { }",
                 "member_type": "method"
             },
             {
@@ -158,7 +173,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Delete a cookie before sending a response\n* \n* @param string cookieName \n*     The cookie name to delete\n* \n* @return void\n*/\n",
-                "signature": "public delCookie (cookieName: string): void { }",
+                "signature": "public delCookie(cookieName: string): void { }",
                 "member_type": "method"
             },
             {
@@ -182,8 +197,8 @@
                 "member_type": "method"
             },
             {
-                "doc_block": "/**\n* @description\n*     Send the response of a static asset (e.g., a CSS file, JS file, PDF\n*     file, etc.) to the client making the request.\n*\n* @param string file\n*     The file that will be served to the client.\n*\n* @return {status: number, headers: Headers, body: any}\n*/\n",
-                "signature": "public sendStatic(file: string): { }",
+                "doc_block": "/**\n* @description\n*     Send the response of a static asset (e.g., a CSS file, JS file, PDF\n*     file, etc.) to the client making the request.\n*\n* @param null|string file\n*     The file that will be served to the client.\n*\n* @return {status: number, headers: Headers, body: any}\n*/\n",
+                "signature": "public sendStatic(file: null | string, contents: null | Uint8Array = null): { }",
                 "member_type": "method"
             },
             {
@@ -205,12 +220,12 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     A property to hold this server's logger.\n*\n* @property Drash.Loggers.ConsoleLogger|Drash.Loggers.FileLogger logger\n*/\n",
-                "signature": "public logger: Drash.CoreLoggers.ConsoleLogger| Drash.CoreLoggers.FileLogger;",
+                "signature": "public logger:| Drash.CoreLoggers.ConsoleLogger| Drash.CoreLoggers.FileLogger;",
                 "member_type": "property"
             },
             {
                 "doc_block": "/**\n* @description\n*     A property to hold this server's configs.\n*\n* @property any configs\n*/\n",
-                "signature": "protected configs: ServerConfigs;",
+                "signature": "protected configs: Drash.Interfaces.ServerConfigs;",
                 "member_type": "property"
             },
             {
@@ -225,7 +240,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     A property to hold the resources passed in from the configs.\n*\n* @property any[] resources\n*/\n",
-                "signature": "protected resources: { [key: string]: Drash.Http.Resource; } = {};",
+                "signature": "protected resources: { [key: string]: Drash.Http.Resource } = {};",
                 "member_type": "property"
             },
             {
@@ -234,8 +249,8 @@
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param ServerConfigs configs\n*     See Drash.Interfaces.ServerConfigs\n*/\n",
-                "signature": "constructor(configs: ServerConfigs) { }",
+                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param Drash.Interfaces.ServerConfigs configs\n*     See Drash.Interfaces.ServerConfigs\n*/\n",
+                "signature": "constructor(configs: Drash.Interfaces.ServerConfigs) { }",
                 "member_type": "method"
             },
             {
@@ -295,22 +310,22 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Execute resource-level middleware after the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
-                "signature": "protected executeMiddlewareResourceLevelAfterRequest(request: any,resource: Drash.Http.Resource,response: Drash.Http.Response): void { }",
+                "signature": "protected executeMiddlewareResourceLevelAfterRequest(request: any,resource: Drash.Http.Resource,response: Drash.Http.Response,): void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Execute resource-level middleware before the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
-                "signature": "protected executeMiddlewareResourceLevelBeforeRequest(request: any,resource: Drash.Http.Resource): void { }",
+                "signature": "protected executeMiddlewareResourceLevelBeforeRequest(request: any,resource: Drash.Http.Resource,): void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Execute server-level middleware before the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
-                "signature": "protected executeMiddlewareServerLevelBeforeRequest(request: any): void { }",
+                "signature": "protected executeMiddlewareServerLevelBeforeRequest(request: any,): void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Execute server-level middleware after the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
-                "signature": "protected executeMiddlewareServerLevelAfterRequest(request: any,resource: Drash.Http.Resource | null,response: Drash.Http.Response | null): void { }",
+                "signature": "protected executeMiddlewareServerLevelAfterRequest(request: any,resource: Drash.Http.Resource | null,response: Drash.Http.Response | null,): void { }",
                 "member_type": "method"
             },
             {
@@ -339,28 +354,35 @@
         "LogLevelStructure": [
             {
                 "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface LogLevelStructure\n*\n* @description\n*     name: string\n*\n*         The name of the log level (e.g., \"debug\").\n*\n*     rank: number\n*\n*         The rank of the log level. See the\n*         Drash.Dictionaries.LogLevels.LogLevel enum member to see the ranking\n*         structure of the log levels.\n*/\n",
-                "signature": "export interface LogLevelStructure { }",
+                "signature": "export default interface LogLevelStructure { }",
                 "member_type": "method"
             }
         ],
         "LoggerConfigs": [
             {
                 "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface LoggerConfigs\n*\n* @description\n*     enabled: boolean\n*\n*         Is the logger enabled? This is useful if you have a config file that\n*         can toggle this option between `true` and `false`.\n*\n*     file?: string\n*\n*         The filename to log to (used in Drash.CoreLoggers.FileLogger).\n*\n*     level?: string\n*\n*         Options are:\n*\n*             all\n*             trace\n*             debug\n*             info\n*             warn\n*             error\n*             fatal\n*             off\n*\n*         Defaults to \"debug\".\n*\n*     tag_string?: string\n*\n*         A string with tags. Tags must be wrapped in brackets in order for the\n*         logger classes to properly identify them. For example,\n*\n*             {some_tag} | {some_tag} * {some_tag} [{some_tag}]`.\n*\n*     tag_string_fns?: any\n*\n*         This takes an object of key-value pairs where the key is the name of\n*         the tag defined in the `tag_string` config. This object is used to\n*         replace tags in the `tag_string` config by matching keys to tags and\n*         replacing tags with the values of the keys. For example, if\n*         `tag_string` was `{my_cool_tag}` and `tags_string_fns.my_cool_tag`\n*         returns `\"HELLO\"`, then `{my_cool_tag}` would be replaced with\n*         `HELLO`.\n*\n*     test?: boolean\n*\n*         Is the logger running in a test process? Setting this to true will\n*         silence the console logger from outputting to the console so you can\n*         test without actually logging to the console.\n*/\n",
-                "signature": "export interface LoggerConfigs { }",
+                "signature": "export default interface LoggerConfigs { }",
                 "member_type": "method"
             }
         ],
         "ParsedRequestBody": [
             {
                 "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface ParsedRequestBody\n*\n* @description\n*     content_type: any|undefined\n*\n*         The Content-Type of the request body. For example, if the body is\n*         JSON, then the Content-Type should be application/json.\n*\n*     data: any|undefined\n*\n*         The data passed in the body of the request.\n*/\n",
-                "signature": "export interface ParsedRequestBody { }",
+                "signature": "export default interface ParsedRequestBody { }",
                 "member_type": "method"
             }
         ],
         "ServerConfigs": [
             {
-                "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface ServerConfigs\n*\n* @description\n*     address?: string\n*\n*         The hostname and port that the server will run on. For example,\n*\n*             address: \"localhost:1337\"\n*\n*     directory?: string\n*\n*         The path to the directory of the server on the filesystem.  This is\n*         used when resolving static paths, so make sure you have this set\n*         correctly if you are serving static paths.\n*\n*     logger?: Drash.CoreLoggers.ConsoleLogger | Drash.CoreLoggers.FileLogger\n*\n*         The server's logger.\n*\n*     memory_allocation?: {\n*       multipart_form_data?: number\n*     }\n*         How much memory should be allocated to certain parts of the codebase.\n*         For example, the multipart reader uses a default of 10MB, but you can\n*         override that default by specifying the following:\n*\n*             memory_allocation: {\n*               multipart_form_data: 128 // Would be translated to 128MB\n*             }\n*\n*     middleware?: any\n*\n*         The middleware that the server should use. Server-level middleware\n*         should be placed in middleware.server_level. Resource-level\n*         middleware should be placed in middleware.resource_level. For\n*         example,\n*\n*             middleware: {\n*               resource_level: { ... },\n*               server_level: { ... }\n*             }\n*\n*     resources: any\n*\n*         An array of resources that the server should register. Passing in 0\n*         resources means clients can't access anything on the server--because\n*         there aren't any resources.\n*\n*     response_output?: string\n*\n*         The fallback response Content-Type that the server should use. For\n*         example, the following would have the server default to JSON\n*         responses. The response_output MUST be a proper MIME type.\n*\n*             response_output: \"application/json\"\n*\n*     static_paths?: string[]\n*\n*         An array of static paths. Static paths are made public to clients.\n*         This means they can access anything in static paths. For example, if\n*         you have /public as a static path, then clients can look at things\n*         under your /path/to/your/server/public directory.\n*/\n",
-                "signature": "export interface ServerConfigs { }",
+                "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface ServerConfigs\n*\n* @description\n*     address?: string\n*\n*         The hostname and port that the server will run on. For example, the\n*         following would tell the server to listen on locahost:1337:\n*\n*             address: \"localhost:1337\"\n*\n*         Not specifying an address will default the server to use the\n*         following hostname and port:\n*\n*             127.0.0.1:8000.\n*\n*     directory?: string\n*\n*         The path to the directory of the server on the filesystem.  This is\n*         used when resolving static paths, so make sure you have this set\n*         correctly if you are serving static paths. A quick way to implement\n*         this could be the following:\n*\n*             directory: `${await Deno.realpath('.')}`\n*\n*     logger?: Drash.CoreLoggers.ConsoleLogger | Drash.CoreLoggers.FileLogger\n*\n*         The server's logger. For example:\n*\n*             logger: new Drash.CoreLoggers.ConsoleLogger({\n*               enabled: true,\n*               level: \"debug\",\n*               tag_string: \"{date} | {level} |\",\n*               tag_string_fns: {\n*                 date: function() {\n*                   return new Date().toISOString().replace(\"T\", \" \");\n*                 },\n*               },\n*             })\n*\n*     memory_allocation?: {\n*       multipart_form_data?: number\n*     }\n*         The amount of memory to allocate to certain parts of the codebase.\n*         For example, the multipart reader uses a default of 10MB, but you can\n*         override that default by specifying the following:\n*\n*             memory_allocation: {\n*               multipart_form_data: 128 // This would be translated to 128MB\n*             }\n*\n*     middleware?: any\n*\n*         The middleware that the server should use. Server-level middleware\n*         should be placed in middleware.server_level. Resource-level\n*         middleware should be placed in middleware.resource_level. For\n*         example:\n*\n*             middleware: {\n*               resource_level: { ... },\n*               server_level: { ... }\n*             }\n*\n*     pretty_links?: boolean\n*\n*         Enabling pretty links allows your Drash server to check whether or\n*         not an index.html file exists in a static directory. For example, if\n*         /public/app/index.html exists, then you can go to /public/app and it\n*         will serve the index.html in that static directory.\n*\n*     resources: any\n*\n*         An array of resources that the server should register. Passing in 0\n*         resources means clients can't access anything on the server--because\n*         there aren't any resources.\n*\n*     response_output?: string\n*\n*         The fallback response Content-Type that the server should use. The\n*         response_output MUST be a proper MIME type. For example, the\n*         following would have the server default to JSON responses:\n*\n*             response_output: \"application/json\"\n*\n*     static_paths?: string[]\n*\n*         An array of static paths. Static paths are made public to clients.\n*         This means they can access anything in static paths. For example, if\n*         you have /public as a static path, then clients can look at things\n*         under your /path/to/your/server/public directory.\n*\n*     views_path?: string\n*\n*         A string that contains the path to the views directory from\n*         your project directory. This must exist if the `views_renderer` property\n*         is set by you. Only needs to be set if you plan to return HTML\n*\n*             views_path: \"/public/views/\"\n*\n*     template_engine?: boolean\n*\n*         True if you wish to use Drash's own template engine to render html files.\n*         The `views_path` property must be set if this is set to true\n*\n*             const server = new Drash.Http.Server({\n*               ...\n*               template_engine: true\n*             })\n*/\n",
+                "signature": "export default interface ServerConfigs { }",
+                "member_type": "method"
+            }
+        ],
+        "ResponseOptions": [
+            {
+                "doc_block": "/**\n* @memberof Drash.Interfaces\n* @interface ResponseOptions\n*\n* @description\n*     views_path?: string\n*\n*         A string that contains the path to the views directory from\n*         your project directory. This must exist if the `views_renderer` property\n*         is set by you. Only needs to be set if you plan to return HTML\n*\n*           const server = new Drash.Http.Server({\n*             ...,\n*             views_path: \"/public/views\"\n*           })\n*\n*     template_engine?: boolean\n*\n*         True if you wish to use Drash's own template engine to render html files.\n*         The `views_path` property must be set if this is set to true\n*\n*             const server = new Drash.Http.Server({\n*               ...\n*               template_engine: true\n*             })\n*/\n",
+                "signature": "export default interface ResponseOptions { }",
                 "member_type": "method"
             }
         ]
@@ -374,7 +396,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param any configs\n*     See Drash.Interfaces.LoggerConfigs.\n*/\n",
-                "signature": "constructor(configs: LoggerConfigs) { }",
+                "signature": "constructor(configs: Drash.Interfaces.LoggerConfigs) { }",
                 "member_type": "method"
             },
             {
@@ -395,8 +417,8 @@
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param LoggerConfigs configs\n*     See Drash.Interfaces.LoggerConfigs.\n*\n*/\n",
-                "signature": "constructor(configs: LoggerConfigs) { }",
+                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param Drash.Interfaces.LoggerConfigs configs\n*     See Drash.Interfaces.LoggerConfigs.\n*\n*/\n",
+                "signature": "constructor(configs: Drash.Interfaces.LoggerConfigs) { }",
                 "member_type": "method"
             },
             {
@@ -413,7 +435,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     See Drash.Interfaces.LoggerConfigs\n*\n* @property any configs\n*/\n",
-                "signature": "protected configs: LoggerConfigs;",
+                "signature": "protected configs: Drash.Interfaces.LoggerConfigs;",
                 "member_type": "property"
             },
             {
@@ -427,13 +449,13 @@
                 "member_type": "method"
             },
             {
-                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param LoggerConfigs configs\n*     See Drash.Interfaces.LoggerConfigs.\n*/\n",
-                "signature": "constructor(configs: LoggerConfigs) { }",
+                "doc_block": "/**\n* @description\n*     Construct an object of this class.\n*\n* @param Drash.Interfaces.LoggerConfigs configs\n*     See Drash.Interfaces.LoggerConfigs.\n*/\n",
+                "signature": "constructor(configs: Drash.Interfaces.LoggerConfigs) { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Write a log message. All extended classes must implement this method.\n*     See Drash.CoreLoggers.ConsoleLogger/FileLogger for examples.\n*\n* @param any logMethodLevelDefinition\n* @param string message\n*/\n",
-                "signature": "abstract write(logMethodLevelDefinition: any, message: string): string| void;",
+                "signature": "abstract write(logMethodLevelDefinition: any, message: string):| string| void;",
                 "member_type": "method"
             },
             {
@@ -473,7 +495,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Send the message to the write method (which should be in the child\n*     class).  Also, do some prechecks before sending to see if the log\n*     message should be written.\n*\n* @param any logMethodLevelDefinition\n*     The dictionary definition of the log message's level.\n* @param string message\n*     The log message.\n*\n* @return string\n*     Returns the log message which is used for unit testing purposes.\n*/\n",
-                "signature": "protected sendToWriteMethod(logMethodLevelDefinition: any,message: string): string | void { }",
+                "signature": "protected sendToWriteMethod(logMethodLevelDefinition: any,message: string,): string | void { }",
                 "member_type": "method"
             }
         ],
@@ -488,7 +510,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Get a MIME type for a file based on its extension.\n*\n* @param string filePath\n*     The file path in question.\n* @param boolean fileIsUrl\n*     (optional) Is the file path  a URL to a file? Defaults to false.\n*\n*     If the file path is a URL, then this method will make sure the URL\n*     query string is not included while doing a lookup of the file's\n*     extension.\n*\n* @return string\n*     Returns the name of the MIME type based on the extension of the\n*     file path .\n*/\n",
-                "signature": "public getMimeType(filePath: string, fileIsUrl: boolean = false): string| undefined{ }",
+                "signature": "public getMimeType(filePath: string | undefined, fileIsUrl: boolean = false):| null| string { }",
                 "member_type": "method"
             }
         ],
@@ -500,17 +522,17 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Get a cookie value by the name that is sent in with the request\n* \n* @param string cookie\n*     The name of the cookie to retrieve\n* \n* @return string\n*     The cookie value associated with the cookie name or undefined\n*     if a cookie with that name doesn't exist\n*/\n",
-                "signature": "public getCookie (request: any, name: string): string { }",
+                "signature": "public getCookie(request: any, name: string): string { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Parse this request's body as `multipart/form-data` and get the\n*     requested input.\n*\n* @param string file\n*     The file to get by its name.\n* @param number maxMemory\n*     The max memory to allocate for this process. Defaults to 1MB.\n*\n* @return any\n*     Returns a body as a parsable JSON object where the first level of keys\n*     are the names of the parts. For example, if the name of the first part\n*     is `file_number_one`, then it will be accessible in the returned object\n*     as `{returned_object}.file_number_one`.\n*/\n",
-                "signature": "public getRequestBodyFile(parsedBody: ParsedRequestBody,input: string): any { }",
+                "signature": "public getRequestBodyFile(parsedBody: Drash.Interfaces.ParsedRequestBody,input: string,): any { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Get the value of one of this request's body params by its input name.\n*     First, check the Content-Type of the request so that we know how to\n*     parse the body. Then parse the body accordingly and retrieve the\n*     requested value.\n*\n* @return any\n*/\n",
-                "signature": "public getRequestBodyParam(parsedBody: ParsedRequestBody,input: string): any { }",
+                "signature": "public getRequestBodyParam(parsedBody: Drash.Interfaces.ParsedRequestBody,input: string,): any { }",
                 "member_type": "method"
             },
             {
@@ -530,7 +552,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Get the request's requested content type.\n*\n*     There are three ways to get this value: (1) the request's headers by\n*     setting `Response-Content-Type: \"type\"`, (2) the request's URL query\n*     params by setting `?response_content_type=type`, and the request's body\n*     by setting `{response_content_type: \"type\"}`.\n*\n*     The request's body takes precedence over all other settings.\n*\n*     The request's URL query params takes precedence over the header setting\n*     and the default setting.\n*\n*     The request's header setting takes precedence over the default setting.\n*\n*     If no content type is specified by the request's body, URL query\n*     params, or header, then the default content type will be used. The\n*     default content type is the content type defined in the\n*     `Drash.Http.Server` object's `response_output` config. If a default is\n*     not specified, then \"application/json\" will be used.\n*/\n",
-                "signature": "public getResponseContentType(request: any,defaultContentType: string = \"application/json\"): string { }",
+                "signature": "public getResponseContentType(request: any,defaultContentType: string = \"application/json\",): string { }",
                 "member_type": "method"
             },
             {
@@ -555,17 +577,17 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Hydrate the specified request object.\n*\n* @return Promise<boolean>\n*     Returns a hydrated request object. For example, deno uses the\n*     `ServerRequest` object. This method takes that object and adds more\n*     porperties and methods to it. This makes it easier for Drash to process\n*     the object for its own purposes.\n*/\n",
-                "signature": "public async hydrate(request: any,options?: OptionsConfig): Promise<boolean> { }",
+                "signature": "public async hydrate(request: any,options?: OptionsConfig,): Promise<boolean> { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Parse the specified request's body.\n* \n* @param any request\n* @param OptionsConfig options\n* \n* @returns {content_type: string, data: any}\n*     Returns the content type of the body, and based on this\n*     the body itself in that format. If there is no body, it\n*     returns an empty properties\n*/\n",
-                "signature": "public async parseBody(request: any,options: OptionsConfig = { }}",
+                "signature": "public async parseBody(request: any,options: OptionsConfig = { }},",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*    Parse this request's body as application/x-www-form-url-encoded.\n*\n* @return Promise<object|Array<>>\n*    Returns an empty object if no body exists, else a key/value pair\n*    array e.g. returnValue['someKey']\n*/\n",
-                "signature": "public async parseBodyAsFormUrlEncoded(request: any): Promise<object | Array<any>> { }",
+                "signature": "public async parseBodyAsFormUrlEncoded(request: any,): Promise<object | Array<any>> { }",
                 "member_type": "method"
             },
             {
@@ -575,7 +597,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*    Parse this request's body as multipart/form-data.\n*\n* @param Reader body\n*     The request's body.\n* @param string boundary\n*     The boundary of the part (e.g., `----------437192313`)\n* @param number maxMemory\n*     The maximum memory to allocate to this process in megabytes.\n*\n* @return Promise<{ [key: string]: string | FormFile }>\n*     Returned values can be seen here (look for `readForm`:\n*     https://deno.land/std@v0.32.0/mime/multipart.ts\n*/\n",
-                "signature": "public async parseBodyAsMultipartFormData(body: Reader,boundary: string,maxMemory: number): Promise<{ [key: string]: string | FormFile | null; }> {",
+                "signature": "public async parseBodyAsMultipartFormData(body: Reader,boundary: string,maxMemory: number,): Promise<{ } [key: string]: string | FormFile | null }> {",
                 "member_type": "method"
             },
             {
