@@ -14,7 +14,7 @@ div.c-sidebar
     div.c-sidebar__menu
       span.heading
         p.arrow.right
-        a-base-url.heading-link(href="/introduction#top") Introduction
+        a-base-url.heading-link Introduction
       div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/introduction#drash-in-a-nutshell") Drash In A Nutshell
         a-base-url(href="/introduction#quickstart") Quickstart
@@ -28,7 +28,7 @@ div.c-sidebar
         a(href="https://github.com/drashland/deno-drash-docs" target="_BLANK") View On GitHub &mdash; Drash Docs
       span.heading
         p.arrow.right
-        a-base-url.heading-link(href="/tutorials") Tutorials
+        a-base-url.heading-link Tutorials
       div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/tutorials/introduction") Introduction
         span.sub-heading
@@ -87,7 +87,7 @@ div.c-sidebar
           //- a-base-url(href="/tutorials/misc/adding-third-party-modules") Adding Third-Party Modules
       span.heading
         p.arrow.right
-        a-base-url.heading-link(href="/advanced-tutorials") Advanced Tutorials
+        a-base-url.heading-link Advanced Tutorials
       div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/advanced-tutorials/introduction") Introduction
         span.sub-heading
@@ -138,7 +138,7 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-5") Part 5: Starting The Environment
       span.heading
         p.arrow.right
-        a-base-url.heading-link(href="/third-party-tutorials") Third Party Tutorials
+        a-base-url.heading-link Third Party Tutorials
       div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/third-party-tutorials/introduction") Introduction
         span.sub-heading
@@ -154,7 +154,7 @@ div.c-sidebar
           a-base-url(href="/third-party-tutorials/template-engines/dejs") dejs
       span.heading
         p.arrow.right
-        a-base-url.heading-link(href="/api-reference") API Reference
+        a-base-url.heading-link API Reference
       div.c-sidebar__menu-body.hide--soft
         span.sub-heading
           p.arrow.right
