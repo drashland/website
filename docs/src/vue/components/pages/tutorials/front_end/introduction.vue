@@ -29,7 +29,20 @@ page-tutorial(
     div.col
       hr
       h2-hash About The Template Engine
-      p Drash's template engine might not be as powerful as template engines you might be familiar with (e.g., Blade, mustache, etc.). Although it is a basic template engine, it can still render dynamic data, <code>for</code> loops, <code>if-else</code> conditionals, and more.
+      p Drash's template engine might not be as powerful as template engines you might be familiar with (e.g., Blade, mustache, etc.). Although it is a basic template engine, it still allows you to:
+      ul
+        li
+          p
+            a-base-url(href="/tutorials/front-end/creating-a-template") Create templates with template variables
+        li
+          p
+            a-base-url(href="/tutorials/front-end/extending-a-template") Extend templates
+        li
+          p
+            a-base-url(href="/tutorials/front-end/adding-template-partials") Add template partials
+        li
+          p
+            a-base-url(href="/tutorials/front-end/in-template-javascript") Add in-template JavaScript
       p The idea behind Drash having a template engine is to help you create applications stacked with a front-end framework such as Vue, React, and Angular. Essentially, the idea is to help you create a single page application (SPA) without dependencies outside of Drash.
       p Drash uses the <code>.html</code> extension for its templates.
       p Enabling the template engine can be done by adding the following configs (highlighted) to your server:
