@@ -62,10 +62,10 @@ div
           code-block-slotted(language="typescript" :header="false")
             template(v-slot:code)
               | // Import specific version
-              | import Drash from "https://deno.land/x/drash@{version}/mod.ts";
+              | import { Drash } from "https://deno.land/x/drash@{version}/mod.ts";
               | 
               | // Import master
-              | import Drash from "https://deno.land/x/drash/mod.ts";
+              | import { Drash } from "https://deno.land/x/drash/mod.ts";
         p It is recommended that you import the latest version or a specific version of Drash to prevent your applications from experiencing breaking changes. Drash's master branch tries to keep up with the latest Deno code and is subject to Deno's "disruptive renames" as stated in the Deno project.
         p Drash versions can be found <a href="https://github.com/drashland/deno-drash/releases" target="_BLANK">here</a>.
     hr

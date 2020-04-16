@@ -1,4 +1,4 @@
-import Drash from "https://deno.land/x/drash/mod.ts";
+import { Drash } from "https://deno.land/x/drash/mod.ts";
 
 export default class ColaResource extends Drash.Http.Resource {
   protected COLAS: any = {

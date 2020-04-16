@@ -1,4 +1,4 @@
-import Drash from "../../deno-drash/mod.ts";
+import { Drash } from "../../deno-drash/mod.ts";
 
 export {
   ServerRequest,

@@ -44,7 +44,7 @@ page-tutorial(
             code-block-slotted(language="typescript" line_highlight="10")
               template(v-slot:title) /path/to/your/project/app.ts
               template(v-slot:code)
-                | import Drash from "https://deno.land/x/drash/mod.ts";
+                | import { Drash } from "https://deno.land/x/drash/mod.ts";
                 |
                 | import HomeResource from "./home_resource.ts";
                 |

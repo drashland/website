@@ -1,4 +1,4 @@
-import Drash from "https://deno.land/x/drash/mod.ts";
+import { Drash } from "https://deno.land/x/drash/mod.ts";
 import FilesResource from "./files_resource.ts";
 
 const server = new Drash.Http.Server({

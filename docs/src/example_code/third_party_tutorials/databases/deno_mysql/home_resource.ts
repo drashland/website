@@ -1,4 +1,4 @@
-import Drash from "https://deno.land/x/drash/mod.ts";
+import { Drash } from "https://deno.land/x/drash/mod.ts";
 import { denoMysql } from "./app.ts";
 
 export default class HomeResource extends Drash.Http.Resource {

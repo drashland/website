@@ -65,7 +65,7 @@ page-tutorial-part(
           code-block-slotted(language="typescript" line_highlight="3-5,11-13")
             template(v-slot:title) /path/to/your/project/app.ts
             template(v-slot:code)
-              | import Drash from "https://deno.land/x/drash/mod.ts";
+              | import { Drash } from "https://deno.land/x/drash/mod.ts";
               | 
               | // import AboutResource from "./about_resource.ts";
               | // import ContactResource from "./contact_resource.ts";
@@ -106,7 +106,7 @@ page-tutorial-part(
           code-block-slotted(language="typescript" line_highlight="3-5,11-13")
             template(v-slot:title) /path/to/your/project/app.ts
             template(v-slot:code)
-              | import Drash from "https://deno.land/x/drash/mod.ts";
+              | import { Drash } from "https://deno.land/x/drash/mod.ts";
               | 
               | import AboutResource from "./about_resource.ts";
               | import ContactResource from "./contact_resource.ts";

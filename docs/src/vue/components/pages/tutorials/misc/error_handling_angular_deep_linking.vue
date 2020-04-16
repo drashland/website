@@ -44,7 +44,7 @@ page-tutorial(
             code-block-slotted(language="typescript" line_highlight="24-27")
               template(v-slot:title) /path/to/your/project/app.ts
               template(v-slot:code)
-                | import Drash from "https://deno.land/x/drash/mod.ts";
+                | import { Drash } from "https://deno.land/x/drash/mod.ts";
                 | const decoder = new TextDecoder();
                 | 
                 | class AngularServer extends Drash.Http.Server {

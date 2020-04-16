@@ -1,4 +1,4 @@
-import Drash from "https://deno.land/x/drash/mod.ts";
+import { Drash } from "https://deno.land/x/drash/mod.ts";
 
 import HomeResource from "./home_resource.ts";
 import OrdersResource from "./orders_resource.ts";

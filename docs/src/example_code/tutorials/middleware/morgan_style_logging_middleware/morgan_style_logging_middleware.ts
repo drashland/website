@@ -1,4 +1,4 @@
-import Drash from "https://deno.land/x/drash/mod.ts";
+import { Drash } from "https://deno.land/x/drash/mod.ts";
 
 const logger = new Drash.CoreLoggers.ConsoleLogger({
   enabled: true,
