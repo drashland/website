@@ -13,7 +13,7 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 2,
-      parts: 5,
+      parts: 6,
       toc: {
         items: [
           "Before You Get Started",
@@ -51,7 +51,7 @@ page-tutorial-part(
       h2-hash Steps
       ol
         li
-          p Create the file and create the service blocks.
+          p Create the Compose file and create the service blocks.
           p You will notice that there are <code>.dockerfile</code> files mentioned, you will be creating this in the next tutorial part.
           p You can choose to ignore either the Nginx or Apache service block, depending on which one you wish to use for a reverse proxy
           code-block-slotted(language="shell")
