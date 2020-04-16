@@ -127,16 +127,20 @@ ol li ul {
     .l-latest-release-text .text .heading {
       margin-right: 0.3625rem; }
 
-.c-sidebar .heading-link {
+.c-sidebar span.heading {
   background: #36304a;
   border-bottom: 1px solid #3f3955;
   font-weight: bold;
   letter-spacing: 0.10875rem;
   margin: 0;
   padding: 0.725rem 1.45rem;
-  text-transform: uppercase; }
-  .c-sidebar .heading-link:hover {
-    color: #333; }
+  text-transform: uppercase;
+  display: flex; }
+.c-sidebar span.heading:hover .arrow,
+.c-sidebar span.heading:hover .heading-link,
+.c-sidebar span.sub-heading:hover .arrow {
+  color:#333;
+}
 
 .c-sidebar__header {
   padding: 0.725rem 0;
@@ -162,12 +166,24 @@ ol li ul {
   display: block;
   transition-property: color background;
   transition-duration: 0.2s; }
-.c-sidebar__menu a[href]:hover {
+.c-sidebar__menu span.heading:hover,
+.c-sidebar__menu .c-sidebar__menu-body a[href]:hover,
+.c-sidebar__menu .c-sidebar__menu-body span.sub-heading:hover {
   color: #333;
+  cursor: pointer;
   background: #f4f4f4; }
 .c-sidebar__menu .c-sidebar__menu-header {
   background: #282633;
   border-bottom: 1px solid #3f3955; }
+.c-sidebar__menu .c-sidebar__menu-body span.sub-heading {
+  display: flex;
+}
+.c-sidebar__menu .c-sidebar__menu-body span.sub-heading .arrow {
+  font-size: 0.5em;
+}
+.c-sidebar__menu .c-sidebar__menu-body span.sub-heading:hover a {
+  color: #333;
+}
 .c-sidebar__menu .c-sidebar__menu-header--is-link a {
   font-weight: bold;
   letter-spacing: 0.10875rem;
@@ -177,7 +193,9 @@ ol li ul {
 .c-sidebar__menu .c-sidebar__menu-body {
   color: #fff;
   border-bottom: 1px solid #3f3955; }
-  .c-sidebar__menu .c-sidebar__menu-body a {
+
+  .c-sidebar__menu .c-sidebar__menu-body span.sub-heading,
+  .c-sidebar__menu .c-sidebar__menu-body > a {
     padding: 0.145rem 1.45rem; }
     @media screen and (min-width: 951px) {
       .c-sidebar__menu .c-sidebar__menu-body a {
@@ -440,6 +458,23 @@ label {
 a {
   color: #ff7700; }
 
+p.arrow {
+  font-size: 0.8em;
+  color: #BFFFB8;
+  background: none;
+  margin-right: 1.5em;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+p.arrow:after {
+  content: "➤"; /* &#10148; */
+}
+p.arrow.down {
+  transform: scale(1.8, 1) rotate(90deg);
+}
+p.arrow.right {
+  transform: scale(1, 1.8);
+}
 .background--white {
   background-color: #ffffff !important; }
 
