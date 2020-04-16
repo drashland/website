@@ -110,7 +110,6 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-2") Part 2: Creating The Server
           a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-3") Part 3: Creating The Resource
           a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-4") Part 4: Handling Representations
-          a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-5") Part 5: Adding More Content Types
         span.sub-heading
           p.arrow.right
           a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea") Creating An API

@@ -10,20 +10,16 @@ export default class UsersResource extends Drash.Http.Resource {
     let userId = this.request.getPathParam("id");
     let user = this.getUser(userId);
 
-    switch (this.request.response_content_type) {
-      case "text/html":
-        this.response.body = this.generateHtml(user);
-        break;
-      case "application/json":
-      default:
-        this.response.body = this.generateJson(user);
-        break;
+    // Read the Accept header and check if text/html is acceptable
+    if (this.request.accepts("text/html")) {
+      return this.generateHtml(user);
     }
 
-    return this.response;
+    // Default to a JSON representation
+    return this.generateJson(user);
   }
 
-  protected getUser(userId) {
+  protected getUser(userId: any) {
     let user = null;
 
     try {
@@ -41,22 +37,26 @@ export default class UsersResource extends Drash.Http.Resource {
     return user;
   }
 
-  protected generateHtml(user) {
+  protected generateHtml(user: any) {
+    this.response.headers.set("Content-Type", "text/html");
     try {
       let html = this.readFileContents("./user.html");
       html = html
         .replace(/\{\{ alias \}\}/, user.alias)
         .replace(/\{\{ name \}\}/, user.name);
-      return html;
+      this.response.body = html;
+      return this.response;
     } catch (error) {
       throw new Drash.Exceptions.HttpException(500, error.message);
     }
   }
 
-  protected generateJson(user) {
+  protected generateJson(user: any) {
+    this.response.headers.set("Content-Type", "application/json");
     user.api_key = "**********";
     user.api_secret = "**********";
-    return user;
+    this.response.body = user;
+    return this.response;
   }
 
   protected readFileContents(file: string) {

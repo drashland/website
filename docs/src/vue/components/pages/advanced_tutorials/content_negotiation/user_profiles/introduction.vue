@@ -24,7 +24,7 @@ export default {
 page-tutorial-part(
   :introduction="true",
   :part="-1"
-  :parts="5",
+  :parts="4",
   :uri="uri"
 )
   div.row
@@ -43,7 +43,8 @@ page-tutorial-part(
       hr
       h2-hash End State
       p Below are samples of what you will create.
-      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/verification_2.png'")
-      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/introduction/json_2.png'")
-      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/verification_3.png'")
+      p
+        img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/verification_2.png'")
+      p
+        img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
 </template>
