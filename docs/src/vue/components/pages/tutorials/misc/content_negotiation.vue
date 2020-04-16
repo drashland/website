@@ -39,11 +39,6 @@ page-tutorial(
         li By Order Of Precedence
         li By Random Selection
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
-
-  div.row
-    div.col
-      hr
-      div-folder-structure-end-state(:code_block_data="example_code.folder_structure")
   div.row
     div.col
       hr
@@ -82,12 +77,12 @@ page-tutorial(
             |     }
             |     if (content.indexOf("text/html") != -1) {
             |       this.response.headers.set("Content-Type", "text/html");
-            |       this.response.body = "<div>response: something</div>";
+            |       this.response.body = "&lt;div&gt;response: something&lt;/div&gt;";
             |       return this.response;
             |     }
             |     if (content.indexOf("text/xml") != -1) {
             |       this.response.headers.set("Content-Type", "text/xml");
-            |       this.response.body = "<response>something</response>";
+            |       this.response.body = "&lt;response&gt;something&lt;/response&gt;";
             |       return this.response;
             |     }
             |   }
@@ -109,12 +104,12 @@ page-tutorial(
             |   }
             |   if (this.request.accepts("text/html")) {
             |     this.response.headers.set("Content-Type", "text/html");
-            |     this.response.body = "<div>response: something</div>";
+            |     this.response.body = "&lt;div&gt;response: something&lt;/div&gt;";
             |     return this.response;
             |   }
             |   if (this.request.accepts(["text/xml", "application/xml"])) {
             |     this.response.headers.set("Content-Type", "text/xml");
-            |     this.response.body = "<response>something</response>";
+            |     this.response.body = "&lt;response&gt;something&lt;/response&gt;";
             |     return this.response;
             |   }
             | }
