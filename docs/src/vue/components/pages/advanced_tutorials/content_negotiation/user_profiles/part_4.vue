@@ -13,7 +13,7 @@ export default {
     return {
       example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
       part: 4,
-      parts: 5,
+      parts: 4,
       toc: {
         items: [
           "Before You Get Started",
@@ -41,21 +41,13 @@ page-tutorial-part(
       h2-hash Before You Get Started
       p
         strong
-          em Before getting into the nitty-gritty of having your resource handle HTML representations of itself, you need to understand how the <code>Content-Type</code> header and MIME types play their roles in Drash's request-resource-response lifecycle. So, please read the entire block below.
+          em Before getting into the nitty-gritty of having your resource handle HTML representations of itself, you need to understand how the <code>Content-Type</code> header, MIME types, and the <code>response_output</code> server config play their roles in Drash's request-resource-response lifecycle. So, please read the entire block below.
       div.jumbotron
-        p First and foremost, Drash DOES NOT use the <code>Accept</code> header to determine what representation of a resource a request wants. It uses its own <code>Response-Content-Type</code> header; and clients can only specify one content type in this header.
-        p When a Drash server processes a request, it checks what content type the request wants to receive by checking the following in order:
-        ul
-          li Did the request specify a <code>Response-Content-Type</code> header? If so, then use that.
-          li Did the request specify a <code>response_content_type</code> URL query param? If so, then use that; and do not use the header.
-          li Did the request specify a <code>response_content_type</code> body param? If so, then use that; and do not use the URL query param.
-          li Did the request specify a response content type at all? If not, then default to the <code>response_output</code> config that was used during the server object's creation.
-          li Was the <code>response_output</code> config used? If not, then default to <code>application/json</code> (Drash's default response content type).
-        p Once the server object figures out what content type to use, it sets that content type on the request as <code>request.response_content_type</code>. After the response content type is set, the server object creates the response object (<code>Drash.Http.Response</code>). The response object uses the value of <code>request.response_content_type</code> as its <code>Content-Type</code> header and uses it to decide how it should generate a response in its <code><a href="https://github.com/drashland/deno-drash/blob/master/src/http/response.ts#L68" target="_BLANK">generateResponse()</a></code> method.
-        p Drash defaults to setting the response object's <code>Content-Type</code> header this way to ensure clients can properly handle Drash's response objects. For example, if a browser is the client and it receives a response with a <code>Content-Type</code> header set to <code>text/html</code>, then the browser will know that it needs to display the response as an HTML document. Same thing goes for <code>application/json</code> responses (displays as JSON), <code>application/pdf</code> responses (displays as a PDF document), etc.
-        p If a request specifies a content type that is not supported in the response object (that is, a content type that is not in <code>generateResponse()</code>),then Drash will throw a <code>400 Bad Request</code> error stating that the content type the request specified is unknown.
+        p Drash uses the <code>Accept</code> header to determine what representation of a resource a request wants. Clients can specify one or many content types in this header. It is up to you &mdash; the developer &mdash; to handle this header properly so that you can serve the correct content type to the client based on its request.
+        p There are many ways to handle the <code>Accept</code> header in Drash. We will go over the one way in this tutorial part. Other ways to handle the <code>Accept</code> header can be found <a href="/#/tutorials/misc/content-negotiation">here</a>.
+        p(style="margin-bottom: 0") To ensure that your server always serves a response with the <code>Content-Type</code> header, Drash will set the response object's <code>Content-Type</code> header as the value of the <code>response_output</code> server config. If you do not set this config, then Drash will default it to <code>application/json</code>.
       p Now that your server can use your users resource to serve user data, you can have your resource change the representation (the content type) of its user data before it is sent back to the client. Drash defines content types according to the MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type" target="_BLANK">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type</a>.
-      p In this tutorial part, you will create a profile card in HTML using Tailwind CSS. When clients make requests to your users resource, they will be able to specify how they want to your data. They will be able to pass in a content type using the <code>response_content_type</code> URL query param. For example, if the client wants the <code>text/html</code> representation of your users resource's data, then they can make the following <code>GET</code> request: <code>localhost:1447/users/1?response_content_type=text/html</code>.
+      p In this tutorial part, you will create a profile card in HTML using Tailwind CSS. When clients make requests to your users resource, they will be able to specify how they want to your data using the <code>Accept</code> header.
       p-view-source-code
   div.row
     div.col
@@ -68,37 +60,53 @@ page-tutorial-part(
       ol
         li
           p Add your <code>profile_card.html</code> file.
-          code-block(:data="example_code.user" language="html" line_highlight="14,21")
+          p
+            code-block(:data="example_code.user" language="html" line_highlight="14,21")
           p When a request is made to your resource for the <code>text/html</code> representation of its data, this is the HTML file that will be sent as the response. After your resource reads this HTML file, it will replace the highlighted variables (<code>alias</code> and <code>name</code>) with the requested user's data. This replacement process is basically the process a template engine would perform, but in a much simpler way.
         li
           p Modify your resource by adding the highlighted code so it can generate a <code>text/html</code> representation of its data. Also, organize your code with specific response-generating methods (e.g., <code>generateHtml()</code> and <code>generateJson()</code>) for readability.
-          code-block(:data="example_code.users_resource" language="typescript" line_highlight="13-23, 44-61")
-          p The highlighted code will check what content type the request wants to receive and will make sure that the user data is sent in the requested format. If the request does not specify a content type, then the server object will default to the one you specified in its <code>response_output</code> config, which should be <code>application/json</code> like below.
-          code-block(:data="example_code.app" language="typescript" line_highlight="7")
+          p
+            code-block(:data="example_code.users_resource" language="typescript" line_highlight="13-19, 40-60")
+          p The highlighted code will check what content type the request accepts and will make sure that the user data is sent in an acceptable format. If the request does not specify the <code>Accept</code> header, then the resource will default to serving <code>application/json</code>. You should also note that the resource &mdash; when handling content negotiation &mdash; is in charge of setting the response's <code>Content-Type</code> header properly as seen in the <code>generateHtml()</code> and <code>generateJson()</code> methods.
   div.row
     div.col
       hr
       h2-hash Verification
       p You now have the option to specify which content type you want to receive: <code>application/json</code> or <code>text/html</code>. Verify that your resource can serve both content types of itself.
       ol
-        li Run your app.
-          code-block-slotted
-            template(v-slot:title) /path/to/your/project/app.ts
-            template(v-slot:code)
-              | deno --allow-net --allow-read app.ts
-        li Make a request to <code>localhost:1447/users/1</code> in your browser.
-          p You should receive the following response (we pretty-printed the response for you):
-          code-block-slotted(language="javascript")
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | {
-              |     "id": 1,
-              |     "alias": "Captain America",
-              |     "name": "Steve Rogers",
-              |     "api_key": "**********",
-              |     "api_secret": "**********"
-              | }
-        li Make a request to <code>localhost:1447/users/1?response_content_type=text/html</code> in your browser&ndash;specifying you want the <code>text/html</code> representation of <code>/users/1</code>.
+        li
+          p Run your app.
+          p
+            code-block-slotted
+              template(v-slot:title) /path/to/your/project/app.ts
+              template(v-slot:code)
+                | deno --allow-net --allow-read app.ts
+        li
+          p Make a request to <code>localhost:1447/users/1</code> in your browser.
           p You should receive the following response:
-          img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3.png'")
+          p
+            img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3.png'")
+        li
+          p Make a request to <code>localhost:1447/users/1</code> in Postman (or similar).
+          p You should receive the following response:
+          p
+            img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
+        li
+          p Make a request to <code>localhost:1447/users/1</code> in Postman (or similar) with the following header:
+          p
+            code-block-slotted(:header="false" language="javascript")
+              template(v-slot:code)
+                | Accept: text/html
+          p You should receive the following response:
+          p
+            img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_html.png'")
+        li
+          p Make a request to <code>localhost:1447/users/1</code> in Postman (or similar) with the following header:
+          p
+            code-block-slotted(:header="false" language="javascript")
+              template(v-slot:code)
+                | Accept: text/xml
+          p You should receive the following response because the resource defaults to JSON responses.
+          p
+            img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
 </template>

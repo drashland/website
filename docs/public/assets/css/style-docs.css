@@ -136,6 +136,9 @@ ol li ul {
   padding: 0.725rem 1.45rem;
   text-transform: uppercase;
   display: flex; }
+.c-sidebar .heading-link {
+  color: #fff;
+}
 .c-sidebar span.heading:hover .arrow,
 .c-sidebar span.heading:hover .heading-link,
 .c-sidebar span.sub-heading:hover .arrow {
