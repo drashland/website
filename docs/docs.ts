@@ -13,7 +13,6 @@ class Resource extends Drash.Http.Resource {
 import "./src/response.ts";
 
 const server = new Drash.Http.Server({
-  address: "localhost:8000",
   directory: config.server.directory,
   response_output: "text/html",
   logger: Drash.Members.ConsoleLogger,
@@ -21,4 +20,9 @@ const server = new Drash.Http.Server({
   static_paths: ["/public"]
 });
 
-server.run();
+server.run({
+  hostname: "localhost",
+  port: 8000
+});
+
+console.log("Docs started at localhost:8000");
