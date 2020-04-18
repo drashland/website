@@ -602,7 +602,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*    Parse this request's body as multipart/form-data.\n*\n* @param Reader body\n*     The request's body.\n* @param string boundary\n*     The boundary of the part (e.g., `----------437192313`)\n* @param number maxMemory\n*     The maximum memory to allocate to this process in megabytes.\n*\n* @return Promise<{ [key: string]: string | FormFile }>\n*     Returned values can be seen here (look for `readForm`:\n*     https://deno.land/std@v0.32.0/mime/multipart.ts\n*/\n",
-                "signature": "public async parseBodyAsMultipartFormData(body: Reader,boundary: string,maxMemory: number,): Promise<{ } [key: string]: string | FormFile | null }> {",
+                "signature": "public async parseBodyAsMultipartFormData(body: Reader,boundary: string,maxMemory: number,): Promise<any> { }",
                 "member_type": "method"
             },
             {
