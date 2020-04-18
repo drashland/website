@@ -24,3 +24,5 @@ server.run({
   hostname: "localhost",
   port: 8000
 });
+
+console.log("Docs started at localhost:8000");
