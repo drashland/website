@@ -8,20 +8,20 @@
   console/run_webpack --env.environment="staging"
 
   # Clean that shit up
-  rm -rf staging/public/*
+  rm -rf ../staging/public/*
 
   # Make all necessary directories so the terminal doesn't get mad
-  mkdir -p staging/public/assets
-  mkdir    staging/public/assets/css
-  mkdir    staging/public/assets/img
-  mkdir    staging/public/assets/js
-  mkdir    staging/public/assets/vendor
+  mkdir -p ../staging/public/assets
+  mkdir    ../staging/public/assets/css
+  mkdir    ../staging/public/assets/img
+  mkdir    ../staging/public/assets/js
+  mkdir    ../staging/public/assets/vendor
 
   # Copy what was built for prod; use that for staging
   cp    index.html staging/index.html
-  cp    public/assets/css/style-docs.css     staging/public/assets/css/style-docs.css
-  cp    public/assets/css/style-docs.css.map staging/public/assets/css/style-docs.css.map
-  cp -r public/assets/js                     staging/public/assets/
-  cp -r public/assets/img                    staging/public/assets/
-  cp -r public/assets/vendor                 staging/public/assets/
+  cp    public/assets/css/style-docs.css     ../staging/public/assets/css/style-docs.css
+  cp    public/assets/css/style-docs.css.map ../staging/public/assets/css/style-docs.css.map
+  cp -r public/assets/js                     ../staging/public/assets/
+  cp -r public/assets/img                    ../staging/public/assets/
+  cp -r public/assets/vendor                 ../staging/public/assets/
 )
