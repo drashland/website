@@ -52,6 +52,7 @@ div.c-sidebar
         div.l-submenu-1.hide--soft
           a-base-url(href="/tutorials/servers/creating-a-server") Creating A Server
           a-base-url(href="/tutorials/servers/serving-static-paths") Serving Static Paths
+          a-base-url(href="/tutorials/servers/creating-an-https-server") Creating An HTTPS Server
         span.sub-heading
           p.arrow.right
           a Middleware

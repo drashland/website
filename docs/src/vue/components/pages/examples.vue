@@ -27,19 +27,19 @@ page
           ul
             li
               p
-                a.cursor-pointer(@click="show = 1") Example 1: GET /
+                a.cursor-pointer(@click="show = 1") Example 1: GET localhost:1447/
             li
               p
-                a.cursor-pointer(@click="show = 2") Example 2: GET /, Accept: text/html
+                a.cursor-pointer(@click="show = 2") Example 2: GET localhost:1447/, Accept: text/html
             li
               p
-                a.cursor-pointer(@click="show = 3") Example 3: GET /, Accept: text/xml
+                a.cursor-pointer(@click="show = 3") Example 3: GET localhost:1447/, Accept: text/xml
             li
               p
-                a.cursor-pointer(@click="show = 4") Example 4: GET /my-html-resource
+                a.cursor-pointer(@click="show = 4") Example 4: GET localhost:1447/my-html-resource
             li
               p
-                a.cursor-pointer(@click="show = 5") Example 5: GET /my-html-resource, Accept: application/json
+                a.cursor-pointer(@click="show = 5") Example 5: GET localhost:1447/my-html-resource, Accept: application/json
       div.row(v-show="show == 1")
         div.col-6
           h2 Code
