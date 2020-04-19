@@ -55,7 +55,7 @@ page
                 |   public GET() {
                 |     this.response.body = "GET request received!";
                 |     if (this.request.accepts("application/json")) {
-                |       this.response.body = "&lt;body&gt;GET request received!&lt/body&gt";
+                |       this.response.body = "&lt;body&gt;GET request received!&lt;/body&gt;";
                 |     }
                 |     return this.response;
                 |   }
@@ -89,7 +89,7 @@ page
                 |   public GET() {
                 |     this.response.body = "GET request received!";
                 |     if (this.request.accepts("text/html")) {
-                |       this.response.body = "&lt;body&gt;GET request received!&lt/body&gt";
+                |       this.response.body = "&lt;body&gt;GET request received!&lt;/body&gt;";
                 |     }
                 |     return this.response;
                 |   }
@@ -123,7 +123,7 @@ page
                 |   public GET() {
                 |     this.response.body = "GET request received!";
                 |     if (this.request.accepts(["text/xml", "application/xml"])) {
-                |       this.response.body = "&lt;body&gt;GET request received!&lt/body&gt";
+                |       this.response.body = "&lt;body&gt;GET request received!&lt;/body&gt;";
                 |     }
                 |     return this.response;
                 |   }
