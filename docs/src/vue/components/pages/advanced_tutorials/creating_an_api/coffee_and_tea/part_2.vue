@@ -76,7 +76,6 @@ page-tutorial-part(
               | // import TeaResource from "./tea_resource.ts";
               |
               | const server = new Drash.Http.Server({
-              |   address: "localhost:1447",
               |   response_output: "application/json",
               |   resources: [
               |     // CoffeeResource,
@@ -84,7 +83,10 @@ page-tutorial-part(
               |   ],
               | });
               |
-              | server.run();
+              | server.run({
+              |   hostname: "localhost",
+              |   port: 1447
+              | });
         li Run your app.
           code-block-slotted
             template(v-slot:title) Terminal
@@ -115,7 +117,6 @@ page-tutorial-part(
               | import TeaResource from "./tea_resource.ts";
               |
               | const server = new Drash.Http.Server({
-              |   address: "localhost:1447",
               |   response_output: "application/json",
               |   resources: [
               |     CoffeeResource,
@@ -123,5 +124,8 @@ page-tutorial-part(
               |   ],
               | });
               |
-              | server.run();
+              | server.run({
+              |   hostname: "localhost",
+              |   port: 1447
+              | });
 </template>

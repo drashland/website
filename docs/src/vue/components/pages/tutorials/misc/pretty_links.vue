@@ -49,7 +49,6 @@ page-tutorial(
                 | import HomeResource from "./home_resource.ts";
                 |
                 | const server = new Drash.Http.Server({
-                |   address: "localhost:1447",
                 |   directory: "/path/to/your/project",
                 |   resources: [HomeResource],
                 |   response_output: "text/html",
@@ -57,6 +56,9 @@ page-tutorial(
                 |   static_paths: ["/public"]
                 | });
                 |
-                | server.run();
+                | server.run({
+                |   hostname: "localhost",
+                |   port: 1447
+                | });
           p Take note of the highlighted code. Using this config will allow you to NOT have to specify <code>index.html</code> for any static path.
 </template>

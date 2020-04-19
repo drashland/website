@@ -6,7 +6,6 @@ import OrdersResource from "./orders_resource.ts";
 import UsersResource from "./users_resource.ts";
 
 const server = new Drash.Http.Server({
-  address: "localhost:1447",
   response_output: "application/json",
   resources: [
     HomeResource,
@@ -17,7 +16,10 @@ const server = new Drash.Http.Server({
 
 // Run your server
 
-server.run();
+server.run({
+  hostname: "localhost",
+  port: 1447
+});
 
 // Import your tests so they can be run
 

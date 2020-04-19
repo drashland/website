@@ -62,12 +62,14 @@ page
                 | }
                 |
                 | const server = new Drash.Http.Server({
-                |   address: "localhost:1447",
                 |   response_output: "application/json"
                 |   resources: [HomeResource],
                 | });
                 |
-                | server.run();
+                | server.run({
+                |   hostname: "localhost",
+                |   port: 1447
+                | });
         div.col-6
           h2 Output
           p.output
@@ -94,12 +96,14 @@ page
                 | }
                 |
                 | const server = new Drash.Http.Server({
-                |   address: "localhost:1447",
                 |   response_output: "application/json"
                 |   resources: [HomeResource],
                 | });
                 |
-                | server.run();
+                | server.run({
+                |   hostname: "localhost",
+                |   port: 1447
+                | });
         div.col-6
           h2 Output
           p.output
@@ -126,12 +130,14 @@ page
                 | }
                 |
                 | const server = new Drash.Http.Server({
-                |   address: "localhost:1447",
                 |   response_output: "application/json"
                 |   resources: [HomeResource],
                 | });
                 |
-                | server.run();
+                | server.run({
+                |   hostname: "localhost",
+                |   port: 1447
+                | });
         div.col-6
           h2 Output
           p.output
@@ -171,12 +177,14 @@ page
                 | }
                 |
                 | const server = new Drash.Http.Server({
-                |   address: "localhost:1447",
                 |   response_output: "text/html"
                 |   resources: [MyHtmlResource],
                 | });
                 |
-                | server.run();
+                | server.run({
+                |   hostname: "localhost",
+                |   port: 1447
+                | });
         div.col-6
           h2 Output
           p.output
@@ -215,12 +223,14 @@ page
                 |   }
                 |
                 | const server = new Drash.Http.Server({
-                |   address: "localhost:1447",
                 |   response_output: "text/html"
                 |   resources: [MyHtmlResource],
                 | });
                 |
-                | server.run();
+                | server.run({
+                |   hostname: "localhost",
+                |   port: 1447
+                | });
         div.col-6
           h2 Output
           p.output

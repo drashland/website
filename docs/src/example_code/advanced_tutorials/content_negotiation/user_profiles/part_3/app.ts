@@ -8,4 +8,7 @@ const server = new Drash.Http.Server({
   resources: [UsersResource],
 });
 
-server.run();
+server.run({
+  hostname: "localhost",
+  port: 1447
+});

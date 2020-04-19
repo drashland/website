@@ -5,7 +5,6 @@ import ContactResource from "./contact_resource.ts";
 import HomeResource from "./home_resource.ts";
 
 const server = new Drash.Http.Server({
-  address: "localhost:1447",
   response_output: "text/html",
   resources: [
     AboutResource,
@@ -14,4 +13,7 @@ const server = new Drash.Http.Server({
   ]
 });
 
-server.run();
+server.run({
+  hostname: "localhost",
+  port: 1447
+});

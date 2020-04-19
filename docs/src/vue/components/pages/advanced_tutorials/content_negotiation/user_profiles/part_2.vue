@@ -70,12 +70,14 @@ page-tutorial-part(
               | // import UsersResource from "./users_resource.ts";
               |
               | const server = new Drash.Http.Server({
-              |   address: "localhost:1447",
               |   response_output: "application/json",
               |   // resources: [UsersResource],
               | });
               |
-              | server.run();
+              | server.run({
+              |   hostname: "localhost",
+              |   port: 1447
+              | });
         li Run your app.
           code-block-slotted
             template(v-slot:title) Terminal
@@ -105,10 +107,12 @@ page-tutorial-part(
               | import UsersResource from "./users_resource.ts";
               |
               | const server = new Drash.Http.Server({
-              |   address: "localhost:1447",
               |   response_output: "application/json",
               |   resources: [UsersResource],
               | });
               |
-              | server.run();
+              | server.run({
+              |   hostname: "localhost",
+              |   port: 1447
+              | });
 </template>

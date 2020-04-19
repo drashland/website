@@ -30,7 +30,6 @@ class HomeResource extends Drash.Http.Resource {
 }
 
 const server = new Drash.Http.Server({
-  address: "localhost:1337",
   response_output: "text/html",
   resources: [HomeResource],
   logger: new Drash.CoreLoggers.ConsoleLogger({
@@ -45,4 +44,7 @@ const server = new Drash.Http.Server({
   })
 });
 
-server.run();
+server.run({
+  hostname: "localhost",
+  port: 1447
+});
