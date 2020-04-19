@@ -2,6 +2,7 @@
 
 (
   export DENO_DRASH_DOCS_ENVIRONMENT="staging"
+  cp conf/app.ci.ts conf/app.ts
   console/compile_assets
   console/compile_templates
   console/run_webpack --env.environment="staging"
