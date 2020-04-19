@@ -52,6 +52,7 @@ jobs:
     - name: build staging
       if: github.ref == 'refs/heads/staging'
       run: |
+        export PATH="$DENO_INSTALL/bin:$PATH"
         cd docs
         console/staging_build
 
