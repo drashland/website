@@ -1,8 +1,0 @@
-#!/bin/bash
-
-(
-  export DENO_DRASH_DOCS_ENVIRONMENT="staging"
-  console/run_webpack --env.environment="staging"
-  console/compile_assets
-  console/compile_templates
-)
