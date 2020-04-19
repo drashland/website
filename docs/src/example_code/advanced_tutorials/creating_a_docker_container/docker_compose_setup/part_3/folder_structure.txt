@@ -1,0 +1,8 @@
+▾ /path/to/your/project/
+	▾ .docker/
+		apache.dockerfile
+		drash.dockerfile
+		nginx.dockerfile
+	▾ src/
+		app.ts
+	docker-compose.yml

@@ -1,0 +1,17 @@
+{
+  "50": {
+    "id": 50,
+    "name": "Earl Gray",
+    "price": 4.00
+  },
+  "68": {
+    "id": 68,
+    "name": "Citrus Chamomile",
+    "price": 3.50
+  },
+  "83": {
+    "id": 83,
+    "name": "Imperial Blend",
+    "price": 4.50
+  }
+}

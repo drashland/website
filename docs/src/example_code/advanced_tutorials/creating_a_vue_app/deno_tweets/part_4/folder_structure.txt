@@ -1,0 +1,6 @@
+▾ /path/to/your/project/
+	▾ public/
+		vue_app.js
+	app.ts
+	home_resource.ts
+	index.html

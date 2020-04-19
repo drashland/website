@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# All env variables should be set before running this script
+#
+
+(
+  git add .
+  git commit -m "$(date) - manual build"
+)

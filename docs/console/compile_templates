@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# DOCS_BASE_URL will be appended to drashland.github.io (e.g., drashland.github.io/deno-drash-docs)
+#
+
+(
+  echo -n "Compiling template files ..."
+  deno --allow-read --allow-write --allow-net console/ts/compile_templates.ts
+  echo "... done."
+)
