@@ -4,7 +4,6 @@ import HomeResource from "./home_resource.ts";
 import MorganStyleLoggingMiddleware from "./morgan_style_logging_middleware.ts";
 
 const server = new Drash.Http.Server({
-  address: "localhost:1447",
   middleware: {
     server_level: {
       before_request: [
@@ -21,4 +20,7 @@ const server = new Drash.Http.Server({
   response_output: "application/json",
 });
 
-server.run();
+server.run({
+  hostname: "localhost",
+  port: 1447
+});

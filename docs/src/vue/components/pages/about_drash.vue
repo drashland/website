@@ -50,6 +50,7 @@ page(
         li Lowering barriers to usage
         li Zero dependencies
       p Drash does not force you to use all of its code. You can pick and choose which data members you want/need and use them however you deem fit. For example, Drash comes with a console logger and a file logger. If you only want these, then you only import these into your non-Drash project. How you use it is really up to you.
+      P Drash's versioning system will always be consistent with Deno's. Whichever Drash version you use, you know Drash is using that same version for Deno. For example, if you import <code>https://deno.land/x/drash@v0.40.0/mod.ts</code>, you know you can install Deno v0.40.0 and everything will work just fine.
   div.row
     div.col
       hr

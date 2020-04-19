@@ -1,3 +1,4 @@
 ▾ /path/to/your/project/
 	app.ts
-	index.ejs
+	coffee.json
+	tea.json

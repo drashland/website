@@ -52,11 +52,13 @@ export class AngularResource extends Drash.Http.Resource {
 }
 
 const server = new Drash.Http.Server({
-  address: "localhost:1447",
   response_output: "text/html",
   resources: [AngularResource],
   directory: `${await Deno.realpath(".")}`,
   static_paths: ["/public"],
 });
 
-server.run();
+server.run({
+  hostname: "localhost",
+  port: 1447
+});

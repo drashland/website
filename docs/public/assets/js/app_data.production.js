@@ -273,7 +273,7 @@ const app_data = {
         "title": "Project Folder Structure"
       },
       "run": {
-        "contents": "deno --allow-net --allow-env --allow-read app.ts\n",
+        "contents": "deno --allow-net --allow-read app.ts\n",
         "extension": "sh",
         "filename": "run.sh",
         "language": "shell",
@@ -307,7 +307,7 @@ const app_data = {
         "title": "Project Folder Structure"
       },
       "run": {
-        "contents": "deno --allow-net --allow-env --allow-read app.ts\n",
+        "contents": "deno --allow-net --allow-read app.ts\n",
         "extension": "sh",
         "filename": "run.sh",
         "language": "shell",
@@ -348,7 +348,7 @@ const app_data = {
         "title": "Project Folder Structure"
       },
       "run": {
-        "contents": "deno --allow-net --allow-env --allow-read app.ts\n",
+        "contents": "deno --allow-net --allow-read app.ts\n",
         "extension": "sh",
         "filename": "run.sh",
         "language": "shell",
@@ -388,7 +388,7 @@ const app_data = {
         "title": "/path/to/your/project/folder_structure_setup.txt"
       },
       "run": {
-        "contents": "deno --allow-net --allow-env app.ts\n",
+        "contents": "deno --allow-net app.ts\n",
         "extension": "sh",
         "filename": "run.sh",
         "language": "shell",

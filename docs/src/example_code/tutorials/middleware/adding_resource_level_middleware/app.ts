@@ -5,7 +5,6 @@ import SecretResource from "./secret_resource.ts";
 import VerifyTokenMiddleware from "./verify_token_middleware.ts";
 
 const server = new Drash.Http.Server({
-  address: "localhost:1447",
   middleware: {
     resource_level: [
       VerifyTokenMiddleware
@@ -18,4 +17,7 @@ const server = new Drash.Http.Server({
   response_output: "application/json",
 });
 
-server.run();
+server.run({
+  hostname: "localhost",
+  port: 1447
+});

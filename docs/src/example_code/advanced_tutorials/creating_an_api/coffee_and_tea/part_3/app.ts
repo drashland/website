@@ -4,7 +4,6 @@ import CoffeeResource from "./coffee_resource.ts";
 import TeaResource from "./tea_resource.ts";
 
 const server = new Drash.Http.Server({
-  address: "localhost:1447",
   response_output: "application/json",
   resources: [
     CoffeeResource,
@@ -12,4 +11,7 @@ const server = new Drash.Http.Server({
   ],
 });
 
-server.run();
+server.run({
+  hostname: "localhost",
+  port: 1447
+});

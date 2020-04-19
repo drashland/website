@@ -68,11 +68,6 @@ page-tutorial-part(
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | docker-compose up
-          p You should eventually see once the Drash server has started, that the server is listening.
-          p
-            code-block-slotted(:header="false")
-              template(v-slot:code)
-                | Deno server started at :1447.
         li
           p Make a request using <code>curl</code> like below or go to <code>localhost:8080</code> in your browser.
           p

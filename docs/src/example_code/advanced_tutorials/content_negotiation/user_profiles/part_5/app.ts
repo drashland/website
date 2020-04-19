@@ -6,9 +6,11 @@ Drash.Http.Response = response;
 import UsersResource from "./users_resource.ts";
 
 const server = new Drash.Http.Server({
-  address: "localhost:1447",
   response_output: "application/json",
   resources: [UsersResource],
 });
 
-server.run();
+server.run({
+  hostname: "localhost",
+  port: 1447
+});

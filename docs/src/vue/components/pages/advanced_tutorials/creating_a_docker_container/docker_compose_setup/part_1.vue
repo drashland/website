@@ -76,10 +76,5 @@ page-tutorial-part(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net --allow-env src/app.ts
-          p You should see something similar following:
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | Deno server started at :1447
+              | deno --allow-net src/app.ts
 </template>

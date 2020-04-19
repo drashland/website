@@ -70,24 +70,21 @@ page-tutorial-part(
               | // import HomeResource from "./home_resource.ts";
               |
               | const server = new Drash.Http.Server({
-              |   address: "localhost:1447",
               |   response_output: "text/html",
               | //  resources: [HomeResource],
               |   directory: "/path/to/your/project",
               |   static_paths: ["/public"]
               | });
               |
-              | server.run();
+              | server.run({
+              |   hostname: "localhost",
+              |   port: 1447
+              | });
         li Run your app.
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net --allow-env app.ts
-          p When you run your app, you should see the following:
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | Deno server started at localhost:1447.
+              | deno --allow-net app.ts
         li Make a request using <code>curl</code> like below or go to <code>localhost:1447</code> in your browser.
           code-block-slotted
             template(v-slot:title) Terminal
@@ -107,12 +104,14 @@ page-tutorial-part(
               | import HomeResource from "./home_resource.ts";
               |
               | const server = new Drash.Http.Server({
-              |   address: "localhost:1447",
               |   response_output: "text/html",
               |   resources: [HomeResource],
               |   directory: "/path/to/your/project",
               |   static_paths: ["/public"]
               | });
               |
-              | server.run();
+              | server.run({
+              |   hostname: "localhost",
+              |   port: 1447
+              | });
 </template>

@@ -3,7 +3,6 @@ import { Drash } from "https://deno.land/x/drash/mod.ts";
 import HomeResource from "./home_resource.ts";
 
 const server = new Drash.Http.Server({
-  address: "localhost:1447",
   response_output: "application/json",
   resources: [HomeResource],
   logger: new Drash.CoreLoggers.FileLogger({
@@ -19,4 +18,7 @@ const server = new Drash.Http.Server({
   })
 });
 
-server.run();
+server.run({
+  hostname: "localhost",
+  port: 1447
+});

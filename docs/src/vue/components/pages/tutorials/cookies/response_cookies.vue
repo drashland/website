@@ -79,7 +79,7 @@ page-tutorial(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | deno --allow-net --allow-env app.ts
+                | deno --allow-net app.ts
         li
           p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/</code>.
           p

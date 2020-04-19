@@ -27,19 +27,19 @@ page
           ul
             li
               p
-                a.cursor-pointer(@click="show = 1") Example 1: GET /
+                a.cursor-pointer(@click="show = 1") Example 1: GET localhost:1447/
             li
               p
-                a.cursor-pointer(@click="show = 2") Example 2: GET /?response_content_type=text/html
+                a.cursor-pointer(@click="show = 2") Example 2: GET localhost:1447/, Accept: text/html
             li
               p
-                a.cursor-pointer(@click="show = 3") Example 3: GET /?response_content_type=text/xml
+                a.cursor-pointer(@click="show = 3") Example 3: GET localhost:1447/, Accept: text/xml
             li
               p
-                a.cursor-pointer(@click="show = 4") Example 4: GET /my-html-resource
+                a.cursor-pointer(@click="show = 4") Example 4: GET localhost:1447/my-html-resource
             li
               p
-                a.cursor-pointer(@click="show = 5") Example 5: GET /my-html-resource?response_content_type=application/json
+                a.cursor-pointer(@click="show = 5") Example 5: GET localhost:1447/my-html-resource, Accept: application/json
       div.row(v-show="show == 1")
         div.col-6
           h2 Code
@@ -54,20 +54,22 @@ page
                 |
                 |   public GET() {
                 |     this.response.body = "GET request received!";
-                |     if (this.response.headers.get("Content-Type") == "text/xml") {
-                |       this.response.body = "&lt;body&gt;GET request received!&lt/body&gt";
+                |     if (this.request.accepts("application/json")) {
+                |       this.response.body = "&lt;body&gt;GET request received!&lt;/body&gt;";
                 |     }
                 |     return this.response;
                 |   }
                 | }
                 |
                 | const server = new Drash.Http.Server({
-                |   address: "localhost:1447",
                 |   response_output: "application/json"
                 |   resources: [HomeResource],
                 | });
                 |
-                | server.run();
+                | server.run({
+                |   hostname: "localhost",
+                |   port: 1447
+                | });
         div.col-6
           h2 Output
           p.output
@@ -86,20 +88,22 @@ page
                 |
                 |   public GET() {
                 |     this.response.body = "GET request received!";
-                |     if (this.response.headers.get("Content-Type") == "text/xml") {
-                |       this.response.body = "&lt;body&gt;GET request received!&lt/body&gt";
+                |     if (this.request.accepts("text/html")) {
+                |       this.response.body = "&lt;body&gt;GET request received!&lt;/body&gt;";
                 |     }
                 |     return this.response;
                 |   }
                 | }
                 |
                 | const server = new Drash.Http.Server({
-                |   address: "localhost:1447",
                 |   response_output: "application/json"
                 |   resources: [HomeResource],
                 | });
                 |
-                | server.run();
+                | server.run({
+                |   hostname: "localhost",
+                |   port: 1447
+                | });
         div.col-6
           h2 Output
           p.output
@@ -118,20 +122,22 @@ page
                 |
                 |   public GET() {
                 |     this.response.body = "GET request received!";
-                |     if (this.response.headers.get("Content-Type") == "text/xml") {
-                |       this.response.body = "&lt;body&gt;GET request received!&lt/body&gt";
+                |     if (this.request.accepts(["text/xml", "application/xml"])) {
+                |       this.response.body = "&lt;body&gt;GET request received!&lt;/body&gt;";
                 |     }
                 |     return this.response;
                 |   }
                 | }
                 |
                 | const server = new Drash.Http.Server({
-                |   address: "localhost:1447",
                 |   response_output: "application/json"
                 |   resources: [HomeResource],
                 | });
                 |
-                | server.run();
+                | server.run({
+                |   hostname: "localhost",
+                |   port: 1447
+                | });
         div.col-6
           h2 Output
           p.output
@@ -171,12 +177,14 @@ page
                 | }
                 |
                 | const server = new Drash.Http.Server({
-                |   address: "localhost:1447",
                 |   response_output: "text/html"
                 |   resources: [MyHtmlResource],
                 | });
                 |
-                | server.run();
+                | server.run({
+                |   hostname: "localhost",
+                |   port: 1447
+                | });
         div.col-6
           h2 Output
           p.output
@@ -215,12 +223,14 @@ page
                 |   }
                 |
                 | const server = new Drash.Http.Server({
-                |   address: "localhost:1447",
                 |   response_output: "text/html"
                 |   resources: [MyHtmlResource],
                 | });
                 |
-                | server.run();
+                | server.run({
+                |   hostname: "localhost",
+                |   port: 1447
+                | });
         div.col-6
           h2 Output
           p.output
