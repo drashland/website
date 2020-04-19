@@ -59,9 +59,11 @@ jobs:
     - name: commit staging
       if: github.ref == 'refs/heads/staging'
       run: |
+        cd docs
         console/staging_commit
 
     - name: push staging to master
       if: github.ref == 'refs/heads/staging'
       run: |
+        cd docs
         git push origin HEAD:master
