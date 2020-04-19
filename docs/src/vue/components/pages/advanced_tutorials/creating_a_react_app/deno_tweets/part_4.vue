@@ -73,7 +73,6 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Verification
-      p Stop your server (<code>ctrl + c</code>) if you still have it running from Part 2.
       ol
         li Test Webpack.
           p
