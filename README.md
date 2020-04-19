@@ -13,7 +13,7 @@
     * This page serves as the entry point to all Drash modules and documentation.
 * deno-drash Production: [https://drash.land/docs](https://drash.land/docs)
     * This page includes code that is released and stable.
-* deno-drash Staging: [https://drash.land/staging](https://drash.land/deno-drash/staging)
+* deno-drash Staging: [https://drash.land/staging](https://drash.land/staging)
     * This page includes code that is still under development, but ready to be realeased soon. This page might not always be accessible.
 
 ## Technology Stack
