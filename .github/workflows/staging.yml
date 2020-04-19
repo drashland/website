@@ -41,6 +41,7 @@ jobs:
 
     - name: install deno
       run: |
+        cd docs
         console/install_deno
 
     - name: git clone deno-drash
@@ -57,11 +58,13 @@ jobs:
 
     - name: configure git
       run: |
+        cd docs
         console/configure_git
 
     - name: deploy staging
       if: github.ref == 'refs/heads/staging'
       run: |
+        cd docs
         export PATH=$DENO_INSTALL/bin:$PATH
         export DENO_DRASH_DOCS_ENVIRONMENT="staging"
         console/set_common_env_vars
