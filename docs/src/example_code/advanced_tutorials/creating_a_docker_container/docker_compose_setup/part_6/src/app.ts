@@ -23,6 +23,6 @@ const server = new Drash.Http.Server({
 });
 
 server.run({
-  hostname: "",
+  hostname: "drash_app_drash",
   port: 1447
 });
