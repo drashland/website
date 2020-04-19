@@ -71,7 +71,6 @@ jobs:
         console/copy_config_files
         console/compile_assets
         console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
-        console/compile_ejs_templates
         console/staging
         git checkout -- index.html
         git checkout -- public/*
