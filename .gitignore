@@ -5,7 +5,6 @@ bundle.js
 compiled_*.js
 compiled_*.json
 docs/conf/app.ts
-deps.ts
 doc_blocks_output_actual.json
 
 # directories
