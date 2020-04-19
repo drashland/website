@@ -54,12 +54,18 @@ page-tutorial-part(
         li
           p Create your React component for the Deno Tweets.
           p
-            code-block(:data="example_code_components.DenoTweets" language="typescript")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) /path/to/your/project/components/DenoTweets.tsx
+              template(v-slot:code)
+                | {{ example_code_components.DenoTweets.contents }}
           p Here, you are creating a component to control the display of the Deno tweets
         li
           p Create your React App file to handle the display of your components.
           p
-            code-block(:data="example_code_components.App" language="typescript")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) /path/to/your/project/components/App.tsx
+              template(v-slot:code)
+                | {{ example_code_components.App.contents }}
           p This is the entry point React file, which will import all of your React components and render them.
   div.row
     div.col
@@ -78,7 +84,7 @@ page-tutorial-part(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | deno --allow-net --allow-read app.ts
+                | deno --allow-net --allow-read --allow-env app.ts
           p If you go to <code>localhost:1447/</code>, you should the something similar to the following:
           img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
 </template>

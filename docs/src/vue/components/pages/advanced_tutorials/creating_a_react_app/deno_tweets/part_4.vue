@@ -55,8 +55,8 @@ page-tutorial-part(
           p
             code-block(:data="example_code.webpack" language="javascript")
           p Here, you are telling Webpack to search for your React components and to transpile them.
-          p The transpiled files will then be placed in a different directory (see `output` block).
-          p You also have a block in the file that will test the found files against a `.tsx` extension, and will pass those files through the `ts-loader` to support transpiling TSX.
+          p The transpiled files will then be placed in a different directory (see the <code>output</code> property).
+          p You also have a block in the file that will test the found files against a <code>.tsx</code> extension, and will pass those files through the <code>ts-loader</code> to support transpiling TSX.
         li
           p Create your Typescript configuration file.
           p
@@ -68,7 +68,7 @@ page-tutorial-part(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | npm i --save-dev webpack webpack-cli react react-dom typescript @types/react @types/react-dom
+                | npm i --save-dev webpack webpack-cli react react-dom typescript @types/react @types/react-dom ts-loader
   div.row
     div.col
       hr
@@ -80,5 +80,11 @@ page-tutorial-part(
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | node_modules/.bin/webpack-cli --config webpack.config.js
-          p EXPLAIN OUTPUT
+          p You should see the following output:
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | ERROR in Entry module not found: Error: Can't resolve './components/App.tsx'
+          p That's ok, because you haven't created your components yet.
 </template>
