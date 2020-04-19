@@ -62,7 +62,7 @@ page-tutorial-part(
       p If you run your app in its current state, you will get an error. The TypeScript compiler will throw an error stating it cannot resolve your resource file. So, before you verify that your server is working, you need to comment out the lines relevant to your resource file.
       ol
         li Comment out the code relevant to your resource file.
-          code-block-slotted(language="typescript" line_highlight="3,8")
+          code-block-slotted(language="typescript" line_highlight="3,7")
             template(v-slot:title) /path/to/your/project/app.ts
             template(v-slot:code)
               | import { Drash } from "https://deno.land/x/drash/mod.ts";
@@ -96,7 +96,7 @@ page-tutorial-part(
               | Not Found
           p You will receive a <code>404 Not Found</code> error because your server does not have any resources. This is expected. You will be creating your resource next.
         li Before moving on, uncomment the code you commented out.
-          code-block-slotted(language="typescript" line_highlight="3,8")
+          code-block-slotted(language="typescript" line_highlight="3,7")
             template(v-slot:title) /path/to/your/project/app.ts
             template(v-slot:code)
               | import { Drash } from "https://deno.land/x/drash/mod.ts";
