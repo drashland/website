@@ -54,7 +54,7 @@ page-tutorial-part(
           p
             code-block(:data="example_code.index" language="html")
           p To make things easier, your HTML file comes with the embedded Twitter Timeline widget. This widget will show Deno's tweets.
-          p You will notice there is a <code><script></code> tag. This points to your compiled React component that you will create in the later steps.
+          p You will notice there is a <code>&lt;script&gt;</code> tag. This points to your compiled React component that you will create in the later steps.
   div.row
     div.col
       hr
