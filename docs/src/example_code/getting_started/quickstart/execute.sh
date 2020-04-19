@@ -1,1 +1,1 @@
-deno --allow-net --allow-env app.ts
+deno --allow-net app.ts

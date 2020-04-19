@@ -82,7 +82,7 @@ page-tutorial(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | deno --allow-net --allow-env --allow-read app.ts
+                | deno --allow-net --allow-read app.ts
         li
           p Go to <code>localhost:1447/user</code> in your browser.
           p You should receive the following response:

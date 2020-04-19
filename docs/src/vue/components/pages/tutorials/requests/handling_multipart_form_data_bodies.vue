@@ -71,7 +71,7 @@ page-tutorial(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | deno --allow-net --allow-env --allow-write app.ts
+                | deno --allow-net --allow-write app.ts
         li
           p Create your <code>uploads</code> folder in your project's directory. This is where the output file will be stored. If you skip this step, you will get the following error: <code>"No such file or directory (os error 2)"</code>.
         li

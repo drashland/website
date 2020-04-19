@@ -61,7 +61,7 @@ page-tutorial(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net --allow-env --allow-read app.ts
+              | deno --allow-net --allow-read app.ts
         li
           p Make a request to <code>localhost:1447</code> in your browser. You should receive the following response:
           img(:src="$conf.base_url + '/public/assets/img/example_code/third_party_tutorials/template_engines/dejs/verification_1.png'")
