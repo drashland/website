@@ -1,10 +1,6 @@
 # Workflows
 
-## Updating Branches
-
-* The `staging` and `production` branches do not have to be updated from your local machine. The CI/CD process makes sure they are up to date with `master` before any branch is merged into them. All branches are based off of `master`, so there should not be any misalignments with tracking.
-
-## New Features
+## Process For Creating New Features
 
 * Set up your branch (example below)
 
