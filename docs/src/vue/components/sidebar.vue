@@ -140,6 +140,16 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-4") Part 4: Creating The Vue App
         span.sub-heading
           p.arrow.right
+          a-base-url(href="/advanced-tutorials/creating-a-react-app/deno-tweets") Creating A React App
+        div.l-submenu-1.hide--soft
+          a-base-url(href="/advanced-tutorials/creating-a-react-app/deno-tweets/introduction") Introduction
+          a-base-url(href="/advanced-tutorials/creating-a-react-app/deno-tweets/part-1") Part 1: Creating The Server
+          a-base-url(href="/advanced-tutorials/creating-a-react-app/deno-tweets/part-2") Part 2: Creating The Resource
+          a-base-url(href="/advanced-tutorials/creating-a-react-app/deno-tweets/part-3") Part 3: Creating The Template
+          a-base-url(href="/advanced-tutorials/creating-a-react-app/deno-tweets/part-4") Part 4: Configuring Webpack and Typescript
+          a-base-url(href="/advanced-tutorials/creating-a-react-app/deno-tweets/part-5") Part 5: Creating the React Components
+        span.sub-heading
+          p.arrow.right
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup") Creating A Docker Container
         div.l-submenu-1.hide--soft
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/introduction") Introduction

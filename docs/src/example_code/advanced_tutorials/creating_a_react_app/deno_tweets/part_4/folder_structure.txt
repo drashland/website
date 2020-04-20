@@ -1,0 +1,6 @@
+▾ /path/to/your/project/
+	app.ts
+	home_resource.ts
+	index.html
+	tsconfig.json
+	webpack.config.js
