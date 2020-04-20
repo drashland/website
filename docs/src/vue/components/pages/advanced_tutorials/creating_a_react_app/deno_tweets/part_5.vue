@@ -40,7 +40,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Before You Get Started
-      p Now you have everything setup, such as Webpack and your Drash server, you can start writing your React components in TSX.
+      p Now that you have everything set up, you can start writing your React components in TSX.
       p-view-source-code
   div.row
     div.col
@@ -58,7 +58,7 @@ page-tutorial-part(
               template(v-slot:title) /path/to/your/project/components/DenoTweets.tsx
               template(v-slot:code)
                 | {{ example_code_components.DenoTweets.contents }}
-          p Here, you are creating a component to control the display of the Deno tweets
+          p Here, you are creating a component to control the display of the Deno tweets.
         li
           p Create your React App file to handle the display of your components.
           p
@@ -66,7 +66,7 @@ page-tutorial-part(
               template(v-slot:title) /path/to/your/project/components/App.tsx
               template(v-slot:code)
                 | {{ example_code_components.App.contents }}
-          p This is the entry point React file, which will import all of your React components and render them.
+          p This is the entry point React file. This file will import all of your React components and render them.
   div.row
     div.col
       hr
@@ -78,13 +78,14 @@ page-tutorial-part(
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | node_modules/.bin/webpack-cli --config webpack.config.js
-          p Now you have created your components, Webpack will transpile them so the browser can understand the contents
-        li Start your server
+          p Now that you have created your components, Webpack will transpile them so the browser can understand the contents.
+        li Start your server.
           p
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | deno --allow-net --allow-read --allow-env app.ts
-          p If you go to <code>localhost:1447/</code>, you should the something similar to the following:
+                | deno --allow-net --allow-read app.ts
+          p Go to <code>localhost:1447/</code> in your browser.
+          p You should the something similar to the following:
           img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
 </template>
