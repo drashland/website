@@ -61,9 +61,9 @@ page-tutorial-part(
           p Create your Typescript configuration file.
           p
             code-block(:data="example_code.tsconfig" language="javascript")
-          p This configuration file aids in allowing Webpack to continue with its task, and will exclude your Deno files from the Typescript compiler - seperate from Deno's Typescript compiler
+          p This configuration file aids in allowing Webpack to continue with its task, and will exclude your Deno files from the Typescript compiler &mdash; seperate from Deno's Typescript compiler.
         li
-          p Install the dependencies
+          p Install the dependencies.
           p
             code-block-slotted
               template(v-slot:title) Terminal
@@ -86,5 +86,5 @@ page-tutorial-part(
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | ERROR in Entry module not found: Error: Can't resolve './components/App.tsx'
-          p That's ok, because you haven't created your components yet.
+          p This is the correct output because you have not created your components yet. You will do this in the next tutorial part.
 </template>
