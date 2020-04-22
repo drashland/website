@@ -72,6 +72,11 @@
         "filename": "content_negotiation",
         "title": "/path/to/your/project/content_negotiation"
       },
+      "creating_a_react_app": {
+        "contents": "",
+        "filename": "creating_a_react_app",
+        "title": "/path/to/your/project/creating_a_react_app"
+      },
       "creating_a_docker_container": {
         "contents": "",
         "filename": "creating_a_docker_container",
@@ -432,6 +437,152 @@
       },
       "folder_structure": {
         "contents": "▾ /path/to/your/project/\n\tusers.json\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_react_app": {
+      "deno_tweets": {
+        "contents": "",
+        "filename": "deno_tweets",
+        "title": "/path/to/your/project/deno_tweets"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_react_app/deno_tweets": {
+      "part_5": {
+        "contents": "",
+        "filename": "part_5",
+        "title": "/path/to/your/project/part_5"
+      },
+      "part_2": {
+        "contents": "",
+        "filename": "part_2",
+        "title": "/path/to/your/project/part_2"
+      },
+      "part_3": {
+        "contents": "",
+        "filename": "part_3",
+        "title": "/path/to/your/project/part_3"
+      },
+      "part_4": {
+        "contents": "",
+        "filename": "part_4",
+        "title": "/path/to/your/project/part_4"
+      },
+      "part_1": {
+        "contents": "",
+        "filename": "part_1",
+        "title": "/path/to/your/project/part_1"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_5": {
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\t▾ components/\n\t    App.tsx\n\t    DenoTweets.tsx\n\thome_resource.ts\n\tindex.html\n\ttsconfig.json\n\twebpack.config.js\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "components": {
+        "contents": "",
+        "filename": "components",
+        "title": "/path/to/your/project/components"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_5/components": {
+      "App": {
+        "contents": "import DenoTweets from './DenoTweets'\nimport ReactDOM from 'react-dom'\nimport * as React from 'react'\n\nReactDOM.render(\n    <DenoTweets title={\"Deno\"} description={\"A secure runtime for JavaScript and TypeScript\"} />,\n    document.getElementById('root')\n);",
+        "extension": "tsx",
+        "filename": "App.tsx",
+        "title": "/path/to/your/project/App.tsx"
+      },
+      "DenoTweets": {
+        "contents": "import * as React from 'react'\n\ninterface Props {\n    title: string,\n    description: string\n}\n\nconst DenoTweets = (props: Props) => {\n    const { title, description } = props;\n    return (\n        <div>\n            <h1 className=\"text-5xl\">{ title }</h1>\n            <p className=\"text-xl mb-5\">{ description }</p>\n            <hr className=\"mb-5\"/>\n            <a className=\"twitter-timeline\" href=\"https://twitter.com/deno_land?ref_src=twsrc%5Etfw\">\n                Tweets by deno_land\n            </a>\n        </div>\n    )\n}\n\nexport default DenoTweets",
+        "extension": "tsx",
+        "filename": "DenoTweets.tsx",
+        "title": "/path/to/your/project/DenoTweets.tsx"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_2": {
+      "app": {
+        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.41.1/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \".\",\n  static_paths: [\"/public\"]\n});\n\nserver.run({\n  hostname: \"localhost\",\n  port: 1447\n});\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.41.1/mod.ts\";\nconst decoder = new TextDecoder();\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./index.html\");\n      let template = decoder.decode(fileContentsRaw);\n      this.response.body = template;\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error reading HTML template.`\n      );\n    }\n    return this.response;\n  }\n}\n\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_3": {
+      "index": {
+        "contents": "<!DOCTYPE html>\n<html class=\"h-full w-full\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, user-scalable=no\"/>\n  <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css\">\n  <title>Deno Tweets</title>\n</head>\n\n<body>\n  <div id=\"root\" style=\"max-width: 640px; margin: 0 auto;\">\n  </div>\n  <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"><//script>\n</body>\n\n<script src=\"/public/app.js\"><//script>\n</html>\n",
+        "extension": "html",
+        "filename": "index.html",
+        "title": "/path/to/your/project/index.html"
+      },
+      "app": {
+        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.41.1/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \".\",\n  static_paths: [\"/public\"]\n});\n\nserver.run({\n  hostname: \"localhost\",\n  port: 1447\n});\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n\tindex.html\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "home_resource": {
+        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.41.1/mod.ts\";\nconst decoder = new TextDecoder();\n\nexport default class HomeResource extends Drash.Http.Resource {\n\n  static paths = [\n    \"/\"\n  ];\n\n  public GET() {\n    try {\n      let fileContentsRaw = Deno.readFileSync(\"./index.html\");\n      let template = decoder.decode(fileContentsRaw);\n      this.response.body = template;\n    } catch (error) {\n      throw new Drash.Exceptions.HttpException(\n        400,\n        `Error reading HTML template.`\n      );\n    }\n    return this.response;\n  }\n}\n\n",
+        "extension": "ts",
+        "filename": "home_resource.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/home_resource.ts"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_4": {
+      "webpack": {
+        "contents": "const path = require('path')\nmodule.exports = {\n  entry: {\n    app: './components/App.tsx'\n  },\n  output: {\n    filename: \"[name].js\",\n    path: __dirname + '/public/'\n  },\n  module: {\n    rules: [\n      {\n        test: /\\.tsx?$/,\n        use: 'ts-loader',\n        exclude: /node_modules/\n      }\n    ]\n  },\n  resolve: {\n    alias: {\n      react: path.resolve('./node_modules/react')\n    },\n    extensions: ['.tsx', '.js']\n  }\n}",
+        "extension": "config",
+        "filename": "webpack.config.js",
+        "title": "/path/to/your/project/webpack.config.js"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n\thome_resource.ts\n\tindex.html\n\ttsconfig.json\n\twebpack.config.js\n",
+        "extension": "txt",
+        "filename": "folder_structure.txt",
+        "title": "Project Folder Structure"
+      },
+      "tsconfig": {
+        "contents": "{\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"forceConsistentCasingInFileNames\": true,\n    \"rootDir\": \"./components\",\n    \"jsx\": \"react\",\n    \"target\": \"es6\",\n    \"module\": \"commonjs\",\n    \"allowJs\": true\n  },\n  \"exclude\": [\"home_resource.ts\", \"app.ts\"]\n}",
+        "extension": "json",
+        "filename": "tsconfig.json",
+        "title": "/path/to/your/project/tsconfig.json"
+      }
+    },
+    "/src/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_1": {
+      "app": {
+        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.41.1/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \".\",\n  static_paths: [\"/public\"]\n});\n\nserver.run({\n  hostname: \"localhost\",\n  port: 1447\n});\n",
+        "extension": "ts",
+        "filename": "app.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/app.ts"
+      },
+      "folder_structure": {
+        "contents": "▾ /path/to/your/project/\n\tapp.ts\n",
         "extension": "txt",
         "filename": "folder_structure.txt",
         "title": "Project Folder Structure"
@@ -2852,18 +3003,18 @@
     }
   },
   "example_code_versions": {
-    "deno": "v0.41.0"
+    "deno": "v0.41.1"
   }
 };
   </script>
   
-  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1587347455591"></script>
-  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1587347455591"></script>
-  <script src="/docs/public/assets/js/bundle.production.js?version=1587347455591"></script>
-  <script src="/docs/public/assets/js/vendors~router.production.js?version=1587347455591"></script>
-  <script src="/docs/public/assets/js/router.production.js?version=1587347455591"></script>
-  <script src="/docs/public/assets/js/vendors~app.production.js?version=1587347455591"></script>
-  <script src="/docs/public/assets/js/app.production.js?version=1587347455591"></script>
+  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1587553115234"></script>
+  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1587553115234"></script>
+  <script src="/docs/public/assets/js/bundle.production.js?version=1587553115234"></script>
+  <script src="/docs/public/assets/js/vendors~router.production.js?version=1587553115234"></script>
+  <script src="/docs/public/assets/js/router.production.js?version=1587553115234"></script>
+  <script src="/docs/public/assets/js/vendors~app.production.js?version=1587553115234"></script>
+  <script src="/docs/public/assets/js/app.production.js?version=1587553115234"></script>
 
 </body>
 </html>
