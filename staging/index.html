@@ -505,7 +505,7 @@
     },
     "/src/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_2": {
       "app": {
-        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.42.0/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  resources: [HomeResource],\n  response_output: \"text/html\",\n  directory: \".\",\n  static_paths: [\"/public\"]\n});\n\nserver.run();\n",
+        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.42.0/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \".\",\n  static_paths: [\"/public\"]\n});\n\nserver.run({\n  hostname: \"localhost\",\n  port: 1447\n});\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -533,7 +533,7 @@
         "title": "/path/to/your/project/index.html"
       },
       "app": {
-        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.42.0/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \".\",\n  static_paths: [\"/public\"]\n});\n\nserver.run();\n",
+        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.42.0/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \".\",\n  static_paths: [\"/public\"]\n});\n\nserver.run({\n  hostname: \"localhost\",\n  port: 1447\n});\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -575,7 +575,7 @@
     },
     "/src/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_1": {
       "app": {
-        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.42.0/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  address: \"localhost:1447\",\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \".\",\n  static_paths: [\"/public\"]\n});\n\nserver.run();\n",
+        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.42.0/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  response_output: \"text/html\",\n  resources: [HomeResource],\n  directory: \".\",\n  static_paths: [\"/public\"]\n});\n\nserver.run({\n  hostname: \"localhost\",\n  port: 1447\n});\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -3008,13 +3008,13 @@
 };
   </script>
   
-  <script src="/staging/public/assets/js/vendors~app~bundle.staging.js?version=1587379141688"></script>
-  <script src="/staging/public/assets/js/vendors~bundle.staging.js?version=1587379141688"></script>
-  <script src="/staging/public/assets/js/bundle.staging.js?version=1587379141688"></script>
-  <script src="/staging/public/assets/js/vendors~router.staging.js?version=1587379141688"></script>
-  <script src="/staging/public/assets/js/router.staging.js?version=1587379141688"></script>
-  <script src="/staging/public/assets/js/vendors~app.staging.js?version=1587379141688"></script>
-  <script src="/staging/public/assets/js/app.staging.js?version=1587379141688"></script>
+  <script src="/staging/public/assets/js/vendors~app~bundle.staging.js?version=1587552020677"></script>
+  <script src="/staging/public/assets/js/vendors~bundle.staging.js?version=1587552020677"></script>
+  <script src="/staging/public/assets/js/bundle.staging.js?version=1587552020677"></script>
+  <script src="/staging/public/assets/js/vendors~router.staging.js?version=1587552020677"></script>
+  <script src="/staging/public/assets/js/router.staging.js?version=1587552020677"></script>
+  <script src="/staging/public/assets/js/vendors~app.staging.js?version=1587552020677"></script>
+  <script src="/staging/public/assets/js/app.staging.js?version=1587552020677"></script>
 
 </body>
 </html>
