@@ -1,18 +1,20 @@
-# deno-drash Documentation
+# deno-drash-website
 
 <a href="https://github.com/drashland/deno-drash/">
   <img src="https://img.shields.io/github/release/drashland/deno-drash.svg?color=bright_green&label=drash%20latest">
 </a> 
 <a href="https://github.com/drashland/deno-drash-docs/actions?query=workflow%3Aci">
-  <img src="https://img.shields.io/github/workflow/status/drashland/deno-drash-docs/master?label=docs%20master">
+  <img src="https://img.shields.io/github/workflow/status/drashland/deno-drash-docs/master?label=master">
 </a>
 
-## Environments
+## Pages
 
-* Production: [https://drash.land](https://drash.land)
-    * This environment includes code that is released and stable.
-* Staging: [https://drash.land](https://drash.land/staging)
-    * This environment includes code that is still under development, but ready to be realeased soon.
+* Landing Page: [https://drash.land](https://drash.land)
+    * This page serves as the entry point to all Drash modules and documentation.
+* deno-drash Production: [https://drash.land/docs](https://drash.land/docs)
+    * This page includes code that is released and stable.
+* deno-drash Staging: [https://drash.land/staging](https://drash.land/staging)
+    * This page includes code that is still under development, but ready to be realeased soon. This page might not always be accessible.
 
 ## Technology Stack
 
@@ -26,38 +28,74 @@
 
 ## Setup
 
+Install the prerequisites:
+
+* [Homebrew](https://brew.sh/)
+* [Python v2.7.16](https://www.python.org/downloads/release/python-2716/)
+* [Node v13.x and npm v6.x](https://nodejs.org/en/download/current/)
+
+Go to the following directory:
+
+```
+cd docs
+```
+
 Install Sass.
 
 ```
 brew install sass/sass/sass
 ```
 
-Install dependencies.
-
-```shell
-npm install
-```
-
 Install watchdog for file watching.
 
 ```shell
-console/pip.install.watchdog
+console/install_watchdog
 ```
 
-Add the following to your `$PATH` variable.
+Add the following to your `$PATH` variable. _The installer warns you about setting Python binaries to your `$PATH` variable. Please follow Python's instructions._
 
 ```
 ~/Library/Python/2.7/bin 
 ```
 
-_The installer warns you about setting Python binaries to your `$PATH` variable. Pay attention to that message._
+Install Node modules.
 
-## Running The Development Environment
+```shell
+npm install
+```
+
+Set up your `app.ts` config file by first copying the sample config file.
+
+```shell
+cd docs/conf
+cp app.sample.ts app.ts
+```
+
+Open your `app.ts` config file and make sure your `deno_drash.directory` and `server.directory` configs are set correctly.
+
+* The `deno_drash.directory` config should point to your `deno-drash` local repo.
+* The `server.directory` config should point to your `deno-drash-website` local repo's `docs` directory.
+* You must use absolute paths when setting these configs.
+
+```typescript
+export default {
+  ...
+  deno_drash: {
+    directory: "/var/src/drashland/deno-drash",
+  },
+  ...
+  server: {
+    directory: "/var/src/drashland/deno-drash-website/docs",
+  }
+}
+```
+
+## Running The Development Environment For `/docs`
 
 Step 1: Run the dev server.
 
 ```shell
-npm run dev
+console/dev
 ```
 
 The dev server is watched by `watchdog`. `watchdog` is like `nodemon` for Node.js. Every time you save changes, the dev server will reload with your changes. The browser will not reload on its own. You have to do that yourself.
@@ -66,15 +104,13 @@ The dev server starts webpack in the background with the `--watch` flag. You do 
 
 ### Troubleshooting
 
-Problem with node-sass?
+node-sass
 
-```
-npm rebuild node-sass
-```
+* Solution: `npm rebuild node-sass`
 
-Problem with watchdog?
+watchdog
 
-Make sure you have Python 2.7 installed.
+* Solution: Install [Python 2.7](https://www.python.org/download/releases/2.7/)
 
 ## Compile SASS to CSS
 

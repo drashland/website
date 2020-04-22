@@ -1,11 +1,10 @@
 # files
+*.development.js
 .DS_Store
-conf/app.ts
 bundle.js
-bundle.development.js
 compiled_*.js
 compiled_*.json
-deps.ts
+docs/conf/app.ts
 doc_blocks_output_actual.json
 
 # directories

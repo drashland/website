@@ -29,33 +29,40 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: npm install
-      run: |
-        npm install
-
     - name: install deno
       run: |
+        cd docs
         console/install_deno
+
+    - name: npm install
+      # if: github.event_name == 'push'
+      run: |
+        cd docs
+        npm install
 
     - name: git clone deno-drash
       run: |
         git clone https://github.com/drashland/deno-drash.git ../deno-drash
 
-    - name: configure git
+    - name: add git user drashbot
       run: |
-        console/configure_git
+        cd docs
+        console/add_git_user_drashbot
 
-    - name: deploy production
+    - name: build production
       if: github.ref == 'refs/heads/production'
       run: |
-        export PATH=$DENO_INSTALL/bin:$PATH
-        export DENO_DRASH_DOCS_ENVIRONMENT="production"
-        console/set_common_env_vars
-        console/copy_config_files
-        console/compile_assets
-        console/run_webpack --env.environment=$DENO_DRASH_DOCS_ENVIRONMENT
-        console/compile_ejs_templates
-        git add index.html
-        git add public/*
-        git commit -m "production build ($(date))"
+        export PATH="$DENO_INSTALL/bin:$PATH"
+        cd docs
+        console/production_build
+
+    - name: commit production
+      if: github.ref == 'refs/heads/production'
+      run: |
+        cd docs
+        console/production_commit
+
+    - name: push production to master
+      if: github.ref == 'refs/heads/production'
+      run: |
         git push origin HEAD:master

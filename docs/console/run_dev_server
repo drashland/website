@@ -1,0 +1,26 @@
+#!/bin/bash
+
+(
+  echo -e "\nDENO_DRASH_DOCS_ENVIRONMENT set to $DENO_DRASH_DOCS_ENVIRONMENT\n"
+
+  console/dev_kill
+  console/delete_ds_store
+  console/compile_assets
+
+  # Are we restarting or now just starting up?
+  if [[ $1 == "restart-by-watchdog" ]]; then
+    echo -n "[watchdog] Restarting docs.ts app ..."
+    deno --allow-read --allow-write --allow-net --allow-env ./docs.ts &
+  else
+    echo -n "[watchdog] Starting docs.ts app ..."
+    deno --allow-read --allow-write --allow-net --allow-env --reload ./docs.ts &
+  fi
+
+  echo "... done."
+
+  # echo -e "[watchdog] Make sure you run webpack:"
+  # echo -e "\n    Compile once:"
+  # echo -e "\n    \`npm run webpack\`\n"
+  # echo -e "\n    Compile on every file change:"
+  # echo -e "\n    \`npm run webpack -- --watch\`\n"
+)
