@@ -2,7 +2,7 @@ import { Drash } from "https://deno.land/x/drash/mod.ts";
 import { LogAccessMiddleware } from "./log_access_middleware.ts";
 import { VerifyTokenMiddleware } from "./verify_token_middleware.ts";
 
-@Drash.Decorators.Middleware({
+@Drash.Http.Middleware({
   before_request: [VerifyTokenMiddleware],
   after_request: []
 })
@@ -12,7 +12,7 @@ export default class SecretResource extends Drash.Http.Resource {
     "/secret"
   ];
 
-  @Drash.Decorators.Middleware({
+  @Drash.Http.Middleware({
     before_request: [LogAccessMiddleware],
     after_request: []
   })
