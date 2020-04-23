@@ -57,24 +57,17 @@ page-tutorial(
           p
            code-block(:data="example_code.verify_token_middleware" language="typescript")
         li
-          p Create your <code>HomeResource</code> file.
+          p Create your <code>HomeResource</code> file. This file will not have middleware.
           p
            code-block(:data="example_code.home_resource" language="typescript")
         li
-          p Create your <code>SecretResource</code> file.
+          p Create your <code>SecretResource</code> file. This resource will use the <code>VerifyTokenMiddleware</code> function to verify that the correct token has been passed in through the URL query params before the request is executed. If the token is incorrect, then the middleware will throw a <code>400</code> or <code>403</code> error response. If the token is correct, then the request will be processed further and the <code>LogAccessMiddleware</code> function will log that the resource has been accessed.
           p
             code-block(:data="example_code.secret_resource" language="typescript")
-          p This resource will tell the server to execute <code>VerifyTokenMiddleware</code> before it handles any requests. You will create <code>VerifyTokenMiddleware</code> in the next step.
         li
-          p Create your middleware file.
-          p
-            code-block(:data="example_code.verify_token_middleware" language="typescript")
-          p This middleware will only be executed at the <code>/secret</code> URI. It will check if <code>super_secret_token</code> was passed in the request's URL. If not, then a <code>400</code> error will be thrown. It will also check if the value of <code>super_secret_token</code> is <code>AllYourBaseAreBelongToUs</code>. If not, then a <code>403</code> error will be thrown.
-        li
-          p Create your app file.
+          p Create your app file. Notice that you do not need to register your middleware here like you do with server-level middleware.
           p
             code-block(:data="example_code.app" language="typescript")
-          p Your app file will load in Drash, your resources, your middleware, set up your server, and start your server.
   div.row
     div.col
       hr
@@ -135,4 +128,10 @@ page-tutorial(
                 |   "method": "GET",
                 |   "body": "You have accessed the secret resource!"
                 | }
+          p Also, in the terminal where you started your server, you should see the following message:
+          p
+            code-block-slotted(:header="false")
+              template(v-slot:code)
+                | "Secret resource was accessed by: {username}"
+
 </template>
