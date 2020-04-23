@@ -34,7 +34,8 @@ page-tutorial(
     div.col
       hr
       h2-hash Before You Get Started
-      p Resource-level middleware is middleware that can only be executed by resources. That is, if a resource specifies a list of middleware in its <code>middleware</code> property, then that middleware will be executed.
+      p Unlike server-level middleware, resource-level middleware is specified using <a href="https://www.typescriptlang.org/docs/handbook/decorators.html" target="_BLANK">decorators</a> and a <code>tsconfig.json</code> file.
+      p Resource-level middleware is middleware that can only be executed by resources. That is, if a resource is decorated with middleware, then the middleware specified in the decorators will be executed.
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
     div.col
@@ -45,20 +46,34 @@ page-tutorial(
       hr
       h2-hash Steps
       ol
-        li Create your <code>HomeResource</code> file.
+        li
+          p Create your <code>tsconfig.json</code> file.
           p
-           code-block(:data="example_code.home_resource")
-        li Create your <code>SecretResource</code> file.
+           code-block(:data="example_code.tsconfig" language="json")
+        li
+          p Create your middleware files. These middleware files take in the <code>request</code> and <code>response</code> params.
           p
-            code-block(:data="example_code.secret_resource")
+           code-block(:data="example_code.log_access_middleware" language="typescript")
+          p
+           code-block(:data="example_code.verify_token_middleware" language="typescript")
+        li
+          p Create your <code>HomeResource</code> file.
+          p
+           code-block(:data="example_code.home_resource" language="typescript")
+        li
+          p Create your <code>SecretResource</code> file.
+          p
+            code-block(:data="example_code.secret_resource" language="typescript")
           p This resource will tell the server to execute <code>VerifyTokenMiddleware</code> before it handles any requests. You will create <code>VerifyTokenMiddleware</code> in the next step.
-        li Create your middleware file.
+        li
+          p Create your middleware file.
           p
-            code-block(:data="example_code.verify_token_middleware")
+            code-block(:data="example_code.verify_token_middleware" language="typescript")
           p This middleware will only be executed at the <code>/secret</code> URI. It will check if <code>super_secret_token</code> was passed in the request's URL. If not, then a <code>400</code> error will be thrown. It will also check if the value of <code>super_secret_token</code> is <code>AllYourBaseAreBelongToUs</code>. If not, then a <code>403</code> error will be thrown.
-        li Create your app file.
+        li
+          p Create your app file.
           p
-            code-block(:data="example_code.app")
+            code-block(:data="example_code.app" language="typescript")
           p Your app file will load in Drash, your resources, your middleware, set up your server, and start your server.
   div.row
     div.col
