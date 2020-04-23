@@ -71,7 +71,7 @@ page
           code-block-slotted(:header="false" language="typescript" line_highlight="3,7")
             template(v-slot:code) {{ example_code.location_server_level.contents }}
         h3#setting-the-execution-location-of-resource-level-middleware Setting The Execution Location Of Resource-Level Middleware
-        p You can have resource-level middleware execute before and after the request by placing your middleware in the <code>before_request</code> array or <code>after_request</code> array in your resource class' middleware.  See the example below to see middleware defined in these arays.
+        p You can have resource-level middleware execute before and after the request by placing your middleware in the <code>before_request</code> array or <code>after_request</code> array in your resource class' middleware decorators.  See the example below to see middleware defined in these arays.
         p
           code-block-slotted(:header="false" language="typescript" line_highlight="2-3,12-13")
             template(v-slot:code) {{ example_code.location_resource_level.contents }}
