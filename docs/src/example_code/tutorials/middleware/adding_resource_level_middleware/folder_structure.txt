@@ -1,5 +1,7 @@
 ▾ /path/to/your/project/
 	app.ts
 	home_resource.ts
+	log_access_middleware.ts
 	secret_resource.ts
+	tsconfig.json
 	verify_token_middleware.ts

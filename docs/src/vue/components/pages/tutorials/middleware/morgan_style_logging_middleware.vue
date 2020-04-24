@@ -54,7 +54,7 @@ page-tutorial(
           p Create your middleware file. Your middleware will log information about the request on all requests.
           p
             code-block(:data="example_code.morgan_style_logging_middleware")
-        li Create your app file. Your app file will load in Drash, your resource, your middleware, set up your server, and start your server.
+        li Create your app file.
           p
             code-block(:data="example_code.app")
   div.row

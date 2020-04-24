@@ -1,18 +1,16 @@
 import { Drash } from "https://deno.land/x/drash/mod.ts";
 
 import HomeResource from "./home_resource.ts";
-import MorganStyleLoggingMiddleware from "./morgan_style_logging_middleware.ts";
+import { MorganStyleLoggingMiddleware } from "./morgan_style_logging_middleware.ts";
 
 const server = new Drash.Http.Server({
   middleware: {
-    server_level: {
-      before_request: [
-        MorganStyleLoggingMiddleware
-      ],
-      after_request: [
-        MorganStyleLoggingMiddleware
-      ]
-    }
+    before_request: [
+      MorganStyleLoggingMiddleware
+    ],
+    after_request: [
+      MorganStyleLoggingMiddleware
+    ]
   },
   resources: [
     HomeResource
@@ -24,3 +22,5 @@ server.run({
   hostname: "localhost",
   port: 1447
 });
+
+console.log("Server listening: http://localhost:1447");

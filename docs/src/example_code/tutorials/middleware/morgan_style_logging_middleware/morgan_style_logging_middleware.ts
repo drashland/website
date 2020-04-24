@@ -11,13 +11,16 @@ const logger = new Drash.CoreLoggers.ConsoleLogger({
   }
 });
 
-export default class MorganStyleLoggingMiddleware extends Drash.Http.Middleware {
-  public run() {
-    if (!this.response) {
-      logger.info(`Request received: ${this.request.method} ${this.request.url}`);
-    }
-    if (this.response) {
-      logger.info(`Response: ${this.response.status_code} ${this.response.getStatusMessage()}`);
-    }
+export function MorganStyleLoggingMiddleware(
+  request: any,
+  response?: Drash.Http.Response
+) {
+  // If there is no response, then we know this is occurring before the request
+  if (!response) {
+    logger.info(`Request received: ${request.method} ${request.url}`);
+  }
+  // If there is a response, then we know this is occurring after the request
+  if (response) {
+    logger.info(`Response: ${response.status_code} ${response.getStatusMessage()}`);
   }
 }

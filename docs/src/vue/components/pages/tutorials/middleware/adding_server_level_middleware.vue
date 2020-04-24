@@ -46,24 +46,27 @@ page-tutorial(
       hr
       h2-hash Steps
       ol
-        li Create your resource file.
+        li
+          p Create your resource file.
           p
             code-block(:data="example_code.home_resource")
-        li Create your middleware file.
+          li
+            p Create your middleware file. This middleware file takes in the <code>request</code> and <code>response</code> params.
           p
             code-block(:data="example_code.verify_token_middleware")
           p Your middleware will check if <code>super_secret_token</code> was passed in the request's URL. If not, then a <code>400</code> error will be thrown. It will also check if the value of <code>super_secret_token</code> is <code>AllYourBaseAreBelongToUs</code>. If not, then a <code>403</code> error will be thrown.
-        li Create your app file.
+        li
+          p Create your app file.
           p
             code-block(:data="example_code.app")
-          p Your app file will load in Drash, your resource, your middleware, set up your server, and start your server.
   div.row
     div.col
       hr
       h2-hash Verification
       p You can verify that your app's code works by making requests like the ones below. Since this tutorial's app sets <code>application/json</code> as the <code>response_output</code>, the server responds to requests with JSON by default.
       ol
-        li Run your app.
+        li
+          p Run your app.
           p
             code-block-slotted
               template(v-slot:title) Terminal

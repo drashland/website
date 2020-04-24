@@ -1,18 +1,23 @@
-class HomeResource extends Drash.Http.Resource {
+@Drash.Http.Middleware({
+  before_request: [VerifyTokenMiddleware],
+  after_request: []
+})
+export default class SecretResource extends Drash.Http.Resource {
 
-  static paths = ["/"];
+  static paths = [
+    "/secret"
+  ];
 
-  static middleware = {
-    before_request: [
-      "MyFirstMiddleware"
-    ],
-    after_request: [
-      "MySecondMiddleware"
-    ]
-  };
-
+  @Drash.Http.Middleware({
+    before_request: [LogAccessMiddleware],
+    after_request: []
+  })
   public GET() {
-    this.response.body = "Hello";
+    this.response.body = {
+      method: "GET",
+      body: "You have accessed the secret resource!"
+    };
     return this.response;
   }
 }
+

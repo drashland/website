@@ -1,8 +1,14 @@
-import { Drash } from "https://deno.land/x/drash/mod.ts";
-
+@Drash.Http.Middleware({
+  before_request: [
+    RedMiddleware,
+    BlueMiddleware
+  ]
+})
 export default class HomeResource extends Drash.Http.Resource {
 
-  static paths = ["/"];
+  static paths = [
+    "/"
+  ];
 
   public GET() {
     this.response.body = "GET request received!";

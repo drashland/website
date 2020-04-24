@@ -5,11 +5,9 @@ import VerifyTokenMiddleware from "./verify_token_middleware.ts";
 
 const server = new Drash.Http.Server({
   middleware: {
-    server_level: {
-      before_request: [
-        VerifyTokenMiddleware
-      ]
-    }
+    before_request: [
+      VerifyTokenMiddleware
+    ]
   },
   resources: [
     HomeResource
