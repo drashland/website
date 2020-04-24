@@ -2438,7 +2438,7 @@
         "Http": {
           "Middleware": [
             {
-              "doc_block": "/**\n* @type MiddlewareFunction\n* @param any request\n*     Contains the instance of the request.\n* @param Drash.Http.Response response\n*     Contains the instance of the response.\n*/\n",
+              "doc_block": "/**\n* @type MiddlewareFunction\n* @param request Contains the instance of the request.\n* @param server Contains the instance of the server.\n* @param response Contains the instance of the response.\n*/\n",
               "signature": "export type MiddlewareFunction =| ((request: any, response: Drash.Http.Response) => Promise<void>)| ((request: any, response: Drash.Http.Response) => void);",
               "member_type": "method"
             },
@@ -2448,17 +2448,17 @@
               "member_type": "method"
             },
             {
-              "doc_block": "/**\n* Executes the middleware.\n* \n* @param MiddlewareType middlewares\n*     Contains middlewares to be executed\n*/\n",
+              "doc_block": "/**\n* Executes the middleware\n* \n* @param middlewares Contains middlewares to be executed\n*/\n",
               "signature": "export function Middleware(middlewares: MiddlewareType) { }",
               "member_type": "method"
             },
             {
-              "doc_block": "/**\n* Executes the middleware function before or after the request at method level.\n*\n* @param middlewares\n*     Contains all middleware to be run.\n*/\n",
+              "doc_block": "/**\n* Executes the middleware function before or after the request at method level\n*\n* @param middlewares Contains all middleware to be run\n*/\n",
               "signature": "export function MethodMiddleware(middlewares: MiddlewareType) { }",
               "member_type": "method"
             },
             {
-              "doc_block": "/**\n* Executes the middleware function before or after the request at class level.\n*\n* @param MiddlewareType middlewares\n*     Contains all middleware to be run.\n*/\n",
+              "doc_block": "/**\n* Executes the middleware function before or after the request at class level\n*\n* @param middlewares Contains all middleware to be run\n*/\n",
               "signature": "export function ClassMiddleware(middlewares: MiddlewareType) { }",
               "member_type": "method"
             }
@@ -2635,7 +2635,7 @@
             },
             {
               "doc_block": "/**\n* @description\n*     A property to hold the resources passed in from the configs.\n*\n* @property any[] resources\n*/\n",
-              "signature": "protected resources: { [key: string]: Drash.Http.Resource } = {};",
+              "signature": "public resources: { [key: string]: Drash.Http.Resource } = {};",
               "member_type": "property"
             },
             {
@@ -3011,13 +3011,13 @@
 };
   </script>
   
-  <script src="/staging/public/assets/js/vendors~app~bundle.staging.js?version=1587768001695"></script>
-  <script src="/staging/public/assets/js/vendors~bundle.staging.js?version=1587768001695"></script>
-  <script src="/staging/public/assets/js/bundle.staging.js?version=1587768001695"></script>
-  <script src="/staging/public/assets/js/vendors~router.staging.js?version=1587768001695"></script>
-  <script src="/staging/public/assets/js/router.staging.js?version=1587768001695"></script>
-  <script src="/staging/public/assets/js/vendors~app.staging.js?version=1587768001695"></script>
-  <script src="/staging/public/assets/js/app.staging.js?version=1587768001695"></script>
+  <script src="/staging/public/assets/js/vendors~app~bundle.staging.js?version=1587771282781"></script>
+  <script src="/staging/public/assets/js/vendors~bundle.staging.js?version=1587771282781"></script>
+  <script src="/staging/public/assets/js/bundle.staging.js?version=1587771282781"></script>
+  <script src="/staging/public/assets/js/vendors~router.staging.js?version=1587771282781"></script>
+  <script src="/staging/public/assets/js/router.staging.js?version=1587771282781"></script>
+  <script src="/staging/public/assets/js/vendors~app.staging.js?version=1587771282781"></script>
+  <script src="/staging/public/assets/js/app.staging.js?version=1587771282781"></script>
 
 </body>
 </html>
