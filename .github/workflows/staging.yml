@@ -30,16 +30,6 @@ jobs:
         cd docs
         console/install_deno
 
-  add_git_user:
-    needs: [clone_repo]
-    runs-on: macOS-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: add git user drashbot
-      run: |
-        cd docs
-        console/add_git_user_drashbot
-
   clone_deno_drash:
     needs: [clone_repo]
     runs-on: macOS-latest
@@ -58,24 +48,14 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Use Node.js ${{ matrix.node-version }}
-      if: github.event_name == 'push'
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
 
     - name: npm install
-      # if: github.event_name == 'push'
       run: |
         cd docs
         npm install
-
-  build_and_deploy:
-    needs: [deno_install, add_git_user, clone_deno_drash, npm_install]
-    runs-on: macOS-latest
-
-    steps:
-
-    - uses: actions/checkout@v1
 
     - name: build staging
       if: github.ref == 'refs/heads/staging'
@@ -83,6 +63,19 @@ jobs:
         export PATH="$DENO_INSTALL/bin:$PATH"
         cd docs
         console/staging_build
+
+  build_and_deploy:
+    needs: [deno_install, clone_deno_drash, npm_install]
+    runs-on: macOS-latest
+
+    steps:
+
+    - uses: actions/checkout@v1
+
+    - name: add git user drashbot
+      run: |
+        cd docs
+        console/add_git_user_drashbot
 
     - name: commit staging
       if: github.ref == 'refs/heads/staging'
