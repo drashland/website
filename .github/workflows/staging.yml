@@ -13,22 +13,21 @@ env:
   DENO_INSTALL: "/Users/runner/.local"
   CI_USER_PAT: ${{ secrets.CI_USER_PAT }}
 
-defaults:
-  runs-on: macOS-latest
-  steps:
-  - uses: actions/checkout@v1
-
 jobs:
 
   deno_install:
+    runs-on: macOS-latest
     steps:
+    - uses: actions/checkout@v1
     - name: install deno
       run: |
         cd docs
         console/install_deno
 
   clone_deno_drash:
+    runs-on: macOS-latest
     steps:
+    - uses: actions/checkout@v1
     - name: git clone deno-drash
       run: |
         git clone https://github.com/drashland/deno-drash.git ../deno-drash
@@ -37,7 +36,9 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
+    runs-on: macOS-latest
     steps:
+    - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -46,16 +47,18 @@ jobs:
       run: |
         cd docs
         npm install
+
+  deploy:
+    needs: [build]
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v1
     - name: build staging
       if: github.ref == 'refs/heads/staging'
       run: |
         export PATH="$DENO_INSTALL/bin:$PATH"
         cd docs
         console/staging_build
-
-  deploy:
-    needs: [build]
-    steps:
     - name: add git user drashbot
       run: |
         cd docs
