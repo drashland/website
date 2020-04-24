@@ -24,6 +24,7 @@ jobs:
         console/install_deno
 
   add_git_user:
+    runs-on: macOS-latest
     steps:
     - name: add git user drashbot
       run: |
@@ -31,6 +32,7 @@ jobs:
         console/add_git_user_drashbot
 
   clone_deno_drash:
+    runs-on: macOS-latest
     steps:
     - name: git clone deno-drash
       run: |
