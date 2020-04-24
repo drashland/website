@@ -4,70 +4,64 @@ on:
   push:
     branches:
       - staging
-
-
-env:
-  CI: true
-  CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
-  CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-  DENO_INSTALL: "/Users/runner/.local"
-  CI_USER_PAT: ${{ secrets.CI_USER_PAT }}
-
 jobs:
+  build:
 
-  deno_install:
+    env:
+      CI: true
+      CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
+      CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
+      DENO_INSTALL: "/Users/runner/.local"
+      CI_USER_PAT: ${{ secrets.CI_USER_PAT }}
+
     runs-on: macOS-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
     - uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      if: github.event_name == 'push'
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
     - name: install deno
       run: |
         cd docs
         console/install_deno
 
-  clone_deno_drash:
-    runs-on: macOS-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: git clone deno-drash
-      run: |
-        git clone https://github.com/drashland/deno-drash.git ../deno-drash
-
-  build:
-    strategy:
-      matrix:
-        node-version: [12.x]
-    runs-on: macOS-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
     - name: npm install
+      # if: github.event_name == 'push'
       run: |
         cd docs
         npm install
 
-  deploy:
-    needs: [build]
-    runs-on: macOS-latest
-    steps:
-    - uses: actions/checkout@v1
+    - name: git clone deno-drash
+      run: |
+        git clone https://github.com/drashland/deno-drash.git ../deno-drash
+
+    - name: add git user drashbot
+      run: |
+        cd docs
+        console/add_git_user_drashbot
+
     - name: build staging
       if: github.ref == 'refs/heads/staging'
       run: |
         export PATH="$DENO_INSTALL/bin:$PATH"
         cd docs
         console/staging_build
-    - name: add git user drashbot
-      run: |
-        cd docs
-        console/add_git_user_drashbot
+
     - name: commit staging
       if: github.ref == 'refs/heads/staging'
       run: |
         cd docs
         console/staging_commit
+
     - name: push staging to master
       if: github.ref == 'refs/heads/staging'
       run: |
