@@ -60,7 +60,7 @@ page
       div.col
         hr
         h2-hash Setting The Execution Location
-        p There are two locations where middleware can be executed: before the request and after the request.
+        p There are two locations where middleware can be executed: before the request and after the request. View the <a :href=" $conf.base_url + '/#/lifecycle-diagram'">Lifecycle Diagram</a> for a visual representation.
         h3#before-the-request Before The Request
         p Middleware executed before the request means it is executed before a resource's HTTP method (e.g., <code>MyResource.GET()</code>, <code>MyResource.POST()</code>, <code>MyResource.DELETE()</code>) is called.
         h3#after-the-request After The Request
