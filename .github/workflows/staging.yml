@@ -4,18 +4,41 @@ on:
   push:
     branches:
       - staging
+
+
+env:
+  CI: true
+  CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
+  CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
+  DENO_INSTALL: "/Users/runner/.local"
+  CI_USER_PAT: ${{ secrets.CI_USER_PAT }}
+
 jobs:
-  build:
 
-    env:
-      CI: true
-      CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
-      CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-      DENO_INSTALL: "/Users/runner/.local"
-      CI_USER_PAT: ${{ secrets.CI_USER_PAT }}
-
+  deno_install:
     runs-on: macOS-latest
+    steps:
+    - name: install deno
+      run: |
+        cd docs
+        console/install_deno
 
+  add_git_user:
+    steps:
+    - name: add git user drashbot
+      run: |
+        cd docs
+        console/add_git_user_drashbot
+
+  clone_deno_drash:
+    steps:
+    - name: git clone deno-drash
+      run: |
+        git clone https://github.com/drashland/deno-drash.git ../deno-drash
+
+  build_and_deploy:
+    needs: [deno_install, add_git_user, clone_deno_drash]
+    runs-on: macOS-latest
     strategy:
       matrix:
         node-version: [12.x]
@@ -29,25 +52,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: install deno
-      run: |
-        cd docs
-        console/install_deno
-
     - name: npm install
       # if: github.event_name == 'push'
       run: |
         cd docs
         npm install
-
-    - name: git clone deno-drash
-      run: |
-        git clone https://github.com/drashland/deno-drash.git ../deno-drash
-
-    - name: add git user drashbot
-      run: |
-        cd docs
-        console/add_git_user_drashbot
 
     - name: build staging
       if: github.ref == 'refs/heads/staging'
