@@ -15,13 +15,7 @@ env:
 
 jobs:
 
-  clone_repo:
-    runs-on: macOS-latest
-    steps:
-    - uses: actions/checkout@v1
-
   deno_install:
-    needs: [clone_repo]
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v1
@@ -31,7 +25,6 @@ jobs:
         console/install_deno
 
   clone_deno_drash:
-    needs: [clone_repo]
     runs-on: macOS-latest
     steps:
     - name: git clone deno-drash
