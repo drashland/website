@@ -24,6 +24,7 @@ jobs:
     needs: [clone_repo]
     runs-on: macOS-latest
     steps:
+    - uses: actions/checkout@v1
     - name: install deno
       run: |
         cd docs
@@ -33,6 +34,7 @@ jobs:
     needs: [clone_repo]
     runs-on: macOS-latest
     steps:
+    - uses: actions/checkout@v1
     - name: add git user drashbot
       run: |
         cd docs
