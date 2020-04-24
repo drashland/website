@@ -21,6 +21,7 @@ defaults:
 jobs:
 
   deno_install:
+    steps:
     - name: install deno
       run: |
         cd docs
