@@ -39,7 +39,7 @@ jobs:
         git clone https://github.com/drashland/deno-drash.git ../deno-drash
 
   build:
-    needs: [deno_isntall, clone_deno_drash]
+    needs: [deno_install, clone_deno_drash]
     runs-on: macOS-latest
     strategy:
       matrix:
