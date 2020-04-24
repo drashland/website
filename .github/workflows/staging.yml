@@ -48,8 +48,7 @@ jobs:
       run: |
         git clone https://github.com/drashland/deno-drash.git ../deno-drash
 
-  build_and_deploy:
-    needs: [clone_repo, deno_install, add_git_user, clone_deno_drash]
+  npm_install:
     runs-on: macOS-latest
     strategy:
       matrix:
@@ -69,6 +68,13 @@ jobs:
       run: |
         cd docs
         npm install
+
+  build_and_deploy:
+    needs: [clone_repo, deno_install, add_git_user, clone_deno_drash]
+
+    steps:
+
+    - uses: actions/checkout@v1
 
     - name: build staging
       if: github.ref == 'refs/heads/staging'
