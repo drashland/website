@@ -214,10 +214,6 @@ div.c-sidebar
         div.l-submenu-1.hide--soft
           a-base-url(href="/api-reference/services/http-service") HttpService
           a-base-url(href="/api-reference/services/http-request-service") HttpRequestService
-  div.c-sidebar__footer
-    div.row
-      div.col.text-align--center
-        p(style="margin-top: 2rem; color: #ffffff; font-size: .9rem") Drash Documentation was last updated on {{ $conf.build_date }}
 </template>
 
 <script>
