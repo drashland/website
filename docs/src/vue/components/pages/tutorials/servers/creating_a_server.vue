@@ -43,13 +43,15 @@ page-tutorial(
       hr
       h2-hash Steps
       ol
-        li Create your resource file.
-          code-block(:data="example_code.home_resource")
-          p Your resource file will be able to handle <code>GET</code>, <code>POST</code>, <code>PUT</code>, and <code>DELETE</code> requests to the <code>/</code> URI.
-        li Create your app file.
-          code-block(:data="example_code.app")
-          p Your app file will register your resource via the <code>resources</code> config.
-          p By default, your Drash server will send <code>application/json</code> responses via the <code>response_output</code>. More information about using this config can be found in the <a :href=" $conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/introduction'">Advanced Tutorials: Content Negotiation</a> tutorial.
+        li
+          p Create your resource file. Your resource file will be able to handle <code>GET</code>, <code>POST</code>, <code>PUT</code>, and <code>DELETE</code> requests to the <code>/</code> URI.
+          p
+            code-block(:data="example_code.home_resource")
+        li
+          p Create your app file. Your app file will register your resource via the <code>resources</code> config. By default, your Drash server will send <code>application/json</code> responses via the <code>response_output</code>. More information about using this config can be found in the <a :href=" $conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/introduction'">Advanced Tutorials: Content Negotiation</a> tutorial.
+          p Optionally, you can <code>await</code> on the <code>server.run()</code> call in case you want to run subsequent code after the call. <code>await</code>ing for the <code>server.run()</code> call ensures that your server is running before any subsequent code runs.
+          p
+            code-block(:data="example_code.app")
   div.row
     div.col
       hr
