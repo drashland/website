@@ -31,8 +31,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Overview
-      p This tutorial assumes you have read the 
-        a(:href="$conf.base_url + '/#/advanced-tutorials'") Advanced Tutorials Introduction
+      p-advanced-tutorials-introduction
       p In this tutorial series, you will learn how to create a simple API powered by Drash. You will learn how to make a Drash server serve <code>application/json</code> responses to clients based on the clients' requests. The data your Drash server will serve will be data on coffees and teas.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
