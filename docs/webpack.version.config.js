@@ -19,7 +19,7 @@ module.exports = envVars => {
     },
     mode: "production",
     output: {
-      path: path.resolve(__dirname, `versions/${envVars.version}/public/assets/js/${envVars.environment}`),
+      path: path.resolve(__dirname, `versions/${envVars.version}/public/assets/js`),
       filename: `[name].${envVars.environment}.js`
     },
     optimization: {
