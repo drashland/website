@@ -28,6 +28,11 @@
   cp -r public/assets/img    versions/$DENO_DRASH_VERSION_VERSION/public/assets
   cp -r public/assets/vendor versions/$DENO_DRASH_VERSION_VERSION/public/assets
 
+  cp favicon-16x16.png versions/$DENO_DRASH_VERSION_VERSION/favicon-16x16.png
+  cp favicon-32x32.png versions/$DENO_DRASH_VERSION_VERSION/favicon-32x32.png
+  cp favicon.ico       versions/$DENO_DRASH_VERSION_VERSION/favicon.ico
+  cp favicon.png       versions/$DENO_DRASH_VERSION_VERSION/favicon.png
+
   git checkout -- index.html
   git checkout -- public
 )
