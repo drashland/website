@@ -10,9 +10,11 @@
   cp index.html versions/$DENO_DRASH_VERSION_VERSION/index.html
   git checkout -- index.html
 
+  mkdir -p versions/$DENO_DRASH_VERSION_VERSION/public/assets/css
   cp    public/assets/css/style-docs.css     versions/$DENO_DRASH_VERSION_VERSION/public/assets/css/style-docs.css
   cp    public/assets/css/style-docs.css.map versions/$DENO_DRASH_VERSION_VERSION/public/assets/css/style-docs.css.map
-  cp -r public/assets/js                     versions/$DENO_DRASH_VERSION_VERSION/public/assets/
-  cp -r public/assets/img                    versions/$DENO_DRASH_VERSION_VERSION/public/assets/
-  cp -r public/assets/vendor                 versions/$DENO_DRASH_VERSION_VERSION/public/assets/
+  mkdir -p versions/$DENO_DRASH_VERSION_VERSION/public/assets/img/example_code
+  cp -r public/assets/img/example_code       versions/$DENO_DRASH_VERSION_VERSION/public/assets/img/example_code
+  mkdir -p versions/$DENO_DRASH_VERSION_VERSION/public/assets/img/examples
+  cp -r public/assets/img/examples           versions/$DENO_DRASH_VERSION_VERSION/public/assets/img/examples
 )
