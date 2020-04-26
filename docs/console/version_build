@@ -1,0 +1,18 @@
+#!/bin/bash
+
+(
+  export DENO_DRASH_DOCS_ENVIRONMENT="version"
+  export DENO_DRASH_VERSION_VERSION="v0.41.1"
+  console/compile_assets
+  console/compile_templates
+  console/run_webpack --env.version="$DENO_DRASH_VERSION_VERSION" --env.environment="production" --config webpack.version.config.js
+
+  cp index.html versions/$DENO_DRASH_VERSION_VERSION/index.html
+  git checkout -- index.html
+
+  cp    public/assets/css/style-docs.css     versions/$DENO_DRASH_VERSION_VERSION/public/assets/css/style-docs.css
+  cp    public/assets/css/style-docs.css.map versions/$DENO_DRASH_VERSION_VERSION/public/assets/css/style-docs.css.map
+  cp -r public/assets/js                     versions/$DENO_DRASH_VERSION_VERSION/public/assets/
+  cp -r public/assets/img                    versions/$DENO_DRASH_VERSION_VERSION/public/assets/
+  cp -r public/assets/vendor                 versions/$DENO_DRASH_VERSION_VERSION/public/assets/
+)
