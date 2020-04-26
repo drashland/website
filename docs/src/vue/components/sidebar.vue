@@ -176,7 +176,7 @@ div.c-sidebar
         div.l-submenu-1.hide--soft
           a-base-url(href="/third-party-tutorials/template-engines/dejs") dejs
       span.heading
-        p.arrow.down
+        p.arrow.right
         span.heading-link Versions
       div.c-sidebar__menu-body.hide--soft
         a(href="/docs/versions/v0.41.1") v0.41.1
