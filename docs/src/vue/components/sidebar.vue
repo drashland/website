@@ -178,7 +178,7 @@ div.c-sidebar
       span.heading
         p.arrow.down
         span.heading-link Versions
-      div.c-sidebar__menu-body
+      div.c-sidebar__menu-body.hide--soft
         a(href="/docs/versions/v0.41.1") v0.41.1
       span.heading
         p.arrow.right
