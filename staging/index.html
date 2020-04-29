@@ -2034,7 +2034,7 @@
     },
     "/src/example_code/tutorials/servers/creating_a_server": {
       "app": {
-        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.41.1/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  response_output: \"application/json\", // Accepts text/html, text/xml, application/xml\n  resources: [HomeResource],\n});\n\nserver.run({\n  hostname: \"localhost\",\n  port: 1447\n});\n",
+        "contents": "import { Drash } from \"https://deno.land/x/drash@v0.41.1/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  response_output: \"application/json\", // Accepts text/html, text/xml, application/xml\n  resources: [HomeResource],\n});\n\nserver.run({ // or await server.run({\n  hostname: \"localhost\",\n  port: 1447\n});\n",
         "extension": "ts",
         "filename": "app.ts",
         "language": "typescript",
@@ -3011,13 +3011,13 @@
 };
   </script>
   
-  <script src="/staging/public/assets/js/vendors~app~bundle.staging.js?version=1587868338446"></script>
-  <script src="/staging/public/assets/js/vendors~bundle.staging.js?version=1587868338446"></script>
-  <script src="/staging/public/assets/js/bundle.staging.js?version=1587868338446"></script>
-  <script src="/staging/public/assets/js/vendors~router.staging.js?version=1587868338446"></script>
-  <script src="/staging/public/assets/js/router.staging.js?version=1587868338446"></script>
-  <script src="/staging/public/assets/js/vendors~app.staging.js?version=1587868338446"></script>
-  <script src="/staging/public/assets/js/app.staging.js?version=1587868338446"></script>
+  <script src="/staging/public/assets/js/vendors~app~bundle.staging.js?version=1588162222991"></script>
+  <script src="/staging/public/assets/js/vendors~bundle.staging.js?version=1588162222991"></script>
+  <script src="/staging/public/assets/js/bundle.staging.js?version=1588162222991"></script>
+  <script src="/staging/public/assets/js/vendors~router.staging.js?version=1588162222991"></script>
+  <script src="/staging/public/assets/js/router.staging.js?version=1588162222991"></script>
+  <script src="/staging/public/assets/js/vendors~app.staging.js?version=1588162222991"></script>
+  <script src="/staging/public/assets/js/app.staging.js?version=1588162222991"></script>
 
 </body>
 </html>
