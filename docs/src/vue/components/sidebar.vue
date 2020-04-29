@@ -105,7 +105,7 @@ div.c-sidebar
         a-base-url(href="/advanced-tutorials/introduction") Introduction
         span.sub-heading
           p.arrow.right
-          a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles") Content Negotiation
+          a Content Negotiation
         div.l-submenu-1.hide--soft
           a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/introduction") Introduction
           a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-1") Part 1: Simulate Database Records
@@ -114,7 +114,7 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/content-negotiation/user-profiles/part-4") Part 4: Handling Representations
         span.sub-heading
           p.arrow.right
-          a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea") Creating An API
+          a Creating An API
         div.l-submenu-1.hide--soft
           a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/introduction") Introduction
           a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-1") Part 1: Simulate Database Records
@@ -123,7 +123,7 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-an-api/coffee-and-tea/part-4") Part 4: Modifying The Response Schema
         span.sub-heading
           p.arrow.right
-          a-base-url(href="/advanced-tutorials/creating-a-static-html-app/about-me") Creating A Static HTML App
+          a Creating A Static HTML App
         div.l-submenu-1.hide--soft
           a-base-url(href="/advanced-tutorials/creating-a-static-html-app/about-me/introduction") Introduction
           a-base-url(href="/advanced-tutorials/creating-a-static-html-app/about-me/part-1") Part 1: Creating The Server
@@ -131,7 +131,7 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-static-html-app/about-me/part-3") Part 3: Creating The HTML Files
         span.sub-heading
           p.arrow.right
-          a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets") Creating A Vue App
+          a Creating A Vue App
         div.l-submenu-1.hide--soft
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/introduction") Introduction
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-1") Part 1: Creating The Server
@@ -140,7 +140,7 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-vue-app/deno-tweets/part-4") Part 4: Creating The Vue App
         span.sub-heading
           p.arrow.right
-          a-base-url(href="/advanced-tutorials/creating-a-react-app/deno-tweets") Creating A React App
+          a Creating A React App
         div.l-submenu-1.hide--soft
           a-base-url(href="/advanced-tutorials/creating-a-react-app/deno-tweets/introduction") Introduction
           a-base-url(href="/advanced-tutorials/creating-a-react-app/deno-tweets/part-1") Part 1: Creating The Server
@@ -150,7 +150,7 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-react-app/deno-tweets/part-5") Part 5: Creating the React Components
         span.sub-heading
           p.arrow.right
-          a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup") Creating A Docker Container
+          a Creating A Docker Container
         div.l-submenu-1.hide--soft
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/introduction") Introduction
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-1") Part 1: Creating The Source Code

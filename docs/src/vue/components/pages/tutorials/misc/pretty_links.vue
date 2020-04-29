@@ -41,7 +41,7 @@ page-tutorial(
         li 
           p Create your <code>app.ts</code> file.
           p
-            code-block-slotted(language="typescript" line_highlight="10")
+            code-block-slotted(language="typescript" line_highlight="9")
               template(v-slot:title) /path/to/your/project/app.ts
               template(v-slot:code)
                 | import { Drash } from "https://deno.land/x/drash/mod.ts";

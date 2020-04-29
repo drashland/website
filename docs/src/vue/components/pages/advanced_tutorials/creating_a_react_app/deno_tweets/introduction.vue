@@ -31,8 +31,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Overview
-      p This tutorial assumes you have read the 
-        a(:href="$conf.base_url + '/#/advanced-tutorials'") Advanced Tutorials Introduction
+      p-advanced-tutorials-introduction
       p In this tutorial series, you will learn how to create a simple React application powered by Drash. You will learn how to make a Drash server serve a <code>text/html</code> response to clients. The contents of the response will include and render JSX code so that it will mount and render on the screen. Your React app will display Deno tweets.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")

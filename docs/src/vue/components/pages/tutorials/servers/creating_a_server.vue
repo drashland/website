@@ -43,40 +43,49 @@ page-tutorial(
       hr
       h2-hash Steps
       ol
-        li Create your resource file.
-          code-block(:data="example_code.home_resource")
-          p Your resource file will be able to handle <code>GET</code>, <code>POST</code>, <code>PUT</code>, and <code>DELETE</code> requests to the <code>/</code> URI.
-        li Create your app file.
-          code-block(:data="example_code.app")
-          p Your app file will register your resource via the <code>resources</code> config.
-          p By default, your Drash server will send <code>application/json</code> responses via the <code>resposne_output</code>. More information about using this config can be found in the Content Negotiation tutorial.
+        li
+          p Create your resource file. Your resource file will be able to handle <code>GET</code>, <code>POST</code>, <code>PUT</code>, and <code>DELETE</code> requests to the <code>/</code> URI.
+          p
+            code-block(:data="example_code.home_resource")
+        li
+          p Create your app file. Your app file will register your resource via the <code>resources</code> config. By default, your Drash server will send <code>application/json</code> responses via the <code>response_output</code>. More information about using this config can be found in the <a :href=" $conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/introduction'">Advanced Tutorials: Content Negotiation</a> tutorial.
+          p Optionally, you can <code>await</code> on the <code>server.run()</code> call in case you want to run subsequent code after the call. <code>await</code>ing for the <code>server.run()</code> call ensures that your server is running before any subsequent code runs.
+          p
+            code-block(:data="example_code.app")
   div.row
     div.col
       hr
       h2-hash Verification
       ol
-        li Run your app.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | deno --allow-net app.ts
-        li Using Postman (or similar app), make a <code>GET</code> request to <code>localhost:1447</code>.
-          p You should receive the following response:
-          a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_1.png")
-            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_1.png'")
-        li Make a <code>PUT</code> request.
-          p You should receive the following response:
-          a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_2.png")
-            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_2.png'")
-        li Make a <code>POST</code> request.
-          p You should receive the following response:
-          a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_3.png")
-            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_3.png'")
-        li Make a <code>DELETE</code> request.
-          p You should receive the following response:
-          a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_4.png")
-            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_4.png'")
-        li Make a <code>PATCH</code> request.
-          p Since <code>PATCH</code> is not defined in your resource, it is not allowed; therefore, you should receive the following response:
-          a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_5.png")
-            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_5.png'")
+        li
+          p Run your app.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | deno --allow-net app.ts
+        li
+          p Using Postman (or similar app), make a <code>GET</code> request to <code>localhost:1447</code>. You should receive the following response:
+          p
+            a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_1.png")
+              img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_1.png'")
+        li
+          p Make a <code>PUT</code> request. You should receive the following response:
+          p
+            a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_2.png")
+              img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_2.png'")
+        li
+          p Make a <code>POST</code> request. You should receive the following response:
+          p 
+            a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_3.png")
+              img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_3.png'")
+        li
+          p Make a <code>DELETE</code> request. You should receive the following response:
+          p
+            a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_4.png")
+              img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_4.png'")
+        li
+          p Make a <code>PATCH</code> request. Since <code>PATCH</code> is not defined in your resource, it is not allowed; therefore, you should receive the following response:
+          p
+            a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_5.png")
+              img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_5.png'")
