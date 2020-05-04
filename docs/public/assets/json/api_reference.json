@@ -38,28 +38,43 @@
     "Http": {
         "Middleware": [
             {
-                "doc_block": "/**\n* @type MiddlewareFunction\n* @param request Contains the instance of the request.\n* @param server Contains the instance of the server.\n* @param response Contains the instance of the response.\n*/\n",
-                "signature": "export type MiddlewareFunction =| ((request: any, response: Drash.Http.Response) => Promise<void>)| ((request: any, response: Drash.Http.Response) => void);",
+                "doc_block": "/**\n* @memberof Drash.Http\n* @class Middleware\n*\n* @description\n*     This is the base middleware class for all middleware classes.\n*/\n",
+                "signature": "export abstract class Middleware { }",
+                "member_type": "class"
+            },
+            {
+                "doc_block": "/**\n* @description\n*     A property to hold the name of this middleware class. This property is\n*     used by Drash.Http.Server to help it store middleware in the correct\n*     middleware_* property.\n*\n* @property string name\n*/\n",
+                "signature": "public name: string = \"\";",
+                "member_type": "property"
+            },
+            {
+                "doc_block": "/**\n* @description\n*     A property to hold the request object.\n*\n* @property any request\n*/\n",
+                "signature": "protected request: any;",
+                "member_type": "property"
+            },
+            {
+                "doc_block": "/**\n* @description\n*     A property to hold the resource object. This property will only contain\n*     the resource object if this middleware is a resource-level middleware.\n*\n* @property Drash.Http.Resource|null resource\n*/\n",
+                "signature": "protected resource: Drash.Http.Resource | null;",
+                "member_type": "property"
+            },
+            {
+                "doc_block": "/**\n* @description\n*     A property to hold the response object. This property will only contain\n*     the response object if the server was able to get a response from the\n*     resource.\n*\n* @property Drash.Http.Resource|null resource\n*/\n",
+                "signature": "protected response: Drash.Http.Response | null;",
+                "member_type": "property"
+            },
+            {
+                "doc_block": "/**\n* @description\n*     A property to hold the server object handling this middleware.\n*\n* @property Drash.Http.Server server\n*/\n",
+                "signature": "protected server: Drash.Http.Server;",
+                "member_type": "property"
+            },
+            {
+                "doc_block": "/**\n* @param any request\n*     The request object.\n* @param Drash.Http.Server server\n*     The server object handling this middleware.\n* @param Drash.Http.Resource|null resource\n*     (optional) If this is a resource-level middleware, then it will have\n*     access to the resource that uses it.\n* @param Drash.Http.Response|null response\n*     (optional) The response object from the resource. This is only set if\n*     this middleware is a resource-level middleware and the resource\n*     successfully returned a response. That response will be passed as the\n*     argument here.\n*/\n",
+                "signature": "constructor(request: any,server: Drash.Http.Server,resource?: Drash.Http.Resource | null,response?: Drash.Http.Response | null,) { }",
                 "member_type": "method"
             },
             {
-                "doc_block": "/**\n* @type MiddlewareType\n* @description\n*     before_request?: MiddlewareFunction[]\n*\n*         An array that contains all the functions that will be run before a Drash.Http.Request is handled.\n*\n*     after_request: MiddlewareFunction[]\n*\n*         An array that contains all the functions that will be run after a Drash.Http.Request is handled.\n*\n*/\n",
-                "signature": "export type MiddlewareType = { }",
-                "member_type": "method"
-            },
-            {
-                "doc_block": "/**\n* Executes the middleware\n* \n* @param middlewares Contains middlewares to be executed\n*/\n",
-                "signature": "export function Middleware(middlewares: MiddlewareType) { }",
-                "member_type": "method"
-            },
-            {
-                "doc_block": "/**\n* Executes the middleware function before or after the request at method level\n*\n* @param middlewares Contains all middleware to be run\n*/\n",
-                "signature": "export function MethodMiddleware(middlewares: MiddlewareType) { }",
-                "member_type": "method"
-            },
-            {
-                "doc_block": "/**\n* Executes the middleware function before or after the request at class level\n*\n* @param middlewares Contains all middleware to be run\n*/\n",
-                "signature": "export function ClassMiddleware(middlewares: MiddlewareType) { }",
+                "doc_block": "/**\n* @description\n*     Run this middleware.\n*/\n",
+                "signature": "abstract run(): any | void;",
                 "member_type": "method"
             }
         ],
@@ -199,23 +214,13 @@
                 "member_type": "class"
             },
             {
-                "doc_block": "/**\n* @description\n*     A property to hold the Deno server. This property is set in\n*     this.run() like so:\n*\n*         this.deno_server = serve(HTTPOptions);\n*\n*     serve() is imported from https://deno.land/x/http/server.ts.\n*\n* @property DenoServer deno_server\n*/\n",
+                "doc_block": "/**\n* @description\n*     A property to hold the Deno server. This property is set in\n*     this.run() like so:\n*\n*         this.deno_server = serve(HTTPOptions);\n*\n*     serve() is imported from https://deno.land/x/http/server.ts.\n*\n* @property any deno_server\n*/\n",
                 "signature": "public deno_server: any;",
                 "member_type": "property"
             },
             {
-                "doc_block": "/**\n* @description\n*     The hostname of the Deno server.\n*\n* @property string hostname\n*/\n",
-                "signature": "public hostname: string = \"localhost\";",
-                "member_type": "property"
-            },
-            {
-                "doc_block": "/**\n* @description\n*     The port of the Deno server.\n*\n* @property number port\n*/\n",
-                "signature": "public port: number = 1447;",
-                "member_type": "property"
-            },
-            {
                 "doc_block": "/**\n* @description\n*     A property to hold this server's logger.\n*\n* @property Drash.Loggers.ConsoleLogger|Drash.Loggers.FileLogger logger\n*/\n",
-                "signature": "public logger: Drash.CoreLoggers.ConsoleLogger | Drash.CoreLoggers.FileLogger;",
+                "signature": "public logger:| Drash.CoreLoggers.ConsoleLogger| Drash.CoreLoggers.FileLogger;",
                 "member_type": "property"
             },
             {
@@ -230,12 +235,12 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     A property to hold middleware.\n*\n* @property any middleware\n*/\n",
-                "signature": "protected middleware: { }",
+                "signature": "protected middleware: any = { }",
                 "member_type": "property"
             },
             {
                 "doc_block": "/**\n* @description\n*     A property to hold the resources passed in from the configs.\n*\n* @property any[] resources\n*/\n",
-                "signature": "public resources: { [key: string]: Drash.Http.Resource } = {};",
+                "signature": "protected resources: { [key: string]: Drash.Http.Resource } = {};",
                 "member_type": "property"
             },
             {
@@ -260,7 +265,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Handle cases when an error is thrown when handling an HTTP request.\n*\n* @param any request\n*     The request object.\n* @param any error\n*     The error object.\n* @param Drash.Http.Resource|any resource\n*     (optional) Pass in the resource that threw the error. If a resource\n*     wasn't created, then default to an empty object, which is why any is\n*     the assigned type.\n* @param Drash.Http.Response|any response\n*     (optional) Pass in the resource that threw the error. If a resource\n*     wasn't created, then default to an empty object, which is why any is\n*     the assigned type.\n*\n* @return any\n*     See `Drash.Http.Response.send()`.\n*/\n",
-                "signature": "public async handleHttpRequestError(request: any,error: any,resource: Drash.Http.Resource | any = { }},",
+                "signature": "public handleHttpRequestError(request: any,error: any,resource: Drash.Http.Resource | any = { }},",
                 "member_type": "method"
             },
             {
@@ -274,18 +279,18 @@
                 "member_type": "method"
             },
             {
-                "doc_block": "/**\n*\n* @param resourceClass\n* @param request\n*\n* @return resourceClass\n*     Returns an instance of the resourceClass passed in, and setting the\n*     `paths` and `middleware` properties\n*/\n",
+                "doc_block": "/**\n* \n* @param resourceClass \n* @param request \n* \n* @return resourceClass\n*     Returns an instance of the resourceClass passed in, and setting the\n*     `paths` and `middleware` properties\n*/\n",
                 "signature": "public getResourceObject(resourceClass: any,request: any,): Drash.Http.Resource { }",
                 "member_type": "method"
             },
             {
-                "doc_block": "/**\n* @description\n*     Run the Deno server at the hostname specified in the configs. This\n*     method takes each HTTP request and creates a new and more workable\n*     request object and passes it to\n*     `Drash.Http.Server.handleHttpRequest()`.\n*\n* @param HTTPOptions options\n*     The HTTPOptions interface from https://deno.land/std/http/server.ts.\n*\n* @return Promise<DenoServer>\n*     Returns the Deno server from the serve() call.\n*/\n",
-                "signature": "public async run(options: HTTPOptions): Promise<DenoServer> { }",
+                "doc_block": "/**\n* @description\n*     Run the Deno server at the hostname specified in the configs. This\n*     method takes each HTTP request and creates a new and more workable\n*     request object and passes it to\n*     `Drash.Http.Server.handleHttpRequest()`.\n*\n* @param HTTPOptions options\n*     The HTTPOptions interface from https://deno.land/std/http/server.ts.\n*\n* @return Promise<void>\n*     This method just listens for requests at the hostname you provide in the\n*     configs.\n*/\n",
+                "signature": "public async run(options: HTTPOptions): Promise<void> { }",
                 "member_type": "method"
             },
             {
-                "doc_block": "/**\n* @description\n*     Run the Deno server at the hostname specified in the configs as an\n*     HTTPS Server. This method takes each HTTP request and creates a new and\n*     more workable request object and passes it to\n*     `Drash.Http.Server.handleHttpRequest()`.\n*\n* @param HTTPSOptions options\n*     The HTTPSOptions interface from https://deno.land/std/http/server.ts.\n*\n* @return Promise<DenoServer>\n*     Returns the Deno server from the serveTLS() call.\n*/\n",
-                "signature": "public async runTLS(options: HTTPSOptions): Promise<DenoServer> { }",
+                "doc_block": "/**\n* @description\n*     Run the Deno server at the hostname specified in the configs as an\n*     HTTPS Server. This method takes each HTTP request and creates a new and\n*     more workable request object and passes it to\n*     `Drash.Http.Server.handleHttpRequest()`.\n*\n* @param HTTPSOptions options\n*     The HTTPSOptions interface from https://deno.land/std/http/server.ts.\n*\n* @return Promise<void>\n*     This method just listens for requests at the hostname you provide in\n*     the configs.\n*/\n",
+                "signature": "public async runTLS(options: HTTPSOptions): Promise<void> { }",
                 "member_type": "method"
             },
             {
@@ -300,7 +305,7 @@
             },
             {
                 "doc_block": "/**\n* @description\n*     Add server-level and resource-level middleware.\n*\n* @param any middleware\n*\n* @return void\n*/\n",
-                "signature": "protected addMiddleware(middlewares: any): void { }",
+                "signature": "protected addMiddleware(middleware: any): void { }",
                 "member_type": "method"
             },
             {
@@ -309,13 +314,23 @@
                 "member_type": "method"
             },
             {
+                "doc_block": "/**\n* @description\n*     Execute resource-level middleware after the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
+                "signature": "protected executeMiddlewareResourceLevelAfterRequest(request: any,resource: Drash.Http.Resource,response: Drash.Http.Response,): void { }",
+                "member_type": "method"
+            },
+            {
+                "doc_block": "/**\n* @description\n*     Execute resource-level middleware before the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
+                "signature": "protected executeMiddlewareResourceLevelBeforeRequest(request: any,resource: Drash.Http.Resource,): void { }",
+                "member_type": "method"
+            },
+            {
                 "doc_block": "/**\n* @description\n*     Execute server-level middleware before the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
-                "signature": "protected async executeMiddlewareServerLevelBeforeRequest(request: any,): Promise<void> { }",
+                "signature": "protected executeMiddlewareServerLevelBeforeRequest(request: any,): void { }",
                 "member_type": "method"
             },
             {
                 "doc_block": "/**\n* @description\n*     Execute server-level middleware after the request.\n*\n* @param any request\n*     The request object.\n* @param Drash.Http.Resource resource\n*     The resource object.\n*\n* @return void\n*/\n",
-                "signature": "protected async executeMiddlewareServerLevelAfterRequest(request: any,resource: Drash.Http.Resource | null,response: Drash.Http.Response | null,): Promise<void> { }",
+                "signature": "protected executeMiddlewareServerLevelAfterRequest(request: any,resource: Drash.Http.Resource | null,response: Drash.Http.Response | null,): void { }",
                 "member_type": "method"
             },
             {
@@ -334,7 +349,7 @@
                 "member_type": "method"
             },
             {
-                "doc_block": "/**\n* @description\n*     Log a debug message\n*\n* @param string message\n*     Message to log\n*\n* @return void\n*/\n",
+                "doc_block": "/**\n* @description\n*     Log a debug message\n* \n* @param string message\n*     Message to log\n* \n* @return void\n*/\n",
                 "signature": "protected logDebug(message: string): void { }",
                 "member_type": "method"
             }
