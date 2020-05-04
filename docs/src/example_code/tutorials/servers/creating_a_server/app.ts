@@ -7,7 +7,7 @@ const server = new Drash.Http.Server({
   resources: [HomeResource],
 });
 
-server.run({
+server.run({ // or await server.run({
   hostname: "localhost",
   port: 1447
 });

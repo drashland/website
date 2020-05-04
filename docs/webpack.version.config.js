@@ -4,7 +4,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const webpackConfigFns = require("./src/webpack_config_functions_compiled").default;
 
 module.exports = envVars => {
-  const confPath = "./conf/env_vars_" + envVars.environment + ".json";
+  const confPath = "./conf/env_vars_version.json";
   let conf = require(confPath);
   conf.build_date = getDateTimeISO("UTC-5").datetime;
 
