@@ -44,6 +44,7 @@ jobs:
     - name: git clone deno-drash
       run: |
         git clone https://github.com/drashland/deno-drash.git ../deno-drash
+        cd ../deno-drash
         git checkout $DRASH_VERSION
 
     - name: add git user drashbot
