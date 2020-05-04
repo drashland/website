@@ -37,80 +37,15 @@ page-tutorial(
       h2-hash Before You Get Started
       p Unlike server-level middleware, resource-level middleware is specified using <a href="https://www.typescriptlang.org/docs/handbook/decorators.html" target="_BLANK">decorators</a> and a <code>tsconfig.json</code> file.
       p Resource-level middleware is middleware that can only be executed by resources. That is, if a resource is decorated with middleware, then the middleware specified in the decorators will be executed.
-      p Your <code>tsconfig.json</code> file will vary depending on which decorator implementation you use. See the next section below for more information about what fields are required in your <code>tsconfig.json</code> file depending on your decorator implementation.
-      p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
-  div.row
-    div.col
-      hr
-      h2-hash Implementations And Configuration Requirements
-      p <code>@Drash.Http.ClassMiddleware</code> and <code>@Drash.Http.MethodMiddleware</code>
-      div.row
-        div.col-6
-          p
-            strong Implementation
-          p
-            code-block-slotted(language="typescript" :header="false")
-              template(v-slot:code)
-                | @Drash.Http.ClassMiddleware({
-                |   before_request: [],
-                |   after_request: []
-                | })
-                | class HomeResource extends Drash.Http.Resource {
-                |
-                |   static paths = ["/"]
-                |
-                |   @Drash.Http.MethodMiddleware({
-                |     before_request: [],
-                |     after_request: []
-                |   })
-                |   public GET() { ... }
-                | }
-        div.col-6
-          p
-            strong <code>tsconfig.json</code> Required Fields
-          p
-            code-block-slotted(language="json" :header="false")
-              template(v-slot:code)
-                | {
-                |   "compilerOptions": {
-                |     "experimentalDecorators": true
-                |   }
-                | }
-      p <code>@Drash.Http.Middleware</code>
-      div.row
-        div.col-6
-          p
-            strong Implementation
-          p
-            code-block-slotted(language="typescript" :header="false")
-              template(v-slot:code)
-                | @Drash.Http.Middleware({
-                |   before_request: [],
-                |   after_request: []
-                | })
-                | class HomeResource extends Drash.Http.Resource {
-                |
-                |   static paths = ["/"]
-                |
-                |   @Drash.Http.Middleware({
-                |     before_request: [],
-                |     after_request: []
-                |   })
-                |   public GET() { ... }
-                | }
-        div.col-6
-          p
-            strong <code>tsconfig.json</code> Required Fields
-          p
-            code-block-slotted(language="json" :header="false")
-              template(v-slot:code)
-                | {
-                |   "compilerOptions": {
-                |     "noImplicitThis": false,
-                |     "strictBindCallApply": false,
-                |     "experimentalDecorators": true
-                |   }
-                | }
+      p Your <code>tsconfig.json</code> file will require the following:
+      p
+        code-block-slotted(language="json" :header="false")
+          template(v-slot:code)
+            | {
+            |   "compilerOptions": {
+            |     "experimentalDecorators": true
+            |   }
+            | }
   div.row
     div.col
       hr
