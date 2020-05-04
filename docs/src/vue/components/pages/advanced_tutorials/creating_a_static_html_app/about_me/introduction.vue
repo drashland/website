@@ -31,8 +31,7 @@ page-tutorial-part(
     div.col
       hr
       h2-hash Overview
-      p This tutorial assumes you have read the 
-        a(:href="$conf.base_url + '/#/advanced-tutorials'") Advanced Tutorials Introduction
+      p-advanced-tutorials-introduction
       p In this tutorial series, you will learn how to create a simple static HTML app powered by Drash. You will learn how to make a Drash server serve <code>text/html</code> responses to clients. The responses will include server-rendered HTML.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")

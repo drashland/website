@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# Instructions:
+#
+# 1. Go to your deno-drash repo and make sure the branch is set to a released version.
+# 2. Update DENO_DRASH_VERSION_VERSION in this file to match the released version.
+# 3. Update docs/conf/env_vars_version.json's base_url field to match the released version.
+# 4. Run this script.
+# 5. Commit the build.
+# 6. Push to the repo.
+#
+
+(
+  export DENO_DRASH_DOCS_ENVIRONMENT="version"
+  export DENO_DRASH_VERSION_VERSION="v0.41.1"
+  console/compile_assets
+  console/compile_templates
+  console/copy_api_reference
+  console/run_webpack --env.version="$DENO_DRASH_VERSION_VERSION" --env.environment="production" --config webpack.version.config.js
+
+  cp index.html versions/$DENO_DRASH_VERSION_VERSION/index.html
+
+  mkdir -p versions/$DENO_DRASH_VERSION_VERSION/public/assets/css
+  cp    public/assets/css/style-docs.css     versions/$DENO_DRASH_VERSION_VERSION/public/assets/css/style-docs.css
+  cp    public/assets/css/style-docs.css.map versions/$DENO_DRASH_VERSION_VERSION/public/assets/css/style-docs.css.map
+
+  cp -r public/assets/json   versions/$DENO_DRASH_VERSION_VERSION/public/assets
+  cp -r public/assets/img    versions/$DENO_DRASH_VERSION_VERSION/public/assets
+  cp -r public/assets/vendor versions/$DENO_DRASH_VERSION_VERSION/public/assets
+
+  cp favicon-16x16.png versions/$DENO_DRASH_VERSION_VERSION/favicon-16x16.png
+  cp favicon-32x32.png versions/$DENO_DRASH_VERSION_VERSION/favicon-32x32.png
+  cp favicon.ico       versions/$DENO_DRASH_VERSION_VERSION/favicon.ico
+  cp favicon.png       versions/$DENO_DRASH_VERSION_VERSION/favicon.png
+
+  git checkout -- index.html
+  git checkout -- public
+)

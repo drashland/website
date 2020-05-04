@@ -89,7 +89,4 @@ page-tutorial(
               | OK     OrdersResource - GET /orders/8878213 (0.00ms)
               |
               | test result: OK 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (24.00ms)
-          code-block-slotted(:header="false" language="typescript")
-            template(v-slot:code)
-              | Deno.env().DRASH_PROCESS = "test";
 

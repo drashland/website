@@ -13,6 +13,7 @@ jobs:
       CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
       DENO_INSTALL: "/Users/runner/.local"
       CI_USER_PAT: ${{ secrets.CI_USER_PAT }}
+      DRASH_VERSION: "v0.41.1"
 
     runs-on: macOS-latest
 
@@ -43,6 +44,8 @@ jobs:
     - name: git clone deno-drash
       run: |
         git clone https://github.com/drashland/deno-drash.git ../deno-drash
+        cd ../deno-drash
+        git checkout $DRASH_VERSION
 
     - name: add git user drashbot
       run: |

@@ -32,18 +32,22 @@ page-tutorial(
     div.col
       hr
       h2-hash Before You Get Started
-      p <a href="https://github.com/denoland/deno_std" target="_BLANK">deno_std</a> has a <a href="https://github.com/denoland/deno_std/tree/master/log" target="_BLANK">Log</a> module that is readily available and you can use it as your logger of choice.
+      p Deno has a <a href="https://github.com/denoland/deno/tree/master/std/log" target="_BLANK">Log</a> module that is readily available and you can use it as your logger of choice.
       p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   div.row
     div.col
       hr
       h2-hash Steps
       ol
-        li Create your resource file.
-          code-block(:data="example_code.home_resource")
+        li
+          p Create your resource file.
+          p
+            code-block(:data="example_code.home_resource")
           p Your resource file will load in the log module and use it to write a log message before setting the response's body.
-        li Create your app file.
-          code-block(:data="example_code.app")
+        li
+          p Create your app file.
+          p
+            code-block(:data="example_code.app")
   div.row
     div.col
       hr
