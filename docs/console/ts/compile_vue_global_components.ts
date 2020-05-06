@@ -1,8 +1,9 @@
 import { Drash } from "../../deps.ts";
+import { getFileSystemStructure } from "../../helpers.ts";
 import config from "../../conf/app.ts";
 const Encoder = new TextEncoder();
 
-let files = Drash.Util.Exports.getFileSystemStructure(`${config.server.directory}/src/vue/components/global`);
+let files = getFileSystemStructure(`${config.server.directory}/src/vue/components/global`);
 let importString = 'import Vue from \"vue\";\n\n';
 files.forEach((pathObj: any) => {
 
