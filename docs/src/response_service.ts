@@ -1,4 +1,5 @@
 import { Drash } from "../deps.ts";
+import { getFileSystemStructure } from "../helpers.ts";
 import docsConfig from "../conf/app.ts";
 let envVarsPath = "../conf/env_vars_" + Deno.env.get("DENO_DRASH_DOCS_ENVIRONMENT") + ".json";
 let env = (await import(envVarsPath)).default;
@@ -113,7 +114,7 @@ function getExampleCode() {
 
   let ignore: string[] = ["api_reference", ".DS_Store"];
 
-  let files: any = Drash.Util.Exports.getFileSystemStructure(`${docsConfig.server.directory}/src/example_code`);
+  let files: any = getFileSystemStructure(`${docsConfig.server.directory}/src/example_code`);
 
   files.forEach((file: any) => {
     let pathname = file.pathname.replace(docsConfig.server.directory, "");
