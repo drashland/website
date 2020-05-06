@@ -1,9 +1,10 @@
 import { Drash } from "../../deps.ts";
+import { getFileSystemStructure } from "../../helpers.ts";
 import config from "../../conf/app.ts";
 const Encoder = new TextEncoder();
 
 let uniqueId: number = 0;
-let files: any = Drash.Util.Exports.getFileSystemStructure(`${config.server.directory}/src/vue/components/pages`);
+let files: any = getFileSystemStructure(`${config.server.directory}/src/vue/components/pages`);
 let importString: string = "";
 let componentName: string = "";
 let components: any = [];
