@@ -25,7 +25,7 @@ module.exports = envVars => {
   }
   conf.build_date = getDateTimeISO("UTC-5").datetime;
 
-  console.log(`\nRunning "${webpackConfigFns.getMode(conf)}" mode using ${confPath} configs.\n`);
+  console.log(`\nRunning "${webpackConfigFns.getMode(conf)}" mode for ${envVars.environment}.\n`);
   console.log(conf);
 
   return {

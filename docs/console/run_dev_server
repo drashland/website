@@ -10,10 +10,10 @@
   # Are we restarting or now just starting up?
   if [[ $1 == "restart-by-watchdog" ]]; then
     echo -n "[watchdog] Restarting docs.ts app ..."
-    deno --allow-read --allow-write --allow-net --allow-env ./docs.ts &
+    deno run --allow-read --allow-write --allow-net --allow-env ./docs.ts &
   else
     echo -n "[watchdog] Starting docs.ts app ..."
-    deno --allow-read --allow-write --allow-net --allow-env --reload ./docs.ts &
+    deno run --allow-read --allow-write --allow-net --allow-env --reload ./docs.ts &
   fi
 
   echo "... done."
