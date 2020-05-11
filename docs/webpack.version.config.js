@@ -4,8 +4,8 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const webpackConfigFns = require("./src/webpack_config_functions_compiled").default;
 
 module.exports = envVars => {
-  const confPath = "./conf/env_vars_version.json";
-  let conf = require(confPath);
+  const confPath = "./conf/env_vars_version.ts";
+  let conf = require(confPath).default;
   conf.build_date = getDateTimeISO("UTC-5").datetime;
 
   console.log(`\nRunning "production" mode using ${confPath} configs.\n`);

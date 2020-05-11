@@ -1,7 +1,7 @@
 import { Drash } from "../deps.ts";
 import { getFileSystemStructure } from "../helpers.ts";
 import docsConfig from "../conf/app.ts";
-let envVarsPath = "../conf/env_vars_" + Deno.env.get("DENO_DRASH_DOCS_ENVIRONMENT") + ".json";
+let envVarsPath = "../conf/env_vars_" + Deno.env.get("DENO_DRASH_DOCS_ENVIRONMENT") + ".ts";
 let env = (await import(envVarsPath)).default;
 const decoder = new TextDecoder();
 const encoder = new TextEncoder();
