@@ -4,8 +4,25 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const webpackConfigFns = require("./src/webpack_config_functions_compiled").default;
 
 module.exports = envVars => {
-  const confPath = "./conf/env_vars_" + envVars.environment + ".json";
-  let conf = require(confPath);
+  let conf = {};
+  switch (envVars.environment) {
+    case "development":
+      conf.base_url = "";
+      conf.environment = "development";
+      break;
+    case "staging":
+      conf.base_url = "/staging";
+      conf.environment = "staging";
+      break;
+    case "production":
+      conf.base_url = "/docs";
+      conf.environment = "production";
+      break;
+    case "version":
+      conf.base_url = "/docs/versions/v1.0.0-rc1";
+      conf.environment = "production";
+      break;
+  }
   conf.build_date = getDateTimeISO("UTC-5").datetime;
 
   console.log(`\nRunning "${webpackConfigFns.getMode(conf)}" mode using ${confPath} configs.\n`);
