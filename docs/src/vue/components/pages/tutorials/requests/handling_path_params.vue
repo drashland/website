@@ -51,7 +51,7 @@ page-tutorial(
         li
           p Create your resource file. You resource file will check for the <code>:id</code> path param in the request's URL. If it exists and is a <code>number</code>, then it will return what was passed in. If it is <code>NaN</code>, then it will throw a <code>400 Bad Request</code> response.
           p
-            code-block(:data="example_code.home_resource")
+            code-block(:data="example_code.users_resource")
         li
           p Create your app file.
           p
