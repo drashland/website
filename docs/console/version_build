@@ -5,9 +5,10 @@
 # 1. Go to your deno-drash repo and make sure the branch is set to a released version.
 # 2. Update DENO_DRASH_VERSION_VERSION in this file to match the released version.
 # 3. Update docs/conf/env_vars_version.json's base_url field to match the released version.
-# 4. Run this script.
-# 5. Commit the build.
-# 6. Push to the repo.
+# 4. Update docs/webpack.config.js's version field case (in switch statement) to match the released version.
+# 5. Run this script.
+# 6. Commit the build.
+# 7. Push to the repo.
 #
 
 (
