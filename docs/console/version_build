@@ -13,7 +13,7 @@
 
 (
   export DENO_DRASH_DOCS_ENVIRONMENT="version"
-  export DENO_DRASH_VERSION_VERSION="v1.0.0-rc1"
+  export DENO_DRASH_VERSION_VERSION="v1.0.0"
   console/compile_assets
   console/compile_templates
   console/copy_api_reference
