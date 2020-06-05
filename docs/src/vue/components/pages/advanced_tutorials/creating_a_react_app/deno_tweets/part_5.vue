@@ -84,7 +84,7 @@ page-tutorial-part(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | deno --allow-net --allow-read app.ts
+                | deno run --allow-net --allow-read app.ts
           p Go to <code>localhost:1447/</code> in your browser.
           p You should the something similar to the following:
           img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")

@@ -76,5 +76,5 @@ page-tutorial-part(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net src/app.ts
+              | deno run --allow-net src/app.ts
 </template>

@@ -76,7 +76,7 @@ page-tutorial-part(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | deno --allow-net --allow-read app.ts
+                | deno run --allow-net --allow-read app.ts
           p This time, your app requires three flags to run. You already know what the <code>--allow-net</code> and <code>--allow-env</code> flags do from Part 1.
           p <code>--allow-read</code> is required because your resources require read access to read your HTML files that you will be creating in the next tutorial part. You can learn more about the <code>--allow-read</code> flag at <a href="https://deno.land/std/manual.md" target="_BLANK">https://deno.land/std/manual.md</a>.
         li Go to <code>localhost:1447/</code> in your browser.

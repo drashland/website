@@ -63,7 +63,7 @@ page-tutorial(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | deno --allow-net app.ts
+                | deno run --allow-net app.ts
         li
           p Using Postman (or similar app), make a <code>GET</code> request to <code>localhost:1447</code>. You should receive the following response:
           p

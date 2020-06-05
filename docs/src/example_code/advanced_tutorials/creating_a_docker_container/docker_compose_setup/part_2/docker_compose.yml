@@ -42,7 +42,7 @@ services:
    working_dir: /var/www/src
    ports:
      - "1447:1447"
-   command: bash -c "deno --allow-net app.ts"
+   command: bash -c "deno run --allow-net app.ts"
    networks:
      - drash-app-network
 
