@@ -179,7 +179,7 @@ div.c-sidebar
         p.arrow.right
         span.heading-link Versions
       div.c-sidebar__menu-body.hide--soft
-        a(href="/docs") Latest &mdash; v1.0.0
+        a(href="/docs") Latest &mdash; v1.0.x
         a(href="/docs/versions/v1.0.0-rc1") v1.0.0-rc1
         a(href="/docs/versions/v0.42.0") v0.42.0
         a(href="/docs/versions/v0.41.1") v0.41.1
