@@ -1,12 +1,12 @@
 export {
   Drash
-} from "../../deno-drash/mod.ts";
+} from "https://deno.land/x/drash@v1.0.3/mod.ts";
 
 export {
   serve,
   ServerRequest
-} from "../../deno-drash/deps.ts";
+} from "https://deno.land/x/drash@v1.0.3/deps.ts";
 
 export {
   walkSync,
-} from "https://deno.land/std@v0.56.0/fs/mod.ts";
+} from "https://deno.land/std@v0.54.0/fs/mod.ts";
