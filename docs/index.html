@@ -1668,6 +1668,13 @@
         "language": "typescript",
         "title": "/path/to/your/project/registering_resources.ts"
       },
+      "adding_resources": {
+        "contents": "import { Drash } from \"https://deno.land/x/drash@v1.0.5/mod.ts\";\n\nimport HomeResource from \"./home_resource.ts\";\nimport UsersResource from \"./users_resource.ts\";\n\nconst server = new Drash.Http.Server({\n  resources: [\n    HomeResource,\n    UsersResource\n  ],\n});\n\nserver.run({\n  hostname: \"localhost\",\n  port: 1447\n});\n",
+        "extension": "ts",
+        "filename": "adding_resources.ts",
+        "language": "typescript",
+        "title": "/path/to/your/project/adding_resources.ts"
+      },
       "home_resource_get_post_put_delete": {
         "contents": "import { Drash } from \"https://deno.land/x/drash@v1.0.5/mod.ts\";\n\nexport default class HomeResource extends Drash.Http.Resource {\n  static paths = [\"/\"];\n\n  public GET() {\n    this.response.body = \"GET request received!\";\n    return this.response;\n  }\n\n  public POST() {\n    this.response.body = \"POST request received!\";\n    return this.response;\n  }\n\n  public PUT() {\n    this.response.body = \"PUT request received!\";\n    return this.response;\n  }\n\n  public DELETE() {\n    this.response.body = \"DELETE request received!\";\n    return this.response;\n  }\n}\n",
         "extension": "ts",
@@ -3011,13 +3018,13 @@
 };
   </script>
   
-  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1591459496566"></script>
-  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1591459496566"></script>
-  <script src="/docs/public/assets/js/bundle.production.js?version=1591459496566"></script>
-  <script src="/docs/public/assets/js/vendors~router.production.js?version=1591459496566"></script>
-  <script src="/docs/public/assets/js/router.production.js?version=1591459496566"></script>
-  <script src="/docs/public/assets/js/vendors~app.production.js?version=1591459496566"></script>
-  <script src="/docs/public/assets/js/app.production.js?version=1591459496566"></script>
+  <script src="/docs/public/assets/js/vendors~app~bundle.production.js?version=1591460065819"></script>
+  <script src="/docs/public/assets/js/vendors~bundle.production.js?version=1591460065819"></script>
+  <script src="/docs/public/assets/js/bundle.production.js?version=1591460065819"></script>
+  <script src="/docs/public/assets/js/vendors~router.production.js?version=1591460065819"></script>
+  <script src="/docs/public/assets/js/router.production.js?version=1591460065819"></script>
+  <script src="/docs/public/assets/js/vendors~app.production.js?version=1591460065819"></script>
+  <script src="/docs/public/assets/js/app.production.js?version=1591460065819"></script>
 
 </body>
 </html>
