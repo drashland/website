@@ -9,4 +9,4 @@ export {
 
 export {
   walkSync,
-} from "https://deno.land/std@v1.0.0-rc1/fs/mod.ts";
+} from "https://deno.land/std@v0.56.0/fs/mod.ts";

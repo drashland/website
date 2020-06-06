@@ -7,5 +7,6 @@
   export DENO_DRASH_DOCS_ENVIRONMENT="production"
   console/compile_assets
   console/compile_templates
+  console/copy_api_reference
   console/run_webpack --env.environment="production"
 )

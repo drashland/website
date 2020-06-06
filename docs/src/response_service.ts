@@ -1,7 +1,7 @@
 import { Drash } from "../deps.ts";
 import { getFileSystemStructure } from "../helpers.ts";
 import docsConfig from "../conf/app.ts";
-let envVarsPath = "../conf/env_vars_" + Deno.env.get("DENO_DRASH_DOCS_ENVIRONMENT") + ".json";
+let envVarsPath = "../conf/env_vars_" + Deno.env.get("DENO_DRASH_DOCS_ENVIRONMENT") + ".ts";
 let env = (await import(envVarsPath)).default;
 const decoder = new TextDecoder();
 const encoder = new TextEncoder();
@@ -51,7 +51,6 @@ export function getTemplate(inputFile: any) {
   );
 
   let template = decoder.decode(Deno.readFileSync(inputFile));
-  console.log(template);
   template = template
     .replace(/\{\{ base_url \}\}/g, env.base_url)
     .replace(/\{\{ environment \}\}/g, env.environment)

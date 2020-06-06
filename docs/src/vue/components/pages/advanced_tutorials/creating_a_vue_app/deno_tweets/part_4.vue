@@ -76,7 +76,7 @@ page-tutorial-part(
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
-                | deno --allow-net --allow-read app.ts
+                | deno run --allow-net --allow-read app.ts
         li Go to <code>localhost:1447/</code> in your browser.
           p You should receive a response similar to the following:
           p

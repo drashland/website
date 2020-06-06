@@ -273,7 +273,7 @@ const app_data = {
         "title": "Project Folder Structure"
       },
       "run": {
-        "contents": "deno --allow-net --allow-read app.ts\n",
+        "contents": "deno run --allow-net --allow-read app.ts\n",
         "extension": "sh",
         "filename": "run.sh",
         "language": "shell",
@@ -307,7 +307,7 @@ const app_data = {
         "title": "Project Folder Structure"
       },
       "run": {
-        "contents": "deno --allow-net --allow-read app.ts\n",
+        "contents": "deno run --allow-net --allow-read app.ts\n",
         "extension": "sh",
         "filename": "run.sh",
         "language": "shell",
@@ -348,7 +348,7 @@ const app_data = {
         "title": "Project Folder Structure"
       },
       "run": {
-        "contents": "deno --allow-net --allow-read app.ts\n",
+        "contents": "deno run --allow-net --allow-read app.ts\n",
         "extension": "sh",
         "filename": "run.sh",
         "language": "shell",
@@ -388,7 +388,7 @@ const app_data = {
         "title": "/path/to/your/project/folder_structure_setup.txt"
       },
       "run": {
-        "contents": "deno --allow-net app.ts\n",
+        "contents": "deno run --allow-net app.ts\n",
         "extension": "sh",
         "filename": "run.sh",
         "language": "shell",
@@ -1351,7 +1351,7 @@ const app_data = {
         "title": "/path/to/your/project/app.ts"
       },
       "execute": {
-        "contents": "deno --allow-net app.ts\n\nDeno server started at localhost:1447.\n",
+        "contents": "deno run --allow-net app.ts\n\nDeno server started at localhost:1447.\n",
         "extension": "sh",
         "filename": "execute.sh",
         "language": "shell",

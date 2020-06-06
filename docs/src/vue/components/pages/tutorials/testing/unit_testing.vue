@@ -74,7 +74,7 @@ page-tutorial(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net run_tests.ts
+              | deno run --allow-net run_tests.ts
           p You should receive the following output:
           code-block-slotted
             template(v-slot:title) Terminal

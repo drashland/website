@@ -79,7 +79,7 @@ page-tutorial-part(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net --allow-read app.ts
+              | deno run --allow-net --allow-read app.ts
 
         li Make a request to <code>localhost:1447/users/1</code> in your browser and specify that you want the <code>text/html</code> representation.
           code-block-slotted(:header="false")
