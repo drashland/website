@@ -20,7 +20,7 @@ module.exports = envVars => {
       conf.environment = "production";
       break;
     case "version":
-      conf.base_url = "/docs/versions/v1.0.x;
+      conf.base_url = "/docs/versions/v1.0.x";
       conf.environment = "production";
       break;
   }

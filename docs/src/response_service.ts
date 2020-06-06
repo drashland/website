@@ -51,7 +51,6 @@ export function getTemplate(inputFile: any) {
   );
 
   let template = decoder.decode(Deno.readFileSync(inputFile));
-  console.log(template);
   template = template
     .replace(/\{\{ base_url \}\}/g, env.base_url)
     .replace(/\{\{ environment \}\}/g, env.environment)
