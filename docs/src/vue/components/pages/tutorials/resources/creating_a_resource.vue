@@ -40,6 +40,10 @@ page-tutorial(
           code-block-slotted(:header="false" language="typescript" line_highlight="6")
             template(v-slot:code) {{ example_code.registering_resources.contents }}
         p When Drash servers register resources, they also register their paths as accessible URIs. An accessible URI is a URI that a client can target. Any URI that does not exist in any resource is a non-accessible URI. Non-accessible URIs ultimately lead to a response other than a <code>200 OK</code> repsonse. The default response for a request to a non-accessible URI is a <code>404 Not Found</code> error.
+        p Adding resources is as simple as importing the resource and adding it to the <code>resources</code> config. See below. The <code>UsersResource</code> class is imported and added to the <code>resources</code> config.
+        p
+          code-block-slotted(:header="false" language="typescript" line_highlight="4,9")
+            template(v-slot:code) {{ example_code.adding_resources.contents }}
         p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
     div.row
       div.col
