@@ -682,7 +682,7 @@
     },
     "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_2": {
       "docker_compose": {
-        "contents": "version: '3'\n\nservices:\n\n nginx:\n   container_name: drash_app_nginx\n   build:\n     context: .\n     dockerfile: .docker/nginx.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   depends_on:\n     - drash\n   ports:\n     - \"8080:80\"\n   networks:\n     - drash-app-network\n\n apache:\n   container_name: drash_app_apache\n   build:\n     context: .\n     dockerfile: .docker/apache.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   depends_on:\n     - drash\n   ports:\n     - \"8080:80\"\n   networks:\n     - drash-app-network\n\n drash:\n   container_name: drash_app_drash\n   build:\n     context: .\n     dockerfile: .docker/drash.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   ports:\n     - \"1447:1447\"\n   command: bash -c \"deno --allow-net app.ts\"\n   networks:\n     - drash-app-network\n\nnetworks:\n drash-app-network:\n   driver: bridge\n\n",
+        "contents": "version: '3'\n\nservices:\n\n nginx:\n   container_name: drash_app_nginx\n   build:\n     context: .\n     dockerfile: .docker/nginx.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   depends_on:\n     - drash\n   ports:\n     - \"8080:80\"\n   networks:\n     - drash-app-network\n\n apache:\n   container_name: drash_app_apache\n   build:\n     context: .\n     dockerfile: .docker/apache.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   depends_on:\n     - drash\n   ports:\n     - \"8080:80\"\n   networks:\n     - drash-app-network\n\n drash:\n   container_name: drash_app_drash\n   build:\n     context: .\n     dockerfile: .docker/drash.dockerfile\n   volumes:\n     - ./src:/var/www/src\n   working_dir: /var/www/src\n   ports:\n     - \"1447:1447\"\n   command: bash -c \"deno run --allow-net app.ts\"\n   networks:\n     - drash-app-network\n\nnetworks:\n drash-app-network:\n   driver: bridge\n\n",
         "extension": "yml",
         "filename": "docker_compose.yml",
         "title": "/path/to/your/project/docker_compose.yml"
@@ -805,7 +805,7 @@
     },
     "/src/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_6": {
       "docker_compose": {
-        "contents": "version: '3'\n\nservices:\n\n ...\n\n drash:\n   ...\n   command: bash -c \"deno --allow-net --allow-read app.ts\"\n   ...",
+        "contents": "version: '3'\n\nservices:\n\n ...\n\n drash:\n   ...\n   command: bash -c \"deno run --allow-net --allow-read app.ts\"\n   ...",
         "extension": "yml",
         "filename": "docker_compose.yml",
         "title": "/path/to/your/project/docker_compose.yml"
@@ -2388,7 +2388,7 @@
         "title": "/path/to/your/project/app.ts"
       },
       "execute": {
-        "contents": "deno --allow-net app.ts\n",
+        "contents": "deno run --allow-net app.ts\n",
         "extension": "sh",
         "filename": "execute.sh",
         "language": "shell",
