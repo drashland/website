@@ -80,7 +80,7 @@ page-tutorial-part(
             code-block-slotted
               template(v-slot:title) /path/to/your/project/app.ts
               template(v-slot:code)
-                | deno --allow-net --allow-read app.ts
+                | deno run --allow-net --allow-read app.ts
         li
           p Make a request to <code>localhost:1447/users/1</code> in your browser.
           p You should receive the following response:

@@ -2,10 +2,10 @@
 
 (
   echo -n "Compiling Vue global components ..."
-  deno --allow-read --allow-write --allow-net console/ts/compile_vue_global_components.ts
+  deno run --allow-read --allow-write --allow-net --unstable console/ts/compile_vue_global_components.ts
   echo "... done."
 
   echo -n "Compiling Vue route components ..."
-  deno --allow-read --allow-write --allow-net console/ts/compile_vue_route_components.ts
+  deno run --allow-read --allow-write --allow-net --unstable console/ts/compile_vue_route_components.ts
   echo "... done."
 )

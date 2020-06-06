@@ -125,7 +125,7 @@ page-tutorial-part(
             code-block-slotted
               template(v-slot:title) /path/to/your/project/app.ts
               template(v-slot:code)
-                | deno --allow-net --allow-read app.ts
+                | deno run --allow-net --allow-read app.ts
         li Make a coffee request using <code>curl</code> like below or go to <code>localhost:1447/coffee/17</code> in your browser.
           p
             code-block-slotted

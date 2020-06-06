@@ -6,5 +6,5 @@ services:
 
  drash:
    ...
-   command: bash -c "deno --allow-net --allow-read app.ts"
+   command: bash -c "deno run --allow-net --allow-read app.ts"
    ...
