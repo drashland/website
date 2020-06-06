@@ -5,6 +5,7 @@ const webpackConfigFns = require("./src/webpack_config_functions_compiled").defa
 
 module.exports = envVars => {
   let conf = {};
+  conf.module_name = "Drash";
   switch (envVars.environment) {
     case "development":
       conf.base_url = "";
@@ -19,7 +20,7 @@ module.exports = envVars => {
       conf.environment = "production";
       break;
     case "version":
-      conf.base_url = "/docs/versions/v1.0.0-rc1";
+      conf.base_url = "/docs/versions/v1.0.x";
       conf.environment = "production";
       break;
   }

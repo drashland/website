@@ -32,7 +32,7 @@ page-tutorial(
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno --allow-net --allow-write app.ts
+              | deno run --allow-net --allow-write app.ts
         li Make a request using <code>curl</code> like below or go to <code>localhost:1447/</code> in your browser.
           p
             code-block-slotted
