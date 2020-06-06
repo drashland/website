@@ -40,10 +40,6 @@ jobs:
         cd docs
         npm install
 
-    - name: git clone deno-drash
-      run: |
-        git clone https://github.com/drashland/deno-drash.git ../deno-drash
-
     - name: add git user drashbot
       run: |
         cd docs
