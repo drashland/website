@@ -1,6 +1,6 @@
 import { Drash } from "https://deno.land/x/drash/mod.ts";
 
-export default class MyResource extends Drash.Http.Resource {
+export default class HomeResource extends Drash.Http.Resource {
   static paths = ["/"];
 
   public GET() {
@@ -10,6 +10,16 @@ export default class MyResource extends Drash.Http.Resource {
 
   public POST() {
     this.response.body = "POST request received!";
+    return this.response;
+  }
+
+  public PUT() {
+    this.response.body = "PUT request received!";
+    return this.response;
+  }
+
+  public DELETE() {
+    this.response.body = "DELETE request received!";
     return this.response;
   }
 }
