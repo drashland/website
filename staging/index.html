@@ -1841,7 +1841,7 @@
             },
             {
               "doc_block": "/**\n* Executes the middleware function before or after the request at method level\n*\n* @param middlewares Contains all middleware to be run\n*/\n",
-              "signature": "function MethodMiddleware(middlewares: MiddlewareType) { }",
+              "signature": "function MethodMiddleware(middlewares: MiddlewareType): any { }",
               "member_type": "method"
             },
             {
@@ -2106,8 +2106,8 @@
               "member_type": "method"
             },
             {
-              "doc_block": "/**\n* Get an HTTP error response exception object.\n*\n* @param number code\n*\n* @return Drash.Exceptions.HttpException\n*/\n",
-              "signature": "protected httpErrorResponse(code: number): Drash.Exceptions.HttpException { }",
+              "doc_block": "/**\n* Get an HTTP error response exception object.\n*\n* @param number code\n* @param string message\n*\n* @return Drash.Exceptions.HttpException\n*/\n",
+              "signature": "protected httpErrorResponse(code: number,message?: string,): Drash.Exceptions.HttpException { }",
               "member_type": "method"
             },
             {
@@ -2398,13 +2398,13 @@
 };
   </script>
   
-  <script src="/staging/public/assets/js/vendors~app~bundle.staging.js?version=1592582927590"></script>
-  <script src="/staging/public/assets/js/vendors~bundle.staging.js?version=1592582927590"></script>
-  <script src="/staging/public/assets/js/bundle.staging.js?version=1592582927590"></script>
-  <script src="/staging/public/assets/js/vendors~router.staging.js?version=1592582927590"></script>
-  <script src="/staging/public/assets/js/router.staging.js?version=1592582927590"></script>
-  <script src="/staging/public/assets/js/vendors~app.staging.js?version=1592582927590"></script>
-  <script src="/staging/public/assets/js/app.staging.js?version=1592582927590"></script>
+  <script src="/staging/public/assets/js/vendors~app~bundle.staging.js?version=1592583242527"></script>
+  <script src="/staging/public/assets/js/vendors~bundle.staging.js?version=1592583242527"></script>
+  <script src="/staging/public/assets/js/bundle.staging.js?version=1592583242527"></script>
+  <script src="/staging/public/assets/js/vendors~router.staging.js?version=1592583242527"></script>
+  <script src="/staging/public/assets/js/router.staging.js?version=1592583242527"></script>
+  <script src="/staging/public/assets/js/vendors~app.staging.js?version=1592583242527"></script>
+  <script src="/staging/public/assets/js/app.staging.js?version=1592583242527"></script>
 
 </body>
 </html>
