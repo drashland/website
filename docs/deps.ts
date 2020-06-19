@@ -1,6 +1,6 @@
 export {
   Drash
-} from "../../deno-drash/mod.ts";
+} from "https://deno.land/x/drash@v1.0.6/mod.ts";
 
 export {
   ServerRequest,
