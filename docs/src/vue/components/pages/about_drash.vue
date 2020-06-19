@@ -31,7 +31,7 @@ page(
     div.col
       hr
       h2-hash What is Drash?
-      p Drash is a REST microframework for <a href="https://deno.land" target="_BLANK">Deno</a> with zero dependencies.
+      p Drash is a REST microframework for <a href="https://deno.land" target="_BLANK">Deno</a>'s HTTP server with zero dependencies.
       p Drash is designed to help you build your projects quickly with the ability to scale. You can build an API, a web app, an SPA (like these documentation pages), or even a static HTML site. How you use Drash is up to you, so it can be everything you need and nothing you don't &mdash; like a DRASH tent.
   div.row
     div.col
@@ -50,7 +50,7 @@ page(
         li Lowering barriers to usage
         li Zero dependencies
       p Drash does not force you to use all of its code. You can pick and choose which data members you want/need and use them however you deem fit. For example, Drash comes with a console logger and a file logger. If you only want these, then you only import these into your non-Drash project. How you use it is really up to you.
-      P Drash's versioning system will always be consistent with Deno's. Whichever Drash version you use, you know Drash is using that same version for Deno. For example, if you import <code>https://deno.land/x/drash@v0.40.0/mod.ts</code>, you know you can install Deno v0.40.0 and everything will work just fine.
+      P Drash's versioning system will always follow <a href="https://semver.org/" target="_BLANK">semver.org</a>. Also, Drash's versions will always be compatible with Deno's versions. That is, Drash v1.x will always be compatible with Deno v1.x, Drash v2.x will always be compatible with Deno v2.x, and so on.
   div.row
     div.col
       hr

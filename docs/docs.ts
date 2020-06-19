@@ -25,4 +25,4 @@ server.run({
   port: 8000
 });
 
-console.log("Docs started at localhost:8000");
+console.log(`Docs server listening: http://${server.hostname}:${server.port}`);
