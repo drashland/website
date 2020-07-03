@@ -117,6 +117,9 @@ function getExampleCode() {
 
   files.forEach((file: any) => {
     let pathname = file.pathname.replace(docsConfig.server.directory, "");
+    if (file.isDirectory()) {
+      return;
+    }
     if (!exampleCode[pathname]) {
       exampleCode[pathname] = {};
     }

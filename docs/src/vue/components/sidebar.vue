@@ -83,10 +83,10 @@ div.c-sidebar
           a-base-url(href="/tutorials/front-end/extending-a-template") Extending A Template
           a-base-url(href="/tutorials/front-end/adding-template-partials") Adding Template Partials
           a-base-url(href="/tutorials/front-end/in-template-javascript") In-Template JavaScript
-        span.sub-heading
+        //-span.sub-heading
           p.arrow.right
           a Testing
-        div.l-submenu-1.hide--soft
+        //-div.l-submenu-1.hide--soft
           a-base-url(href="/tutorials/testing/unit-testing") Unit Testing
         span.sub-heading
           p.arrow.right
@@ -179,10 +179,7 @@ div.c-sidebar
         p.arrow.right
         span.heading-link Versions
       div.c-sidebar__menu-body.hide--soft
-        a(href="/docs") Latest &mdash; v1.0.x
-        a(href="/docs/versions/v1.0.0-rc1") v1.0.0-rc1
-        a(href="/docs/versions/v0.42.0") v0.42.0
-        a(href="/docs/versions/v0.41.1") v0.41.1
+        a(href="/docs") v1.x
       span.heading
         p.arrow.right
         span.heading-link API Reference

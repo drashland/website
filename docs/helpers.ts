@@ -47,7 +47,11 @@ export function getFileSystemStructure(dir: string): any {
       snake_cased: filename.replace(".", "_"),
       // Is this file a directory?
       isDirectory: () => {
-        let extension = filename.split(".")[1];
+        const split = filename.split(".");
+        let extension = split[1];
+        if (split[0] == "") {
+          return true;
+        }
         return !extension;
       },
     });
