@@ -1,8 +1,8 @@
 export default {
   manual_build: "2",
   example_code_versions: {
-    deno: "v1.1.1",
-    drash: `import { Drash } from "https://deno.land/x/drash@v1.0.6/mod.ts";`
+    deno: "v1.1.2",
+    drash: `import { Drash } from "https://deno.land/x/drash@v1.0.7/mod.ts";`
   },
   deno_drash: {
     directory: "/Users/runner/runners/2.263.0/work/deno-drash-website/deno-drash",
