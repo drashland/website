@@ -9,11 +9,15 @@ div
       div.col
         p.shields(style="margin-top: 1rem; margin-bottom: 0")
           a(href="https://github.com/drashland/deno-drash/releases" target="_BLANK")
-            img.margin-bottom--0(alt="GitHub release" src="https://img.shields.io/github/release/drashland/deno-drash.svg?color=brightgreen&label=latest" width="auto" height="20")
-          a(href="https://travis-ci.org/drashland/deno-drash" target="_BLANK")
-            img.margin-bottom--0(alt="Travis CI Build Master" src="https://img.shields.io/travis/drashland/deno-drash/master?label=master" width="auto" height="20")
+            img.margin-bottom--0(alt="Latest Drash Release" src="https://img.shields.io/github/release/drashland/deno-drash.svg?color=brightgreen&label=Latest" width="auto" height="20")
+          a(href="https://github.com/drashland/deno-drash/actions" target="_BLANK")
+            img.margin-bottom--0(alt="Drash CI" src="https://img.shields.io/github/workflow/status/drashland/deno-drash/master?label=CI" width="auto" height="20")
           a(href="https://discord.gg/SgejNXq" target="_BLANK")
-            img.margin-bottom--0(src="https://img.shields.io/badge/chat-on%20discord-blue")
+            img.margin-bottom--0(alt="Drash Land Discord" src="https://img.shields.io/badge/Chat-on%20Discord-blue")
+          a(href="https://twitter.com/drash_land" target="_BLANK")
+            img.margin-bottom--0(alt="Drash Land Twitter" src="https://img.shields.io/twitter/url?label=%40drash_land&style=social&url=https%3A%2F%2Ftwitter.com%2Fdrash_land" width="auto" height="20")
+          a(href="https://rb.gy/vxmeed" target="_BLANK")
+            img.margin-bottom--0(alt="Drash YouTube" src="https://img.shields.io/badge/Tutorials-YouTube-red" width="auto" height="20")
   div.c-page__body
     hr
     div.row
