@@ -4,6 +4,7 @@ const configs = require("./configs.json");
 
 require("./compile_vue_global_components.js");
 require("./compile_vue_routes.js");
+require("./compile_vue_app_data.js");
 
 // Create the server
 http.createServer((request, response) => {
@@ -27,11 +28,6 @@ function getContentTypeHeader(path) {
   if (path.includes(".woff2")) { return "font/woff2"; }
 }
 
-function getDrashVueAppData() {
-  let appData = {};
-  return appData;
-}
-
 // Handle HTTP request errors
 function handleRequestError(error, response) {
   console.error(error);
@@ -47,18 +43,7 @@ function handleResponseError(error, response) {
 // Handle all requests. This just services the index.html file that holds the Vue application.
 function handleHttpRequest(request, response) {
   try {
-    if (
-      request.url != "/favicon.ico"
-      && !request.url.includes("css")
-      && !request.url.includes("jpeg")
-      && !request.url.includes("jpg")
-      && !request.url.includes("js")
-      && !request.url.includes("json")
-      && !request.url.includes("png")
-      && !request.url.includes("svg")
-      && !request.url.includes("woff")
-      && !request.url.includes("woff2")
-    ) {
+    if (requestUrlIsPath(request.url)) {
       console.log(`${request.method} ${request.url}`);
     }
 
@@ -84,8 +69,26 @@ function handleHttpRequest(request, response) {
 function handleDrashApp(response) {
   let html = fs.readFileSync("./drash/index.template.html", "utf8");
   html = html.replace(/\{\{ environment \}\}/g, configs.environment);
-  html = html.replace("{{ app_data }}", JSON.stringify(getDrashVueAppData()));
   response.write(html);
+}
+
+function requestUrlIsPath(url) {
+  if (
+    url != "/favicon.ico"
+    && !url.includes("css")
+    && !url.includes("jpeg")
+    && !url.includes("jpg")
+    && !url.includes("js")
+    && !url.includes("json")
+    && !url.includes("png")
+    && !url.includes("svg")
+    && !url.includes("woff")
+    && !url.includes("woff2")
+  ) {
+    return true;
+  }
+
+  return false;
 }
 
 // you don't want to end up here ;)
