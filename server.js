@@ -4,7 +4,7 @@ const configs = require("./configs.json");
 
 require("./compile_vue_global_components.js");
 require("./compile_vue_routes.js");
-require("./compile_vue_app_data.js");
+require("./compile_example_code.js");
 
 // Create the server
 http.createServer((request, response) => {
@@ -52,7 +52,10 @@ function handleHttpRequest(request, response) {
     if (request.url == "/") {
       const html = fs.readFileSync("index.html");
       response.write(html);
-    } else if (request.url == "/drash") {
+    } else if (
+      request.url == "/drash"
+      || request.url == "/drash/"
+    ) {
       handleDrashApp(response);
     } else {
       const file = fs.readFileSync(`${configs.root_directory}${request.url}`);

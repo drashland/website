@@ -23,8 +23,8 @@ module.exports = envVars => {
 
   return {
     entry: {
-      drash_router: path.resolve(__dirname, "drash/assets/js/_router.js"),
-      drash_app: path.resolve(__dirname, "drash/assets/js/_app.js")
+      drash_app: path.resolve(__dirname, "drash/assets/js/_app.js"),
+      drash_example_code: path.resolve(__dirname, "drash/assets/js/_example_code.js")
     },
     mode: getMode(envVars.environment),
     output: {

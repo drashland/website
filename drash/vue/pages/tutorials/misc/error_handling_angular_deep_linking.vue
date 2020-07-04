@@ -9,7 +9,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/misc/error_handling_angular_deep_linking'],
+      example_code: this.$example_code['drash/example_code/tutorials/misc/error_handling_angular_deep_linking'],
       toc: {
         items: [
           "Before You Get Started",

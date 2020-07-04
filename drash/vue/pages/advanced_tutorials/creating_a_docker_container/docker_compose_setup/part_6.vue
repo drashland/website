@@ -11,11 +11,11 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
-      example_code_src: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/src'],
-      example_code_html: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/html'],
-      example_code_css: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/css'],
-      example_code_js: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri + '/js'],
+      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code_src: this.$example_code['drash/example_code/' + resource.meta.source_code_uri + '/src'],
+      example_code_html: this.$example_code['drash/example_code/' + resource.meta.source_code_uri + '/html'],
+      example_code_css: this.$example_code['drash/example_code/' + resource.meta.source_code_uri + '/css'],
+      example_code_js: this.$example_code['drash/example_code/' + resource.meta.source_code_uri + '/js'],
       part: 6,
       parts: 6,
       toc: {

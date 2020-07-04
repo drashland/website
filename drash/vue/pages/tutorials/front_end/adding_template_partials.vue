@@ -10,8 +10,8 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/front_end/adding_template_partials'],
-      example_code_views: this.$app_data.example_code['/src/example_code/tutorials/front_end/adding_template_partials/views'],
+      example_code: this.$example_code['drash/example_code/tutorials/front_end/adding_template_partials'],
+      example_code_views: this.$example_code['drash/example_code/tutorials/front_end/adding_template_partials/views'],
       toc: {
         items: [
           "Before You Get Started",

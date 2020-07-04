@@ -34,13 +34,6 @@ div
         h2-hash Quickstart
         ol
           li
-            p Install Deno.
-            p
-              code-block-slotted(language="text")
-                template(v-slot:title) Terminal
-                template(v-slot:code)
-                  | curl -fsSL https://deno.land/x/install/install.sh | sh -s {{ $app_data.example_code_versions.deno }}
-          li
             p Write your <code>app.ts</code> file.
             p
               code-block-slotted(language="typescript")
@@ -50,7 +43,11 @@ div
           li
             p Run your <code>app.ts</code> file.
             p
-              code-block(:data="example_code.execute")
+              code-block-slotted(language="text")
+                template(v-slot:title) Terminal
+                template(v-slot:code)
+                  | deno run --allow-net app.ts
+
           li
             p Make a request.
               code-block-slotted(language="text")
@@ -108,8 +105,11 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/getting_started/quickstart']
+      example_code: this.$example_code['drash/example_code/getting_started/quickstart/']
     };
+  },
+  mounted() {
+    console.log(this.$example_code);
   }
 }
 </script>

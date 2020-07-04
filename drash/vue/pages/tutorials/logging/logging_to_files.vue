@@ -74,7 +74,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/logging/logging_to_files'],
+      example_code: this.$example_code['drash/example_code/tutorials/logging/logging_to_files'],
       toc: {
         items: [
           "Before You Get Started",

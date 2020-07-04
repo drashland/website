@@ -1,8 +1,6 @@
 let conf = process.env.conf; // This variable comes from webpack.config.js under `plugins`
 
-import Vue from "vue";
 import VueRouter from "vue-router";
-Vue.use(VueRouter);
 
 import compiledRoutes from "/drash/assets/js/compiled_vue_routes.js"
 
@@ -62,5 +60,3 @@ router.afterEach((to, from) => {
 });
 
 export default router;
-window.VueRouter = VueRouter;
-window.router = router;

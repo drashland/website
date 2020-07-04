@@ -11,7 +11,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
       part: 1,
       parts: 5,
       toc: {

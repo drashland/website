@@ -4,6 +4,7 @@ import Vue from "vue";
 
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
+import router from "/drash/assets/js/router.js";
 
 import MarkdownIt from "markdown-it";
 window.markdownIt = new MarkdownIt();
@@ -11,9 +12,10 @@ window.markdownIt = new MarkdownIt();
 import Client from "/common/js/axios.js";
 Vue.prototype.$api_service = Client;
 
-Vue.prototype.$app_data = app_data;
+import exampleCode from "/drash/assets/js/compiled_example_code.js";
+Vue.prototype.$example_code = exampleCode;
+
 Vue.prototype.$conf = conf;
-Vue.prototype.$store = app_data.store;
 
 // Vue - Components
 import VueAppRoot from "/drash/vue/vue_app_root.vue";

@@ -10,8 +10,8 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/servers/serving_static_paths'],
-      example_code_public: this.$app_data.example_code['/src/example_code/tutorials/servers/serving_static_paths/public'],
+      example_code: this.$example_code['drash/example_code/tutorials/servers/serving_static_paths'],
+      example_code_public: this.$example_code['drash/example_code/tutorials/servers/serving_static_paths/public'],
       toc: {
         items: [
           "Before You Get Started",

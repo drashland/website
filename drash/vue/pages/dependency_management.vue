@@ -9,7 +9,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/dependency_management'],
+      example_code: this.$example_code['drash/example_code/dependency_management'],
       toc: {
         items: [
           "Before You Get Started",

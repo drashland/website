@@ -10,7 +10,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/about_drash'],
+      example_code: this.$example_code['drash/example_code/about_drash'],
       toc: {
         items: [
           "What Is Drash?",
@@ -56,6 +56,6 @@ page(
       hr
       h2-hash About These Documentation Pages
       p We know the pain of using new software that is not extensively documented. Therefore, all released Drash code that is intended to be used is documented. Anything that will be released will be documented before being released. This is how we lower our barriers to usage, so you can continue coding your Drash (or non-Drash) project confidently without questions.
-      p Most of the pages on this site are written in a tutorial format. You are given an introduction to the page, example code, and an end state that you can work towards. These pages mostly assume you have no working knowledge of Drash and try to be explicit as possible in the instructions. Moreover, the example code can be downloaded from the <a href="https://github.com/drashland/deno-drash-docs/tree/master/docs/src/example_code" target="_BLANK">documentation repository</a>.
+      p Most of the pages on this site are written in a tutorial format. You are given an introduction to the page, example code, and an end state that you can work towards. These pages mostly assume you have no working knowledge of Drash and try to be explicit as possible in the instructions. Moreover, the example code can be downloaded from the <a href="https://github.com/drashland/deno-drash-docs/tree/master/docs/" target="_BLANK">documentation repository</a>.
       p The API Reference pages display documentation about Drash's data members. These pages take what is written in the source code's doc blocks and display them nicely in a readable format. Doing it this way allows us to keep Drash's API Reference up to date with the code.
 </template>

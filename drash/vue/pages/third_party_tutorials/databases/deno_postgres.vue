@@ -10,7 +10,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/third_party_tutorials/databases/deno_postgres'],
+      example_code: this.$example_code['drash/example_code/third_party_tutorials/databases/deno_postgres'],
       toc: {
         items: [
           "Before You Get Started",

@@ -10,7 +10,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/logging/logging_using_log_from_deno_std'],
+      example_code: this.$example_code['drash/example_code/tutorials/logging/logging_using_log_from_deno_std'],
       toc: {
         items: [
           "Before You Get Started",

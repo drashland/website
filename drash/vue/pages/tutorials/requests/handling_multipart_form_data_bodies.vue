@@ -10,7 +10,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/tutorials/requests/handling_multipart_form_data_bodies'],
+      example_code: this.$example_code['drash/example_code/tutorials/requests/handling_multipart_form_data_bodies'],
       toc: {
         items: [
           "Before You Get Started",

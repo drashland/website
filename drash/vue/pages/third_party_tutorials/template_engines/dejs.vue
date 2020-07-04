@@ -10,7 +10,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$app_data.example_code['/src/example_code/third_party_tutorials/template_engines/dejs'],
+      example_code: this.$example_code['drash/example_code/third_party_tutorials/template_engines/dejs'],
       toc: {
         items: [
           "Before You Get Started",
