@@ -23,19 +23,13 @@ module.exports = envVars => {
 
   return {
     entry: {
-      drash_bundle: path.resolve(__dirname, "drash/assets/js/_bundle.js"),
       drash_router: path.resolve(__dirname, "drash/assets/js/_router.js"),
       drash_app: path.resolve(__dirname, "drash/assets/js/_app.js")
     },
     mode: getMode(envVars.environment),
     output: {
-      path: path.resolve(__dirname, "public/assets/js/"),
+      path: path.resolve(__dirname, "assets/bundles/"),
       filename: `[name].${envVars.environment}.js`
-    },
-    optimization: {
-      splitChunks: {
-        chunks: 'all'
-      }
     },
     module: {
       rules: [
@@ -84,6 +78,7 @@ module.exports = envVars => {
           ? "vue/dist/vue.min.js"
           : "vue/dist/vue.js",
         "/drash": path.resolve(__dirname, "drash"),
+        "/common": path.resolve(__dirname, "assets/common"),
       }
     }
   };

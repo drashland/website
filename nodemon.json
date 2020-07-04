@@ -1,14 +1,14 @@
 {
   "watch": [
     "./index.html",
-    "dmm/",
-    "drash/",
-    "rhum/",
+    "dmm/*",
+    "drash/*",
+    "rhum/*",
     "server.js",
     "sockets/",
     "*.js"
   ],
   "ignore": [
-    "compiled*.js"
+    "compiled_*.js"
   ]
 }

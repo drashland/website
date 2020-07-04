@@ -1,9 +1,6 @@
 // Webpack
 let conf = process.env.conf; // This variable comes from webpack.config.js under `plugins`
 
-// Vue
-import Vue from "vue";
-
 // Vue Router
 import VueRouter from "vue-router";
 
@@ -11,7 +8,7 @@ import compiledRoutes from "/drash/assets/js/compiled_vue_routes.js"
 
 let routes = [];
 let routesForErrors = {};
-compiledRoutes.forEach(component => {
+compiledRoutes.forEach((component) => {
   if (component.resource.meta && component.resource.meta.error_code) {
     routesForErrors[component.resource.meta.error_code] = component.default;
     return;
