@@ -195,6 +195,7 @@ div.c-sidebar
           a Http
         div.l-submenu-1.hide--soft
           a-base-url(href="/api-reference/http/middleware") Middleware
+          a-base-url(href="/api-reference/http/request") Request
           a-base-url(href="/api-reference/http/resource") Resource
           a-base-url(href="/api-reference/http/response") Response
           a-base-url(href="/api-reference/http/server") Server
@@ -218,7 +219,6 @@ div.c-sidebar
           a Services
         div.l-submenu-1.hide--soft
           a-base-url(href="/api-reference/services/http-service") HttpService
-          a-base-url(href="/api-reference/services/http-request-service") HttpRequestService
 </template>
 
 <script>

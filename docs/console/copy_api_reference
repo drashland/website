@@ -1,8 +1,5 @@
 #!/bin/bash
 
 (
-  cd ../../deno-drash
-  console/build_docs
-  cd -
   cp ../../deno-drash/api_reference.json public/assets/json/api_reference.json
 )
