@@ -1,0 +1,10 @@
+{
+  "watch": [
+    "./index.html",
+    "dmm/",
+    "drash/",
+    "rhum/",
+    "server.js",
+    "sockets/"
+  ]
+}
