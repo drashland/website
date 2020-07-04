@@ -1,27 +1,36 @@
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-const webpackConfigFns = require("./src/webpack_config_functions_compiled").default;
+
+function getMode(environment) {
+  if (environment == "development") {
+    return "development";
+  }
+  return "production";
+}
+
+function isPublicFacingEnv(environment) {
+  let publicFacingEnvs = [
+    "production",
+    "staging",
+  ];
+
+  return publicFacingEnvs.indexOf(environment) != -1;
+}
 
 module.exports = envVars => {
-  let conf = {};
-  conf.build_date = getDateTimeISO("UTC-5").datetime;
-  conf.mode = envVars.environment == "development"
-    ? "development"
-    : "production";
-
-  console.log(`\nRunning webpack in ${mode} mode for the ${envVars.environment} environment.\n`);
+  console.log(`\nRunning webpack in ${getMode(envVars.environment)} mode for the ${envVars.environment} environment.\n`);
 
   return {
     entry: {
-      bundle: path.resolve(__dirname, "public/assets/js/_bundle.js"),
-      router: path.resolve(__dirname, "public/assets/js/_router.js"),
-      app: path.resolve(__dirname, "public/assets/js/_app.js")
+      drash_bundle: path.resolve(__dirname, "drash/assets/js/_bundle.js"),
+      drash_router: path.resolve(__dirname, "drash/assets/js/_router.js"),
+      drash_app: path.resolve(__dirname, "drash/assets/js/_app.js")
     },
-    mode: webpackConfigFns.getMode(conf),
+    mode: getMode(envVars.environment),
     output: {
       path: path.resolve(__dirname, "public/assets/js/"),
-      filename: `[name].${conf.environment}.js`
+      filename: `[name].${envVars.environment}.js`
     },
     optimization: {
       splitChunks: {
@@ -62,16 +71,19 @@ module.exports = envVars => {
       // Add compile time vars
       new webpack.DefinePlugin({
         "process.env": {
-          conf: JSON.stringify(conf)
+          conf: JSON.stringify({
+            build_date: getDateTimeISO("UTC-5").datetime,
+            environment:envVars.environment,
+          })
         }
       })
     ],
     resolve: {
       alias: {
-        vue: webpackConfigFns.getResolveAliasVue(conf),
-        "/src": path.resolve(__dirname, "src"),
-        "/components": path.resolve(__dirname, "src/vue/components"),
-        "/public": path.resolve(__dirname, "public")
+        vue: isPublicFacingEnv(envVars.environment)
+          ? "vue/dist/vue.min.js"
+          : "vue/dist/vue.js",
+        "/drash": path.resolve(__dirname, "drash"),
       }
     }
   };

@@ -5,6 +5,10 @@
     "drash/",
     "rhum/",
     "server.js",
-    "sockets/"
+    "sockets/",
+    "*.js"
+  ],
+  "ignore": [
+    "compiled*.js"
   ]
 }

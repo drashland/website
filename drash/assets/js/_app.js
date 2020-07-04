@@ -14,10 +14,10 @@ Vue.prototype.$store = app_data.store;
 Vue.prototype.$api_service = Client;
 
 // Vue - Components
-import VueAppRoot from "/components/vue_app_root.vue";
-import Sidebar from "/components/sidebar.vue";
-import GlobalComponents from "/public/assets/js/compiled_vue_global_components.js";
-import Client from "/public/assets/js/axios.js";
+import VueAppRoot from "/drash/vue/vue_app_root.vue";
+import Sidebar from "/drash/vue/sidebar.vue";
+import GlobalComponents from "/drash/assets/js/compiled_vue_global_components.js";
+import Client from "/drash/assets/js/axios.js";
 
 // Vue - Global registration
 Vue.filter('markdown-it', function(value) {

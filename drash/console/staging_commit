@@ -1,8 +1,0 @@
-#!/bin/bash
-
-(
-  git checkout -- index.html
-  git checkout -- public/*
-  git add ../staging/*
-  git commit -m "staging build ($(date))"
-)
