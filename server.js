@@ -49,9 +49,13 @@ function handleHttpRequest(request, response) {
     console.log(`${request.method} ${request.url}`);
   }
 
+  response.writeHeader(200, {"Content-Type": "text/html"});  
+
   if (request.url == "/") {
     const html = fs.readFileSync("index.html");
-    response.writeHeader(200, {"Content-Type": "text/html"});  
+    response.write(html);
+  } else if (request.url == "/drash") {
+    const html = fs.readFileSync("./drash/index.html");
     response.write(html);
   } else {
     const file = fs.readFileSync(`${configs.root_directory}${request.url}`);
