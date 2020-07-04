@@ -5,29 +5,12 @@ const webpackConfigFns = require("./src/webpack_config_functions_compiled").defa
 
 module.exports = envVars => {
   let conf = {};
-  conf.module_name = "Drash";
-  switch (envVars.environment) {
-    case "development":
-      conf.base_url = "";
-      conf.environment = "development";
-      break;
-    case "staging":
-      conf.base_url = "/staging";
-      conf.environment = "staging";
-      break;
-    case "production":
-      conf.base_url = "/docs";
-      conf.environment = "production";
-      break;
-    case "version":
-      conf.base_url = "/docs/versions/v1.0.x";
-      conf.environment = "production";
-      break;
-  }
   conf.build_date = getDateTimeISO("UTC-5").datetime;
+  conf.mode = envVars.environment == "development"
+    ? "development"
+    : "production";
 
-  console.log(`\nRunning "${webpackConfigFns.getMode(conf)}" mode for ${envVars.environment}.\n`);
-  console.log(conf);
+  console.log(`\nRunning webpack in ${mode} mode for the ${envVars.environment} environment.\n`);
 
   return {
     entry: {
