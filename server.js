@@ -9,31 +9,17 @@ http.createServer((request, response) => {
   handleHttpRequest(request, response);
 }).listen(8000);
 
-function getContentType(path) {
-  if (path.includes("css")) {
-    return "text/css";
-  }
-  if (path.includes("js")) {
-    return "application/js";
-  }
-  if (path.includes("json")) {
-    return "application/json";
-  }
-  if (path.includes("png")) {
-    return "image/png";
-  }
-  if (path.includes("svg")) {
-    return "image/svg+xml";
-  }
-  if (path.includes("woff")) {
-    return "font/woff";
-  }
-  if (path.includes("woff2")) {
-    return "font/woff2";
-  }
-  if (path.includes(".map")) {
-    return "application/octet-stream";
-  }
+console.log(`Server running at http://localhost:8000`);
+
+function getContentTypeHeader(path) {
+  if (path.includes(".css")) { return "text/css"; }
+  if (path.includes(".js")) { return "application/js"; }
+  if (path.includes(".json")) { return "application/json"; }
+  if (path.includes(".map")) { return "application/octet-stream"; }
+  if (path.includes(".png")) { return "image/png"; }
+  if (path.includes(".svg")) { return "image/svg+xml"; }
+  if (path.includes(".woff")) { return "font/woff"; }
+  if (path.includes(".woff2")) { return "font/woff2"; }
 }
 
 // Handle HTTP request errors
@@ -69,7 +55,7 @@ function handleHttpRequest(request, response) {
     response.write(html);
   } else {
     const file = fs.readFileSync(`${configs.root_directory}${request.url}`);
-    response.writeHead(200, {"Content-Type": getContentType(request.url)});
+    response.writeHead(200, {"Content-Type": getContentTypeHeader(request.url)});
     response.write(file);
   }
   response.end();
