@@ -48,7 +48,7 @@
     <nav class="navbar affix navbar-expand-lg fixed-top navbar-light">
       <div class="container-fluid align-items-center">
         <a class="navbar-brand" href="/">
-          Drash
+          Drash Land
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
@@ -86,11 +86,11 @@
             <div class="intro-content">
               <div class="row align-items-lg-center text-center">
                 <div class="col-12">
-                  <img src="public/assets/img/drash.svg" class="img-fluid mb-3" alt="Drash" style="max-width: 200px">
-                  <h1 class="intro-lead-title mb-3">Drash</h1>
-                  <p class="lead">A REST microframework for Deno's HTTP server</p>
+                  <img src="public/assets/img/logo_drash.svg" class="img-fluid mb-3" alt="Drash" style="max-width: 200px">
+                  <h1 class="intro-lead-title mb-3">Drash Land</h1>
+                  <p class="lead">Develop With Confidence</p>
                   <div class="intro-cta-group">
-                    <a href="/docs" class="btn btn-xl btn-primary">Get started</a>
+                    <a href="#modules" class="btn btn-xl btn-primary">View Modules</a>
                   </div>
                 </div>
               </div>
@@ -105,27 +105,6 @@
     <!-- ========== END HERO SECTION ========== -->
 
     <!-- ========== OVERVIEW SECTION ========== -->
-    <section id="overview">
-      <div class="container">
-        <header class="text-center">
-          <h3 class="text-muted">Compatible with the technologies you love</h3>
-        </header>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="client-logos mt-4 text-center">
-              <img class="m-3" src="public/assets/img/deno.png" alt="Deno">
-              <img class="m-3" src="public/assets/img/vue.png" alt="Vue">
-              <img class="m-3" src="public/assets/img/react.png" alt="React">
-              <img class="m-3" src="public/assets/img/angular.png" alt="Angular">
-              <img class="m-3" src="public/assets/img/ts.png" alt="TypeScript">
-              <img class="m-3" src="public/assets/img/node.png" alt="Node">
-              <img class="m-3" src="public/assets/img/webpack.png" alt="webpack">
-              <img class="m-3" src="public/assets/img/docker.png" alt="Docker">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="section-spacer">
       <div class="container">
         <div class="row mb-5 mb-md-0">
@@ -138,7 +117,7 @@
                 </div>
                 <div class="col-md-9">
                   <header class="section-header">
-                    <p class="lead">With documentation-driven development at its forefront, getting started with Drash is quick and painless.</p>
+                    <p class="lead">With documentation-driven development at its forefront, getting started with any Drash Land module is quick and painless.</p>
                   </header>
                   <div class="feature-boxes m-tb-40">
                     <div class="feature-box mb-5">
@@ -159,126 +138,59 @@
             </div>
           </div>
           <div class="col-md-5">
-            <img class="img-fluid" src="public/assets/img/drash.svg" width="800" alt="Drash">
+            <img class="img-fluid" src="public/assets/img/logo_drash.svg" width="800" alt="Drash">
           </div>
         </div>
       </div>
     </section>
     <!-- ========== END OVERVIEW SECTION ========== -->
 
-    <!-- ========== FEATURES SECTION ========== -->
-    <section class="section-spacer u-bg-gradient--primary u-text--light" id="features">
+    <!-- ========== MODULES SECTION ========== -->
+    <section class="section-spacer u-bg-gradient--primary" id="features">
       <div class="container">
         <div class="row">
-          <div class="col-md-7 mx-auto">
-            <header class="section-header text-center">
-              <h2 class="section-title h1">Features</h2>
-              <p class="lead">Even though it's micro, Drash comes with some power.</p>
+          <div class="mx-auto">
+            <header class="section-header text-center u-text--light">
+              <h2 class="section-title h1">Modules</h2>
             </header>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-9 mx-auto">
-            <div class="row text-center">
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="feature-list feature-list-md">
-                  <i class="fas fa-clone fa-3x mb-4"></i>
-                  <h3>Resources</h3>
-                  <p>Create resources, define their URIs, and allow clients to make requests to them.</p>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="feature-list feature-list-md">
-                  <i class="fas fa-file-alt fa-3x mb-4"></i>
-                  <h3>Content Negotiation</h3>
-                  <p>Send clients the representations they request &mdash; JSON, XML, HTML, etc.</p>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="feature-list feature-list-md">
-                  <i class="fas fa-layer-group fa-3x mb-4"></i>
-                  <h3>Middleware</h3>
-                  <p>Filter requests globally, or be more granular with resource-level middleware.</p>
-                </div>
-              </div>
-            </div>
-            <div class="row text-center">
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="feature-list feature-list-md">
-                  <i class="fas fa-book-reader fa-3x mb-4"></i>
-                  <h3>Request Body Parsing</h3>
-                  <p>Parse JSON, URL encoded, and multipart bodies with a single method call.</p>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="feature-list feature-list-md">
-                  <i class="fas fa-code-branch fa-3x mb-4"></i>
-                  <h3>Route Path Params</h3>
-                  <p>Support your REST API endpoints with route path params.</p>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="feature-list feature-list-md">
-                  <i class="fas fa-file-code fa-3x mb-4"></i>
-                  <h3>Serve Static Assets</h3>
-                  <p>Serve static assets like stylesheets and JavaScript files &mdash; good for web apps.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ========== END FEATURES SECTION ========== -->
-
-    <!-- ========== STACK SECTION ========== -->
-    <section class="section-spacer" id="stack">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="section-header">
-              <h2 class="section-title h1">Stack</h2>
-              <p>Stack your project with other <a href="https://deno.land/x/" target="_BLANK">Deno modules</a> to make it more powerful.</p>
-            </div>
-          </div>
-          <div class="col-md-12 col-lg-9">
+          <div class="col-md-12 col-lg-9 mx-auto">
             <div class="row">
-              <div class="col-md-4 col-sm-6">
-                <a href="/docs/#/third-party-tutorials/databases/deno-mysql" class="card integration-card" target="_BLANK">
+              <div class="col-md-6">
+                <a href="/drash" class="card integration-card text-center p-3" target="_BLANK">
+                  <img height="150" src="/public/assets/img/logo_drash.svg">
                   <div class="card-header">
-                    <h4>deno_mysql</h4>
-                    <span class="integration-type">A MySQL driver for Deno</span>
-                  </div>
-                  <div class="card-body">
-                    <p>
-                      Add a MySQL driver to your project so you can serve more dynamic data.
-                    </p>
+                    <h4>Drash</h4>
+                    <span class="integration-type">A REST microframework</span>
                   </div>
                 </a>
               </div>
-              <div class="col-md-4 col-sm-6">
-                <a href="/docs/#/third-party-tutorials/databases/deno-postgres" class="card integration-card" target="_BLANK">
+              <div class="col-md-6">
+                <a href="/sockets" class="card integration-card text-center p-3" target="_BLANK">
+                  <img height="150" src="/public/assets/img/logo_sockets.svg">
                   <div class="card-header">
-                    <h4>deno-postgres</h4>
-                    <span class="integration-type">A PostgreSQL driver for Deno</span>
-                  </div>
-                  <div class="card-body">
-                    <p>
-                      Add a PostgreSQL driver to your project so you can serve more dynamic data.
-                    </p>
+                    <h4>Sockets</h4>
+                    <span class="integration-type">A WebSocket library</span>
                   </div>
                 </a>
               </div>
-              <div class="col-md-4 col-sm-6">
-                <a href="/docs/#/third-party-tutorials/template-engines/dejs" class="card integration-card" target="_BLANK">
+              <div class="col-md-6">
+                <a href="/dmm" class="card integration-card text-center p-3" target="_BLANK">
+                  <img height="150" src="/public/assets/img/logo_dmm.svg">
                   <div class="card-header">
-                    <h4>dejs</h4>
-                    <span class="integration-type">An ejs template engine for Deno</span>
+                    <h4>dmm</h4>
+                    <span class="integration-type">A lightweight module manager</span>
                   </div>
-                  <div class="card-body">
-                    <p>
-                      Add a template engine to your project to serve server-rendered HTML.
-                    </p>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="/rhum" class="card integration-card text-center p-3" target="_BLANK">
+                  <img height="150" src="/public/assets/img/logo_rhum.svg">
+                  <div class="card-header">
+                    <h4>Rhum</h4>
+                    <span class="integration-type">A lightweight testing framework</span>
                   </div>
                 </a>
               </div>
@@ -287,7 +199,7 @@
         </div>
       </div>
     </section>
-    <!-- ========== END STACK SECTION ========== -->
+    <!-- ========== END MODULES SECTION ========== -->
 
     <!-- ========== DISCORD SECTION ========== -->
     <section class="section-spacer u-bg--default" id="discord">
@@ -311,7 +223,7 @@
             <header class="section-header text-center u-text--light">
               <p class="lead">Develop with confidence.</p>
               <p>Released under the MIT License.</p>
-              <a href="https://github.com/drashland/deno-drash" target="_BLANK" class="text-white mb-3">
+              <a href="https://github.com/drashland" target="_BLANK" class="text-white mb-3">
                 <i class="fab fa-github fa-3x"></i>
               </a>
             </header>

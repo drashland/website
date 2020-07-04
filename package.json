@@ -1,0 +1,14 @@
+{
+  "name": "website",
+  "version": "0.0.1",
+  "description": "Drash Land",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "test": "test"
+  },
+  "author": "Drash Land",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
