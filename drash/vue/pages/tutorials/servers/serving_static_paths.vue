@@ -68,6 +68,6 @@ page-tutorial(
             template(v-slot:code)
               | curl localhost:1447
           p You should receive the following response:
-          a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/serving_static_paths/verification_1.png")
-            img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/serving_static_paths/verification_1.png'")
+          p
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/serving_static_paths/verification_1.png'")
 </template>

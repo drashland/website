@@ -8,7 +8,7 @@ div.c-sidebar
       div.col
         h1.module-name.margin-bottom--0
           a(href="/")
-            img.margin-bottom--0(alt="Drash" :src="'/public/assets/img/drash.svg'" width="auto" height="130")
+            img.margin-bottom--0(alt="Drash" :src="'/drash/assets/img/drash.svg'" width="auto" height="130")
             span.text-hide Drash
   div.c-sidebar__body
     div.c-sidebar__menu
@@ -222,34 +222,35 @@ div.c-sidebar
 </template>
 
 <script>
-    $(document).ready(function () {
-      /**
-       * @param {jQuery} $headingBody jQuery selected element of the body container for the heading
-       * @param {jQuery} $arrow jquery selected element of the arrow for the heading
-       * @param {Event} event Click event object, to prevent link actions when collapsing
-       */
-      function handleExpandableClick ($headingBody, $arrow, event) {
-        $headingBody.toggleClass('hide--soft')
-        const isExpanded = $arrow.attr('class').indexOf('down') >= 0
-        if (isExpanded) {
-          $arrow.removeClass('down').addClass('right')
-          event.preventDefault()
-        } else {
-          $arrow.removeClass('right').addClass('down')
-        }
-      }
-      const $sidebarBody = $('.c-sidebar .c-sidebar__body')
-      $($sidebarBody.find('.heading')).on('click', function (event) {
-        const $headingBody = $(this).next()
-        const $arrow = $(this).find('.arrow')
-        handleExpandableClick($headingBody, $arrow, event)
-      })
-      $($sidebarBody.find('.sub-heading')).on('click', function (event) {
-        const $subheadingBody = $(this).next()
-        const $arrow = $(this).find('.arrow')
-        handleExpandableClick($subheadingBody, $arrow, event)
-      })
-    })
+$(document).ready(function () {
+  /**
+   * @param {jQuery} $headingBody jQuery selected element of the body container for the heading
+   * @param {jQuery} $arrow jquery selected element of the arrow for the heading
+   * @param {Event} event Click event object, to prevent link actions when collapsing
+   */
+  function handleExpandableClick ($headingBody, $arrow, event) {
+    $headingBody.toggleClass('hide--soft')
+    const isExpanded = $arrow.attr('class').indexOf('down') >= 0
+    if (isExpanded) {
+      $arrow.removeClass('down').addClass('right')
+      event.preventDefault()
+    } else {
+      $arrow.removeClass('right').addClass('down')
+    }
+  }
+  const $sidebarBody = $('.c-sidebar .c-sidebar__body')
+  $($sidebarBody.find('.heading')).on('click', function (event) {
+    const $headingBody = $(this).next()
+    const $arrow = $(this).find('.arrow')
+    handleExpandableClick($headingBody, $arrow, event)
+  })
+  $($sidebarBody.find('.sub-heading')).on('click', function (event) {
+    const $subheadingBody = $(this).next()
+    const $arrow = $(this).find('.arrow')
+    handleExpandableClick($subheadingBody, $arrow, event)
+  })
+})
+
 export default {
     data() {
         return {};

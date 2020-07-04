@@ -1,24 +1,24 @@
-// Webpack
 let conf = process.env.conf; // This variable comes from webpack.config.js under `plugins`
 
-// Vue
 import Vue from "vue";
+
 import VueRouter from "vue-router";
+Vue.use(VueRouter);
+
 import MarkdownIt from "markdown-it";
 window.markdownIt = new MarkdownIt();
 
-Vue.use(VueRouter);
+import Client from "/common/js/axios.js";
+Vue.prototype.$api_service = Client;
 
 Vue.prototype.$app_data = app_data;
 Vue.prototype.$conf = conf;
 Vue.prototype.$store = app_data.store;
-Vue.prototype.$api_service = Client;
 
 // Vue - Components
 import VueAppRoot from "/drash/vue/vue_app_root.vue";
 import Sidebar from "/drash/vue/sidebar.vue";
-import GlobalComponents from "/drash/assets/js/compiled_vue_global_components.js";
-import Client from "/common/js/axios.js";
+import "/drash/assets/js/compiled_vue_global_components.js";
 
 // Vue - Global registration
 Vue.filter('markdown-it', function(value) {

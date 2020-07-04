@@ -84,5 +84,6 @@ page-tutorial(
         li
           p Go to <code>localhost:1447/user</code> in your browser.
           p You should receive the following response:
-          img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/front_end/adding_template_partials.png'")
+          p
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/front_end/adding_template_partials.png'")
 </template>

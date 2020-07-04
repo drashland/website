@@ -4,9 +4,7 @@ a(:href="$conf.base_url + '/#' + href")
 </template>
 
 <script>
-import Vue from "vue";
-
-let component = {
+export default {
   props: {
     href: {
       required: true,
@@ -14,6 +12,4 @@ let component = {
     },
   }
 };
-
-export default component;
 </script>

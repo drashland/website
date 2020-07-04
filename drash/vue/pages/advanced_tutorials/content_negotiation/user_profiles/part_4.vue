@@ -85,12 +85,12 @@ page-tutorial-part(
           p Make a request to <code>localhost:1447/users/1</code> in your browser.
           p You should receive the following response:
           p
-            img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3.png'")
         li
           p Make a request to <code>localhost:1447/users/1</code> in Postman (or similar).
           p You should receive the following response:
           p
-            img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
         li
           p Make a request to <code>localhost:1447/users/1</code> in Postman (or similar) with the following header:
           p
@@ -99,7 +99,7 @@ page-tutorial-part(
                 | Accept: text/html
           p You should receive the following response:
           p
-            img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_html.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_html.png'")
         li
           p Make a request to <code>localhost:1447/users/1</code> in Postman (or similar) with the following header:
           p
@@ -108,5 +108,5 @@ page-tutorial-part(
                 | Accept: text/xml
           p You should receive the following response because the resource defaults to JSON responses.
           p
-            img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
 </template>

@@ -22,5 +22,5 @@ page()
       hr
       p Below is a digram of Drash's complete request-resource-response lifecycle with error handling flows.
       p
-        img(:src="$conf.base_url + '/public/assets/img/drash_lifecycle_diagram.svg'")
+        img(:src="$conf.base_url + '/drash/assets/img/drash_lifecycle_diagram.svg'")
 </template>

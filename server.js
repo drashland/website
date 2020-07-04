@@ -27,6 +27,11 @@ function getContentTypeHeader(path) {
   if (path.includes(".woff2")) { return "font/woff2"; }
 }
 
+function getDrashVueAppData() {
+  let appData = {};
+  return appData;
+}
+
 // Handle HTTP request errors
 function handleRequestError(error, response) {
   console.error(error);
@@ -79,9 +84,11 @@ function handleHttpRequest(request, response) {
 function handleDrashApp(response) {
   let html = fs.readFileSync("./drash/index.template.html", "utf8");
   html = html.replace(/\{\{ environment \}\}/g, configs.environment);
+  html = html.replace("{{ app_data }}", JSON.stringify(getDrashVueAppData()));
   response.write(html);
 }
 
+// you don't want to end up here ;)
 function oops(response, error) {
   response.writeHeader(200, {"Content-Type": "text/html"});
   let html = fs.readFileSync("./500.html", "utf8");

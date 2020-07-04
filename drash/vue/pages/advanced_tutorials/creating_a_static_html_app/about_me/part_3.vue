@@ -77,13 +77,13 @@ page-tutorial-part(
         li Go to <code>localhost:1447/</code> in your browser.
           p You should receive a response similar to the following:
           p
-            img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/1.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/1.png'")
         li Go to <code>localhost:1447/contact</code> in your browser.
           p You should receive a response similar to the following:
           p
-            img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/2.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/2.png'")
         li Go to <code>localhost:1447/about</code> in your browser.
           p You should receive a response similar to the following:
           p
-            img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/3.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/3.png'")
 </template>

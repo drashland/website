@@ -41,5 +41,5 @@ page-tutorial-part(
       hr
       h2-hash End State
       p Below is a sample of what you will create.
-      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
+      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
 </template>

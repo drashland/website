@@ -67,25 +67,20 @@ page-tutorial(
         li
           p Using Postman (or similar app), make a <code>GET</code> request to <code>localhost:1447</code>. You should receive the following response:
           p
-            a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_1.png")
-              img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_1.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/creating_a_server/verification_1.png'")
         li
           p Make a <code>PUT</code> request. You should receive the following response:
           p
-            a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_2.png")
-              img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_2.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/creating_a_server/verification_2.png'")
         li
           p Make a <code>POST</code> request. You should receive the following response:
           p 
-            a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_3.png")
-              img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_3.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/creating_a_server/verification_3.png'")
         li
           p Make a <code>DELETE</code> request. You should receive the following response:
           p
-            a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_4.png")
-              img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_4.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/creating_a_server/verification_4.png'")
         li
           p Make a <code>PATCH</code> request. Since <code>PATCH</code> is not defined in your resource, it is not allowed; therefore, you should receive the following response:
           p
-            a(href="/deno-drash-docs/public/assets/img/example_code/tutorials/creating_a_server/verification_5.png")
-              img(:src="$conf.base_url + '/public/assets/img/example_code/tutorials/creating_a_server/verification_5.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/creating_a_server/verification_5.png'")

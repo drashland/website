@@ -1,8 +1,8 @@
-// Webpack
 let conf = process.env.conf; // This variable comes from webpack.config.js under `plugins`
 
-// Vue Router
+import Vue from "vue";
 import VueRouter from "vue-router";
+Vue.use(VueRouter);
 
 import compiledRoutes from "/drash/assets/js/compiled_vue_routes.js"
 

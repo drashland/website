@@ -6,9 +6,11 @@ const outFile = "drash/assets/js/compiled_vue_routes.js";
 console.log(`Compiling ${outFile}...`);
 
 let importString = ``;
-let exportString = `export default [
+let exportString = `
+export default [
 `;
 let count = 0;
+
 function walk(directory) {
   const files = fs.readdirSync(directory);
   for (let index in files) {

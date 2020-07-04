@@ -43,7 +43,7 @@ page-tutorial-part(
       h2-hash End State
       p Below are samples of what you will create.
       p
-        img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/verification_2.png'")
+        img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/verification_2.png'")
       p
-        img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
+        img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
 </template>

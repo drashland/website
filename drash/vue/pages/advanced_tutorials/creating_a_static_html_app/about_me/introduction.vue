@@ -41,7 +41,7 @@ page-tutorial-part(
       hr
       h2-hash End State
       p Below are samples of what you will create.
-      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/1.png'")
-      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/2.png'")
-      img(:src="$conf.base_url + '/public/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/3.png'")
+      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/1.png'")
+      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/2.png'")
+      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/3.png'")
 </template>

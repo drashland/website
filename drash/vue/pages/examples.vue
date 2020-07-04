@@ -73,7 +73,7 @@ page
         div.col-6
           h2 Output
           p.output
-            img(:src="$conf.base_url + '/public/assets/img/examples/1.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/examples/1.png'")
       div.row(v-show="show == 2")
         div.col-6
           h2 Code
@@ -107,7 +107,7 @@ page
         div.col-6
           h2 Output
           p.output
-            img(:src="$conf.base_url + '/public/assets/img/examples/2.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/examples/2.png'")
       div.row(v-show="show == 3")
         div.col-6
           h2 Code
@@ -141,7 +141,7 @@ page
         div.col-6
           h2 Output
           p.output
-            img(:src="$conf.base_url + '/public/assets/img/examples/3.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/examples/3.png'")
       div.row(v-show="show == 4")
         div.col-6
           h2 Code
@@ -188,7 +188,7 @@ page
         div.col-6
           h2 Output
           p.output
-            img(:src="$conf.base_url + '/public/assets/img/examples/4.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/examples/4.png'")
       div.row(v-show="show == 5")
         div.col-6
           h2 Code
@@ -234,7 +234,7 @@ page
         div.col-6
           h2 Output
           p.output
-            img(:src="$conf.base_url + '/public/assets/img/examples/5.png'")
+            img(:src="$conf.base_url + '/drash/assets/img/examples/5.png'")
 </template>
 
 <style lang="scss" scoped>
