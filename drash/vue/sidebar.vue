@@ -157,22 +157,6 @@ div.c-sidebar
           a-base-url(href="/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-6") Part 6: (Optional) Linking JavaScripts and Stylesheets
       span.heading
         p.arrow.right
-        span.heading-link Third Party Tutorials
-      div.c-sidebar__menu-body.hide--soft
-        a-base-url(href="/third-party-tutorials/introduction") Introduction
-        span.sub-heading
-          p.arrow.right
-          a Databases
-        div.l-submenu-1.hide--soft
-          a-base-url(href="/third-party-tutorials/databases/deno-mysql") deno_mysql
-          a-base-url(href="/third-party-tutorials/databases/deno-postgres") deno-postgres
-        span.sub-heading
-          p.arrow.right
-          a Template Engines
-        div.l-submenu-1.hide--soft
-          a-base-url(href="/third-party-tutorials/template-engines/dejs") dejs
-      span.heading
-        p.arrow.right
         span.heading-link Versions
       div.c-sidebar__menu-body.hide--soft
         a-base-url(href="/") v1.x
