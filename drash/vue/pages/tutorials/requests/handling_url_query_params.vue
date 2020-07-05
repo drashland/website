@@ -10,7 +10,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/tutorials/requests/handling_url_query_params'],
+      example_code: this.$example_code['drash/example_code/tutorials/requests/handling_url_query_params/'],
       toc: {
         items: [
           "Before You Get Started",
@@ -51,11 +51,15 @@ page-tutorial(
         li
           p Create your resource file. You resource file will check for the <code>id</code> URL query param in the request's URL. If it exists and is a <code>number</code>, then it will return what was passed in. If it is <code>NaN</code> or does not exist, then it will throw a <code>400 Bad Request</code> response.
           p
-            code-block(:data="example_code.home_resource")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.home_resource.filepath }}
+              template(v-slot:code) {{ example_code.home_resource.contents }}
         li
           p Create your app file.
           p
-            code-block(:data="example_code.app")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.app.filepath }}
+              template(v-slot:code) {{ example_code.app.contents }}
   div.row
     div.col
       hr
