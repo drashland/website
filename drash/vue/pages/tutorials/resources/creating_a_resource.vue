@@ -10,7 +10,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/tutorials/resources/creating_a_resource'],
+      example_code: this.$example_code['drash/example_code/tutorials/resources/creating_a_resource/'],
       toc: {
         items: [
           "Before You Get Started",
@@ -51,11 +51,15 @@ page-tutorial(
         h2-hash Creating A Resource
         p Take the example below. This resource handles requests at the <code>/</code> URI. If a client makes a request to this URI, this resource would handle that request.
         p
-          code-block(:data="example_code.home_resource_get_post")
+          code-block-slotted(language="typescript")
+            template(v-slot:title) /path/to/your/project/home_resource.ts
+            template(v-slot:code) {{ example_code.home_resource_get_post.contents }}
         h3 Adding More HTTP Methods
         p Giving a resource the ability to handle diffrent types of requests is as easy as adding the HTTP method to handle that request. Taking the above code, you can add more HTTP methods like the ones highlighted below; and your resource would be able to handle those requests.
         p
-          code-block(:data="example_code.home_resource_get_post_put_delete" line_highlight="16-24")
+          code-block-slotted(language="typescript" line_highlight="16-24")
+            template(v-slot:title) /path/to/your/project/home_resource.ts
+            template(v-slot:code) {{ example_code.home_resource_get_post_put_delete.contents }}
         p As you can see, the HTTP methods you add and make <code>public</code> in a resource are the HTTP methods clients are allowed to call. If a client tries to make a <code>PATCH</code> request to this resource, it would receive a <code>405 Method Not Allowed</code> error as a response because this resource does not have <code>public PATCH() { ... }</code> defined.
     div.row
       div.col
@@ -63,7 +67,9 @@ page-tutorial(
         h2-hash Path Params
         p Resources are able to specify path params in their paths to allow them to cover multiple endpoints.
         p
-          code-block(:data="example_code.home_resource_path_params")
+          code-block-slotted(language="typescript" line_highlight="5")
+            template(v-slot:title) /path/to/your/project/home_resource.ts
+            template(v-slot:code) {{ example_code.home_resource_path_params.contents }}
         p Examples of URIs that this resource would handle:
         ul
           li
@@ -81,7 +87,9 @@ page-tutorial(
         h2-hash Regular Expression URIs
         p Resources are able to specify regular expressions in their paths to allow them to cover multiple endpoints.
         p
-          code-block(:data="example_code.home_resource_regular_expression")
+          code-block-slotted(language="typescript" line_highlight="5")
+            template(v-slot:title) /path/to/your/project/home_resource.ts
+            template(v-slot:code) {{ example_code.home_resource_regular_expression.contents }}
         p Examples of URIs that this resource would handle:
         ul
           li
