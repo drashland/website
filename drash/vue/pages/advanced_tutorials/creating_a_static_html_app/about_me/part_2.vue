@@ -11,7 +11,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
       part: 2,
       parts: 3,
       toc: {
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-a-static-html-app/about-me"
+      uri: "/drash/#/advanced-tutorials/creating-a-static-html-app/about-me"
     };
   },
 }
@@ -53,17 +53,23 @@ page-tutorial-part(
         li
           p Create your home resource file.
           p
-            code-block(:data="example_code.home_resource" language="typescript")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.home_resource.filepath }}
+              template(v-slot:code) {{ example_code.home_resource.contents }}
           p Your home resource will serve an HTML file with the following text: This is the home page!
         li
           p Create your contact resource file.
           p
-            code-block(:data="example_code.contact_resource" language="typescript")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.contact_resource.filepath }}
+              template(v-slot:code) {{ example_code.contact_resource.contents }}
           p Your contact resource will serve an HTML file with the following text: This is the contact page!
         li
           p Create your about resource file.
           p
-            code-block(:data="example_code.about_resource" language="typescript")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.about_resource.filepath }}
+              template(v-slot:code) {{ example_code.about_resource.contents }}
           p Your about resource will serve an HTML file with the following text: This is the about page!
   div.row
     div.col
