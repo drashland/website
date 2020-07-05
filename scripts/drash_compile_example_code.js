@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-const directory = "drash/example_code";
-const outFile = "drash/assets/js/compiled_example_code.js";
-const configs = require("./configs.json");
+const configs = require("../configs.json");
+const directory = configs.root_directory + "/drash/example_code";
+const outFile = configs.root_directory + "/drash/assets/js/compiled_example_code.js";
 
 console.log(`Compiling ${outFile}...`);
 

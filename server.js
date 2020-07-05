@@ -2,9 +2,9 @@ const http = require("http");
 const fs = require("fs");
 const configs = require("./configs.json");
 
-require("./compile_vue_global_components.js");
-require("./compile_vue_routes.js");
-require("./compile_example_code.js");
+require("./scripts/drash_compile_vue_global_components.js");
+require("./scripts/drash_compile_vue_routes.js");
+require("./scripts/drash_compile_example_code.js");
 
 // Create the server
 http.createServer((request, response) => {

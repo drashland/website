@@ -1,7 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-const directory = "drash/vue/global";
-const outFile = "drash/assets/js/compiled_vue_global_components.js";
+const configs = require("../configs.json");
+const directory = configs.root_directory + "/drash/vue/global";
+const outFile = configs.root_directory + "/drash/assets/js/compiled_vue_global_components.js";
 
 console.log(`Compiling ${outFile}...`);
 

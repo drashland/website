@@ -7,7 +7,8 @@
     "server": "nodemon server.js",
     "test": "test",
     "webpack:dev": "node_modules/.bin/webpack --hide-modules --env.environment=development --watch",
-    "drash:copy-api-reference": "cp ../deno-drash/api_reference.json drash/assets/json/api_reference.json"
+    "drash:copy-api-reference": "cp ../deno-drash/api_reference.json drash/assets/json/api_reference.json",
+    "drash:build-staging": "scripts/drash_build_staging"
   },
   "author": "Drash Land",
   "devDependencies": {
