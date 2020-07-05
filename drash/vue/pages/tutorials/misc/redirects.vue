@@ -30,20 +30,30 @@ page-tutorial(
       hr
       h2-hash Steps
       ol
-        li Create your <code>ColaResource</code> file.
-          code-block(:data="example_code.cola_resource")
-        li Create your app file.
-          code-block(:data="example_code.app")
+        li
+          p Create your <code>ColaResource</code> file.
+          p
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.cola_resource.filepath }}
+              template(v-slot:code) {{ example_code.cola_resource.contents }}
+        li
+          p Create your app file.
+          p
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.app.filepath }}
+              template(v-slot:code) {{ example_code.app.contents }}
   div.row
     div.col
       hr
       h2-hash Verification
       ol
-        li Run your app.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | deno run --allow-net app.ts
+        li
+          p Run your app.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | deno run --allow-net app.ts
         li
           p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/cola?id=5</code> to be redirected to <code>/cola/1</code>.
           p
