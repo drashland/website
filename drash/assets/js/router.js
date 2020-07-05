@@ -51,7 +51,7 @@ router.beforeEach((to, from, next) => {
   if (conf.environment != "production") {
     env = ` [${conf.environment}]`;
   }
-  document.title = conf.module_name + env + " - " + to.meta.title;
+  document.title = "Drash" + env + " - " + to.meta.title;
   next();
 });
 
