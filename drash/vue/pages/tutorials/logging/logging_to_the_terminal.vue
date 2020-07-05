@@ -44,12 +44,18 @@ page-tutorial(
       hr
       h2-hash Steps
       ol
-        li Create your resource file.
-          code-block(:data="example_code.home_resource")
-          p Before your resource sets the response's body, it will write log messages.
-        li Create your app file.
-          code-block(:data="example_code.app" line_highlight="11")
-          p Your server will display log messages based on the value of the highlighted code. In this tutorial, your server will show all log messages.
+        li
+          p Create your resource file. Before your resource sets the response's body, it will write log messages.
+          p
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.home_resource.filepath }}
+              template(v-slot:code) {{ example_code.home_resource.contents }}
+        li
+          p Create your app file. Your server will display log messages based on the value of the highlighted code.
+          p
+            code-block-slotted(language="typescript" line_highlight="11")
+              template(v-slot:title) {{ example_code.app.filepath }}
+              template(v-slot:code) {{ example_code.app.contents }}
   div.row
     div.col
       hr
@@ -76,14 +82,14 @@ page-tutorial(
             template(v-slot:title) Terminal
             template(v-slot:code)
               | 2019-12-27 17:14:55.760Z | INFO | Request received: GET /
-              | 2019-12-27 17:14:55.762Z | DEBUG | [drash] Using `HomeResource` resource class to handle the request.
-              | 2019-12-27 17:14:55.762Z | DEBUG | [drash] Calling GET().
+              | 2019-12-27 17:14:55.762Z | DEBUG | [syslog] Using `HomeResource` resource class to handle the request.
+              | 2019-12-27 17:14:55.762Z | DEBUG | [syslog] Calling GET().
               | 2019-12-27 17:14:55.762Z | FATAL | This is a FATAL log message.
               | 2019-12-27 17:14:55.762Z | ERROR | This is an ERROR log message
               | 2019-12-27 17:14:55.762Z | WARN | This is a WARN log message
               | 2019-12-27 17:14:55.762Z | INFO | This is an INFO log message
               | 2019-12-27 17:14:55.762Z | DEBUG | This is a DEBUG log message
               | 2019-12-27 17:14:55.762Z | TRACE | This is a TRACE log message
-              | 2019-12-27 17:14:55.762Z | DEBUG | [drash] Sending response. 200.
-          p Drash's server has debug log messages for development purposes. They are highlighted above and prefixed with <code>[drash]</code>. All development related Drash log messages are prefixed with <code>[drash]</code> to help you identify which messages are from Drash.
+              | 2019-12-27 17:14:55.762Z | DEBUG | [syslog] Sending response. 200.
+          p Drash's server has debug log messages for development purposes. They are highlighted above and prefixed with <code>[syslog]</code>. All development related Drash log messages are prefixed with <code>[syslog]</code> to help you identify which messages are from Drash.
 </template>

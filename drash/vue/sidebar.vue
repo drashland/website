@@ -70,7 +70,6 @@ div.c-sidebar
         div.l-submenu-1.hide--soft
           a-base-url(href="/tutorials/logging/logging-to-the-terminal") Logging To The Terminal
           a-base-url(href="/tutorials/logging/logging-to-files") Logging To Files
-          a-base-url(href="/tutorials/logging/logging-using-log-from-deno-std") Logging Using Log From deno_std
         span.sub-heading
           p.arrow.right
           a Front-end
