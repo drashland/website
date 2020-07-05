@@ -11,8 +11,8 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
-      example_code_src: this.$example_code['drash/example_code/' + resource.meta.source_code_uri + '/src'],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
+      example_code_src: this.$example_code['drash/example_code' + resource.meta.source_code_uri + '/src'],
       part: 1,
       parts: 6,
       toc: {
@@ -23,7 +23,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-a-docker-container/docker-compose-setup"
+      uri: "/drash/#/advanced-tutorials/creating-a-docker-container/docker-compose-setup"
     };
   },
 }
