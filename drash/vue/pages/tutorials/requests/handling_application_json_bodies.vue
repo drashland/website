@@ -10,7 +10,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/tutorials/requests/handling_application_json_bodies'],
+      example_code: this.$example_code['drash/example_code/tutorials/requests/handling_application_json_bodies/'],
       toc: {
         items: [
           "Before You Get Started",
@@ -51,11 +51,15 @@ page-tutorial(
         li
           p Create your resource file. You resource file will check for the <code>name</code> param in the request's body. If it exists, then it will return what was passed in. If it does not exist, then it will throw a <code>400 Bad Request</code> response.
           p
-            code-block(:data="example_code.home_resource")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.home_resource.filepath }}
+              template(v-slot:code) {{ example_code.home_resource.contents }}
         li
           p Create your app file.
           p
-            code-block(:data="example_code.app")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.app.filepath }}
+              template(v-slot:code) {{ example_code.app.contents }}
   div.row
     div.col
       hr
@@ -89,7 +93,7 @@ page-tutorial(
               template(v-slot:code)
                 | curl --header "Content-Type: application/json" \
                 | --request POST \
-                | --data '{"username":"denosaurus"}' \
+                | --data '{"name":"denosaurus"}' \
                 | localhost:1447
           p You should receive the following response:
             code-block-slotted(:header="false")
