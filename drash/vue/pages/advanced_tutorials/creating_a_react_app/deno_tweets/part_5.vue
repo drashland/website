@@ -11,8 +11,8 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
-      example_code_components: this.$example_code['drash/example_code/' + resource.meta.source_code_uri + '/components'],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
+      example_code_components: this.$example_code['drash/example_code' + resource.meta.source_code_uri + '/components'],
       part: 5,
       parts: 5,
       toc: {
@@ -23,7 +23,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-a-react-app/deno-tweets"
+      uri: "/drash/#/advanced-tutorials/creating-a-react-app/deno-tweets"
     };
   },
 }
@@ -72,14 +72,16 @@ page-tutorial-part(
       hr
       h2-hash Verification
       ol
-        li Build your environment.
+        li
+          p Build your environment.
           p
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | node_modules/.bin/webpack-cli --config webpack.config.js
           p Now that you have created your components, Webpack will transpile them so the browser can understand the contents.
-        li Start your server.
+        li
+          p Start your server.
           p
             code-block-slotted
               template(v-slot:title) Terminal
@@ -87,5 +89,6 @@ page-tutorial-part(
                 | deno run --allow-net --allow-read app.ts
           p Go to <code>localhost:1447/</code> in your browser.
           p You should the something similar to the following:
-          img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
+          p
+            img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
 </template>

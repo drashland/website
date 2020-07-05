@@ -11,7 +11,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
       part: 2,
       parts: 5,
       toc: {
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-a-react-app/deno-tweets"
+      uri: "/drash/#/advanced-tutorials/creating-a-react-app/deno-tweets"
     };
   },
 }
@@ -52,7 +52,10 @@ page-tutorial-part(
       ol
         li
           p Create your home resource file.
-          code-block(:data="example_code.home_resource" language="typescript")
+          p
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.home_resource.filepath }}
+              template(v-slot:code) {{ example_code.home_resource.contents }}
           p Your home resource will serve an HTML file and that file will display your React app. You will be creating this HTML file in the next tutorial part.
   div.row
     div.col
@@ -60,14 +63,15 @@ page-tutorial-part(
       h2-hash Verification
       p Stop your server (<code>ctrl + c</code>) if you still have it running from Part 1. Now that you have your resource file that your server is expecting, you can start your server and make a <code>GET</code> request to it.
       ol
-        li Run your app.
+        li
+          p Run your app.
           p
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | deno run --allow-net --allow-read app.ts
-        li Go to <code>localhost:1447/</code> in your browser.
-          p You should receive the following response:
+        li
+          p Go to <code>localhost:1447/</code> in your browser. You should receive the following response:
           p
             code-block-slotted(:header="false")
               template(v-slot:code)

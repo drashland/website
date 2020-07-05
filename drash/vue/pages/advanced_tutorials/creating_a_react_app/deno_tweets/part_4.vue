@@ -11,7 +11,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
       part: 4,
       parts: 5,
       toc: {
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-a-react-app/deno-tweets"
+      uri: "/drash/#/advanced-tutorials/creating-a-react-app/deno-tweets"
     };
   },
 }
@@ -53,14 +53,18 @@ page-tutorial-part(
         li
           p Create your Webpack configuration file.
           p
-            code-block(:data="example_code.webpack" language="javascript")
+            code-block-slotted(language="javascript")
+              template(v-slot:title) {{ example_code.webpack.filepath }}
+              template(v-slot:code) {{ example_code.webpack.contents }}
           p Here, you are telling Webpack to search for your React components and to transpile them.
           p The transpiled files will then be placed in a different directory (see the <code>output</code> property).
           p You also have a block in the file that will test the found files against a <code>.tsx</code> extension, and will pass those files through the <code>ts-loader</code> to support transpiling TSX.
         li
           p Create your Typescript configuration file.
           p
-            code-block(:data="example_code.tsconfig" language="javascript")
+            code-block-slotted(language="javascript")
+              template(v-slot:title) {{ example_code.tsconfig.filepath }}
+              template(v-slot:code) {{ example_code.tsconfig.contents }}
           p This configuration file aids in allowing Webpack to continue with its task, and will exclude your Deno files from the Typescript compiler &mdash; seperate from Deno's Typescript compiler.
         li
           p Install the dependencies.
@@ -74,7 +78,8 @@ page-tutorial-part(
       hr
       h2-hash Verification
       ol
-        li Test Webpack.
+        li
+          p Test Webpack.
           p
             code-block-slotted
               template(v-slot:title) Terminal

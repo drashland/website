@@ -11,7 +11,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
       part: 3,
       parts: 5,
       toc: {
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-a-react-app/deno-tweets"
+      uri: "/drash/#/advanced-tutorials/creating-a-react-app/deno-tweets"
     };
   },
 }
@@ -52,7 +52,9 @@ page-tutorial-part(
         li
           p Create your HTML file.
           p
-            code-block(:data="example_code.index" language="html")
+            code-block-slotted(language="html")
+              template(v-slot:title) {{ example_code.index.filepath }}
+              template(v-slot:code) {{ example_code.index.contents }}
           p To make things easier, your HTML file comes with the embedded Twitter Timeline widget. This widget will show Deno's tweets.
           p You will notice there is a <code>&lt;script&gt;</code> tag. This points to your compiled React component that you will create in the later steps.
   div.row
