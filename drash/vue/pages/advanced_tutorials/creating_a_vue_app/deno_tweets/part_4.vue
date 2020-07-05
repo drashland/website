@@ -11,7 +11,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
       part: 4,
       parts: 4,
       toc: {
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-a-vue-app/deno-tweets"
+      uri: "/drash/#/advanced-tutorials/creating-a-vue-app/deno-tweets"
     };
   },
 }
@@ -71,14 +71,15 @@ page-tutorial-part(
       h2-hash Verification
       p Stop your server (<code>ctrl + c</code>) if you still have it running from Part 2.
       ol
-        li Run your app.
+        li
+          p Run your app.
           p
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | deno run --allow-net --allow-read app.ts
-        li Go to <code>localhost:1447/</code> in your browser.
-          p You should receive a response similar to the following:
+        li
+          p Go to <code>localhost:1447/</code> in your browser. You should receive a response similar to the following:
           p
             img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_4.png'")
 </template>

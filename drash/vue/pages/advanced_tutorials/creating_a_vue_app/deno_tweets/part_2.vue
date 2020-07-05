@@ -11,7 +11,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
       part: 2,
       parts: 4,
       toc: {
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-a-vue-app/deno-tweets"
+      uri: "/drash/#/advanced-tutorials/creating-a-vue-app/deno-tweets"
     };
   },
 }
@@ -52,7 +52,10 @@ page-tutorial-part(
       ol
         li
           p Create your home resource file.
-          code-block(:data="example_code.home_resource" language="typescript")
+          p
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.home_resource.filepath }}
+              template(v-slot:code) {{ example_code.home_resource.contents }}
           p Your home resource will serve an HTML file and that file will display your Vue app. You will be creating this HTML file in the next tutorial part.
   div.row
     div.col
@@ -66,10 +69,8 @@ page-tutorial-part(
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | deno run --allow-net --allow-read app.ts
-          p This time, your app requires three flags to run. You already know what the <code>--allow-net</code> and <code>--allow-env</code> flags do from Part 1.
-          p <code>--allow-read</code> is required because your resource requires read access to read your <code>index.html</code> file. You can learn more about the <code>--allow-read</code> flag at <a href="https://deno.land/std/manual.md" target="_BLANK">https://deno.land/std/manual.md</a>.
-        li Go to <code>localhost:1447/</code> in your browser.
-          p You should receive the following response:
+        li
+          p Go to <code>localhost:1447/</code> in your browser. You should receive the following response:
           p
             code-block-slotted(:header="false")
               template(v-slot:code)

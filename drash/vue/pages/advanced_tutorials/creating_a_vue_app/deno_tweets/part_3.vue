@@ -11,7 +11,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
       part: 3,
       parts: 4,
       toc: {
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-a-vue-app/deno-tweets"
+      uri: "/drash/#/advanced-tutorials/creating-a-vue-app/deno-tweets"
     };
   },
 }
@@ -52,7 +52,9 @@ page-tutorial-part(
         li
           p Create your HTML file.
           p
-            code-block(:data="example_code.index" language="html")
+            code-block-slotted(language="html")
+              template(v-slot:title) {{ example_code.index.filepath }}
+              template(v-slot:code) {{ example_code.index.contents }}
           p To make things easier, your HTML file comes with the embedded Twitter Timeline widget. This widget will show Deno's tweets.
           p You will notice there are two Vue template variables: <code>title</code> and <code>description</code>. You will be assigning these variables in the next tutorial part.
   div.row
@@ -61,14 +63,15 @@ page-tutorial-part(
       h2-hash Verification
       p Stop your server (<code>ctrl + c</code>) if you still have it running from Part 2.
       ol
-        li Run your app.
+        li
+          p Run your app.
           p
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | deno run --allow-net --allow-read app.ts
-        li Go to <code>localhost:1447/</code> in your browser.
-          p You should receive a response similar to the following:
+        li
+          p Go to <code>localhost:1447/</code> in your browser. You should receive a response similar to the following:
           p
             img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_3.png'")
 </template>
