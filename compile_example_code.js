@@ -13,7 +13,8 @@ function walk(directory) {
   for (let index in files) {
     const file = files[index];
     const filepath = path.join(directory, file);
-    const fileNamespace = filepath.replace(path.basename(filepath), "");
+    let fileNamespace = filepath.replace(path.basename(filepath), "");
+    fileNamespace = fileNamespace.substr(0, fileNamespace.length - 1);
     if (!exampleCode[fileNamespace]) {
       exampleCode[fileNamespace] = {};
     }

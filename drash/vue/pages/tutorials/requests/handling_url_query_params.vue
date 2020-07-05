@@ -10,7 +10,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/tutorials/requests/handling_url_query_params/'],
+      example_code: this.$example_code['drash/example_code/tutorials/requests/handling_url_query_params'],
       toc: {
         items: [
           "Before You Get Started",
