@@ -53,10 +53,16 @@ page-tutorial(
       ol
         li
           p Create your resource file. This file will get the <code>my_cookie</code> cookie value and use it in the response body.
-          code-block(:data="example_code.home_resource")
+          p
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.home_resource.filepath }}
+              template(v-slot:code) {{ example_code.home_resource.contents }}
         li
           p Create your app file.
-          code-block(:data="example_code.app")
+          p
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.app.filepath }}
+              template(v-slot:code) {{ example_code.app.contents }}
   div.row
     div.col
       hr
