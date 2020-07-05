@@ -14,7 +14,7 @@ export default {
     data() {
         return {
             data: {
-                class: this.$store.page_data.api_reference["Drash.Dictionaries"].LogLevels
+                class: this.$api_reference["Drash.Dictionaries"].LogLevels
             }
         };
     }

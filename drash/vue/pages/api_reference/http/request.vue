@@ -15,7 +15,7 @@ export default {
         return {
             data: {
               class_name: "Drash.Http.Request",
-              class: this.$store.page_data.api_reference.Http.Request
+              class: this.$api_reference.Http.Request
             }
         };
     }

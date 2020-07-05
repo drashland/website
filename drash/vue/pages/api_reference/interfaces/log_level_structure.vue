@@ -15,7 +15,7 @@ export default {
         return {
             data: {
                 interface_name: "Drash.Interfaces.LogLevelStructure",
-                interface: this.$store.page_data.api_reference.Interfaces.LogLevelStructure,
+                interface: this.$api_reference.Interfaces.LogLevelStructure,
             }
         };
     }

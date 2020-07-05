@@ -15,7 +15,7 @@ export default {
         return {
             data: {
               class_name: "Drash.Exceptions.HttpException",
-              class: this.$store.page_data.api_reference.Exceptions.HttpException
+              class: this.$api_reference.Exceptions.HttpException
             }
         };
     }

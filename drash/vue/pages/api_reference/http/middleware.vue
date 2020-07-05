@@ -15,7 +15,7 @@ export default {
         return {
             data: {
               class_name: "Drash.Http.Middleware",
-              class: this.$store.page_data.api_reference.Http.Middleware
+              class: this.$api_reference.Http.Middleware
             }
         };
     }

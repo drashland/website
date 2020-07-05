@@ -15,7 +15,7 @@ export default {
         return {
             data: {
                 interface_name: "Drash.Interfaces.LoggerConfigs",
-                interface: this.$store.page_data.api_reference.Interfaces.LoggerConfigs,
+                interface: this.$api_reference.Interfaces.LoggerConfigs,
             }
         };
     }

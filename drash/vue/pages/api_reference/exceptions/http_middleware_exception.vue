@@ -15,7 +15,7 @@ export default {
         return {
             data: {
               class_name: "Drash.Exceptions.HttpMiddlewareException",
-              class: this.$store.page_data.api_reference.Exceptions.HttpMiddlewareException
+              class: this.$api_reference.Exceptions.HttpMiddlewareException
             }
         };
     }

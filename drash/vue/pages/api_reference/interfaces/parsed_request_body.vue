@@ -15,7 +15,7 @@ export default {
         return {
             data: {
                 interface_name: "Drash.Interfaces.ParsedRequestBody",
-                interface: this.$store.page_data.api_reference.Interfaces.ParsedRequestBody,
+                interface: this.$api_reference.Interfaces.ParsedRequestBody,
             }
         };
     }

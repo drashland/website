@@ -15,7 +15,7 @@ export default {
         return {
             data: {
               class_name: "Drash.Loggers.ConsoleLogger",
-              class: this.$store.page_data.api_reference.Loggers.ConsoleLogger
+              class: this.$api_reference.Loggers.ConsoleLogger
             }
         };
     }
