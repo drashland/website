@@ -4,11 +4,11 @@
   "description": "Drash Land",
   "main": "index.js",
   "scripts": {
+    "drash:build-staging": "scripts/drash_build_staging",
+    "drash:copy-api-reference": "cp ../deno-drash/api_reference.json drash/assets/json/api_reference.json",
     "server": "nodemon server.js",
     "test": "test",
-    "webpack:dev": "node_modules/.bin/webpack --hide-modules --env.environment=development --watch",
-    "drash:copy-api-reference": "cp ../deno-drash/api_reference.json drash/assets/json/api_reference.json",
-    "drash:build-staging": "scripts/drash_build_staging"
+    "webpack:dev": "node_modules/.bin/webpack --hide-modules --env.environment=development --watch"
   },
   "author": "Drash Land",
   "devDependencies": {

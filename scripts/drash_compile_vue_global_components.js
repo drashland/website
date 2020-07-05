@@ -4,7 +4,7 @@ const configs = require("../configs.json");
 const directory = configs.root_directory + "/drash/vue/global";
 const outFile = configs.root_directory + "/drash/assets/js/compiled_vue_global_components.js";
 
-console.log(`Compiling ${outFile}...`);
+console.log(`Compiling ${outFile}`);
 
 let importString = `import Vue from "vue";\n`;
 
@@ -29,5 +29,3 @@ Vue.component("${filepathKebabCase}", ${filenameWithoutExtension});
 walk(directory);
 
 fs.writeFileSync(outFile, importString);
-
-console.log("... Done.");

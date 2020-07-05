@@ -4,7 +4,7 @@ const configs = require("../configs.json");
 const directory = configs.root_directory + "/drash/example_code";
 const outFile = configs.root_directory + "/drash/assets/js/compiled_example_code.js";
 
-console.log(`Compiling ${outFile}...`);
+console.log(`Compiling ${outFile}`);
 
 let exampleCode = {};
 
@@ -37,5 +37,3 @@ function walk(directory) {
 walk(directory);
 
 fs.writeFileSync(outFile, `export default ${JSON.stringify(exampleCode, null, 4)};`)
-
-console.log("... Done.");
