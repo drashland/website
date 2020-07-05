@@ -45,7 +45,7 @@ page
         h2-hash Middleware Types
         p There are two types of middleware in Drash: server-level middleware and resource-level middleware.
         h3#server-level-middleware Server-Level Middleware
-        p Server-level middleware is middleware executed by the server on every request. You define server-level middleware when you create your server object. Server-level middleware can be executed before or after a request. Read the <a :href=" $conf.base_url + '/#/tutorials/middleware/introduction#setting-the-execution-location'">Setting The Execution Location</a> section below for more information on execution locations.
+        p Server-level middleware is middleware executed by the server on every request. You define server-level middleware when you create your server object. Server-level middleware can be executed before or after a request. Read the <a :href=" '/#/tutorials/middleware/introduction#setting-the-execution-location'">Setting The Execution Location</a> section below for more information on execution locations.
         p Take the example below. There is a set of server-level middleware that will execute before the request and after the request. <code>AuthMiddleware</code> and <code>CacheMiddleware</code> will execute before the request. <code>SomeOtherMiddleware</code> will execute after the request. These middleware classes will execute on every request.
         p
           code-block-slotted(:header="false" language="typescript" line_highlight="2-10")
@@ -60,7 +60,7 @@ page
       div.col
         hr
         h2-hash Setting The Execution Location
-        p There are two locations where middleware can be executed: before the request and after the request. View the <a :href=" $conf.base_url + '/#/lifecycle-diagram'">Lifecycle Diagram</a> for a visual representation.
+        p There are two locations where middleware can be executed: before the request and after the request. View the <a :href=" '/#/lifecycle-diagram'">Lifecycle Diagram</a> for a visual representation.
         h3#before-the-request Before The Request
         p Middleware executed before the request means it is executed before a resource's HTTP method (e.g., <code>MyResource.GET()</code>, <code>MyResource.POST()</code>, <code>MyResource.DELETE()</code>) is called.
         h3#after-the-request After The Request

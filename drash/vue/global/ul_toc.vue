@@ -1,7 +1,7 @@
 <template lang="pug">
 ul
     li(v-for="item in data.items")
-        a(:href="$conf.base_url + '/#' + $route.path + '#' + normalize(item)") {{ item }}
+        a(:href="'/#' + $route.path + '#' + normalize(item)") {{ item }}
 </template>
 
 <script>

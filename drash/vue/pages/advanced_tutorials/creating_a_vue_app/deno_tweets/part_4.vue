@@ -80,5 +80,5 @@ page-tutorial-part(
         li Go to <code>localhost:1447/</code> in your browser.
           p You should receive a response similar to the following:
           p
-            img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_4.png'")
+            img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_4.png'")
 </template>

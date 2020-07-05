@@ -7,7 +7,7 @@ div.c-sidebar
     div.row.align-items-center.text-align--center
       div.col
         h1.module-name.margin-bottom--0
-          a(href="/")
+          a-base-url(href="/")
             img.margin-bottom--0(alt="Drash" :src="'/drash/assets/img/drash.svg'" width="auto" height="130")
             span.text-hide Drash
   div.c-sidebar__body
@@ -21,7 +21,6 @@ div.c-sidebar
         a-base-url(href="/introduction#importing") Importing
         a-base-url(href="/introduction#features") Features
         a-base-url(href="/about-drash") About Drash
-        a-base-url(href="/examples") Examples
         a-base-url(href="/lifecycle-diagram") Drash Lifecycle Diagram
         a-base-url(href="/dependency-management") Dependency Management
         a-base-url(href="/issues") Issues

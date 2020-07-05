@@ -48,7 +48,7 @@ page-tutorial(
           p
             code-block(:data="example_code.home_resource")
         li
-          p Create your app file. Your app file will register your resource via the <code>resources</code> config. By default, your Drash server will send <code>application/json</code> responses via the <code>response_output</code>. More information about using this config can be found in the <a :href=" $conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/introduction'">Advanced Tutorials: Content Negotiation</a> tutorial.
+          p Create your app file. Your app file will register your resource via the <code>resources</code> config. By default, your Drash server will send <code>application/json</code> responses via the <code>response_output</code>. More information about using this config can be found in the <a :href=" '/#/advanced-tutorials/content-negotiation/user-profiles/introduction'">Advanced Tutorials: Content Negotiation</a> tutorial.
           p Optionally, you can <code>await</code> on the <code>server.run()</code> call in case you want to run subsequent code after the call. <code>await</code>ing for the <code>server.run()</code> call ensures that your server is running before any subsequent code runs.
           p
             code-block(:data="example_code.app")
@@ -67,20 +67,20 @@ page-tutorial(
         li
           p Using Postman (or similar app), make a <code>GET</code> request to <code>localhost:1447</code>. You should receive the following response:
           p
-            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/creating_a_server/verification_1.png'")
+            img(:src="'/drash/assets/img/example_code/tutorials/creating_a_server/verification_1.png'")
         li
           p Make a <code>PUT</code> request. You should receive the following response:
           p
-            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/creating_a_server/verification_2.png'")
+            img(:src="'/drash/assets/img/example_code/tutorials/creating_a_server/verification_2.png'")
         li
           p Make a <code>POST</code> request. You should receive the following response:
           p 
-            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/creating_a_server/verification_3.png'")
+            img(:src="'/drash/assets/img/example_code/tutorials/creating_a_server/verification_3.png'")
         li
           p Make a <code>DELETE</code> request. You should receive the following response:
           p
-            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/creating_a_server/verification_4.png'")
+            img(:src="'/drash/assets/img/example_code/tutorials/creating_a_server/verification_4.png'")
         li
           p Make a <code>PATCH</code> request. Since <code>PATCH</code> is not defined in your resource, it is not allowed; therefore, you should receive the following response:
           p
-            img(:src="$conf.base_url + '/drash/assets/img/example_code/tutorials/creating_a_server/verification_5.png'")
+            img(:src="'/drash/assets/img/example_code/tutorials/creating_a_server/verification_5.png'")

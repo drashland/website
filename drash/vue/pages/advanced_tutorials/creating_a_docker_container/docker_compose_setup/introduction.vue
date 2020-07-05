@@ -36,12 +36,12 @@ page-tutorial-part(
       p Although this tutorial has code blocks that you can copy and paste, it is highly recommended that you read about #[a( href="https://docs.docker.com/compose/" ) Docker Compose] so you have knowledge of how it works.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
-        a.btn.btn-success(:href="$conf.base_url + '/#/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-1'") Get Started
+        a.btn.btn-success(:href="'/#/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-1'") Get Started
   div.row
     div.col
       hr
       h2-hash End State
       p Below are samples of what you will create.
-      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/1.png'")
-      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/2.png'")
+      img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/1.png'")
+      img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/2.png'")
 </template>

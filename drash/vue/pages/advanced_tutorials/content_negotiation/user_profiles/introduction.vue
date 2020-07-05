@@ -36,14 +36,14 @@ page-tutorial-part(
       p The resource you will be creating is a users resource. It will contain data about users and will be able to display a single user's data as a profile card in HTML or as JSON. The client (your browser in this case) will decide what representation to receive.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
-        a.btn.btn-success(:href="$conf.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/part-1'") Get Started
+        a.btn.btn-success(:href="'/#/advanced-tutorials/content-negotiation/user-profiles/part-1'") Get Started
   div.row
     div.col
       hr
       h2-hash End State
       p Below are samples of what you will create.
       p
-        img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/verification_2.png'")
+        img(:src="'/drash/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/verification_2.png'")
       p
-        img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
+        img(:src="'/drash/assets/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
 </template>

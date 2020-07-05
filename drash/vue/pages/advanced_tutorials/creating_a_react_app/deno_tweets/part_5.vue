@@ -87,5 +87,5 @@ page-tutorial-part(
                 | deno run --allow-net --allow-read app.ts
           p Go to <code>localhost:1447/</code> in your browser.
           p You should the something similar to the following:
-          img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
+          img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
 </template>

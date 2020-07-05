@@ -1,5 +1,5 @@
 <template lang="pug">
-a(:href="$conf.base_url + '/#' + href")
+a(:href="'/#' + href")
     slot
 </template>
 

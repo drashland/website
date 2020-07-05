@@ -12,7 +12,7 @@ div.page.page--reference
                 p Below are the list of classes under this namespace:
                 ul
                     li
-                        a(:href="$conf.base_url + '/#/api-reference/dictionaries/log-levels'") Drash.Dictionaries.LogLevels
+                        a(:href="'/#/api-reference/dictionaries/log-levels'") Drash.Dictionaries.LogLevels
 </template>
 
 <script>

@@ -35,13 +35,13 @@ page-tutorial-part(
       p In this tutorial series, you will learn how to create a simple static HTML app powered by Drash. You will learn how to make a Drash server serve <code>text/html</code> responses to clients. The responses will include server-rendered HTML.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
-        a.btn.btn-success(:href="$conf.base_url + '/#/advanced-tutorials/creating-a-static-html-app/about-me/part-1'") Get Started
+        a.btn.btn-success(:href="'/#/advanced-tutorials/creating-a-static-html-app/about-me/part-1'") Get Started
   div.row
     div.col
       hr
       h2-hash End State
       p Below are samples of what you will create.
-      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/1.png'")
-      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/2.png'")
-      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/3.png'")
+      img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/1.png'")
+      img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/2.png'")
+      img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/3.png'")
 </template>

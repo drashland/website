@@ -12,7 +12,7 @@ div.page.page--reference
                 p Below are the list of classes under this namespace:
                 ul
                     li
-                        a(:href="$conf.base_url + '/#/api-reference/exceptions/http-exception'") Drash.Exceptions.HttpException
+                        a(:href="'/#/api-reference/exceptions/http-exception'") Drash.Exceptions.HttpException
 </template>
 
 <script>

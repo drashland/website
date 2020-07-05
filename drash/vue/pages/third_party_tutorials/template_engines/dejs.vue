@@ -65,8 +65,8 @@ page-tutorial(
         li
           p Make a request to <code>localhost:1447</code> in your browser. You should receive the following response:
           p
-            img(:src="$conf.base_url + '/drash/assets/img/example_code/third_party_tutorials/template_engines/dejs/verification_1.png'")
+            img(:src="'/drash/assets/img/example_code/third_party_tutorials/template_engines/dejs/verification_1.png'")
         li
           p Make the same request, but specify <code>?name=syumai</code> in the URL: <code>localhost:1447?name=syumai</code>. You should receive the following response:
           p
-            img(:src="$conf.base_url + '/drash/assets/img/example_code/third_party_tutorials/template_engines/dejs/verification_2.png'")
+            img(:src="'/drash/assets/img/example_code/third_party_tutorials/template_engines/dejs/verification_2.png'")

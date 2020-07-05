@@ -35,14 +35,14 @@ page-tutorial-part(
       p In this tutorial series, you will learn how to create a simple JAM stack with microservices powered by Drash. You will learn how to make a Drash server serve <code>application/json</code> responses to clients. The data your Drash server will handle will be data on users, accounts, and orders.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
-        a.btn.btn-success(:href="$conf.base_url + '/#/advanced-tutorials/microservices/fintech/part-1'") Get Started
+        a.btn.btn-success(:href="'/#/advanced-tutorials/microservices/fintech/part-1'") Get Started
   div.row
     div.col
       hr
       h2-hash End State
       p Below are samples of what you will create.
-      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/microservices/fintech/1.png'")
-      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/microservices/fintech/2.png'")
-      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/microservices/fintech/3.png'")
-      img(:src="$conf.base_url + '/drash/assets/img/example_code/advanced_tutorials/microservices/fintech/4.png'")
+      img(:src="'/drash/assets/img/example_code/advanced_tutorials/microservices/fintech/1.png'")
+      img(:src="'/drash/assets/img/example_code/advanced_tutorials/microservices/fintech/2.png'")
+      img(:src="'/drash/assets/img/example_code/advanced_tutorials/microservices/fintech/3.png'")
+      img(:src="'/drash/assets/img/example_code/advanced_tutorials/microservices/fintech/4.png'")
 </template>

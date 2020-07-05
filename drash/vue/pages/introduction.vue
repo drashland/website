@@ -108,8 +108,5 @@ export default {
       example_code: this.$example_code['drash/example_code/getting_started/quickstart/']
     };
   },
-  mounted() {
-    console.log(this.$example_code);
-  }
 }
 </script>
