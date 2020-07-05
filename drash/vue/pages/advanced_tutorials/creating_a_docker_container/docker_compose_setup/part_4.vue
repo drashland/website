@@ -23,7 +23,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/drash/#/advanced-tutorials/creating-a-docker-container/docker-compose-setup"
+      uri: this.$conf.drash.base_url + "/#/advanced-tutorials/creating-a-docker-container/docker-compose-setup"
     };
   },
 }

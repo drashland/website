@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/drash/#/advanced-tutorials/creating-an-api/coffee-and-tea"
+      uri: this.$conf.drash.base_url + "/#/advanced-tutorials/creating-an-api/coffee-and-tea"
     };
   },
 }

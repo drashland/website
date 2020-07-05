@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      uri: "/drash/#/advanced-tutorials/content-negotiation/user-profiles"
+      uri: this.$conf.drash.base_url + "/#/advanced-tutorials/content-negotiation/user-profiles"
     };
   }
 }
@@ -36,7 +36,7 @@ page-tutorial-part(
       p The resource you will be creating is a users resource. It will contain data about users and will be able to display a single user's data as a profile card in HTML or as JSON. The client (your browser in this case) will decide what representation to receive.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
-        a.btn.btn-success(:href="'/drash/#/advanced-tutorials/content-negotiation/user-profiles/part-1'") Get Started
+        a.btn.btn-success(:href="$conf.drash.base_url + '/#/advanced-tutorials/content-negotiation/user-profiles/part-1'") Get Started
   div.row
     div.col
       hr

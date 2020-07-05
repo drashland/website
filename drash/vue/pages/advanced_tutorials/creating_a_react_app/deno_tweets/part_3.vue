@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/drash/#/advanced-tutorials/creating-a-react-app/deno-tweets"
+      uri: this.$conf.drash.base_url + "/#/advanced-tutorials/creating-a-react-app/deno-tweets"
     };
   },
 }

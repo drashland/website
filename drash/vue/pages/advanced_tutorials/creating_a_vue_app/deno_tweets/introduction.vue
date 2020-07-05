@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      uri: "/drash/#/advanced-tutorials/creating-a-vue-app/deno-tweets"
+      uri: this.$conf.drash.base_url + "/#/advanced-tutorials/creating-a-vue-app/deno-tweets"
     };
   }
 }
@@ -35,7 +35,7 @@ page-tutorial-part(
       p In this tutorial series, you will learn how to create a simple Vue application powered by Drash. You will learn how to make a Drash server serve a <code>text/html</code> response to clients. The response will include some Vue code so that it will mount and render on the screen. Your Vue app will display Deno tweets.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
-        a.btn.btn-success(:href="'/drash/#/advanced-tutorials/creating-a-vue-app/deno-tweets/part-1'") Get Started
+        a.btn.btn-success(:href="$conf.drash.base_url + '/#/advanced-tutorials/creating-a-vue-app/deno-tweets/part-1'") Get Started
   div.row
     div.col
       hr

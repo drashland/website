@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      uri: "/drash/#/advanced-tutorials/creating-a-static-html-app/about-me"
+      uri: this.$conf.drash.base_url + "/#/advanced-tutorials/creating-a-static-html-app/about-me"
     };
   }
 }
@@ -35,7 +35,7 @@ page-tutorial-part(
       p In this tutorial series, you will learn how to create a simple static HTML app powered by Drash. You will learn how to make a Drash server serve <code>text/html</code> responses to clients. The responses will include server-rendered HTML.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
-        a.btn.btn-success(:href="'/drash/#/advanced-tutorials/creating-a-static-html-app/about-me/part-1'") Get Started
+        a.btn.btn-success(:href="$conf.drash.base_url + '/#/advanced-tutorials/creating-a-static-html-app/about-me/part-1'") Get Started
   div.row
     div.col
       hr

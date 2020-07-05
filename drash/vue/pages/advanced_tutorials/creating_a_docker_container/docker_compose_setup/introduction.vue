@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      uri: "/drash/#/advanced-tutorials/creating-a-docker-container/docker-compose-setup"
+      uri: this.$conf.drash.base_url + "/#/advanced-tutorials/creating-a-docker-container/docker-compose-setup"
     };
   }
 }
@@ -36,7 +36,7 @@ page-tutorial-part(
       p Although this tutorial has code blocks that you can copy and paste, it is highly recommended that you read about #[a( href="https://docs.docker.com/compose/" ) Docker Compose] so you have knowledge of how it works.
       p-view-source-code
       p.text-center(style="margin-bottom: 0")
-        a.btn.btn-success(:href="'/drash/#/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-1'") Get Started
+        a.btn.btn-success(:href="$conf.drash.base_url + '/#/advanced-tutorials/creating-a-docker-container/docker-compose-setup/part-1'") Get Started
   div.row
     div.col
       hr

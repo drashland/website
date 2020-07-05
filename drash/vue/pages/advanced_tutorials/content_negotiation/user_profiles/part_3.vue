@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/drash/#/advanced-tutorials/content-negotiation/user-profiles",
+      uri: this.$conf.drash.base_url + "/#/advanced-tutorials/content-negotiation/user-profiles",
     };
   },
 }

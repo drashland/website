@@ -5,6 +5,14 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 module.exports = envVars => {
   console.log(`\nRunning webpack in ${getMode(envVars.environment)} mode for the ${envVars.environment} environment.\n`);
 
+  const configs = {
+    build_date: getDateTimeISO("UTC-5").datetime,
+    environment: envVars.environment,
+    drash: {
+      base_url: getBaseUrl("drash", envVars.environment)
+    },
+  };
+
   return {
     entry: {
       drash_app: path.resolve(__dirname, "drash/assets/js/_app.js"),
@@ -48,10 +56,7 @@ module.exports = envVars => {
       // Add compile time vars
       new webpack.DefinePlugin({
         "process.env": {
-          conf: JSON.stringify({
-            build_date: getDateTimeISO("UTC-5").datetime,
-            environment:envVars.environment,
-          })
+          conf: JSON.stringify(configs)
         }
       })
     ],
@@ -66,6 +71,17 @@ module.exports = envVars => {
     }
   };
 };
+
+function getBaseUrl(module, environment) {
+  switch (environment) {
+    case "staging":
+      return `/${module}/staging`;
+    case "development":
+    case "production":
+    default:
+      return `/${module}`;
+  }
+}
 
 function getDateTimeISO(utcOffset, isDaylightSavings = false) {
   if (typeof utcOffset !== 'string') {

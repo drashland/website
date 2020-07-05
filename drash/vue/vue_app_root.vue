@@ -20,14 +20,6 @@ div#vue_app
         i.fa.fa-arrow-up
     sidebar
     main#top.c-main
-        //-
-          PURPOSE
-          TYPE
-          PARAMETERS
-          THROWS
-          RETURNS
-          EXAMPLE USAGE
-          NOTES
         div.container.c-container--docs
             transition
                 keep-alive

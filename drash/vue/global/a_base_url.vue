@@ -1,5 +1,5 @@
 <template lang="pug">
-a(:href="'/drash/#' + href")
+a(:href="$conf.drash.base_url + '/#' + href")
   slot
 </template>
 

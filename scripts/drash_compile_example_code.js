@@ -15,6 +15,7 @@ function walk(directory) {
     const filepath = path.join(directory, file);
     let fileNamespace = filepath.replace(path.basename(filepath), "");
     fileNamespace = fileNamespace.substr(0, fileNamespace.length - 1);
+    fileNamespace = fileNamespace.replace(configs.root_directory + "/", "");
     if (!exampleCode[fileNamespace]) {
       exampleCode[fileNamespace] = {};
     }

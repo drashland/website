@@ -11,4 +11,4 @@ node scripts/drash_compile_vue_routes.js
 node scripts/drash_compile_staging_index_html.js
 
 # Build webpack bundles
-node_modules/.bin/webpack --env.environment=staging --hide-modules
+node_modules/.bin/webpack --hide-modules --env.environment=staging
