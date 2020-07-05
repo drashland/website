@@ -52,13 +52,15 @@ function handleHttpRequest(request, response) {
     if (request.url == "/") {
       const html = fs.readFileSync("index.html");
       response.write(html);
-    } else if (
-      request.url == "/drash"
-      || request.url == "/drash/"
-    ) {
+    } else if (request.url == "/drash" || request.url == "/drash/") {
       handleDrashApp(response);
     } else {
-      const file = fs.readFileSync(`${configs.root_directory}${request.url}`);
+      let url = request.url;
+      try {
+        url = url.split("?")[0];
+      } catch (error) {
+      }
+      const file = fs.readFileSync(`${configs.root_directory}${url}`);
       response.writeHead(200, {"Content-Type": getContentTypeHeader(request.url)});
       response.write(file);
     }
@@ -72,6 +74,7 @@ function handleHttpRequest(request, response) {
 function handleDrashApp(response) {
   let html = fs.readFileSync("./drash/index.template.html", "utf8");
   html = html.replace(/\{\{ environment \}\}/g, configs.environment);
+  html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
   response.write(html);
 }
 
