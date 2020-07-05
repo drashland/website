@@ -2,29 +2,12 @@ const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
-function getMode(environment) {
-  if (environment == "development") {
-    return "development";
-  }
-  return "production";
-}
-
-function isPublicFacingEnv(environment) {
-  let publicFacingEnvs = [
-    "production",
-    "staging",
-  ];
-
-  return publicFacingEnvs.indexOf(environment) != -1;
-}
-
 module.exports = envVars => {
   console.log(`\nRunning webpack in ${getMode(envVars.environment)} mode for the ${envVars.environment} environment.\n`);
 
   return {
     entry: {
       drash_app: path.resolve(__dirname, "drash/assets/js/_app.js"),
-      drash_example_code: path.resolve(__dirname, "drash/assets/js/_example_code.js")
     },
     mode: getMode(envVars.environment),
     output: {
@@ -84,7 +67,6 @@ module.exports = envVars => {
   };
 };
 
-
 function getDateTimeISO(utcOffset, isDaylightSavings = false) {
   if (typeof utcOffset !== 'string') {
     throw new Error('Argument #1 (utcOffset) must be a string (e.g., "UTC-5", "UTC-)');
@@ -131,4 +113,20 @@ function getDateTimeISO(utcOffset, isDaylightSavings = false) {
     datetime: date + " " + time + " " + timeZoneAbbreviation,
     time: time,
   }
+}
+
+function getMode(environment) {
+  if (environment == "development") {
+    return "development";
+  }
+  return "production";
+}
+
+function isPublicFacingEnv(environment) {
+  let publicFacingEnvs = [
+    "production",
+    "staging",
+  ];
+
+  return publicFacingEnvs.indexOf(environment) != -1;
 }
