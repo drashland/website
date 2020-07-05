@@ -47,21 +47,28 @@ function handleHttpRequest(request, response) {
       console.log(`${request.method} ${request.url}`);
     }
 
+    let url = request.url;
+    try {
+      url = url.split("?")[0];
+    } catch (error) {
+    }
+
+
     response.writeHeader(200, {"Content-Type": "text/html"});  
 
-    if (request.url == "/") {
+    if (url == "/") {
       const html = fs.readFileSync("index.html");
       response.write(html);
-    } else if (request.url == "/drash" || request.url == "/drash/") {
-      handleDrashApp(response);
+    } else if (
+      url == "/drash"
+      || url == "/drash/"
+      || url == "/drash/staging"
+      || url == "/drash/staging/"
+  ) {
+      handleDrashApp(url, response);
     } else {
-      let url = request.url;
-      try {
-        url = url.split("?")[0];
-      } catch (error) {
-      }
       const file = fs.readFileSync(`${configs.root_directory}${url}`);
-      response.writeHead(200, {"Content-Type": getContentTypeHeader(request.url)});
+      response.writeHead(200, {"Content-Type": getContentTypeHeader(url)});
       response.write(file);
     }
     response.end();
@@ -71,7 +78,13 @@ function handleHttpRequest(request, response) {
 }
 
 // Handle the application at the /drash URI
-function handleDrashApp(response) {
+function handleDrashApp(url, response) {
+  console.log(url);
+  if (url == "/drash/staging" || url == "/drash/staging/") {
+    let html = fs.readFileSync("./drash/staging.html", "utf8");
+    response.write(html);
+    return;
+  }
   let html = fs.readFileSync("./drash/index.template.html", "utf8");
   html = html.replace(/\{\{ environment \}\}/g, configs.environment);
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
