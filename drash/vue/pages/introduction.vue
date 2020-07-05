@@ -1,3 +1,20 @@
+<script>
+export const resource = {
+  paths: ["/", "/introduction", "/tutorials"],
+  meta: {
+    title: "Introduction",
+  }
+}
+
+export default {
+  data() {
+    return {
+      example_code: this.$example_code['drash/example_code/getting_started/quickstart']
+    };
+  },
+}
+</script>
+
 <template lang="pug">
 div
   div.c-page__header
@@ -67,7 +84,6 @@ div
               | 
               | // Import master
               | import { Drash } from "https://deno.land/x/drash/mod.ts";
-        p It is recommended that you import the latest version or a specific version of Drash to prevent your applications from experiencing breaking changes. Drash's master branch tries to keep up with the latest Deno code and is subject to Deno's "disruptive renames" as stated in the Deno project.
         p Drash versions can be found <a href="https://github.com/drashland/deno-drash/releases" target="_BLANK">here</a>.
     hr
     div.row
@@ -93,20 +109,3 @@ div
           li
             a-base-url(href="/tutorials/requests/handling-url-query-params") Handling URL Query Params
 </template>
-
-<script>
-export const resource = {
-  paths: ["/", "/introduction", "/tutorials"],
-  meta: {
-    title: "Introduction",
-  }
-}
-
-export default {
-  data() {
-    return {
-      example_code: this.$example_code['drash/example_code/getting_started/quickstart/']
-    };
-  },
-}
-</script>
