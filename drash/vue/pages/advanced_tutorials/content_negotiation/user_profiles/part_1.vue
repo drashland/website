@@ -1,17 +1,17 @@
 <script>
 export const resource = {
-    paths: ["/advanced-tutorials/content-negotiation/user-profiles/part-1"],
-    meta: {
-      title: "Content Negotation",
-      subtitle: "Part 1: Simulate Database Records",
-      source_code_uri: "/advanced_tutorials/content_negotiation/user_profiles/part_1"
-    }
+  paths: ["/advanced-tutorials/content-negotiation/user-profiles/part-1"],
+  meta: {
+    title: "Content Negotation",
+    subtitle: "Part 1: Simulate Database Records",
+    source_code_uri: "/advanced_tutorials/content_negotiation/user_profiles/part_1"
+  }
 }
 
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
       part: 1,
       parts: 4,
       toc: {
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/content-negotiation/user-profiles"
+      uri: "/drash/#/advanced-tutorials/content-negotiation/user-profiles"
     };
   },
 }
@@ -50,8 +50,12 @@ page-tutorial-part(
       hr
       h2-hash Steps
       ol
-        li Create the <code>users.json</code> file.
-          code-block(:data="example_code.users" language="javascript")
+        li
+          p Create the <code>users.json</code> file.
+          p
+            code-block-slotted(language="javascript")
+              template(v-slot:title) {{ example_code.users.filepath }}
+              template(v-slot:code) {{ example_code.users.contents }}
   div.row
     div.col
       hr

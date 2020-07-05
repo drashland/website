@@ -71,7 +71,7 @@ export default {
 
       let introduction = {
         class: "btn-secondary",
-        href: `${this.$conf.base_url}/#${this.uri}/introduction`,
+        href: `${this.uri}/introduction`,
         name: `Introduction`,
       };
 
@@ -87,7 +87,7 @@ export default {
           class: this.part == i
             ? "btn-success"
             : "btn-secondary",
-          href: `${this.$conf.base_url}/#${this.uri}/part-${i}`,
+          href: `${this.uri}/part-${i}`,
           name: `Part ${i}`,
         });
       }
