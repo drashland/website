@@ -1,7 +1,7 @@
 import { Drash } from "https://deno.land/x/drash/mod.ts";
 
 export function VerifyTokenMiddleware(
-  request: any,
+  request: Drash.Http.Request,
   response: Drash.Http.Response
 ): void {
   let token = request.getUrlQueryParam('super_secret_token');

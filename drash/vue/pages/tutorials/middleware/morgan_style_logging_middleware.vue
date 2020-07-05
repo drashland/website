@@ -49,27 +49,35 @@ page-tutorial(
         li
           p Create your resource file.
           p
-            code-block(:data="example_code.home_resource")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.home_resource.filepath }}
+              template(v-slot:code) {{ example_code.home_resource.contents }}
         li
           p Create your middleware file. Your middleware will log information about the request on all requests.
           p
-            code-block(:data="example_code.morgan_style_logging_middleware")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.morgan_style_logging_middleware.filepath }}
+              template(v-slot:code) {{ example_code.morgan_style_logging_middleware.contents }}
         li Create your app file.
           p
-            code-block(:data="example_code.app")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.app.filepath }}
+              template(v-slot:code) {{ example_code.app.contents }}
   div.row
     div.col
       hr
       h2-hash Verification
       p You can verify that your app's code works by making requests like the ones below. Since this tutorial's app sets <code>application/json</code> as the <code>response_output</code>, the server responds to requests with JSON by default.
       ol
-        li Run your app.
+        li
+          p Run your app.
           p
             code-block-slotted
               template(v-slot:title) Terminal
               template(v-slot:code)
                 | deno run --allow-net app.ts
-        li Make a request using <code>curl</code> like below or go to <code>localhost:1447/</code> in your browser.
+        li
+          p Make a request using <code>curl</code> like below or go to <code>localhost:1447/</code> in your browser.
           p
             code-block-slotted
               template(v-slot:title) Terminal
@@ -81,7 +89,8 @@ page-tutorial(
               template(v-slot:code)
                 | 2020-02-03 12:47:01.162Z | INFO | Request received: GET /
                 | 2020-02-03 12:47:01.163Z | INFO | Response: 200 OK
-        li Make another request, but to <code>localhost:1447/this-path-does-not-exist</code>.
+        li
+          p Make another request, but to <code>localhost:1447/this-path-does-not-exist</code>.
           p
             code-block-slotted
               template(v-slot:title) Terminal

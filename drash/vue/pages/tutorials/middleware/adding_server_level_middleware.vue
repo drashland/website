@@ -49,16 +49,22 @@ page-tutorial(
         li
           p Create your resource file.
           p
-            code-block(:data="example_code.home_resource")
-          li
-            p Create your middleware file. This middleware file takes in the <code>request</code> and <code>response</code> params.
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.home_resource.filepath }}
+              template(v-slot:code) {{ example_code.home_resource.contents }}
+        li
+          p Create your middleware file. This middleware file takes in the <code>request</code> and <code>response</code> params.
           p
-            code-block(:data="example_code.verify_token_middleware")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.verify_token_middleware.filepath }}
+              template(v-slot:code) {{ example_code.verify_token_middleware.contents }}
           p Your middleware will check if <code>super_secret_token</code> was passed in the request's URL. If not, then a <code>400</code> error will be thrown. It will also check if the value of <code>super_secret_token</code> is <code>AllYourBaseAreBelongToUs</code>. If not, then a <code>403</code> error will be thrown.
         li
           p Create your app file.
           p
-            code-block(:data="example_code.app")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.app.filepath }}
+              template(v-slot:code) {{ example_code.app.contents }}
   div.row
     div.col
       hr

@@ -80,14 +80,14 @@ page
         hr
         h2-hash Sorting Middleware
         p Middleware is executed in the order you define them. Take the examples below.
-        p The server-level middleware would execute in the following order:
+        p The following server-level middleware would execute in the following order:
         ul
           li <code>OneMiddleware</code>
           li <code>TwoMiddleware</code>
         p
           code-block-slotted(:header="false" language="typescript" line_highlight="4-5")
             template(v-slot:code) {{ example_code.sorting_server_level.contents }}
-        p The resource-level middleware would execute in the following order:
+        p The following resource-level middleware would execute in the following order:
         ul
           li <code>RedMiddleware</code>
           li <code>BlueMiddleware</code>
