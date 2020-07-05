@@ -44,30 +44,44 @@ page-tutorial(
       hr
       h2-hash Steps
       ol
-        li Create your app file.
-          code-block(:data="example_code.app" line_highlight="7,10")
-          p The <code>static_paths</code> config tells your Drash server what paths on your filesystem contain static files that can be served to clients. Ultimately, your Drash server will prefix the <code>directory</code> config with your paths in your <code>static_paths</code> config. For example, your Drash server will take a request to <code>/public/assets/css/style.css</code> and resolve it to <code>{directory_config}/public/assets/css/style.css</code>.
-        li Create your <code>style.css</code> file in your static directory.
-          code-block(:data="example_code_public.style" title="/path/to/your/project/public/style.css")
-        li Create your resource file.
-          code-block(:data="example_code.home_resource")
-          p Your resource file will serve HTML; and your HTML will reference <code>style.css</code>.
+        li
+          p Create your app file. The <code>static_paths</code> config tells your Drash server what paths on your filesystem contain static files that can be served to clients. Ultimately, your Drash server will prefix the <code>directory</code> config with your paths in your <code>static_paths</code> config. For example, your Drash server will take a request to <code>/public/assets/css/style.css</code> and resolve it to <code>{directory_config}/public/assets/css/style.css</code>.
+          p
+            code-block-slotted(language="typescript" line_highlight="6,9")
+              template(v-slot:title) {{ example_code.app.filepath }}
+              template(v-slot:code) {{ example_code.app.contents }}
+        li
+          p Create your <code>style.css</code> file in your static directory.
+          p
+            code-block-slotted(language="css")
+              template(v-slot:title) {{ example_code_public.style.filepath }}
+              template(v-slot:code) {{ example_code_public.style.contents }}
+        li
+          p Create your resource file. Your resource file will serve HTML; and your HTML will reference <code>/public/style.css</code>.
+          p
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.home_resource.filepath }}
+              template(v-slot:code) {{ example_code.home_resource.contents }}
   div.row
     div.col
       hr
       h2-hash Verification
       ol
-        li Run your app.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | deno run --allow-net --allow-read app.ts
-        li Make a request in your browser.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | curl localhost:1447
+        li
+          p Run your app.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | deno run --allow-net --allow-read app.ts
+        li
+          p Make a request in your browser.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | curl localhost:1447
           p You should receive the following response:
           p
-            img(:src="'/drash/assets/img/example_code/tutorials/serving_static_paths/verification_1.png'")
+            strong(style="color: #ff0000; font-family: 'Times New Roman', 'Times'") This is my title and it is red.
 </template>

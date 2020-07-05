@@ -37,5 +37,7 @@ page-tutorial(
       hr
       h2-hash Server Syntax
       p
-        code-block(:data="example_code.app")
+        code-block-slotted(language="typescript")
+          template(v-slot:title) {{ example_code.app.filepath }}
+          template(v-slot:code) {{ example_code.app.contents }}
 </template>

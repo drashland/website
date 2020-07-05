@@ -46,12 +46,16 @@ page-tutorial(
         li
           p Create your resource file. Your resource file will be able to handle <code>GET</code>, <code>POST</code>, <code>PUT</code>, and <code>DELETE</code> requests to the <code>/</code> URI.
           p
-            code-block(:data="example_code.home_resource")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.home_resource.filepath }}
+              template(v-slot:code) {{ example_code.home_resource.contents }}
         li
-          p Create your app file. Your app file will register your resource via the <code>resources</code> config. By default, your Drash server will send <code>application/json</code> responses via the <code>response_output</code>. More information about using this config can be found in the <a :href=" '/#/advanced-tutorials/content-negotiation/user-profiles/introduction'">Advanced Tutorials: Content Negotiation</a> tutorial.
+          p Create your app file. Your app file will register your resource via the <code>resources</code> config. By default, your Drash server will send <code>application/json</code> responses via the <code>response_output</code>.
           p Optionally, you can <code>await</code> on the <code>server.run()</code> call in case you want to run subsequent code after the call. <code>await</code>ing for the <code>server.run()</code> call ensures that your server is running before any subsequent code runs.
           p
-            code-block(:data="example_code.app")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.app.filepath }}
+              template(v-slot:code) {{ example_code.app.contents }}
   div.row
     div.col
       hr
@@ -65,22 +69,57 @@ page-tutorial(
               template(v-slot:code)
                 | deno run --allow-net app.ts
         li
-          p Using Postman (or similar app), make a <code>GET</code> request to <code>localhost:1447</code>. You should receive the following response:
+          p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/</code>. You should receive the following response:
           p
-            img(:src="'/drash/assets/img/example_code/tutorials/creating_a_server/verification_1.png'")
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | curl --request GET localhost:1447
+          p You should receive the following response:
+            code-block-slotted(:header="false")
+              template(v-slot:code)
+                | GET request received!
         li
-          p Make a <code>PUT</code> request. You should receive the following response:
+          p Make a <code>PUT</code> request.
           p
-            img(:src="'/drash/assets/img/example_code/tutorials/creating_a_server/verification_2.png'")
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | curl --request PUT localhost:1447
+          p You should receive the following response:
+            code-block-slotted(:header="false")
+              template(v-slot:code)
+                | PUT request received!
         li
-          p Make a <code>POST</code> request. You should receive the following response:
-          p 
-            img(:src="'/drash/assets/img/example_code/tutorials/creating_a_server/verification_3.png'")
-        li
-          p Make a <code>DELETE</code> request. You should receive the following response:
+          p Make a <code>POST</code> request.
           p
-            img(:src="'/drash/assets/img/example_code/tutorials/creating_a_server/verification_4.png'")
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | curl --request POST localhost:1447
+          p You should receive the following response:
+            code-block-slotted(:header="false")
+              template(v-slot:code)
+                | POST request received!
         li
-          p Make a <code>PATCH</code> request. Since <code>PATCH</code> is not defined in your resource, it is not allowed; therefore, you should receive the following response:
+          p Make a <code>DELETE</code> request.
           p
-            img(:src="'/drash/assets/img/example_code/tutorials/creating_a_server/verification_5.png'")
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | curl --request DELETE localhost:1447
+          p You should receive the following response:
+            code-block-slotted(:header="false")
+              template(v-slot:code)
+                | DELETE request received!
+        li
+          p Make a <code>PATCH</code> request.
+          p
+            code-block-slotted
+              template(v-slot:title) Terminal
+              template(v-slot:code)
+                | curl --request PATCH localhost:1447
+          p Since <code>PATCH</code> is not defined in your resource, it is not allowed; therefore, you should receive the following response:
+            code-block-slotted(:header="false")
+              template(v-slot:code)
+                | Method Not Allowed
