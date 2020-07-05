@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      uri: "/advanced-tutorials/creating-an-api/coffee-and-tea"
+      uri: "/drash/#/advanced-tutorials/creating-an-api/coffee-and-tea"
     };
   }
 }
@@ -41,8 +41,12 @@ page-tutorial-part(
       hr
       h2-hash End State
       p Below are samples of what you will create.
-      img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/2.png'")
-      img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/1.png'")
-      img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/3.png'")
-      img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/4.png'")
+      p
+        img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/2.png'")
+      p
+        img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/1.png'")
+      p
+        img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/3.png'")
+      p
+        img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/4.png'")
 </template>

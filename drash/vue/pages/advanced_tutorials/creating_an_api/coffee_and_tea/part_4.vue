@@ -11,7 +11,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
       part: 4,
       parts: 4,
       toc: {
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-an-api/coffee-and-tea"
+      uri: "/drash/#/advanced-tutorials/creating-an-api/coffee-and-tea"
     };
   },
 }
@@ -97,7 +97,9 @@ page-tutorial-part(
         li
           p Create your <code>response.ts</code> file that will be used to override <code>Drash.Http.Response</code>.
           p
-            code-block(:data="example_code.response" language="typescript")
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.response.filepath }}
+              template(v-slot:code) {{ example_code.response.contents }}
           p The only method you need to override is <code>generateResponse()</code>. The following methods and objects are accessible from the <code>Drash.Http.Response</code>.
           ul
             li
@@ -108,11 +110,12 @@ page-tutorial-part(
               code this.body
             li
               code this.request
-          p See <a href="/#/api-reference/http/response" target="_BLANK"><code>Drash.Http.Response</code></a> in the API Reference for more information on its members.
         li
           p Import your <code>response.ts</code> file and replace <code>Drash.Http.Response</code> in your <code>app.ts</code>.
           p
-            code-block(:data="example_code.app" language="typescript" line_highlight="3-4")
+            code-block-slotted(language="typescript" line_highlight="3,4")
+              template(v-slot:title) {{ example_code.app.filepath }}
+              template(v-slot:code) {{ example_code.app.contents }}
           p Now, when your Drash server runs, it will use your response class instead of its original <code>Drash.Http.Response</code>.
   div.row
     div.col

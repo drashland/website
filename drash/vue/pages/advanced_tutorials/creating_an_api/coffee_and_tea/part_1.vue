@@ -11,7 +11,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
       part: 1,
       parts: 4,
       toc: {
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-an-api/coffee-and-tea"
+      uri: "/drash/#/advanced-tutorials/creating-an-api/coffee-and-tea"
     };
   },
 }
@@ -50,10 +50,18 @@ page-tutorial-part(
       hr
       h2-hash Steps
       ol
-        li Create the <code>coffee.json</code> file.
-          code-block(:data="example_code.coffee" language="javascript")
-        li Create the <code>tea.json</code> file.
-          code-block(:data="example_code.tea" language="javascript")
+        li
+          p Create the <code>coffee.json</code> file.
+          p
+            code-block-slotted(language="javascript")
+              template(v-slot:title) {{ example_code.coffee.filepath }}
+              template(v-slot:code) {{ example_code.coffee.contents }}
+        li
+          p Create the <code>tea.json</code> file.
+          p
+            code-block-slotted(language="javascript")
+              template(v-slot:title) {{ example_code.tea.filepath }}
+              template(v-slot:code) {{ example_code.tea.contents }}
   div.row
     div.col
       hr

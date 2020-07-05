@@ -11,7 +11,7 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/' + resource.meta.source_code_uri],
+      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
       part: 2,
       parts: 4,
       toc: {
@@ -22,7 +22,7 @@ export default {
           "Verification",
         ]
       },
-      uri: "/advanced-tutorials/creating-an-api/coffee-and-tea"
+      uri: "/drash/#/advanced-tutorials/creating-an-api/coffee-and-tea"
     };
   },
 }
@@ -59,7 +59,10 @@ page-tutorial-part(
           p Create your app file.
           p When this file is run, it will load in Drash, set up your server, and start your server.
           p You will notice that there are <code>import</code> statements for your resource files (highlighted). You will be creating these files in the next tutorial part. For now, you just need to make sure your server expects and registers them.
-          code-block(:data="example_code.app" language="javascript" line_highlight="3-4,10-11")
+          p
+            code-block-slotted(language="javascript" line_highlight="3-4,9-10")
+              template(v-slot:title) {{ example_code.app.filepath }}
+              template(v-slot:code) {{ example_code.app.contents }}
   div.row
     div.col
       hr
@@ -67,7 +70,7 @@ page-tutorial-part(
       p If you run your app in its current state, you will get an error. The TypeScript compiler will throw an error stating it cannot resolve your resource files. So, before you verify that your server is working, you need to comment out the lines relevant to your resource files.
       ol
         li Comment out the code relevant to your resource files.
-          code-block-slotted(language="typescript" line_highlight="3-4,10-11")
+          code-block-slotted(language="typescript" line_highlight="3-4,9-10")
             template(v-slot:title) /path/to/your/project/app.ts
             template(v-slot:code)
               | import { Drash } from "https://deno.land/x/drash/mod.ts";
@@ -103,7 +106,7 @@ page-tutorial-part(
               | "Not Found"
           p You will receive a <code>404 Not Found</code> error because your server does not have any resources. This is expected. You will be creating your resources next.
         li Before moving on, uncomment the code you commented out.
-          code-block-slotted(language="typescript" line_highlight="3-4,10-11")
+          code-block-slotted(language="typescript" line_highlight="3-4,9-10")
             template(v-slot:title) /path/to/your/project/app.ts
             template(v-slot:code)
               | import { Drash } from "https://deno.land/x/drash/mod.ts";
