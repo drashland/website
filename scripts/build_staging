@@ -8,7 +8,6 @@ echo -e "Building Staging environment files\n"
 node scripts/drash_compile_example_code.js
 node scripts/drash_compile_vue_global_components.js
 node scripts/drash_compile_vue_routes.js
-node scripts/drash_compile_staging_index_html.js
 
 # Compile Rhum staging environment
 
