@@ -8,7 +8,7 @@ module.exports = envVars => {
   const configs = {
     environment: envVars.environment,
     drash: {
-      base_url: "/drash"
+      base_url: getBaseUrl("drash", envVars.environment)
     },
   };
 
@@ -73,6 +73,13 @@ module.exports = envVars => {
     }
   };
 };
+
+function getBaseUrl(module, environment) {
+  if (environment == "staging") {
+    return `/${module}/staging`;
+  }
+  return `/${module}`;
+}
 
 function getMode(environment) {
   if (environment == "development") {
