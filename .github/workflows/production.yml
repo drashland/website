@@ -30,7 +30,6 @@ jobs:
 
     - name: npm install
       run: |
-        cd docs
         npm install
 
     - name: add drashbot
