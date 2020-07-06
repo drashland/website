@@ -4,6 +4,7 @@
   "description": "Drash Land",
   "main": "index.js",
   "scripts": {
+    "build:production": "scripts/build_production",
     "build:staging": "scripts/build_staging",
     "drash:copy-api-reference": "cp ../deno-drash/api_reference.json drash/assets/json/api_reference.json",
     "server": "nodemon server.js",
