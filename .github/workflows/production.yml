@@ -12,14 +12,13 @@ jobs:
       CI: true
       CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
       CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-      DENO_INSTALL: "/Users/runner/.local"
       CI_USER_PAT: ${{ secrets.CI_USER_PAT }}
 
     runs-on: macOS-latest
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [13.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -29,34 +28,29 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: install deno
-      run: |
-        cd docs
-        console/install_deno
-
     - name: npm install
-      # if: github.event_name == 'push'
       run: |
         cd docs
         npm install
 
-    - name: add git user drashbot
+    - name: add drashbot
       run: |
-        cd docs
-        console/add_git_user_drashbot
+        git remote rm origin
+        git remote add origin https://$CI_USER_PAT@github.com/drashland/website.git
+        git config user.email $CI_USER_EMAIL
+        git config user.name $CI_USER_NAME
+        git pull origin master
 
     - name: build production
       if: github.ref == 'refs/heads/production'
       run: |
-        export PATH="$DENO_INSTALL/bin:$PATH"
-        cd docs
-        console/production_build
+        npm run build:production
 
     - name: commit production
       if: github.ref == 'refs/heads/production'
       run: |
-        cd docs
-        console/production_commit
+        git add .
+        git commit -m "production build ($(date))"
 
     - name: push production to master
       if: github.ref == 'refs/heads/production'
