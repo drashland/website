@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo -e "Building Staging environment files\n"
+
+# Compile dmm staging environment
+# Nothing here yet
+
+# Compile Drash staging environment
+node scripts/drash_compile_example_code.js
+node scripts/drash_compile_vue_global_components.js
+node scripts/drash_compile_vue_routes.js
+
+# Compile Rhum staging environment
+# Nothing here yet
+
+# Compile Sockets staging environment
+# Nothing here yet
+
+# Compile all staging.html files for all modules
+node scripts/compile_production_html.js
+
+# Build webpack bundles
+node_modules/.bin/webpack --hide-modules --env.environment=production

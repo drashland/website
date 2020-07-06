@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - staging
+
 jobs:
   build:
 
@@ -11,56 +12,47 @@ jobs:
       CI: true
       CI_USER_EMAIL: ${{ secrets.CI_USER_EMAIL }}
       CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-      DENO_INSTALL: "/Users/runner/.local"
       CI_USER_PAT: ${{ secrets.CI_USER_PAT }}
-      DRASH_VERSION: "v1.0.0-rc1"
 
     runs-on: macOS-latest
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [13.x]
 
     steps:
     - uses: actions/checkout@v1
 
     - name: Use Node.js ${{ matrix.node-version }}
-      if: github.event_name == 'push'
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: install deno
-      run: |
-        cd docs
-        console/install_deno
-
     - name: npm install
-      # if: github.event_name == 'push'
       run: |
-        cd docs
         npm install
 
-    - name: add git user drashbot
+    - name: add drashbot
       run: |
-        cd docs
-        console/add_git_user_drashbot
+        git remote rm origin
+        git remote add origin https://$CI_USER_PAT@github.com/drashland/website.git
+        git config user.email $CI_USER_EMAIL
+        git config user.name $CI_USER_NAME
+        git pull origin master
 
     - name: build staging
       if: github.ref == 'refs/heads/staging'
       run: |
-        export PATH="$DENO_INSTALL/bin:$PATH"
-        cd docs
-        console/staging_build
+        cp configs.ci.json configs.json
+        npm run build:staging
 
     - name: commit staging
       if: github.ref == 'refs/heads/staging'
       run: |
-        cd docs
-        console/staging_commit
+        git add .
+        git commit -m "staging build ($(date))"
 
     - name: push staging to master
       if: github.ref == 'refs/heads/staging'
       run: |
-        cd docs
         git push origin HEAD:master
