@@ -6,6 +6,7 @@ module.exports = envVars => {
   console.log(`\nRunning webpack in ${getMode(envVars.environment)} mode for the ${envVars.environment} environment.\n`);
 
   const configs = {
+    build_date: new Date().toDateString(),
     environment: envVars.environment,
     drash: {
       base_url: getBaseUrl("drash", envVars.environment)

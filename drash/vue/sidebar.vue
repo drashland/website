@@ -1,8 +1,10 @@
 <template lang="pug">
 div.c-sidebar
   div(v-if="$conf.environment != 'production'")
-      p.l-environment-text(style="position:fixed; right: 0")
-          span.text ENVIRONMENT: {{ $conf.environment }}
+    p.l-environment-text(style="position:fixed; right: 0; text-align: right")
+      span.text ENVIRONMENT: {{ $conf.environment }}
+      br
+      span.text(style="font-size: .65rem") Build Date: {{ $conf.build_date }}
   div.c-sidebar__header(style="padding: 2rem 0;")
     div.row.align-items-center.text-align--center
       div.col
