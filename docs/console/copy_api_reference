@@ -1,5 +1,0 @@
-#!/bin/bash
-
-(
-  cp ../../deno-drash/api_reference.json public/assets/json/api_reference.json
-)
