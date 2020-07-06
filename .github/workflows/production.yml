@@ -43,6 +43,7 @@ jobs:
     - name: build production
       if: github.ref == 'refs/heads/production'
       run: |
+        cp configs.ci.json configs.json
         npm run build:production
 
     - name: commit production
