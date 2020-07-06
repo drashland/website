@@ -1,0 +1,8 @@
+{
+  "environment": "development",
+  "root_directory": "/var/src/drashland/deno-drash-website",
+  "drash": {
+    "latest_url_deno_land": "https://deno.land/x/drash@v1.0.7/mod.ts",
+    "latest_url_nest_land": "https://deno.land/x/drash@v1.0.7/mod.ts"
+  }
+}
