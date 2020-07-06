@@ -87,7 +87,7 @@ function handleDmmApp(url, response) {
     return;
   }
   let html = fs.readFileSync("./dmm/index.template.html", "utf8");
-  html = html.replace(/\{\{ environment \}\}/g, configs.environment);
+  html = html.replace(/\{\{ environment \}\}/g, "development");
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
   response.write(html);
 }
@@ -102,7 +102,7 @@ function handleDrashApp(url, response) {
   }
 
   let html = fs.readFileSync("./drash/index.template.html", "utf8");
-  html = html.replace(/\{\{ environment \}\}/g, configs.environment);
+  html = html.replace(/\{\{ environment \}\}/g, "development");
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
   response.write(html);
 }
@@ -116,7 +116,7 @@ function handleRhumApp(url, response) {
     return;
   }
   let html = fs.readFileSync("./rhum/index.template.html", "utf8");
-  html = html.replace(/\{\{ environment \}\}/g, configs.environment);
+  html = html.replace(/\{\{ environment \}\}/g, "development");
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
   response.write(html);
 }
@@ -130,7 +130,7 @@ function handleSocketsApp(url, response) {
     return;
   }
   let html = fs.readFileSync("./sockets/index.template.html", "utf8");
-  html = html.replace(/\{\{ environment \}\}/g, configs.environment);
+  html = html.replace(/\{\{ environment \}\}/g, "development");
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
   response.write(html);
 }
