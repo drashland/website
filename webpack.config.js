@@ -14,7 +14,10 @@ module.exports = envVars => {
 
   return {
     entry: {
+      dmm_app: path.resolve(__dirname, "dmm/assets/js/_app.js"),
       drash_app: path.resolve(__dirname, "drash/assets/js/_app.js"),
+      rhum_app: path.resolve(__dirname, "rhum/assets/js/_app.js"),
+      sockets_app: path.resolve(__dirname, "sockets/assets/js/_app.js"),
     },
     mode: getMode(envVars.environment),
     output: {

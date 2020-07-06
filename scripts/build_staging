@@ -1,14 +1,21 @@
 #!/bin/bash
 
-echo -e "Building Drash Staging environment\n"
+echo -e "Building Staging environment files\n"
 
-# Compile all data used by Vue
+# Compile dmm staging environment
+
+# Compile Drash staging environment
 node scripts/drash_compile_example_code.js
 node scripts/drash_compile_vue_global_components.js
 node scripts/drash_compile_vue_routes.js
-
-# Compile staging index.html
 node scripts/drash_compile_staging_index_html.js
+
+# Compile Rhum staging environment
+
+# Compile Sockets staging environment
+
+# Compile all staging.html files for all modules
+node scripts/compile_staging_html.js
 
 # Build webpack bundles
 node_modules/.bin/webpack --hide-modules --env.environment=staging

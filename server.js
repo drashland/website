@@ -59,13 +59,14 @@ function handleHttpRequest(request, response) {
     if (url == "/") {
       const html = fs.readFileSync("index.html");
       response.write(html);
-    } else if (
-      url == "/drash"
-      || url == "/drash/"
-      || url == "/drash/staging"
-      || url == "/drash/staging/"
-  ) {
+    } else if (target(url) == "dmm") {
+      handleDmmApp(url, response);
+    } else if (target(url) == "drash") {
       handleDrashApp(url, response);
+    } else if (target(url) == "rhum") {
+      handleRhumApp(url, response);
+    } else if (target(url) == "sockets") {
+      handleSocketsApp(url, response);
     } else {
       const file = fs.readFileSync(`${configs.root_directory}${url}`);
       response.writeHead(200, {"Content-Type": getContentTypeHeader(url)});
@@ -77,20 +78,73 @@ function handleHttpRequest(request, response) {
   }
 }
 
+// Handle the application at the /dmm URI
+function handleDmmApp(url, response) {
+  // Is this the dmm staging env?
+  if (url == "/dmm/staging" || url == "/dmm/staging/") {
+    let html = fs.readFileSync("./dmm/staging.html", "utf8");
+    response.write(html);
+    return;
+  }
+  let html = fs.readFileSync("./dmm/index.template.html", "utf8");
+  html = html.replace(/\{\{ environment \}\}/g, configs.environment);
+  html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
+  response.write(html);
+}
+
 // Handle the application at the /drash URI
 function handleDrashApp(url, response) {
-  console.log(url);
+  // Is this the Drash staging env?
   if (url == "/drash/staging" || url == "/drash/staging/") {
     let html = fs.readFileSync("./drash/staging.html", "utf8");
     response.write(html);
     return;
   }
+
   let html = fs.readFileSync("./drash/index.template.html", "utf8");
   html = html.replace(/\{\{ environment \}\}/g, configs.environment);
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
   response.write(html);
 }
 
+// Handle the application at the /dmm URI
+function handleRhumApp(url, response) {
+  // Is this the dmm staging env?
+  if (url == "/rhum/staging" || url == "/rhum/staging/") {
+    let html = fs.readFileSync("./rhum/staging.html", "utf8");
+    response.write(html);
+    return;
+  }
+  let html = fs.readFileSync("./rhum/index.template.html", "utf8");
+  html = html.replace(/\{\{ environment \}\}/g, configs.environment);
+  html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
+  response.write(html);
+}
+
+// Handle the application at the /dmm URI
+function handleSocketsApp(url, response) {
+  // Is this the dmm staging env?
+  if (url == "/sockets/staging" || url == "/sockets/staging/") {
+    let html = fs.readFileSync("./sockets/staging.html", "utf8");
+    response.write(html);
+    return;
+  }
+  let html = fs.readFileSync("./sockets/index.template.html", "utf8");
+  html = html.replace(/\{\{ environment \}\}/g, configs.environment);
+  html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
+  response.write(html);
+}
+
+// you don't want to end up here ;)
+function oops(response, error) {
+  response.writeHeader(200, {"Content-Type": "text/html"});
+  let html = fs.readFileSync("./500.html", "utf8");
+  html = html.replace("{{ error }}", error.message + error.stack);
+  response.write(html);
+  response.end();
+}
+
+// Is the URL in question targeting a static asset?
 function requestUrlIsPath(url) {
   if (
     url != "/favicon.ico"
@@ -110,11 +164,38 @@ function requestUrlIsPath(url) {
   return false;
 }
 
-// you don't want to end up here ;)
-function oops(response, error) {
-  response.writeHeader(200, {"Content-Type": "text/html"});
-  let html = fs.readFileSync("./500.html", "utf8");
-  html = html.replace("{{ error }}", error.message + error.stack);
-  response.write(html);
-  response.end();
+// What is the URL in question targeting?
+function target(url) {
+  if (
+    url == "/dmm"
+    || url == "/dmm/"
+    || url == "/dmm/staging"
+    || url == "/dmm/staging/"
+  ) {
+    return "dmm";
+  }
+  if (
+    url == "/drash"
+    || url == "/drash/"
+    || url == "/drash/staging"
+    || url == "/drash/staging/"
+  ) {
+    return "drash";
+  }
+  if (
+    url == "/rhum"
+    || url == "/rhum/"
+    || url == "/rhum/staging"
+    || url == "/rhum/staging/"
+  ) {
+    return "rhum";
+  }
+  if (
+    url == "/sockets"
+    || url == "/sockets/"
+    || url == "/sockets/staging"
+    || url == "/sockets/staging/"
+  ) {
+    return "sockets";
+  }
 }
