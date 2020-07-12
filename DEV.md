@@ -2,22 +2,34 @@
 
 ## Running the dev server
 
+Copy the configs.
+
+```
+cp configs.json.sample configs.json
+```
+
+Ensure the configs are correct.
+
+```
+root_directory: "/path/to/this/repo"
+```
+
 Install dependencies.
 
 ```
 npm install
 ```
 
+Run webpack to generate the bunndles (this can take up to 10 seconds for development).
+
+```
+npm run webpack
+```
+
 Run the Node server.
 
 ```
 npm run server
-```
-
-Run webpack.
-
-```
-npm run webpack
 ```
 
 ## Copying the API Reference JSON data from deno-drash
