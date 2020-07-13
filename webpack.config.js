@@ -8,8 +8,17 @@ module.exports = envVars => {
   const configs = {
     build_date: new Date().toDateString(),
     environment: envVars.environment,
+    dmm: {
+      base_url: getBaseUrl("dmm", envVars.environment)
+    },
     drash: {
       base_url: getBaseUrl("drash", envVars.environment)
+    },
+    rhum: {
+      base_url: getBaseUrl("rhum", envVars.environment)
+    },
+    sockets: {
+      base_url: getBaseUrl("sockets", envVars.environment)
     },
   };
 
@@ -68,8 +77,11 @@ module.exports = envVars => {
         vue: isPublicFacingEnv(envVars.environment)
           ? "vue/dist/vue.min.js"
           : "vue/dist/vue.js",
-        "/drash": path.resolve(__dirname, "drash"),
         "/common": path.resolve(__dirname, "assets/common"),
+        "/dmm": path.resolve(__dirname, "dmm"),
+        "/drash": path.resolve(__dirname, "drash"),
+        "/rhum": path.resolve(__dirname, "rhum"),
+        "/sockets": path.resolve(__dirname, "sockets"),
       }
     }
   };
