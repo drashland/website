@@ -1,6 +1,7 @@
 <template lang="pug">
-h2(:id="heading_hash")
-  slot
+h2.text-2xl.mb-5(:id="heading_hash")
+  strong
+    slot
 </template>
 
 <script>
