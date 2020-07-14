@@ -124,6 +124,8 @@ div.sidebar(:style="'background-color: ' + styles.background_color + ';'")
       a.menu-name-link.is-link(:href="api_reference_href") API Reference
     div.menu-name
       a.menu-name-link.is-link(:href="github_href") GitHub
+    div.menu-name
+      a.menu-name-link.is-link(href="/") Back To Drash Land
   p(style="color: #f4f4f4").mt-5.text-sm.text-center
     a(href="https://drash.land") &copy; 2019-2020 Drash Land
 </template>
