@@ -1,5 +1,4 @@
 <script>
-
 import EnvironmentBadge from "/common/vue/environment_badge.vue";
 import Sidebar from "/common/vue/sidebar.vue";
 
@@ -8,34 +7,28 @@ export default {
     EnvironmentBadge,
     Sidebar
   },
+  props: {
+    build_date: {
+      type: String,
+      required: true,
+    },
+    environment: {
+      type: String,
+      required: true,
+    },
+    sidebar: {
+      type: Object,
+      required: true,
+    },
+  },
   created() {
     window.addEventListener("resize", this.handleWindowResize);
     this.handleWindowResize();
   },
   data() {
     return {
-      build_date: this.$conf.build_date,
-      environment: this.$conf.environment,
       is_mobile: false,
-      sidebar: {
-        api_reference_href: "/rhum/#/api-reference",
-        base_url: this.$conf.rhum.base_url + "/#",
-        github_href: "https://github.com/drashland/rhum",
-        logo: "/assets/common/img/logo_rhum.svg",
-        menus: {
-          "Getting Started": {
-            Quickstart: "/#quickstart",
-            Importing: "/#importing",
-            Features: "/#features",
-            FAQ: "/faq",
-          },
-          Tutorials: {
-            //Introduction: "/tutorials",
-            "Writing Tests": "/tutorials/writing-tests"
-          },
-        },
-        module: "Rhum",
-      }
+      open_sidebar: false,
     }
   },
   methods: {
@@ -45,14 +38,34 @@ export default {
       } else {
         this.is_mobile = false;
       }
+    },
+    openSidebar() {
+      if (this.open_sidebar) {
+        this.open_sidebar = false;
+      } else {
+        this.open_sidebar = true;
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+button {
+  background: #000000;
+  border-radius: .5rem;
+  bottom: 1rem;
+  color: #f4f4f4;
+  padding: 1rem;
+  width: 75px;
+  position: fixed;
+  z-index: 1000;
+}
 .hide {
   display: none;
+}
+.open-sidebar {
+  right: 1rem;
 }
 .main {
   margin-left: 350px;
@@ -60,13 +73,32 @@ export default {
     margin-left: 0;
   }
 }
+.sidebar {
+  &.is-mobile {
+    width: 100%;
+  }
+}
 </style>
 
 <template lang="pug">
 div
+  button.open-sidebar(
+    :class="{'hide': !is_mobile}"
+    type="button", @click="openSidebar()"
+  )
+      i.fa.fa-bars(
+        :class="{'hide': open_sidebar}"
+      )
+      i.fa.fa-times(
+        :class="{'hide': !open_sidebar}"
+      )
+  button.hide(
+    type="button", @click="scrollToTop()"
+  )
+      i.fa.fa-arrow-up
   environment-badge.environment-badge(:environment="environment" :build_date="build_date")
   sidebar(
-    :class="{'hide': is_mobile}"
+    :class="{'hide': is_mobile && !open_sidebar, 'is-mobile': is_mobile}"
     :base_url="sidebar.base_url"
     :menus="sidebar.menus"
     :logo="sidebar.logo"
@@ -76,7 +108,7 @@ div
   )
   div.main(
     :class="{'is-mobile': is_mobile}"
-    style="margin-top: 75px; margin-bottom: 100px"
+    style="margin-top: 75px; margin-bottom: 125px"
   )
     div.max-w-screen-lg.mx-auto.px-10
       transition
