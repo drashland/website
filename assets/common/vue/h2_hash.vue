@@ -1,9 +1,3 @@
-<template lang="pug">
-h2.text-2xl.mb-5(:id="heading_hash")
-  strong
-    slot
-</template>
-
 <script>
 import Vue from "vue";
 
@@ -24,3 +18,8 @@ Vue.component("h2-hash", component);
 export default component;
 </script>
 
+<template lang="pug">
+h2.text-2xl.mb-5(:id="heading_hash")
+  strong
+    slot
+</template>
