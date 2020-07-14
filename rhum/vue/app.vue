@@ -10,7 +10,7 @@ export default {
       build_date: this.$conf.build_date,
       environment: this.$conf.environment,
       sidebar: {
-        api_reference_href: "/rhum/#/api-reference",
+        api_reference_href: this.$conf.rhum.base_url + "/#/api-reference",
         base_url: this.$conf.rhum.base_url + "/#",
         github_href: "https://github.com/drashland/rhum",
         logo: "/assets/common/img/logo_rhum.svg",
