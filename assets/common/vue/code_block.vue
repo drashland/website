@@ -17,7 +17,7 @@ export default {
       type: String,
     }
   },
-  created() {
+  mounted() {
     this.$root.$on("is-mobile", () => {
       this.is_mobile = true;
     });

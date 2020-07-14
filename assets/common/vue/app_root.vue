@@ -21,7 +21,7 @@ export default {
       required: true,
     },
   },
-  created() {
+  mounted() {
     window.addEventListener("resize", this.handleWindowResize);
     this.handleWindowResize();
     this.$root.$on("close-sidebar", () => {
