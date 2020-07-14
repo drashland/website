@@ -17,7 +17,7 @@ export default {
       type: String,
     }
   },
-  mounted() {
+  created() {
     this.$root.$on("is-mobile", () => {
       this.is_mobile = true;
     });
@@ -60,8 +60,15 @@ code.header {
 }
 </style>
 
+<style lang="scss">
+ul .code-block.is-mobile,
+ol .code-block.is-mobile {
+  margin-left: -4rem;
+}
+</style>
+
 <template lang="pug">
-div.mb-5(
+div.code-block.mb-5(
   :class="{'is-mobile': is_mobile}"
 )
   pre.header.mb-0.p-4(v-if="header !== false")
