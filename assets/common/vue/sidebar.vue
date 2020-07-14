@@ -111,7 +111,8 @@ export default {
 
 <template lang="pug">
 div.sidebar(:style="'background-color: ' + styles.background_color + ';'")
-  img(:alt="module" :src="logo" style="height: 150px").mx-auto.m-10
+  a(:href="base_url + '/'")
+    img(:alt="module" :src="logo" style="height: 150px").mx-auto.m-10
   div(style="border-top: 1px solid #3f3955;")
     div(v-for="(sub_menu_items, menu_item_name) in menus")
       div.menu-name

@@ -16,6 +16,9 @@ div
 import H2Hash from "/common/vue/h2_hash.vue";
 
 export default {
+  components: {
+    H2Hash
+  },
   props: {
     base_url: {
       type: String,

@@ -5,6 +5,7 @@ export default {
       return this.$slots.default[0].text.toLowerCase()
         .replace(/ /g, '-')
         .replace(/\?/g, "")
+        .replace(/\./g, "-")
         .replace(/\,/g, "");
       ;
     }
@@ -13,7 +14,6 @@ export default {
 </script>
 
 <template lang="pug">
-h2.text-2xl.mb-5(:id="hash")
-  strong
-    slot
+code.mb-5(:id="hash")
+  slot
 </template>
