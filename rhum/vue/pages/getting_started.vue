@@ -78,6 +78,14 @@ div
         p Run your tests.
         code-block(title="Terminal" language="text")
           | deno test
+      li
+        p View your output.
+        code-block(title="Terminal" language="text")
+          | app_test.ts
+          |     run()
+          |         Returns true ... ok (4ms)
+          |     close()
+          |         Returns true ... ok (1ms)
     hr
     h2-hash Importing
     code-block-import(name="Rhum" repo="rhum")
