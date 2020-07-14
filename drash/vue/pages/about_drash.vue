@@ -15,6 +15,7 @@ export default {
         items: [
           "What Is Drash?",
           "Why Use Drash?",
+          "What Makes Drash Different?",
           "About These Documentation Pages",
         ]
       }
@@ -51,6 +52,11 @@ page(
         li Zero dependencies
       p Drash does not force you to use all of its code. You can pick and choose which data members you want/need and use them however you deem fit. For example, Drash comes with a console logger and a file logger. If you only want these, then you only import these into your non-Drash project. How you use it is really up to you.
       P Drash's versioning system will always follow <a href="https://semver.org/" target="_BLANK">semver.org</a>. Also, Drash's versions will always be compatible with Deno's versions. That is, Drash v1.x will always be compatible with Deno v1.x, Drash v2.x will always be compatible with Deno v2.x, and so on.
+  div.row
+    div.col
+      hr
+      h2-hash What Makes Drash Different?
+      p You may notice our syntax might be different than what you might be used to. Drash is very different to most Node frameworks (and Deno frameworks too), in terms of its syntax. Where Deno is different than Node, Drash aims to be different than Express or Koa, utilising resources and a full class based system, such as not using <code>app.get((req, res))</code>, and instead using <code>this.request</code> and <code>this.reponse</code> inside of the resource class, where your 'routes' (paths) are also defined. As a result, this follows the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web" target="_blank">MDN specs of HTTP Resources</a>.
   div.row
     div.col
       hr
