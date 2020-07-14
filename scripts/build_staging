@@ -3,7 +3,7 @@
 echo -e "Building Staging environment files\n"
 
 # Compile dmm staging environment
-# Nothing here yet
+node scripts/dmm_compile_vue_routes.js
 
 # Compile Drash staging environment
 node scripts/drash_compile_example_code.js
@@ -11,12 +11,12 @@ node scripts/drash_compile_vue_global_components.js
 node scripts/drash_compile_vue_routes.js
 
 # Compile Rhum staging environment
-# Nothing here yet
+node scripts/rhum_compile_vue_routes.js
 
 # Compile Sockets staging environment
-# Nothing here yet
+node scripts/sockets_compile_vue_routes.js
 
-# Compile all staging.html files for all modules
+# Compile all html files for all modules
 node scripts/compile_staging_html.js
 
 # Build webpack bundles
