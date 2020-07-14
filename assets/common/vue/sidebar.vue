@@ -33,6 +33,11 @@ export default {
         }
       }
     }
+  },
+  methods: {
+    closeSidebar() {
+      this.$root.$emit("close-sidebar");
+    }
   }
 }
 </script>
@@ -113,7 +118,7 @@ div.sidebar(:style="'background-color: ' + styles.background_color + ';'")
         a.menu-name-link {{ menu_item_name }}
       ul.mb-0
         li.menu-item(v-for="(href, link_text) in sub_menu_items")
-          a.menu-item-link(:href="base_url + href") {{ link_text }}
+          a.menu-item-link(:href="base_url + href" @click="closeSidebar()") {{ link_text }}
     div.menu-name
       a.menu-name-link.is-link(:href="api_reference_href") API Reference
     div.menu-name

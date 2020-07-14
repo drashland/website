@@ -24,6 +24,9 @@ export default {
   created() {
     window.addEventListener("resize", this.handleWindowResize);
     this.handleWindowResize();
+    this.$root.$on("close-sidebar", () => {
+      this.toggleSidebar();
+    });
   },
   data() {
     return {
@@ -35,11 +38,13 @@ export default {
     handleWindowResize(e) {
       if (window.innerWidth < 900) {
         this.is_mobile = true;
+        this.$root.$emit("is-mobile");
       } else {
+        this.$root.$emit("is-not-mobile");
         this.is_mobile = false;
       }
     },
-    openSidebar() {
+    toggleSidebar() {
       if (this.open_sidebar) {
         this.open_sidebar = false;
       } else {
@@ -84,7 +89,7 @@ button {
 div
   button.open-sidebar(
     :class="{'hide': !is_mobile}"
-    type="button", @click="openSidebar()"
+    type="button", @click="toggleSidebar()"
   )
       i.fa.fa-bars(
         :class="{'hide': open_sidebar}"
