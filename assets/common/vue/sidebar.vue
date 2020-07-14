@@ -1,23 +1,11 @@
 <script>
-import EnvironmentBadge from "/common/vue/environment_badge.vue";
 export default {
-  components: {
-    EnvironmentBadge
-  },
   props: {
     api_reference_href: {
       type: String,
       required: true,
     },
     base_url: {
-      type: String,
-      required: true,
-    },
-    build_date: {
-      type: String,
-      required: true,
-    },
-    environment: {
       type: String,
       required: true,
     },
@@ -118,7 +106,6 @@ export default {
 
 <template lang="pug">
 div.sidebar(:style="'background-color: ' + styles.background_color + ';'")
-  environment-badge.environment-badge(:environment="environment" :build_date="build_date")
   img(:alt="module" :src="logo" style="height: 150px").mx-auto.m-10
   div(style="border-top: 1px solid #3f3955;")
     div(v-for="(sub_menu_items, menu_item_name) in menus")

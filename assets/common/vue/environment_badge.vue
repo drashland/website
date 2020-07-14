@@ -23,7 +23,7 @@ export default {
 </style>
 
 <template lang="pug">
-div.environment-badge(v-if="environment != 'production'" style="position:fixed; right: 0; text-align: right")
+div.environment-badge(v-if="environment != 'production'" style="position:fixed; right: 0; top: 0; text-align: right")
   p.mb-0 ENVIRONMENT: {{ environment }}
   p.mb-0(style="font-size: .65rem") Build Date: {{ build_date }}
 </template>
