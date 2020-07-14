@@ -1,6 +1,9 @@
 <script>
 import EnvironmentBadge from "/common/vue/environment_badge.vue";
 import Sidebar from "/common/vue/sidebar.vue";
+import "/common/vendor/prismjs/prism.css";
+import "/common/css/drash_land.css";
+import "/common/vendor/prismjs/prism.js";
 
 export default {
   components: {
