@@ -54,9 +54,13 @@ export default {
         this.is_mobile = false;
       }
     },
-    scrollToTop() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
+    async scrollToTop() {
+      try {
+        await this.$router.push(this.$route.path);
+      } catch (error) {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
     },
     toggleSidebar() {
       if (this.open_sidebar) {
