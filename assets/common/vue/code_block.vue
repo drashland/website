@@ -44,6 +44,7 @@ export default {
   overflow: auto;
 }
 code.header {
+  border-radius: 0;
   line-height: 1rem;
 }
 .body {
