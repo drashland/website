@@ -121,9 +121,9 @@ div.sidebar(:style="'background-color: ' + styles.background_color + ';'")
         li.menu-item(v-for="(href, link_text) in sub_menu_items")
           a.menu-item-link(:href="base_url + href" @click="closeSidebar()") {{ link_text }}
     div.menu-name
-      a.menu-name-link.is-link(:href="api_reference_href") API Reference
+      a.menu-name-link.is-link(:href="api_reference_href" @click="closeSidebar()") API Reference
     div.menu-name
-      a.menu-name-link.is-link(:href="github_href") GitHub
+      a.menu-name-link.is-link(:href="github_href" @click="closeSidebar()") GitHub
     div.menu-name
       a.menu-name-link.is-link(href="/") Back To Drash Land
   p(style="color: #f4f4f4").mt-5.text-sm.text-center
