@@ -73,7 +73,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 a,
 a:visited {
   color: #ff7700;
