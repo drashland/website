@@ -1,9 +1,6 @@
 <script>
 import EnvironmentBadge from "/common/vue/environment_badge.vue";
 import Sidebar from "/common/vue/sidebar.vue";
-import "/common/vendor/prismjs/prism.css";
-import "/common/css/drash_land.css";
-import "/common/vendor/prismjs/prism.js";
 
 export default {
   components: {
@@ -75,6 +72,70 @@ export default {
   }
 }
 </script>
+
+<style>
+a,
+a:visited {
+  color: #ff7700;
+}
+
+a:hover {
+  color: #333333;
+}
+
+body {
+  background-color: #f4f4f4;
+  font-family: 'Nunito', Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+  line-height: 2.25rem;
+}
+
+code {
+  background: #e8e8e8;
+  border-radius: 0.18125rem;
+  color: #e83e8c;
+  display: inline-block;
+  font-size: 1rem;
+  margin-bottom: 0;
+  padding-left: 0.18125rem;
+  padding-right: 0.18125rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+hr {
+  border-width: 2px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+ol li {
+  list-style-type: decimal;
+  margin-left: 2rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+ul {
+  margin-bottom: 1rem;
+}
+
+ul li {
+  list-style-type: disc;
+  margin-left: 2rem;
+}
+
+</style>
 
 <style lang="scss" scoped>
 button {
