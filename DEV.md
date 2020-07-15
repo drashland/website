@@ -20,7 +20,7 @@ Install dependencies.
 npm install
 ```
 
-Run webpack to generate the bunndles (this can take up to 10 seconds for development).
+Run webpack to generate the bundles (this can take up to 10 seconds for development).
 
 ```
 npm run webpack

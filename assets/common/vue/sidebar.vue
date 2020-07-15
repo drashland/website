@@ -3,7 +3,7 @@ export default {
   props: {
     api_reference_href: {
       type: String,
-      required: true,
+      required: false,
     },
     base_url: {
       type: String,
@@ -120,7 +120,7 @@ div.sidebar(:style="'background-color: ' + styles.background_color + ';'")
       ul.mb-0
         li.menu-item(v-for="(href, link_text) in sub_menu_items")
           a.menu-item-link(:href="base_url + href" @click="closeSidebar()") {{ link_text }}
-    div.menu-name
+    div.menu-name(v-if="api_reference_href")
       a.menu-name-link.is-link(:href="api_reference_href" @click="closeSidebar()") API Reference
     div.menu-name
       a.menu-name-link.is-link(:href="github_href" @click="closeSidebar()") GitHub

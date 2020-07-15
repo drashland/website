@@ -6,7 +6,7 @@ let buildVersion = new Date().getTime();
 html = fs.readFileSync("./dmm/index.template.html", "utf8");
 html = html.replace(/\{\{ environment \}\}/g, "staging");
 html = html.replace(/\{\{ version \}\}/g, buildVersion);
-fs.writeFileSync("./dmm/staging.html", html);
+fs.writeFileSync("./dmm/staging/index.html", html);
 
 // Create Drash's staging/index.html file
 html = fs.readFileSync("./drash/index.template.html", "utf8");
