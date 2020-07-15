@@ -50,7 +50,7 @@ page(
   ul
     li
       p Check your <code>http std</code> dependency (assuming you have that as a dependency.
-      code-block(title="Terminal" language="Terminal")
+      code-block(title="Terminal" language="text")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
@@ -65,7 +65,7 @@ page(
         |     dmm update http
     li
       p Check multiple dependencies.
-      code-block(title="Terminal" language="Terminal")
+      code-block(title="Terminal" language="text")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
@@ -82,7 +82,7 @@ page(
         |     dmm update http drash
     li
       p Check all dependencies.
-      code-block(title="Terminal" language="Terminal")
+      code-block(title="Terminal" language="text")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
