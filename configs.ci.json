@@ -1,4 +1,5 @@
 {
+  "manual_bulid": "1",
   "root_directory": "/Users/runner/work/website/website",
   "drash": {
     "latest_url_deno_land": "https://deno.land/x/drash@v1.x/mod.ts"
