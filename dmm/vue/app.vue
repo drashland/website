@@ -22,11 +22,11 @@ export default {
           },
           "CLI Commands": {
             //Introduction: "/tutorials",
-            "info": "/tutorials/info",
-            "check": "/tutorials/check",
-            "update": "/tutorials/update",
-            "--help": "/tutorials/help",
-            "--version": "/tutorials/version"
+            "info": "/cli_commands/info",
+            "check": "/cli_commands/check",
+            "update": "/cli_commands/update",
+            "--help": "/cli_commands/help",
+            "--version": "/cli_commands/version"
           },
         },
         module: "dmm",
