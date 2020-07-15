@@ -36,6 +36,7 @@ page(
     strong
   //p
   p
-    strong Feel free to make suggestions to the FAQ by visiting our
+    strong Feel free to make suggestions to this page by visiting our
       a(href="https://discord.gg/SgejNXq" target="_blank")  Discord
+      | .
 </template>

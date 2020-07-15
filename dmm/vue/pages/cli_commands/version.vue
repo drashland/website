@@ -40,7 +40,7 @@ page(
   :toc="toc"
 )
   h2-hash Description
-  p The <code>--version</code> command will show the current version of dmm
+  p The <code>--version</code> command will show the current version of dmm.
   hr
   h2-hash Example
   ul

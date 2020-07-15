@@ -26,7 +26,7 @@
         title: title,
         toc: [
           "Description",
-          "Example",
+          "Examples",
         ],
       };
     }
@@ -40,17 +40,17 @@ page(
   :toc="toc"
 )
   h2-hash Description
-  p The <code>update</code> command will update all of your dependencies if there is an newer release available, or only one or only some depending on the CLI arguments. The way this works is, dmm will check the version on your imported dependencies and compare them with the latest version.
+  p The <code>update</code> command will update your out-of-date dependencies if there are newer releases available. The way this works is, dmm will check the version on your imported dependencies and compare them with the latest version.
   p This command requires the following permissions:
     ul
-      li <code>--allow-net</code> - dmm uses HTTP requests to fetch information on the  given module
-      li <code>--allow-read</code> - dmm needs to read your dependency file to gather the dependencies you have
-      li <code>--allow-write</code> - dmm will update the version strings inside your <code>deps.ts</code>
+      li <code>--allow-net</code>: dmm uses HTTP requests to fetch information on the  given module.
+      li <code>--allow-read</code>: dmm needs to read your dependency file to gather the dependencies you have.
+      li <code>--allow-write</code>: dmm will update the version strings inside your <code>deps.ts</code>.
   hr
-  h2-hash Example
+  h2-hash Examples
   ul
     li
-      p Update your <code>http std</code> dependency (assuming you have that as a dependency.
+      p Update a single dependency. In this example, we are updating the <code>http</code> std dependency.
       code-block(title="Terminal" language="text")
         | $ cat deps.ts
         |
