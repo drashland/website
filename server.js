@@ -10,6 +10,9 @@ require("./scripts/drash_compile_example_code.js");
 // Compile Rhum files
 require("./scripts/rhum_compile_vue_routes.js");
 
+// Compile dmm files
+require("./scripts/dmm_compile_vue_routes.js")
+
 // Create the server
 http.createServer((request, response) => {
   request.on('error', (error) => handleRequestError(error, response) );
