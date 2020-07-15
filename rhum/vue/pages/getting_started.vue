@@ -30,7 +30,7 @@ div
     a(href="https://github.com/drashland/rhum/actions" target="_BLANK")
       img.mr-1(alt="Rhum CI" src="https://img.shields.io/github/workflow/status/drashland/rhum/master?label=CI" width="auto" height="20")
     a(href="https://discord.gg/SgejNXq" target="_BLANK")
-      img.mr-1(alt="Rhum Land Discord" src="https://img.shields.io/badge/Chat-on%20Discord-blue")
+      img.mr-1(alt="Drash Land Discord" src="https://img.shields.io/badge/Chat-on%20Discord-blue")
     a(href="https://twitter.com/drash_land" target="_BLANK")
       img.mr-1(alt="Drash Land Twitter" src="https://img.shields.io/twitter/url?label=%40drash_land&style=social&url=https%3A%2F%2Ftwitter.com%2Fdrash_land" width="auto" height="20")
     //a(href="https://rb.gy/vxmeed" target="_BLANK")
