@@ -60,7 +60,7 @@ div
     hr
     h2-hash Installing
     p You can also install dmm through <code>deno install</code>. This will make running commands a lot easier, because you would only need to type <code>dmm update</code> or <code>dmm --help</code>.
-    code-block(title="terminal" language="terminal")
+    code-block(title="Terminal" language="Terminal")
       | deno install --allow-net --allow-read --allow-write https://deno.land/x/dmm/mod.ts
       | dmm --help
     hr

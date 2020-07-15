@@ -46,7 +46,7 @@ page(
   ul
     li
       p See the help output.
-      code-block(title="terminal" language="terminal")
+      code-block(title="Terminal" language="Terminal")
         | $ dmm --help
         |
         | A module manager for Deno.

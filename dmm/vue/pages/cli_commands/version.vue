@@ -46,7 +46,7 @@ page(
   ul
     li
       p Check your version.
-      code-block(title="terminal" language="terminal")
+      code-block(title="Terminal" language="Terminal")
         | $ dmm --version
         | dmm {version}
 </template>

@@ -47,7 +47,7 @@ page(
   ul
     li
       p Get information on the <code>http std</code> module.
-      code-block(title="terminal" language="terminal")
+      code-block(title="Terminal" language="Terminal")
         | $ dmm info http
         |
         | Information on http
@@ -60,7 +60,7 @@ page(
         |   - Latest Version: 0.61.0
     li
       p Get information on the <code>denon</code> 3rd party module.
-      code-block(title="terminal" language="terminal")
+      code-block(title="Terminal" language="Terminal")
         | $ dmm info denon
         |
         | Information on denon

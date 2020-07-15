@@ -51,7 +51,7 @@ page(
   ul
     li
       p Update your <code>http std</code> dependency (assuming you have that as a dependency.
-      code-block(title="terminal" language="terminal")
+      code-block(title="Terminal" language="Terminal")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
@@ -69,7 +69,7 @@ page(
 
     li
       p Update multiple dependencies.
-      code-block(title="terminal" language="terminal")
+      code-block(title="Terminal" language="Terminal")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
@@ -84,7 +84,7 @@ page(
         | drash was updated from v1.0.7 to v{latest_release}
     li
       p Update all dependencies.
-      code-block(title="terminal" language="terminal")
+      code-block(title="Terminal" language="Terminal")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
