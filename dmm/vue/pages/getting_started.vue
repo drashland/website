@@ -54,14 +54,14 @@ div
           | Gathering facts...
           | Reading deps.ts to gather your dependencies...
           | Checking if your modules can be updated...
-          | drash was updated from v1.0.0 to v1.0.8
-          | fmt was updated from 0.55.0 to 0.61.0
+          | drash was updated from v1.0.0 to v{latest_release}
+          | fmt was updated from 0.55.0 to {latest_release}
 
     hr
     h2-hash Installing
     p You can also install dmm through <code>deno install</code>. This will make running commands a lot easier, because you would only need to type <code>dmm update</code> or <code>dmm --help</code>.
-    code-block(title="terminal" repo="terminal")
-      | deno install --allow-net --allow-read --allow-write https://deno.land/x/dmm@v1.1.1/mod.ts
+    code-block(title="terminal" language="terminal")
+      | deno install --allow-net --allow-read --allow-write https://deno.land/x/dmm/mod.ts
       | dmm --help
     hr
     h2-hash Features

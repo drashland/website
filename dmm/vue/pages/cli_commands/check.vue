@@ -7,7 +7,7 @@
 
   export const resource = {
     paths: [
-      "/tutorials/check",
+      "/cli_commands/check",
     ],
     meta: {
       title: title
@@ -53,7 +53,7 @@ page(
       code-block(title="terminal" language="terminal")
         | $ cat deps.ts
         |
-        | import { server } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
+        | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
         |
         | $ dmm check http
         |
@@ -68,7 +68,7 @@ page(
       code-block(title="terminal" language="terminal")
         | $ cat deps.ts
         |
-        | import { server } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
+        | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
         | import { Drash } from "https://deno.land/x/drash@v1.0.7/mod.ts"; // out of date
         |
         | $ dmm check http drash
@@ -85,7 +85,7 @@ page(
       code-block(title="terminal" language="terminal")
         | $ cat deps.ts
         |
-        | import { server } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
+        | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
         | import { Drash } from "https://deno.land/x/drash@v1.0.7/mod.ts"; // out of date
         |
         | $ dmm check

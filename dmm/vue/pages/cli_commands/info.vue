@@ -7,7 +7,7 @@ const title = "info";
 
 export const resource = {
   paths: [
-    "/tutorials/info",
+    "/cli_commands/info",
   ],
   meta: {
     title: title
