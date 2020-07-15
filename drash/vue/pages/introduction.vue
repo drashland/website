@@ -80,7 +80,7 @@ div
           code-block-slotted(language="typescript" :header="false")
             template(v-slot:code)
               | // Import specific version
-              | import { Drash } from "https://deno.land/x/drash@{version}/mod.ts";
+              | import { Drash } from "https://deno.land/x/drash@{tag or branch name}/mod.ts";
               | 
               | // Import master
               | import { Drash } from "https://deno.land/x/drash/mod.ts";
