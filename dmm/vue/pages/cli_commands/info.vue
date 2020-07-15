@@ -26,7 +26,7 @@ export default {
       title: title,
       toc: [
         "Description",
-        "Example",
+        "Examples",
       ],
     };
   }
@@ -41,12 +41,14 @@ page(
 )
   h2-hash Description
   p The <code>info</code> command will grab information on any module, be it 3rd party or <code>std</code>.
-  p This command requires network privileges because dmm uses HTTP requests to fetch information on the  given module
+  p This command requires the following permission:
+  ul
+    li <code>--allow-net</code>: dmm uses HTTP requests to fetch information on the given module.
   hr
-  h2-hash Example
+  h2-hash Examples
   ul
     li
-      p Get information on the <code>http std</code> module.
+      p Get information on the <code>http</code> std module.
       code-block(title="Terminal" language="text")
         | $ dmm info http
         |

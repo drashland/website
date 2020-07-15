@@ -26,7 +26,7 @@
         title: title,
         toc: [
           "Description",
-          "Example",
+          "Examples",
         ],
       };
     }
@@ -40,16 +40,19 @@ page(
   :toc="toc"
 )
   h2-hash Description
-  p The <code>check</code> command will check if all of your dependencies can be updated (or shows what dependencies are out of date), or only one or only some depending on the CLI arguments.
+  p The <code>check</code> command will check if
+  ul
+    li all of your dependencies can be updated; and
+    li shows what dependencies are out of date
   p This command requires the following permissions:
-    ul
-      li <code>--allow-net</code> - dmm uses HTTP requests to fetch information on the  given module
-      li <code>--allow-read</code> - dmm needs to read your dependency file to gather the dependencies you have
+  ul
+    li <code>--allow-net</code>: dmm uses HTTP requests to fetch information on the given module.
+    li <code>--allow-read</code>: dmm needs to read your dependency file to gather the dependencies you have.
   hr
-  h2-hash Example
+  h2-hash Examples
   ul
     li
-      p Check your <code>http std</code> dependency (assuming you have that as a dependency.
+      p Check a single dependency. In this example, we are checking the <code>http</code> std dependency.
       code-block(title="Terminal" language="text")
         | $ cat deps.ts
         |
