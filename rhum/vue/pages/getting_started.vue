@@ -77,7 +77,7 @@ div
       li
         p Run your tests.
         code-block(title="Terminal" language="text")
-          | deno test
+          | deno test --allow-env
       li
         p View your output.
         code-block(title="Terminal" language="text")
