@@ -13,6 +13,9 @@ require("./scripts/rhum_compile_vue_routes.js");
 // Compile dmm files
 require("./scripts/dmm_compile_vue_routes.js")
 
+// Compile Sockets files
+require("./scripts/sockets_compile_vue_routes.js")
+
 // Create the server
 http.createServer((request, response) => {
   request.on('error', (error) => handleRequestError(error, response) );
