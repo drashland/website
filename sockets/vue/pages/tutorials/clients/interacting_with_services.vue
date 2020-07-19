@@ -136,6 +136,8 @@ page(
       p You should receive a response similar to the following:
       code-block(:header="false")
         | Disconnected from Channel 1.
+  hr
+  h2-hash Interacting With Servers Using wscat
   ol
     li
       p Create your server.
