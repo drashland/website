@@ -11,20 +11,19 @@ export default {
       build_date: this.$conf.build_date,
       environment: this.$conf.environment,
       sidebar: {
-        api_reference_href: this.$conf.rhum.base_url + "/#/api-reference",
-        base_url: this.$conf.rhum.base_url + "/#",
-        github_href: "https://github.com/drashland/rhum",
-        logo: "/assets/common/img/logo_rhum.svg",
+        api_reference_href: this.$conf.sockets.base_url + "/#/api-reference",
+        base_url: this.$conf.sockets.base_url + "/#",
+        github_href: "https://github.com/drashland/sockets",
+        logo: "/assets/common/img/logo_sockets.svg",
         menus: {
           "Getting Started": {
             Quickstart: "/#quickstart",
             Importing: "/#importing",
-            Features: "/#features",
-            FAQ: "/faq",
           },
           Tutorials: {
             //Introduction: "/tutorials",
-            "Writing Tests": "/tutorials/writing-tests"
+            "Creating A Server": "/tutorials/creating-a-server",
+            "Creating A Client": "/tutorials/creating-a-client",
           },
         },
         module: "Sockets",
