@@ -22,8 +22,15 @@ export default {
           },
           Tutorials: {
             //Introduction: "/tutorials",
-            "Creating A Server": "/tutorials/creating-a-server",
-            "Creating A Client": "/tutorials/creating-a-client",
+            "Servers": {
+              "Creating a Server": "/tutorials/servers/creating-a-server",
+              "Creating A Channel": "/tutorials/servers/creating-a-channel",
+              "Listening To Channels": "/tutorials/servers/listening-to-channels",
+            },
+            "Clients": {
+              "Listening To Channels": "/tutorials/clients/listening-to-channels",
+              "Creating A Client": "/tutorials/clients/creating-a-client",
+            }
           },
         },
         module: "Sockets",
