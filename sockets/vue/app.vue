@@ -25,8 +25,12 @@ export default {
               "Creating a Server": "/tutorials/servers/creating-a-server",
             },
             "Clients": {
+              "Connecting To Servers": "/tutorials/clients/connecting-to-servers",
+              "Connecting To Channels": "/tutorials/clients/connecting-to-channels",
+              "Disconnecting From Channels": "/tutorials/clients/disconnecting-from-channels",
+              "Opening Channels": "/tutorials/clients/opening-channels",
+              "Closing Channels": "/tutorials/clients/closing-channels",
               "Interacting With Servers": "/tutorials/clients/interacting-with-servers",
-              "In-Depth Learning": "/tutorials/clients/in-depth-learning",
             }
           },
         },
