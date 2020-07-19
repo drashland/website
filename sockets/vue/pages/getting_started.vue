@@ -73,67 +73,57 @@ div
     h2-hash Quickstart
     ol
       li
-        p Set up your server to handle a single channel named Channel 1.
+        p Create your server and allow it to handle a single channel named Channel 1.
         code-block(title="app.ts" language="typescript")
           | import {
           |   IPacket,
           |   SocketServer,
-          | } from "https://deno.land/x/sockets@master/mod.ts";
+          | } from "https://deno.land/x/sockets@v0.x/mod.ts";
           |
           | // Create the socket server
           | const socketServer = new SocketServer();
           | socketServer.run({
-          |   hostname: "localhost",
+          |   hostname: "127.0.0.1",
           |   port: 3000,
           | });
           | console.log(
           |   `Socket server started on ws://${socketServer.hostname}:${socketServer.port}`,
           | );
-          |
-          | // Create "Channel 1" so that clients can send messages to it
-          | socketServer
-          |   .createChannel("Channel 1")
-          |   .onMessage((packet: IPacket) => {
-          |     console.log(packet);
-          |     console.log("Sending a message back to the client.");
-          |     // Send messages to all clients listening to "Channel 1"
-          |     socketServer.to(
-          |       "Channel 1",
-          |       `Message received! You sent "${packet.message}" as the message.`,
-          |     );
-          |   });
-      li
-        p Set up your <code>index.html</code> file and have it listen for messages sent from the server to the Channel 1 channel.
-        code-block(title="index.html" language="html")
-          | {{ set_up_front_end }}
-      li
-        p Start your server.
-        code-block(title="Terminal" language="text")
-          | deno run --allow-net app.ts
-      li
-        p Open up your <code>index.html</code> file in your browser, open your browser's console, and enter the following. The following will send a message to the socket server and the socket server will respond back with what you sent as the message.
-        code-block(title="Browser Console" language="javascript")
-          | socketClient.to("Channel 1", "Hello");
-      li
-        p Go back to the terminal where you started your server. You should see something similar to the following:
-        code-block(title="Terminal" language="javascript")
-          | {
-          |   callbacks: [ [Function] ],
-          |   name: "Channel 1",
-          |   listeners: Map {
-          |     4 => WebSocketImpl {
-          |         sendQueue: [Array],
-          |         _isClosed: false,
-          |         conn: [Object],
-          |         mask: undefined,
-          |         bufReader: [Object],
-          |         bufWriter: [Object]
-          |       }
-          |   },
-          |   channelName: "Channel 1",
-          |   message: "test",
-          |   from: 4
-          | }
+          | 
+          | // Create Channel 1 so that clients can send messages to it
+          | socketServer.createChannel("Channel 1");
+          | 
+          | // Add a handler for messages sent to Channel 1
+          | socketServer.on("Channel 1", (packet: IPacket) => {
+          |   console.log(packet);
+          |   // Do something with the packet (in this case, we're just confirming receipt and sending the message back)
+          |   socketServer.to(
+          |     packet.to, // => Channel 1
+          |     `Message received from client #${packet.from}: ${packet.message}`,
+          |   );
+          | });
+        li
+          p Run your socket server.
+          code-block(title="Terminal" language="text")
+            | deno run --allow-net app.ts
+        li
+          p Install <code>wscat</code> or similar client to interact with your socket server.
+          code-block(title="Terminal" language="text")
+            | npm install -g wscat
+        li
+          p Connect to your socket server.
+          code-block(title="Terminal" language="text")
+            | wscat -c ws://127.0.0.1:1777
+        li
+          p Connect to Channel 1.
+          code-block(title="Terminal" language="text")
+            | > {"connect_to":["Channel 1"]}
+            | < Connected to Channel 1.
+        li
+          p Send a message to Channel 1.
+          code-block(title="Terminal" language="text")
+            | > {"send_message":{"to":["Channel 1"],"message":"Hello World!"}}
+            | < {"from":"Server","to":"Channel 1","message":"Message received from client #4: Hello World!"}
     hr
     h2-hash Importing
     code-block-import(name="Sockets" repo="sockets")
