@@ -1,7 +1,6 @@
 <script>
 import AppRoot from "/common/vue/app_root.vue";
 
-
 export default {
   components: {
     AppRoot,
