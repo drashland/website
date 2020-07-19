@@ -11,7 +11,7 @@ export default {
     },
     language: {
       type: String,
-      required: true,
+      default: "text",
     },
     title: {
       type: String,
