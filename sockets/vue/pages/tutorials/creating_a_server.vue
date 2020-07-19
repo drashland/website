@@ -81,7 +81,7 @@ page(
         | const socketServer = new SocketServer();
         | socketServer.run({
         |   hostname: "127.0.0.1",
-        |   port: 3000,
+        |   port: 1777,
         | });
         | console.log(
         |   `Socket server started on ws://${socketServer.hostname}:${socketServer.port}`,
@@ -101,7 +101,7 @@ page(
         | const socketServer = new SocketServer();
         | socketServer.run({
         |   hostname: "127.0.0.1",
-        |   port: 3000,
+        |   port: 1777,
         | });
         | console.log(
         |   `Socket server started on ws://${socketServer.hostname}:${socketServer.port}`,

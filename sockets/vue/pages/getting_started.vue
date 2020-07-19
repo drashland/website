@@ -35,7 +35,7 @@ export default {
   <script type="module">
     import SocketClient from "https://cdn.jsdelivr.net/gh/drashland/sockets-client@latest/client.js";
 
-    socketClient = new SocketClient({ hostname: 'localhost', port: 3000 });
+    socketClient = new SocketClient({ hostname: 'localhost', port: 1777 });
 
     socketClient.on("Channel 1", (incomingMessage) => {
       console.log(
@@ -84,7 +84,7 @@ div
           | const socketServer = new SocketServer();
           | socketServer.run({
           |   hostname: "127.0.0.1",
-          |   port: 3000,
+          |   port: 1777,
           | });
           | console.log(
           |   `Socket server started on ws://${socketServer.hostname}:${socketServer.port}`,
