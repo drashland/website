@@ -23,12 +23,10 @@ export default {
             //Introduction: "/tutorials",
             "Servers": {
               "Creating a Server": "/tutorials/servers/creating-a-server",
-              "Creating A Channel": "/tutorials/servers/creating-a-channel",
-              "Listening To Channels": "/tutorials/servers/listening-to-channels",
             },
             "Clients": {
-              "Listening To Channels": "/tutorials/clients/listening-to-channels",
-              "Creating A Client": "/tutorials/clients/creating-a-client",
+              "Connecting To Servers": "/tutorials/clients/connecting-to-servers",
+              "Connecting To Channels": "/tutorials/clients/connecting-to-channels",
             }
           },
         },
