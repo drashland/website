@@ -44,6 +44,9 @@ page(
   h2-hash Before You Get Started
   p In this tutorial, you will create a very basic server that can handle a single channel.
   p In the verification section, you will need to install and use <code>wscat</code> globally to interact with the socket server. <code>wscat</code> is an npm package.
+  p Opening channels can be done using the following call:
+  code-block(:header="false" language="typescript")
+    | socketServer.openChannel("Channel Name");
   hr
   h2-hash Folder Structure End State
   code-block(:header="false" language="text" :line_numbers="false")
@@ -53,10 +56,14 @@ page(
   h2-hash Steps
   ol
     li
-      p Create your server.
+      p Create your server, open Channel 1, and add a handler for messages sent to Channel 1.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
+        | import { IPacket, SocketServer } from "https://deno.land/x/sockets@v0.x/mod.ts";
+        |
         | // Create the socket server
         | const socketServer = new SocketServer();
+        |
+        | // Run the socket server
         | socketServer.run({
         |   hostname: "127.0.0.1",
         |   port: 1777,

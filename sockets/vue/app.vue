@@ -30,11 +30,9 @@ export default {
             },
             "Clients": {
               "Connecting To Servers": "/tutorials/clients/connecting-to-servers",
-              "Opening Channels": "/tutorials/clients/opening-channels",
-              "Closing Channels": "/tutorials/clients/closing-channels",
+              "Sending Messages": "/tutorials/clients/sending-messages",
               "Connecting To Channels": "/tutorials/clients/connecting-to-channels",
               "Disconnecting From Channels": "/tutorials/clients/disconnecting-from-channels",
-              "Interacting With Servers": "/tutorials/clients/interacting-with-servers",
             }
           },
         },
