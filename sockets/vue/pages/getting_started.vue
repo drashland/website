@@ -46,10 +46,7 @@ div
       li
         p Create your server and allow it to handle a single channel named Channel 1.
         code-block(title="app.ts" language="typescript")
-          | import {
-          |   IPacket,
-          |   SocketServer,
-          | } from "https://deno.land/x/sockets@v0.x/mod.ts";
+          | import { SocketServer } from "https://deno.land/x/sockets@v0.x/mod.ts";
           |
           | // Create the socket server
           | const socketServer = new SocketServer();
