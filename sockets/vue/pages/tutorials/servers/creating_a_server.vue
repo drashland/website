@@ -43,7 +43,6 @@ page(
 )
   h2-hash Before You Get Started
   p In this tutorial, you will create a very basic server that can handle <code>ping</code>, <code>pong</code>, and <code>test</code> messages.
-  p In the verification section, you will need to install and use <code>wscat</code> globally to interact with the socket server. <code>wscat</code> is an npm package.
   hr
   h2-hash Folder Structure End State
   code-block(:header="false" language="text" :line_numbers="false")
@@ -55,10 +54,7 @@ page(
     li
       p Create your server.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import {
-        |   IPacket,
-        |   SocketServer,
-        | } from "https://deno.land/x/sockets@v0.x/mod.ts";
+        | import { SocketServer } from "https://deno.land/x/sockets@v0.x/mod.ts";
         |
         | // Create the socket server
         | const socketServer = new SocketServer();
@@ -80,11 +76,7 @@ page(
       code-block(title="Terminal" language="text")
         | deno run --allow-net app.ts
     li
-      p Install <code>wscat</code> globally. This assumes you have Node and npm installed on your machine.
-      code-block(title="Terminal" language="text")
-        | npm install -g wscat
-    li
-      p Connect to your socket server using <code>wscat</code>.
+      p Connect to your socket server.
       code-block(title="Terminal" language="text")
         | wscat -c ws://127.0.0.1:1777
     li

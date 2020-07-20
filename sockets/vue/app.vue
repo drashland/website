@@ -20,7 +20,7 @@ export default {
             Importing: "/#importing",
           },
           Tutorials: {
-            //Introduction: "/tutorials",
+            Introduction: "/tutorials/introduction",
             "Servers": {
               "Creating a Server": "/tutorials/servers/creating-a-server",
               "Opening Channels": "/tutorials/servers/opening-channels",
