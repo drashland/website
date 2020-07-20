@@ -55,46 +55,43 @@ page(
   p A channel is the same thing as a room or an event. In Sockets, we use the term "channel", so please keep that in mind.
   hr
   h2-hash Sending Messages
-  p At times, you will be sending certain messages (as strings) in certain formats to a socket server. There are multiple messages that a Sockets server listens to. On receipt of one of the messages below, it will respond as stated below.
+  p At times, you will be sending certain messages as strings (and sometimes in certain formats) to a socket server using <code>wscat</code>. There are multiple messages that a Sockets server listens to. On receipt of one of the messages below, it will respond as stated below.
   ul
     li
       p
         strong <code>ping</code>
-      p Sending a ping message will result in a pong message from the server.
+      p Sending a ping message will result in a pong message from the server. The message is written as follows:
+      code-block(:header="false")
+        | > ping
     li
       p
         strong <code>pong</code>
-      p Sending a pong message will result in a ping message from the server.
+      p Sending a pong message will result in a ping message from the server. This message is written as follows:
+      code-block(:header="false")
+        | > pong
     li
       p
         strong <code>test</code>
-      p Sending a test message will result in the server responding with the address it is listening at (e.g., Socket server is listening at 127.0.0.1:1777.).
+      p Sending a test message will result in the server responding with the address it is listening at (e.g., Socket server is listening at 127.0.0.1:1777.). This message is written as follows:
+      code-block(:header="false")
+        | > test
     li
       p
         strong <code>connect_to</code>
-      p This message allows you to connect to channels and is written as follows:
-      code-block(title="Terminal")
-        | {
-        |   "connect_to": ["channel name", "another channel", "some other channel"]
-        | }
+      p This message allows you to connect to channels resulting in a connection message from the server. This message is written as follows:
+      code-block(:header="false")
+        | > { "connect_to": ["channel name", "another channel", "some other channel"] }
     li
       p
         strong <code>disconnect_from</code>
-      p This message allows you to disconnect from channels and is written as follows:
-      code-block(title="Terminal")
-        | {
-        |   "disconnect_from": ["channel name", "another channel", "some other channel"]
-        | }
+      p This message allows you to disconnect from channels resulting in a disconnect message from the server. This message is written as follows:
+      code-block(:header="false")
+        | > { "disconnect_from": ["channel name", "another channel", "some other channel"] }
     li
       p
         strong <code>send_message</code>
-      p This message allows you to send a message to channels and is written as follows:
-      code-block(title="Terminal")
-        | {
-        |   "send_message": {
-        |     "to": ["channel name", "another channel", "some other channel"],
-        |     "message": "some message"
-        |   }
-        | }
+      p This message allows you to send a message to channels. The server will respond based on a specified callback. You will learn more about the callbacks (aka handlers) in the tutorials. This message is written as follows:
+      code-block(:header="false")
+        | > { "send_message": { "to": ["channel name", "another channel", "some other channel"], "message": "some message" } }
 </template>
 
