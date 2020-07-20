@@ -65,6 +65,8 @@ div
         p Run your socket server.
         code-block(title="Terminal" language="text")
           | deno run --allow-net app.ts
+          |
+          | Socket server started on ws://127.0.0.1:1777
       li
         p Install <code>wscat</code> or similar client to interact with your socket server.
         code-block(title="Terminal" language="text")
@@ -77,6 +79,7 @@ div
         p Ping your socket server.
         code-block(title="Terminal" language="text")
           | > ping
+          |
           | < pong
     hr
     h2-hash Importing
