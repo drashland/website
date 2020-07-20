@@ -3,11 +3,11 @@ import H2Hash from "/common/vue/h2_hash.vue";
 import Page from "/common/vue/page.vue";
 import CodeBlock from "/common/vue/code_block.vue";
 
-const title = "Creating A Server";
+const title = "Opening Channels";
 
 export const resource = {
   paths: [
-    "/tutorials/servers/creating-a-server",
+    "/tutorials/servers/opening-channels",
   ],
   meta: {
     title: title
@@ -42,7 +42,7 @@ page(
   :toc="toc"
 )
   h2-hash Before You Get Started
-  p In this tutorial, you will create a very basic server that can handle <code>ping</code>, <code>pong</code>, and <code>test</code> messages.
+  p In this tutorial, you will create a very basic server that can handle a single channel.
   p In the verification section, you will need to install and use <code>wscat</code> globally to interact with the socket server. <code>wscat</code> is an npm package.
   hr
   h2-hash Folder Structure End State
@@ -55,11 +55,6 @@ page(
     li
       p Create your server.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import {
-        |   IPacket,
-        |   SocketServer,
-        | } from "https://deno.land/x/sockets@v0.x/mod.ts";
-        |
         | // Create the socket server
         | const socketServer = new SocketServer();
         | socketServer.run({
@@ -70,6 +65,21 @@ page(
         | console.log(
         |   `Socket server started on ws://${socketServer.hostname}:${socketServer.port}`,
         | );
+        |
+        | // Open Channel 1 so that clients can send messages to it
+        | socketServer.openChannel("Channel 1");
+        |
+        | // Add a handler for messages sent to Channel 1. This handler will be executed
+        | // every time a message is sent to Channel 1.
+        | socketServer.on("Channel 1", (packet: IPacket) => {
+        |   console.log(packet);
+        |   // Do something with the packet (in this case, we're just confirming receipt
+        |   // and sending the message back)
+        |   socketServer.to(
+        |     packet.to, // => Channel 1
+        |     `Message received from client #${packet.from}: ${packet.message}`,
+        |   );
+        | });
   hr
   h2-hash Verification
   ol
@@ -86,25 +96,18 @@ page(
       code-block(title="Terminal" language="text")
         | wscat -c ws://127.0.0.1:1777
     li
-      p Send a <code>ping</code> message.
+      p Send a <code>connect_to</code> message to connect to Channel 1.
       code-block(title="Terminal" language="text")
-        | > ping
+        | > {"connect_to":["Channel 1"]}
       p You should receive the following response:
       code-block(:header="false" language="text")
-        | < pong
+        | < Connected to Channel 1.
     li
-      p Send a <code>pong</code> message.
+      p Send a <code>send_message</code> message to send a message to Channel 1. The <code>send_message</code> message requires a <code>to</code> and <code>message</code> field.
       code-block(title="Terminal" language="text")
-        | > pong
-      p You should receive the following response:
+        | > {"send_message":{"to":["Channel 1"],"message":"Hello World!."}}
+      p You should receive a response similar to the following:
       code-block(:header="false" language="text")
-        | < ping
-    li
-      p Send a <code>test</code> message.
-      code-block(title="Terminal" language="text")
-        | > test
-      p You should receive the following response:
-      code-block(:header="false" language="text")
-        | < Socket server is listening at 127.0.0.1:1777.
+        | < {"from":"Server","to":"Channel 1","message":"Message received from client #4: Hello World!."}
 </template>
 

@@ -23,6 +23,10 @@ export default {
             //Introduction: "/tutorials",
             "Servers": {
               "Creating a Server": "/tutorials/servers/creating-a-server",
+              "Opening Channels": "/tutorials/servers/opening-channels",
+              "Closing Channels": "/tutorials/servers/closing-channels",
+              "Adding Clients To Channels": "/tutorials/servers/adding-clients-to-channels",
+              "Removing Clients From Channels": "/tutorials/servers/removing-clients-from-channels",
             },
             "Clients": {
               "Connecting To Servers": "/tutorials/clients/connecting-to-servers",
