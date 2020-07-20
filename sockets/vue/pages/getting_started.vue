@@ -50,6 +50,8 @@ div
           |
           | // Create the socket server
           | const socketServer = new SocketServer();
+          |
+          | // Run the socket server
           | socketServer.run({
           |   hostname: "127.0.0.1",
           |   port: 1777,
