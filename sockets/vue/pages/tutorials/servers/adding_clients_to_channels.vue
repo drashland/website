@@ -178,7 +178,7 @@ page(
       code-block(:header="false" language="text")
         | < {"from":"Server","to":"Actions","message":"Client #5 was added to the Channel 1 channel."}
     li
-      p Using the second client, disconnet from Channel 1.
+      p Using the second client, disconnect from Channel 1.
       code-block(title="Terminal" language="text")
         | > {"disconnect_from":["Channel 1"]}
       p If the second client was connected, you should receive the following response:
