@@ -98,6 +98,6 @@ page(
         strong <code>send_message</code>
       p This message allows you to send a message to channels. The server will respond based on a specified callback. You will learn more about the callbacks (aka handlers) in the tutorials. This message is written as follows:
       code-block(:header="false")
-        | > { "send_message": { "to": ["channel name", "another channel", "some other channel"], "message": "some message" } }
+        | > { "send_message": { "to": "channel name", "message": "some message" } }
 </template>
 
