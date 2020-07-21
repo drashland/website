@@ -77,6 +77,12 @@ page(
         | > test
     li
       p
+        strong <code>id</code>
+      p Sending an id message will result in the server responding with the client's ID (e.g., Client ID: 5.). This message is written as follows:
+      code-block(:header="false")
+        | > id
+    li
+      p
         strong <code>connect_to</code>
       p This message allows you to connect to channels resulting in a connection message from the server. This message is written as follows:
       code-block(:header="false")
