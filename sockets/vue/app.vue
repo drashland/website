@@ -27,6 +27,14 @@ export default {
             "Adding Clients To Channels": "/tutorials/adding-clients-to-channels",
             "Removing Clients From Channels": "/tutorials/removing-clients-from-channels",
           },
+          "Advanced Tutorials": {
+            Introduction: "/advanced-tutorials/introduction",
+            "Creating A Chat App": {
+              Introduction: "/advanced-tutorials/creating-a-chat-app/introduction",
+              "Part 1: Creating The Server": "/advanced-tutorials/creating-a-chat-app/creating-the-server",
+              "Part 2: Creating The Front-End": "/advanced-tutorials/creating-a-chat-app/creating-the-front-end"
+            }
+          }
         },
         module: "Sockets",
       }
