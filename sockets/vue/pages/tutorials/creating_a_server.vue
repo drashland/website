@@ -7,7 +7,7 @@ const title = "Creating A Server";
 
 export const resource = {
   paths: [
-    "/tutorials/servers/creating-a-server",
+    "/tutorials/creating-a-server",
   ],
   meta: {
     title: title

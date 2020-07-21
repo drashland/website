@@ -3,11 +3,11 @@ import H2Hash from "/common/vue/h2_hash.vue";
 import Page from "/common/vue/page.vue";
 import CodeBlock from "/common/vue/code_block.vue";
 
-const title = "Removing Clients From Channels";
+const title = "Add Clients To Channels";
 
 export const resource = {
   paths: [
-    "/tutorials/servers/removing-clients-from-channels",
+    "/tutorials/adding-clients-to-channels",
   ],
   meta: {
     title: title
@@ -42,15 +42,15 @@ page(
   :toc="toc"
 )
   h2-hash Before You Get Started
-  p Removing clients from channels can be done using the following call:
+  p Adding clients to channels can be done using the following call:
   code-block(:header="false" language="typescript")
-    | socketServer.removeClientFromChannel("Channel Name", clientId);
+    | socketServer.addClientToChannel("Channel Name", clientId);
   p In this tutorial, you will:
   ul
     li create a socket server;
     li open two channels;
     li open two client connections; and
-    li have one client call the socket server to tell it to remove the other client from a channel.
+    li have one client call the socket server to tell it to add the other client to a channel.
   hr
   h2-hash Folder Structure End State
   code-block(:header="false" language="text" :line_numbers="false")
@@ -78,7 +78,7 @@ page(
         | );
         |
     li
-      p Open two channels: Channel 1 and Actions (see the highlighted code). The Actions channel's handler (in the next step) will remove a client from Channel 1 based on the message it receives.
+      p Open two channels: Channel 1 and Actions (see the highlighted code). The Actions channel's handler (in the next step) will add a client to Channel 1 based on the message it receives.
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="16-21")
         | import { IPacket, SocketServer } from "https://deno.land/x/sockets@v0.x/mod.ts";
         |
@@ -132,11 +132,11 @@ page(
         |   const message = packet.message as {[k: string]: string};
         |   if (message.action && message.channel) {
         |     try {
-        |       if (message.action == "remove_client_from_channel") {
-        |         socketServer.removeClientFromChannel(message.channel, parseInt(message.client_id));
+        |       if (message.action == "add_client_to_channel") {
+        |         socketServer.addClientToChannel(message.channel, parseInt(message.client_id));
         |         socketServer.to(
         |           "Actions",
-        |           `Client #${message.client_id} was removed from the ${message.channel} channel.`
+        |           `Client #${message.client_id} was added to the ${message.channel} channel.`
         |         );
         |       }
         |     } catch (error) {
@@ -164,13 +164,6 @@ page(
       code-block(title="Terminal" language="text")
         | < Client ID: 5
     li
-      p Using the second client, connect to Channel 1.
-      code-block(title="Terminal" language="text")
-        | > {"connect_to":["Channel 1"]}
-      p You should receive the following response:
-      code-block(title="Terminal" language="text")
-        | < Connected to Channel 1.
-    li
       p Using the first client, connect to the Actions channel.
       code-block(title="Terminal" language="text")
         | > {"connect_to":["Actions"]}
@@ -178,18 +171,18 @@ page(
       code-block(title="Terminal" language="text")
         | > Connected to Actions.
     li
-      p Using the first client, send a message to the Actions channel to remove the second client from Channel 1. Make sure you use the correct client ID!
+      p Using the first client, send a message to the Actions channel to add the second client to Channel 1. Make sure you use the correct client ID!
       code-block(title="Terminal" language="text")
-        | > {"send_message":{"to":"Actions","message":{"action":"remove_client_from_channel","client_id":"5","channel":"Channel 1"}}}
+        | > {"send_message":{"to":"Actions","message":{"action":"add_client_to_channel","client_id":"5","channel":"Channel 1"}}}
       p You should receive a response similar to the following:
       code-block(:header="false" language="text")
-        | < {"from":"Server","to":"Actions","message":"Client #5 was removed from the Channel 1 channel."}
+        | < {"from":"Server","to":"Actions","message":"Client #5 was added to the Channel 1 channel."}
     li
       p Using the second client, disconnect from Channel 1.
       code-block(title="Terminal" language="text")
         | > {"disconnect_from":["Channel 1"]}
-      p If the second client was removed, you should receive the following response:
+      p If the second client was connected, you should receive the following response:
       code-block(:header="false" language="text")
-        | < Not connected to Channel 1.
+        | < Disconnected from Channel 1.
 </template>
 

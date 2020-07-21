@@ -21,19 +21,11 @@ export default {
           },
           Tutorials: {
             Introduction: "/tutorials/introduction",
-            "Servers": {
-              "Creating a Server": "/tutorials/servers/creating-a-server",
-              "Opening Channels": "/tutorials/servers/opening-channels",
-              "Closing Channels": "/tutorials/servers/closing-channels",
-              "Adding Clients To Channels": "/tutorials/servers/adding-clients-to-channels",
-              "Removing Clients From Channels": "/tutorials/servers/removing-clients-from-channels",
-            },
-            "Clients": {
-              "Connecting To Servers": "/tutorials/clients/connecting-to-servers",
-              "Sending Messages": "/tutorials/clients/sending-messages",
-              "Connecting To Channels": "/tutorials/clients/connecting-to-channels",
-              "Disconnecting From Channels": "/tutorials/clients/disconnecting-from-channels",
-            }
+            "Creating a Server": "/tutorials/creating-a-server",
+            "Opening Channels": "/tutorials/opening-channels",
+            "Closing Channels": "/tutorials/closing-channels",
+            "Adding Clients To Channels": "/tutorials/adding-clients-to-channels",
+            "Removing Clients From Channels": "/tutorials/removing-clients-from-channels",
           },
         },
         module: "Sockets",
