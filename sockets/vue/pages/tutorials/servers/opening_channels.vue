@@ -147,7 +147,7 @@ page(
     li
       p Send a message to Channel 1.
       code-block(title="Terminal" language="text")
-        | > {"send_message":{"to":["Channel 1"],"message":"Hello World!."}}
+        | > {"send_message":{"to":"Channel 1","message":"Hello World!."}}
       p You should receive a response similar to the following:
       code-block(:header="false" language="text")
         | < {"from":"Server","to":"Channel 1","message":"Message received from client #4: Hello World!."}
