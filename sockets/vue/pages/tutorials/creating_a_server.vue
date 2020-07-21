@@ -54,29 +54,29 @@ page(
     li
       p Create your server.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import { SocketServer } from "https://deno.land/x/sockets@v0.x/mod.ts";
+        | import { Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
         |
-        | // Create the socket server
-        | const socketServer = new SocketServer();
+        | // Create the server
+        | const server = new Server();
         |
-        | // Run the socket server
-        | socketServer.run({
+        | // Run the server
+        | server.run({
         |   hostname: "127.0.0.1",
         |   port: 1777,
         | });
         |
         | console.log(
-        |   `Socket server started on ws://${socketServer.hostname}:${socketServer.port}`,
+        |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
   hr
   h2-hash Verification
   ol
     li
-      p Run your socket server.
+      p Run your server.
       code-block(title="Terminal" language="text")
         | deno run --allow-net app.ts
     li
-      p Connect to your socket server.
+      p Connect to your server.
       code-block(title="Terminal" language="text")
         | wscat -c ws://127.0.0.1:1777
     li
@@ -99,6 +99,13 @@ page(
         | > test
       p You should receive the following response:
       code-block(:header="false" language="text")
-        | < Socket server is listening at 127.0.0.1:1777.
+        | < Server is listening at 127.0.0.1:1777.
+    li
+      p Send an <code>id</code> message.
+      code-block(title="Terminal" language="text")
+        | > id
+      p You should receive a response similar to the following:
+      code-block(:header="false" language="text")
+        | < Client ID: 4
 </template>
 

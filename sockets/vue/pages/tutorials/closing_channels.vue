@@ -45,6 +45,12 @@ page(
   p Closing channels can be done using the following call:
   code-block(:header="false" language="typescript")
     | socketServer.closeChannel("Channel Name");
+  p In this tutorial, you will:
+  ul
+    li create a server;
+    li open two channels;
+    li open one client connection; and
+    li have the client call the server to tell it to close one of the channels.
   hr
   h2-hash Folder Structure End State
   code-block(:header="false" language="text" :line_numbers="false")
@@ -56,37 +62,37 @@ page(
     li
       p Create your server.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import { IPacket, SocketServer } from "https://deno.land/x/sockets@v0.x/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
         |
-        | // Create the socket server
-        | const socketServer = new SocketServer();
+        | // Create the server
+        | const socketServer = new Server();
         |
-        | // Run the socket server
+        | // Run the server
         | socketServer.run({
         |   hostname: "127.0.0.1",
         |   port: 1777,
         | });
         |
         | console.log(
-        |   `Socket server started on ws://${socketServer.hostname}:${socketServer.port}`,
+        |   `Server started on ws://${socketServer.hostname}:${socketServer.port}`,
         | );
         |
     li
       p Open two channels: Channel 1 and Actions (see the highlighted code). The Actions channel's handler (in the next step) will close Channel 1 based on the message it receives.
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="16-21")
-        | import { IPacket, SocketServer } from "https://deno.land/x/sockets@v0.x/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
         |
-        | // Create the socket server
-        | const socketServer = new SocketServer();
+        | // Create the server
+        | const socketServer = new Server();
         |
-        | // Run the socket server
+        | // Run the server
         | socketServer.run({
         |   hostname: "127.0.0.1",
         |   port: 1777,
         | });
         |
         | console.log(
-        |   `Socket server started on ws://${socketServer.hostname}:${socketServer.port}`,
+        |   `Server started on ws://${socketServer.hostname}:${socketServer.port}`,
         | );
         |
         | // Open the Channel 1 channel so that it can be closed via the Actions channel
@@ -98,17 +104,17 @@ page(
     li
       p Add a message handler to the Actions channel (see the highlighted code).
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="21-37")
-        | import { IPacket, SocketServer } from "https://deno.land/x/sockets@v0.x/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
         |
-        | // Create the socket server
-        | const socketServer = new SocketServer();
+        | // Create the server
+        | const socketServer = new Server();
         | socketServer.run({
         |   hostname: "127.0.0.1",
         |   port: 1777,
         | });
         |
         | console.log(
-        |   `Socket server started on ws://${socketServer.hostname}:${socketServer.port}`,
+        |   `Server started on ws://${socketServer.hostname}:${socketServer.port}`,
         | );
         |
         | // Open the Channel 1 channel so that it can be closed via the Actions channel
@@ -122,7 +128,7 @@ page(
         | // executed every time a message is sent to the Actions channel. In this
         | // handler, we are parsing the message and taking an action based on the
         | // specified message.
-        | socketServer.on("Actions", (packet: IPacket) => {
+        | socketServer.on("Actions", (packet: Packet) => {
         |   const message = packet.message as {[k: string]: string};
         |   if (message.action && message.channel) {
         |     try {
@@ -139,11 +145,11 @@ page(
   h2-hash Verification
   ol
     li
-      p Run your socket server.
+      p Run your server.
       code-block(title="Terminal" language="text")
         | deno run --allow-net app.ts
     li
-      p Connect to your socket server.
+      p Connect to your server.
       code-block(title="Terminal" language="text")
         | wscat -c ws://127.0.0.1:1777
     li

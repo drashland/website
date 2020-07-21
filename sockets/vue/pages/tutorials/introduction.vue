@@ -43,7 +43,7 @@ page(
   :toc="toc"
 )
   h2-hash About The Tutorials
-  p The tutorials in the sidebar are ordered (from top to bottom) in a way that will help you understand Sockets quickly &mdash; from creating a server to interacting with it. Since all tutorials have example code of setting up and starting a socket server, it is not required that you read the tutorials in order. However, it is greatly recommended.
+  p The tutorials in the sidebar are ordered (from top to bottom) in a way that will help you understand Sockets quickly &mdash; from creating a server to interacting with it. Since all tutorials have example code of setting up and starting a server, it is not required that you read the tutorials in order. However, it is greatly recommended.
   hr
   h2-hash wscat
   p All tutorials have a Verification section where you will interact with a server. The Verification section requires that you install <code>wscat</code> globally. To install <code>wscat</code>, run the following command:
@@ -55,7 +55,7 @@ page(
   p A channel is the same thing as a room or an event. In Sockets, we use the term "channel", so please keep that in mind.
   hr
   h2-hash Sending Messages
-  p At times, you will be sending certain messages as strings (and sometimes in certain formats) to a socket server using <code>wscat</code>. There are multiple messages that a Sockets server listens to. On receipt of one of the messages below, it will respond as stated below.
+  p At times, you will be sending certain messages as strings (and sometimes in certain formats) to a server using <code>wscat</code>. There are multiple messages that a Sockets server listens to. On receipt of one of the messages below, it will respond as stated below.
   ul
     li
       p
@@ -72,7 +72,7 @@ page(
     li
       p
         strong <code>test</code>
-      p Sending a test message will result in the server responding with the address it is listening at (e.g., Socket server is listening at 127.0.0.1:1777.). This message is written as follows:
+      p Sending a test message will result in the server responding with the address it is listening at (e.g., Server is listening at 127.0.0.1:1777.). This message is written as follows:
       code-block(:header="false")
         | > test
     li

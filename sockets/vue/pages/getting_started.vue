@@ -46,36 +46,36 @@ div
       li
         p Create your server and allow it to handle a single channel named Channel 1.
         code-block(title="app.ts" language="typescript")
-          | import { SocketServer } from "https://deno.land/x/sockets@v0.x/mod.ts";
+          | import { Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
           |
-          | // Create the socket server
-          | const socketServer = new SocketServer();
+          | // Create the server
+          | const socketServer = new Server();
           |
-          | // Run the socket server
+          | // Run the server
           | socketServer.run({
           |   hostname: "127.0.0.1",
           |   port: 1777,
           | });
           |
           | console.log(
-          |   `Socket server started on ws://${socketServer.hostname}:${socketServer.port}`,
+          |   `Server started on ws://${socketServer.hostname}:${socketServer.port}`,
           | );
       li
-        p Run your socket server.
+        p Run your server.
         code-block(title="Terminal" language="text")
           | deno run --allow-net app.ts
           |
-          | Socket server started on ws://127.0.0.1:1777
+          | Server started on ws://127.0.0.1:1777
       li
-        p Install <code>wscat</code> or similar client to interact with your socket server.
+        p Install <code>wscat</code> or similar client to interact with your server.
         code-block(title="Terminal" language="text")
           | npm install -g wscat
       li
-        p Connect to your socket server.
+        p Connect to your server.
         code-block(title="Terminal" language="text")
           | wscat -c ws://127.0.0.1:1777
       li
-        p Ping your socket server.
+        p Ping your server.
         code-block(title="Terminal" language="text")
           | > ping
           |

@@ -37,7 +37,6 @@ page(
   :base_url="base_url"
   :subtitle="subtitle"
   :title="title"
-  :toc="toc"
 )
   h2-hash Overview
   p In this tutorial series, you will learn how to create a simple chat app powered by Sockets. You will learn how to make a Sockets server handle messages between multiple clients.
