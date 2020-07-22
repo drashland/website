@@ -82,5 +82,12 @@ div
           | < pong
     hr
     h2-hash Importing
-    code-block-import(name="Socket" repo="sockets")
+    div
+      code-block(language="typescript" :header="false")
+        | // Import a specific version of the Socket server
+        | import { Server } from "https://deno.land/x/sockets@{tag or branch name}/mod.ts";
+        |
+        | // Import the master branch of the Socket server
+        | import { Server } from "https://deno.land/x/sockets/mod.ts";
+      p Sockets versions can be found <a :href="'https://github.com/drashland/sockets/releases'" target="_BLANK">here</a>.
 </template>
