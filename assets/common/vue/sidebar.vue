@@ -44,6 +44,18 @@ export default {
 
 <style lang="scss" scoped>
 
+ul li {
+  list-style-type: none;
+}
+
+ul li ul li {
+  margin-left: 0;
+}
+
+ul li ul li a {
+  padding-left: 3rem !important;
+}
+
 .sidebar {
   -webkit-overflow-scrolling: touch;
   display: block;
@@ -91,14 +103,14 @@ export default {
 }
 
 .menu-item {
-  list-style-type: none;
   margin-left: 0;
   &:last-of-type {
     border-bottom: 1px solid #3f3955;
   }
 }
 
-.menu-item-link {
+.menu-item-link,
+.menu2-item-link {
   display: block;
   color: #f4f4f4;
   padding: 0.25rem 1.45rem;
@@ -119,7 +131,11 @@ div.sidebar(:style="'background-color: ' + styles.background_color + ';'")
         a.menu-name-link {{ menu_item_name }}
       ul.mb-0
         li.menu-item(v-for="(href, link_text) in sub_menu_items")
-          a.menu-item-link(:href="base_url + href" @click="closeSidebar()") {{ link_text }}
+          a.no-hover.menu-item-link(v-if="typeof href == 'object'") {{ link_text }}
+          ul.mb-0(v-if="typeof href == 'object'")
+            li.menu2-item(v-for="(href, link_text) in sub_menu_items[link_text]")
+              a.menu2-item-link(:href="base_url + href" @click="closeSidebar()") {{ link_text }}
+          a(v-else).menu-item-link(:href="base_url + href" @click="closeSidebar()") {{ link_text }}
     div.menu-name(v-if="api_reference_href")
       a.menu-name-link.is-link(:href="api_reference_href" @click="closeSidebar()") API Reference
     div.menu-name
