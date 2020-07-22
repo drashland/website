@@ -103,6 +103,11 @@ code {
 
 h1 {
   margin-bottom: 1rem;
+  line-height: 3.5rem;
+}
+
+h2 {
+  line-height: 3.5rem;
 }
 
 h3 {
@@ -115,7 +120,6 @@ hr {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
-
 
 ol li {
   list-style-type: decimal;
