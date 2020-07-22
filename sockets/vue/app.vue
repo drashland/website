@@ -34,7 +34,6 @@ export default {
               "Part 1: Creating The Server": "/advanced-tutorials/creating-a-chat-app/part-1",
               "Part 2: Opening A Channel": "/advanced-tutorials/creating-a-chat-app/part-2",
               "Part 3: Creating The Front-End": "/advanced-tutorials/creating-a-chat-app/part-3",
-              "Part 4: Sending Messages": "/advanced-tutorials/creating-a-chat-app/part-4"
             }
           }
         },

@@ -28,7 +28,7 @@ export default {
       toc: [
         "About The Tutorials",
         "wscat",
-        "The Definition Of A Channel",
+        "Definitions",
         "Sending Packets",
       ],
     };
