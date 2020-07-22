@@ -2,6 +2,7 @@
 import H2Hash from "/common/vue/h2_hash.vue";
 import Page from "/common/vue/page.vue";
 import CodeBlock from "/common/vue/code_block.vue";
+import DivAlertFinishedTutorialSeries from "/common/vue/div_alert_finished_tutorial_series.vue";
 import Breadcrumbs from "/common/vue/breadcrumbs.vue";
 
 const title = "Creating A Chat App";
@@ -20,6 +21,7 @@ export default {
   components: {
     Breadcrumbs,
     CodeBlock,
+    DivAlertFinishedTutorialSeries,
     H2Hash,
     Page,
   },
@@ -153,7 +155,7 @@ page(
       p Open up your <code>index.html</code> file in another browser window. This browser window will be your second client.
     li
       p Send messages between the two browser windows (aka clients).
-    p You have finished this tutorial series.
+  div-alert-finished-tutorial-series
   hr
   breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="3")
 </template>

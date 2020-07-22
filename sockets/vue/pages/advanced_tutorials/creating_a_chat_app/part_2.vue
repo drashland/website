@@ -2,6 +2,7 @@
 import H2Hash from "/common/vue/h2_hash.vue";
 import Page from "/common/vue/page.vue";
 import CodeBlock from "/common/vue/code_block.vue";
+import DivAlertNextTutorialPart from "/common/vue/div_alert_next_tutorial_part.vue";
 import Breadcrumbs from "/common/vue/breadcrumbs.vue";
 
 const title = "Creating A Chat App";
@@ -20,6 +21,7 @@ export default {
   components: {
     Breadcrumbs,
     CodeBlock,
+    DivAlertNextTutorialPart,
     H2Hash,
     Page,
   },
@@ -101,6 +103,7 @@ page(
       code-block(:header="false" language="text")
         | < {"from":"Server","to":"General","message":"test"}
     p You can now move on to the next tutorial part.
+  div-alert-next-tutorial-part
   hr
   breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="3")
 </template>

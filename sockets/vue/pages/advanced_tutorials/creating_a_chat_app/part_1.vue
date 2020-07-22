@@ -1,8 +1,9 @@
 <script>
+import Breadcrumbs from "/common/vue/breadcrumbs.vue";
+import CodeBlock from "/common/vue/code_block.vue";
+import DivAlertNextTutorialPart from "/common/vue/div_alert_next_tutorial_part.vue";
 import H2Hash from "/common/vue/h2_hash.vue";
 import Page from "/common/vue/page.vue";
-import CodeBlock from "/common/vue/code_block.vue";
-import Breadcrumbs from "/common/vue/breadcrumbs.vue";
 
 const title = "Creating A Chat App";
 const subtitle = "Part 1: Creating The Server";
@@ -20,6 +21,7 @@ export default {
   components: {
     Breadcrumbs,
     CodeBlock,
+    DivAlertNextTutorialPart,
     Page,
     H2Hash,
   },
@@ -108,7 +110,7 @@ page(
       p You should receive a response similar to the following:
       code-block(:header="false" language="text")
         | < Client ID: 4
-    p You can now move on to the next tutorial part.
+  div-alert-next-tutorial-part
   hr
   breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="3")
 </template>
