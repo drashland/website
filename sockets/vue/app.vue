@@ -31,10 +31,10 @@ export default {
             Introduction: "/advanced-tutorials/introduction",
             "Creating A Chat App": {
               Introduction: "/advanced-tutorials/creating-a-chat-app/introduction",
-              "Part 1: Creating The Server": "/advanced-tutorials/creating-a-chat-app/creating-the-server",
-              "Part 2: Opening A Channel": "/advanced-tutorials/creating-a-chat-app/opening-a-channel",
-              "Part 3: Creating The Front-End": "/advanced-tutorials/creating-a-chat-app/creating-the-front-end",
-              "Part 4: Sending Messages": "/advanced-tutorials/creating-a-chat-app/sending-messages"
+              "Part 1: Creating The Server": "/advanced-tutorials/creating-a-chat-app/part-1",
+              "Part 2: Opening A Channel": "/advanced-tutorials/creating-a-chat-app/part-2",
+              "Part 3: Creating The Front-End": "/advanced-tutorials/creating-a-chat-app/part-3",
+              "Part 4: Sending Messages": "/advanced-tutorials/creating-a-chat-app/part-4"
             }
           }
         },

@@ -44,7 +44,7 @@ page(
   h2-hash Before You Get Started
   p Closing channels can be done using the following call:
   code-block(:header="false" language="typescript")
-    | socketServer.closeChannel("Channel Name");
+    | server.closeChannel("Channel Name");
   p In this tutorial, you will:
   ul
     li create a server;
@@ -65,16 +65,16 @@ page(
         | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
         |
         | // Create the server
-        | const socketServer = new Server();
+        | const server = new Server();
         |
         | // Run the server
-        | socketServer.run({
+        | server.run({
         |   hostname: "127.0.0.1",
         |   port: 1777,
         | });
         |
         | console.log(
-        |   `Server started on ws://${socketServer.hostname}:${socketServer.port}`,
+        |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
         |
     li
@@ -83,58 +83,58 @@ page(
         | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
         |
         | // Create the server
-        | const socketServer = new Server();
+        | const server = new Server();
         |
         | // Run the server
-        | socketServer.run({
+        | server.run({
         |   hostname: "127.0.0.1",
         |   port: 1777,
         | });
         |
         | console.log(
-        |   `Server started on ws://${socketServer.hostname}:${socketServer.port}`,
+        |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
         |
         | // Open the Channel 1 channel so that it can be closed via the Actions channel
-        | socketServer.openChannel("Channel 1");
+        | server.openChannel("Channel 1");
         |
-        | // Open the Actions channel so that clients can send messages to it and take
+        | // Open the Actions channel so that clients can send packets to it and take
         | // actions based on the message they send
-        | socketServer.openChannel("Actions");
+        | server.openChannel("Actions");
     li
-      p Add a message handler to the Actions channel (see the highlighted code).
+      p Add a packet handler to the Actions channel (see the highlighted code).
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="21-37")
         | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
         |
         | // Create the server
-        | const socketServer = new Server();
-        | socketServer.run({
+        | const server = new Server();
+        | server.run({
         |   hostname: "127.0.0.1",
         |   port: 1777,
         | });
         |
         | console.log(
-        |   `Server started on ws://${socketServer.hostname}:${socketServer.port}`,
+        |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
         |
         | // Open the Channel 1 channel so that it can be closed via the Actions channel
-        | socketServer.openChannel("Channel 1");
+        | server.openChannel("Channel 1");
         |
-        | // Open the Actions channel so that clients can send messages to it and take
+        | // Open the Actions channel so that clients can send packets to it and take
         | // actions based on the message they send
-        | socketServer.openChannel("Actions");
+        | server.openChannel("Actions");
         |
-        | // Add a handler for messages sent to the Actions channel. This handler will be
-        | // executed every time a message is sent to the Actions channel. In this
+        | // Add a handler for packets sent to the Actions channel. This handler will be
+        | // executed every time a packet is sent to the Actions channel. In this
         | // handler, we are parsing the message and taking an action based on the
         | // specified message.
-        | socketServer.on("Actions", (packet: Packet) => {
+        | server.on("Actions", (packet: Packet) => {
         |   const message = packet.message as {[k: string]: string};
         |   if (message.action && message.channel) {
         |     try {
         |       if (message.action == "close_channel") {
-        |         socketServer.closeChannel(message.channel);
-        |         socketServer.to("Actions", `${message.channel} closed.`);
+        |         server.closeChannel(message.channel);
+        |         server.to("Actions", `${message.channel} closed.`);
         |       }
         |     } catch (error) {
         |       console.log(error);
@@ -161,9 +161,9 @@ page(
         | < Connected to Actions.
         | < Connected to Channel 1.
     li
-      p Send a message to the Actions channel to close Channel 1.
+      p Send a packet to the Actions channel to close Channel 1.
       code-block(title="Terminal" language="text")
-        | > {"send_message":{"to":"Actions","message":{"action":"close_channel","channel":"Channel 1"}}}
+        | > {"send_packet":{"to":"Actions","message":{"action":"close_channel","channel":"Channel 1"}}}
       p You should receive a response similar to the following:
       code-block(:header="false" language="text")
         | < {"from":"Server","to":"Actions","message":"Channel 1 closed."}

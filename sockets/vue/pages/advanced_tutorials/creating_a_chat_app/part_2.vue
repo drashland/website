@@ -2,12 +2,14 @@
 import H2Hash from "/common/vue/h2_hash.vue";
 import Page from "/common/vue/page.vue";
 import CodeBlock from "/common/vue/code_block.vue";
+import Breadcrumbs from "/common/vue/breadcrumbs.vue";
 
-const title = "Creating A Server";
+const title = "Creating A Chat App";
+const subtitle = "Part 1: Opening A Channel";
 
 export const resource = {
   paths: [
-    "/tutorials/creating-a-server",
+    "/advanced-tutorials/creating-a-chat-app/part-2",
   ],
   meta: {
     title: title
@@ -16,6 +18,7 @@ export const resource = {
 
 export default {
   components: {
+    Breadcrumbs,
     CodeBlock,
     H2Hash,
     Page,
@@ -23,13 +26,9 @@ export default {
   data() {
     return {
       base_url: this.$conf.sockets.base_url + "/#",
+      base_uri: "/advanced-tutorials/creating-a-chat-app",
       title: title,
-      toc: [
-        "Before You Get Started",
-        "Folder Structure End State",
-        "Steps",
-        "Verification",
-      ],
+      subtitle: subtitle,
     };
   }
 }
@@ -38,11 +37,13 @@ export default {
 <template lang="pug">
 page(
   :base_url="base_url"
+  :subtitle="subtitle"
   :title="title"
-  :toc="toc"
 )
+  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="3")
+  hr
   h2-hash Before You Get Started
-  p In this tutorial, you will create a very basic server that can handle <code>ping</code>, <code>pong</code>, and <code>test</code> packets.
+  p In this tutorial part, you will open the channel that will be used by clients.
   hr
   h2-hash Folder Structure End State
   code-block(:header="false" language="text" :line_numbers="false")
@@ -52,9 +53,9 @@ page(
   h2-hash Steps
   ol
     li
-      p Create your server.
-      code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import { Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
+      p Import the <code>Packet</code> class, open the General channel, and add a packet handler for it (see the highlighted code).
+      code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="1,16-23")
+        | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
         |
         | // Create the server
         | const server = new Server();
@@ -68,6 +69,15 @@ page(
         | console.log(
         |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
+        |
+        | // Open the General channel
+        | server.openChannel("General");
+        |
+        | // Add the General channel's packet handler
+        | server.on("General", (packet: Packet) => {
+        |     // Send the incoming message to all clients in the General channel
+        |     server.to("General", packet.message);
+        | });
   hr
   h2-hash Verification
   ol
@@ -80,32 +90,18 @@ page(
       code-block(title="Terminal" language="text")
         | wscat -c ws://127.0.0.1:1777
     li
-      p Send a <code>ping</code> packet.
+      p Connect to the General channel.
       code-block(title="Terminal" language="text")
-        | > ping
+        | > {"connect_to":["General"]}
+    li
+      p Send a packet to the General channel.
+      code-block(title="Terminal" language="text")
+        | > {"send_packet":{"to":"General","message":"test"}}
       p You should receive the following response:
       code-block(:header="false" language="text")
-        | < pong
-    li
-      p Send a <code>pong</code> packet.
-      code-block(title="Terminal" language="text")
-        | > pong
-      p You should receive the following response:
-      code-block(:header="false" language="text")
-        | < ping
-    li
-      p Send a <code>test</code> packet.
-      code-block(title="Terminal" language="text")
-        | > test
-      p You should receive the following response:
-      code-block(:header="false" language="text")
-        | < Server started on 127.0.0.1:1777.
-    li
-      p Send an <code>id</code> packet.
-      code-block(title="Terminal" language="text")
-        | > id
-      p You should receive a response similar to the following:
-      code-block(:header="false" language="text")
-        | < Client ID: 4
+        | < {"from":"Server","to":"General","message":"test"}
+    p You can now move on to the next tutorial part.
+  hr
+  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="3")
 </template>
 

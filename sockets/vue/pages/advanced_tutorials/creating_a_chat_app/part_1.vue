@@ -2,12 +2,14 @@
 import H2Hash from "/common/vue/h2_hash.vue";
 import Page from "/common/vue/page.vue";
 import CodeBlock from "/common/vue/code_block.vue";
+import Breadcrumbs from "/common/vue/breadcrumbs.vue";
 
-const title = "Creating A Server";
+const title = "Creating A Chat App";
+const subtitle = "Part 1: Creating The Server";
 
 export const resource = {
   paths: [
-    "/tutorials/creating-a-server",
+    "/advanced-tutorials/creating-a-chat-app/part-1",
   ],
   meta: {
     title: title
@@ -16,20 +18,17 @@ export const resource = {
 
 export default {
   components: {
+    Breadcrumbs,
     CodeBlock,
-    H2Hash,
     Page,
+    H2Hash,
   },
   data() {
     return {
       base_url: this.$conf.sockets.base_url + "/#",
+      base_uri: "/advanced-tutorials/creating-a-chat-app",
       title: title,
-      toc: [
-        "Before You Get Started",
-        "Folder Structure End State",
-        "Steps",
-        "Verification",
-      ],
+      subtitle: subtitle,
     };
   }
 }
@@ -38,11 +37,13 @@ export default {
 <template lang="pug">
 page(
   :base_url="base_url"
+  :subtitle="subtitle"
   :title="title"
-  :toc="toc"
 )
+  breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="3")
+  hr
   h2-hash Before You Get Started
-  p In this tutorial, you will create a very basic server that can handle <code>ping</code>, <code>pong</code>, and <code>test</code> packets.
+  p In this tutorial part, you will create a server and verify that it can respond.
   hr
   h2-hash Folder Structure End State
   code-block(:header="false" language="text" :line_numbers="false")
@@ -107,5 +108,8 @@ page(
       p You should receive a response similar to the following:
       code-block(:header="false" language="text")
         | < Client ID: 4
+    p You can now move on to the next tutorial part.
+  hr
+  breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="3")
 </template>
 

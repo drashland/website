@@ -29,7 +29,7 @@ export default {
         "About The Tutorials",
         "wscat",
         "The Definition Of A Channel",
-        "Sending Messages",
+        "Sending Packets",
       ],
     };
   }
@@ -51,53 +51,74 @@ page(
     | npm install -g wscat
   p Once you have installed <code>wscat</code>, you can use it through the command line via <code>wscat</code> command.
   hr
-  h2-hash The Definition Of A Channel
-  p A channel is the same thing as a room or an event. In Sockets, we use the term "channel", so please keep that in mind.
+  h2-hash Definitions
+  ul
+    li
+      p
+        strong Channel
+      p A channel is the same thing as a room or an event. In Sockets, we use the term "channel", so please keep that in mind.
+    li
+      p
+        strong Packet
+      p A packet is an object containing a sender, a receiver, and a message. It is an advanced form of a message. In Sockets, we use the term packets to describe the data that is being sent and received. A packet has the following fields:
+      ul
+        li
+          p
+            strong <code>from</code>
+          p The entity sending the packet. This entity can be a client or the server.
+        li
+          p
+            strong <code>to</code>
+          p The entity receiving the packet. This entity can be a client or a channel.
+        li
+          p
+            strong <code>message</code>
+          p The packet's message. This can be anything (e.g., a string, a number, binary data, or even a JSON object).
   hr
-  h2-hash Sending Messages
-  p At times, you will be sending certain messages as strings (and sometimes in certain formats) to a server using <code>wscat</code>. There are multiple messages that a Sockets server listens to. On receipt of one of the messages below, it will respond as stated below.
+  h2-hash Sending Packets
+  p At times, you will be sending certain packets to a server using <code>wscat</code>. There are multiple packets that a Sockets server listens to. On receipt of one of the packets below, it will respond as stated below.
   ul
     li
       p
         strong <code>ping</code>
-      p Sending a ping message will result in a pong message from the server. The message is written as follows:
+      p Sending a ping packet will result in a pong packet from the server. The packet is written as follows:
       code-block(:header="false")
         | > ping
     li
       p
         strong <code>pong</code>
-      p Sending a pong message will result in a ping message from the server. This message is written as follows:
+      p Sending a pong packet will result in a ping packet from the server. This packet is written as follows:
       code-block(:header="false")
         | > pong
     li
       p
         strong <code>test</code>
-      p Sending a test message will result in the server responding with the address it is listening at (e.g., Server is listening at 127.0.0.1:1777.). This message is written as follows:
+      p Sending a test packet will result in the server responding with its address information (e.g., Server started on 127.0.0.1:1777.). This packet is written as follows:
       code-block(:header="false")
         | > test
     li
       p
         strong <code>id</code>
-      p Sending an id message will result in the server responding with the client's ID (e.g., Client ID: 5.). This message is written as follows:
+      p Sending an id packet will result in the server responding with the client's ID (e.g., Client ID: 5.). This packet is written as follows:
       code-block(:header="false")
         | > id
     li
       p
         strong <code>connect_to</code>
-      p This message allows you to connect to channels resulting in a connection message from the server. This message is written as follows:
+      p This packet allows you to connect to channels. This packet is written as follows:
       code-block(:header="false")
         | > { "connect_to": ["channel name", "another channel", "some other channel"] }
     li
       p
         strong <code>disconnect_from</code>
-      p This message allows you to disconnect from channels resulting in a disconnect message from the server. This message is written as follows:
+      p This packet allows you to disconnect from channels. This packet is written as follows:
       code-block(:header="false")
         | > { "disconnect_from": ["channel name", "another channel", "some other channel"] }
     li
       p
-        strong <code>send_message</code>
-      p This message allows you to send a message to channels. The server will respond based on a specified callback. You will learn more about the callbacks (aka handlers) in the tutorials. This message is written as follows:
+        strong <code>send_packet</code>
+      p This packet is used to send more complex packets. The server will respond based on a specified packet handler. You will learn more about the packet handlers in the tutorials. This packet is written as follows:
       code-block(:header="false")
-        | > { "send_message": { "to": "channel name", "message": "some message" } }
+        | > { "send_packet": { "to": "channel name", "message": "some message" } }
 </template>
 

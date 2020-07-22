@@ -49,16 +49,16 @@ div
           | import { Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
           |
           | // Create the server
-          | const socketServer = new Server();
+          | const server = new Server();
           |
           | // Run the server
-          | socketServer.run({
+          | server.run({
           |   hostname: "127.0.0.1",
           |   port: 1777,
           | });
           |
           | console.log(
-          |   `Server started on ws://${socketServer.hostname}:${socketServer.port}`,
+          |   `Server started on ws://${server.hostname}:${server.port}`,
           | );
       li
         p Run your server.

@@ -49,7 +49,7 @@ page(
   ul
     li create a server;
     li open one channel; and
-    li add a message handler to that channel.
+    li add a packet handler to that channel.
   hr
   h2-hash Folder Structure End State
   code-block(:header="false" language="text" :line_numbers="false")
@@ -94,10 +94,10 @@ page(
         |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
         |
-        | // Open Channel 1 so that clients can send messages to it
+        | // Open Channel 1 so that clients can send packets to it
         | server.openChannel("Channel 1");
     li
-      p Add a message handler to Channel 1 (see the highlighted code).
+      p Add a packet handler to Channel 1 (see the highlighted code).
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="19-31")
         | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
         |
@@ -114,11 +114,11 @@ page(
         |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
         |
-        | // Open Channel 1 so that clients can send messages to it
+        | // Open Channel 1 so that clients can send packets to it
         | server.openChannel("Channel 1");
         |
-        | // Add a handler for messages sent to Channel 1. This handler will be executed
-        | // every time a message is sent to Channel 1. In this handler, we are just
+        | // Add a handler for packets sent to Channel 1. This handler will be executed
+        | // every time a packet is sent to Channel 1. In this handler, we are just
         | // confirming receipt of the message and sending the message to Channel 1. Any
         | // client connected to Channel 1 will receive the message. In this tutorial,
         | // your client will be connected to Channel 1 and will receive the message
@@ -149,9 +149,9 @@ page(
       code-block(:header="false" language="text")
         | < Connected to Channel 1.
     li
-      p Send a message to Channel 1.
+      p Send a packet to Channel 1.
       code-block(title="Terminal" language="text")
-        | > {"send_message":{"to":"Channel 1","message":"Hello World!"}}
+        | > {"send_packet":{"to":"Channel 1","message":"Hello World!"}}
       p You should receive a response similar to the following:
       code-block(:header="false" language="text")
         | < {"from":"Server","to":"Channel 1","message":"Message received from client #4: Hello World!"}
