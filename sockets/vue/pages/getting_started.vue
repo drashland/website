@@ -82,5 +82,5 @@ div
           | < pong
     hr
     h2-hash Importing
-    code-block-import(name="Sockets" repo="sockets")
+    code-block-import(name="Socket" repo="sockets")
 </template>
