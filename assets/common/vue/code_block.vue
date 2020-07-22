@@ -11,10 +11,14 @@ export default {
     },
     language: {
       type: String,
-      required: true,
+      default: "text",
     },
     title: {
       type: String,
+    },
+    line_numbers: {
+      type: Boolean,
+      default: false
     }
   },
   created() {
@@ -37,6 +41,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+[data-line] {
+  padding: 1em;
+}
 .header {
   border-radius: 1rem 1rem 0 0;
   background-color: #454545;
@@ -64,6 +71,10 @@ ul .code-block.is-mobile,
 ol .code-block.is-mobile {
   margin-left: -4rem;
 }
+.line-highlight:after,
+.line-highlight:before {
+  display: none;
+}
 </style>
 
 <template lang="pug">
@@ -72,7 +83,10 @@ div.code-block.mb-5(
 )
   pre.header.mb-0.p-4(v-if="header !== false")
     code.header {{ title }}
-  pre.body(:data-line="line_highlight" :class="{'no-header': header === false}")
+  pre.body(
+    :data-line="line_highlight"
+    :class="{'no-header': header === false, 'line-numbers': line_numbers}"
+    )
     code(:class="'language-' + language")
       slot
 </template>

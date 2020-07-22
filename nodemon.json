@@ -6,7 +6,8 @@
     "rhum/*",
     "server.js",
     "sockets/",
-    "*.js"
+    "*.js",
+    "*.vue"
   ],
   "ignore": [
     "compiled_*.js"
