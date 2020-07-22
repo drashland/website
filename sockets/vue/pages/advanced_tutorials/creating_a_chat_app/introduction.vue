@@ -52,7 +52,9 @@ page(
     ) Get Started
   hr
   h2-hash End State
-  p Below are examples of what you will create.
+  p Below is an example of what you will create.
+  p
+    img(src="/sockets/assets/img/creating_a_chat_app/verification_1.png")
   hr
   breadcrumbs(:base_url="base_url + base_uri" :part="-1" :parts="3")
 </template>
