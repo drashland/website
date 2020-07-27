@@ -42,13 +42,23 @@ page(
   p Unlike mocks, stubs are used to help verify the state of a test. For example, you can check to see if the test is in a certain state when stubbing an object's property to a certain value.
   p Stubbing an object's properties can be done as follows:
   code-block(:header="false" language="typescript")
+    | // Define the object that will have stubbed members as a stubbed object
     | const myStubbedObject = Rhum.stubbed(new MyObject());
+    |
+    | // Stub the object's some_property property to a certain value
     | myStubbedObject.stub("some_property", "this property is now stubbed");
+    |
+    | // Assert that the property was stubbed
     | Rhum.asserts.assertEquals(myStubbedObject.some_property, "this property is now stubbed");
   p Stubbing an object's methods can be done as follows:
   code-block(:header="false" language="typescript")
+    | // Define the object that will have stubbed members as a stubbed object
     | const myStubbedObject = Rhum.stubbed(new MyObject());
+    |
+    | // Stub the object's someMethod() method to return a certain value
     | myStubbedObject.stub("someMethod", () => { return "stubbed"; });
+    |
+    | // Assert that the method was stubbed
     | Rhum.asserts.assertEquals(myStubbedObject.someMethod(), "stubbed");
 </template>
 
