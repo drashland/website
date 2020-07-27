@@ -1,0 +1,54 @@
+<script>
+import H2Hash from "/common/vue/h2_hash.vue";
+import Page from "/common/vue/page.vue";
+import CodeBlock from "/common/vue/code_block.vue";
+
+const title = "Stubs";
+
+export const resource = {
+  paths: [
+    "/tutorials/stubs",
+  ],
+  meta: {
+    title: title
+  }
+}
+
+export default {
+  components: {
+    CodeBlock,
+    H2Hash,
+    Page,
+  },
+  data() {
+    return {
+      base_url: this.$conf.rhum.base_url + "/#",
+      title: title,
+    };
+  }
+}
+</script>
+
+<template lang="pug">
+page(
+  :base_url="base_url"
+  :title="title"
+  :toc="toc"
+)
+  p Rhum defines stubs as follows:
+  ul
+    li Stubs provide canned answers to calls made during tests
+    li Stubs do not respond to calls outside the test's scope
+  p Unlike mocks, stubs are used to help verify the state of a test.
+  p Stubbing an object's properties can be done as follows:
+  code-block(:header="false" language="typescript")
+    | const myStubbedObject = Rhum.stubbed(new MyObject());
+    | myStubbedObject.stub("some_property", "this property is now stubbed");
+    | Rhum.asserts.assertEquals(myStubbedObject.some_property, "this property is now stubbed");
+  p Stubbing an object's methods can be done as follows:
+  code-block(:header="false" language="typescript")
+    | const myStubbedObject = Rhum.stubbed(new MyObject());
+    | myStubbedObject.stub("someMethod", () => { return "stubbed"; });
+    | Rhum.asserts.assertEquals(myStubbedObject.someMethod(), "stubbed");
+</template>
+
