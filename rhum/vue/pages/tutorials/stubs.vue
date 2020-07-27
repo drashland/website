@@ -39,7 +39,7 @@ page(
   ul
     li Stubs provide canned answers to calls made during tests
     li Stubs do not respond to calls outside the test's scope
-  p Unlike mocks, stubs are used to help verify the state of a test.
+  p Unlike mocks, stubs are used to help verify the state of a test. For example, you can check to see if the test is in a certain state when stubbing an object's property to a certain value.
   p Stubbing an object's properties can be done as follows:
   code-block(:header="false" language="typescript")
     | const myStubbedObject = Rhum.stubbed(new MyObject());
