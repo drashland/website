@@ -48,45 +48,58 @@ page-tutorial(
       ol
         li
           p Create your <code>HomeResource</code> file.
-           code-block(:data="example_code.home_resource")
+          code-block-slotted(language="typescript")
+            template(v-slot:title) {{ example_code.home_resource.filepath }}
+            template(v-slot:code) {{ example_code.home_resource.contents }}
         li
           p Create your <code>OrdersResource</code> file.
-           code-block(:data="example_code.orders_resource")
+          code-block-slotted(language="typescript")
+            template(v-slot:title) {{ example_code.orders_resource.filepath }}
+            template(v-slot:code) {{ example_code.orders_resource.contents }}
         li 
           p Create your <code>UsersResource</code> file.
-           code-block(:data="example_code.users_resource")
+          code-block-slotted(language="typescript")
+            template(v-slot:title) {{ example_code.users_resource.filepath }}
+            template(v-slot:code) {{ example_code.users_resource.contents }}
         li
-          p Create your app file.
-            code-block(:data="example_code.app")
+          p Create your <code>app</code> file.
+          code-block-slotted(language="typescript")
+            template(v-slot:title) {{ example_code.app.filepath }}
+            template(v-slot:code) {{ example_code.app.contents }}
   div.row
     div.col
       hr
       h2-hash Writing Your Tests
       ol
         li
-          p Create your test runner file. Your test runner file will run your server, import and run your tests, and shut down your server when all tests have been run. Your server needs to run so the testing module can make requests to your server using <code>fetch()</code> and receive the responses you expect.
-          code-block(:data="example_code.run_tests")
+          p Create your test runner file. Your test runner file will import and run your tests. Your server needs to run so the testing module can make requests to your server using <code>fetch()</code> and receive the responses you expect.
+          code-block-slotted(language="typescript")
+            template(v-slot:title) {{ example_code.run_tests.filepath }}
+            template(v-slot:code) {{ example_code.run_tests.contents }}
         li
           p Write your tests.
-          code-block(:data="example_code.tests")
+          code-block-slotted(language="typescript")
+            template(v-slot:title) {{ example_code.tests.filepath }}
+            template(v-slot:code) {{ example_code.tests.contents }}
         li
           p Run your test runner file.
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
-              | deno run --allow-net run_tests.ts
+              | deno test --allow-net run_tests.ts
           p You should receive the following output:
           code-block-slotted
             template(v-slot:title) Terminal
             template(v-slot:code)
               | running 7 tests
-              | OK     HomeResource - GET / (6.00ms)
-              | OK     UsersResource - GET /users/1 (4.00ms)
-              | OK     UsersResource - GET /users/1388873 (2.00ms)
-              | OK     UsersResource - GET /users/1983765 (2.00ms)
-              | OK     OrdersResource - GET /orders/1 (4.00ms)
-              | OK     OrdersResource - GET /orders/1090987 (2.00ms)
-              | OK     OrdersResource - GET /orders/8878213 (0.00ms)
+              | test HomeResource - GET / ... ok (48ms)
+              | test UsersResource - GET /users/1 ... ok (9ms)
+              | test UsersResource - GET /users/1388873 ... ok (8ms)
+              | test UsersResource - GET /users/1983765 ... ok (7ms)
+              | test OrdersResource - GET /orders/1 ... ok (13ms)
+              | test OrdersResource - GET /orders/1090987 ... ok (10ms)
+              | test OrdersResource - GET /orders/8878213 ... ok (6ms)
               |
-              | test result: OK 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (24.00ms)
+              | test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (103ms)
+
 

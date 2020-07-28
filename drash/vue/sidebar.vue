@@ -81,10 +81,10 @@ div.c-sidebar
           a-base-url(href="/tutorials/front-end/extending-a-template") Extending A Template
           a-base-url(href="/tutorials/front-end/adding-template-partials") Adding Template Partials
           a-base-url(href="/tutorials/front-end/in-template-javascript") In-Template JavaScript
-        //-span.sub-heading
+        span.sub-heading
           p.arrow.right
           a Testing
-        //-div.l-submenu-1.hide--soft
+        div.l-submenu-1.hide--soft
           a-base-url(href="/tutorials/testing/unit-testing") Unit Testing
         span.sub-heading
           p.arrow.right
