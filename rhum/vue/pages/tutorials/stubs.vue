@@ -61,7 +61,7 @@ page(
     | myStubbedObject.stub("some_property", "this property is now stubbed");
     |
     | // Assert that the property was stubbed
-    | Rhum.asserts.assertEquals(myStubbedObject.some_property, "this property is now stubbed");
+    | Rhum.asserts.assertEquals(myStubbedObject.some_property, "this property is now stubbed"); // pass
   hr
   h2-hash Stubbing Methods
   p Stubbing an object's methods can be done as follows:
@@ -79,6 +79,6 @@ page(
     | myStubbedObject.stub("someMethod", () => { return "stubbed"; });
     |
     | // Assert that the method was stubbed
-    | Rhum.asserts.assertEquals(myStubbedObject.someMethod(), "stubbed");
+    | Rhum.asserts.assertEquals(myStubbedObject.someMethod(), "stubbed"); // pass
 </template>
 

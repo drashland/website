@@ -79,14 +79,14 @@ page(
     | const myObj = new MyObj(mock);
     |
     | // Assert that the service's add() method was not called yet
-    | Rhum.asserts.assertEquals(mock.calls.add, 0);
+    | Rhum.asserts.assertEquals(mock.calls.add, 0); // pass
     |
     | // Assert that the service's add() method was called once
     | myObj.add(1, 1);
-    | Rhum.asserts.assertEquals(mock.calls.add, 1);
+    | Rhum.asserts.assertEquals(mock.calls.add, 1); // pass
   hr
   h2-hash Mock Constructor Arguments
-  p Mocks can be created with constructor arguments as follows. See the highlighted code below.
+  p Mocks can be created with constructor arguments as follows.
   code-block(:header="false" language="typescript" line_highlight="8")
     | class ToBeMocked {
     |   constructor(arg1: string, arg2: number) { ... }
