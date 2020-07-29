@@ -16,6 +16,7 @@ export default {
           "Before You Get Started",
           "Creating A Resource",
           "Path Params",
+          "Optional Path Params",
           "Regular Expression URIs",
         ]
       }
@@ -81,6 +82,42 @@ page-tutorial(
           li
             request(method="get" url="/something")
             | Responds with: Get request received! You passed in the following path param: something
+    div.row
+      div.col
+        hr
+        h2-hash Optional Path Params
+        p Path parameters can also be optional, allowing a resource to accept a URI that doesn't depend on certain parameters, but still wishes to accept the request, with or without them.
+        p
+          code-block-slotted(language="typescript" line_highlight="5")
+            template(v-slot:title) /path/to/your/project/users_resource.ts
+            template(v-slot:code) {{ example_code.users_resource_optional_path_params.contents}}
+        p You can have as many optional parameters as you wish, but required parameters must precede optional parameters.
+        P Examples of URIs that this resource would handle:
+        ul
+          li
+            request(method="get" url="/users/1")
+            | Responds with: Get request received! You passed in the following path params: |1||||
+          li
+            request(method="get" url="/users/1/")
+            | Responds with: Get request received! You passed in the following path params: |1||||
+          li
+            request(method="get" url="/users/1/John")
+            | Responds with: Get request received! You passed in the following path params: |1|John|||
+          li
+            request(method="get" url="/users/1/John/")
+            | Responds with: Get request received! You passed in the following path params: |1|John|||
+          li
+            request(method="get" url="/users/1/John/54")
+            | Responds with: Get request received! You passed in the following path params: |1|John|54||
+          li
+            request(method="get" url="/users/1/John/54/")
+            | Responds with: Get request received! You passed in the following path params: |1|John|54||
+          li
+            request(method="get" url="/users/1/John/54/UK")
+            | Responds with: Get request received! You passed in the following path params: |1|John|54|UK|
+          li
+            request(method="get" url="/users/1/John/54/UK/")
+            | Responds with: Get request received! You passed in the following path params: |1|John|54|UK|
     div.row
       div.col
         hr
