@@ -54,6 +54,24 @@ page-tutorial(
             code-block-slotted(language="typescript")
               template(v-slot:title) {{ example_code.users_resource.filepath }}
               template(v-slot:code) {{ example_code.users_resource.contents }}
+          p You can also specify optional parameters by adding <code>?</code>. The resource would still match even if the optional parameters are not passed in. For example:
+          p
+            code-block-slotted(language="typescript")
+              template(v-slot:title) {{ example_code.users_resource.filepath }}
+              template(v-slot:code)
+                | static paths = ["/users/:id/:name?"];
+                | // or
+                | static paths = ["/users/:name?"];
+                | // or
+                | static paths = ["/users/:id/:name/:age?/:city?"];
+          p You can specify as many optional parameters as you want, but required parameters must precede optional parameters. Using the path <code>/users/:id/:name/:age?/:city</code> from the example above, the resource will match for the following URI's:
+          ul
+            li <code>/users/1/John</code>
+            li <code>/users/1/John/</code>
+            li <code>/users/1/John/54</code>
+            li <code>/users/1/John/54/</code>
+            li <code>/users/1/John/54/UK</code>
+            li <code>/users/1/John/54/UK/</code>
         li
           p Create your app file.
           p

@@ -11,7 +11,7 @@ export default {
       build_date: this.$conf.build_date,
       environment: this.$conf.environment,
       sidebar: {
-        api_reference_href: this.$conf.rhum.base_url + "/#/api-reference",
+        api_reference_href: "https://doc.deno.land/https/deno.land/x/rhum@v1.x/mod.ts",
         base_url: this.$conf.rhum.base_url + "/#",
         github_href: "https://github.com/drashland/rhum",
         logo: "/assets/common/img/logo_rhum.svg",
@@ -24,7 +24,9 @@ export default {
           },
           Tutorials: {
             //Introduction: "/tutorials",
-            "Writing Tests": "/tutorials/writing-tests"
+            "Writing Tests": "/tutorials/writing-tests",
+            "Stubs": "/tutorials/stubs",
+            "Mocks": "/tutorials/mocks",
           },
         },
         module: "Rhum",
