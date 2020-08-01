@@ -16,7 +16,7 @@ Vue.prototype.$conf = conf;
 
 import VueAppRoot from "/drash/vue/app.vue";
 
-import "/drash/assets/js/compiled_vue_global_components.js";
+import "/common/vue/global_components.js";
 
 ////////////////////////////////////////////////////////////////////////////////
 // FILE MARKER - FILTERS ///////////////////////////////////////////////////////
