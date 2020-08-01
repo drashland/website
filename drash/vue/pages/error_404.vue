@@ -1,10 +1,7 @@
 <template lang="pug">
-div
-    div.row
-        div.col
-            div.alert.alert-danger.text-align--center(style="padding-top: 2rem; padding-bottom: 2rem;")
-                h1 404 (Not Found)
-                p.margin-bottom--0 URI <code>{{ $route.path }}</code> doesn't exist.
+div(class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md" role="alert")
+  h1.text-2xl 404 (Not Found)
+  p URI <code>{{ $route.path }}</code> could not be found.
 </template>
 
 <script>
