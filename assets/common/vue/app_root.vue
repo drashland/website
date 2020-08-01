@@ -95,7 +95,7 @@ code {
   border-radius: 0.18125rem;
   color: #e83e8c;
   display: inline-block;
-  font-size: .8rem;
+  font-size: .9rem;
   line-height: 1rem;
   margin-bottom: 0;
   padding: 0.1rem;
@@ -143,6 +143,22 @@ ul li {
   display: none;
 }
 
+$width: 375px;
+
+.main {
+  margin-left: $width;
+  &.is-mobile {
+    margin-left: 0;
+  }
+}
+
+.sidebar {
+  width: $width;
+  &.is-mobile {
+    width: 100%;
+  }
+}
+
 </style>
 
 <style lang="scss" scoped>
@@ -161,17 +177,6 @@ button {
   position: fixed;
   right: 1rem;
   z-index: 1000;
-}
-.main {
-  margin-left: 375px;
-  &.is-mobile {
-    margin-left: 0;
-  }
-}
-.sidebar {
-  &.is-mobile {
-    width: 100%;
-  }
 }
 </style>
 

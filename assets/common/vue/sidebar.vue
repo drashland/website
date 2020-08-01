@@ -67,7 +67,6 @@ ul li ul li a {
   position: fixed;
   border-right: 1px solid #e8e8e8;
   box-shadow: 7px 0 12px -6px rgba(100,100,100,0.2);
-  width: 375px;
   z-index: 10;
   a {
       color: #f4f4f4;
@@ -113,7 +112,7 @@ ul li ul li a {
 .menu2-item-link {
   display: block;
   color: #f4f4f4;
-  padding: 0.25rem 1.45rem;
+  padding: 0rem 1.45rem;
   &:hover {
     color: #333333;
     background-color: #f4f4f4;

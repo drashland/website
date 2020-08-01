@@ -1,26 +1,32 @@
 <script>
+import Page from "/common/vue/page.vue";
+
+const title = "Lifecycle Diagram";
+
 export const resource = {
   paths: ["/lifecycle-diagram"],
   meta: {
-    title: "Lifecycle Diagram",
-    source_code_uri: "/lifecycle_diagram",
+    title: title,
   }
 }
 
 export default {
+  components: {
+    Page
+  },
   data() {
     return {
+      title: title
     };
   },
 }
 </script>
 
 <template lang="pug">
-page()
-  div.row
-    div.col
-      hr
-      p Below is a digram of Drash's complete request-resource-response lifecycle with error handling flows.
-      p
-        img(:src="'/drash/assets/img/drash_lifecycle_diagram.svg'")
+page(
+  :title="title"
+)
+  p Below is a digram of Drash's complete request-resource-response lifecycle with error handling flows.
+  p
+    img(:src="'/drash/assets/img/drash_lifecycle_diagram.svg'")
 </template>

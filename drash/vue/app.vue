@@ -16,12 +16,12 @@ export default {
         logo: "/assets/common/img/logo_drash.svg",
         menus: {
           "Introduction": {
-            "Drash In A Nutshell": "/#quickstart",
-            "Quickstart": "/#importing",
-            "Importing": "/#features",
+            "Drash In A Nutshell": "/#drash-in-a-nutshell",
+            "Quickstart": "/#quickstart",
+            "Importing": "/#importing",
             "Features": "/#features",
-            "About Drash": "/#features",
-            "Drash Lifecycle Diagram": "/#features",
+            "About Drash": "/about-drash",
+            "Lifecycle Diagram": "/lifecycle-diagram",
           },
           "Tutorials": {
             "Introduction": "/tutorials",
@@ -42,11 +42,10 @@ export default {
             },
             "Responses": {
               "Accept Header": "/tutorials/misc/redirects",
-              //"Customizing Content Negotiation": "/tutorials/misc/redirects",
               "Redirects": "/tutorials/misc/redirects",
             },
             "Middleware": {
-              Introduction: "/tutorials/middleware/introduction",
+              "Introduction": "/tutorials/middleware/introduction",
               "Adding Server-Level Middleware": "/tutorials/middleware/server-level-middleware",
               "Adding Resource-Level Middleware": "/tutorials/middleware/resource-level-middleware",
               "Using Drash Middleware Modules": "/tutorials/middleware/drash-middleware-modules",
@@ -72,18 +71,13 @@ export default {
             }
           },
           "Advanced Tutorials": {
-            "Content Negotiation": {
-            },
-            "Creating An API": {
-            },
-            "Creating A Static HTML App": {
-            },
-            "Creating A Vue App": {
-            },
-            "Creating A React App": {
-            },
-            "Using Drash With Docker": {
-            }
+            "Creating An API": "/advanced-tutorials/creating-an-api",
+            "Creating A Static HTML App": "/advanced-tutorials/creating-a-static-html-app",
+            "Creating A Server Side Rendered App": "/advanced-tutorials/creating-a-server-side-rendered-app",
+            "Creating A Vue App": "/advanced-tutorials/creating-a-vue-app",
+            "Creating A React": "/advanced-tutorials/creating-a-react-app",
+            "Content Negotiation": "/advanced-tutorials/content-negotiation",
+            "Using Drash With Docker": "/advanced-tutorials/using-drash-with-docker",
           }
         },
         module: "drash",
