@@ -25,6 +25,7 @@ export default {
 
 <template lang="pug">
 page(
+  :base_url="this.$base_url"
   :title="title"
   :toc="toc"
 )
@@ -32,7 +33,6 @@ page(
   p Getting a value from an <code>application/x-www-form-urlencoded</code> request's body can be done using the following call:
     code-block(:header="false" language="typescript")
       | const param = this.request.getBodyParam("param_name");
-  p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   hr
   folder-structure-end-state
     | ▾ /path/to/your/project/
@@ -64,7 +64,7 @@ page(
         | --data 'snack=denosaurus' \
         | localhost:1447
       p You should receive the following response:
-      code-block-slotted(:header="false")
+      code-block(:header="false")
         | You passed in the following body param: denosaurus
     li
       p Make the same request, but change the data to use <code>meal</code> instead of <code>snack</code>.

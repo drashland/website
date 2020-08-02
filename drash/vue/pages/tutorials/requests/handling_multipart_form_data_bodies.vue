@@ -25,6 +25,7 @@ export default {
 
 <template lang="pug">
 page(
+  :base_url="this.$base_url"
   :title="title"
   :toc="toc"
 )
@@ -33,7 +34,6 @@ page(
   p Getting a value from a <code>multipart/form-data</code> request's body can be done using the following call:
   code-block(:header="false" language="typescript")
     | const file = this.request.getBodyFile("file_name");
-  p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   hr
   folder-structure-end-state
     | ▾ /path/to/your/project/

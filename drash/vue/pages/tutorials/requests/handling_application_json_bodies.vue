@@ -25,12 +25,13 @@ export default {
 
 <template lang="pug">
 page(
+  :base_url="this.$base_url"
   :title="title"
   :toc="toc"
 )
   h2-hash Before You Get Started
   p Getting a value from an <code>application/json</code> request's body can be done using the following call:
-  code-block-slotted(:header="false" language="typescript")
+  code-block(:header="false" language="typescript")
     | const param = this.request.getBodyParam("param_name");
   hr
   folder-structure-end-state

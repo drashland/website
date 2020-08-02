@@ -26,12 +26,12 @@ export default {
 
 <template lang="pug">
 page(
+  :base_url="this.$base_url"
   :title="title"
   :toc="toc"
 )
   h2-hash Before You Get Started
   p In this tutorial, you will create a very basic server that handles some common requests: <code>GET</code>, <code>POST</code>, <code>PUT</code>, and <code>DELETE</code>.
-  p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   hr
   folder-structure-end-state
     | ▾ /path/to/your/project/

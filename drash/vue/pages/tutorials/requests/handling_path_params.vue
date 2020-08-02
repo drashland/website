@@ -25,6 +25,7 @@ export default {
 
 <template lang="pug">
 page(
+  :base_url="this.$base_url"
   :title="title"
   :toc="toc"
 )
@@ -32,7 +33,6 @@ page(
   p Getting a value from a request's path params can be done using the following call:
   code-block(:header="false" language="typescript")
     | const param = this.request.getPathParam("param_name");
-  p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   hr
   folder-structure-end-state
     | ▾ /path/to/your/project/
@@ -76,7 +76,7 @@ page(
       code-block(title="Terminal")
         | curl localhost:1447/users/1
       p You should receive the following response:
-      code-block-slotted(:header="false")
+      code-block(:header="false")
         | You passed in the following user ID as the path param: 1
     li
       p Make the same request, but change the <code>:id</code> path param to <code>one</code>.

@@ -1,9 +1,4 @@
 <script>
-import H2Hash from "/common/vue/h2_hash.vue";
-import CodeBlock from "/common/vue/code_block.vue";
-import CodeBlockImport from "/common/vue/code_block_import.vue";
-import IntroductionHeader from "/common/vue/introduction_header.vue";
-
 export const resource = {
   paths: ["/", "/introduction"],
   meta: {
@@ -12,12 +7,6 @@ export const resource = {
 }
 
 export default {
-  components: {
-    H2Hash,
-    CodeBlock,
-    CodeBlockImport,
-    IntroductionHeader,
-  },
   data() {
     return {
       example_code: this.$example_code['drash/example_code/getting_started/quickstart']

@@ -1,8 +1,4 @@
 <script>
-import H2Hash from "/common/vue/h2_hash.vue";
-import Page from "/common/vue/page.vue";
-import CodeBlock from "/common/vue/code_block.vue";
-
 const title = "About Drash";
 
 export const resource = {
@@ -13,14 +9,8 @@ export const resource = {
 }
 
 export default {
-  components: {
-    CodeBlock,
-    H2Hash,
-    Page,
-  },
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
       title: title,
       example_code: this.$example_code['drash/example_code/about_drash'],
       toc: [
@@ -36,7 +26,7 @@ export default {
 
 <template lang="pug">
 page(
-  :base_url="base_url"
+  :base_url="this.$base_url"
   :title="title"
   :toc="toc"
 )

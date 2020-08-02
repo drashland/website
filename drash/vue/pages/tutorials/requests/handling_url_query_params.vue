@@ -25,6 +25,7 @@ export default {
 
 <template lang="pug">
 page(
+  :base_url="this.$base_url"
   :title="title"
   :toc="toc"
 )
@@ -32,7 +33,6 @@ page(
   p Getting a value from a request's URL query params can be done using the following call:
   code-block(:header="false" language="typescript")
     | const param = this.request.getUrlQueryParam("param_name");
-  p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   hr
   folder-structure-end-state
     | ▾ /path/to/your/project/

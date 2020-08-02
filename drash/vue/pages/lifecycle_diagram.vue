@@ -1,22 +1,15 @@
 <script>
-import Page from "/common/vue/page.vue";
-
-const title = "Lifecycle Diagram";
-
 export const resource = {
   paths: ["/lifecycle-diagram"],
   meta: {
-    title: title,
+    title: "Lifecycle Diagram",
   }
 }
 
 export default {
-  components: {
-    Page
-  },
   data() {
     return {
-      title: title
+      title: resource.meta.title
     };
   },
 }
