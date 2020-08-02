@@ -46,9 +46,9 @@ export default {
             },
             "Middleware": {
               "Introduction": "/tutorials/middleware/introduction",
-              "Adding Server-Level Middleware": "/tutorials/middleware/server-level-middleware",
-              "Adding Resource-Level Middleware": "/tutorials/middleware/resource-level-middleware",
-              "Using Drash Middleware Modules": "/tutorials/middleware/drash-middleware-modules",
+              "Adding Server-Level Middleware": "/tutorials/middleware/adding-server-level-middleware",
+              "Adding Resource-Level Middleware": "/tutorials/middleware/adding-resource-level-middleware",
+              "Using Drash Middleware Modules": "/tutorials/middleware/using-drash-middleware-modules",
             },
             "Cookies": {
               "Request Cookies": "/tutorials/cookies/request-cookies",
