@@ -28,14 +28,16 @@ page(
   :title="title"
   :toc="toc"
 )
-  hr
   h2-hash Before You Get Started
   p Getting a value from a request's path params can be done using the following call:
   code-block(:header="false" language="typescript")
     | const param = this.request.getPathParam("param_name");
   p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
   hr
-  div-folder-structure-end-state(:code_block_data="example_code.folder_structure")
+  folder-structure-end-state
+    | ▾ /path/to/your/project/
+    |   app.ts
+    |   users_resource.ts
   hr
   h2-hash Steps
   ol
