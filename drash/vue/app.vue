@@ -34,15 +34,15 @@ export default {
               "Serving Static Paths": "/tutorials/servers/serving-static-paths",
             },
             "Requests": {
-              "Handling URL Query Params": "/tutorials/requests/handling-url-query-params",
               "Handling JSON Bodies": "/tutorials/requests/handling-json-bodies",
               "Handling URL Encoded Bodies": "/tutorials/requests/handling-url-encoded-bodies",
               "Handling Multipart Bodies": "/tutorials/requests/handling-multipart-bodies",
+              "Handling URL Query Params": "/tutorials/requests/handling-url-query-params",
               "Handling Path Params": "/tutorials/requests/handling-path-params",
             },
             "Responses": {
-              "Accept Header": "/tutorials/misc/redirects",
-              "Redirects": "/tutorials/misc/redirects",
+              "Accept Header": "/tutorials/responses/accept-header",
+              "Redirects": "/tutorials/responses/redirects",
             },
             "Middleware": {
               "Introduction": "/tutorials/middleware/introduction",
