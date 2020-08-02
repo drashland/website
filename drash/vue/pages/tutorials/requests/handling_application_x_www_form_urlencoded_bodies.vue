@@ -47,7 +47,7 @@ page(
         | {{ example_code.home_resource.contents }}
     li
       p Create your app file.
-      code-block(title="example_code.app.filepath" language="typescript")
+      code-block(:title="example_code.app.filepath" language="typescript")
         | {{ example_code.app.contents }}
   hr
   h2-hash Verification

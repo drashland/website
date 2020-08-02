@@ -47,15 +47,15 @@ page(
   ol
     li
       p Create your resource file. Your resource file will check for the <code>my_file</code> file in the request's body. If it exists, then it will write its contents to <code>outputFile</code>. If it does not exist, then it will throw a <code>400 Bad Request</code> response.
-      code-block(title="example_code.files_resource.filepath" language="typescript")
+      code-block(:title="example_code.files_resource.filepath" language="typescript")
         | {{ example_code.files_resource.contents }}
     li
       p Create your <code>my_file.txt</code> file so it can be passed in the request body.
-      code-block(title="example_code.my_file.filepath" language="text")
+      code-block(:title="example_code.my_file.filepath" language="text")
         | {{ example_code.my_file.contents }}
     li
       p Create your app file. The <code>memory_allocation.multipart_form_data</code> config is how much memory in megabytes you want to allow the <code>multipart/form-data</code> reader to allocate to reading files. If you do not specify this config, Drash will default to <code>10</code> megabytes.
-      code-block(title="example_code.app.filepath" language="typescript")
+      code-block(:title="example_code.app.filepath" language="typescript")
         | {{ example_code.app.contents }}
   hr
   h2-hash Verification
