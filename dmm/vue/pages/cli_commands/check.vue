@@ -56,14 +56,14 @@ page(
       code-block(title="Terminal" language="text")
         | $ cat deps.ts
         |
-        | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
+        | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
         |
         | $ dmm check http
         |
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Comparing versions...
-        | http can be updated from v0.55.0 to v0.61.0
+        | http can be updated from 0.55.0 to 0.61.0
         | To update, run:
         |     dmm update http
     li
@@ -71,7 +71,7 @@ page(
       code-block(title="Terminal" language="text")
         | $ cat deps.ts
         |
-        | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
+        | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
         | import { Drash } from "https://deno.land/x/drash@v1.0.7/mod.ts"; // out of date
         |
         | $ dmm check http drash
@@ -79,7 +79,7 @@ page(
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Comparing versions...
-        | http can be updated from v0.55.0 to v{latest_release}
+        | http can be updated from 0.55.0 to {latest_release}
         | drash can be updated from v1.0.7 to v{latest_release}
         | To update, run:
         |     dmm update http drash
@@ -88,7 +88,7 @@ page(
       code-block(title="Terminal" language="text")
         | $ cat deps.ts
         |
-        | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
+        | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
         | import { Drash } from "https://deno.land/x/drash@v1.0.7/mod.ts"; // out of date
         |
         | $ dmm check
@@ -96,7 +96,7 @@ page(
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Comparing versions...
-        | http can be updated from v0.55.0 to v{latest_release}
+        | http can be updated from 0.55.0 to {latest_release}
         | drash can be updated from v1.0.7 to v{latest_release}
         | To update, run:
         |     dmm update http drash

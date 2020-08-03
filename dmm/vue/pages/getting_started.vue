@@ -47,7 +47,7 @@ div
       li
         p Update your dependencies.
         code-block(title="Terminal" language="text")
-          | deno run --allow-read --allow-write --allow-net https://deno.land/x/dmm/mod.ts update
+          | deno run --allow-read --allow-write --allow-net https://deno.land/x/dmm@v1.1.3/mod.ts update
           |
           | Gathering facts...
           | Reading deps.ts to gather your dependencies...
@@ -59,9 +59,9 @@ div
     h2-hash Installing
     p You can install dmm through <code>deno install</code>. See below.
     code-block(title="Terminal" language="text")
-      | deno install --allow-net --allow-read --allow-write https://deno.land/x/dmm/mod.ts
+      | deno install --allow-net --allow-read --allow-write https://deno.land/x/dmm@v1.1.3/mod.ts
       | dmm --help
-    p This will make running commands easier &mdash; allowing you to type <code>dmm</code> instead of <code>deno run --allow-read --allow-write --allow-net https://deno.land/x/dmm/mod.ts</code>.
+    p This will make running commands easier &mdash; allowing you to type <code>dmm</code> instead of <code>deno run --allow-read --allow-write --allow-net https://deno.land/x/dmm@v1.1.3/mod.ts</code>.
     hr
     h2-hash Features
     ul
