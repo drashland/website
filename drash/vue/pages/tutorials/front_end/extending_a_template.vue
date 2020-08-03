@@ -33,7 +33,7 @@ page(
   h2-hash Before You Get Started
   p In this tutorial, you will create an HTML template that extends another template using <code>&lt;% extends("index.html") %&gt;</code> and <code>&lt;% yield %&gt;</code>.
   hr
-  folder-structure-end-state(:code_block_data="example_code.folder_structure")
+  folder-structure-end-state
     | ▾ /path/to/your/project/
     |   ▾ /views
     |     index.html
