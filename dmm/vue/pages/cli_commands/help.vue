@@ -78,7 +78,7 @@ page(
         |
         | EXAMPLE USAGE:
         |     Assume you are importing an out of date version of `fs` from `std`.
-        |     deno run --allow-net --allow-read https://deno.land/x/dmm@v1.1.1/mod.ts check fs
+        |     deno run --allow-net --allow-read https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts check fs
         |     deno run --allow-net --allow-read --allow-write https://deno.land/x/dmm@v1.1.1/mod.ts update fs
         |     deno run --allow-net https://deno.land/x/dmm@v1.1.1/mod.ts info http
         |     dmm info http
