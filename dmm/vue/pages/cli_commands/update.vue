@@ -54,25 +54,25 @@ page(
       code-block(title="Terminal" language="text")
         | $ cat deps.ts
         |
-        | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
+        | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
         |
         | $ dmm update http
         |
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Checking if your modules can be updated...
-        | http was updated from v0.55.0 to v{latest_release}
+        | http was updated from 0.55.0 to {latest_release}
         |
         | $ cat deps.ts
         |
-        | import { serve } from "https://deno.land/std@v{latest_release}/http/server.ts"; // now up to date
+        | import { serve } from "https://deno.land/std@{latest_release}/http/server.ts"; // now up to date
 
     li
       p Update multiple dependencies.
       code-block(title="Terminal" language="text")
         | $ cat deps.ts
         |
-        | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
+        | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
         | import { Drash } from "https://deno.land/x/drash@v1.0.7/mod.ts"; // out of date
         |
         | $ dmm update http drash
@@ -80,14 +80,14 @@ page(
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Checking if your modules can be updated...
-        | http was updated from v0.55.0 to v{latest_release}
+        | http was updated from 0.55.0 to {latest_release}
         | drash was updated from v1.0.7 to v{latest_release}
     li
       p Update all dependencies.
       code-block(title="Terminal" language="text")
         | $ cat deps.ts
         |
-        | import { serve } from "https://deno.land/std@v0.55.0/http/server.ts"; // out of date
+        | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
         | import { Drash } from "https://deno.land/x/drash@v1.0.7/mod.ts"; // out of date
         |
         | $ dmm update
@@ -95,7 +95,7 @@ page(
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Checking if your modules can be updated...
-        | http was updated from v0.55.0 to v{latest_release}
+        | http was updated from 0.55.0 to {latest_release}
         | drash was updated from v1.0.7 to v{latest_release}
 </template>
 
