@@ -52,7 +52,7 @@ page(
         | A module manager for Deno.
         |
         | USAGE:
-        |     deno install --allow-read --allow-net --allow-write https://deno.land/x/dmm/mod.ts
+        |     deno install --allow-read --allow-net --allow-write https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
         |
         |     deno run --allow-read --allow-net [--allow-write] https://deno.land/x/dmm@v{latest_release}/mod.ts [ARGS] [MODULES]
         |
@@ -79,8 +79,8 @@ page(
         | EXAMPLE USAGE:
         |     Assume you are importing an out of date version of `fs` from `std`.
         |     deno run --allow-net --allow-read https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts check fs
-        |     deno run --allow-net --allow-read --allow-write https://deno.land/x/dmm@v1.1.1/mod.ts update fs
-        |     deno run --allow-net https://deno.land/x/dmm@v1.1.1/mod.ts info http
+        |     deno run --allow-net --allow-read --allow-write https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts update fs
+        |     deno run --allow-net https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts info http
         |     dmm info http
 </template>
 
