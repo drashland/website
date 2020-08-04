@@ -12,10 +12,12 @@ module.exports = envVars => {
       base_url: getBaseUrl("dmm", envVars.environment)
     },
     drash: {
-      base_url: getBaseUrl("drash", envVars.environment)
+      base_url: getBaseUrl("drash", envVars.environment),
+      latest_version: "v1.2.2"
     },
     rhum: {
-      base_url: getBaseUrl("rhum", envVars.environment)
+      base_url: getBaseUrl("rhum", envVars.environment),
+      latest_version: "v1.1.2"
     },
     sockets: {
       base_url: getBaseUrl("sockets", envVars.environment)
