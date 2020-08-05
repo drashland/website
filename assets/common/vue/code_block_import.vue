@@ -14,6 +14,10 @@ export default {
       type: String,
       required: true
     },
+    version: {
+      type: String,
+      required: true
+    },
   },
 }
 </script>
@@ -22,9 +26,6 @@ export default {
 div
   code-block(language="typescript" :header="false")
     | // Import a specific version of {{ name }}
-    | import { {{ name }} } from "https://deno.land/x/{{ repo }}@{tag}/mod.ts";
-    |
-    | // Import the master branch of {{ name }}
-    | import { {{ name }} } from "https://deno.land/x/{{ repo }}/mod.ts";
+    | import { {{ name }} } from "https://deno.land/x/{{ repo }}@{{ version }}/mod.ts";
   p {{ name }} versions can be found <a :href="'https://github.com/drashland/' + repo + '/releases'" target="_BLANK">here</a>.
 </template>

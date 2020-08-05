@@ -77,7 +77,7 @@ page(
     li
       p Create your test file.
       code-block(title="/path/to/your/project/functions_test.ts" language="typescript")
-        | import { Rhum } from "https://deno.land/x/rhum@{{ $conf.rhum.latest_version }}/mod.ts";
+        | import { Rhum } from "https://deno.land/x/rhum@{{ $conf.rhum.latest_rhum_version }}/mod.ts";
         | import { add } from "./functions.ts";
         |
         | // Define the test plan

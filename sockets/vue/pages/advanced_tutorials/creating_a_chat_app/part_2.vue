@@ -57,7 +57,7 @@ page(
     li
       p Import the <code>Packet</code> class, open the General channel, and add a packet handler for it (see the highlighted code).
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="1,16-23")
-        | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_sockets_version }}/mod.ts";
         |
         | // Create the server
         | const server = new Server();

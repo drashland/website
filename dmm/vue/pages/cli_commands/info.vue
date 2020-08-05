@@ -56,10 +56,10 @@ page(
         |
         |   - Name: http
         |   - Description: Cannot retrieve descriptions for std modules
-        |   - deno.land Link: https://deno.land/std@0.63.0/http
+        |   - deno.land Link: https://deno.land/std@{{ $conf.std.latest_std_version }}/http
         |   - GitHub Repository: https://github.com/denoland/deno/tree/master/std/http
-        |   - Import Statement: import * as http from "https://deno.land/std@0.63.0/http";
-        |   - Latest Version: 0.63.0
+        |   - Import Statement: import * as http from "https://deno.land/std@{{ $conf.std.latest_std_version }}/http";
+        |   - Latest Version: {{ $conf.std.latest_std_version }}
     li
       p Get information on the <code>denon</code> 3rd party module.
       code-block(title="Terminal" language="text")

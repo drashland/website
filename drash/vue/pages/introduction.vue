@@ -76,15 +76,7 @@ div
     div.row
       div.col
         h2-hash Importing
-        p
-          code-block-slotted(language="typescript" :header="false")
-            template(v-slot:code)
-              | // Import specific version
-              | import { Drash } from "https://deno.land/x/drash@{tag}/mod.ts";
-              | 
-              | // Import master
-              | import { Drash } from "https://deno.land/x/drash/mod.ts";
-        p Drash versions can be found <a href="https://github.com/drashland/deno-drash/releases" target="_BLANK">here</a>.
+        code-block-import(name="Drash" repo="drash" :version="$conf.drash.latest_drash_version")
     hr
     div.row
       div.col
