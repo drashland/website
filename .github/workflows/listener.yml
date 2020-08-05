@@ -1,4 +1,4 @@
-# Example request: curl -XPOST -u "${{ secrets.CI_USER_NAME }}:${{ secrets.CI_USER_PAT }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/drashland/copyright-free/dispatches --data '{"event_type": "update_docs", "client_payload": { "module_to_update": "drash" }}'
+# Example request: curl -XPOST -u "${{ secrets.CI_USER_NAME }}:${{ secrets.CI_USER_PAT }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/drashland/website/dispatches --data '{"event_type": "update_docs", "client_payload": { "module_to_update": "drash" }}'
 on:
   repository_dispatch:
     types: [update_docs]
@@ -9,10 +9,6 @@ jobs:
 
     if: ${{ github.event.event_type }} == "update_docs"
 
-    strategy:
-      matrix:
-        deno: ["1.2.2"]
-
     runs-on: ubuntu-latest
 
     steps:
@@ -22,11 +18,12 @@ jobs:
 
       - name: Install Deno
         uses: denolib/setup-deno@v2
-        with:
-          deno-version: ${{ matrix.deno }}
 
       - name: Update Versions in Webpack Config
         run: deno run --allow-read --allow-net --allow-write scripts/bump_module_versions_in_config.ts --module ${{ github.event.client_payload.module_to_update }}
+
+      - name: Update Example Code Imports
+        run:  echo not implemented
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
