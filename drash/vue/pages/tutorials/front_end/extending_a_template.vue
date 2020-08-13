@@ -48,7 +48,7 @@ page-tutorial(
           p Create your top-level template file.
           p
             code-block-slotted(language="html")
-              template(v-slot:title) /path/to/your/project/views/user.html
+              template(v-slot:title) /path/to/your/project/views/index.html
               template(v-slot:code) {{ example_code_views.index.contents }}
           p <code>&lt;% yield %&gt;</code> will yield the contents of the template that extends this one. In this case, it is the contents of the template in the next step.
         li
