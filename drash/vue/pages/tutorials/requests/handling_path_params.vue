@@ -64,7 +64,7 @@ page-tutorial(
                 | static paths = ["/users/:name?"];
                 | // or
                 | static paths = ["/users/:id/:name/:age?/:city?"];
-          p You can specify as many optional parameters as you want, but required parameters must precede optional parameters. Using the path <code>/users/:id/:name/:age?/:city</code> from the example above, the resource will match for the following URI's:
+          p You can specify as many optional parameters as you want, but required parameters must precede optional parameters. Using the path <code>/users/:id/:name/:age?/:city?</code> from the example above, the resource will match for the following URI's:
           ul
             li <code>/users/1/John</code>
             li <code>/users/1/John/</code>
