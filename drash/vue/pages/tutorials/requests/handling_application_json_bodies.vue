@@ -93,7 +93,7 @@ page-tutorial(
               template(v-slot:code)
                 | curl --header "Content-Type: application/json" \
                 | --request POST \
-                | --data '{"name":"denosaurus"}' \
+                | --data '{"username":"denosaurus"}' \
                 | localhost:1447
           p You should receive the following response:
             code-block-slotted(:header="false")

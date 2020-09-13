@@ -55,7 +55,7 @@ page-tutorial(
           p Create your template partial file.
           p
             code-block-slotted(language="html")
-              template(v-slot:title) /path/to/your/project/views/user.html
+              template(v-slot:title) /path/to/your/project/views/skills.html
               template(v-slot:code) {{ example_code_views.skills.contents }}
         li
           p Create your resource file.
