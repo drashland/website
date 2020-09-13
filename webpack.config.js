@@ -21,7 +21,8 @@ module.exports = envVars => {
       latest_version: "v1.1.2"
     },
     sockets: {
-      base_url: getBaseUrl("sockets", envVars.environment)
+      base_url: getBaseUrl("sockets", envVars.environment),
+      latest_version: "v0.5.0"
     },
   };
 
