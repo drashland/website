@@ -1,10 +1,19 @@
 import Vue from "vue";
 
+import AGetStarted from "/common/vue/a_get_started.vue";
+Vue.component("a-get-started", AGetStarted);
+
+import Breadcrumbs from "/common/vue/breadcrumbs.vue";
+Vue.component("breadcrumbs", Breadcrumbs);
+
 import CodeBlock from "/common/vue/code_block.vue";
 Vue.component("code-block", CodeBlock);
 
 import CodeBlockImport from "/common/vue/code_block_import.vue";
 Vue.component("code-block-import", CodeBlockImport);
+
+import DivAlertNextTutorialPart from "/common/vue/div_alert_next_tutorial_part.vue";
+Vue.component("div-alert-next-tutorial-part", DivAlertNextTutorialPart);
 
 import FolderStructureEndState from "/common/vue/folder_structure_end_state.vue";
 Vue.component("folder-structure-end-state", FolderStructureEndState);
