@@ -57,7 +57,7 @@ page(
     li
       p Create your server.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import { Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
+        | import { Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
         |
         | // Create the server
         | const server = new Server();

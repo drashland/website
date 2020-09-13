@@ -10,7 +10,7 @@ export default {
       build_date: this.$conf.build_date,
       environment: this.$conf.environment,
       sidebar: {
-        api_reference_href: "https://doc.deno.land/https/deno.land/x/sockets@v0.x/mod.ts",
+        api_reference_href: "https://doc.deno.land/https/deno.land/x/sockets@" + this.$conf.sockets.latest_version + "/mod.ts",
         base_url: this.$conf.sockets.base_url + "/#",
         github_href: "https://github.com/drashland/sockets",
         logo: "/assets/common/img/logo_sockets.svg",
