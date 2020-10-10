@@ -15,6 +15,9 @@ Vue.component("code-block-import", CodeBlockImport);
 import DivAlertNextTutorialPart from "/common/vue/div_alert_next_tutorial_part.vue";
 Vue.component("div-alert-next-tutorial-part", DivAlertNextTutorialPart);
 
+import DivAlertFinishedTutorialSeries from "/common/vue/div_alert_finished_tutorial_series.vue";
+Vue.component("div-alert-finished-tutorial-series", DivAlertFinishedTutorialSeries);
+
 import FolderStructureEndState from "/common/vue/folder_structure_end_state.vue";
 Vue.component("folder-structure-end-state", FolderStructureEndState);
 

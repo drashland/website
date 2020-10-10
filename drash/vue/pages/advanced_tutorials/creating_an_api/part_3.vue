@@ -123,4 +123,7 @@ page(
       p
         code-block(:header="false" language="javascript")
           | "Tea with ID \"2710\" not found."
+  div-alert-next-tutorial-part
+  hr
+  breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="4")
 </template>
