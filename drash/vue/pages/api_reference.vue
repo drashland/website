@@ -31,7 +31,7 @@ page(
   :base_uri="base_uri"
   :title="title"
 )
-  p The links below will redirect you to https://doc.deno.land.
+  p The links below will redirect you to #[a(href="https://doc.deno.land" target="_BLANK") https://doc.deno.land].
   ul
     li
       p Drash
