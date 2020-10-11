@@ -1,5 +1,4 @@
 <script>
-
 const title = "Creating An API";
 const subtitle = "Part 1: Simulate Database Records";
 
