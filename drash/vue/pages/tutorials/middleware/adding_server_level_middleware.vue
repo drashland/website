@@ -54,7 +54,7 @@ page(
     li
       p Create your app file.
       code-block(:title="example_code.app.filepath" language="typescript")
-        template(v-slot:code) {{ example_code.app.contents }}
+        | {{ example_code.app.contents }}
   hr
   h2-hash Verification
   p You can verify that your app's code works by making requests like the ones below. Since this tutorial's app sets <code>application/json</code> as the <code>response_output</code>, the server responds to requests with JSON by default.
