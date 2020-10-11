@@ -34,6 +34,7 @@ export default {
 page(
   :toc="toc"
   :base_url="base_url"
+  :base_uri="base_uri"
   :subtitle="subtitle"
   :title="title"
 )

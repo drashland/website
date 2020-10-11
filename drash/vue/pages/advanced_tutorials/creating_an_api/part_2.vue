@@ -33,8 +33,10 @@ export default {
 <template lang="pug">
 page(
   :base_url="base_url"
+  :base_uri="base_uri"
   :subtitle="subtitle"
   :title="title"
+  :toc="toc"
 )
   breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="4")
   hr

@@ -35,6 +35,8 @@ page(
   :base_url="base_url"
   :base_uri="base_uri"
   :title="title"
+  :subtitle="subtitle"
+  :toc="toc"
 )
   breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="4")
   hr

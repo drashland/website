@@ -73,10 +73,9 @@ export default {
           "Advanced Tutorials": {
             "Introduction": "/advanced-tutorials/introduction",
             "Creating An API": "/advanced-tutorials/creating-an-api",
-            "Creating A Static HTML App": "/advanced-tutorials/creating-a-static-html-app",
             "Creating A Server Side Rendered App": "/advanced-tutorials/creating-a-server-side-rendered-app",
-            "Creating A Vue App": "/advanced-tutorials/creating-a-vue-app",
-            "Creating A React": "/advanced-tutorials/creating-a-react-app",
+            "Creating A Client Side Rendered App (Vue)": "/advanced-tutorials/creating-a-vue-app",
+            "Creating A Client Side Rendered App (React)": "/advanced-tutorials/creating-a-react-app",
             "Content Negotiation": "/advanced-tutorials/content-negotiation",
             "Using Drash With Docker": "/advanced-tutorials/using-drash-with-docker",
           }

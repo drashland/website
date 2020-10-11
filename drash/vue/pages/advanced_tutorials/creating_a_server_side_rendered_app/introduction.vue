@@ -1,12 +1,12 @@
 <script>
-const title = "Creating A Static HTML App";
+const title = "Creating A Server Side Rendered App";
 const subtitle = "Introduction";
-const baseUri = "/advanced-tutorials/creating-a-static-html-app";
+const baseUri = "/advanced-tutorials/creating-a-server-side-rendered-app";
 
 export const resource = {
   paths: [
-    "/advanced-tutorials/creating-a-static-html-app/",
-    "/advanced-tutorials/creating-a-static-html-app/introduction",
+    "/advanced-tutorials/creating-a-server-side-rendered-app/",
+    "/advanced-tutorials/creating-a-server-side-rendered-app/introduction",
   ],
   meta: {
     title,
@@ -35,7 +35,7 @@ page(
   breadcrumbs(:base_url="base_url + base_uri" :part="-1" :parts="3")
   hr
   h2-hash Overview
-  p In this tutorial series, you will learn how to create a simple static HTML app powered by Drash. You will learn how to make a Drash server serve <code>text/html</code> responses to clients. The responses will include server-rendered HTML.
+  p In this tutorial series, you will learn how to create a simple static HTML app powered by Drash &mdash; where the HTML is rendered by the server. You will learn how to make a Drash server serve <code>text/html</code> responses to clients. The responses will include server-rendered HTML.
   p.mt-10.text-center
     a-get-started(:href="base_url + base_uri + '/part-1'")
   hr

@@ -1,9 +1,9 @@
 <script>
-const title = "Creating A Static HTML App";
+const title = "Creating A Server Side Rendered App";
 const subtitle = "Part 1: Creating The Server";
 
 export const resource = {
-    paths: ["/advanced-tutorials/creating-a-static-html-app/part-1"],
+    paths: ["/advanced-tutorials/creating-a-server-side-rendered-app/part-1"],
     meta: {
       title,
       subtitle,
@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       base_url: this.$conf.drash.base_url + "/#",
-      base_uri: "/advanced-tutorials/creating-a-static-html-app",
+      base_uri: "/advanced-tutorials/creating-a-server-side-rendered-app",
       example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_a_static_html_app/about_me/part_1'],
       toc: [
         "Before You Get Started",
