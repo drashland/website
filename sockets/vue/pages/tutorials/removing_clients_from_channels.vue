@@ -62,7 +62,7 @@ page(
     li
       p Create your server.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
         |
         | // Create the server
         | const server = new Server();
@@ -80,7 +80,7 @@ page(
     li
       p Open two channels: Channel 1 and Actions (see the highlighted code). The Actions channel's handler (in the next step) will remove a client from Channel 1 based on the message it receives.
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="16-21")
-        | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
         |
         | // Create the server
         | const server = new Server();
@@ -104,7 +104,7 @@ page(
     li
       p Add a packet handler to the Actions channel (see the highlighted code).
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="21-40")
-        | import { Packet, Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
         |
         | // Create the server
         | const server = new Server();

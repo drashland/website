@@ -46,7 +46,7 @@ div
       li
         p Create your server and allow it to handle a single channel named Channel 1.
         code-block(title="app.ts" language="typescript")
-          | import { Server } from "https://deno.land/x/sockets@v0.x/mod.ts";
+          | import { Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
           |
           | // Create the server
           | const server = new Server();
@@ -85,7 +85,7 @@ div
     div
       code-block(language="typescript" :header="false")
         | // Import a specific version of the Socket server
-        | import { Server } from "https://deno.land/x/sockets@{tag or branch name}/mod.ts";
+        | import { Server } from "https://deno.land/x/sockets@{version}/mod.ts";
         |
         | // Import the master branch of the Socket server
         | import { Server } from "https://deno.land/x/sockets/mod.ts";
