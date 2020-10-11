@@ -48,7 +48,7 @@ page(
   h2-hash Examples
   ul
     li
-      p Get information on the <code>http</code> std module.
+      p Get information on a <code>http</code> std module.
       code-block(title="Terminal" language="text")
         | $ dmm info http
         |
@@ -56,12 +56,12 @@ page(
         |
         |   - Name: http
         |   - Description: Cannot retrieve descriptions for std modules
-        |   - deno.land Link: https://deno.land/std@{{ $conf.std.latest_std_version }}/http
+        |   - deno.land Link: https://deno.land/std@<latest std version>/http
         |   - GitHub Repository: https://github.com/denoland/deno/tree/master/std/http
-        |   - Import Statement: import * as http from "https://deno.land/std@{{ $conf.std.latest_std_version }}/http";
-        |   - Latest Version: {{ $conf.std.latest_std_version }}
+        |   - Import Statement: import * as http from "https://deno.land/std@<latest std version>/http";
+        |   - Latest Version: <latest std version>
     li
-      p Get information on the <code>denon</code> 3rd party module.
+      p Get information on a <code>denon</code> 3rd party module.
       code-block(title="Terminal" language="text")
         | $ dmm info denon
         |

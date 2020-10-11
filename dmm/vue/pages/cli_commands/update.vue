@@ -95,7 +95,7 @@ page(
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Checking if your modules can be updated...
-        | http was updated from 0.55.0 to {{ $conf.std.latest_std_version }}
-        | drash was updated from v1.0.7 to {{ $conf.drash.latest_drash_version }}
+        | http was updated from 0.55.0 to <latest std version>
+        | drash was updated from v1.0.7 to {{ $conf.drash.latest_version }}
 </template>
 
