@@ -43,7 +43,7 @@ div
         p Make sure you have out of date dependencies inside your <code>deps.ts</code> file.
         code-block(title="deps.ts" language="typescript")
           | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_drash_version }}/mod.ts";
-          | import { red } from "https://deno.land/std@{{ $conf.std.latest_std_version }}/fmt/colors.ts";
+          | import { red } from "https://deno.land/std@<latest std version>/fmt/colors.ts";
       li
         p Update your dependencies.
         code-block(title="Terminal" language="text")
