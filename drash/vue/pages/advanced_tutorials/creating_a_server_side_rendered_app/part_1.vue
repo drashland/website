@@ -41,6 +41,7 @@ page(
   h2-hash Before You Get Started
   p The server you will create in this tutorial part will handle requests to three resources. These resources will serve HTML documents.
   hr
+  h2-hash Folder Structure End State
   code-block(:header="false" language="text" :line_numbers="false")
     | ▾ /path/to/your/project/
     |     app.ts
