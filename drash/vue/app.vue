@@ -10,7 +10,7 @@ export default {
       build_date: this.$conf.build_date,
       environment: this.$conf.environment,
       sidebar: {
-        api_reference_href: "https://doc.deno.land/https/deno.land/x/drash@v1.x/mod.ts",
+        api_reference_href: "/drash/#/api-reference",
         base_url: this.$conf.drash.base_url + "/#",
         github_href: "https://github.com/drashland/drash",
         logo: "/assets/common/img/logo_drash.svg",

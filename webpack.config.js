@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const repoConfigs = require("./configs.json");
 
 module.exports = envVars => {
   console.log(`\nRunning webpack in ${getMode(envVars.environment)} mode for the ${envVars.environment} environment.\n`);
@@ -11,9 +12,9 @@ module.exports = envVars => {
     dmm: {
       base_url: getBaseUrl("dmm", envVars.environment)
     },
-    drash: {
+    drash: Object.assign(repoConfigs.drash, {
       base_url: getBaseUrl("drash", envVars.environment)
-    },
+    }),
     rhum: {
       base_url: getBaseUrl("rhum", envVars.environment)
     },
