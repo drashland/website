@@ -5,65 +5,70 @@ const moduleToUpdate = process.argv[3]
 const releaseVersion = process.argv[5]
 
 // update version in config
-const rawConfig = fs.readFileSync("./config.sample.json")
+const rawConfig = fs.readFileSync("./configs.sample.json")
 let config = JSON.parse(rawConfig)
 const previousVersion = config[moduleToUpdate].latest_version
-config[moduleToUpdate].latest_version = `v${releaseVersion}`
-fs.writeFileSync("./config.sample.json", JSON.stringify(config))
-
 const replaceRegex = {
   from: new RegExp(`${moduleToUpdate}@${previousVersion}`, "g"),
   to: new RegExp(`${moduleToUpdate}@${releaseVersion}`, "g")
 }
+config[moduleToUpdate].latest_version = `${releaseVersion}`
+if (config[moduleToUpdate].latest_url_deno_land) {
+  config[moduleToUpdate.latest_url_deno_land] = "https://deno.land/x/drash@" + releaseVersion + "/mod.ts"
+}
+if (config[moduleToUpdate].latest_url_nest_land) {
+  config[moduleToUpdate.latest_url_nest_land] = "https://x.nest.land/x/deno-drash@" + releaseVersion + "/mod.ts"
+}
+fs.writeFileSync("./configs.sample.json", JSON.stringify(config, 0, 2))
 
 if (moduleToUpdate === "drash") {
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_2/app.ts", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_2/app.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_2/app.ts", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_2/app.ts", html);
 
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_3/app.ts", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_3/app.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_3/app.ts", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_3/app.ts", html);
 
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_3/users_resource.ts", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_3/users_resource.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_3/users_resource.ts", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_3/users_resource.ts", html);
 
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/app.ts", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_4/app.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/app.ts", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_4/app.ts", html);
 
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/users_resource.ts", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_4/users_resource.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/users_resource.ts", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_4/users_resource.ts", html);
 
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/app.ts", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_5/app.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/app.ts", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_5/app.ts", html);
 
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/users_resource.ts", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_5/users_resource.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/users_resource.ts", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_5/users_resource.ts", html);
 
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/response.ts", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_5/response.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/user_profiles/part_5/response.ts", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_5/response.ts", html);
 
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_1/src/app.ts", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_1/src/app.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_1/src/app.ts", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_1/src/app.ts", html);
 
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_4/.docker/drash.dockerfile", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_4/.docker/drash.dockerfile", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_4/.docker/drash.dockerfile", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_4/.docker/drash.dockerfile", html);
 
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_5/.docker/drash.dockerfile", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_5/.docker/drash.dockerfile", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_5/.docker/drash.dockerfile", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_5/.docker/drash.dockerfile", html);
 
-  html = fs.readFileSync("./drash/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_6/src/app.ts", "utf8")
+  html = fs.readFileSync("./drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_6/src/app.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
-  fs.writeFileSync("./drash/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/part_6/src/app.ts", html);
+  fs.writeFileSync("./drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_6/src/app.ts", html);
 
   html = fs.readFileSync("./drash/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_1/app.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
