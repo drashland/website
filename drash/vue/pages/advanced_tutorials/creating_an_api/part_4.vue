@@ -82,6 +82,7 @@ page(
       |   }
       | }
   p In this tutorial part, you will override and replace <code>Drash.Http.Response</code> so it can send a more informative response schema.
+  hr
   h2-hash Folder Structure End State
   code-block(:header="false" language="text" :line_numbers="false")
     | ▾ /path/to/your/project/
