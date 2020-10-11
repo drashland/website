@@ -1,6 +1,14 @@
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+let repoConfigs = {};
+try {
+  repoConfigs = require("./configs.json");
+} catch (error) {
+  repoConfigs = require("./configs.sample.json");
+}
+
+console.log(repoConfigs);
 
 module.exports = envVars => {
   console.log(`\nRunning webpack in ${getMode(envVars.environment)} mode for the ${envVars.environment} environment.\n`);

@@ -81,7 +81,7 @@ page(
         | Reading deps.ts to gather your dependencies...
         | Checking if your modules can be updated...
         | http was updated from 0.55.0 to <latest std version>
-        | drash was updated from v1.0.7 to {{ $conf.drash.latest_drash_version }}
+        | drash was updated from v1.0.7 to {{ $conf.drash.latest_version }}
     li
       p Update all dependencies.
       code-block(title="Terminal" language="text")
