@@ -67,6 +67,7 @@ export default {
             },
             "Misc": {
               "Adding Global Members": "/tutorials/misc/adding-global-members",
+              "Content Negotiation": "/tutorials/misc/content-negotiation",
               "Enabling Pretty Links": "/tutorials/misc/pretty-links",
             }
           },
