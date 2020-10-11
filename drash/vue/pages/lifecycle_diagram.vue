@@ -3,24 +3,23 @@ export const resource = {
   paths: ["/lifecycle-diagram"],
   meta: {
     title: "Lifecycle Diagram",
-    source_code_uri: "/lifecycle_diagram",
   }
 }
 
 export default {
   data() {
     return {
+      title: resource.meta.title
     };
   },
 }
 </script>
 
 <template lang="pug">
-page()
-  div.row
-    div.col
-      hr
-      p Below is a digram of Drash's complete request-resource-response lifecycle with error handling flows.
-      p
-        img(:src="'/drash/assets/img/drash_lifecycle_diagram.svg'")
+page(
+  :title="title"
+)
+  p Below is a digram of Drash's complete request-resource-response lifecycle with error handling flows.
+  p
+    img(:src="'/drash/assets/img/drash_lifecycle_diagram.svg'")
 </template>

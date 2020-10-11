@@ -1,8 +1,8 @@
 <template lang="pug">
-div
-    code {{ method.toUpperCase() }}
-    span(style="display: inline-block; margin-right: 10px")
-    code {{ url }}
+p
+  code {{ method.toUpperCase() }}
+  span(style="display: inline-block; margin-right: 10px")
+  code {{ url }}
 </template>
 
 <script>

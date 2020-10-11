@@ -1,79 +1,77 @@
 <script>
+const title = "Creating A Client Side Rendered App (Vue)";
+const subtitle = "Part 2: Creating The Resource";
+const baseUri = "/advanced-tutorials/creating-a-client-side-rendered-app-vue";
+
 export const resource = {
-    paths: ["/advanced-tutorials/creating-a-vue-app/deno-tweets/part-2"],
+    paths: ["/advanced-tutorials/creating-a-client-side-rendered-app-vue/part-2"],
     meta: {
-      title: "Creating A Vue App",
-      subtitle: "Part 2: Creating The Resource",
-      source_code_uri: "/advanced_tutorials/creating_a_vue_app/deno_tweets/part_2"
+      title,
+      subtitle,
     }
 }
 
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code' + resource.meta.source_code_uri],
-      part: 2,
-      parts: 4,
-      toc: {
-        items: [
-          "Before You Get Started",
-          "Folder Structure End State",
-          "Steps",
-          "Verification",
-        ]
-      },
-      uri: this.$conf.drash.base_url + "/#/advanced-tutorials/creating-a-vue-app/deno-tweets"
+      base_url: this.$conf.drash.base_url + "/#",
+      base_uri: baseUri,
+      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_2'],
+      toc: [
+        "Before You Get Started",
+        "Folder Structure End State",
+        "Steps",
+        "Verification",
+      ],
+      title,
+      subtitle,
     };
   },
 }
 </script>
 
 <template lang="pug">
-page-tutorial-part(
-  :part="part"
-  :parts="parts"
+page(
+  :base_url="base_url",
+  :base_uri="base_uri",
+  :subtitle="subtitle"
+  :title="title"
   :toc="toc"
-  :uri="uri"
 )
-  div.row
-    div.col
-      hr
-      h2-hash Before You Get Started
-      p Your server will not be able to serve your HTML file until you give it the resource that can do so. In Part 1, you made your server expect a home resource. You will create this file next and will verify your server runs properly with it in the Verification section.
-      p-view-source-code
-  div.row
-    div.col
-      hr
-      div-folder-structure-end-state(:code_block_data="example_code.folder_structure")
-  div.row
-    div.col
-      hr
-      h2-hash Steps
-      ol
-        li
-          p Create your home resource file.
-          p
-            code-block-slotted(language="typescript")
-              template(v-slot:title) {{ example_code.home_resource.filepath }}
-              template(v-slot:code) {{ example_code.home_resource.contents }}
-          p Your home resource will serve an HTML file and that file will display your Vue app. You will be creating this HTML file in the next tutorial part.
-  div.row
-    div.col
-      hr
-      h2-hash Verification
-      p Stop your server (<code>ctrl + c</code>) if you still have it running from Part 1. Now that you have your resource file that your server is expecting, you can start your server and make a <code>GET</code> request to it.
-      ol
-        li Run your app.
-          p
-            code-block-slotted
-              template(v-slot:title) Terminal
-              template(v-slot:code)
-                | deno run --allow-net --allow-read app.ts
-        li
-          p Go to <code>localhost:1447/</code> in your browser. You should receive the following response:
-          p
-            code-block-slotted(:header="false")
-              template(v-slot:code)
-                | Error reading HTML template.
-          p This is the proper response since you have not written your <code>index.html</code> yet.
+  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="4")
+  hr
+  h2-hash Before You Get Started
+  p Your server will not be able to serve your HTML file until you give it the resource that can do so. In Part 1, you made your server expect a home resource. You will create this file next and will verify your server runs properly with it in the Verification section.
+  hr
+  h2-hash Folder Structure End State
+  code-block(:header="false" language="text" :line_numbers="false")
+    | ▾ /path/to/your/project/
+    |     app.ts
+    |     home_resource.ts
+  hr
+  h2-hash Steps
+  ol
+    li
+      p Create your home resource file.
+      p
+        code-block(:title="example_code.home_resource.filepath" language="typescript")
+          | {{ example_code.home_resource.contents }}
+      p Your home resource will serve an HTML file and that file will display your Vue app. You will be creating this HTML file in the next tutorial part.
+  hr
+  h2-hash Verification
+  p Stop your server (<code>ctrl + c</code>) if you still have it running from Part 1. Now that you have your resource file that your server is expecting, you can start your server and make a <code>GET</code> request to it.
+  ol
+    li Run your app.
+      p
+        code-block(title="Terminal")
+          | deno run --allow-net --allow-read app.ts
+    li
+      p Go to <code>localhost:1447/</code> in your browser. You should receive the following response:
+      p
+        code-block(:header="false")
+          | Error reading HTML template.
+      p This is the proper response since you have not written your <code>index.html</code> yet.
+  div-alert-next-tutorial-part
+  hr
+  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="4")
 </template>
