@@ -61,7 +61,7 @@ page(
     li
       p Create your server.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_sockets_version }}/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
         |
         | // Create the server
         | const server = new Server();
@@ -79,7 +79,7 @@ page(
     li
       p Open the Channel 1 channel (see the highlighted code).
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="16-17")
-        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_sockets_version }}/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
         |
         | // Create the server
         | const server = new Server();
@@ -99,7 +99,7 @@ page(
     li
       p Add a packet handler to Channel 1 (see the highlighted code).
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="19-31")
-        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_sockets_version }}/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
         |
         | // Create the server
         | const server = new Server();

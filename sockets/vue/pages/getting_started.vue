@@ -46,7 +46,7 @@ div
       li
         p Create your server and allow it to handle a single channel named Channel 1.
         code-block(title="app.ts" language="typescript")
-          | import { Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_sockets_version }}/mod.ts";
+          | import { Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
           |
           | // Create the server
           | const server = new Server();
@@ -82,5 +82,5 @@ div
           | < pong
     hr
     h2-hash Importing
-    code-block-import(name="Server" repo="sockets" :version="$conf.sockets.latest_sockets_version")
+    code-block-import(name="Server" repo="sockets" :version="$conf.sockets.latest_version")
 </template>

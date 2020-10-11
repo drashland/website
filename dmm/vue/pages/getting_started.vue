@@ -47,21 +47,21 @@ div
       li
         p Update your dependencies.
         code-block(title="Terminal" language="text")
-          | deno run --allow-read --allow-write --allow-net https://deno.land/x/dmm@{{ $conf.dmm.latest_dmm_version }}/mod.ts update
+          | deno run ---allow-read='.' --allow-write='deps.ts' --allow-net='cdn.deno.land,api.deno.land' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts update
           |
           | Gathering facts...
           | Reading deps.ts to gather your dependencies...
           | Checking if your modules can be updated...
-          | drash was updated from v1.0.0 to {{ $conf.drash.latest_drash_version }}
+          | drash was updated from v1.0.0 to {{ $conf.drash.latest_version }}
           | fmt was updated from 0.55.0 to {latest_release}
 
     hr
     h2-hash Installing
     p You can install dmm through <code>deno install</code>. See below.
     code-block(title="Terminal" language="text")
-      | deno install --allow-net --allow-read --allow-write https://deno.land/x/dmm@{{ $conf.dmm.latest_dmm_version }}/mod.ts
+      | deno install --allow-read='.' --allow-write='deps.ts' --allow-net='cdn.deno.land,api.deno.land' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
       | dmm --help
-    p This will make running commands easier &mdash; allowing you to type <code>dmm</code> instead of <code>deno run --allow-read --allow-write --allow-net https://deno.land/x/dmm@{{ $conf.dmm.latest_dmm_version  }}/mod.ts</code>.
+    p This will make running commands easier &mdash; allowing you to type <code>dmm</code> instead of <code>deno run --allow-read='.' --allow-write='deps.ts' --allow-net='cdn.deno.land,api.deno.land' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts</code>.
     hr
     h2-hash Features
     ul

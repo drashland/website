@@ -95,10 +95,10 @@ code {
   border-radius: 0.18125rem;
   color: #e83e8c;
   display: inline-block;
-  font-size: 1rem;
+  font-size: .9rem;
+  line-height: 1rem;
   margin-bottom: 0;
-  padding-left: 0.18125rem;
-  padding-right: 0.18125rem;
+  padding: 0.1rem;
 }
 
 h1 {
@@ -139,6 +139,26 @@ ul li {
   margin-left: 2rem;
 }
 
+.line-highlight:before {
+  display: none;
+}
+
+$width: 375px;
+
+.main {
+  margin-left: $width;
+  &.is-mobile {
+    margin-left: 0;
+  }
+}
+
+.sidebar {
+  width: $width;
+  &.is-mobile {
+    width: 100%;
+  }
+}
+
 </style>
 
 <style lang="scss" scoped>
@@ -157,17 +177,6 @@ button {
   position: fixed;
   right: 1rem;
   z-index: 1000;
-}
-.main {
-  margin-left: 350px;
-  &.is-mobile {
-    margin-left: 0;
-  }
-}
-.sidebar {
-  &.is-mobile {
-    width: 100%;
-  }
 }
 </style>
 
@@ -203,7 +212,7 @@ div
     :class="{'is-mobile': is_mobile}"
     style="margin-top: 75px; margin-bottom: 125px"
   )
-    div.max-w-screen-lg.mx-auto.px-10
+    div.max-w-screen-md.mx-auto.px-10
       transition
         keep-alive
           router-view
