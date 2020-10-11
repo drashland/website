@@ -56,7 +56,7 @@ div
           | Hello World!
     hr
     h2-hash Importing
-    code-block-import(name="Drash" repo="deno-drash")
+    code-block-import(name="Drash" repo="deno-drash" :version="$conf.drash.latest_version")
     hr
     h2-hash Features
     ul
