@@ -2,7 +2,6 @@
   "root_directory": "/var/src/drashland/deno-drash-website",
   "drash": {
     "latest_version": "v1.2.5",
-    "doc_deno_land_url": "https://doc.deno.land/x/",
     "latest_url_deno_land": "https://deno.land/x/drash@v1.2.5/mod.ts",
     "latest_url_nest_land": "https://x.nest.land/deno-drash@v1.2.5/mod.ts"
   },
