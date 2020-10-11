@@ -71,6 +71,7 @@ export default {
             }
           },
           "Advanced Tutorials": {
+            "Introduction": "/advanced-tutorials/introduction",
             "Creating An API": "/advanced-tutorials/creating-an-api",
             "Creating A Static HTML App": "/advanced-tutorials/creating-a-static-html-app",
             "Creating A Server Side Rendered App": "/advanced-tutorials/creating-a-server-side-rendered-app",
