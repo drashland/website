@@ -10,16 +10,19 @@ module.exports = envVars => {
     build_date: new Date().toISOString(),
     environment: envVars.environment,
     dmm: {
-      base_url: getBaseUrl("dmm", envVars.environment)
+      base_url: getBaseUrl("dmm", envVars.environment),
+      latest_version: "v1.1.3",
     },
     drash: Object.assign(repoConfigs.drash, {
       base_url: getBaseUrl("drash", envVars.environment)
     }),
     rhum: {
-      base_url: getBaseUrl("rhum", envVars.environment)
+      base_url: getBaseUrl("rhum", envVars.environment),
+      latest_version: "v1.1.2"
     },
     sockets: {
-      base_url: getBaseUrl("sockets", envVars.environment)
+      base_url: getBaseUrl("sockets", envVars.environment),
+      latest_version: "v0.5.0"
     },
   };
 

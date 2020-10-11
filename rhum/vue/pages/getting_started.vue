@@ -42,7 +42,7 @@ div
       li
         p Write your test file.
         code-block(title="test.ts" language="typescript")
-          | import { Rhum } from "https://deno.land/x/rhum@v1.x/mod.ts";
+          | import { Rhum } from "https://deno.land/x/rhum@{{ $conf.rhum.latest_version }}/mod.ts";
           |
           | let value = false;
           |
