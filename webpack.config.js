@@ -16,21 +16,18 @@ module.exports = envVars => {
   const configs = {
     build_date: new Date().toISOString(),
     environment: envVars.environment,
-    dmm: {
+    dmm: Object.assign(repoConfigs.dmm, {
       base_url: getBaseUrl("dmm", envVars.environment),
-      latest_version: "v1.1.3",
-    },
+    }),
     drash: Object.assign(repoConfigs.drash, {
       base_url: getBaseUrl("drash", envVars.environment)
     }),
-    rhum: {
+    rhum: Object.assign(repoConfigs.rhum, {
       base_url: getBaseUrl("rhum", envVars.environment),
-      latest_version: "v1.1.2"
-    },
-    sockets: {
+    }),
+    sockets: Object.assign(repoConfigs.sockets, {
       base_url: getBaseUrl("sockets", envVars.environment),
-      latest_version: "v0.5.0"
-    },
+    }),
   };
 
   return {
