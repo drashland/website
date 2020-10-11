@@ -35,7 +35,7 @@ page(
   p Unlike server-level middleware, resource-level middleware is specified using <a href="https://www.typescriptlang.org/docs/handbook/decorators.html" target="_BLANK">decorators</a> and a <code>tsconfig.json</code> file.
   p Resource-level middleware is middleware that can only be executed by resources. That is, if a resource is decorated with middleware, then the middleware specified in the decorators will be executed.
   p Your <code>tsconfig.json</code> file will require the following:
-  code-block-slotted(language="json" :header="false")
+  code-block(language="json" :header="false")
     | {
     |   "compilerOptions": {
     |     "experimentalDecorators": true

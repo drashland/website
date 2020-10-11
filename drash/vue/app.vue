@@ -41,7 +41,7 @@ export default {
               "Handling Path Params": "/tutorials/requests/handling-path-params",
             },
             "Responses": {
-              "Accept Header": "/tutorials/responses/accept-header",
+              //"Accept Header": "/tutorials/responses/accept-header",
               "Redirects": "/tutorials/responses/redirects",
             },
             "Middleware": {

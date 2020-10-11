@@ -34,9 +34,7 @@ div
     h2-hash Drash In A Nutshell
     p Drash is a REST microframework for <a href="https://deno.land" target="_BLANK">Deno</a>'s HTTP server with zero dependencies.
     p Drash is designed to help you build your projects quickly with the ability to scale. You can build an API, a web app, an SPA (like these documentation pages), or even a static HTML site. How you use Drash is up to you, so it can be everything you need and nothing you don't &mdash; like a DRASH tent.
-    p Learn more about Drash 
-      a-base-url(href="/about-drash") here
-      | .
+    p Learn more about Drash #[a( href="/drash/#/about-drash") here].
   div
     hr
     h2-hash Quickstart
@@ -58,7 +56,7 @@ div
           | Hello World!
     hr
     h2-hash Importing
-    code-block-import(name="Drash" repo="drash")
+    code-block-import(name="Drash" repo="deno-drash")
     hr
     h2-hash Features
     ul
