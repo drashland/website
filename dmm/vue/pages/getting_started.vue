@@ -43,7 +43,7 @@ div
         p Make sure you have out of date dependencies inside your <code>deps.ts</code> file.
         code-block(title="deps.ts" language="typescript")
           | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
-          | import { red } from "https://deno.land/std@<latest std version>/fmt/colors.ts";
+          | import { red } from "https://deno.land/std@{latest std version}/fmt/colors.ts";
       li
         p Update your dependencies.
         code-block(title="Terminal" language="text")
@@ -53,7 +53,7 @@ div
           | Reading deps.ts to gather your dependencies...
           | Checking if your modules can be updated...
           | drash was updated from v1.0.0 to {{ $conf.drash.latest_version }}
-          | fmt was updated from 0.55.0 to {latest_release}
+          | fmt was updated from 0.55.0 to {latest std version}
 
     hr
     h2-hash Installing

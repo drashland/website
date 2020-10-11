@@ -42,7 +42,7 @@ div
       li
         p Write your test file.
         code-block(title="test.ts" language="typescript")
-          | import { Rhum } from "https://deno.land/x/rhum@{{ $conf.rhum.latest_rhum_version }}/mod.ts";
+          | import { Rhum } from "https://deno.land/x/rhum@{{ $conf.rhum.latest_version }}/mod.ts";
           |
           | let value = false;
           |
@@ -88,7 +88,7 @@ div
           |         Returns true ... ok (1ms)
     hr
     h2-hash Importing
-    code-block-import(name="Rhum" repo="rhum" :version="$conf.rhum.latest_rhum_version")
+    code-block-import(name="Rhum" repo="rhum" :version="$conf.rhum.latest_version")
     hr
     h2-hash Features
     ul
