@@ -22,7 +22,7 @@ export default {
 div
   code-block(language="typescript" :header="false")
     | // Import a specific version of {{ name }}
-    | import { {{ name }} } from "https://deno.land/x/{{ repo }}@{tag or branch name}/mod.ts";
+    | import { {{ name }} } from "https://deno.land/x/{{ repo }}@{tag}/mod.ts";
     |
     | // Import the master branch of {{ name }}
     | import { {{ name }} } from "https://deno.land/x/{{ repo }}/mod.ts";

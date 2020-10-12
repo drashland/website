@@ -22,7 +22,6 @@ export default {
   props: {
     base_url: {
       type: String,
-      required: true,
     },
     subtitle: {
       type: String,
