@@ -61,7 +61,7 @@ page(
   ol
     li Comment out the code relevant to your resource file.
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="3-5,10-12")
-        | import { Drash } from "https://deno.land/x/drash/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
         | 
         | // import AboutResource from "./about_resource.ts";
         | // import ContactResource from "./contact_resource.ts";
@@ -92,7 +92,7 @@ page(
       p You will receive a <code>404 Not Found</code> error because your server does not have any resources. This is expected. You will be creating your resource next.
     li Before moving on, uncomment the code you commented out.
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="3-5,10-12")
-        | import { Drash } from "https://deno.land/x/drash/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
         | 
         | import AboutResource from "./about_resource.ts";
         | import ContactResource from "./contact_resource.ts";

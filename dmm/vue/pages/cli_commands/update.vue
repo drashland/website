@@ -61,11 +61,11 @@ page(
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Checking if your modules can be updated...
-        | http was updated from 0.55.0 to {latest_release}
+        | http was updated from 0.55.0 to {latest std version}
         |
         | $ cat deps.ts
         |
-        | import { serve } from "https://deno.land/std@{latest_release}/http/server.ts"; // now up to date
+        | import { serve } from "https://deno.land/std@{latest std version}/http/server.ts"; // now up to date
 
     li
       p Update multiple dependencies.
@@ -80,8 +80,8 @@ page(
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Checking if your modules can be updated...
-        | http was updated from 0.55.0 to {latest_release}
-        | drash was updated from v1.0.7 to v{latest_release}
+        | http was updated from 0.55.0 to {latest std version}
+        | drash was updated from v1.0.7 to {{ $conf.drash.latest_version }}
     li
       p Update all dependencies.
       code-block(title="Terminal" language="text")
@@ -95,7 +95,7 @@ page(
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Checking if your modules can be updated...
-        | http was updated from 0.55.0 to {latest_release}
-        | drash was updated from v1.0.7 to v{latest_release}
+        | http was updated from 0.55.0 to {latest std version}
+        | drash was updated from v1.0.7 to {{ $conf.drash.latest_version }}
 </template>
 

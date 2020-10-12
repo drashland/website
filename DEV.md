@@ -20,16 +20,16 @@ Install dependencies.
 npm install
 ```
 
-Run webpack to generate the bundles (this can take up to 10 seconds for development).
-
-```
-npm run webpack
-```
-
 Run the Node server.
 
 ```
 npm run server
+```
+
+In a separate shell, run webpack to generate the bundles (this can take up to 10 seconds for development).
+                     
+```
+npm run webpack
 ```
 
 ## Copying the API Reference JSON data from deno-drash

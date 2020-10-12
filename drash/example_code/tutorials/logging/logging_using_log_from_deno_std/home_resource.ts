@@ -1,4 +1,4 @@
-import { Drash } from "https://deno.land/x/drash/mod.ts";
+import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
 import * as log from "https://deno.land/std/log/mod.ts";
 
 export default class HomeResource extends Drash.Http.Resource {
