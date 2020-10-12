@@ -65,7 +65,7 @@ page(
       p Comment out the code relevant to your resource file.
       p
         code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="3,7")
-          | import { Drash } from "https://deno.land/x/drash/mod.ts";
+          | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
           |
           | // import HomeResource from "./home_resource.ts";
           |
@@ -98,7 +98,7 @@ page(
       p Before moving on, uncomment the code you commented out.
       p
         code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="3,7")
-          | import { Drash } from "https://deno.land/x/drash/mod.ts";
+          | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
           |
           | import HomeResource from "./home_resource.ts";
           |

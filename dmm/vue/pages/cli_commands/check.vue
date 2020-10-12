@@ -63,7 +63,7 @@ page(
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Comparing versions...
-        | http can be updated from 0.55.0 to 0.63.0
+        | http can be updated from 0.55.0 to {latest std version}
         | To update, run:
         |     dmm update http
     li
@@ -79,8 +79,8 @@ page(
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Comparing versions...
-        | http can be updated from 0.55.0 to {latest_release}
-        | drash can be updated from v1.0.7 to v{latest_release}
+        | http can be updated from 0.55.0 to {latest std version}
+        | drash can be updated from v1.0.7 to {{ $conf.drash.latest_version }}
         | To update, run:
         |     dmm update http drash
     li
@@ -96,8 +96,8 @@ page(
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Comparing versions...
-        | http can be updated from 0.55.0 to {latest_release}
-        | drash can be updated from v1.0.7 to v{latest_release}
+        | http can be updated from 0.55.0 to {latest std version}
+        | drash can be updated from v1.0.7 to {{ $conf.drash.latest_version }}
         | To update, run:
         |     dmm update http drash
 </template>
