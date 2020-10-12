@@ -56,7 +56,25 @@ div
           | Hello World!
     hr
     h2-hash Importing
-    code-block-import(name="Drash" repo="deno-drash" :version="$conf.drash.latest_version")
+    div
+      code-block(language="typescript" :header="false")
+        | // Import a specific version of Drash
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        |
+        | // Always import the latest release
+        | import { Drash } from "https://deno.land/x/drash/mod.ts";
+      p Drash versions can be found <a :href="'https://github.com/drashland/deno-drash/releases'" target="_BLANK">here</a>.
+    h3
+      strong Mirrors
+    ul
+      li
+        p
+          strong nest.land
+        p
+          code-block(language="typescript" :header="false")
+            | // Import a specific version of Drash (do not specify the "v" in the tag)
+            | import { Drash } from "https://x.nest.land/deno-drash@{{ $conf.drash.latest_version.replace("v", "")}}/mod.ts";
+        p Drash versions on <a href="https://nest.land" target="_BLANK">https://nest.land</a> can be found <a href="https://nest.land/package/deno-drash" target="_BLANK">here</a>.
     hr
     h2-hash Features
     ul

@@ -62,7 +62,7 @@ export default {
               "In-Template JavaScript": "/tutorials/front-end/in-template-javascript",
             },
             "Error Handling": {
-              "Customizing Error Handling": "/tutorials/error-handling/customizing-error-handling",
+              //"Customizing Error Handling": "/tutorials/error-handling/customizing-error-handling",
               "Angular Deep Linking": "/tutorials/error-handling/angular-deep-linking",
             },
             "Misc": {
