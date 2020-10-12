@@ -70,9 +70,10 @@ div
       li
         p
           strong nest.land
-        code-block(language="typescript" :header="false")
-          | // Import a specific version of Drash (do not specify the "v" in the tag)
-          | import { Drash } from "https://x.nest.land/deno-drash@{tag}/mod.ts";
+        p
+          code-block(language="typescript" :header="false")
+            | // Import a specific version of Drash (do not specify the "v" in the tag)
+            | import { Drash } from "https://x.nest.land/deno-drash@{tag}/mod.ts";
         p Drash versions on <a href="https://nest.land" target="_BLANK">https://nest.land</a> can be found <a href="https://nest.land/package/deno-drash" target="_BLANK">here</a>.
     hr
     h2-hash Features
