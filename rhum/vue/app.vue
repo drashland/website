@@ -20,6 +20,7 @@ export default {
             Quickstart: "/#quickstart",
             Importing: "/#importing",
             Features: "/#features",
+            Articles: "/#articles",
             FAQ: "/faq",
           },
           Tutorials: {

@@ -20,6 +20,7 @@ export default {
             "Quickstart": "/#quickstart",
             "Importing": "/#importing",
             "Features": "/#features",
+            "Articles": "/#articles",
             "About Drash": "/about-drash",
             "Lifecycle Diagram": "/lifecycle-diagram",
           },
