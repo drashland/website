@@ -49,7 +49,7 @@ page(
   ul
     li
       p Get information on a <code>http</code> std module.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | $ dmm info http
         |
         | Information on http
@@ -62,7 +62,7 @@ page(
         |   - Latest Version: {latest std version}
     li
       p Get information on a <code>denon</code> 3rd party module.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | $ dmm info denon
         |
         | Information on denon

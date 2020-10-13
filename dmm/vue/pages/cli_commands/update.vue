@@ -51,7 +51,7 @@ page(
   ul
     li
       p Update a single dependency. In this example, we are updating the <code>http</code> std dependency.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
@@ -69,7 +69,7 @@ page(
 
     li
       p Update multiple dependencies.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
@@ -84,7 +84,7 @@ page(
         | drash was updated from v1.0.7 to {{ $conf.drash.latest_version }}
     li
       p Update all dependencies.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date

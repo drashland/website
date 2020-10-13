@@ -72,16 +72,16 @@ page(
     li
       p Run your app.
       p
-        code-block(title="Terminal")
-          | deno run --allow-net --allow-read app.ts
+        code-block(title="Terminal" language="shell-session")
+          | $ deno run --allow-net --allow-read app.ts
     li
       p Make a coffee request using <code>curl</code> like below or go to <code>localhost:1447/coffee/17</code> in your browser.
       p
-        code-block(title="Terminal")
-          | curl localhost:1447/coffee/17
+        code-block(title="Terminal" language="shell-session")
+          | $ curl localhost:1447/coffee/17
       p You should receive the following response (we pretty-printed the response for you):
       p
-        code-block(:header="false" language="javascript")
+        code-block(:header="false" language="json")
           | {
           |   "id": 17,
           |   "name": "Light Roast: Breakfast Blend",
@@ -90,7 +90,7 @@ page(
     li
       p Make a coffee request to <code>localhost:1447/coffee/32</code>. You should receive the following response (we pretty-printed the response for you):
       p
-        code-block(:header="false" language="javascript")
+        code-block(:header="false" language="json")
           | {
           |   "id": 32,
           |   "name": "Medium Roast: Premium Single Origin (Sumatra)",
@@ -99,12 +99,12 @@ page(
     li
       p Make a bad coffee request to <code>localhost:1447/coffee/9000</code>. You should receive the following response (we pretty-printed the response for you):
       p
-        code-block(:header="false" language="javascript")
+        code-block(:header="false" language="shell-session")
           | "Coffee with ID \"9000\" not found."
     li
       p Make a tea request to <code>localhost:1447/tea/50</code>. You should receive the following response (we pretty-printed the response for you):
       p
-        code-block(:header="false" language="javascript")
+        code-block(:header="false" language="json")
           | {
           |   "id": 50,
           |   "name": "Earl Gray",
@@ -113,7 +113,7 @@ page(
     li
       p Make a tea request to <code>localhost:1447/tea/68</code>. You should receive the following response (we pretty-printed the response for you):
       p
-        code-block(:header="false" language="javascript")
+        code-block(:header="false" language="json")
           | {
           |   "id": 68,
           |   "name": "Citrus Chamomile",
@@ -123,7 +123,7 @@ page(
       p Make a bad tea request to <code>localhost:1447/tea/2710</code>.
       p You should receive the following response (we pretty-printed the response for you):
       p
-        code-block(:header="false" language="javascript")
+        code-block(:header="false" language="shell-session")
           | "Tea with ID \"2710\" not found."
   div-alert-next-tutorial-part
   hr

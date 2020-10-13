@@ -80,8 +80,8 @@ page(
     li
       p Run your app.
       p
-        code-block(title="/path/to/your/project/app.ts")
-          | deno run --allow-net --allow-read app.ts
+        code-block(title="/path/to/your/project/app.ts" language="shell-session")
+          | $ deno run --allow-net --allow-read app.ts
     li
       p Make a request to <code>localhost:1447/users/1</code> in your browser.
       p You should receive the following response:

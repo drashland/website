@@ -45,13 +45,13 @@ div
           | {{ example_code.app.contents }}
       li
         p Run your <code>app.ts</code> file.
-        code-block(title="Terminal" language="text")
-          | deno run --allow-net app.ts
+        code-block(title="Terminal" language="shell-session")
+          | $ deno run --allow-net app.ts
 
       li
         p Make a request.
-        code-block(title="Terminal" language="text")
-          | curl localhost:1447
+        code-block(title="Terminal" language="shell-session")
+          | $ curl localhost:1447
           |
           | Hello World!
     hr

@@ -149,47 +149,47 @@ page(
   ol
     li
       p Run your server.
-      code-block(title="Terminal" language="text")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Connect the first client to your server.
-      code-block(title="Terminal" language="text")
-        | wscat -c ws://127.0.0.1:1777
+      code-block(title="Terminal" language="shell-session")
+        | $ wscat -c ws://127.0.0.1:1777
     li
       p Connect the second client to your server and get its ID.
-      code-block(title="Terminal" language="text")
-        | wscat -c ws://127.0.0.1:1777
+      code-block(title="Terminal" language="shell-session")
+        | $ wscat -c ws://127.0.0.1:1777
         | > id
       p You should receive a response similar to the following:
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | < Client ID: 5
     li
       p Using the second client, connect to Channel 1.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > {"connect_to":["Channel 1"]}
       p You should receive the following response:
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | < Connected to Channel 1.
     li
       p Using the first client, connect to the Actions channel.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > {"connect_to":["Actions"]}
       p You should receive the following response:
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > Connected to Actions.
     li
       p Using the first client, send a packet to the Actions channel to remove the second client from Channel 1. Make sure you use the correct client ID!
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > {"send_packet":{"to":"Actions","message":{"action":"remove_client_from_channel","client_id":"5","channel":"Channel 1"}}}
       p You should receive a response similar to the following:
-      code-block(:header="false" language="text")
+      code-block(:header="false" language="shell-session")
         | < {"from":"Server","to":"Actions","message":"Client #5 was removed from the Channel 1 channel."}
     li
       p Using the second client, disconnect from Channel 1.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > {"disconnect_from":["Channel 1"]}
       p If the second client was removed, you should receive the following response:
-      code-block(:header="false" language="text")
+      code-block(:header="false" language="shell-session")
         | < Not connected to Channel 1.
 </template>
 

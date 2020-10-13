@@ -53,27 +53,27 @@ page(
   h2-hash Verification
   ol
     li Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/users?id=1</code>.
-      code-block(title="Terminal")
-        | curl localhost:1447/users?id=1
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/users?id=1
       p You should receive the following response:
-      code-block(:header="false")
+      code-block(:header="false" language="shell-session")
         | You passed in the following user ID as the URL query param: 1
     li
       p Make the same request, but change the <code>id</code> URL query param to <code>one</code>.
-      code-block(title="Terminal")
-        | curl localhost:1447/users?id=one
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/users?id=one
       p You should receive the following response:
-      code-block(:header="false")
+      code-block(:header="false" language="shell-session")
         | This resource requires the `id` URL query param to be a number.
     li
       p Make the same request, but do not add the <code>id</code> URL query param.
-      code-block(title="Terminal")
-        | curl localhost:1447
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447
       p You should receive the following response:
-      code-block(:header="false")
+      code-block(:header="false" language="shell-session")
         | This resource requires the `id` URL query param.
 </template>

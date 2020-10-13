@@ -112,13 +112,13 @@ page(
     li
       p Build docker again. This will update the containers <code>Nginx</code> or <code>Apache</code> configuration file and also restart your server to register the new response type.
       p
-        code-block(title="Terminal")
-          | docker-compose build
+        code-block(title="Terminal" language="shell-session")
+          | $ docker-compose build
     li
       p Start docker.
       p
-        code-block(title="Terminal")
-          | docker-compose up -d
+        code-block(title="Terminal" language="shell-session")
+          | $ docker-compose up -d
     li
       p Go to <code>localhost:8080</code> in your browser and you should see the following:
       p

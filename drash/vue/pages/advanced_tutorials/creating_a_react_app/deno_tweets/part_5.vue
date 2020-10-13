@@ -61,13 +61,13 @@ page(
     li
       p Create your React component for the Deno Tweets.
       p
-        code-block(title="/path/to/your/project/components/DenoTweets.tsx" language="typescript")
+        code-block(title="/path/to/your/project/components/DenoTweets.tsx" language="tsx")
           | {{ example_code_components.DenoTweets.contents }}
       p Here, you are creating a component to control the display of the Deno tweets.
     li
       p Create your React App file to handle the display of your components.
       p
-        code-block(title="/path/to/your/project/components/App.tsx" language="typescript")
+        code-block(title="/path/to/your/project/components/App.tsx" language="tsx")
           | {{ example_code_components.App.contents }}
       p This is the entry point React file. This file will import all of your React components and render them.
   hr
@@ -76,14 +76,14 @@ page(
     li
       p Build your environment.
       p
-        code-block(title="Terminal")
-          | node_modules/.bin/webpack-cli --config webpack.config.js
+        code-block(title="Terminal" language="shell-session")
+          | $ node_modules/.bin/webpack-cli --config webpack.config.js
       p Now that you have created your components, Webpack will transpile them so the browser can understand the contents.
     li
       p Start your server.
       p
-        code-block(title="Terminal")
-          | deno run --allow-net --allow-read app.ts
+        code-block(title="Terminal" language="shell-session")
+          | $ deno run --allow-net --allow-read app.ts
       p Go to <code>localhost:1447/</code> in your browser.
       p You should the something similar to the following:
       p

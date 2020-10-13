@@ -70,13 +70,13 @@ page(
     li
       p Start Docker. Running without the <code>-d</code> option will allow you to see all output of the container and Drash server.
       p
-        code-block(title="Terminal")
-          | docker-compose up
+        code-block(title="Terminal" language="shell-session")
+          | $ docker-compose up
     li
       p Make a request using <code>curl</code> like below or go to <code>localhost:8080</code> in your browser.
       p
-        code-block(title="Terminal")
-          | curl localhost:8080
+        code-block(title="Terminal" language="shell-session")
+          | $ curl localhost:8080
       p You should receive the following response:
       p
         code-block(:header="false")

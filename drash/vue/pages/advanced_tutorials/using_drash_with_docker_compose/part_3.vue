@@ -70,13 +70,13 @@ page(
       p
         em If you prefer to use Apache, then skip this step and follow the next step below.
       p This file will be used by the Nginx container.
-      code-block(title="/path/to/your/project/.docker/nginx.dockerfile" language="shell")
+      code-block(title="/path/to/your/project/.docker/nginx.dockerfile" language="nginx")
         | {{ example_code_docker.nginx.contents }}
       p You will create the configuration file for Nginx in the next tutorial part. Nginx will use the configuration file pass connections to the Drash server.
     li
       p Create the Apache <code>Dockerfile</code>.
       p This file will be used by the Apache container.
-      code-block(title="/path/to/your/project/.docker/apache.dockerfile" language="shell")
+      code-block(title="/path/to/your/project/.docker/apache.dockerfile" language="apacheconf")
         | {{ example_code_docker.apache.contents }}
       p You will create the configuration file for Apache in the next tutorial part. Apache will use the configuration file pass connections to the Drash server.
   hr

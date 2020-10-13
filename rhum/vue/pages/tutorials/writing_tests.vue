@@ -101,10 +101,10 @@ page(
   ol
     li
       p Run your tests.
-      code-block(title="Terminal" language="text")
-        | deno test
+      code-block(title="Terminal" language="shell-session")
+        | $ deno test
       p You should see the output similar to the following:
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | Compile file:///.deno.test.ts
         | running 1 tests
         | 

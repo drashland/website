@@ -67,8 +67,8 @@ page(
   p If you run your Docker application in its current state, you will get an error because the <code>.dockerfile</code> files have not yet been created. Instead, verify your <code>docker-compose.yml</code> file is configured properly.
   ol
     li Check the file.
-      code-block(title="Terminal")
-        | docker-compose config
+      code-block(title="Terminal" language="shell-session")
+        | $ docker-compose config
       p You should not see any errors when running the above command. Instead, you should see the contents of your <code>docker-compose.yml</code> file. That is how you know it is properly configured.
   div-alert-next-tutorial-part
   hr

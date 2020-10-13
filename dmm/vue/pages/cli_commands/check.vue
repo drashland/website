@@ -53,7 +53,7 @@ page(
   ul
     li
       p Check a single dependency. In this example, we are checking the <code>http</code> std dependency.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
@@ -68,7 +68,7 @@ page(
         |     dmm update http
     li
       p Check multiple dependencies.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
@@ -85,7 +85,7 @@ page(
         |     dmm update http drash
     li
       p Check all dependencies.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | $ cat deps.ts
         |
         | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date

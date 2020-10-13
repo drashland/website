@@ -71,10 +71,8 @@ page-tutorial(
           code-block(:data="example_code.tests")
         li
           p Run your test runner file.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | deno run --allow-net run_tests.ts
+          code-block(title="Terminal" language="shell-session")
+            | $ deno run --allow-net run_tests.ts
           p You should receive the following output:
           code-block-slotted
             template(v-slot:title) Terminal

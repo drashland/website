@@ -56,10 +56,10 @@ page-tutorial(
       h2-hash Steps
       ol
         li Create your resource file.
-          code-block(:data="example_code.home_resource")
+          code-block(:data="example_code.home_resource" language="typescript")
           p Your resource will use deno_mysql to make a query to the database&ndash;getting all user records from the database.
         li Create your app file.
-          code-block(:data="example_code.app")
+          code-block(:data="example_code.app" language="typescript")
           p Your resource file is expecting <code>denoMysql</code>; therefore, your app file will need to <code>export</code> it.
   div.row
     div.col
@@ -67,17 +67,13 @@ page-tutorial(
       h2-hash Verification
       ol
         li Run your app.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | deno run --allow-net --allow-write app.ts
+          code-block(title="Terminal" language="shell-session")
+            | $ deno run --allow-net --allow-write app.ts
         li Make a request using <code>curl</code> like below or go to <code>localhost:1447/</code> in your browser.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | curl localhost:1447/
+          code-block(title="Terminal" language="shell-session")
+            | $ curl localhost:1447/
           p You should receive the following response (we pretty-printed the response for you):
-          code-block-slotted(:header="false" language="javascript")
+          code-block-slotted(:header="false" language="json")
             template(v-slot:code)
               | [
               |   {

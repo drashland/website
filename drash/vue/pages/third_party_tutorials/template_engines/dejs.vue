@@ -48,20 +48,18 @@ page-tutorial(
           code-block(:data="example_code.index" language="html")
         li 
           p Create your resource file.
-          code-block(:data="example_code.home_resource")
+          code-block(:data="example_code.home_resource" language="typescript")
         li
           p Create your app file. Your server will need to default to <code>text/html</code> responses (see highlighted server config).
-          code-block(:data="example_code.app" line_highlight="7")
+          code-block(:data="example_code.app" line_highlight="7" language="typescript")
   div.row
     div.col
       hr
       h2-hash Verification
       ol
         li Run your app.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | deno run --allow-net --allow-read app.ts
+          code-block(title="Terminal" language="shell-session")
+            | $ deno run --allow-net --allow-read app.ts
         li
           p Make a request to <code>localhost:1447</code> in your browser. You should receive the following response:
           p

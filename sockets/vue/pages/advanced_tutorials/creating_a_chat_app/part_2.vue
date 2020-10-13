@@ -85,22 +85,22 @@ page(
   ol
     li
       p Run your server.
-      code-block(title="Terminal" language="text")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Connect to your server.
-      code-block(title="Terminal" language="text")
-        | wscat -c ws://127.0.0.1:1777
+      code-block(title="Terminal" language="shell-session")
+        | $ wscat -c ws://127.0.0.1:1777
     li
       p Connect to the General channel.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > {"connect_to":["General"]}
     li
       p Send a packet to the General channel.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > {"send_packet":{"to":"General","message":"test"}}
       p You should receive the following response:
-      code-block(:header="false" language="text")
+      code-block(:header="false" language="shell-session")
         | < {"from":"Server","to":"General","message":"test"}
     p You can now move on to the next tutorial part.
   div-alert-next-tutorial-part

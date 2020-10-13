@@ -81,38 +81,38 @@ page(
   ol
     li
       p Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net --config tsconfig.json app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net --config tsconfig.json app.ts
     li
       p Make a request using <code>curl</code> like below or go to <code>localhost:1447/</code> in your browser.
-      code-block(title="Terminal")
-        | curl localhost:1447/
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/
       p This request is not filtered by <code>VerifyTokenMiddleware</code>; therefore, you should receive the following response (we pretty-printed the response for you):
-      code-block(language="javascript" :header="false")
+      code-block(language="json" :header="false")
         | {
         |   "method": "GET",
         |   "body": "Hello!"
         | }
     li
       p Make a request using <code>curl</code> like below or go to <code>localhost:1447/secret</code> in your browser.
-      code-block(title="Terminal")
-        | curl localhost:1447/secret
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/secret
       p This request is filtered by <code>VerifyTokenMiddleware</code>, but it is missing the <code>super_secret_token</code> query param; therefore, you should receive the following response:
       code-block(:header="false")
         | "Where is the token?"
     li
       p Make a request using <code>curl</code> like below or go to <code>localhost:1447/secret?super_secret_token=IsThisIt</code> in your browser.
-      code-block(title="Terminal")
-        | curl localhost:1447/secret?super_secret_token=IsThisIt
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/secret?super_secret_token=IsThisIt
       p This request is filtered by <code>VerifyTokenMiddleware</code>, but it has the wrong <code>super_secret_token</code> query param; therefore you should receive the following response:
       code-block(:header="false")
         | "Mmm... \"IsThisIt\" is a bad token."
     li
       p Make a request using <code>curl</code> like below or go to <code>localhost:1447/secret?super_secret_token=AllYourBaseAreBelongToUs</code> in your browser.
-      code-block(title="Terminal")
-        | curl localhost:1447/secret?super_secret_token=AllYourBaseAreBelongToUs
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/secret?super_secret_token=AllYourBaseAreBelongToUs
       p This request is filtered by <code>VerifyTokenMiddleware</code> and it has the correct <code>super_secret_token</code> query param; therefore you should receive the following response (we pretty-printed the response for you):
-      code-block(language="javascript" :header="false")
+      code-block(language="json" :header="false")
         | {
         |   "method": "GET",
         |   "body": "You have accessed the secret resource!"
