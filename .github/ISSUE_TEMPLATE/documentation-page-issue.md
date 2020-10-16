@@ -7,8 +7,6 @@ assignees: ''
 
 ---
 
-**Page URL:** {page url}
-
 **Describe the bug**
 
 {enter summary of issue here}
