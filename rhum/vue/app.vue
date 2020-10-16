@@ -41,5 +41,6 @@ app-root(
   :build_date="build_date"
   :environment="environment"
   :sidebar="sidebar"
+  module="Rhum"
 )
 </template>
