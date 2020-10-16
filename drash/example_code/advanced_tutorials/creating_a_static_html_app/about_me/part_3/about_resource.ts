@@ -1,4 +1,4 @@
-import { Drash } from "https://deno.land/x/drash/mod.ts";
+import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
 const decoder = new TextDecoder();
 
 export default class AboutResource extends Drash.Http.Resource {

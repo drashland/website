@@ -54,7 +54,7 @@ page(
         | USAGE:
         |     deno install --allow-read --allow-net --allow-write https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
         |
-        |     deno run --allow-read --allow-net [--allow-write] https://deno.land/x/dmm@v{latest_release}/mod.ts [ARGS] [MODULES]
+        |     deno run --allow-read --allow-net [--allow-write] https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts [ARGS] [MODULES]
         |
         |     dmm [ARGS] [MODULES]
         |

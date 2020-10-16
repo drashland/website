@@ -36,7 +36,7 @@ page(
       p Create your <code>app.ts</code> file. Take note of the highlighted code. This code will help your Angular app by serving your default <code>index.html</code> file. Your default <code>index.html</code> file is the one you define for your Angular app. If a deep link is used, Drash will throw a <code>404</code> error in your Angular app. By adding the highlighted code, you tell Drash to reroute back to your Angular app's <code>index.html</code> file on <code>404</code> errors.
       p
         code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="25-28")
-          | import { Drash } from "https://deno.land/x/drash/mod.ts";
+          | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
           | const decoder = new TextDecoder();
           |
           | // Define your custom Angular server

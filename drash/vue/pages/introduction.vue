@@ -59,9 +59,9 @@ div
     div
       code-block(language="typescript" :header="false")
         | // Import a specific version of Drash
-        | import { Drash } from "https://deno.land/x/drash@{tag}/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         |
-        | // Import the master branch of Drash
+        | // Always import the latest release
         | import { Drash } from "https://deno.land/x/drash/mod.ts";
       p Drash versions can be found <a :href="'https://github.com/drashland/deno-drash/releases'" target="_BLANK">here</a>.
     h3
@@ -73,7 +73,7 @@ div
         p
           code-block(language="typescript" :header="false")
             | // Import a specific version of Drash (do not specify the "v" in the tag)
-            | import { Drash } from "https://x.nest.land/deno-drash@{tag}/mod.ts";
+            | import { Drash } from "https://x.nest.land/deno-drash@{{ $conf.drash.latest_version.replace("v", "")}}/mod.ts";
         p Drash versions on <a href="https://nest.land" target="_BLANK">https://nest.land</a> can be found <a href="https://nest.land/package/deno-drash" target="_BLANK">here</a>.
     hr
     h2-hash Features
