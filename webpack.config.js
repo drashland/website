@@ -1,6 +1,14 @@
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+let repoConfigs = {};
+try {
+  repoConfigs = require("./configs.json");
+} catch (error) {
+  repoConfigs = require("./configs.sample.json");
+}
+
+console.log(repoConfigs);
 
 module.exports = envVars => {
   console.log(`\nRunning webpack in ${getMode(envVars.environment)} mode for the ${envVars.environment} environment.\n`);
@@ -8,22 +16,18 @@ module.exports = envVars => {
   const configs = {
     build_date: new Date().toISOString(),
     environment: envVars.environment,
-    dmm: {
+    dmm: Object.assign(repoConfigs.dmm, {
       base_url: getBaseUrl("dmm", envVars.environment),
-      latest_version: "v1.1.3",
-    },
-    drash: {
-      base_url: getBaseUrl("drash", envVars.environment),
-      latest_version: "v1.2.2"
-    },
-    rhum: {
+    }),
+    drash: Object.assign(repoConfigs.drash, {
+      base_url: getBaseUrl("drash", envVars.environment)
+    }),
+    rhum: Object.assign(repoConfigs.rhum, {
       base_url: getBaseUrl("rhum", envVars.environment),
-      latest_version: "v1.1.2"
-    },
-    sockets: {
+    }),
+    sockets: Object.assign(repoConfigs.sockets, {
       base_url: getBaseUrl("sockets", envVars.environment),
-      latest_version: "v0.5.0"
-    },
+    }),
   };
 
   return {

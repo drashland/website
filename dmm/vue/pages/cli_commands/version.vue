@@ -48,6 +48,6 @@ page(
       p Check your version.
       code-block(title="Terminal" language="text")
         | $ dmm --version
-        | dmm {version}
+        | dmm {{ $conf.dmm.latest_version }}
 </template>
 

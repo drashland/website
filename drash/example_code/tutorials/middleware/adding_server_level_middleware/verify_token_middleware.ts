@@ -1,6 +1,6 @@
-import { Drash } from "https://deno.land/x/drash/mod.ts";
+import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
 
-export function VerifyTokenMiddleware(
+export default function VerifyTokenMiddleware(
   request: Drash.Http.Request,
   response?: Drash.Http.Response
 ): void {

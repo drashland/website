@@ -1,4 +1,4 @@
-import { Drash } from "https://deno.land/x/drash/mod.ts";
+import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
 import { LogAccessMiddleware } from "./log_access_middleware.ts";
 import { VerifyTokenMiddleware } from "./verify_token_middleware.ts";
 

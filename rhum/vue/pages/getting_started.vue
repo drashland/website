@@ -88,7 +88,7 @@ div
           |         Returns true ... ok (1ms)
     hr
     h2-hash Importing
-    code-block-import(name="Rhum" repo="rhum")
+    code-block-import(name="Rhum" repo="rhum" :version="$conf.rhum.latest_version")
     hr
     h2-hash Features
     ul
