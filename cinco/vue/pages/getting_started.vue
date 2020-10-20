@@ -50,8 +50,7 @@ div
           |
           | Deno.test("My test", async () => {
           |   // Setup
-          |   const cinco = new Cinco("https://chromestatus.com");
-          |   await cinco.start()
+          |   const cinco = Cinco.build("https://chromestatus.com");
           |
           |   // Do any actions and assertions, in any order
           |   await cinco.assertUrlIs("https://chromestatus.com/features")

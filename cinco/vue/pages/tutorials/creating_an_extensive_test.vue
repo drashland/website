@@ -63,8 +63,7 @@ page(
         | import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
         |
         | Deno.test("My web app works as expected", function () {
-        |   const cinco = new Cinco("https://chromestatus.com"); // using this page as an example
-        |   await cinco.start(); // creates the connection to the browser
+        |   const cinco = Cinco.build("https://chromestatus.com"); // using this page as an example
         |   await cinco.assertUrlIs("https://chromestatus.com/features");
         |   await cinco.type('input[placeholder="Filter"]', "hello world");
         |   const val = await cinco.getInputValue('input[placeholder="Filter"]');
