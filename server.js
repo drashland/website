@@ -10,6 +10,9 @@ require("./scripts/drash_compile_example_code.js");
 // Compile Rhum files
 require("./scripts/rhum_compile_vue_routes.js");
 
+// Compile Cinco files
+require("./scripts/cinco_compile_vue_routes.js")
+
 // Compile dmm files
 require("./scripts/dmm_compile_vue_routes.js")
 
@@ -77,6 +80,8 @@ function handleHttpRequest(request, response) {
       handleRhumApp(url, response);
     } else if (target(url) == "sockets") {
       handleSocketsApp(url, response);
+    } else if (target(url) === "cinco") {
+      handleCincoApp(url, response)
     } else {
       const file = fs.readFileSync(`${configs.root_directory}${url}`);
       response.writeHead(200, {"Content-Type": getContentTypeHeader(url)});
@@ -145,6 +150,18 @@ function handleSocketsApp(url, response) {
   response.write(html);
 }
 
+function handleCincoApp(url, response) {
+  if (url === "/cinco/staging" || url === "/cinco/staging/") {
+    let html = fs.readFilesync("./cinco/staging.html", "utf8")
+    response.write(html)
+    return
+  }
+  let html = fs.readFileSync("./cinco/index.template.html", "utf8");
+  html = html.replace(/\{\{ environment \}\}/g, "development");
+  html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
+  response.write(html);
+}
+
 // you don't want to end up here ;)
 function oops(response, error) {
   response.writeHeader(200, {"Content-Type": "text/html"});
@@ -176,6 +193,8 @@ function requestUrlIsPath(url) {
 
 // What is the URL in question targeting?
 function target(url) {
+
+  console.log('url: ' + url)
   if (
     url == "/dmm"
     || url == "/dmm/"
@@ -207,5 +226,13 @@ function target(url) {
     || url == "/sockets/staging/"
   ) {
     return "sockets";
+  }
+  if (
+    url === "/cinco"
+    || url === "/cinco/"
+    || url === "/cinco/staging"
+    || url === "cinco/staging/"
+  ) {
+    return "cinco"
   }
 }

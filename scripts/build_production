@@ -16,6 +16,9 @@ node scripts/rhum_compile_vue_routes.js
 # Compile Sockets production environment
 node scripts/sockets_compile_vue_routes.js
 
+# Compile Cinco production environment
+node scripts/cinco_compile_vue_routes.js
+
 # Compile all html files for all modules
 node scripts/compile_production_html.js
 

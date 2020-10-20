@@ -28,6 +28,9 @@ module.exports = envVars => {
     sockets: Object.assign(repoConfigs.sockets, {
       base_url: getBaseUrl("sockets", envVars.environment),
     }),
+    cinco: Object.assign(repoConfigs.cinco, {
+      base_url: getBaseUrl("cinco", envVars.enviromennt)
+    })
   };
 
   return {
@@ -36,6 +39,7 @@ module.exports = envVars => {
       drash_app: path.resolve(__dirname, "drash/assets/js/_app.js"),
       rhum_app: path.resolve(__dirname, "rhum/assets/js/_app.js"),
       sockets_app: path.resolve(__dirname, "sockets/assets/js/_app.js"),
+      cinco_app: path.resolve(__dirname, "cinco/assets/js/_app.js")
     },
     mode: getMode(envVars.environment),
     output: {
@@ -90,6 +94,7 @@ module.exports = envVars => {
         "/drash": path.resolve(__dirname, "drash"),
         "/rhum": path.resolve(__dirname, "rhum"),
         "/sockets": path.resolve(__dirname, "sockets"),
+        "/cinco": path.resolve(__dirname, "cinco")
       }
     }
   };
