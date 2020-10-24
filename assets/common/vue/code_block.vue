@@ -1,4 +1,26 @@
 <script>
+  import Prism from 'prismjs';
+
+  // Styling  for the code blocks
+  import "prismjs/themes/prism-tomorrow.css" // The css styling for our code blocks
+
+  // Supported languages
+  import "prismjs/components/prism-shell-session.min.js" // support shell session languages
+  import "prismjs/components/prism-typescript.min.js"
+  import "prismjs/components/prism-docker.min.js"
+  import "prismjs/components/prism-javascript.min.js"
+  import "prismjs/components/prism-json.min.js"
+  import "prismjs/components/prism-jsx.min.js"
+  import "prismjs/components/prism-nginx.min.js"
+
+  // General css
+  import "prismjs/plugins/line-numbers/prism-line-numbers.css"
+
+  // Support clipboard
+  import "prismjs/plugins/toolbar/prism-toolbar.css"
+  import "prismjs/plugins/toolbar/prism-toolbar.min.js"
+  import "/common/js/prism-copy-to-clipboard.js"
+
 export default {
   props: {
     header: {
