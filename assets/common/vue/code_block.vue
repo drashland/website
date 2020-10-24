@@ -5,7 +5,8 @@
   import "prismjs/themes/prism-tomorrow.css" // The css styling for our code blocks
 
   // Supported languages
-  import "prismjs/components/prism-shell-session.min.js" // support shell session languages
+  import "prismjs/components/prism-bash.min.js" // needed for highlighting commands for shell-session
+  import "prismjs/components/prism-shell-session.min.js"
   import "prismjs/components/prism-typescript.min.js"
   import "prismjs/components/prism-docker.min.js"
   import "prismjs/components/prism-javascript.min.js"
@@ -17,6 +18,10 @@
 
   // General css
   import "prismjs/plugins/line-numbers/prism-line-numbers.css"
+
+  // Support line highlights
+  import "prismjs/plugins/line-highlight/prism-line-highlight.min.js"
+  import "prismjs/plugins/line-highlight/prism-line-highlight.css"
 
   // Support clipboard
   import "prismjs/plugins/toolbar/prism-toolbar.css"
