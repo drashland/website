@@ -64,7 +64,7 @@ div
         p Run your server.
         code-block(title="Terminal" language="shell-session")
           | $ deno run --allow-net app.ts
-          |
+        code-block(title="Terminal" language="shell-session")
           | Server started on ws://127.0.0.1:1777
       li
         p Install <code>wscat</code> or similar client to interact with your server.

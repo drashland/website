@@ -159,6 +159,7 @@ page(
       p Connect the second client to your server and get its ID.
       code-block(title="Terminal" language="shell-session")
         | $ wscat -c ws://127.0.0.1:1777
+      code-block(title="Terminal" language="shell-session")
         | > id
       p You should receive a response similar to the following:
       code-block(title="Terminal" language="shell-session")

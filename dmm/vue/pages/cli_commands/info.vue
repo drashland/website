@@ -51,7 +51,7 @@ page(
       p Get information on a <code>http</code> std module.
       code-block(title="Terminal" language="shell-session")
         | $ dmm info http
-        |
+      code-block(title="Terminal" language="shell-session")
         | Information on http
         |
         |   - Name: http
@@ -64,7 +64,7 @@ page(
       p Get information on a <code>denon</code> 3rd party module.
       code-block(title="Terminal" language="shell-session")
         | $ dmm info denon
-        |
+      code-block(title="Terminal" language="shell-session")
         | Information on denon
         |
         |   - Name: denon

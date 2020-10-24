@@ -53,30 +53,30 @@ page(
       p Update a single dependency. In this example, we are updating the <code>http</code> std dependency.
       code-block(title="Terminal" language="shell-session")
         | $ cat deps.ts
-        |
+      code-block(title="Terminal" language="shell-session")
         | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
-        |
+      code-block(title="Terminal" language="shell-session")
         | $ dmm update http
-        |
+      code-block(title="Terminal" language="shell-session")
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Checking if your modules can be updated...
         | http was updated from 0.55.0 to {latest std version}
-        |
+      code-block(title="Terminal" language="shell-session")
         | $ cat deps.ts
-        |
+      code-block(title="Terminal" language="shell-session")
         | import { serve } from "https://deno.land/std@{latest std version}/http/server.ts"; // now up to date
 
     li
       p Update multiple dependencies.
       code-block(title="Terminal" language="shell-session")
         | $ cat deps.ts
-        |
+      code-block(title="Terminal" language="shell-session")
         | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
         | import { Drash } from "https://deno.land/x/drash@v1.0.7/mod.ts"; // out of date
-        |
+      code-block(title="Terminal" language="shell-session")
         | $ dmm update http drash
-        |
+      code-block(title="Terminal" language="shell-session")
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Checking if your modules can be updated...
@@ -86,12 +86,12 @@ page(
       p Update all dependencies.
       code-block(title="Terminal" language="shell-session")
         | $ cat deps.ts
-        |
+      code-block(title="Terminal" language="shell-session")
         | import { serve } from "https://deno.land/std@0.55.0/http/server.ts"; // out of date
         | import { Drash } from "https://deno.land/x/drash@v1.0.7/mod.ts"; // out of date
-        |
+      code-block(title="Terminal" language="shell-session")
         | $ dmm update
-        |
+      code-block(title="Terminal" language="shell-session")
         | Gathering facts...
         | Reading deps.ts to gather your dependencies...
         | Checking if your modules can be updated...

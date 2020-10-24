@@ -48,7 +48,7 @@ div
         p Update your dependencies.
         code-block(title="Terminal" language="shell-session")
           | $ deno run ---allow-read='.' --allow-write='deps.ts' --allow-net='cdn.deno.land,api.deno.land' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts update
-          |
+        code-block(title="Terminal" language="shell-session")
           | Gathering facts...
           | Reading deps.ts to gather your dependencies...
           | Checking if your modules can be updated...
@@ -60,6 +60,7 @@ div
     p You can install dmm through <code>deno install</code>. See below.
     code-block(title="Terminal" language="shell-session")
       | $ deno install --allow-read='.' --allow-write='deps.ts' --allow-net='cdn.deno.land,api.deno.land' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
+    code-block(title="Terminal" language="shell-session")
       | $ dmm --help
     p This will make running commands easier &mdash; allowing you to type <code>dmm</code> instead of <code>deno run --allow-read='.' --allow-write='deps.ts' --allow-net='cdn.deno.land,api.deno.land' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts</code>.
     hr
