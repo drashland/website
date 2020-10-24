@@ -62,8 +62,8 @@ page(
   ol
     li
       p Build the containers. This could take up to a few minutes.
-      code-block(title="Terminal" language="shell")
-        | docker-compose build
+      code-block(title="Terminal" language="shell-session")
+        | $ docker-compose build
   hr
   h2-hash Verification
   ol

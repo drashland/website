@@ -71,7 +71,7 @@ page(
     li
       p Create your Apache configuration file.
       p This file will make Apache act as a reverse proxy server, passing requests to the Drash server
-      code-block(title="/path/to/your/project/.docker/conf/apache.conf" language="apache")
+      code-block(title="/path/to/your/project/.docker/conf/apache.conf" language="apacheconf")
         | {{ example_code_conf.apache.contents }}
   hr
   h2-hash Verification

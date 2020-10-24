@@ -57,7 +57,7 @@ page(
       p Create the Compose file and create the service blocks.
       p You will notice that there are <code>.dockerfile</code> files mentioned, you will be creating this in the next tutorial part.
       p You can choose to ignore either the Nginx or Apache service block, depending on which one you wish to use for a reverse proxy
-      code-block(title="/path/to/your/project/docker-compose.yml" language="shell")
+      code-block(title="/path/to/your/project/docker-compose.yml" language="yml")
         | {{ example_code.docker_compose.contents }}
       p You are mapping the <code>/path/to/your/project/src</code> directory to directories inside the containers (<code>/var/www/src</code>).
       p You have also specified a command for the Drash container to run when the container is up. In this case, that command will start the Drash server.

@@ -12,6 +12,8 @@
   import "prismjs/components/prism-json.min.js"
   import "prismjs/components/prism-jsx.min.js"
   import "prismjs/components/prism-nginx.min.js"
+  import "prismjs/components/prism-yaml.min.js"
+  import "prismjs/components/prism-apacheconf.min.js"
 
   // General css
   import "prismjs/plugins/line-numbers/prism-line-numbers.css"

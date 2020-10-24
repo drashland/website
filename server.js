@@ -3,7 +3,6 @@ const fs = require("fs");
 const configs = require("./configs.json");
 
 // Compile Drash files
-require("./scripts/drash_compile_vue_global_components.js");
 require("./scripts/drash_compile_vue_routes.js");
 require("./scripts/drash_compile_example_code.js");
 
