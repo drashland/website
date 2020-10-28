@@ -22,16 +22,16 @@ export default {
   mounted() {
     let breadcrumbs = [{
       class: this.part == -1
-        ? "breadcrumb bg-blue-500 hover:bg-blue-400 block md:inline mb-1 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded mr-2"
-        : "breadcrumb bg-blue-500 hover:bg-blue-400 block md:inline mb-1 text-white font-bold py-2 px-4 border-blue-700 hover:border-blue-500 rounded mr-2",
+        ? "breadcrumb bg-blue-500 block md:inline mb-1 text-white font-bold px-4 border-b-4 border-blue-600 rounded mr-2"
+        : "breadcrumb bg-blue-500 block md:inline mb-1 text-white font-bold px-4 border-blue-600 rounded mr-2",
       href: `${this.base_url}/introduction`,
       name: "Introduction"
     }];
     for (let i = 1; i <= this.parts; i += 1) {
       breadcrumbs.push({
         class: this.part == i
-          ? "breadcrumb bg-blue-500 hover:bg-blue-400 block md:inline mb-1 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded mr-2"
-          : "breadcrumb bg-blue-500 hover:bg-blue-400 block md:inline mb-1 text-white font-bold py-2 px-4 border-blue-700 hover:border-blue-500 rounded mr-2",
+          ? "breadcrumb bg-blue-500 block md:inline mb-1 text-white font-bold px-4 border-b-4 border-blue-600 rounded mr-2"
+          : "breadcrumb bg-blue-500 block md:inline mb-1 text-white font-bold px-4 border-blue-600 rounded mr-2",
         href: `${this.base_url}/part-${i}`,
         name: `Part ${i}`,
       });
@@ -42,13 +42,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.breadcrumb-holder {
+    flex-flow: row wrap;
+    display: flex;
+}
 .breadcrumb {
-  color: #ffffff !important;
+    background-color: rgb(40, 38, 51); // same as bg for items in sidebar
+    color: white;
+}
+.breadcrumb:hover {
+    background-color: #1a4ae2;
 }
 </style>
 
 <template lang="pug">
-div
+div(class="breadcrumb-holder")
   a(
     v-for="breadcrumb in breadcrumbs"
     :class="breadcrumb.class"
