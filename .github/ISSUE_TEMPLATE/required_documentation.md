@@ -7,8 +7,6 @@ assignees: ''
 
 ---
 
-Replace all `{...}` variables and delete this message.
-
 ## Summary
 
 The following issue requires documentation before it can be closed:
