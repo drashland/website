@@ -16,6 +16,10 @@ export default {
       type: String,
       required: true,
     },
+    module: {
+      type: String,
+      required: true,
+    },
     sidebar: {
       type: Object,
       required: true,
@@ -216,4 +220,9 @@ div
       transition
         keep-alive
           router-view
+      hr
+      div.mt-10.bg-teal-100.border-l-4.border-teal-500.rounded-b.text-teal-900.px-4.py-3.shadow-md(role="alert")
+        div.py-1
+          p.font-bold Report Issues
+          p.text-sm This page was last updated on {{ $conf.build_date.replace("T", "@").split(".")[0] }}. Report issues with this page <a class="cursor-pointer" :href="'https://github.com/drashland/website/issues/new?assignees=&labels=bug%2C+documentation&template=documentation-page-issue.md&title=Issue on ' + module + ' ' + $route.path + ' page'" target="_BLANK">here</a>.
 </template>

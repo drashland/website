@@ -10,7 +10,7 @@ export default class HomeResource extends Drash.Http.Resource {
     const decoder = new TextDecoder();
     const file = this.request.getBodyFile("my_file");
 
-    if (!file) {
+    if (!file || !file.content) {
       throw new Drash.Exceptions.HttpException(
         400,
         "This resource requires files to be uploaded via the request body."

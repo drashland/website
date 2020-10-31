@@ -18,6 +18,7 @@ export default {
           "Getting Started": {
             Quickstart: "/#quickstart",
             Importing: "/#importing",
+            Features: "/#features",
           },
           Tutorials: {
             Introduction: "/tutorials/introduction",
@@ -49,5 +50,6 @@ app-root(
   :build_date="build_date"
   :environment="environment"
   :sidebar="sidebar"
+  module="Sockets"
 )
 </template>

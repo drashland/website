@@ -20,6 +20,7 @@ export default {
             "Quickstart": "/#quickstart",
             "Importing": "/#importing",
             "Features": "/#features",
+            "Articles": "/#articles",
             "About Drash": "/about-drash",
             "Lifecycle Diagram": "/lifecycle-diagram",
           },
@@ -93,5 +94,6 @@ app-root(
   :build_date="build_date"
   :environment="environment"
   :sidebar="sidebar"
+  module="Drash"
 )
 </template>

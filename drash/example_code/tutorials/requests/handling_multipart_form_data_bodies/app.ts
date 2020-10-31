@@ -13,3 +13,5 @@ server.run({
   hostname: "localhost",
   port: 1447
 });
+
+console.log(`Server running on ${server.hostname}:${server.port}`)

@@ -22,6 +22,7 @@ div.c-sidebar
         a-base-url(href="/introduction#quickstart") Quickstart
         a-base-url(href="/introduction#importing") Importing
         a-base-url(href="/introduction#features") Features
+        a-base-url(href="/introduction#articles") Articles
         a-base-url(href="/about-drash") About Drash
         a-base-url(href="/lifecycle-diagram") Drash Lifecycle Diagram
         a(href="https://github.com/drashland/deno-drash" target="_BLANK") View On GitHub &mdash; Drash
