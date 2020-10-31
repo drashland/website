@@ -62,6 +62,9 @@ export default {
               "Adding Template Partials": "/tutorials/front-end/adding-template-partials",
               "In-Template JavaScript": "/tutorials/front-end/in-template-javascript",
             },
+            "Testing": {
+              "Unit Testing": "/tutorials/testing/unit-testing",
+            },
             "Error Handling": {
               //"Customizing Error Handling": "/tutorials/error-handling/customizing-error-handling",
               "Angular Deep Linking": "/tutorials/error-handling/angular-deep-linking",
