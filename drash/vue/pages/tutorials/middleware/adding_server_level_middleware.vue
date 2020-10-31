@@ -61,26 +61,26 @@ page(
   ol
     li
       p Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Make a request using <code>curl</code> like below or go to <code>localhost:1447/</code> in your browser.
-      code-block(title="Terminal")
-        | curl localhost:1447/
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/
       p <code>VerifyTokenMiddleware</code> is run on every request because it was specified as server-level middleware. This request is missing the <code>super_secret_token</code> query param; therefore, you should receive the following response:
       code-block(:header="false")
         | "Where is the token?"
     li
       p Make the same request with a bad token.
-      code-block(title="Terminal")
-        | curl localhost:1447/?super_secret_token=IsThisIt
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/?super_secret_token=IsThisIt
       p You should receive the following response:
       code-block(:header="false")
         | "Mmm... \"IsThisIt\" is a bad token."
     li
       p Make the same request with the expected token.
-      code-block(title="Terminal")
-        | curl localhost:1447/?super_secret_token=AllYourBaseAreBelongToUs
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/?super_secret_token=AllYourBaseAreBelongToUs
       p You should receive the following response (we pretty-printed the response for you):
       code-block(language="javascript" :header="false")
         | {

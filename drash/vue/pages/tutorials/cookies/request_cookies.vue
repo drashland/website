@@ -57,12 +57,12 @@ page(
   ol
     li
       p Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/</code> and pass in the following cookie key-value pair: <code>my_cookie=chocolate</code>.
-      code-block(title="Terminal")
-        | curl --cookie my_cookie=chocolate localhost:1447
+      code-block(title="Terminal" language="shell-session")
+        | $ curl --cookie my_cookie=chocolate localhost:1447
       p You should receive the following response:
       code-block(:header="false")
         | You passed in the following cookie value: chocolate

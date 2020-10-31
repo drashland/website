@@ -53,26 +53,26 @@ page(
   h2-hash Verification
   ol
     li Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Using <code>curl</code> (or similar command), make a <code>POST</code> request to <code>localhost:1447/</code> and pass in <code>{"name":"denosaurus"}</code> in the request body.
-      code-block(title="Terminal")
-        | curl --header "Content-Type: application/json" \
+      code-block(title="Terminal" language="shell-session")
+        | $ curl --header "Content-Type: application/json" \
         | --request POST \
         | --data '{"name":"denosaurus"}' \
         | localhost:1447
       p You should receive the following response:
-      code-block(:header="false")
+      code-block(:header="false" language="shell-session")
         | You passed in the following body param: denosaurus
     li
       p Make the same request, but change the data to use <code>username</code> instead of <code>name</code>.
-      code-block(title="Terminal" line_highlight="3")
-        | curl --header "Content-Type: application/json" \
+      code-block(title="Terminal" line_highlight="3" language="shell-session")
+        | $ curl --header "Content-Type: application/json" \
         | --request POST \
         | --data '{"username":"denosaurus"}' \
         | localhost:1447
       p You should receive the following response:
-      code-block(:header="false")
+      code-block(:header="false" language="shell-session")
         | This resource requires the `name` body param.
 </template>

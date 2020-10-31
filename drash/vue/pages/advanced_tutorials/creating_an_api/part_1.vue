@@ -65,11 +65,11 @@ page(
   p Since you just made JSON files and will be parsing these files as JSON in a later part, you should test that deno can parse it as JSON.
   ol
     li Open up the deno REPL by typing in <code>deno</code> in your terminal.
-      code-block(title="Terminal")
-        | deno
+      code-block(title="Terminal" language="shell-session")
+        | $ deno
         | >
     li Parse your files.
-      code-block(title="Terminal")
+      code-block(title="Terminal" language="shell-session")
         | > let coffee = Deno.readFileSync("./coffee.json");
         | undefined
         |

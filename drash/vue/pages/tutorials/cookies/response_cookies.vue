@@ -64,12 +64,12 @@ page(
   ol
     li
       p Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/</code>.
-      code-block(title="Terminal")
-        | curl --verbose localhost:1447
+      code-block(title="Terminal" language="shell-session")
+        | $ curl --verbose localhost:1447
       p You should receive the following response:
       code-block(:header="false" line_highlight="11")
         | *   Trying 127.0.0.1...
@@ -89,8 +89,8 @@ page(
         | "my_cookie cookie sent!"* Closing connection 0
     li
       p Using <code>curl</code> (or similar command), make a <code>DELETE</code> request to <code>localhost:1447/</code>.
-      code-block(title="Terminal")
-        | curl --request DELETE --verbose localhost:1447
+      code-block(title="Terminal" language="shell-session")
+        | $ curl --request DELETE --verbose localhost:1447
       p You should receive the following response:
       code-block(:header="false" line_highlight="11")
         | *   Trying 127.0.0.1...

@@ -74,11 +74,11 @@ page(
   p Stop your server (<code>ctrl + c</code>) if you still have it running from Part 2. Now that you have the resource file that your server is expecting, you can start your server and make a <code>GET</code> request to one of your resource's URIs.
   ol
     li Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net --allow-read app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net --allow-read app.ts
     li Make a request using <code>curl</code> like below or go to <code>localhost:1447/users/1</code> in your browser.
-      code-block(title="Terminal")
-        | curl localhost:1447/users/1
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/users/1
       p You should receive the following response (we pretty-printed the response for you):
       code-block(:header="false" language="javascript")
         | {
@@ -89,8 +89,8 @@ page(
         |     "api_secret": "1b64d3ac-7e19-4018-ab99-29f50e097f4b"
         | }
     li Make another request.
-      code-block(title="Terminal")
-        | curl localhost:1447/users/2
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/users/2
       p You should receive the following response (we pretty-printed the response for you):
       code-block(:header="false" language="javascript")
         | {
@@ -101,8 +101,8 @@ page(
         |     "api_secret": "e5b11faa-629f-4255-bf3a-ee736dc9468d"
         | }
     li Make a bad request.
-      code-block(title="Terminal")
-        | curl localhost:1447/users/4
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/users/4
       p You should receive the following response (we pretty-printed the response for you):
       code-block(:header="false" language="javascript")
         | "User with ID \"4\" not found."

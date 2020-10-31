@@ -55,8 +55,8 @@ page(
     li
       p Create your <code>src</code> directory.
       p
-        code-block(title="Terminal")
-          | mkdir src
+        code-block(title="Terminal" language="shell-session")
+          | $ mkdir src
     li
       p Create your app file.
       p Your app file will contain a single resource: <code>HomeResource</code>.
@@ -68,8 +68,8 @@ page(
   p Verify that your app is working by running it.
   ol
     li Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net src/app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net src/app.ts
   div-alert-next-tutorial-part
   hr
   breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="6")

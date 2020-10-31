@@ -53,15 +53,15 @@ page(
     li
       p Create the <code>users.json</code> file.
       p
-        code-block(:title="example_code.users.filepath" language="javascript")
+        code-block(:title="example_code.users.filepath" language="json")
           | {{ example_code.users.contents }}
   hr
   h2-hash Verification (optional)
   p Since you just made a JSON file and will be parsing this file as JSON in a later part, you should test that deno can parse it as JSON.
   ol
     li Open up the deno REPL by typing in <code>deno</code> in your terminal.
-      code-block(title="Terminal")
-        | deno
+      code-block(title="Terminal" language="shell-session")
+        | $ deno
         | >
     li Parse your file.
       code-block(title="Terminal")

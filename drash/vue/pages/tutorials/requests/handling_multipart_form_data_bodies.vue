@@ -62,14 +62,14 @@ page(
   ol
     li
       p Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net --allow-write app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net --allow-write app.ts
     li
       p Create your <code>uploads</code> folder in your project's directory. This is where the output file will be stored. If you skip this step, you will get the following error: <code>"No such file or directory (os error 2)"</code>.
     li
       p Using <code>curl</code> (or similar command), make a <code>POST</code> request to <code>localhost:1447/files</code> and pass in <code>my_file.txt</code> in the request body. The name of the file is before <code>=@</code>. This is the name your resource will check for when trying to get the file.
-      code-block(title="Terminal")
-        | curl -F "my_file=@my_file.txt" localhost:1447/files
+      code-block(title="Terminal" language="shell-session")
+        | $ curl -F "my_file=@my_file.txt" localhost:1447/files
       p You should receive the following response:
       code-block(:header="false")
         | You uploaded the following to ./uploads/my_uploaded_file.txt:
@@ -85,8 +85,8 @@ page(
     li
       p Make the same request, but change the file's name to hello.
       p
-        code-block(title="Terminal")
-          | curl -F "hello=@my_file.txt" localhost:1447/files
+        code-block(title="Terminal" language="shell-session")
+          | $ curl -F "hello=@my_file.txt" localhost:1447/files
       p You should receive the following response:
       code-block(title="Terminal" :header="false")
         | This resource requires files to be uploaded via the request body.

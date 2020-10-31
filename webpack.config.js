@@ -61,7 +61,7 @@ module.exports = envVars => {
         // this will apply to both plain `.css` files
         // AND `<style>` blocks in `.vue` files
         {
-          test: /\.scss$/,
+          test: /(\.scss|\.css)$/,
           use: [
             "style-loader", // creates style nodes from JS strings
             "css-loader", // translates CSS into CommonJS

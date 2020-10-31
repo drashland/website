@@ -65,8 +65,8 @@ page(
   ol
     li
       p Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net --allow-read app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net --allow-read app.ts
     li
       p Go to <code>localhost:1447/user</code> in your browser.
       p You should receive the following response:

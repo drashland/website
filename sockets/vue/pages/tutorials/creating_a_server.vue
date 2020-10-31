@@ -80,39 +80,39 @@ page(
   ol
     li
       p Run your server.
-      code-block(title="Terminal" language="text")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Connect to your server.
-      code-block(title="Terminal" language="text")
-        | wscat -c ws://127.0.0.1:1777
+      code-block(title="Terminal" language="shell-session")
+        | $ wscat -c ws://127.0.0.1:1777
     li
       p Send a <code>ping</code> packet.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > ping
       p You should receive the following response:
-      code-block(:header="false" language="text")
+      code-block(:header="false" language="shell-session")
         | < pong
     li
       p Send a <code>pong</code> packet.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > pong
       p You should receive the following response:
-      code-block(:header="false" language="text")
+      code-block(:header="false" language="shell-session")
         | < ping
     li
       p Send a <code>test</code> packet.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > test
       p You should receive the following response:
-      code-block(:header="false" language="text")
+      code-block(:header="false" language="shell-session")
         | < Server started on 127.0.0.1:1777.
     li
       p Send an <code>id</code> packet.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > id
       p You should receive a response similar to the following:
-      code-block(:header="false" language="text")
+      code-block(:header="false" language="shell-session")
         | < Client ID: 4
 </template>
 

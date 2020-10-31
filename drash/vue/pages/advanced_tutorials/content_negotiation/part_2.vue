@@ -77,11 +77,11 @@ page(
         |   port: 1447
         | });
     li Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li Make a request using <code>curl</code> like below or go to <code>localhost:1447</code> in your browser.
-      code-block(title="Terminal")
-        | curl localhost:1447
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447
       p You should receive the following response:
       code-block(:header="false")
         | "Not Found"
