@@ -1,90 +1,90 @@
 <script>
+const title = "Unit Testing";
+
 export const resource = {
-  paths: [
-    "/tutorials/testing/unit-testing"
-  ],
+  paths: ["/tutorials/testing/unit-testing"],
   meta: {
-    title: "Unit Testing",
-    source_code_uri: "/tutorials/testing/unit_testing"
+    title: title,
   }
 }
 
 export default {
   data() {
     return {
+      title: title,
       example_code: this.$example_code['drash/example_code/tutorials/testing/unit_testing'],
-      toc: {
-        items: [
-          "Before You Get Started",
-          "Folder Structure End State",
-          "Steps",
-          "Writing Your Tests",
-        ]
-      }
+      toc: [
+        "Before You Get Started",
+        "Folder Structure End State",
+        "Steps",
+        "Writing Your Tests",
+      ]
     };
   },
 }
 </script>
 
 <template lang="pug">
-page-tutorial(
+page(
+  :base_url="this.$base_url"
+  :title="title"
   :toc="toc"
 )
-  div.row
-    div.col
-      hr
-      h2-hash Before You Get Started
-      p In this tutorial, you will learn how to test your Drash server and its resources using Deno Standard Modules' <a href="https://github.com/denoland/deno/tree/master/std/testing" target="_BLANK">testing</a> module.
-      p This tutorial will cover testing three resources in a single Drash server. Two of the resources will have a <code>database</code> property to simulate querying a database for records.
-      p-view-source-code(:source_code_uri="$route.meta.source_code_uri")
-  div.row
-    div.col
-      hr
-      div-folder-structure-end-state(:code_block_data="example_code.folder_structure")
-  div.row
-    div.col
-      hr
-      h2-hash Steps
-      ol
-        li
-          p Create your <code>HomeResource</code> file.
-           code-block(:data="example_code.home_resource")
-        li
-          p Create your <code>OrdersResource</code> file.
-           code-block(:data="example_code.orders_resource")
-        li 
-          p Create your <code>UsersResource</code> file.
-           code-block(:data="example_code.users_resource")
-        li
-          p Create your app file.
-            code-block(:data="example_code.app")
-  div.row
-    div.col
-      hr
-      h2-hash Writing Your Tests
-      ol
-        li
-          p Create your test runner file. Your test runner file will run your server, import and run your tests, and shut down your server when all tests have been run. Your server needs to run so the testing module can make requests to your server using <code>fetch()</code> and receive the responses you expect.
-          code-block(:data="example_code.run_tests")
-        li
-          p Write your tests.
-          code-block(:data="example_code.tests")
-        li
-          p Run your test runner file.
-          code-block(title="Terminal" language="shell-session")
-            | $ deno run --allow-net run_tests.ts
-          p You should receive the following output:
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | running 7 tests
-              | OK     HomeResource - GET / (6.00ms)
-              | OK     UsersResource - GET /users/1 (4.00ms)
-              | OK     UsersResource - GET /users/1388873 (2.00ms)
-              | OK     UsersResource - GET /users/1983765 (2.00ms)
-              | OK     OrdersResource - GET /orders/1 (4.00ms)
-              | OK     OrdersResource - GET /orders/1090987 (2.00ms)
-              | OK     OrdersResource - GET /orders/8878213 (0.00ms)
-              |
-              | test result: OK 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (24.00ms)
-
+  h2-hash Before You Get Started
+  p In this tutorial, you will learn how to test your Drash server and its resources using Deno Standard Modules' <a href="https://github.com/denoland/deno/tree/master/std/testing" target="_BLANK">testing</a> module.
+  p This tutorial will cover testing three resources in a single Drash server. Two of the resources will have a <code>database</code> property to simulate querying a database for records.
+  hr
+  folder-structure-end-state
+    | ▾ /path/to/your/project/
+    |   app.ts
+    |   home_resource.ts
+    |   orders_resource.ts
+    |   run_tests.ts
+    |   tests.ts
+    |   users_resource.ts
+  hr
+  h2-hash Steps
+  ol
+    li
+      p Create your <code>HomeResource</code> file.
+      code-block(:title="example_code.home_resource.filepath" language="typescript")
+        | {{ example_code.home_resource.contents }}
+    li
+      p Create your <code>OrdersResource</code> file.
+      code-block(:title="example_code.orders_resource.filepath" language="typescript")
+        | {{ example_code.orders_resource.contents }}
+    li 
+      p Create your <code>UsersResource</code> file.
+      code-block(:title="example_code.users_resource.filepath" language="typescript")
+        | {{ example_code.users_resource.contents }}
+    li
+      p Create your <code>app</code> file.
+      code-block(:title="example_code.app.filepath" language="typescript")
+        | {{ example_code.app.contents }}
+  hr
+  h2-hash Writing Your Tests
+  ol
+    li
+      p Create your test runner file. Your test runner file will import and run your tests. Your server needs to be running so the testing module can make requests to your server using <code>fetch()</code> and receive the responses you expect.
+      code-block(:title="example_code.run_tests.filepath" language="typescript")
+        | {{ example_code.run_tests.contents }}
+    li
+      p Write your tests.
+      code-block(:title="example_code.tests.filepath" language="typescript")
+        | {{ example_code.tests.contents }}
+    li
+      p Run your test runner file.
+      code-block(title="Terminal")
+        | deno test --allow-net run_tests.ts
+      p You should receive the following output:
+      code-block(title="Terminal")
+        | running 7 tests
+        | test HomeResource - GET / ... ok (48ms)
+        | test UsersResource - GET /users/1 ... ok (9ms)
+        | test UsersResource - GET /users/1388873 ... ok (8ms)
+        | test UsersResource - GET /users/1983765 ... ok (7ms)
+        | test OrdersResource - GET /orders/1 ... ok (13ms)
+        | test OrdersResource - GET /orders/1090987 ... ok (10ms)
+        | test OrdersResource - GET /orders/8878213 ... ok (6ms)
+        |
+        | test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (103ms)
