@@ -1,7 +1,7 @@
 ---
 name: Documentation Requirement
 about: An item associated with an open issue in a project
-title: 'chore: Write required documentation for {repo name} issue #{issue number}'
+title: 'chore: Write required documentation for {repo name} issue #{issue number} (short description of issue)'
 labels: chore
 assignees: ''
 
