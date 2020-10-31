@@ -9,6 +9,16 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+    a {
+        background-color: rgb(40, 38, 51); // same as bg for items in sidebar
+        color: white;
+    }
+    a:hover {
+        background-color: #1a4ae2;
+    }
+</style>
+
 <template lang="pug">
 a(
   style="color: #ffffff"

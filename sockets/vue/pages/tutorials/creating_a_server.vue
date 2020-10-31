@@ -64,6 +64,13 @@ page(
         |   hostname: "127.0.0.1",
         |   port: 1777,
         | });
+        | // Or use startTLS for SSL support
+        | // server.runTLS({
+        | //   hostname: "127.0.0.1",
+        | //   port: 1777,
+        | //   certFile: "path/to/cert.crt",
+        | //   keyFile: "path/to/key.key"
+        | // })
         |
         | console.log(
         |   `Server started on ws://${server.hostname}:${server.port}`,
