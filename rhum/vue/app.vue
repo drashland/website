@@ -20,6 +20,7 @@ export default {
             Quickstart: "/#quickstart",
             Importing: "/#importing",
             Features: "/#features",
+            Articles: "/#articles",
             FAQ: "/faq",
           },
           Tutorials: {
@@ -41,5 +42,6 @@ app-root(
   :build_date="build_date"
   :environment="environment"
   :sidebar="sidebar"
+  module="Rhum"
 )
 </template>

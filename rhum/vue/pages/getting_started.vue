@@ -110,4 +110,9 @@ div
         p Mock requests
       li
         p Hooks
+    hr
+    h2-hash Articles
+    ul
+      li
+        a(href="https://dev.to/crookse_/why-we-created-rhum-for-testing-deno-projects-33mf") Why We Created Rhum
 </template>

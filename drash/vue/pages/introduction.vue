@@ -59,7 +59,7 @@ div
     div
       code-block(language="typescript" :header="false")
         | // Import a specific version of Drash
-        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{tag}/mod.ts";
         |
         | // Always import the latest release
         | import { Drash } from "https://deno.land/x/drash/mod.ts";
@@ -68,13 +68,7 @@ div
       strong Mirrors
     ul
       li
-        p
-          strong nest.land
-        p
-          code-block(language="typescript" :header="false")
-            | // Import a specific version of Drash (do not specify the "v" in the tag)
-            | import { Drash } from "https://x.nest.land/deno-drash@{{ $conf.drash.latest_version.replace("v", "")}}/mod.ts";
-        p Drash versions on <a href="https://nest.land" target="_BLANK">https://nest.land</a> can be found <a href="https://nest.land/package/deno-drash" target="_BLANK">here</a>.
+        p <a href="https://nest.land/package/deno-drash" target="_BLANK">nest.land</a>
     hr
     h2-hash Features
     ul
@@ -94,4 +88,11 @@ div
         p Middleware
       li
         p Request Body Handling
+    hr
+    h2-hash Articles
+    ul
+      li
+        a(href="https://dev.to/drash_land/why-was-drash-built-4bob") Why Was Drash Built
+      li
+        a(href="https://dev.to/drash_land/what-makes-drash-different-idd") What Makes Drash Different
 </template>
