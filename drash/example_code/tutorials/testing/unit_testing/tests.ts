@@ -1,5 +1,5 @@
-import { assertEquals } from "https://deno.land/std@v0.62.0/testing/asserts.ts";
-import { Drash } from "https://deno.land/x/drash@v1.x/mod.ts";
+import { assertEquals } from "https://deno.land/std@0.75.0/testing/asserts.ts";
+import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
 import HomeResource from "./home_resource.ts";
 import OrdersResource from "./orders_resource.ts";
 import UsersResource from "./users_resource.ts";
