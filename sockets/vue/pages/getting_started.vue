@@ -83,4 +83,11 @@ div
     hr
     h2-hash Importing
     code-block-import(name="Server" repo="sockets" :version="$conf.sockets.latest_version")
+    hr
+    h2-hash Features
+    ul
+      li
+        p JSON encoding
+      li
+        p Zero dependencies
 </template>
