@@ -7,14 +7,19 @@ export default class OrdersResource extends Drash.Http.Resource {
   ];
 
   // Simulate a database with order records
-  protected database = {
-    1090987: {
+  protected database: {[key: string]: {
+      id: number,
+      name: string,
+      quantity: number,
+      price: number
+    }} = {
+    "1090987": {
       id: 1090987,
       name: "Gadgets",
       quantity: 50,
       price: 1000
     },
-    8878213: {
+    "8878213": {
       id: 8878213,
       name: "Gizmos",
       quantity: 25,
@@ -23,11 +28,15 @@ export default class OrdersResource extends Drash.Http.Resource {
   };
 
   public GET() {
-    this.response.body = this.getOrder(this.request.getPathParam("id"));
+    const id = this.request.getPathParam("id");
+    if (!id) {
+      throw new Drash.Exceptions.HttpException(400, "`id` parameter must be passed in")
+    }
+    this.response.body = this.getOrder(id);
     return this.response;
   }
 
-  protected getOrder(id) {
+  protected getOrder(id: string) {
     if (this.database[id]) {
       return this.database[id];
     }

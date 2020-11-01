@@ -18,6 +18,7 @@ export default {
           "Getting Started": {
             Quickstart: "/#quickstart",
             Importing: "/#importing",
+            Features: "/#features",
           },
           Tutorials: {
             Introduction: "/tutorials/introduction",

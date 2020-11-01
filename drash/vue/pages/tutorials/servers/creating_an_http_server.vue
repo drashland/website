@@ -54,40 +54,40 @@ page(
   ol
     li
       p Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/</code>. You should receive the following response:
-      code-block(title="Terminal")
-        | curl --request GET localhost:1447
+      code-block(title="Terminal" language="shell-session")
+        | $ curl --request GET localhost:1447
       p You should receive the following response:
       code-block(:header="false")
           | GET request received!
     li
       p Make a <code>PUT</code> request.
-      code-block(title="Terminal")
-        | curl --request PUT localhost:1447
+      code-block(title="Terminal" language="shell-session")
+        | $ curl --request PUT localhost:1447
       p You should receive the following response:
       code-block(:header="false")
           | PUT request received!
     li
       p Make a <code>POST</code> request.
-      code-block(title="Terminal")
-        | curl --request POST localhost:1447
+      code-block(title="Terminal" language="shell-session")
+        | $ curl --request POST localhost:1447
       p You should receive the following response:
       code-block(:header="false")
           | POST request received!
     li
       p Make a <code>DELETE</code> request.
-      code-block(title="Terminal")
-        | curl --request DELETE localhost:1447
+      code-block(title="Terminal" language="shell-session")
+        | $ curl --request DELETE localhost:1447
       p You should receive the following response:
       code-block(:header="false")
           | DELETE request received!
     li
       p Make a <code>PATCH</code> request.
-      code-block(title="Terminal")
-        | curl --request PATCH localhost:1447
+      code-block(title="Terminal" language="shell-session")
+        | $ curl --request PATCH localhost:1447
       p Since <code>PATCH</code> is not defined in your resource, it is not allowed; therefore, you should receive the following response:
       code-block(:header="false")
         | Method Not Allowed

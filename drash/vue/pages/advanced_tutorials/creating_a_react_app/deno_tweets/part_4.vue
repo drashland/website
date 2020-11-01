@@ -65,22 +65,22 @@ page(
     li
       p Create your Typescript configuration file.
       p
-        code-block(:title="example_code.tsconfig.filepath" language="javascript")
+        code-block(:title="example_code.tsconfig.filepath" language="json")
           | {{ example_code.tsconfig.contents }}
       p This configuration file aids in allowing Webpack to continue with its task, and will exclude your Deno files from the Typescript compiler &mdash; seperate from Deno's Typescript compiler.
     li
       p Install the dependencies.
       p
-        code-block(title="Terminal")
-          | npm i --save-dev webpack webpack-cli react react-dom typescript @types/react @types/react-dom ts-loader
+        code-block(title="Terminal" language="shell-session")
+          | $ npm i --save-dev webpack webpack-cli react react-dom typescript @types/react @types/react-dom ts-loader
   hr
   h2-hash Verification
   ol
     li
       p Test Webpack.
       p
-        code-block(title="Terminal")
-          | node_modules/.bin/webpack-cli --config webpack.config.js
+        code-block(title="Terminal" language="shell-session")
+          | $ node_modules/.bin/webpack-cli --config webpack.config.js
       p You should see the following output:
       p
         code-block(title="Terminal")

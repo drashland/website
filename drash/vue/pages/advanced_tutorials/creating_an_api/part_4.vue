@@ -121,12 +121,12 @@ page(
   ol
     li Run your app.
       p
-        code-block(title="/path/to/your/project/app.ts")
-          | deno run --allow-net --allow-read app.ts
+        code-block(title="/path/to/your/project/app.ts" language="shell-session")
+          | $ deno run --allow-net --allow-read app.ts
     li Make a coffee request using <code>curl</code> like below or go to <code>localhost:1447/coffee/17</code> in your browser.
       p
-        code-block(title="Terminal")
-          | curl localhost:1447/coffee/17
+        code-block(title="Terminal" language="shell-session")
+          | $ curl localhost:1447/coffee/17
       p You should receive the following response (we pretty-printed the response for you):
         code-block(:header="false" language="javascript")
           | {

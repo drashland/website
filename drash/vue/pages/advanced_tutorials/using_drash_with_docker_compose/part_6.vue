@@ -74,7 +74,7 @@ page(
     li
       p Add the <code>--allow-read</code> flag in your <code>docker-compose.yml</code> file.
       p
-        code-block(title="/path/to/your/project/docker-compose.yml" language="typescript" line_highlight="9")
+        code-block(title="/path/to/your/project/docker-compose.yml" language="yml" line_highlight="9")
           | {{ example_code.docker_compose.contents }}
     li
       p Create your HTML file.
@@ -104,7 +104,7 @@ page(
       p These new configuration lines will make sure any requests for a <code>.js</code> or a <code>.css</code> file will not be passed to your Drash server and will instead be handled by your Apache server.
       p You should note that the below does allow Apache to access the files as it is required for when a request for the JavaScripts or StyleSheets come in, but is very insecure as it is allowing full access to your source code. Ideally, you would place your assets in a <code>/public</code> directory and modify the below to match this. That way you would only allow your public files to be accessible and you would link your files in your HTML like so: <code>/public/index.css</code>.
       p
-        code-block(title="/path/to/your/project/.docker/conf/apache.conf" language="apache")
+        code-block(title="/path/to/your/project/.docker/conf/apache.conf" language="apacheconf")
           | {{ example_code.apache.contents }}
   hr
   h2-hash Verification
@@ -112,13 +112,13 @@ page(
     li
       p Build docker again. This will update the containers <code>Nginx</code> or <code>Apache</code> configuration file and also restart your server to register the new response type.
       p
-        code-block(title="Terminal")
-          | docker-compose build
+        code-block(title="Terminal" language="shell-session")
+          | $ docker-compose build
     li
       p Start docker.
       p
-        code-block(title="Terminal")
-          | docker-compose up -d
+        code-block(title="Terminal" language="shell-session")
+          | $ docker-compose up -d
     li
       p Go to <code>localhost:8080</code> in your browser and you should see the following:
       p

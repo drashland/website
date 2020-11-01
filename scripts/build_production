@@ -7,7 +7,6 @@ node scripts/dmm_compile_vue_routes.js
 
 # Compile Drash production environment
 node scripts/drash_compile_example_code.js
-node scripts/drash_compile_vue_global_components.js
 node scripts/drash_compile_vue_routes.js
 
 # Compile Rhum production environment

@@ -76,11 +76,11 @@ div
           | Rhum.run(); // <-- make sure to include this so that your tests run via `deno test`
       li
         p Run your tests.
-        code-block(title="Terminal" language="text")
-          | deno test --allow-env
+        code-block(title="Terminal" language="shell-session")
+          | $ deno test --allow-env
       li
         p View your output.
-        code-block(title="Terminal" language="text")
+        code-block(title="Terminal" language="shell-session")
           | app_test.ts
           |     run()
           |         Returns true ... ok (4ms)

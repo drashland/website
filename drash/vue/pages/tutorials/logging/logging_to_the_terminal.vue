@@ -62,19 +62,15 @@ page-tutorial(
       h2-hash Verification
       ol
         li Run your app.
-          code-block-slotted
-            template(v-slot:title) Terminal
-            template(v-slot:code)
-              | deno run --allow-net app.ts
+          code-block(title="Terminal" language="shell-session")
+            | $ deno run --allow-net app.ts
         li Make a request using <code>curl</code> like below or go to <code>localhost:1447/</code> in your browser.
           p
-            code-block-slotted
-              template(v-slot:title) Terminal
-              template(v-slot:code)
-                | curl localhost:1447/
+            code-block(title="Terminal" language="shell-session")
+              | curl localhost:1447/
           p You should receive the following response:
           p
-            code-block-slotted(language="javascript" :header="false")
+            code-block-slotted(language="text" :header="false")
               template(v-slot:code)
                 | "GET request received! Also, check your terminal to see the log messages written by this resource."
         li Check the terminal you used to start <code>app.ts</code>. The log messages in <code>HomeResource</code> will be displayed.

@@ -59,10 +59,10 @@ page(
   ol
     li
       P Run your app.
-      code-block(title="Terminal")
-        | deno run app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run app.ts
       p You should see the following after you have run your app:
-      code-block(title="Terminal")
+      code-block(title="Terminal" language="shell-session")
         | Hello from MyThing!
       p As you can see, <code>app.ts</code> knows nothing about <code>MyThing</code>. All it knows is that it should be registered as a global member and that it can use it without having to import it.
 </template>

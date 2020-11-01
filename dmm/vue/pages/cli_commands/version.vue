@@ -46,7 +46,7 @@ page(
   ul
     li
       p Check your version.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | $ dmm --version
         | dmm {{ $conf.dmm.latest_version }}
 </template>

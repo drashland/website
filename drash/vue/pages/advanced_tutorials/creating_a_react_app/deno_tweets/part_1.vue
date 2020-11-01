@@ -53,7 +53,7 @@ page(
     li
       p Create your app file.
       p
-        code-block(title="example_code.app.filepath" language="javascript" line_highlight="3")
+        code-block(:title="example_code.app.filepath" language="typescript" line_highlight="3")
           | {{ example_code.app.contents }}
       p When this file is run, it will load in Drash, set up your server, and start your server.
       p You will notice that there is an <code>import</code> statement for your resource file (highlighted). You will be creating this file in the next tutorial part. For now, you just need to make sure your server expects and registers it.
@@ -83,13 +83,13 @@ page(
     li
       p Run your app.
       p
-        code-block(title="Terminal")
-          | deno run --allow-net app.ts
+        code-block(title="Terminal" language="shell-session")
+          | $ deno run --allow-net app.ts
     li
       p Make a request using <code>curl</code> like below or go to <code>localhost:1447</code> in your browser.
       p
-        code-block(title="Terminal")
-          | curl localhost:1447
+        code-block(title="Terminal" language="shell-session")
+          | $ curl localhost:1447
       p You should receive the following response:
         code-block(:header="false")
           | Not Found

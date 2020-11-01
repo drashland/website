@@ -7,23 +7,30 @@ export default class UsersResource extends Drash.Http.Resource {
   ];
 
   // Simulate a database with user records
-  protected database = {
-    1388873: {
+  protected database: {[key: string]: {
+    id: number,
+    name: string
+  }} = {
+    "1388873": {
       id: 1388873,
       name: "Seller",
     },
-    1983765: {
+    "1983765": {
       id: 1983765,
       name: "Buyer",
     },
   };
 
   public GET() {
-    this.response.body = this.getUser(this.request.getPathParam("id"));
+    const id = this.request.getPathParam("id");
+    if (!id) {
+      throw new Drash.Exceptions.HttpException(400, "`id` must be passed in")
+    }
+    this.response.body = this.getUser(id);
     return this.response;
   }
 
-  protected getUser(id) {
+  protected getUser(id: string) {
     if (this.database[id]) {
       return this.database[id];
     }
