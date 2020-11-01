@@ -66,7 +66,7 @@ function handleHttpRequest(request, response) {
     response.writeHeader(200, {"Content-Type": "text/html"});  
 
     if (url == "/") {
-      const html = fs.readFileSync("index.html");
+      const html = fs.readFileSync("index.template.html");
       response.write(html);
     } else if (target(url) == "dmm") {
       handleDmmApp(url, response);

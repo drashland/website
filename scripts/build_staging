@@ -2,6 +2,10 @@
 
 echo -e "Building Staging environment files\n"
 
+# Replace the staging index.html file with the index.template.html file
+rm ./staging/index.html
+cp ./index.template.html ./staging/index.html
+
 # Compile dmm staging environment
 node scripts/dmm_compile_vue_routes.js
 
