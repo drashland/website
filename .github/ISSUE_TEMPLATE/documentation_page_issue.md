@@ -2,7 +2,7 @@
 name: Documentation Page Issue
 about: Notify us about an issue with our documentation pages
 title: ''
-labels: bug, documentation
+labels: ['Priority: High', 'Type: Bug']
 assignees: ''
 
 ---
