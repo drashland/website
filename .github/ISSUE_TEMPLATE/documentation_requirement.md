@@ -2,7 +2,7 @@
 name: Documentation Requirement
 about: An item associated with an open issue in a project
 title: 'Write required documentation for {repo name} issue #{issue number} (short description of issue)'
-labels: 'Priority: Medium' 'Type: Chore'
+labels: ['Priority: Medium','Type: Chore']
 assignees: ''
 
 ---
