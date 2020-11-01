@@ -9,8 +9,8 @@ assignees: ''
 
 ## Summary
 
-{enter summary of issue}
+Explain what the issue is
 
 ## Expected Behavior
 
-{describe what you think the expected behavior should be}
+Describe what you think the expected behavior should be
