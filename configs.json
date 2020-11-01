@@ -1,5 +1,10 @@
 {
-  "root_directory": "/var/src/drashland/deno-drash-website",
+  "base_urls": {
+    "development": "",
+    "staging": "/staging",
+    "production": ""
+  },
+  "root_directory": ".",
   "drash": {
     "latest_version": "v1.2.5",
     "latest_url_deno_land": "https://deno.land/x/drash@v1.2.5/mod.ts",
