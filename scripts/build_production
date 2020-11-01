@@ -2,6 +2,10 @@
 
 echo -e "Building production environment files\n"
 
+# Replace the production index.html file with the index.template.html file
+rm ./index.html
+cp ./index.template.html ./index.html
+
 # Compile dmm production environment
 node scripts/dmm_compile_vue_routes.js
 
