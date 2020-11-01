@@ -1,5 +1,5 @@
 const fs = require("fs");
-const configs = require("configs.json");
+const configs = require("../configs.json");
 const buildVersion = new Date().getTime().toString();
 let html;
 
