@@ -13,6 +13,6 @@ The following issue requires documentation before it can be closed:
 
 {link to issue}
 
-The following pull request/s is/are associated with the above issue:
+The following pull request is associated with the above issue:
 
 {link to PR}
