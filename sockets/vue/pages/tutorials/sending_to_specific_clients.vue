@@ -124,6 +124,8 @@ page(
     li
       p You should see the following in your terminal:
       code-block(title="Terminal" language="shell-session")
-        | TODO
+        | Server started on ws://127.0.0.1:1777
+        | Client one got message!
+        | {"from":"Server","to":"chat","message":"Hello from 5"}
 </template>
 
