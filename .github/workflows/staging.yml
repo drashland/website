@@ -43,7 +43,6 @@ jobs:
     - name: build staging
       if: github.ref == 'refs/heads/staging'
       run: |
-        cp configs.ci.json configs.json
         npm run build:staging
 
     - name: commit staging

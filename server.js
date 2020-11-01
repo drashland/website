@@ -66,7 +66,9 @@ function handleHttpRequest(request, response) {
     response.writeHeader(200, {"Content-Type": "text/html"});  
 
     if (url == "/") {
-      const html = fs.readFileSync("index.template.html");
+      let html = fs.readFileSync("index.template.html", "utf-8");
+      html = html.replace(/\{\{ base_url \}\}/g, configs.base_urls.development);
+      console.log(html);
       response.write(html);
     } else if (target(url) == "dmm") {
       handleDmmApp(url, response);
@@ -89,12 +91,6 @@ function handleHttpRequest(request, response) {
 
 // Handle the application at the /dmm URI
 function handleDmmApp(url, response) {
-  // Is this the dmm staging env?
-  if (url == "/dmm/staging" || url == "/dmm/staging/") {
-    let html = fs.readFileSync("./dmm/staging.html", "utf8");
-    response.write(html);
-    return;
-  }
   let html = fs.readFileSync("./dmm/index.template.html", "utf8");
   html = html.replace(/\{\{ environment \}\}/g, "development");
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
@@ -103,13 +99,6 @@ function handleDmmApp(url, response) {
 
 // Handle the application at the /drash URI
 function handleDrashApp(url, response) {
-  // Is this the Drash staging env?
-  if (url == "/drash/staging" || url == "/drash/staging/") {
-    let html = fs.readFileSync("./drash/staging.html", "utf8");
-    response.write(html);
-    return;
-  }
-
   let html = fs.readFileSync("./drash/index.template.html", "utf8");
   html = html.replace(/\{\{ environment \}\}/g, "development");
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
@@ -118,12 +107,6 @@ function handleDrashApp(url, response) {
 
 // Handle the application at the /dmm URI
 function handleRhumApp(url, response) {
-  // Is this the dmm staging env?
-  if (url == "/rhum/staging" || url == "/rhum/staging/") {
-    let html = fs.readFileSync("./rhum/staging.html", "utf8");
-    response.write(html);
-    return;
-  }
   let html = fs.readFileSync("./rhum/index.template.html", "utf8");
   html = html.replace(/\{\{ environment \}\}/g, "development");
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
@@ -132,12 +115,6 @@ function handleRhumApp(url, response) {
 
 // Handle the application at the /dmm URI
 function handleSocketsApp(url, response) {
-  // Is this the dmm staging env?
-  if (url == "/sockets/staging" || url == "/sockets/staging/") {
-    let html = fs.readFileSync("./sockets/staging.html", "utf8");
-    response.write(html);
-    return;
-  }
   let html = fs.readFileSync("./sockets/index.template.html", "utf8");
   html = html.replace(/\{\{ environment \}\}/g, "development");
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
@@ -176,34 +153,34 @@ function requestUrlIsPath(url) {
 // What is the URL in question targeting?
 function target(url) {
   if (
+    url == "/dawn"
+    || url == "/dawn/"
+    || url == "/dawn/dmm"
+    || url == "/dawn/dmm/"
+  ) {
+    return "dmm";
+  }
+  if (
     url == "/dmm"
     || url == "/dmm/"
-    || url == "/dmm/staging"
-    || url == "/dmm/staging/"
   ) {
     return "dmm";
   }
   if (
     url == "/drash"
     || url == "/drash/"
-    || url == "/drash/staging"
-    || url == "/drash/staging/"
   ) {
     return "drash";
   }
   if (
     url == "/rhum"
     || url == "/rhum/"
-    || url == "/rhum/staging"
-    || url == "/rhum/staging/"
   ) {
     return "rhum";
   }
   if (
     url == "/sockets"
     || url == "/sockets/"
-    || url == "/sockets/staging"
-    || url == "/sockets/staging/"
   ) {
     return "sockets";
   }

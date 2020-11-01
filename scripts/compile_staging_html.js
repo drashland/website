@@ -1,6 +1,12 @@
 const fs = require("fs");
+const configs = require("configs.json");
+const buildVersion = new Date().getTime().toString();
 let html;
-let buildVersion = new Date().getTime();
+
+// Create the /staging/index.html
+html = fs.readFileSync("./index.template.html", "utf8");
+html = html.replace(/\{\{ base_url \}\}/g, configs.base_urls.staging);
+fs.writeFileSync("./staging/index.html", html);
 
 // Create dmm's staging/index.html file
 html = fs.readFileSync("./dmm/index.template.html", "utf8");
