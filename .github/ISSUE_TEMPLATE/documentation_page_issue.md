@@ -7,6 +7,10 @@ assignees: ''
 
 ---
 
-**Describe the bug**
+## Summary
 
-{enter summary of issue here}
+{enter summary of issue}
+
+## Expected Behavior
+
+{describe what you think the expected behavior should be}
