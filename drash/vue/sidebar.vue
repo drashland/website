@@ -73,6 +73,12 @@ div.c-sidebar
         div.l-submenu-1.hide--soft
           a-base-url(href="/tutorials/logging/logging-to-the-terminal") Logging To The Terminal
           a-base-url(href="/tutorials/logging/logging-to-files") Logging To Files
+        span.sun-heading
+          p.arrow.right
+          a CLI
+        div.l-submenu-1.hide--soft
+          a-base-url(href="/tutorials/cli/introduction") introduction
+          a-base-url(href="/tutorials/cli/create-app") Create App
         span.sub-heading
           p.arrow.right
           a Front-end
