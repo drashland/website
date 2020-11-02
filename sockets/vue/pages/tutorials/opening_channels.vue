@@ -44,7 +44,7 @@ page(
   h2-hash Before You Get Started
   p Opening channels can be done using the following call:
   code-block(:header="false" language="typescript")
-    | server.openChannel("Channel Name");
+    | server.on("Channel Name", (packet: Packet) => {});
   p In this tutorial, you will:
   ul
     li create a server;
@@ -77,26 +77,6 @@ page(
         | );
         |
     li
-      p Open the Channel 1 channel (see the highlighted code).
-      code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="16-17")
-        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
-        |
-        | // Create the server
-        | const server = new Server();
-        |
-        | // Run the server
-        | server.run({
-        |   hostname: "127.0.0.1",
-        |   port: 1777,
-        | });
-        |
-        | console.log(
-        |   `Server started on ws://${server.hostname}:${server.port}`,
-        | );
-        |
-        | // Open Channel 1 so that clients can send packets to it
-        | server.openChannel("Channel 1");
-    li
       p Add a packet handler to Channel 1 (see the highlighted code).
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="19-31")
         | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
@@ -114,10 +94,7 @@ page(
         |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
         |
-        | // Open Channel 1 so that clients can send packets to it
-        | server.openChannel("Channel 1");
-        |
-        | // Add a handler for packets sent to Channel 1. This handler will be executed
+        | // Open the Channel 1 channel and add a handler for packets sent to Channel 1. This handler will be executed
         | // every time a packet is sent to Channel 1. In this handler, we are just
         | // confirming receipt of the message and sending the message to Channel 1. Any
         | // client connected to Channel 1 will receive the message. In this tutorial,

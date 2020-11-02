@@ -48,7 +48,6 @@ page(
   p In this tutorial, you will:
   ul
     li create a server;
-    li open two channels;
     li open two client connections; and
     li have one client call the server to tell it to remove the other client from a channel.
   hr
@@ -78,30 +77,6 @@ page(
         | );
         |
     li
-      p Open two channels: Channel 1 and Actions (see the highlighted code). The Actions channel's handler (in the next step) will remove a client from Channel 1 based on the message it receives.
-      code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="16-21")
-        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
-        |
-        | // Create the server
-        | const server = new Server();
-        |
-        | // Run the server
-        | server.run({
-        |   hostname: "127.0.0.1",
-        |   port: 1777,
-        | });
-        |
-        | console.log(
-        |   `Server started on ws://${server.hostname}:${server.port}`,
-        | );
-        |
-        | // Open the Channel 1 channel so that it can be closed via the Actions channel
-        | server.openChannel("Channel 1");
-        |
-        | // Open the Actions channel so that clients can send packets to it and take
-        | // actions based on the message they send
-        | server.openChannel("Actions");
-    li
       p Add a packet handler to the Actions channel (see the highlighted code).
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="21-40")
         | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
@@ -117,14 +92,10 @@ page(
         |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
         |
-        | // Open the Channel 1 channel so that it can be closed via the Actions channel
-        | server.openChannel("Channel 1");
+        | // Open the "Channel 1" channel
+        | server.on("Channel 1", (packet: Packet) => {})
         |
-        | // Open the Actions channel so that clients can send packets to it and take
-        | // actions based on the message they send
-        | server.openChannel("Actions");
-        |
-        | // Add a handler for packets sent to the Actions channel. This handler will be
+        | // Open the "Actions" channel and add a handler for packets sent to the Actions channel. This handler will be
         | // executed every time a packet is sent to the Actions channel. In this
         | // handler, we are parsing the message and taking an action based on the
         | // specified message.
