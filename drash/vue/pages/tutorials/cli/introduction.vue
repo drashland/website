@@ -1,17 +1,19 @@
 <script>
+const title = "CLI: Introduction";
+
 export const resource = {
   paths: [
     "/tutorials/cli/introduction"
   ],
   meta: {
-    title: "Introduction To The CLI",
+    title: title,
   }
 }
 
 export default {
   data() {
     return {
-      title: resource.meta.title,
+      title: title,
       toc: [
         "Basics",
         "Commands",
@@ -28,18 +30,18 @@ page(
   :toc="toc"
 )
   h2-hash Basics
-  p Drash provides a CLI to provide many utilities to aid in the developer experience, when developing Drash applications:
+  p Drash provides a CLI to improve the Drash development experience:
   ul
-    li Create a boilerplate project
+    li You can create a boilerplate project of the following types:
       ul
-        li With React support
-        li With Vue support
-        li With an API in mind
-        li With a web application in mind
-  p Using the CLI is useful for when you want to take a shortcut to certain tasks you may want to do, and it is very easy and simple to use.
+        li React
+        li Vue
+        li API
+        li Web Application (without a front-end framework)
+  p Using the CLI is useful when you want to quickly scaffold a Drash project in a simple and easy to use way.
   hr
   h2-hash Commands
   ul
     li
-      a(:href="$route.path + '/hel'") Create App (create a boilerplate)
+      a(:href="$conf.drash.base_url + '/#/tutorials/cli/create-app'") Create App (create a boilerplate)
 </template>
