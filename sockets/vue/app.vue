@@ -27,6 +27,7 @@ export default {
             "Closing Channels": "/tutorials/closing-channels",
             "Adding Clients To Channels": "/tutorials/adding-clients-to-channels",
             "Removing Clients From Channels": "/tutorials/removing-clients-from-channels",
+            "Sending to Specific Clients": "/tutorials/sending-to-specific-clients"
           },
           "Advanced Tutorials": {
             Introduction: "/advanced-tutorials/introduction",
