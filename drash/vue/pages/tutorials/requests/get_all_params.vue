@@ -29,7 +29,7 @@ page(
   :toc="toc"
 )
   h2-hash Before You Get Started
-  p Drash provides a few methods to all parameters for various situations, such as:
+  p Drash provides a few methods to get all parameters in various scenarios, such as:
   ul
     li Get all header params
     li Get all body params
