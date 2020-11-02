@@ -33,7 +33,7 @@ page(
   p The <code>create_app.ts</code> script can create a boilerplate project for you, so you can quickly get a Drash application up and running, all with one simple command.
   hr
   h2-hash Usage
-  p All commands will create the recommended files and directories for your project. It will aslo include all the required code to start up a development server in an instant.
+  p All commands will create the recommended files and directories for your project. It will also include all the required code to start up a development server in an instant.
   ul
     li
       p Create an API boilerplate project:
