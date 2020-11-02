@@ -55,6 +55,10 @@ export default {
               "Request Cookies": "/tutorials/cookies/request-cookies",
               "Response Cookies": "/tutorials/cookies/response-cookies",
             },
+            "CLI": {
+              "Introduction": "/tutorials/cli/introduction",
+              "Create App": "/tutorials/cli/create-app"
+            },
             "Front-End": {
               "Introduction": "/tutorials/front-end/introduction",
               "Creating A Template": "/tutorials/front-end/creating-a-template",
