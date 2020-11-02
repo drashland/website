@@ -42,13 +42,13 @@ page(
   :toc="toc"
 )
   h2-hash Before You Get Started
-  p Sending to specific clients can be done like:
+  p Sending packets to specific clients can be done using the following call:
   code-block(:header="false" language="typescript")
     | server.to("the channel", "hello from server", id);
   p In this tutorial, you will:
   ul
-    li Create your server
-    li Create two clients and send a message from one client to the other
+    li Create your server.
+    li Create two clients and send a packet from one client to the other.
   hr
   h2-hash Folder Structure End State
   code-block(:header="false" language="text" :line_numbers="false")
