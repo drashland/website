@@ -59,7 +59,7 @@ page(
   hr
   h2-hash Resource-Level Middleware
   p Unlike server-level middleware, resource-level middleware is specified using <a href="https://www.typescriptlang.org/docs/handbook/decorators.html" target="_BLANK">decorators</a> and a <code>tsconfig.json</code> file. Resource-level middleware can only be executed by resources. That is, if a resource is decorated with middleware, then the middleware specified in the decorators will be executed.
-  p Take the example below. This resource contains two types of resource-level middleware &mdash; class level and HTTP method level. With resource-level middleware, you can specify middleware to execute globally for all HTTP methods, or you can be more granular by decorating just an HTTP method.
+  p Take the example below. This resource contains two types of resource-level middleware &mdash; class level and HTTP method level. With resource-level middleware, you can specify middleware to be more granular by decorating only HTTP methods or the resource class itself.
   code-block(:header="false" language="typescript" line_highlight="1-4,11-14")
     | {{ example_code.location_resource_level.contents }}
   hr
