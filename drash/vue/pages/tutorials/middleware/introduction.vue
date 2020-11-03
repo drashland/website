@@ -75,7 +75,7 @@ page(
   h3#before-the-request Before The Request
   p Middleware executed before the request means it is executed before a resource's HTTP method (e.g., <code>MyResource.GET()</code>, <code>MyResource.POST()</code>, <code>MyResource.DELETE()</code>) is called.
   h3#after-resource After Request Is Matched To Resource
-  p Middleware executed after a request is matched to a resource means it is executed immediately after the server figures out what resource will handle a request based on the request's URI.
+  p Middleware executed after a request is matched to a resource means it is executed immediately after the server figures out what resource will handle the request based on its URI.
   h3#after-the-request After The Request
   p Middleware executed after the request means it is executed immediately after a resource's HTTP method (e.g., <code>MyResource.GET()</code>, <code>MyResource.POST()</code>, <code>MyResource.DELETE()</code>) is called and before a response is sent to the client that made the request.
   h3#setting-the-execution-point-of-server-level-middleware Setting The Execution Point Of Server-Level Middleware
