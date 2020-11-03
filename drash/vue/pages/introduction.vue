@@ -88,11 +88,4 @@ div
         p Middleware
       li
         p Request Body Handling
-    hr
-    h2-hash Articles
-    ul
-      li
-        a(href="https://dev.to/drash_land/why-was-drash-built-4bob") Why Was Drash Built
-      li
-        a(href="https://dev.to/drash_land/what-makes-drash-different-idd") What Makes Drash Different
 </template>
