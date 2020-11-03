@@ -37,6 +37,12 @@ export default {
   methods: {
     closeSidebar() {
       this.$root.$emit("close-sidebar");
+    },
+    getMenuItemLink(menuItemName, href) {
+      if (menuItemName == "Latest News") {
+        return href;
+      }
+      return this.base_url + href;
     }
   }
 }
@@ -134,7 +140,11 @@ div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'
           ul.mb-0(v-if="typeof href == 'object'")
             li.menu2-item(v-for="(href, link_text) in sub_menu_items[link_text]")
               a.menu2-item-link(:href="base_url + href" @click="closeSidebar()") {{ link_text }}
-          a(v-else).menu-item-link(:href="base_url + href" @click="closeSidebar()") {{ link_text }}
+          a(v-else).menu-item-link(
+            :href="getMenuItemLink(menu_item_name, href)"
+            @click="closeSidebar()"
+            :target="menu_item_name == 'Latest News' ? '_BLANK' : ''"
+          ) {{ link_text }}
     div.menu-name(v-if="api_reference_href")
       a.menu-name-link.is-link(:href="api_reference_href" @click="closeSidebar()") API Reference
     div.menu-name

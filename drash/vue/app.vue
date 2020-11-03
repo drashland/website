@@ -7,6 +7,7 @@ export default {
   },
   data() {
     return {
+      articles: [],
       build_date: this.$conf.build_date,
       environment: this.$conf.environment,
       sidebar: {
@@ -20,10 +21,10 @@ export default {
             "Quickstart": "/#quickstart",
             "Importing": "/#importing",
             "Features": "/#features",
-            "Articles": "/#articles",
             "About Drash": "/about-drash",
             "Lifecycle Diagram": "/lifecycle-diagram",
           },
+          "Latest News": {},
           "Tutorials": {
             "Introduction": "/tutorials",
             "Resources": {
@@ -56,16 +57,16 @@ export default {
               "Request Cookies": "/tutorials/cookies/request-cookies",
               "Response Cookies": "/tutorials/cookies/response-cookies",
             },
-            "CLI": {
-              "Introduction": "/tutorials/cli/introduction",
-              "Create App": "/tutorials/cli/create-app"
-            },
             "Front-End": {
               "Introduction": "/tutorials/front-end/introduction",
               "Creating A Template": "/tutorials/front-end/creating-a-template",
               "Extending A Template": "/tutorials/front-end/extending-a-template",
               "Adding Template Partials": "/tutorials/front-end/adding-template-partials",
               "In-Template JavaScript": "/tutorials/front-end/in-template-javascript",
+            },
+            "CLI": {
+              "Introduction": "/tutorials/cli/introduction",
+              "Create App": "/tutorials/cli/create-app"
             },
             "Testing": {
               "Unit Testing": "/tutorials/testing/unit-testing",
@@ -93,6 +94,19 @@ export default {
         module: "drash",
       }
     };
+  },
+  async mounted() {
+    const res = await fetch("https://dev.to/api/articles?username=drash_land&tags=deno, drash,");
+    let json = await res.json();
+    json = json.slice(0, 6);
+    let articles = {};
+    for (const index in json) {
+      const article = json[index];
+      if (article.tags.includes("drash")) {
+        articles[article.title] = article.url;
+      }
+    }
+    this.sidebar.menus["Latest News"] = articles;
   },
 }
 </script>
