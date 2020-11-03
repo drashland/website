@@ -15,7 +15,6 @@ export default {
       title: resource.meta.title,
       toc: [
         "Before You Get Started",
-        "Implementations And Configuration Requirements",
         "Folder Structure End State",
         "Steps",
         "Verification",

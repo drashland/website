@@ -1,11 +1,16 @@
 const server = new Drash.Http.Server({
   middleware: {
+    compile_time: [
+      ServeTypeScript,
+    ],
     before_request: [
-      AuthMiddleware,
-      CacheMiddleware,
+      Auth,
+    ],
+    after_resource: [
+      TemplateEngine,
     ],
     after_request: [
-      SomeOtherMiddleware,
+      CleanUpData,
     ]
   },
   resources: [
