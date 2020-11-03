@@ -39,7 +39,7 @@ page(
     li process/manipulate request data; and/or
     li process/manipulate response data.
   p There are two main types of middleware in Drash: server-level middleware and resource-level middleware.
-  p Middleware is executed throughout the request-resource-response lifecycle. Read the <a :href=" '/drash/#/tutorials/middleware/introduction#setting-the-execution-point'">Setting The Execution Point</a> section below for more information on middleware execution points. You can also view the <a :href="$conf.drash.base_url + '/#/lifecycle-diagram'">Lifecycle Diagram</a> for a visual representation of where middleware is executed in the request-resource-response lifecycle.
+  p Middleware is executed throughout the request-resource-response lifecycle. Read the <a :href="$conf.drash.base_url + '/#/tutorials/middleware/introduction#setting-the-execution-point'">Setting The Execution Point</a> section below for more information on middleware execution points. You can also view the <a :href="$conf.drash.base_url + '/#/lifecycle-diagram'">Lifecycle Diagram</a> for a visual representation of where middleware is executed in the request-resource-response lifecycle.
   hr
   h2-hash Server-Level Middleware
   p Server-level middleware is middleware executed by the server on every request. You define server-level middleware when you create your server object. Server-level middleware can be executed at the following points in the request-resource-response lifecycle:
