@@ -143,7 +143,7 @@ div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'
           a(v-else).menu-item-link(
             :href="getMenuItemLink(menu_item_name, href)"
             @click="closeSidebar()"
-            :target="menu_item_name == 'Latest News' ? '_BLANK' : ''"
+            :target="menu_item_name == 'Latest News' && link_text != 'No articles yet' ? '_BLANK' : ''"
           ) {{ link_text }}
     div.menu-name(v-if="api_reference_href")
       a.menu-name-link.is-link(:href="api_reference_href" @click="closeSidebar()") API Reference

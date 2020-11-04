@@ -26,7 +26,7 @@ export default {
       title: title,
       toc: [
         "Description",
-        "Examples",
+        "Example Usage",
       ],
     };
   }
@@ -40,38 +40,34 @@ page(
   :toc="toc"
 )
   h2-hash Description
-  p The <code>info</code> command will grab information on any module, be it 3rd party or <code>std</code>.
+  p The <code>info</code> command will fetch information on any module, be it 3rd party or Deno Standard.
   p This command requires the following permission:
   ul
-    li <code>--allow-net</code>: dmm uses HTTP requests to fetch information on the given module.
+    li <code>--allow-net</code>: dmm uses HTTP requests to fetch information on the given module(s).
   hr
-  h2-hash Examples
+  h2-hash Example Usage
   ul
     li
-      p Get information on a <code>http</code> std module.
+      p Get information on a <code>http</code> std module and denon 3rd part module.
       code-block(title="Terminal" language="shell-session")
-        | $ dmm info http
+        | $ dmm info http denon
       code-block(title="Terminal" language="shell-session")
-        | Information on http
+        | INFO Information on http
         |
         |   - Name: http
         |   - Description: Cannot retrieve descriptions for std modules
-        |   - deno.land Link: https://deno.land/std@{latest std version}/http
+        |   - deno.land Link: https://deno.land/std@0.76.0/http
         |   - GitHub Repository: https://github.com/denoland/deno/tree/master/std/http
-        |   - Import Statement: import * as http from "https://deno.land/std@{latest std version}/http";
-        |   - Latest Version: {latest std version}
-    li
-      p Get information on a <code>denon</code> 3rd party module.
-      code-block(title="Terminal" language="shell-session")
-        | $ dmm info denon
-      code-block(title="Terminal" language="shell-session")
-        | Information on denon
+        |   - Import Statement: import * as http from "https://deno.land/std@0.76.0/http";
+        |   - Latest Version: 0.76.0
+        |
+        | INFO Information on denon
         |
         |   - Name: denon
-        |   - Description: denon is the deno replacement for nodemon providing a feature packed and easy to use experience.
-        |   - deno.land Link: https://deno.land/x/denon@v2.2.1
+        |   - Description: Get module info
+        |   - deno.land Link: https://deno.land/x/denon@2.4.4
         |   - GitHub Repository: https://github.com/denosaurs/denon
-        |   - Import Statement: import * as denon from "https://deno.land/x/denon@v2.2.1";
-        |   - Latest Version: v2.2.1
+        |   - Import Statement: import * as denon from "https://deno.land/x/denon@2.4.4";
+        |   - Latest Version: 2.4.4
 </template>
 

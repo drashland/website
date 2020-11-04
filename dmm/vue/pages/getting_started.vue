@@ -33,7 +33,7 @@ div
       img.mr-1(alt="Drash Land Discord" src="https://img.shields.io/badge/Chat-on%20Discord-blue")
     a(href="https://twitter.com/drash_land" target="_BLANK")
       img.mr-1(alt="Drash Land Twitter" src="https://img.shields.io/twitter/url?label=%40drash_land&style=social&url=https%3A%2F%2Ftwitter.com%2Fdrash_land" width="auto" height="20")
-    //a(href="" target="_BLANK")
+    a(href="https://www.youtube.com/playlist?list=PLlFUbR9MhiNWQtNUWzcsMcI5AQHE18IAD" target="_BLANK")
       img(alt="dmm YouTube" src="https://img.shields.io/badge/Tutorials-YouTube-red" width="auto" height="20")
   div
     hr
@@ -42,27 +42,49 @@ div
       li
         p Make sure you have out of date dependencies inside your <code>deps.ts</code> file.
         code-block(title="deps.ts" language="typescript")
-          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
-          | import { red } from "https://deno.land/std@{latest std version}/fmt/colors.ts";
+          | import { Drash } from "https://deno.land/x/drash@1.0.0/mod.ts";
+          | import { red } from "https://deno.land/std@0.55.0/fmt/colors.ts";
       li
         p Update your dependencies.
         code-block(title="Terminal" language="shell-session")
-          | $ deno run ---allow-read='.' --allow-write='deps.ts' --allow-net='cdn.deno.land,api.deno.land' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts update
+          | $ deno run \
+          |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land,raw.githubusercontent.com' \
+          |   --allow-read='.' \
+          |   --allow-write='deps.ts' \
+          |   https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts \
+          |   help
         code-block(title="Terminal" language="shell-session")
-          | Gathering facts...
-          | Reading deps.ts to gather your dependencies...
-          | Checking if your modules can be updated...
-          | drash was updated from v1.0.0 to {{ $conf.drash.latest_version }}
-          | fmt was updated from 0.55.0 to {latest std version}
+          | INFO Reading deps.ts to gather your dependencies...
+          | INFO Checking if your modules can be updated...
+          | INFO drash was updated from 1.0.0 to {{ $conf.drash.latest_version }}
+          | INFO testing was updated from 0.55.0 to { latest std version }
 
     hr
-    h2-hash Installing
-    p You can install dmm through <code>deno install</code>. See below.
-    code-block(title="Terminal" language="shell-session")
-      | $ deno install --allow-read='.' --allow-write='deps.ts' --allow-net='cdn.deno.land,api.deno.land' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
-    code-block(title="Terminal" language="shell-session")
-      | $ dmm --help
-    p This will make running commands easier &mdash; allowing you to type <code>dmm</code> instead of <code>deno run --allow-read='.' --allow-write='deps.ts' --allow-net='cdn.deno.land,api.deno.land' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts</code>.
+    h2-hash Usage
+    p There are two ways you can use this module:
+    ol
+      li
+        p You can install it through the <code>deno</code> command:
+        p
+          code-block(title="Terminal" language="shell-session")
+            | $ deno install \
+            |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land,raw.githubusercontent.com' \
+            |   --allow-read='.' \
+            |   --allow-write='deps.ts' \
+            |   https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
+        p
+          code-block(title="Terminal" language="shell-session")
+            | $ dmm help
+      li
+        p Run it through a URL.
+        p
+          code-block(title="Terminal" language="shell-session")
+            | $ deno run \
+            |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land,raw.githubusercontent.com' \
+            |   --allow-read='.' \
+            |   --allow-write='deps.ts' \
+            |   https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts \
+            |   help
     hr
     h2-hash Features
     ul
@@ -81,4 +103,5 @@ div
           ul
             li <code>https://deno.land/std/</code>
             li <code>https://deno.land/x/</code>
+            li <code>https://x.nest.land/</code>
 </template>
