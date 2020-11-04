@@ -26,7 +26,7 @@
         title: title,
         toc: [
           "Description",
-          "Example",
+          "Example Usage",
         ],
       };
     }
@@ -40,14 +40,11 @@ page(
   :toc="toc"
 )
   h2-hash Description
-  p The <code>--version</code> command will show the current version of dmm.
+  p The <code>version</code> command will display the current version of dmm.
   hr
-  h2-hash Example
-  ul
-    li
-      p Check your version.
-      code-block(title="Terminal" language="shell-session")
-        | $ dmm --version
-        | dmm {{ $conf.dmm.latest_version }}
+  h2-hash Example Usage
+  code-block(title="Terminal" language="shell-session")
+    | $ dmm version
+    | dmm {{ $conf.dmm.latest_version }}
 </template>
 

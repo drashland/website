@@ -16,23 +16,41 @@ export default {
         menus: {
           "Getting Started": {
             Quickstart: "/#quickstart",
-            Installing: "/#installing",
+            Usage: "/#usage",
             Features: "/#features",
             FAQ: "/faq",
           },
+          "Latest News": {},
           "CLI Commands": {
             //Introduction: "/tutorials",
-            "info": "/cli_commands/info",
             "check": "/cli_commands/check",
+            "help": "/cli_commands/help",
+            "info": "/cli_commands/info",
             "update": "/cli_commands/update",
-            "--help": "/cli_commands/help",
-            "--version": "/cli_commands/version"
+            "version": "/cli_commands/version"
           },
         },
         module: "dmm",
       }
     };
   },
+  async mounted() {
+    const res = await fetch("https://dev.to/api/articles?username=drash_land&tag=dmm&top=14");
+    let json = await res.json();
+    json = json.slice(0, 6);
+    let articles = {};
+    for (const index in json) {
+      const article = json[index];
+      articles[article.title] = article.url;
+    }
+    if (Object.keys(articles).length <= 0) {
+      this.sidebar.menus["Latest News"] = {
+        "No articles yet": "#"
+      };
+    } else {
+      this.sidebar.menus["Latest News"] = articles;
+    }
+  }
 }
 </script>
 
