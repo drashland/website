@@ -48,26 +48,26 @@ page(
   h2-hash Example Usage
   ul
     li
-      p Get information on a <code>http</code> std module and denon 3rd part module.
+      p Get information on a <code>http</code> std module and drash 3rd part module.
       code-block(title="Terminal" language="shell-session")
-        | $ dmm info http denon
+        | $ dmm info http drash
       code-block(title="Terminal" language="shell-session")
         | INFO Information on http
         |
         |   - Name: http
         |   - Description: Cannot retrieve descriptions for std modules
-        |   - deno.land Link: https://deno.land/std@0.76.0/http
+        |   - deno.land Link: https://deno.land/std@{{ $conf.deno_std.latest_version }}/http
         |   - GitHub Repository: https://github.com/denoland/deno/tree/master/std/http
-        |   - Import Statement: import * as http from "https://deno.land/std@0.76.0/http";
-        |   - Latest Version: 0.76.0
+        |   - Import Statement: import * as http from "https://deno.land/std@{{ $conf.deno_std.latest_version }}/http";
+        |   - Latest Version: {{ $conf.deno_std.latest_version }}
         |
-        | INFO Information on denon
+        | INFO Information on drash
         |
-        |   - Name: denon
-        |   - Description: Get module info
-        |   - deno.land Link: https://deno.land/x/denon@2.4.4
-        |   - GitHub Repository: https://github.com/denosaurs/denon
-        |   - Import Statement: import * as denon from "https://deno.land/x/denon@2.4.4";
-        |   - Latest Version: 2.4.4
+        |   - Name: drash
+        |   - Description: A REST microframework for Deno's HTTP server with zero dependencies.
+        |   - deno.land Link: https://deno.land/x/drash@{{ $conf.drash.latest_version }}
+        |   - GitHub Repository: https://github.com/drashland/deno-drash
+        |   - Import Statement: import * as drash from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}";
+        |   - Latest Version: {{ $conf.drash.latest_version }}
 </template>
 
