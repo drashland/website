@@ -59,11 +59,11 @@ page(
   code-block(title="Terminal" language="shell-session")
     | INFO Reading deps.ts to gather your dependencies...
     | INFO Checking if your modules can be updated...
-    | INFO http was updated from 0.55.0 to {latest std version}
+    | INFO http was updated from 0.55.0 to {{ $conf.deno_std.latest_version }}
   code-block(title="Terminal" language="shell-session")
     | $ cat deps.ts
   code-block(title="Terminal" language="shell-session")
-    | import { serve } from "https://deno.land/std@{latest std version}/http/server.ts"; // now up to date
+    | import { serve } from "https://deno.land/std@{{ $conf.deno_std.latest_version }}/http/server.ts"; // now up to date
   h3 Update multiple dependencies.
   p In this example, we are updating the dependencies passed to the <code>update</code> command.
   code-block(title="Terminal" language="shell-session")
@@ -76,7 +76,7 @@ page(
   code-block(title="Terminal" language="shell-session")
     | INFO Reading deps.ts to gather your dependencies...
     | INFO Checking if your modules can be updated...
-    | INFO http was updated from 0.55.0 to {latest std version}
+    | INFO http was updated from 0.55.0 to {{ $conf.deno_std.latest_version }}
     | INFO drash was updated from v1.0.7 to {{ $conf.drash.latest_version }}
   h3 Update all dependencies.
   p In this example, we are updating all dependencies by not passing any arguments to the <code>update</code> command.
@@ -90,7 +90,7 @@ page(
   code-block(title="Terminal" language="shell-session")
     | INFO Reading deps.ts to gather your dependencies...
     | INFO Checking if your modules can be updated...
-    | INFO http was updated from 0.55.0 to {latest std version}
+    | INFO http was updated from 0.55.0 to {{ $conf.deno_std.latest_version }}
     | INFO drash was updated from v1.0.7 to {{ $conf.drash.latest_version }}
 </template>
 

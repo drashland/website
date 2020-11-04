@@ -61,7 +61,7 @@ page(
   code-block(title="Terminal" language="shell-session")
     | INFO Reading deps.ts to gather your dependencies...
     | INFO Comparing versions...
-    | INFO http can be updated from 0.55.0 to {latest std version}
+    | INFO http can be updated from 0.55.0 to {{ $conf.deno_std.latest_version }}
     | To update, run:
     |     dmm update http
   h3 Check multiple dependencies.
@@ -76,7 +76,7 @@ page(
   code-block(title="Terminal" language="shell-session")
     | INFO Reading deps.ts to gather your dependencies...
     | INFO Comparing versions...
-    | INFO http can be updated from 0.55.0 to {latest std version}
+    | INFO http can be updated from 0.55.0 to {{ $conf.deno_std.latest_version }}
     | INFO drash can be updated from v1.0.7 to {{ $conf.drash.latest_version }}
     | To update, run:
     |     dmm update http drash
@@ -92,7 +92,7 @@ page(
   code-block(title="Terminal" language="shell-session")
     | INFO Reading deps.ts to gather your dependencies...
     | INFO Comparing versions...
-    | INFO http can be updated from 0.55.0 to {latest std version}
+    | INFO http can be updated from 0.55.0 to {{ $conf.deno_std.latest_version }}
     | INFO drash can be updated from v1.0.7 to {{ $conf.drash.latest_version }}
     | To update, run:
     |     dmm update http drash

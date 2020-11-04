@@ -5,6 +5,12 @@
     "production": ""
   },
   "root_directory": ".",
+  "deno": {
+    "latest_version": "v1.5.1"
+  },
+  "deno_std": {
+    "latest_version": "0.76.0"
+  },
   "drash": {
     "latest_version": "v1.2.5",
     "latest_url_deno_land": "https://deno.land/x/drash@v1.2.5/mod.ts",
