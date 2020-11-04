@@ -50,7 +50,7 @@ page(
     |
     | USAGE
     |
-    |     deno install --allow-net='cdn.deno.land,api.deno.land' --allow-read='.' --allow-write='deps.ts' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
+    |     deno install --allow-net='cdn.deno.land,api.deno.land,x.nest.land' --allow-read='.' --allow-write='deps.ts' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
     |     dmm [SUBCOMMAND]
     |
     | SUBCOMMANDS
@@ -77,7 +77,7 @@ page(
     | EXAMPLE USAGE
     |
     |     Install dmm
-    |         deno install --allow-net='cdn.deno.land,api.deno.land' --allow-read='.' --allow-write='deps.ts' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
+    |         deno install --allow-net='cdn.deno.land,api.deno.land,x.nest.land' --allow-read='.' --allow-write='deps.ts' https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
     |
     |     Check a single module
     |         dmm check fs
