@@ -48,7 +48,7 @@ div
         p Update your dependencies.
         code-block(title="Terminal" language="shell-session")
           | $ deno run \
-          |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land,raw.githubusercontent.com' \
+          |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land' \
           |   --allow-read='.' \
           |   --allow-write='deps.ts' \
           |   https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts \
@@ -68,7 +68,7 @@ div
         p
           code-block(title="Terminal" language="shell-session")
             | $ deno install \
-            |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land,raw.githubusercontent.com' \
+            |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land' \
             |   --allow-read='.' \
             |   --allow-write='deps.ts' \
             |   https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
@@ -80,7 +80,7 @@ div
         p
           code-block(title="Terminal" language="shell-session")
             | $ deno run \
-            |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land,raw.githubusercontent.com' \
+            |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land' \
             |   --allow-read='.' \
             |   --allow-write='deps.ts' \
             |   https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts \
