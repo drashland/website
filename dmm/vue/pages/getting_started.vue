@@ -52,7 +52,7 @@ div
           |   --allow-read='.' \
           |   --allow-write='deps.ts' \
           |   https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts \
-          |   help
+          |   update
         code-block(title="Terminal" language="shell-session")
           | INFO Reading deps.ts to gather your dependencies...
           | INFO Checking if your modules can be updated...
