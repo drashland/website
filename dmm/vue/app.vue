@@ -35,7 +35,7 @@ export default {
     };
   },
   async mounted() {
-    const res = await fetch("https://dev.to/api/articles?username=drash_land&tag=dmm");
+    const res = await fetch("https://dev.to/api/articles?username=drash_land&tag=dmm&top=14");
     let json = await res.json();
     json = json.slice(0, 6);
     let articles = {};
