@@ -34,6 +34,7 @@ export default {
               "Creating An HTTP Server": "/tutorials/servers/creating-an-http-server",
               "Creating An HTTPS Server": "/tutorials/servers/creating-an-https-server",
               "Serving Static Paths": "/tutorials/servers/serving-static-paths",
+              "Serving Virtual Paths": "/tutorials/servers/serving-virtual-paths",
             },
             "Requests": {
               "Handling JSON Bodies": "/tutorials/requests/handling-json-bodies",
