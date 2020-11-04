@@ -81,7 +81,7 @@ page(
     | To update, run:
     |     dmm update http drash
   h3 Check all dependencies.
-  p In this example, we are checking all dependencies by not passing any dependencies to the <code>update</code> command.
+  p In this example, we are checking all dependencies by not passing any arguments to the <code>update</code> command.
   code-block(title="Terminal" language="shell-session")
     | $ cat deps.ts
   code-block(title="Terminal" language="shell-session")

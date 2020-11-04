@@ -79,7 +79,7 @@ page(
     | INFO http was updated from 0.55.0 to {latest std version}
     | INFO drash was updated from v1.0.7 to {{ $conf.drash.latest_version }}
   h3 Update all dependencies.
-  p In this example, we are updating all dependencies by not passing any dependencies to the <code>update</code> command.
+  p In this example, we are updating all dependencies by not passing any arguments to the <code>update</code> command.
   code-block(title="Terminal" language="shell-session")
     | $ cat deps.ts
   code-block(title="Terminal" language="shell-session")
