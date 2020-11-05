@@ -1,9 +1,0 @@
-▾ /path/to/your/project/
-	app.ts
-	▾ components/
-	    App.tsx
-	    DenoTweets.tsx
-	home_resource.ts
-	index.html
-	tsconfig.json
-	webpack.config.js
