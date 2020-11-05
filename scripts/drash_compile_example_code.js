@@ -26,7 +26,6 @@ function walk(directory) {
       walk(filepath);
     } else if (stats.isFile()) {
       let contents = fs.readFileSync(filepath, "utf8");
-      contents = contents.replace("https://deno.land/x/drash@v1.2.5/mod.ts", configs.drash.latest_url_deno_land);
       exampleCode[fileNamespace][filenameWithoutExtension] = {
         filepath: `/path/to/your/project/${path.basename(filepath)}`,
         contents: contents,
