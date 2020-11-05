@@ -20,7 +20,6 @@ if (config[moduleToUpdate].latest_url_nest_land) {
   config[moduleToUpdate].latest_url_nest_land = config[moduleToUpdate].latest_url_nest_land.replace(previousVersion, releaseVersion)
 }
 fs.writeFileSync("./configs.json", JSON.stringify(config, 0, 2))
-console.log(replaceRegex)
 
 if (moduleToUpdate === "drash") {
   html = fs.readFileSync("./drash/example_code/tutorials/resources/creating_a_resource/users_resource_optional_path_params.ts", "utf8")
