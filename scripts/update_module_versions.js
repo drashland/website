@@ -5,23 +5,28 @@ const moduleToUpdate = process.argv[3]
 const releaseVersion = process.argv[5]
 
 // update version in config
-const rawConfig = fs.readFileSync("./configs.sample.json")
+const rawConfig = fs.readFileSync("./configs.json")
 let config = JSON.parse(rawConfig)
 const previousVersion = config[moduleToUpdate].latest_version
 const replaceRegex = {
   from: new RegExp(`${moduleToUpdate}@${previousVersion}`, "g"),
-  to: new RegExp(`${moduleToUpdate}@${releaseVersion}`, "g")
+  to: `${moduleToUpdate}@${releaseVersion}`
 }
 config[moduleToUpdate].latest_version = `${releaseVersion}`
 if (config[moduleToUpdate].latest_url_deno_land) {
-  config[moduleToUpdate.latest_url_deno_land] = "https://deno.land/x/drash@" + releaseVersion + "/mod.ts"
+  config[moduleToUpdate].latest_url_deno_land = config[moduleToUpdate].latest_url_deno_land.replace(previousVersion, releaseVersion)
 }
 if (config[moduleToUpdate].latest_url_nest_land) {
-  config[moduleToUpdate.latest_url_nest_land] = "https://x.nest.land/x/deno-drash@" + releaseVersion + "/mod.ts"
+  config[moduleToUpdate].latest_url_nest_land = config[moduleToUpdate].latest_url_nest_land.replace(previousVersion, releaseVersion)
 }
-fs.writeFileSync("./configs.sample.json", JSON.stringify(config, 0, 2))
+fs.writeFileSync("./configs.json", JSON.stringify(config, 0, 2))
+console.log(replaceRegex)
 
 if (moduleToUpdate === "drash") {
+  html = fs.readFileSync("./drash/example_code/tutorials/resources/creating_a_resource/users_resource_optional_path_params.ts", "utf8")
+  html = html.replace(replaceRegex.from, replaceRegex.to)
+  fs.writeFileSync("./drash/example_code/tutorials/resources/creating_a_resource/users_resource_optional_path_params.ts", html);
+
   html = fs.readFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_2/app.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
   fs.writeFileSync("./drash/example_code/advanced_tutorials/content_negotiation/part_2/app.ts", html);
