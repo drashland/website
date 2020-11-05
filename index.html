@@ -320,7 +320,7 @@
         async mounted() {
           const res = await fetch("https://dev.to/api/articles?username=drash_land&top=14");
           let json = await res.json();
-          json = json.slice(0, 6);
+          json = json.slice(0, 9);
           this.news = json;
         },
       });
