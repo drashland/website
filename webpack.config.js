@@ -11,6 +11,8 @@ module.exports = envVars => {
   const configs = {
     build_date: new Date().toISOString(),
     environment: envVars.environment,
+    deno: repoConfigs.deno,
+    deno_std: repoConfigs.deno_std,
     dmm: Object.assign(repoConfigs.dmm, {
       base_url: getBaseUrl("dmm", envVars.environment),
     }),

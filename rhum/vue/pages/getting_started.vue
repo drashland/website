@@ -33,7 +33,7 @@ div
       img.mr-1(alt="Drash Land Discord" src="https://img.shields.io/badge/Chat-on%20Discord-blue")
     a(href="https://twitter.com/drash_land" target="_BLANK")
       img.mr-1(alt="Drash Land Twitter" src="https://img.shields.io/twitter/url?label=%40drash_land&style=social&url=https%3A%2F%2Ftwitter.com%2Fdrash_land" width="auto" height="20")
-    //a(href="https://rb.gy/vxmeed" target="_BLANK")
+    a(href="https://www.youtube.com/watch?v=WhG5hLrcaVQ&list=PLlFUbR9MhiNU9VlCi97JkahXyDYcL_vUz&ab_channel=drashland" target="_BLANK")
       img(alt="Rhum YouTube" src="https://img.shields.io/badge/Tutorials-YouTube-red" width="auto" height="20")
   div
     hr

@@ -7,6 +7,7 @@ export default {
   },
   data() {
     return {
+      articles: [],
       build_date: this.$conf.build_date,
       environment: this.$conf.environment,
       sidebar: {
@@ -20,10 +21,10 @@ export default {
             "Quickstart": "/#quickstart",
             "Importing": "/#importing",
             "Features": "/#features",
-            "Articles": "/#articles",
             "About Drash": "/about-drash",
             "Lifecycle Diagram": "/lifecycle-diagram",
           },
+          "Latest News": {},
           "Tutorials": {
             "Introduction": "/tutorials",
             "Resources": {
@@ -33,6 +34,7 @@ export default {
               "Creating An HTTP Server": "/tutorials/servers/creating-an-http-server",
               "Creating An HTTPS Server": "/tutorials/servers/creating-an-https-server",
               "Serving Static Paths": "/tutorials/servers/serving-static-paths",
+              "Serving Virtual Paths": "/tutorials/servers/serving-virtual-paths",
             },
             "Requests": {
               "Handling JSON Bodies": "/tutorials/requests/handling-json-bodies",
@@ -40,6 +42,7 @@ export default {
               "Handling Multipart Bodies": "/tutorials/requests/handling-multipart-bodies",
               "Handling URL Query Params": "/tutorials/requests/handling-url-query-params",
               "Handling Path Params": "/tutorials/requests/handling-path-params",
+              "Get All Params": "/tutorials/requests/get-all-params"
             },
             "Responses": {
               //"Accept Header": "/tutorials/responses/accept-header",
@@ -61,6 +64,10 @@ export default {
               "Extending A Template": "/tutorials/front-end/extending-a-template",
               "Adding Template Partials": "/tutorials/front-end/adding-template-partials",
               "In-Template JavaScript": "/tutorials/front-end/in-template-javascript",
+            },
+            "CLI": {
+              "Introduction": "/tutorials/cli/introduction",
+              "Create App": "/tutorials/cli/create-app"
             },
             "Testing": {
               "Unit Testing": "/tutorials/testing/unit-testing",
@@ -88,6 +95,19 @@ export default {
         module: "drash",
       }
     };
+  },
+  async mounted() {
+    const res = await fetch("https://dev.to/api/articles?username=drash_land&tags=deno, drash,");
+    let json = await res.json();
+    json = json.slice(0, 6);
+    let articles = {};
+    for (const index in json) {
+      const article = json[index];
+      if (article.tags.includes("drash")) {
+        articles[article.title] = article.url;
+      }
+    }
+    this.sidebar.menus["Latest News"] = articles;
   },
 }
 </script>
