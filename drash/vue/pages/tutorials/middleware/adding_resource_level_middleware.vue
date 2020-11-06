@@ -55,25 +55,112 @@ page(
     li
       p Create your <code>tsconfig.json</code> file.
       code-block(:title="example_code.tsconfig.filepath" language="json")
-        | {{ example_code.tsconfig.contents }}
+        | {
+        |   "compilerOptions": {
+        |     "experimentalDecorators": true
+        |   }
+        | }
+
     li
       p Create your middleware files. These middleware files take in the <code>request</code> and <code>response</code> params.
       code-block(:title="example_code.log_access_middleware.filepath" language="typescript")
-        | {{ example_code.log_access_middleware.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export function LogAccessMiddleware(
+        |   request: Drash.Http.Request,
+        |   response: Drash.Http.Response
+        | ): void {
+        |   console.log("Secret resource was accessed by: {username}");
+        | }
+
       code-block(:title="example_code.verify_token_middleware.filepath" language="typescript")
-        | {{ example_code.verify_token_middleware.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export function VerifyTokenMiddleware(
+        |   request: Drash.Http.Request,
+        |   response: Drash.Http.Response
+        | ): void {
+        |   let token = request.getUrlQueryParam('super_secret_token');
+        | 
+        |   if (!token) {
+        |     throw new Drash.Exceptions.HttpMiddlewareException(400, "Where is the token?");
+        |   }
+        | 
+        |   if (token != "AllYourBaseAreBelongToUs") {
+        |     throw new Drash.Exceptions.HttpMiddlewareException(403, `Mmm... "${token}" is a bad token.`);
+        |   }
+        | }
+
     li
       p Create your <code>HomeResource</code> file. This file will not have middleware.
       code-block(:title="example_code.home_resource.filepath" language="typescript")
-        | {{ example_code.home_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export default class HomeResource extends Drash.Http.Resource {
+        | 
+        |   static paths = ["/"];
+        | 
+        |   public GET() {
+        |     this.response.body = {
+        |       method: "GET",
+        |       body: "Hello!"
+        |     };
+        |     return this.response;
+        |   }
+        | }
+
     li
       p Create your <code>SecretResource</code> file. This resource will use the <code>VerifyTokenMiddleware</code> function to verify that the correct token has been passed in through the URL query params before the request is executed. If the token is incorrect, then the middleware will throw a <code>400</code> or <code>403</code> error response. If the token is correct, then the request will be processed further and the <code>LogAccessMiddleware</code> function will log that the resource has been accessed.
       code-block(:title="example_code.secret_resource.filepath" language="typescript")
-        | {{ example_code.secret_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { LogAccessMiddleware } from "./log_access_middleware.ts";
+        | import { VerifyTokenMiddleware } from "./verify_token_middleware.ts";
+        | 
+        | @Drash.Http.Middleware({
+        |   before_request: [VerifyTokenMiddleware],
+        |   after_request: []
+        | })
+        | export default class SecretResource extends Drash.Http.Resource {
+        | 
+        |   static paths = [
+        |     "/secret"
+        |   ];
+        | 
+        |   @Drash.Http.Middleware({
+        |     before_request: [LogAccessMiddleware],
+        |     after_request: []
+        |   })
+        |   public GET() {
+        |     this.response.body = {
+        |       method: "GET",
+        |       body: "You have accessed the secret resource!"
+        |     };
+        |     return this.response;
+        |   }
+        | }
+
     li
       p Create your app file. Notice that you do not need to register your middleware here like you do with server-level middleware.
       code-block(:title="example_code.app.filepath" language="typescript")
-        | {{ example_code.app.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | import HomeResource from "./home_resource.ts";
+        | import SecretResource from "./secret_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   resources: [
+        |     HomeResource,
+        |     SecretResource
+        |   ],
+        |   response_output: "application/json",
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
+        | 
+        | console.log("Server listening: http://localhost:1447");
   hr
   h2-hash Verification
   p You can verify that your app's code works by making requests like the ones below. Since this tutorial's app sets <code>application/json</code> as the <code>response_output</code>, the server responds to requests with JSON by default.

@@ -45,16 +45,65 @@ page(
     li
       p Create your resource file.
       code-block(:title="example_code.home_resource.filepath" language="typescript")
-        | {{ example_code.home_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export default class HomeResource extends Drash.Http.Resource {
+        | 
+        |   static paths = ["/"];
+        | 
+        |   public GET() {
+        |     this.response.body = {
+        |       method: "GET",
+        |       body: "Hello!"
+        |     };
+        |     return this.response;
+        |   }
+        | }
     li
       p Create your middleware file. This middleware file takes in the <code>request</code> and <code>response</code> params.
       code-block(:title="example_code.verify_token_middleware.filepath" language="typescript")
-        | {{ example_code.verify_token_middleware.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export default function VerifyTokenMiddleware(
+        |   request: Drash.Http.Request,
+        |   response?: Drash.Http.Response
+        | ): void {
+        |   let token = request.getUrlQueryParam('super_secret_token');
+        | 
+        |   if (!token) {
+        |     throw new Drash.Exceptions.HttpMiddlewareException(400, "Where is the token?");
+        |   }
+        | 
+        |   if (token != "AllYourBaseAreBelongToUs") {
+        |     throw new Drash.Exceptions.HttpMiddlewareException(403, `Mmm... "${token}" is a bad token.`);
+        |   }
+        | }
       p Your middleware will check if <code>super_secret_token</code> was passed in the request's URL. If not, then a <code>400</code> error will be thrown. It will also check if the value of <code>super_secret_token</code> is <code>AllYourBaseAreBelongToUs</code>. If not, then a <code>403</code> error will be thrown.
     li
       p Create your app file.
       code-block(:title="example_code.app.filepath" language="typescript")
-        | {{ example_code.app.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | import HomeResource from "./home_resource.ts";
+        | import VerifyTokenMiddleware from "./verify_token_middleware.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   middleware: {
+        |     before_request: [
+        |       VerifyTokenMiddleware
+        |     ]
+        |   },
+        |   resources: [
+        |     HomeResource
+        |   ],
+        |   response_output: "application/json",
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
+
   hr
   h2-hash Verification
   p You can verify that your app's code works by making requests like the ones below. Since this tutorial's app sets <code>application/json</code> as the <code>response_output</code>, the server responds to requests with JSON by default.
