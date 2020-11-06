@@ -16,8 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_5'],
-      example_code_components: this.$example_code['drash/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_5/components'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -44,17 +42,17 @@ page(
   h2-hash Before You Get Started
   p Now that you have everything set up, you can start writing your React components in TSX.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     ▾ components/
-    |         App.tsx
-    |         DenoTweets.tsx
-    |     home_resource.ts
-    |     index.html
-    |     tsconfig.json
-    |     webpack.config.js
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     ▾ components/
+      |         App.tsx
+      |         DenoTweets.tsx
+      |     home_resource.ts
+      |     index.html
+      |     tsconfig.json
+      |     webpack.config.js
   hr
   h2-hash Steps
   ol
@@ -62,13 +60,41 @@ page(
       p Create your React component for the Deno Tweets.
       p
         code-block(title="/path/to/your/project/components/DenoTweets.tsx" language="tsx")
-          | {{ example_code_components.DenoTweets.contents }}
+          | import * as React from 'react'
+          |
+          | interface Props {
+          |     title: string,
+          |     description: string
+          | }
+          |
+          | const DenoTweets = (props: Props) => {
+          |     const { title, description } = props;
+          |     return (
+          |         <div>
+          |             <h1 className="text-5xl">{ title }</h1>
+          |             <p className="text-xl mb-5">{ description }</p>
+          |             <hr className="mb-5"/>
+          |             <a className="twitter-timeline" href="https://twitter.com/deno_land?ref_src=twsrc%5Etfw">
+          |                 Tweets by deno_land
+          |             </a>
+          |         </div>
+          |     )
+          | }
+          |
+          | export default DenoTweets
       p Here, you are creating a component to control the display of the Deno tweets.
     li
       p Create your React App file to handle the display of your components.
       p
         code-block(title="/path/to/your/project/components/App.tsx" language="tsx")
-          | {{ example_code_components.App.contents }}
+          | import DenoTweets from './DenoTweets'
+          | import ReactDOM from 'react-dom'
+          | import * as React from 'react'
+          |
+          | ReactDOM.render(
+          |     <DenoTweets title={"Deno"} description={"A secure runtime for JavaScript and TypeScript"} />,
+          |     document.getElementById('root')
+          | );
       p This is the entry point React file. This file will import all of your React components and render them.
   hr
   h2-hash Verification

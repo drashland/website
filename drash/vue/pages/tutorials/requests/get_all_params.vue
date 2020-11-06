@@ -50,7 +50,7 @@ page(
   ol
     li
       p Create your resource file. You resource file will retrieve all header, body, query and path parameters for the request.
-      code-block(title="home_resource.ts" language="typescript")
+      code-block(title="/path/to/your/project/home_resource.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version}}/mod.ts";
         |
         | export default class HomeResource extends Drash.Http.Resource {
@@ -73,7 +73,7 @@ page(
         | }
     li
       p Create your app file.
-      code-block(title="app.ts" language="typescript")
+      code-block(title="/path/to/your/project/app.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version}}/mod.ts";
         | import HomeResource from "./home_resource.ts";
         |
@@ -100,7 +100,26 @@ page(
         |   --request POST \
         |   --data '{"name":"Edward","region":"UK"}' \
         |   localhost:1337/Edward/UK
-      p You should receive the following response (or somewhat similar, could differ based on your host machine):
-      code-block(:header="false" language="shell-session")
-        | {"bodyParams":{"data":{"name":"Edward","region":"UK"},"content_type":"application/json"},"headerParams":{"host":"localhost:1337","user-agent":"curl/7.54.0","accept":"*/*","content-type":"application/json","content-length":"31"},"pathParams":{"name":"Edward","region":"UK"}}
+      p You should receive the following response (we pretty-printed the response for you):
+      code-block(:header="false" language="json")
+        | {
+        |   "bodyParams": {
+        |     "data": {
+        |       "name": "Edward",
+        |       "region": "UK"
+        |     },
+        |     "content_type": "application/json"
+        |   },
+        |   "headerParams": {
+        |     "host": "localhost:1337",
+        |     "user-agent": "curl/7.54.0",
+        |     "accept": "*/*",
+        |     "content-type": "application/json",
+        |     "content-length": "31"
+        |   },
+        |   "pathParams": {
+        |     "name": "Edward",
+        |     "region": "UK"
+        |   }
+        | }
 </template>

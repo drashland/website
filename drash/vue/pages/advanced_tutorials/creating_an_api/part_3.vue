@@ -16,7 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/part_3'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -43,27 +42,105 @@ page(
   h2-hash Before You Get Started
   p Your server will not be able to handle requests for coffee and tea records until you give it resources that can send your records back to clients. In Part 2, you made your server expect a coffee and tea resource. You will create these files next and will verify your server runs properly with them in the Verification section.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     coffee.json
-    |     coffee_resource.ts
-    |     tea.json
-    |     tea_resource.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     coffee.json
+      |     coffee_resource.ts
+      |     tea.json
+      |     tea_resource.ts
   hr
   h2-hash Steps
   ol
     li
       p Create your coffee resource file.
       p
-        code-block(language="typescript" :title="example_code.coffee_resource.filepath")
-          | {{ example_code.coffee_resource.contents }}
+        code-block(language="typescript" title="coffee_resource.ts")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | export default class CoffeeResource extends Drash.Http.Resource {
+          |
+          |   static paths = [
+          |     "/coffee/:id"
+          |   ];
+          |
+          |   public GET() {
+          |     let coffeeId = this.request.getPathParam("id");
+          |     this.response.body = this.getCoffee(coffeeId);
+          |     return this.response;
+          |   }
+          |
+          |   protected getCoffee(coffeeId: number) {
+          |     let record = null;
+          |
+          |     try {
+          |       let fileContentsRaw = Deno.readFileSync("./coffee.json");
+          |       let decoder = new TextDecoder();
+          |       let records = decoder.decode(fileContentsRaw);
+          |       records = JSON.parse(records);
+          |       record = records[coffeeId];
+          |     } catch (error) {
+          |       throw new Drash.Exceptions.HttpException(
+          |         400,
+          |         `Error getting coffee with ID "${coffeeId}". Error: ${error.message}.`
+          |       );
+          |     }
+          |
+          |     if (!record) {
+          |       throw new Drash.Exceptions.HttpException(
+          |         404,
+          |         `Coffee with ID "${coffeeId}" not found.`
+          |       );
+          |     }
+          |
+          |     return record;
+          |   }
+          | }
       p Your coffee resource will try to match the specified coffee <code>id</code> path param to a coffee ID in your "database". If the <code>id</code> is matched, then the record will be sent as the response. If not, then an error response will be sent.
     li
       p Create your tea resource file.
-        code-block(:title="example_code.tea_resource.filepath" language="typescript")
-          | {{ example_code.tea_resource.contents }}
+        code-block(title="tea_resource.ts" language="typescript")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | export default class TeaResource extends Drash.Http.Resource {
+          |
+          |   static paths = [
+          |     "/tea/:id"
+          |   ];
+          |
+          |   public GET() {
+          |     let teaId = this.request.getPathParam("id");
+          |     this.response.body = this.getTea(teaId);
+          |     return this.response;
+          |   }
+          |
+          |   protected getTea(teaId: number) {
+          |     let record = null;
+          |
+          |     try {
+          |       let fileContentsRaw = Deno.readFileSync("./tea.json");
+          |       let decoder = new TextDecoder();
+          |       let records = decoder.decode(fileContentsRaw);
+          |       records = JSON.parse(records);
+          |       record = records[teaId];
+          |     } catch (error) {
+          |       throw new Drash.Exceptions.HttpException(
+          |         400,
+          |         `Error getting tea with ID "${teaId}". Error: ${error.message}.`
+          |       );
+          |     }
+          |
+          |     if (!record) {
+          |       throw new Drash.Exceptions.HttpException(
+          |         404,
+          |         `Tea with ID "${teaId}" not found.`
+          |       );
+          |     }
+          |
+          |     return record;
+          |   }
+          | }
       p Your tea resource will try to match the specified tea <code>id</code> path param to a tea ID in your "database". If the <code>id</code> is matched, then the record will be sent as the response. If not, then an error response will be sent.
   hr
   h2-hash Verification

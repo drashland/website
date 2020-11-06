@@ -24,9 +24,32 @@ export default {
       ],
       title,
       subtitle,
+      index_html: indexHtml,
     };
   },
 }
+
+const indexHtml = `<!DOCTYPE html>
+<html class="h-full w-full">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <title>Deno Tweets</title>
+  </head>
+  <body>
+    <div id="vue_app" style="max-width: 640px; margin: 0 auto;">
+      <h1 class="text-5xl">{{ title }}</h1>
+      <p class="text-xl mb-5">{{ description }}</p>
+      <hr class="mb-5">
+      <a class="twitter-timeline" href="https://twitter.com/deno_land?ref_src=twsrc%5Etfw">Tweets by deno_land</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"><\/script>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"><\/script>
+  <script src="/public/vue_app.js"><\/script>
+</html>
+`;
 </script>
 
 <template lang="pug">
@@ -39,20 +62,20 @@ page(
 )
   breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="4")
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     home_resource.ts
-    |     index.html
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     home_resource.ts
+      |     index.html
   hr
   h2-hash Steps
   ol
     li
       p Create your HTML file.
       p
-        code-block(:title="example_code.index.filepath" language="html")
-          | {{ example_code.index.contents }}
+        code-block(title="/path/to/your/project/index.html" language="html")
+          | {{ index_html }}
       p To make things easier, your HTML file comes with the embedded Twitter Timeline widget. This widget will show Deno's tweets.
       p You will notice there are two Vue template variables: <code>title</code> and <code>description</code>. You will be assigning these variables in the next tutorial part.
   hr

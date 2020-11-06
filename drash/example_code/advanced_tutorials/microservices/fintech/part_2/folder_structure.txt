@@ -1,4 +1,0 @@
-▾ /path/to/your/project/
-	app.ts
-	coffee.json
-	tea.json

@@ -43,12 +43,54 @@ page(
   ol
     li
       p Create your resource file. You resource file will check for the <code>id</code> URL query param in the request's URL. If it exists and is a <code>number</code>, then it will return what was passed in. If it is <code>NaN</code> or does not exist, then it will throw a <code>400 Bad Request</code> response.
-      code-block(:title="example_code.home_resource.filepath" language="typescript")
-        | {{ example_code.home_resource.contents }}
+      code-block(title="/path/to/your/project/home_resource.ts" language="typescript")
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | 
+        | export default class HomeResource extends Drash.Http.Resource {
+        | 
+        |   static paths = [
+        |     "/users"
+        |   ];
+        | 
+        |   public GET() {
+        |     let userId = this.request.getUrlQueryParam("id");
+        | 
+        |     if (!userId) {
+        |       throw new Drash.Exceptions.HttpException(
+        |         400,
+        |         "This resource requires the `id` URL query param."
+        |       );
+        |     }
+        | 
+        |     userId = parseInt(userId);
+        |     if (isNaN(userId)) {
+        |       throw new Drash.Exceptions.HttpException(
+        |         400,
+        |         "This resource requires the `id` URL query param to be a number."
+        |       );
+        |     }
+        | 
+        |     this.response.body = `You passed in the following user ID as the URL query param: ${userId}`;
+        | 
+        |     return this.response;
+        |   }
+        | }
     li
       p Create your app file.
-      code-block(:title="example_code.app.filepath" language="typescript")
-        | {{ example_code.app.contents }}
+      code-block(title="/path/to/your/project/app.ts" language="typescript")
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | 
+        | import HomeResource from "./home_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   response_output: "text/plain",
+        |   resources: [HomeResource],
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
   hr
   h2-hash Verification
   ol

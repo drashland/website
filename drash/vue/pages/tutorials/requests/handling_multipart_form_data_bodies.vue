@@ -47,16 +47,63 @@ page(
   ol
     li
       p Create your resource file. Your resource file will check for the <code>my_file</code> file in the request's body. If it exists, then it will write its contents to <code>outputFile</code>. If it does not exist, then it will throw a <code>400 Bad Request</code> response.
-      code-block(:title="example_code.files_resource.filepath" language="typescript")
-        | {{ example_code.files_resource.contents }}
+      code-block(title="/path/to/your/project/files_resource.ts" language="typescript")
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | 
+        | export default class HomeResource extends Drash.Http.Resource {
+        | 
+        |   static paths = [
+        |     "/files"
+        |   ];
+        | 
+        |   public POST() {
+        |     const decoder = new TextDecoder();
+        |     const file = this.request.getBodyFile("my_file");
+        | 
+        |     if (!file || !file.content) {
+        |       throw new Drash.Exceptions.HttpException(
+        |         400,
+        |         "This resource requires files to be uploaded via the request body."
+        |       );
+        |     }
+        | 
+        |     const outputFile = "./uploads/my_uploaded_file.txt";
+        | 
+        |     Deno.writeFileSync(outputFile, file.content);
+        | 
+        |     this.response.body = `You uploaded the following to ${outputFile}: `
+        |       + `\n${decoder.decode(file.content)}`;
+        | 
+        |     return this.response;
+        |   }
+        | 
+        | }
     li
       p Create your <code>my_file.txt</code> file so it can be passed in the request body.
-      code-block(:title="example_code.my_file.filepath" language="text")
-        | {{ example_code.my_file.contents }}
+      code-block(title="/path/to/your/project/my_file.txt" language="text")
+        | Hello, world!
+        |
+        | I am a simple text file.
     li
       p Create your app file. The <code>memory_allocation.multipart_form_data</code> config is how much memory in megabytes you want to allow the <code>multipart/form-data</code> reader to allocate to reading files. If you do not specify this config, Drash will default to <code>10</code> megabytes.
-      code-block(:title="example_code.app.filepath" language="typescript")
-        | {{ example_code.app.contents }}
+      code-block(title="/path/to/your/project/app.ts" language="typescript")
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | import FilesResource from "./files_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   response_output: "text/plain",
+        |   resources: [FilesResource],
+        |   memory_allocation: {
+        |     multipart_form_data: 128
+        |   },
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
+        | 
+        | console.log(`Server running on ${server.hostname}:${server.port}`)
   hr
   h2-hash Verification
   ol

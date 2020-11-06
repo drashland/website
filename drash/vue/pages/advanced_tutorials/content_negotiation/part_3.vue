@@ -16,7 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/content_negotiation/part_3'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -43,20 +42,58 @@ page(
   h2-hash Before You Get Started
   p Your server will not be able to handle requests for your user records until you give it a resource that grants clients access to your user records. In Part 2, you made your server expect the <code>users_resource.ts</code> file. You will create this file next and make sure your server runs properly with it in the Verification section.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     users.json
-    |     users_resource.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     users.json
+      |     users_resource.ts
   hr
   h2-hash Steps
   ol
     li
       p Create your users resource file.
       p
-        code-block(:title="example_code.users_resource.filepath" language="typescript")
-          | {{ example_code.users_resource.contents }}
+        code-block(title="/path/to/your/project/users_resource.ts" language="typescript")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | export default class UsersResource extends Drash.Http.Resource {
+          |
+          |   static paths = [
+          |     "/users/:id",
+          |   ];
+          |
+          |   public GET() {
+          |     let userId = this.request.getPathParam("id");
+          |     this.response.body = this.getUser(userId);
+          |     return this.response;
+          |   }
+          |
+          |   protected getUser(userId) {
+          |     let user = null;
+          |
+          |     try {
+          |       let users = this.readFileContents("./users.json");
+          |       users = JSON.parse(users);
+          |       user = users[userId];
+          |     } catch (error) {
+          |       throw new Drash.Exceptions.HttpException(400, `Error getting user with ID "${userId}". Error: ${error.message}.`);
+          |     }
+          |
+          |     if (!user) {
+          |       throw new Drash.Exceptions.HttpException(404, `User with ID "${userId}" not found.`);
+          |     }
+          |
+          |     return user;
+          |   }
+          |
+          |   protected readFileContents(file: string) {
+          |     let fileContentsRaw = Deno.readFileSync(file);
+          |     const decoder = new TextDecoder();
+          |     let decoded = decoder.decode(fileContentsRaw);
+          |     return decoded;
+          |   }
+          | }
       p Your resource will only handle <code>GET</code> requests at the following URI:
       ul
         li
@@ -80,7 +117,7 @@ page(
       code-block(title="Terminal" language="shell-session")
         | $ curl localhost:1447/users/1
       p You should receive the following response (we pretty-printed the response for you):
-      code-block(:header="false" language="javascript")
+      code-block(:header="false" language="json")
         | {
         |     "id": 1,
         |     "alias": "Captain America",
@@ -92,7 +129,7 @@ page(
       code-block(title="Terminal" language="shell-session")
         | $ curl localhost:1447/users/2
       p You should receive the following response (we pretty-printed the response for you):
-      code-block(:header="false" language="javascript")
+      code-block(:header="false" language="json")
         | {
         |     "id": 2,
         |     "alias": "Black Widow",
@@ -104,7 +141,7 @@ page(
       code-block(title="Terminal" language="shell-session")
         | $ curl localhost:1447/users/4
       p You should receive the following response (we pretty-printed the response for you):
-      code-block(:header="false" language="javascript")
+      code-block(:header="false" language="text")
         | "User with ID \"4\" not found."
   div-alert-next-tutorial-part
   hr

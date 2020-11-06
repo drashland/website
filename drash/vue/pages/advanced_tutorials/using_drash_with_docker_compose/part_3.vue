@@ -16,8 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_3'],
-      example_code_docker: this.$example_code['drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_3/.docker'],
       title: title,
       subtitle: subtitle,
       toc: [
@@ -44,16 +42,16 @@ page(
   h2-hash Before You Get Started
   p Now that you have your <code>docker-compose.yml</code> file set up, you now need your <code>.dockerfile</code> files (also known as <code>Dockerfile</code> files). These files will tell Docker how it should build. The <code>Dockerfile</code> files you will create in this tutorial part will be used by each container.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     ▾ .docker/
-    |         apache.dockerfile
-    |         drash.dockerfile
-    |         nginx.dockerfile
-    |     ▾ src/
-    |         app.ts
-    |     docker-compose.yml
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     ▾ .docker/
+      |         apache.dockerfile
+      |         drash.dockerfile
+      |         nginx.dockerfile
+      |     ▾ src/
+      |         app.ts
+      |     docker-compose.yml
   hr
   h2-hash Steps
   ol
@@ -64,20 +62,38 @@ page(
         em
           strong Note that you can change the version of Deno to install to suit your requirements.
       code-block(title="/path/to/your/project/.docker/drash.dockerfile" language="dockerfile")
-        | {{ example_code_docker.drash.contents }}
+        | FROM debian:stable-slim
+        |
+        | RUN apt update -y
+        | RUN apt install bash curl unzip -y
+        |
+        | RUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh -s {{ $conf.deno.latest_version }}
+        | RUN export DENO_INSTALL="/root/.local"
+        | RUN export PATH="$DENO_INSTALL/bin:$PATH"
     li
       p Create the Nginx <code>Dockerfile</code>.
       p
         em If you prefer to use Apache, then skip this step and follow the next step below.
       p This file will be used by the Nginx container.
       code-block(title="/path/to/your/project/.docker/nginx.dockerfile" language="dockerfile")
-        | {{ example_code_docker.nginx.contents }}
+        | FROM nginx:latest
+        |
+        | RUN apt update
+        |
+        | COPY ./.docker/conf/nginx.conf /etc/nginx/conf.d/default.conf
+        |
+        | ENTRYPOINT ["nginx"]
+        | CMD ["-g", "daemon off;"]
       p You will create the configuration file for Nginx in the next tutorial part. Nginx will use the configuration file pass connections to the Drash server.
     li
       p Create the Apache <code>Dockerfile</code>.
       p This file will be used by the Apache container.
       code-block(title="/path/to/your/project/.docker/apache.dockerfile" language="dockerfile")
-        | {{ example_code_docker.apache.contents }}
+        | FROM httpd:2.4
+        |
+        | RUN apt update -y
+        | COPY .docker/conf/apache.conf /usr/local/apache2/conf/demoapache.conf
+        | RUN echo "\nInclude /usr/local/apache2/conf/demoapache.conf" >> /usr/local/apache2/conf/httpd.conf
       p You will create the configuration file for Apache in the next tutorial part. Apache will use the configuration file pass connections to the Drash server.
   hr
   h2-hash Verification
