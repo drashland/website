@@ -54,11 +54,46 @@ page(
     li
       p Create your resource file. This file will set the <code>my_cookie</code> cookie on the response object.
       code-block(:title="example_code.home_resource.filepath" language="typescript")
-        | {{ example_code.home_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export default class HomeResource extends Drash.Http.Resource {
+        | 
+        |   static paths = ["/"];
+        | 
+        |   public GET() {
+        |     this.response.setCookie({name: "my_cookie", value: "chocolate"})
+        |     this.response.body = "my_cookie cookie sent!"
+        |     return this.response;
+        |   }
+        | 
+        |   public DELETE() {
+        |     this.response.setCookie({
+        |       name: "my_cookie",
+        |       value: "chocolate"
+        |     });
+        |     this.response.delCookie("my_cookie");
+        |     this.response.body = "my_cookie cookie was set and deleted!"
+        |     return this.response;
+        |   }
+        | }
+
     li
       p Create your app file.
       code-block(:title="example_code.app.filepath" language="typescript")
-        | {{ example_code.app.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | import HomeResource from "./home_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   response_output: "application/json",
+        |   resources: [HomeResource],
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
+
   hr
   h2-hash Verification
   ol
