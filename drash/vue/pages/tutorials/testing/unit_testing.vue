@@ -205,7 +205,7 @@ page(
         | 
         | Deno.test({
         |   name: "HomeResource - GET /",
-        |   async fn(): Promise<void> {
+        |   async fn(): Promise&lt;void&gt; {
         |     await server.run(httpOptions);
         |     const response = await fetch("http://localhost:1447", {
         |       method: "GET",
@@ -217,7 +217,7 @@ page(
         | 
         | Deno.test({
         |   name: "UsersResource - GET /users/1",
-        |   async fn(): Promise<void> {
+        |   async fn(): Promise&lt;void&gt; {
         |     await server.run(httpOptions);
         |     const response = await fetch("http://localhost:1447/users/1", {
         |       method: "GET",
@@ -229,7 +229,7 @@ page(
         | 
         | Deno.test({
         |   name: "UsersResource - GET /users/1388873",
-        |   async fn(): Promise<void> {
+        |   async fn(): Promise&lt;void&gt; {
         |     await server.run(httpOptions);
         |     const response = await fetch("http://localhost:1447/users/1388873", {
         |       method: "GET",
@@ -244,7 +244,7 @@ page(
         | 
         | Deno.test({
         |   name: "UsersResource - GET /users/1983765",
-        |   async fn(): Promise<void> {
+        |   async fn(): Promise&lt;void&gt; {
         |     await server.run(httpOptions);
         |     const response = await fetch("http://localhost:1447/users/1983765", {
         |       method: "GET",
@@ -259,7 +259,7 @@ page(
         | 
         | Deno.test({
         |   name: "OrdersResource - GET /orders/1",
-        |   async fn(): Promise<void> {
+        |   async fn(): Promise&lt;void&gt; {
         |     await server.run(httpOptions);
         |     const response = await fetch("http://localhost:1447/orders/1", {
         |       method: "GET",
@@ -271,7 +271,7 @@ page(
         | 
         | Deno.test({
         |   name: "OrdersResource - GET /orders/1090987",
-        |   async fn(): Promise<void> {
+        |   async fn(): Promise&lt;void&gt; {
         |     await server.run(httpOptions);
         |     const response = await fetch("http://localhost:1447/orders/1090987", {
         |       method: "GET",
@@ -288,7 +288,7 @@ page(
         | 
         | Deno.test({
         |   name: "OrdersResource - GET /orders/8878213",
-        |   async fn(): Promise<void> {
+        |   async fn(): Promise&lt;void&gt; {
         |     await server.run(httpOptions);
         |     const response = await fetch("http://localhost:1447/orders/8878213", {
         |       method: "GET",
