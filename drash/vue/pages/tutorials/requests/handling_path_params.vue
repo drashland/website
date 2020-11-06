@@ -44,7 +44,31 @@ page(
     li
       p Create your resource file. You resource file will check for the <code>:id</code> path param in the request's URL. If it exists and is a <code>number</code>, then it will return what was passed in. If it is <code>NaN</code>, then it will throw a <code>400 Bad Request</code> response.
       code-block(:title="example_code.users_resource.filepath" language="typescript")
-        | {{ example_code.users_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export default class UsersResource extends Drash.Http.Resource {
+        | 
+        |   static paths = [
+        |     "/users/:id"
+        |   ];
+        | 
+        |   public GET() {
+        |     const userId = parseInt(this.request.getPathParam("id"));
+        | 
+        |     if (isNaN(userId)) {
+        |       throw new Drash.Exceptions.HttpException(
+        |         400,
+        |         "This resource requires the `:id` path param to be a number."
+        |       );
+        |     }
+        | 
+        |     this.response.body = `You passed in the following user ID as the path param: ${userId}`;
+        | 
+        |     return this.response;
+        |   }
+        | 
+        | }
+
       p You can also specify optional parameters by adding <code>?</code>. The resource would still match even if the optional parameters are not passed in. For example:
       code-block(:title="example_code.users_resource.filepath" language="typescript")
         | static paths = ["/users/:id/:name?"];
@@ -63,7 +87,20 @@ page(
     li
       p Create your app file.
       code-block(:title="example_code.app.filepath" language="typescript")
-        | {{ example_code.app.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | import UsersResource from "./users_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   response_output: "text/plain",
+        |   resources: [UsersResource],
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
+
   hr
   h2-hash Verification
   ol

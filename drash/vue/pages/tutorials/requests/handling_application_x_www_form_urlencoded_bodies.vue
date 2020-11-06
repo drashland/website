@@ -44,11 +44,48 @@ page(
     li
       p Create your resource file. You resource file will check for the <code>snack</code> param in the request's body. If it exists, then it will return what was passed in. If it does not exist, then it will throw a <code>400 Bad Request</code> response.
       code-block(:title="example_code.home_resource.filepath" language="typescript")
-        | {{ example_code.home_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export default class HomeResource extends Drash.Http.Resource {
+        | 
+        |   static paths = [
+        |     "/"
+        |   ];
+        | 
+        |   public POST() {
+        |     const param = this.request.getBodyParam("snack");
+        | 
+        |     if (!param) {
+        |       throw new Drash.Exceptions.HttpException(
+        |         400,
+        |         "This resource requires the `snack` body param."
+        |       );
+        |     }
+        | 
+        |     this.response.body = `You passed in the following body param: ${param}`;
+        | 
+        |     return this.response;
+        |   }
+        | 
+        | }
+
     li
       p Create your app file.
       code-block(:title="example_code.app.filepath" language="typescript")
-        | {{ example_code.app.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | import HomeResource from "./home_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   response_output: "text/plain",
+        |   resources: [HomeResource],
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
+
   hr
   h2-hash Verification
   ol
