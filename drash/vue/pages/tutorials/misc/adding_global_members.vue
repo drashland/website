@@ -54,7 +54,7 @@ page(
     li
       p Create a file that adds your "thing" as a global member.
       code-block(:title="example_code.bootstrap.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | // Register MyThing as a global member
         | import myThing from "./my_thing.ts";
@@ -63,7 +63,7 @@ page(
     li
       p Create your app file and have it use your global member.
       code-block(:title="example_code.app.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | // When this file is imported, it will register MyThing as a global member
         | import "./bootstrap.ts";

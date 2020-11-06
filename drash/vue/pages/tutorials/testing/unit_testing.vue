@@ -48,7 +48,7 @@ page(
     li
       p Create your <code>HomeResource</code> file.
       code-block(:title="example_code.home_resource.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         |
         | export default class HomeResource extends Drash.Http.Resource {
         |
@@ -62,7 +62,7 @@ page(
     li
       p Create your <code>OrdersResource</code> file.
       code-block(:title="example_code.orders_resource.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | export default class OrdersResource extends Drash.Http.Resource {
         | 
@@ -111,7 +111,7 @@ page(
     li 
       p Create your <code>UsersResource</code> file.
       code-block(:title="example_code.users_resource.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | export default class UsersResource extends Drash.Http.Resource {
         | 
@@ -154,7 +154,7 @@ page(
     li
       p Create your <code>app</code> file.
       code-block(:title="example_code.app.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | import HomeResource from "./home_resource.ts";
         | import OrdersResource from "./orders_resource.ts";
@@ -185,7 +185,7 @@ page(
       p Write your tests.
       code-block(:title="example_code.tests.filepath" language="typescript")
         | import { assertEquals } from "https://deno.land/std@0.75.0/testing/asserts.ts";
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | import HomeResource from "./home_resource.ts";
         | import OrdersResource from "./orders_resource.ts";
         | import UsersResource from "./users_resource.ts";

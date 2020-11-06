@@ -48,7 +48,7 @@ page(
     li
       p Create your app file. You will be using the <code>static_paths</code> config to define your virtual paths. Also, you will define the <code>directory</code> config to help your server map virtual paths to physical paths. In the example code block below, you are defining a virtual path of <code>/assets</code> to the physical path of <code>/front_end</code>. The physical path must be <em>relative</em> to the directory you specify in the <code>directory</code> config.
       code-block(:title="example_code_back_end.app.filepath" language="typescript" line_highlight="6,9")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | import HomeResource from "./home_resource.ts";
         | 
@@ -74,7 +74,7 @@ page(
     li
       p Create your resource file. Your resource file will serve HTML; and your HTML will reference <code>/assets/style.css</code> &mdash; the virtual path.
       code-block(:title="example_code_back_end.home_resource.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | export default class HomeResource extends Drash.Http.Resource {
         | 

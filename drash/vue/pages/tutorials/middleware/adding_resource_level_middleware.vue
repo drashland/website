@@ -64,7 +64,7 @@ page(
     li
       p Create your middleware files. These middleware files take in the <code>request</code> and <code>response</code> params.
       code-block(:title="example_code.log_access_middleware.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | export function LogAccessMiddleware(
         |   request: Drash.Http.Request,
@@ -74,7 +74,7 @@ page(
         | }
 
       code-block(:title="example_code.verify_token_middleware.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | export function VerifyTokenMiddleware(
         |   request: Drash.Http.Request,
@@ -94,7 +94,7 @@ page(
     li
       p Create your <code>HomeResource</code> file. This file will not have middleware.
       code-block(:title="example_code.home_resource.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | export default class HomeResource extends Drash.Http.Resource {
         | 
@@ -112,7 +112,7 @@ page(
     li
       p Create your <code>SecretResource</code> file. This resource will use the <code>VerifyTokenMiddleware</code> function to verify that the correct token has been passed in through the URL query params before the request is executed. If the token is incorrect, then the middleware will throw a <code>400</code> or <code>403</code> error response. If the token is correct, then the request will be processed further and the <code>LogAccessMiddleware</code> function will log that the resource has been accessed.
       code-block(:title="example_code.secret_resource.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | import { LogAccessMiddleware } from "./log_access_middleware.ts";
         | import { VerifyTokenMiddleware } from "./verify_token_middleware.ts";
         | 
@@ -142,7 +142,7 @@ page(
     li
       p Create your app file. Notice that you do not need to register your middleware here like you do with server-level middleware.
       code-block(:title="example_code.app.filepath" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | import HomeResource from "./home_resource.ts";
         | import SecretResource from "./secret_resource.ts";

@@ -38,7 +38,7 @@ page(
   p You create a resource by extending the <code>Drash.Http.Resource</code> class. This is the base class for all resources. You can define your own base resource class, but it MUST extend the <code>Drash.Http.Resource</code> class.
   p Drash servers only register resources that are specified in their <code>resources</code> config during creation. See below. In the below example, the <code>HomeResource</code> class is the only resource that will be regisrered by the server.
   code-block(:header="false" language="typescript" line_highlight="6")
-    | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+    | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
     | 
     | import HomeResource from "./home_resource.ts";
     | 
@@ -53,7 +53,7 @@ page(
   p When Drash servers register resources, they also register their paths as accessible URIs. An accessible URI is a URI that a client can target. Any URI that does not exist in any resource is a non-accessible URI. Non-accessible URIs ultimately lead to a response other than a <code>200 OK</code> repsonse. The default response for a request to a non-accessible URI is a <code>404 Not Found</code> error.
   p Adding resources is as simple as importing the resource and adding it to the <code>resources</code> config. See below. The <code>UsersResource</code> class is imported and added to the <code>resources</code> config.
   code-block(:header="false" language="typescript" line_highlight="4,9")
-    | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+    | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
     | 
     | import HomeResource from "./home_resource.ts";
     | import UsersResource from "./users_resource.ts";
@@ -73,7 +73,7 @@ page(
   h2-hash Creating A Resource
   p Take the example below. This resource handles requests at the <code>/</code> URI. If a client makes a request to this URI, this resource would handle that request.
   code-block(title="/path/to/your/project/home_resource.ts" language="typescript")
-    | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+    | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
     | 
     | export default class HomeResource extends Drash.Http.Resource {
     |   static paths = ["/"];
@@ -91,7 +91,7 @@ page(
   h3 Adding More HTTP Methods
   p Giving a resource the ability to handle diffrent types of requests is as easy as adding the HTTP method to handle that request. Taking the above code, you can add more HTTP methods like the ones highlighted below; and your resource would be able to handle those requests.
   code-block(title="/path/to/your/project/home_resource.ts" language="typescript" line_highlight="16-24")
-    | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+    | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
     | 
     | export default class HomeResource extends Drash.Http.Resource {
     |   static paths = ["/"];
@@ -121,7 +121,7 @@ page(
   h2-hash Path Params
   p Resources are able to specify path params in their paths to allow them to cover multiple endpoints.
   code-block(title="/path/to/your/project/home_resource.ts" language="typescript" line_highlight="5")
-    | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+    | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
     | 
     | export default class HomeResource extends Drash.Http.Resource {
     |   static paths = [
@@ -204,7 +204,7 @@ page(
   h2-hash Regular Expression URIs
   p Resources are able to specify regular expressions in their paths to allow them to cover multiple endpoints.
   code-block(title="/path/to/your/project/home_resource.ts" language="typescript" line_highlight="5")
-    | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+    | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
     | 
     | export default class HomeResource extends Drash.Http.Resource {
     |   static paths = [

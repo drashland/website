@@ -35,7 +35,7 @@ page(
   hr
   h2-hash Server Syntax
   code-block(:title="example_code.app.filepath" language="typescript")
-    | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+    | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
     | 
     | import HomeResource from "./home_resource.ts";
     | 
