@@ -131,7 +131,7 @@ page(
       code-block(title="Terminal" language="shell-session")
         | $ curl localhost:1447/?super_secret_token=AllYourBaseAreBelongToUs
       p You should receive the following response (we pretty-printed the response for you):
-      code-block(language="javascript" :header="false")
+      code-block(language="json" :header="false")
         | {
         |   "method": "GET",
         |   "body": "Hello!"
