@@ -42,7 +42,6 @@ export default {
 
     if (this.sidebar.menus["Latest News"]) {
       const url = "https://dev.to/api/articles?username=drash_land&tag=" + this.news_tags;
-      console.log(url);
       const res = await fetch(url);
       let json = await res.json();
       let articles = {};
