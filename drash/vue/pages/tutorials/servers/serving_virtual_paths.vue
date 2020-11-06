@@ -48,15 +48,54 @@ page(
     li
       p Create your app file. You will be using the <code>static_paths</code> config to define your virtual paths. Also, you will define the <code>directory</code> config to help your server map virtual paths to physical paths. In the example code block below, you are defining a virtual path of <code>/assets</code> to the physical path of <code>/front_end</code>. The physical path must be <em>relative</em> to the directory you specify in the <code>directory</code> config.
       code-block(:title="example_code_back_end.app.filepath" language="typescript" line_highlight="6,9")
-        | {{ example_code_back_end.app.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | import HomeResource from "./home_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   directory: "/path/to/your/project",
+        |   resources: [HomeResource],
+        |   response_output: "text/html",
+        |   static_paths: {
+        |     "/assets": "/front_end", // The physical path needs to be relative to your directory config
+        |   }
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
     li
       p Create your <code>style.css</code> file in the physical path's location.
       code-block(:title="example_code_front_end.style.filepath" language="css")
-        | {{ example_code_front_end.style.contents }}
+        | .my-text {
+        |     color: #ff0000;
+        | }
     li
       p Create your resource file. Your resource file will serve HTML; and your HTML will reference <code>/assets/style.css</code> &mdash; the virtual path.
       code-block(:title="example_code_back_end.home_resource.filepath" language="typescript")
-        | {{ example_code_back_end.home_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export default class HomeResource extends Drash.Http.Resource {
+        | 
+        |   static paths = ["/"];
+        | 
+        |   public GET() {
+        |     this.response.body = `
+        |     <!DOCTYPE html>
+        |     <html>
+        |       <head>
+        |         <title>Drash</title>
+        |         <link href="/assets/style.css" rel="stylesheet">
+        |       </head>
+        |       <body>
+        |         <h1 class="my-text">This is my title and it is red.</h1>
+        |       </body>
+        |     </html>`;
+        | 
+        |     return this.response;
+        |   }
+        | }
   hr
   h2-hash Verification
   ol

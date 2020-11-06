@@ -45,15 +45,55 @@ page(
     li
       p Create your app file. The <code>static_paths</code> config tells your Drash server what paths on your filesystem contain static files that can be served to clients. Ultimately, your Drash server will prefix the <code>directory</code> config with your paths in your <code>static_paths</code> config. For example, your Drash server will take a request to <code>/public/assets/css/style.css</code> and resolve it to <code>{directory_config}/public/assets/css/style.css</code>.
       code-block(:title="example_code.app.filepath" language="typescript" line_highlight="6,9")
-        | {{ example_code.app.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | import HomeResource from "./home_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   directory: "/path/to/your/project",
+        |   resources: [HomeResource],
+        |   response_output: "text/html",
+        |   static_paths: ["/public"]
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
+
     li
       p Create your <code>style.css</code> file in your static directory.
       code-block(:title="example_code_public.style.filepath" language="css")
-        | {{ example_code_public.style.contents }}
+        | .my-text {
+        |     color: #ff0000;
+        | }
+
     li
       p Create your resource file. Your resource file will serve HTML; and your HTML will reference <code>/public/style.css</code>.
       code-block(:title="example_code.home_resource.filepath" language="typescript")
-        | {{ example_code.home_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export default class HomeResource extends Drash.Http.Resource {
+        | 
+        |   static paths = ["/"];
+        | 
+        |   public GET() {
+        |     this.response.body = `
+        |     <!DOCTYPE html>
+        |     <html>
+        |       <head>
+        |         <title>Drash</title>
+        |         <link href="/public/style.css" rel="stylesheet">
+        |       </head>
+        |       <body>
+        |         <h1 class="my-text">This is my title and it is red.</h1>
+        |       </body>
+        |     </html>`;
+        | 
+        |     return this.response;
+        |   }
+        | }
+
   hr
   h2-hash Verification
   ol
