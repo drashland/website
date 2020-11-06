@@ -20,12 +20,16 @@ export default {
       type: String,
       required: true,
     },
+    news_tags: {
+      type: String,
+      required: "",
+    },
     sidebar: {
       type: Object,
       required: true,
     },
   },
-  mounted() {
+  async mounted() {
     window.addEventListener("resize", this.handleWindowResize);
     window.addEventListener("scroll", this.handleWindowOnScroll);
     this.handleWindowResize();
@@ -33,6 +37,22 @@ export default {
     this.$root.$on("close-sidebar", () => {
       this.toggleSidebar();
     });
+
+    const tags = this.news_tags.split(", ");
+
+    if (this.sidebar.menus["Latest News"]) {
+      const url = "https://dev.to/api/articles?username=drash_land&tag=" + this.news_tags;
+      console.log(url);
+      const res = await fetch(url);
+      let json = await res.json();
+      let articles = {};
+      json = json.slice(0, 5);
+      for (const index in json) {
+        const article = json[index];
+        articles[article.readable_publish_date + " - " + article.title] = article.url;
+      }
+      this.sidebar.menus["Latest News"] = articles;
+    }
   },
   data() {
     return {
