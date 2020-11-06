@@ -23,6 +23,7 @@ export default {
             Articles: "/#articles",
             FAQ: "/faq",
           },
+          "Latest News": {},
           Tutorials: {
             //Introduction: "/tutorials",
             "Writing Tests": "/tutorials/writing-tests",
@@ -34,6 +35,23 @@ export default {
       }
     };
   },
+  async mounted() {
+    const res = await fetch("https://dev.to/api/articles?username=drash_land&tag=rhum&top=14");
+    let json = await res.json();
+    json = json.slice(0, 6);
+    let articles = {};
+    for (const index in json) {
+      const article = json[index];
+      articles[article.title] = article.url;
+    }
+    if (Object.keys(articles).length <= 0) {
+      this.sidebar.menus["Latest News"] = {
+        "No articles yet": "#"
+      };
+    } else {
+      this.sidebar.menus["Latest News"] = articles;
+    }
+  }
 }
 </script>
 
