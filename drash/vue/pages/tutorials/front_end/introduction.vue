@@ -36,6 +36,6 @@ page(
       p Add template partials
     li
       p Add in-template JavaScript
-  p The idea behind Jae is to help you create applications stacked with a front-end framework such as Vue, React, and Angular. Essentially, the idea is to help you create a single page application (SPA).
+  p The idea behind Jae is to help you create a single page application (SPA) &mdash; allowing you to chose the front-end framework of your choice.
   p If you want to get started using Jae, follow the Tengine documentation in Drash's middleware repository <a href="https://github.com/drashland/deno-drash-middleware/tree/master/tengine">here</a>.
 </template>
