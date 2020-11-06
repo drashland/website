@@ -223,6 +223,6 @@ div
       hr
       div.mt-10.bg-teal-100.border-l-4.border-teal-500.rounded-b.text-teal-900.px-4.py-3.shadow-md(role="alert")
         div.py-1
-          p.font-bold Report Issues
-          p.text-sm This page was last updated on {{ $conf.build_date.replace("T", "@").split(".")[0] }}. Report issues with this page <a class="cursor-pointer" :href="'https://github.com/drashland/website/issues/new?assignees=&labels=bug%2C+documentation&template=documentation-page-issue.md&title=Issue on ' + module + ' ' + $route.path + ' page'" target="_BLANK">here</a>.
+          p.font-bold Having issues with this page?
+          p.text-sm This page was last updated on {{ $conf.build_date.replace("T", "@").split(".")[0] }}. If you are having issues with this page (e.g., parts of the page are not loading, documentation does not make sense, etc.), please let us know <a class="cursor-pointer" :href="'https://github.com/drashland/website/issues/new?assignees=&labels=bug%2C+documentation&template=documentation-page-issue.md&title=Issue on ' + module + ' ' + $route.path + ' page'" target="_BLANK">here</a>. We will be more than happy to help you out!
 </template>
