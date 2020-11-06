@@ -48,30 +48,260 @@ page(
     li
       p Create your <code>HomeResource</code> file.
       code-block(:title="example_code.home_resource.filepath" language="typescript")
-        | {{ example_code.home_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        |
+        | export default class HomeResource extends Drash.Http.Resource {
+        |
+        |   static paths = ["/"];
+        |
+        |   public GET() {
+        |     this.response.body = "Welcome home!";
+        |     return this.response;
+        |   }
+        | }
     li
       p Create your <code>OrdersResource</code> file.
       code-block(:title="example_code.orders_resource.filepath" language="typescript")
-        | {{ example_code.orders_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export default class OrdersResource extends Drash.Http.Resource {
+        | 
+        |   static paths = [
+        |     "/orders/:id"
+        |   ];
+        | 
+        |   // Simulate a database with order records
+        |   protected database: {[key: string]: {
+        |       id: number,
+        |       name: string,
+        |       quantity: number,
+        |       price: number
+        |     }} = {
+        |     "1090987": {
+        |       id: 1090987,
+        |       name: "Gadgets",
+        |       quantity: 50,
+        |       price: 1000
+        |     },
+        |     "8878213": {
+        |       id: 8878213,
+        |       name: "Gizmos",
+        |       quantity: 25,
+        |       price: 2000
+        |     },
+        |   };
+        | 
+        |   public GET() {
+        |     const id = this.request.getPathParam("id");
+        |     if (!id) {
+        |       throw new Drash.Exceptions.HttpException(400, "`id` parameter must be passed in")
+        |     }
+        |     this.response.body = this.getOrder(id);
+        |     return this.response;
+        |   }
+        | 
+        |   protected getOrder(id: string) {
+        |     if (this.database[id]) {
+        |       return this.database[id];
+        |     }
+        | 
+        |     throw new Drash.Exceptions.HttpException(404, `Order #${id} not found.`);
+        |   }
+        | }
     li 
       p Create your <code>UsersResource</code> file.
       code-block(:title="example_code.users_resource.filepath" language="typescript")
-        | {{ example_code.users_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export default class UsersResource extends Drash.Http.Resource {
+        | 
+        |   static paths = [
+        |     "/users/:id"
+        |   ];
+        | 
+        |   // Simulate a database with user records
+        |   protected database: {[key: string]: {
+        |     id: number,
+        |     name: string
+        |   }} = {
+        |     "1388873": {
+        |       id: 1388873,
+        |       name: "Seller",
+        |     },
+        |     "1983765": {
+        |       id: 1983765,
+        |       name: "Buyer",
+        |     },
+        |   };
+        | 
+        |   public GET() {
+        |     const id = this.request.getPathParam("id");
+        |     if (!id) {
+        |       throw new Drash.Exceptions.HttpException(400, "`id` must be passed in")
+        |     }
+        |     this.response.body = this.getUser(id);
+        |     return this.response;
+        |   }
+        | 
+        |   protected getUser(id: string) {
+        |     if (this.database[id]) {
+        |       return this.database[id];
+        |     }
+        | 
+        |     throw new Drash.Exceptions.HttpException(404, `User #${id} not found.`);
+        |   }
+        | }
     li
       p Create your <code>app</code> file.
       code-block(:title="example_code.app.filepath" language="typescript")
-        | {{ example_code.app.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | import HomeResource from "./home_resource.ts";
+        | import OrdersResource from "./orders_resource.ts";
+        | import UsersResource from "./users_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   response_output: "application/json",
+        |   resources: [
+        |     HomeResource,
+        |     OrdersResource,
+        |     UsersResource
+        |   ]
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
   hr
   h2-hash Writing Your Tests
   ol
     li
       p Create your test runner file. Your test runner file will import and run your tests. Your server needs to be running so the testing module can make requests to your server using <code>fetch()</code> and receive the responses you expect.
       code-block(:title="example_code.run_tests.filepath" language="typescript")
-        | {{ example_code.run_tests.contents }}
+        | // A single file to run all your tests
+        | import "./tests.ts";
     li
       p Write your tests.
       code-block(:title="example_code.tests.filepath" language="typescript")
-        | {{ example_code.tests.contents }}
+        | import { assertEquals } from "https://deno.land/std@0.75.0/testing/asserts.ts";
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import HomeResource from "./home_resource.ts";
+        | import OrdersResource from "./orders_resource.ts";
+        | import UsersResource from "./users_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   response_output: "application/json",
+        |   resources: [
+        |       HomeResource,
+        |       UsersResource,
+        |       OrdersResource
+        |   ]
+        | });
+        | const httpOptions = {
+        |   hostname: "localhost",
+        |   port: 1447
+        | };
+        | 
+        | Deno.test({
+        |   name: "HomeResource - GET /",
+        |   async fn(): Promise<void> {
+        |     await server.run(httpOptions);
+        |     const response = await fetch("http://localhost:1447", {
+        |       method: "GET",
+        |     });
+        |     assertEquals(JSON.parse(await response.text()), "Welcome home!");
+        |     server.close()
+        |   }
+        | });
+        | 
+        | Deno.test({
+        |   name: "UsersResource - GET /users/1",
+        |   async fn(): Promise<void> {
+        |     await server.run(httpOptions);
+        |     const response = await fetch("http://localhost:1447/users/1", {
+        |       method: "GET",
+        |     });
+        |     assertEquals(JSON.parse(await response.text()), "User #1 not found.");
+        |     server.close()
+        |   }
+        | });
+        | 
+        | Deno.test({
+        |   name: "UsersResource - GET /users/1388873",
+        |   async fn(): Promise<void> {
+        |     await server.run(httpOptions);
+        |     const response = await fetch("http://localhost:1447/users/1388873", {
+        |       method: "GET",
+        |     });
+        |     assertEquals(JSON.parse(await response.text()), {
+        |       id: 1388873,
+        |       name: "Seller",
+        |     });
+        |     await server.close();
+        |   }
+        | });
+        | 
+        | Deno.test({
+        |   name: "UsersResource - GET /users/1983765",
+        |   async fn(): Promise<void> {
+        |     await server.run(httpOptions);
+        |     const response = await fetch("http://localhost:1447/users/1983765", {
+        |       method: "GET",
+        |     });
+        |     assertEquals(JSON.parse(await response.text()), {
+        |       id: 1983765,
+        |       name: "Buyer",
+        |     });
+        |     server.close()
+        |   }
+        | });
+        | 
+        | Deno.test({
+        |   name: "OrdersResource - GET /orders/1",
+        |   async fn(): Promise<void> {
+        |     await server.run(httpOptions);
+        |     const response = await fetch("http://localhost:1447/orders/1", {
+        |       method: "GET",
+        |     });
+        |     assertEquals(JSON.parse(await response.text()), "Order #1 not found.");
+        |     server.close()
+        |   }
+        | });
+        | 
+        | Deno.test({
+        |   name: "OrdersResource - GET /orders/1090987",
+        |   async fn(): Promise<void> {
+        |     await server.run(httpOptions);
+        |     const response = await fetch("http://localhost:1447/orders/1090987", {
+        |       method: "GET",
+        |     });
+        |     assertEquals(JSON.parse(await response.text()), {
+        |       id: 1090987,
+        |       name: "Gadgets",
+        |       quantity: 50,
+        |       price: 1000
+        |     });
+        |     server.close()
+        |   }
+        | });
+        | 
+        | Deno.test({
+        |   name: "OrdersResource - GET /orders/8878213",
+        |   async fn(): Promise<void> {
+        |     await server.run(httpOptions);
+        |     const response = await fetch("http://localhost:1447/orders/8878213", {
+        |       method: "GET",
+        |     });
+        |     assertEquals(JSON.parse(await response.text()), {
+        |       id: 8878213,
+        |       name: "Gizmos",
+        |       quantity: 25,
+        |       price: 2000
+        |     });
+        |     server.close()
+        |   }
+        | });
     li
       p Run your test runner file.
       code-block(title="Terminal")
