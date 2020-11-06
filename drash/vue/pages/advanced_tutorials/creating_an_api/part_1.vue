@@ -15,7 +15,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: "/advanced-tutorials/creating-an-api",
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/part_1'],
       title: title,
       subtitle: subtitle,
       toc: [
@@ -52,13 +51,45 @@ page(
     li
       p Create the <code>coffee.json</code> file.
       p
-        code-block(:title="example_code.coffee.filepath" language="javascript")
-          | {{ example_code.coffee.contents }}
+        code-block(title="coffee.json" language="json")
+          | {
+          |   "17": {
+          |     "id": 17,
+          |     "name": "Light Roast: Breakfast Blend",
+          |     "price": 2.25
+          |   },
+          |   "28": {
+          |     "id": 28,
+          |     "name": "Medium Roast: Classico",
+          |     "price": 2.50
+          |   },
+          |   "32": {
+          |     "id": 32,
+          |     "name": "Medium Roast: Premium Single Origin (Sumatra)",
+          |     "price": 3.50
+          |   }
+          | }
     li
       p Create the <code>tea.json</code> file.
       p
-        code-block(:title="example_code.tea.filepath" language="javascript")
-          | {{ example_code.tea.contents }}
+        code-block(title="tea.json" language="json")
+          | {
+          |   "50": {
+          |     "id": 50,
+          |     "name": "Earl Gray",
+          |     "price": 4.00
+          |   },
+          |   "68": {
+          |     "id": 68,
+          |     "name": "Citrus Chamomile",
+          |     "price": 3.50
+          |   },
+          |   "83": {
+          |     "id": 83,
+          |     "name": "Imperial Blend",
+          |     "price": 4.50
+          |   }
+          | }
   hr
   h2-hash Verification
   p This step is optional.

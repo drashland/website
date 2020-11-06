@@ -16,7 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_2'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -54,8 +53,31 @@ page(
     li
       p Create your home resource file.
       p
-        code-block(:title="example_code.home_resource.filepath" language="typescript")
-          | {{ example_code.home_resource.contents }}
+        code-block(title="home_resource.ts" language="typescript")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | const decoder = new TextDecoder();
+          |
+          | export default class HomeResource extends Drash.Http.Resource {
+          |
+          |   static paths = [
+          |     "/"
+          |   ];
+          |
+          |   public GET() {
+          |     try {
+          |       let fileContentsRaw = Deno.readFileSync("./index.html");
+          |       let template = decoder.decode(fileContentsRaw);
+          |       this.response.body = template;
+          |     } catch (error) {
+          |       throw new Drash.Exceptions.HttpException(
+          |         400,
+          |         `Error reading HTML template.`
+          |       );
+          |     }
+          |     return this.response;
+          |   }
+          | }
       p Your home resource will serve an HTML file and that file will display your Vue app. You will be creating this HTML file in the next tutorial part.
   hr
   h2-hash Verification

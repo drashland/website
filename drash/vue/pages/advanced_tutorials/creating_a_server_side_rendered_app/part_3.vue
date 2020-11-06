@@ -15,7 +15,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: "/advanced-tutorials/creating-a-server-side-rendered-app",
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_a_static_html_app/about_me/part_3'],
       example_code_html: this.$example_code['drash/example_code/advanced_tutorials/creating_a_static_html_app/about_me/part_3/html'],
       toc: [
         "Folder Structure End State",
@@ -55,17 +54,17 @@ page(
     li
       p Create your home HTML file.
       p
-        code-block(:title="example_code_html.home.filepath" language="html")
+        code-block(title="html/home.html" language="html")
           | {{ example_code_html.home.contents }}
     li
       p Create your contact HTML file.
       p
-        code-block(:title="example_code_html.contact.filepath" language="html")
+        code-block(title="html/contact.html" language="html")
           | {{ example_code_html.contact.contents }}
     li
       p Create your about HTML file.
       p
-        code-block(:title="example_code_html.about.filepath" language="html")
+        code-block(title="html/about.html" language="html")
           | {{ example_code_html.about.contents }}
   hr
   h2-hash Verification

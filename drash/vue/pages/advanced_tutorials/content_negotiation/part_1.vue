@@ -16,7 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/content_negotiation/part_1'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -53,8 +52,30 @@ page(
     li
       p Create the <code>users.json</code> file.
       p
-        code-block(:title="example_code.users.filepath" language="json")
-          | {{ example_code.users.contents }}
+        code-block(title="users.json" language="json")
+          | {
+          |   "1": {
+          |     "id": 1,
+          |     "alias": "Captain America",
+          |     "name": "Steve Rogers",
+          |     "api_key": "46096ec9-5bf9-4978-b77b-07018dc32a74",
+          |     "api_secret": "1b64d3ac-7e19-4018-ab99-29f50e097f4b"
+          |   },
+          |   "2": {
+          |     "id": 2,
+          |     "alias": "Black Widow",
+          |     "name": "Natasha Romanoff",
+          |     "api_key": "3d93a3f9-c5ad-439d-bacb-75a9e4fb2b42",
+          |     "api_secret": "e5b11faa-629f-4255-bf3a-ee736dc9468d"
+          |   },
+          |   "3": {
+          |     "id": 3,
+          |     "alias": "Thor",
+          |     "name": "Thor Odinson",
+          |     "api_key": "7442f354-2a89-47ef-a3ce-5a7c68e82157",
+          |     "api_secret": "365e362f-fa21-4e5a-bb84-9da76e1c5f49"
+          |   }
+          | }
   hr
   h2-hash Verification (optional)
   p Since you just made a JSON file and will be parsing this file as JSON in a later part, you should test that deno can parse it as JSON.

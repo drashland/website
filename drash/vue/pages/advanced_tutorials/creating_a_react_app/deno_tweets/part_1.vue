@@ -16,7 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_1'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -53,8 +52,22 @@ page(
     li
       p Create your app file.
       p
-        code-block(:title="example_code.app.filepath" language="typescript" line_highlight="3")
-          | {{ example_code.app.contents }}
+        code-block(title="app.ts" language="typescript" line_highlight="3")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | import HomeResource from "./home_resource.ts";
+          |
+          | const server = new Drash.Http.Server({
+          |   response_output: "text/html",
+          |   resources: [HomeResource],
+          |   directory: ".",
+          |   static_paths: ["/public"]
+          | });
+          |
+          | server.run({
+          |   hostname: "localhost",
+          |   port: 1447
+          | });
       p When this file is run, it will load in Drash, set up your server, and start your server.
       p You will notice that there is an <code>import</code> statement for your resource file (highlighted). You will be creating this file in the next tutorial part. For now, you just need to make sure your server expects and registers it.
   hr
@@ -65,7 +78,7 @@ page(
       p Comment out the code relevant to your resource file.
       p
         code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="3,7")
-          | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
           |
           | // import HomeResource from "./home_resource.ts";
           |
@@ -98,7 +111,7 @@ page(
       p Before moving on, uncomment the code you commented out.
       p
         code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="3,7")
-          | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
           |
           | import HomeResource from "./home_resource.ts";
           |

@@ -16,7 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/part_4'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -57,16 +56,52 @@ page(
     li
       p Create your Webpack configuration file.
       p
-        code-block(:title="example_code.webpack.filepath" language="javascript")
-          | {{ example_code.webpack.contents }}
+        code-block(title="webpack.config.js" language="javascript")
+          | const path = require('path')
+          | module.exports = {
+          |   entry: {
+          |     app: './components/App.tsx'
+          |   },
+          |   output: {
+          |     filename: "[name].js",
+          |     path: __dirname + '/public/'
+          |   },
+          |   module: {
+          |     rules: [
+          |       {
+          |         test: /\.tsx?$/,
+          |         use: 'ts-loader',
+          |         exclude: /node_modules/
+          |       }
+          |     ]
+          |   },
+          |   resolve: {
+          |     alias: {
+          |       react: path.resolve('./node_modules/react')
+          |     },
+          |     extensions: ['.tsx', '.js']
+          |   }
+          | }
       p Here, you are telling Webpack to search for your React components and to transpile them.
       p The transpiled files will then be placed in a different directory (see the <code>output</code> property).
       p You also have a block in the file that will test the found files against a <code>.tsx</code> extension, and will pass those files through the <code>ts-loader</code> to support transpiling TSX.
     li
       p Create your Typescript configuration file.
       p
-        code-block(:title="example_code.tsconfig.filepath" language="json")
-          | {{ example_code.tsconfig.contents }}
+        code-block(title="tsconfig.json" language="json")
+          | {
+          |   "compilerOptions": {
+          |     "strict": true,
+          |     "esModuleInterop": true,
+          |     "forceConsistentCasingInFileNames": true,
+          |     "rootDir": "./components",
+          |     "jsx": "react",
+          |     "target": "es6",
+          |     "module": "commonjs",
+          |     "allowJs": true
+          |   },
+          |   "exclude": ["home_resource.ts", "app.ts"]
+          | }
       p This configuration file aids in allowing Webpack to continue with its task, and will exclude your Deno files from the Typescript compiler &mdash; seperate from Deno's Typescript compiler.
     li
       p Install the dependencies.

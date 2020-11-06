@@ -46,7 +46,7 @@ page
           p
             code-block-slotted(:header="false" language="typescript")
               template(v-slot:code)
-                | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+                | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
                 |
                 | class HomeResource extends Drash.Http.Resource {
                 |
@@ -80,7 +80,7 @@ page
           p
             code-block-slotted(:header="false" language="typescript")
               template(v-slot:code)
-                | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+                | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
                 |
                 | class HomeResource extends Drash.Http.Resource {
                 |
@@ -114,7 +114,7 @@ page
           p
             code-block-slotted(:header="false" language="typescript")
               template(v-slot:code)
-                | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+                | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
                 |
                 | class HomeResource extends Drash.Http.Resource {
                 |
@@ -148,7 +148,7 @@ page
           p
             code-block-slotted(:header="false" language="typescript")
               template(v-slot:code)
-                | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+                | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
                 |
                 | class MyHtmlResource extends Drash.Http.Resource {
                 |
@@ -195,7 +195,7 @@ page
           p
             code-block-slotted(:header="false" language="typescript")
               template(v-slot:code)
-                | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+                | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
                 |
                 | class MyHtmlResource extends Drash.Http.Resource {
                 |

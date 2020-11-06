@@ -16,8 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_1'],
-      example_code_src: this.$example_code['drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_1/src'],
       title: title,
       subtitle: subtitle,
       toc: [
@@ -62,7 +60,31 @@ page(
       p Your app file will contain a single resource: <code>HomeResource</code>.
       p
         code-block(title="/path/to/your/project/src/app.ts" language="typescript")
-          | {{ example_code_src.app.contents }}
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | class HomeResource extends Drash.Http.Resource {
+          |
+          |   static paths = [
+          |     "/"
+          |   ];
+          |
+          |   public GET() {
+          |     this.response.body = 'Hello World!';
+          |     return this.response;
+          |   }
+          | }
+          |
+          | const server = new Drash.Http.Server({
+          |   response_output: "application/json",
+          |   resources: [
+          |     HomeResource
+          |   ],
+          | });
+          |
+          | server.run({
+          |   hostname: "drash_app_drash",
+          |   port: 1447
+          | });
   hr
   h2-hash Verification
   p Verify that your app is working by running it.

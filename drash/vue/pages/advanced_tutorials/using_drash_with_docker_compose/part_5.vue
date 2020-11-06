@@ -16,8 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_5'],
-      example_code_docker: this.$example_code['drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_5/.docker'],
       title: title,
       subtitle: subtitle,
       toc: [
