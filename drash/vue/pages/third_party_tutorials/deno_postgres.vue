@@ -48,7 +48,7 @@ page(
     li
       p Create your resource file. Your resource will use deno-postgres to make a query to the database&ndash;getting all user records from the database.
       code-block(title="/path/to/your/project/home_resource.ts" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | import { denoPostgres } from "./app.ts";
         | 
         | export default class HomeResource extends Drash.Http.Resource {
@@ -66,7 +66,7 @@ page(
     li
       p Create your app file. Your resource file is expecting <code>denoPostgres</code>; therefore, your app file will need to <code>export</code> it.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | // Set up the server
         | 
