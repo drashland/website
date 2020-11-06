@@ -90,6 +90,10 @@ export default {
             "Creating A Client Side Rendered App (React)": "/advanced-tutorials/creating-a-client-side-rendered-app-react",
             "Content Negotiation": "/advanced-tutorials/content-negotiation",
             "Using Drash With Docker Compose": "/advanced-tutorials/using-drash-with-docker-compose",
+          },
+          "Third Party Tutorials": {
+            "deno_mysql": "/third-party-tutorials/deno-mysql",
+            "deno-postgres": "/third-party-tutorials/deno-postgres",
           }
         },
         module: "drash",
