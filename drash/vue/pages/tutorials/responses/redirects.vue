@@ -50,12 +50,48 @@ page(
     li
       p Create your <code>ColaResource</code> file.
       code-block(:title="example_code.cola_resource.filepath" language="typescript")
-        | {{ example_code.cola_resource.contents }}
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | export default class ColaResource extends Drash.Http.Resource {
+        |   protected COLAS: any = {
+        |     1: "Diet Cola",
+        |     2: "Vanilla Cola",
+        |     3: "Cherry Cola",
+        |   };
+        | 
+        |   static paths = ["/cola/:id"];
+        | 
+        |   public GET() {
+        |     let colaId = this.request.getPathParam("id");
+        | 
+        |     if (!COLAS[colaId]) {
+        |       return this.response.redirect(302, "/colas/1");
+        |     }
+        | 
+        |     this.response.body = this.getCola(colaId);
+        |     return this.response;
+        |   }
+        | 
+        |   protected getCola(colaId: string) {
+        |     return this.COLAS[colaId];
+        |   }
+        | }
     li
       p Create your app file.
       code-block(:title="example_code.app.filepath" language="typescript")
-        | {{ example_code.app.contents }}
-
+        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | 
+        | import ColaResource from "./home_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   response_output: "application/json",
+        |   resources: [ColaResource],
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
   hr
   h2-hash Verification
   ol
