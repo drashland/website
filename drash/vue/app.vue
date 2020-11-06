@@ -59,11 +59,7 @@ export default {
               "Response Cookies": "/tutorials/cookies/response-cookies",
             },
             "Front-End": {
-              "Introduction": "/tutorials/front-end/introduction",
-              "Creating A Template": "/tutorials/front-end/creating-a-template",
-              "Extending A Template": "/tutorials/front-end/extending-a-template",
-              "Adding Template Partials": "/tutorials/front-end/adding-template-partials",
-              "In-Template JavaScript": "/tutorials/front-end/in-template-javascript",
+              "Using Jae": "/tutorials/front-end/using-jae",
             },
             "CLI": {
               "Introduction": "/tutorials/cli/introduction",
