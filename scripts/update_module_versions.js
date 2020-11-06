@@ -197,8 +197,6 @@ if (moduleToUpdate === "drash") {
   html = fs.readFileSync("./drash/example_code/getting_started/quickstart/app.ts", "utf8")
   html = html.replace(replaceRegex.from, replaceRegex.to)
   fs.writeFileSync("./drash/example_code/getting_started/quickstart/app.ts", html);
-
-  // Ignoring: third_party_tutorials and advanced/tutorials/microservices
 }
 
 if (moduleToUpdate === "dmm") {

@@ -102,7 +102,6 @@ div.c-sidebar
           a-base-url(href="/tutorials/misc/error-handling-angular-deep-linking") Error Handling: Angular Deep Linking
           a-base-url(href="/tutorials/misc/pretty-links") Pretty Links
           a-base-url(href="/tutorials/misc/redirects") Redirects
-          //- a-base-url(href="/tutorials/misc/adding-third-party-modules") Adding Third-Party Modules
       span.heading
         p.arrow.right
         span.heading-link Advanced Tutorials

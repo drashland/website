@@ -91,10 +91,6 @@ export default {
             "Content Negotiation": "/advanced-tutorials/content-negotiation",
             "Using Drash With Docker Compose": "/advanced-tutorials/using-drash-with-docker-compose",
           },
-          // "Third Party Tutorials": {
-          //   "deno_mysql": "/third-party-tutorials/deno-mysql",
-          //   "deno-postgres": "/third-party-tutorials/deno-postgres",
-          // }
         },
         module: "drash",
       }
