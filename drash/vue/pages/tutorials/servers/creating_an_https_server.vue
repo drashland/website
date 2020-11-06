@@ -34,7 +34,7 @@ page(
   p HTTP servers use <code>server.run()</code> and HTTPS servers use <code>server.runTLS()</code> with two extra configs: <code>certFile</code> and <code>keyFile</code>.
   hr
   h2-hash Server Syntax
-  code-block(:title="example_code.app.filepath" language="typescript")
+  code-block(title="/path/to/your/project/app.ts" language="typescript")
     | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
     | 
     | import HomeResource from "./home_resource.ts";

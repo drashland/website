@@ -49,7 +49,7 @@ page(
   ol
     li
       p Create your <code>ColaResource</code> file.
-      code-block(:title="example_code.cola_resource.filepath" language="typescript")
+      code-block(title="/path/to/your/project/cola_resource.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | export default class ColaResource extends Drash.Http.Resource {
@@ -78,7 +78,7 @@ page(
         | }
     li
       p Create your app file.
-      code-block(:title="example_code.app.filepath" language="typescript")
+      code-block(title="/path/to/your/project/app.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | import ColaResource from "./home_resource.ts";

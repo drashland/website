@@ -44,7 +44,7 @@ page(
   ol
     li
       p Create your app file. The <code>static_paths</code> config tells your Drash server what paths on your filesystem contain static files that can be served to clients. Ultimately, your Drash server will prefix the <code>directory</code> config with your paths in your <code>static_paths</code> config. For example, your Drash server will take a request to <code>/public/assets/css/style.css</code> and resolve it to <code>{directory_config}/public/assets/css/style.css</code>.
-      code-block(:title="example_code.app.filepath" language="typescript" line_highlight="6,9")
+      code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="6,9")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | import HomeResource from "./home_resource.ts";
@@ -63,14 +63,14 @@ page(
 
     li
       p Create your <code>style.css</code> file in your static directory.
-      code-block(:title="example_code_public.style.filepath" language="css")
+      code-block(title="/path/to/your/project/public/style.css" language="css")
         | .my-text {
         |     color: #ff0000;
         | }
 
     li
       p Create your resource file. Your resource file will serve HTML; and your HTML will reference <code>/public/style.css</code>.
-      code-block(:title="example_code.home_resource.filepath" language="typescript")
+      code-block(title="/path/to/your/project/home_resource.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | export default class HomeResource extends Drash.Http.Resource {

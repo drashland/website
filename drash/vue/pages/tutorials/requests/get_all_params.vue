@@ -50,7 +50,7 @@ page(
   ol
     li
       p Create your resource file. You resource file will retrieve all header, body, query and path parameters for the request.
-      code-block(title="home_resource.ts" language="typescript")
+      code-block(title="/path/to/your/project/home_resource.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version}}/mod.ts";
         |
         | export default class HomeResource extends Drash.Http.Resource {
@@ -73,7 +73,7 @@ page(
         | }
     li
       p Create your app file.
-      code-block(title="app.ts" language="typescript")
+      code-block(title="/path/to/your/project/app.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version}}/mod.ts";
         | import HomeResource from "./home_resource.ts";
         |

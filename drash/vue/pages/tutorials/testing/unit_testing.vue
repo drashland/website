@@ -47,7 +47,7 @@ page(
   ol
     li
       p Create your <code>HomeResource</code> file.
-      code-block(:title="example_code.home_resource.filepath" language="typescript")
+      code-block(title="/path/to/your/project/home_resource.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         |
         | export default class HomeResource extends Drash.Http.Resource {
@@ -61,7 +61,7 @@ page(
         | }
     li
       p Create your <code>OrdersResource</code> file.
-      code-block(:title="example_code.orders_resource.filepath" language="typescript")
+      code-block(title="/path/to/your/project/orders_resource.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | export default class OrdersResource extends Drash.Http.Resource {
@@ -110,7 +110,7 @@ page(
         | }
     li 
       p Create your <code>UsersResource</code> file.
-      code-block(:title="example_code.users_resource.filepath" language="typescript")
+      code-block(title="/path/to/your/project/users_resource.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | export default class UsersResource extends Drash.Http.Resource {
@@ -153,7 +153,7 @@ page(
         | }
     li
       p Create your <code>app</code> file.
-      code-block(:title="example_code.app.filepath" language="typescript")
+      code-block(title="/path/to/your/project/app.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | import HomeResource from "./home_resource.ts";
@@ -178,12 +178,12 @@ page(
   ol
     li
       p Create your test runner file. Your test runner file will import and run your tests. Your server needs to be running so the testing module can make requests to your server using <code>fetch()</code> and receive the responses you expect.
-      code-block(:title="example_code.run_tests.filepath" language="typescript")
+      code-block(title="/path/to/your/project/run_tests.ts" language="typescript")
         | // A single file to run all your tests
         | import "./tests.ts";
     li
       p Write your tests.
-      code-block(:title="example_code.tests.filepath" language="typescript")
+      code-block(title="/path/to/your/project/tests.ts" language="typescript")
         | import { assertEquals } from "https://deno.land/std@0.75.0/testing/asserts.ts";
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | import HomeResource from "./home_resource.ts";

@@ -43,7 +43,7 @@ page(
   ol
     li
       p Create your resource file. You resource file will check for the <code>:id</code> path param in the request's URL. If it exists and is a <code>number</code>, then it will return what was passed in. If it is <code>NaN</code>, then it will throw a <code>400 Bad Request</code> response.
-      code-block(:title="example_code.users_resource.filepath" language="typescript")
+      code-block(title="/path/to/your/project/users_resource.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | export default class UsersResource extends Drash.Http.Resource {
@@ -70,7 +70,7 @@ page(
         | }
 
       p You can also specify optional parameters by adding <code>?</code>. The resource would still match even if the optional parameters are not passed in. For example:
-      code-block(:title="example_code.users_resource.filepath" language="typescript")
+      code-block(:header="false" language="typescript")
         | static paths = ["/users/:id/:name?"];
         | // or
         | static paths = ["/users/:name?"];
@@ -86,7 +86,7 @@ page(
         li <code>/users/1/John/54/UK/</code>
     li
       p Create your app file.
-      code-block(:title="example_code.app.filepath" language="typescript")
+      code-block(title="/path/to/your/project/app.ts" language="typescript")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | import UsersResource from "./users_resource.ts";
