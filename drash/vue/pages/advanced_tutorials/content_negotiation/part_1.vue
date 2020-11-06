@@ -52,7 +52,7 @@ page(
     li
       p Create the <code>users.json</code> file.
       p
-        code-block(title="users.json" language="json")
+        code-block(title="/path/to/your/project/users.json" language="json")
           | {
           |   "1": {
           |     "id": 1,

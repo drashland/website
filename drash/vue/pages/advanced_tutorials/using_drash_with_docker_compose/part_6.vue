@@ -25,9 +25,28 @@ export default {
         "Steps",
         "Verification",
       ],
+      index_html: indexHtml,
     };
   },
 }
+
+const indexHtml = `<!DOCTYPE html>
+<html class="h-full w-full">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></\script>
+    <title>Home</title>
+</head>
+<body>
+<div>
+    <h1 class="text-5xl">Home</h1>
+    <p class="text-xl mb-5">This is the home page!</p>
+</div>
+</body>
+</html>`;
 </script>
 
 <template lang="pug">
@@ -112,7 +131,7 @@ page(
       p Create your HTML file.
       p
         code-block(title="/path/to/your/project/src/index.html" language="html")
-          | {{ example_code_html.index.contents }}
+          | {{ index_html }}
     li
       p Create your CSS file.
       p

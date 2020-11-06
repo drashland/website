@@ -54,7 +54,7 @@ page(
     li
       p Create your users resource file.
       p
-        code-block(title="users_resource.ts" language="typescript")
+        code-block(title="/path/to/your/project/users_resource.ts" language="typescript")
           | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
           |
           | export default class UsersResource extends Drash.Http.Resource {

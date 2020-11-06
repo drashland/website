@@ -22,10 +22,64 @@ export default {
         "Verification",
       ],
       title,
-      subtitle
+      subtitle,
+      about_html: aboutHtml,
+      contact_html: contactHtml,
+      home_html: homeHtml,
     };
   },
 }
+
+const homeHtml = `<!DOCTYPE html>
+<html class="h-full w-full">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <title>Home</title>
+  </head>
+  <body style="background: #f4f4f4;">
+    <div style="max-width: 640px; margin: 100px auto;">
+      <h1 class="text-5xl">Home</h1>
+      <p class="text-xl mb-5">This is the home page!</p>
+    </div>
+  </body>
+</html>
+`;
+
+const aboutHtml = `<!DOCTYPE html>
+<html class="h-full w-full">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <title>About</title>
+  </head>
+  <body style="background: #f4f4f4;">
+    <div style="max-width: 640px; margin: 100px auto;">
+      <h1 class="text-5xl">About</h1>
+      <p class="text-xl mb-5">This is the about page!</p>
+    </div>
+  </body>
+</html>
+`;
+
+const contactHtml = `<!DOCTYPE html>
+<html class="h-full w-full">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <title>Contact</title>
+  </head>
+  <body style="background: #f4f4f4;">
+    <div style="max-width: 640px; margin: 100px auto;">
+      <h1 class="text-5xl">Contact</h1>
+      <p class="text-xl mb-5">This is the contact page!</p>
+    </div>
+  </body>
+</html>
+`;
 </script>
 
 <template lang="pug">
@@ -52,20 +106,20 @@ page(
   h2-hash Steps
   ol
     li
-      p Create your home HTML file.
+      p Create your Home HTML file.
       p
-        code-block(title="html/home.html" language="html")
-          | {{ example_code_html.home.contents }}
+        code-block(title="/path/to/your/project/html/home.html" language="html")
+          | {{ home_html }}
     li
-      p Create your contact HTML file.
+      p Create your Contact HTML file.
       p
-        code-block(title="html/contact.html" language="html")
-          | {{ example_code_html.contact.contents }}
+        code-block(title="/path/to/your/project/html/contact.html" language="html")
+          | {{ contact_html }}
     li
-      p Create your about HTML file.
+      p Create your About HTML file.
       p
-        code-block(title="html/about.html" language="html")
-          | {{ example_code_html.about.contents }}
+        code-block(title="/path/to/your/project/html/about.html" language="html")
+          | {{ about_html }}
   hr
   h2-hash Verification
   p Stop your server (<code>ctrl + c</code>) if you still have it running from Part 2.
