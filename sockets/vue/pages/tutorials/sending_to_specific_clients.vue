@@ -50,10 +50,10 @@ page(
     li Create your server.
     li Create two clients and send a packet from one client to the other.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
   hr
   h2-hash Steps
   ol

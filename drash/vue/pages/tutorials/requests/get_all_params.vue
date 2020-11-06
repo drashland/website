@@ -100,7 +100,26 @@ page(
         |   --request POST \
         |   --data '{"name":"Edward","region":"UK"}' \
         |   localhost:1337/Edward/UK
-      p You should receive the following response (or somewhat similar, could differ based on your host machine):
-      code-block(:header="false" language="shell-session")
-        | {"bodyParams":{"data":{"name":"Edward","region":"UK"},"content_type":"application/json"},"headerParams":{"host":"localhost:1337","user-agent":"curl/7.54.0","accept":"*/*","content-type":"application/json","content-length":"31"},"pathParams":{"name":"Edward","region":"UK"}}
+      p You should receive the following response (we pretty-printed the response for you):
+      code-block(:header="false" language="json")
+        | {
+        |   "bodyParams": {
+        |     "data": {
+        |       "name": "Edward",
+        |       "region": "UK"
+        |     },
+        |     "content_type": "application/json"
+        |   },
+        |   "headerParams": {
+        |     "host": "localhost:1337",
+        |     "user-agent": "curl/7.54.0",
+        |     "accept": "*/*",
+        |     "content-type": "application/json",
+        |     "content-length": "31"
+        |   },
+        |   "pathParams": {
+        |     "name": "Edward",
+        |     "region": "UK"
+        |   }
+        | }
 </template>

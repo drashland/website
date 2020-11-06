@@ -42,16 +42,16 @@ page(
   h2-hash Before You Get Started
   p Now that you have your <code>docker-compose.yml</code> file set up, you now need your <code>.dockerfile</code> files (also known as <code>Dockerfile</code> files). These files will tell Docker how it should build. The <code>Dockerfile</code> files you will create in this tutorial part will be used by each container.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     ▾ .docker/
-    |         apache.dockerfile
-    |         drash.dockerfile
-    |         nginx.dockerfile
-    |     ▾ src/
-    |         app.ts
-    |     docker-compose.yml
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     ▾ .docker/
+      |         apache.dockerfile
+      |         drash.dockerfile
+      |         nginx.dockerfile
+      |     ▾ src/
+      |         app.ts
+      |     docker-compose.yml
   hr
   h2-hash Steps
   ol

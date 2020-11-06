@@ -42,12 +42,12 @@ page(
   h2-hash Before You Get Started
   p Your server will not be able to handle requests for your user records until you give it a resource that grants clients access to your user records. In Part 2, you made your server expect the <code>users_resource.ts</code> file. You will create this file next and make sure your server runs properly with it in the Verification section.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     users.json
-    |     users_resource.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     users.json
+      |     users_resource.ts
   hr
   h2-hash Steps
   ol

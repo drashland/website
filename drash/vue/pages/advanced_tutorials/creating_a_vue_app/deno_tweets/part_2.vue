@@ -42,11 +42,11 @@ page(
   h2-hash Before You Get Started
   p Your server will not be able to serve your HTML file until you give it the resource that can do so. In Part 1, you made your server expect a home resource. You will create this file next and will verify your server runs properly with it in the Verification section.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     home_resource.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     home_resource.ts
   hr
   h2-hash Steps
   ol

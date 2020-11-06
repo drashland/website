@@ -42,14 +42,14 @@ page(
   h2-hash Before You Get Started
   p By now, you should have your server serving an HTML file. In this tutorial part, you will configure Webpack and Typescript to transpile your React component to set the title and description for the page.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     home_resource.ts
-    |     index.html
-    |     tsconfig.json
-    |     webpack.config.js
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     home_resource.ts
+      |     index.html
+      |     tsconfig.json
+      |     webpack.config.js
   hr
   h2-hash Steps
   ol

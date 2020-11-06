@@ -46,8 +46,13 @@ page(
   h2-hash Steps
   ol
     li
-      p Create your app file. You will be using the <code>static_paths</code> config to define your virtual paths. Also, you will define the <code>directory</code> config to help your server map virtual paths to physical paths. In the example code block below, you are defining a virtual path of <code>/assets</code> to the physical path of <code>/front_end</code>. The physical path must be <em>relative</em> to the directory you specify in the <code>directory</code> config.
-      code-block(title="/path/to/your/project/back_end/app.ts" language="typescript" line_highlight="6,9")
+      p Create your app file. You will be using the <code>static_paths</code> config to define your virtual paths. Also, you will define the <code>directory</code> config to help your server map virtual paths to physical paths.
+      div.mt-5.mb-5.bg-blue-100.border-l-4.border-teal-500.rounded-b.text-blue-900.px-4.py-3.shadow-md(role="alert")
+        div.py-1
+          p.font-bold Wait! Please read this before continuing!
+          p.text-sm Your <code class="bg-transparent text-blue-900">directory</code> config SHOULD NOT HAVE a trailing slash and your physical paths SHOULD HAVE a leading slash. If you do not set this up properly, then your server will not map virtual paths to physical paths correctly.
+      p In the example code block below, you are defining a virtual path of <code>/assets</code> to the physical path of <code>/front_end</code> (the key is the virtual path and the value is the physical path). The physical path must be <em>relative</em> to the directory you specify in the <code>directory</code> config.
+      code-block(title="/path/to/your/project/back_end/app.ts" language="typescript" line_highlight="6,10")
         | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         | 
         | import HomeResource from "./home_resource.ts";

@@ -42,17 +42,17 @@ page(
   h2-hash Before You Get Started
   p Now that you have everything set up, you can start writing your React components in TSX.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     ▾ components/
-    |         App.tsx
-    |         DenoTweets.tsx
-    |     home_resource.ts
-    |     index.html
-    |     tsconfig.json
-    |     webpack.config.js
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     ▾ components/
+      |         App.tsx
+      |         DenoTweets.tsx
+      |     home_resource.ts
+      |     index.html
+      |     tsconfig.json
+      |     webpack.config.js
   hr
   h2-hash Steps
   ol

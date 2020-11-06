@@ -44,10 +44,10 @@ page(
   h2-hash Before You Get Started
   p In this tutorial, you will create a very basic server that can handle <code>ping</code>, <code>pong</code>, and <code>test</code> packets.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
   hr
   h2-hash Steps
   ol

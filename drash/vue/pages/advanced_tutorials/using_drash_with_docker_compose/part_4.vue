@@ -42,19 +42,19 @@ page(
   h2-hash Before You Get Started
   p Now that you have your <code>Dockerfile</code> files set up for the containers, you now need to create the configuration file for your selected proxy server. If you are using Nginx, then you will create an Nginx configuration file. If you are using Apache, then you will create an Apache configuration file.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     ▾ .docker/
-    |         ▾ conf/
-    |             apache.conf
-    |             nginx.conf
-    |         apache.dockerfile
-    |         drash.dockerfile
-    |         nginx.dockerfile
-    |     ▾ src/
-    |         app.ts
-    |     docker-compose.yml
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     ▾ .docker/
+      |         ▾ conf/
+      |             apache.conf
+      |             nginx.conf
+      |         apache.dockerfile
+      |         drash.dockerfile
+      |         nginx.dockerfile
+      |     ▾ src/
+      |         app.ts
+      |     docker-compose.yml
   hr
   h2-hash Steps
   ol

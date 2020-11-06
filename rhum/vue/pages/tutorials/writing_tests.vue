@@ -54,11 +54,11 @@ page(
   h3 Test Cases
   p Test cases contain the assertions. They are the tests.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text")
-    | ▾ /path/to/your/project/
-    |     functions.ts
-    |     functions_test.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text")
+      | ▾ /path/to/your/project/
+      |     functions.ts
+      |     functions_test.ts
   hr
   h2-hash Steps
   ol

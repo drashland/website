@@ -42,14 +42,14 @@ page(
   h2-hash Before You Get Started
   p Your server will not be able to handle requests for coffee and tea records until you give it resources that can send your records back to clients. In Part 2, you made your server expect a coffee and tea resource. You will create these files next and will verify your server runs properly with them in the Verification section.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     coffee.json
-    |     coffee_resource.ts
-    |     tea.json
-    |     tea_resource.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     coffee.json
+      |     coffee_resource.ts
+      |     tea.json
+      |     tea_resource.ts
   hr
   h2-hash Steps
   ol

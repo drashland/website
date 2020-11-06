@@ -42,10 +42,10 @@ page(
   h2-hash Before You Get Started
   p Before you start building your application, you need the data that will drive this tutorial. For simplicity, you will simulate retrieving records from a database. You will pretend that you have queried a database and retrieved three user records. This data will be parsable as JSON.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     users.json
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     users.json
   hr
   h2-hash Steps
   ol

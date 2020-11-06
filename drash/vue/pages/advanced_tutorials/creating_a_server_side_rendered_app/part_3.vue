@@ -91,17 +91,17 @@ page(
 )
   breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="3")
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-   | ▾ /path/to/your/project/
-   |     ▾ html/
-   |         about.html
-   |         contact.html
-   |         home.html
-   |     about_resource.ts
-   |     app.ts
-   |     contact_resource.ts
-   |     home_resource.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+     | ▾ /path/to/your/project/
+     |     ▾ html/
+     |         about.html
+     |         contact.html
+     |         home.html
+     |     about_resource.ts
+     |     app.ts
+     |     contact_resource.ts
+     |     home_resource.ts
   hr
   h2-hash Steps
   ol

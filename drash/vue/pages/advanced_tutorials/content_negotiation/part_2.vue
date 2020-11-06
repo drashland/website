@@ -42,11 +42,11 @@ page(
   h2-hash Before You Get Started
   p Now that you have your user records from your "database" in place from Part 1, you need a server to handle requests for that data. The server you will create in this tutorial part will be very basic. It will only handle requests to one resource. This resource will be your users resource.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     users.json
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     users.json
   hr
   h2-hash Steps
   ol

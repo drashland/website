@@ -62,22 +62,22 @@ page(
   h2-hash Before You Get Started
   p Now that you have a working Docker environment, you can try linking client-side assets.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     ▾ .docker/
-    |         ▾ conf/
-    |             apache.conf
-    |             nginx.conf
-    |         apache.dockerfile
-    |         drash.dockerfile
-    |         nginx.dockerfile
-    |     ▾ src/
-    |         app.ts
-    |         index.html
-    |         index.js
-    |         index.css
-    |     docker-compose.yml
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     ▾ .docker/
+      |         ▾ conf/
+      |             apache.conf
+      |             nginx.conf
+      |         apache.dockerfile
+      |         drash.dockerfile
+      |         nginx.dockerfile
+      |     ▾ src/
+      |         app.ts
+      |         index.html
+      |         index.js
+      |         index.css
+      |     docker-compose.yml
   hr
   h2-hash Steps
   ol

@@ -78,12 +78,12 @@ page(
   h2-hash Before You Get Started
   p In this tutorial part, you will create the front-end of your application.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     chat.js
-    |     index.html
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     chat.js
+      |     index.html
   hr
   h2-hash Steps
   ol

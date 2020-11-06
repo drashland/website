@@ -42,11 +42,11 @@ page(
   h2-hash Before You Get Started
   p You will be creating a basic Drash server. If you haven't read the #[a( href="/#/tutorials/servers/creating-a-server") Creating A Server] section then do so before reading this tutorial.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     ▾ src/
-    |         app.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     ▾ src/
+      |         app.ts
   hr
   h2-hash Steps
   ol

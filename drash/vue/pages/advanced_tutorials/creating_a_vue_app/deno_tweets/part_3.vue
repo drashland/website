@@ -62,12 +62,12 @@ page(
 )
   breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="4")
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     home_resource.ts
-    |     index.html
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     home_resource.ts
+      |     index.html
   hr
   h2-hash Steps
   ol

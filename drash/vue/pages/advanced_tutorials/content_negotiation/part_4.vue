@@ -105,13 +105,13 @@ page(
   p Now that your server can use your users resource to serve user data, you can have your resource change the representation (the content type) of its user data before it is sent back to the client. Drash defines content types according to the MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type" target="_BLANK">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type</a>.
   p In this tutorial part, you will create a profile card in HTML using Tailwind CSS. When clients make requests to your users resource, they will be able to specify how they want to your data using the <code>Accept</code> header.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     user.html
-    |     users.json
-    |     users_resource.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     user.html
+      |     users.json
+      |     users_resource.ts
   hr
   h2-hash Steps
   ol

@@ -36,7 +36,7 @@ page(
   p Drash defines resources according to the MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web" target="_BLANK">https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web</a>
   p Unlike most other frameworks, Drash uses resource classes to handle requests and send responses. So, instead of defining a route with a specific HTTP method (e.g., <code>app.get()</code>), creating a controller class, and mapping that controller class to that route; you create a resource class, define its routes in its <code>paths</code> property, and define its HTTP methods as <code>public</code> functions.
   p You create a resource by extending the <code>Drash.Http.Resource</code> class. This is the base class for all resources. You can define your own base resource class, but it MUST extend the <code>Drash.Http.Resource</code> class.
-  p Drash servers only register resources that are specified in their <code>resources</code> config during creation. See below. In the below example, the <code>HomeResource</code> class is the only resource that will be regisrered by the server.
+  p Drash servers only register the resources that are specified in their <code>resources</code> config. In the example code below, the <code>HomeResource</code> class is the only resource that will be regisrered by the server.
   code-block(:header="false" language="typescript" line_highlight="6")
     | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
     | 
@@ -50,8 +50,9 @@ page(
     |   hostname: "localhost",
     |   port: 1447
     | });
-  p When Drash servers register resources, they also register their paths as accessible URIs. An accessible URI is a URI that a client can target. Any URI that does not exist in any resource is a non-accessible URI. Non-accessible URIs ultimately lead to a response other than a <code>200 OK</code> repsonse. The default response for a request to a non-accessible URI is a <code>404 Not Found</code> error.
-  p Adding resources is as simple as importing the resource and adding it to the <code>resources</code> config. See below. The <code>UsersResource</code> class is imported and added to the <code>resources</code> config.
+  p When Drash servers register resources, they also register their paths as accessible URIs. An accessible URI is a URI that a client can target. In other words, if a resource specifies <code>/my-resource</code> in its <code>paths</code> property, then clients can go to <code>{server-adress.tld}/my-resource</code>.
+  p Any URI that does not exist in any resource is a non-accessible URI. Non-accessible URIs ultimately lead to a <code>404 Not Found</code> error response.
+  p Adding resources is as simple as importing the resource and adding it to the <code>resources</code> config (see below). The <code>UsersResource</code> class is imported and added to the <code>resources</code> config.
   code-block(:header="false" language="typescript" line_highlight="4,9")
     | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
     | 
@@ -71,7 +72,7 @@ page(
     | });
   hr
   h2-hash Creating A Resource
-  p Take the example below. This resource handles requests at the <code>/</code> URI. If a client makes a request to this URI, this resource would handle that request.
+  p Take the example below. This resource handles requests at the <code>/</code> URI. If a client makes a request to <code>/</code>, this resource would handle that request.
   code-block(title="/path/to/your/project/home_resource.ts" language="typescript")
     | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
     | 

@@ -42,19 +42,19 @@ page(
   h2-hash Before You Get Started
   p Now that you have your configuration set up for the containers, you can now build and start your Docker environment.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     ▾ .docker/
-    |         ▾ conf/
-    |             apache.conf
-    |             nginx.conf
-    |         apache.dockerfile
-    |         drash.dockerfile
-    |         nginx.dockerfile
-    |     ▾ src/
-    |         app.ts
-    |     docker-compose.yml
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     ▾ .docker/
+      |         ▾ conf/
+      |             apache.conf
+      |             nginx.conf
+      |         apache.dockerfile
+      |         drash.dockerfile
+      |         nginx.dockerfile
+      |     ▾ src/
+      |         app.ts
+      |     docker-compose.yml
   hr
   h2-hash Steps
   ol

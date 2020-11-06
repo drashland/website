@@ -42,12 +42,12 @@ page(
   h2-hash Before You Get Started
   p Now that you have a working Drash server, you can add it to the docker orchestration. In this tutorial part, you will be creating new services for Docker to build and start, such as a Drash container and an Nginx or Apache container.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     ▾ src/
-    |         app.ts
-    |     docker-compose.yml
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     ▾ src/
+      |         app.ts
+      |     docker-compose.yml
   hr
   h2-hash Steps
   ol

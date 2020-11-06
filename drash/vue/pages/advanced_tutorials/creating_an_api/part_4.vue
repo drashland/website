@@ -82,14 +82,14 @@ page(
       | }
   p In this tutorial part, you will override and replace <code>Drash.Http.Response</code> so it can send a more informative response schema.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     coffee.json
-    |     coffee_resource.ts
-    |     tea.json
-    |     tea_resource.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     coffee.json
+      |     coffee_resource.ts
+      |     tea.json
+      |     tea_resource.ts
   hr
   h2-hash Steps
   ol
