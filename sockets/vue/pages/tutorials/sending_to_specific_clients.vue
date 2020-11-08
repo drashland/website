@@ -76,7 +76,6 @@ page(
         | );
         |
         | // Open the channel
-        | server.openChannel("chat");
         | server.on("chat", (packet: Packet) => {
         |   const id = Number(packet.message)
         |   server.to("chat", `Hello from ${packet.from.id}`, id);

@@ -72,10 +72,7 @@ page(
         |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
         |
-        | // Open the General channel
-        | server.openChannel("General");
-        |
-        | // Add the General channel's packet handler
+        | // Open the General channel and add the General channel's packet handler
         | server.on("General", (packet: Packet) => {
         |     // Send the incoming message to all clients in the General channel
         |     server.to("General", packet.message);
