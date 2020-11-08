@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      base_url: this.$conf.sockets.base_url + "/#",
+      base_url: this.$conf.wocket.base_url + "/#",
       title: title,
       toc: [
         "About The Advanced Tutorials",

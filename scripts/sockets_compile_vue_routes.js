@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const configs = require("../configs.json");
-const directory = configs.root_directory + "/sockets/vue/pages";
-const outFile = configs.root_directory + "/sockets/assets/js/compiled_vue_routes.js";
+const directory = configs.root_directory + "/wocket/vue/pages";
+const outFile = configs.root_directory + "/wocket/assets/js/compiled_vue_routes.js";
 
 console.log(`Compiling ${outFile}`);
 

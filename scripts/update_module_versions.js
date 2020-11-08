@@ -34,8 +34,8 @@ if (moduleToUpdate === "rhum") {
   // skip rhum, as there isn't anything to update manually
 }
 
-if (moduleToUpdate === "sockets") {
-  // skip sockets, as no example code files
+if (moduleToUpdate === "wocket") {
+  // skip wocket, as no example code files
 }
 
 if (moduleToUpdate === "middleware") {

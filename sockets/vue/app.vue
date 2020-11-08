@@ -10,10 +10,10 @@ export default {
       build_date: this.$conf.build_date,
       environment: this.$conf.environment,
       sidebar: {
-        api_reference_href: "https://doc.deno.land/https/deno.land/x/sockets@" + this.$conf.sockets.latest_version + "/mod.ts",
-        base_url: this.$conf.sockets.base_url + "/#",
-        github_href: "https://github.com/drashland/sockets",
-        logo: "/assets/common/img/logo_sockets.svg",
+        api_reference_href: "https://doc.deno.land/https/deno.land/x/wocket@" + this.$conf.wocket.latest_version + "/mod.ts",
+        base_url: this.$conf.wocket.base_url + "/#",
+        github_href: "https://github.com/drashland/wocket",
+        logo: "/assets/common/img/logo_wocket.svg",
         menus: {
           "Getting Started": {
             Quickstart: "/#quickstart",
@@ -39,7 +39,7 @@ export default {
             }
           }
         },
-        module: "Sockets",
+        module: "Wocket",
       }
     };
   },
@@ -51,6 +51,6 @@ app-root(
   :build_date="build_date"
   :environment="environment"
   :sidebar="sidebar"
-  module="Sockets"
+  module="Wocket"
 )
 </template>

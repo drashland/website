@@ -27,18 +27,18 @@ export default {
 
 <template lang="pug">
 div
-  introduction-header(heading="Sockets" description="Sockets is a WebSocket library for Deno")
+  introduction-header(heading="Wocket" description="Wocket is a WebSocket library for Deno")
   div.flex.mb-5
-    a(href="https://github.com/drashland/sockets/releases" target="_BLANK")
-      img.mr-1(alt="Latest Sockets Release" src="https://img.shields.io/github/release/drashland/sockets.svg?color=brightgreen&label=Latest" width="auto" height="20")
-    a(href="https://github.com/drashland/sockets/actions" target="_BLANK")
-      img.mr-1(alt="Sockets CI" src="https://img.shields.io/github/workflow/status/drashland/sockets/master?label=CI" width="auto" height="20")
+    a(href="https://github.com/drashland/wocket/releases" target="_BLANK")
+      img.mr-1(alt="Latest Wocket Release" src="https://img.shields.io/github/release/drashland/wocket.svg?color=brightgreen&label=Latest" width="auto" height="20")
+    a(href="https://github.com/drashland/wocket/actions" target="_BLANK")
+      img.mr-1(alt="Wocket CI" src="https://img.shields.io/github/workflow/status/drashland/wocket/master?label=CI" width="auto" height="20")
     a(href="https://discord.gg/SgejNXq" target="_BLANK")
       img.mr-1(alt="Drash Land Discord" src="https://img.shields.io/badge/Chat-on%20Discord-blue")
     a(href="https://twitter.com/drash_land" target="_BLANK")
       img.mr-1(alt="Drash Land Twitter" src="https://img.shields.io/twitter/url?label=%40drash_land&style=social&url=https%3A%2F%2Ftwitter.com%2Fdrash_land" width="auto" height="20")
     //a(href="https://rb.gy/vxmeed" target="_BLANK")
-      img(alt="Sockets YouTube" src="https://img.shields.io/badge/Tutorials-YouTube-red" width="auto" height="20")
+      img(alt="Wocket YouTube" src="https://img.shields.io/badge/Tutorials-YouTube-red" width="auto" height="20")
   div
     hr
     h2-hash Quickstart
@@ -46,7 +46,7 @@ div
       li
         p Create your server and allow it to handle a single channel named Channel 1.
         code-block(title="app.ts" language="typescript")
-          | import { Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
+          | import { Server } from "https://deno.land/x/wocket@{{ $conf.wocket.latest_version }}/mod.ts";
           |
           | // Create the server
           | const server = new Server();
@@ -82,7 +82,7 @@ div
           | < pong
     hr
     h2-hash Importing
-    code-block-import(name="Server" repo="sockets" :version="$conf.sockets.latest_version")
+    code-block-import(name="Server" repo="wocket" :version="$conf.wocket.latest_version")
     hr
     h2-hash Features
     ul

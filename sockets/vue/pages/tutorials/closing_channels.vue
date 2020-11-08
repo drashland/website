@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      base_url: this.$conf.sockets.base_url + "/#",
+      base_url: this.$conf.wocket.base_url + "/#",
       title: title,
       toc: [
         "Before You Get Started",
@@ -62,7 +62,7 @@ page(
     li
       p Create your server.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/wocket@{{ $conf.wocket.latest_version }}/mod.ts";
         |
         | // Create the server
         | const server = new Server();
@@ -80,7 +80,7 @@ page(
     li
       p Open 2 channels and add a packet handler to the Actions channel (see the highlighted code).
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="21-37")
-        | import { Packet, Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
+        | import { Packet, Server } from "https://deno.land/x/wocket@{{ $conf.wocket.latest_version }}/mod.ts";
         |
         | // Create the server
         | const server = new Server();

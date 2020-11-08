@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      base_url: this.$conf.sockets.base_url + "/#",
+      base_url: this.$conf.wocket.base_url + "/#",
       title: title,
       toc: [
         "About The Tutorials",
@@ -43,7 +43,7 @@ page(
   :toc="toc"
 )
   h2-hash About The Tutorials
-  p The tutorials in the sidebar are ordered (from top to bottom) in a way that will help you understand Sockets quickly &mdash; from creating a server to interacting with it. Since all tutorials have example code of setting up and starting a server, it is not required that you read the tutorials in order. However, it is greatly recommended.
+  p The tutorials in the sidebar are ordered (from top to bottom) in a way that will help you understand Wocket quickly &mdash; from creating a server to interacting with it. Since all tutorials have example code of setting up and starting a server, it is not required that you read the tutorials in order. However, it is greatly recommended.
   hr
   h2-hash wscat
   p All tutorials have a Verification section where you will interact with a server. The Verification section requires that you install <code>wscat</code> globally. To install <code>wscat</code>, run the following command:
@@ -56,11 +56,11 @@ page(
     li
       p
         strong Channel
-      p A channel is the same thing as a room or an event. In Sockets, we use the term "channel", so please keep that in mind.
+      p A channel is the same thing as a room or an event. In Wocket, we use the term "channel", so please keep that in mind.
     li
       p
         strong Packet
-      p A packet is an object containing a sender, a receiver, and a message. It is an advanced form of a message. In Sockets, we use the term packets to describe the data that is being sent and received. A packet has the following fields:
+      p A packet is an object containing a sender, a receiver, and a message. It is an advanced form of a message. In Wocket, we use the term packets to describe the data that is being sent and received. A packet has the following fields:
       ul
         li
           p
@@ -76,7 +76,7 @@ page(
           p The packet's message. This can be anything (e.g., a string, a number, binary data, or even a JSON object).
   hr
   h2-hash Sending Packets
-  p At times, you will be sending certain packets to a server using <code>wscat</code>. There are multiple packets that a Sockets server listens to. On receipt of one of the packets below, it will respond as stated below.
+  p At times, you will be sending certain packets to a server using <code>wscat</code>. There are multiple packets that a Wocket server listens to. On receipt of one of the packets below, it will respond as stated below.
   ul
     li
       p

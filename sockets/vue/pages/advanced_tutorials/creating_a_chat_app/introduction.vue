@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      base_url: this.$conf.sockets.base_url + "/#",
+      base_url: this.$conf.wocket.base_url + "/#",
       base_uri: "/advanced-tutorials/creating-a-chat-app",
       title: title,
       subtitle: subtitle,
@@ -45,14 +45,14 @@ page(
   breadcrumbs(:base_url="base_url + base_uri" :part="-1" :parts="3")
   hr
   h2-hash Overview
-  p In this tutorial series, you will learn how to create a simple chat app powered by Sockets. You will learn how to make a Sockets server handle packet messages between multiple clients.
+  p In this tutorial series, you will learn how to create a simple chat app powered by Wocket. You will learn how to make a Wocket server handle packet messages between multiple clients.
   p.mt-10.text-center
     a-get-started(:href="base_url + base_uri + '/part-1'")
   hr
   h2-hash End State
   p Below is an example of what you will create.
   p
-    img(src="/sockets/assets/img/creating_a_chat_app/verification_1.png")
+    img(src="/wocket/assets/img/creating_a_chat_app/verification_1.png")
   hr
   breadcrumbs(:base_url="base_url + base_uri" :part="-1" :parts="3")
 </template>

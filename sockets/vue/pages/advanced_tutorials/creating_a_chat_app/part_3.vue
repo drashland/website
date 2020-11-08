@@ -27,14 +27,14 @@ export default {
   },
   data() {
     return {
-      base_url: this.$conf.sockets.base_url + "/#",
+      base_url: this.$conf.wocket.base_url + "/#",
       base_uri: "/advanced-tutorials/creating-a-chat-app",
       title: title,
       subtitle: subtitle,
       index: `<!DOCTYPE html>
 <html class="h-full w-full">
   <head>
-    <title>Sockets</title>
+    <title>Wocket</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, user-scalable=no"/>
@@ -50,7 +50,7 @@ export default {
   </style>
   <body>
     <div class="mx-auto border border-black mt-10 p-2" id="container" style="max-width: 500px">
-      <div class="font-bold bg-black text-white text-center p-3" id="banner">Sockets Chat</div>
+      <div class="font-bold bg-black text-white text-center p-3" id="banner">Wocket Chat</div>
       <div class="overflow-x-auto" id="messages_container">
         <ul id="messages_list"></ul>
       </div>

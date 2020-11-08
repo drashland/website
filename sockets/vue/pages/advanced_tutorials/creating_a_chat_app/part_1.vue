@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      base_url: this.$conf.sockets.base_url + "/#",
+      base_url: this.$conf.wocket.base_url + "/#",
       base_uri: "/advanced-tutorials/creating-a-chat-app",
       title: title,
       subtitle: subtitle,
@@ -57,7 +57,7 @@ page(
     li
       p Create your server.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import { Server } from "https://deno.land/x/sockets@{{ $conf.sockets.latest_version }}/mod.ts";
+        | import { Server } from "https://deno.land/x/wocket@{{ $conf.wocket.latest_version }}/mod.ts";
         |
         | // Create the server
         | const server = new Server();

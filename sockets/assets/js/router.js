@@ -2,7 +2,7 @@ let conf = process.env.conf; // This variable comes from webpack.config.js under
 
 import VueRouter from "vue-router";
 
-import compiledRoutes from "/sockets/assets/js/compiled_vue_routes.js"
+import compiledRoutes from "/wocket/assets/js/compiled_vue_routes.js"
 
 let routes = [];
 let routesForErrors = {};
@@ -51,7 +51,7 @@ router.beforeEach((to, from, next) => {
   if (conf.environment != "production") {
     env = ` [${conf.environment}]`;
   }
-  document.title = "Sockets" + env + " - " + to.meta.title;
+  document.title = "Wocket" + env + " - " + to.meta.title;
   next();
 });
 
