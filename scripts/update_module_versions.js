@@ -2,7 +2,7 @@ const fs = require("fs");
 
 let html;
 const moduleToUpdate = process.argv[3]
-const releaseVersion = process.argv[5]
+const releaseVersion = process.argv[5].split('release-')[1]
 
 // update version in config
 const rawConfig = fs.readFileSync("./configs.json")
