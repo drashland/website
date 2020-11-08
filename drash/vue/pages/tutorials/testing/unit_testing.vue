@@ -12,7 +12,6 @@ export default {
   data() {
     return {
       title: title,
-      example_code: this.$example_code['drash/example_code/tutorials/testing/unit_testing'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",

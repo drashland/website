@@ -12,7 +12,6 @@ export default {
   data() {
     return {
       title: title,
-      example_code: this.$example_code['drash/example_code/about_drash'],
       toc: [
         "What Is Drash?",
         "Why Use Drash?",

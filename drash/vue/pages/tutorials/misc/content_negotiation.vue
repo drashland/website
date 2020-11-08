@@ -12,7 +12,6 @@ export default {
   data() {
     return {
       base_url: this.$conf.drash.base_url + "/#",
-      example_code: this.$example_code['drash/example_code/tutorials/misc/content_negotiation'],
       toc: [
         "Before You Get Started",
         "By First",

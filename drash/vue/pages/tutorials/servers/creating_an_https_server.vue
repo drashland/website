@@ -13,7 +13,6 @@ export default {
   data() {
     return {
       title: title,
-      example_code: this.$example_code['drash/example_code/tutorials/servers/creating_an_https_server'],
       toc: [
         "Before You Get Started",
         "Server Syntax",

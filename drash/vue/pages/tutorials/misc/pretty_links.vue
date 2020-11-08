@@ -9,7 +9,6 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/tutorials/misc/pretty_links'],
       title: resource.meta.title,
       toc: [
         "Before You Get Started",
