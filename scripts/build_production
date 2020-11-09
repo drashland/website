@@ -15,8 +15,8 @@ node scripts/drash_compile_vue_routes.js
 # Compile Rhum production environment
 node scripts/rhum_compile_vue_routes.js
 
-# Compile Sockets production environment
-node scripts/sockets_compile_vue_routes.js
+# Compile Wocket production environment
+node scripts/wocket_compile_vue_routes.js
 
 # Compile all html files for all modules
 node scripts/compile_production_html.js

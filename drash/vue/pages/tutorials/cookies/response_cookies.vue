@@ -10,7 +10,6 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/tutorials/cookies/response_cookies'],
       title: resource.meta.title,
       toc: [
         "Before You Get Started",

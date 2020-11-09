@@ -11,8 +11,6 @@ export default {
   data() {
     return {
       title: resource.meta.title,
-      example_code_front_end: this.$example_code['drash/example_code/tutorials/servers/serving_virtual_paths/front_end'],
-      example_code_back_end: this.$example_code['drash/example_code/tutorials/servers/serving_virtual_paths/back_end'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",

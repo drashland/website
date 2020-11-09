@@ -12,7 +12,6 @@ export default {
   data() {
     return {
       title: resource.meta.title,
-      example_code: this.$example_code['drash/example_code/tutorials/middleware/adding_server_level_middleware'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",

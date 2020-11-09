@@ -9,7 +9,6 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/tutorials/misc/adding_global_members'],
       title: resource.meta.title,
       toc: [
         "Before You Get Started",

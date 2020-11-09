@@ -11,8 +11,6 @@ export default {
   data() {
     return {
       title: resource.meta.title,
-      example_code: this.$example_code['drash/example_code/tutorials/servers/serving_static_paths'],
-      example_code_public: this.$example_code['drash/example_code/tutorials/servers/serving_static_paths/public'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
