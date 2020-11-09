@@ -29,6 +29,9 @@ export default {
             "update": "/cli_commands/update",
             "version": "/cli_commands/version"
           },
+          "Verisons": {
+            "v1.2.0": "/dmm/v1.2.0"
+          }
         },
         module: "dmm",
       }

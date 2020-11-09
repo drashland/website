@@ -1,0 +1,5 @@
+#!/bin/bash
+
+scripts/build_version dmm v1.2.0
+scripts/build_version drash v1.3.0
+scripts/build_version rhum v1.1.4

@@ -7,6 +7,7 @@
     "build:production": "scripts/build production",
     "build:staging": "scripts/build staging",
     "build:version": "scripts/build_version",
+    "build:versions": "scripts/build_versions",
     "drash:copy-api-reference": "cp ../deno-drash/api_reference.json drash/assets/json/api_reference.json",
     "rm:ds_store": "find . -name '.DS_Store' -type f -delete",
     "server": "nodemon server.js",
