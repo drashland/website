@@ -49,8 +49,7 @@ page(
     li Type into input fields; and
     li Make assertions about the current page following these actions.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
+  folder-structure-end-state
     | ▾ /path/to/your/project/
     |     app_test.ts
   hr
