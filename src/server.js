@@ -12,7 +12,7 @@ require("../scripts/rhum_compile_vue_routes.js");
 require("../scripts/dmm_compile_vue_routes.js");
 
 // Compile Sockets files
-require("../scripts/sockets_compile_vue_routes.js");
+require("../scripts/wocket_compile_vue_routes.js");
 
 // Define the chain for the server's request-response lifecycle
 const handlerFiles = [

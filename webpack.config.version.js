@@ -1,3 +1,9 @@
+/**
+ * This webpack config file handles building a specific version of docs for a
+ * specific module. For example, if I want to build Drash docs v1.3.0, then I
+ * would use this file and not the default webpack.config.js file.
+ */
+
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
@@ -7,8 +13,6 @@ module.exports = (envVars) => {
   console.log(
     `\nRunning webpack in production mode for the ${envVars.module}@${envVars.version} bundle.\n`,
   );
-
-  console.log("Using the following configs for the webpack build:");
 
   const configs = {
     build_date: new Date().toISOString(),
@@ -28,6 +32,7 @@ module.exports = (envVars) => {
     };
   }
 
+  console.log("Using the following configs for the webpack build(s):");
   console.log(configs);
 
   return {

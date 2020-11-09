@@ -1,3 +1,11 @@
+/**
+ * This webpack config file handles building the following environments:
+ *
+ *     - development
+ *     - staging
+ *     - production
+ */
+
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
@@ -29,7 +37,7 @@ module.exports = (envVars) => {
     }),
   };
 
-  console.log("Building bundles with the following configs:");
+  console.log("Using the following configs for the webpack build(s):");
   console.log(configs);
 
   return {
