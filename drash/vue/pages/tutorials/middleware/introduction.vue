@@ -12,7 +12,6 @@ export default {
   data() {
     return {
       title: resource.meta.title,
-      example_code: this.$example_code['drash/example_code/tutorials/middleware/introduction'],
       toc: [
         "Basics",
         "Server-Level Middleware",

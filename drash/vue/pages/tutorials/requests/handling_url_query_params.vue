@@ -11,7 +11,6 @@ export default {
   data() {
     return {
       title: resource.meta.title,
-      example_code: this.$example_code['drash/example_code/tutorials/requests/handling_url_query_params'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",

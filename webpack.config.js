@@ -22,8 +22,8 @@ module.exports = envVars => {
     rhum: Object.assign(repoConfigs.rhum, {
       base_url: getBaseUrl("rhum", envVars.environment),
     }),
-    sockets: Object.assign(repoConfigs.sockets, {
-      base_url: getBaseUrl("sockets", envVars.environment),
+    wocket: Object.assign(repoConfigs.wocket, {
+      base_url: getBaseUrl("wocket", envVars.environment),
     }),
     cinco: Object.assign(repoConfigs.cinco, {
       base_url: getBaseUrl("cinco", envVars.enviromennt)
@@ -35,7 +35,7 @@ module.exports = envVars => {
       dmm_app: path.resolve(__dirname, "dmm/assets/js/_app.js"),
       drash_app: path.resolve(__dirname, "drash/assets/js/_app.js"),
       rhum_app: path.resolve(__dirname, "rhum/assets/js/_app.js"),
-      sockets_app: path.resolve(__dirname, "sockets/assets/js/_app.js"),
+      wocket_app: path.resolve(__dirname, "wocket/assets/js/_app.js"),
       cinco_app: path.resolve(__dirname, "cinco/assets/js/_app.js")
     },
     mode: getMode(envVars.environment),
@@ -90,7 +90,7 @@ module.exports = envVars => {
         "/dmm": path.resolve(__dirname, "dmm"),
         "/drash": path.resolve(__dirname, "drash"),
         "/rhum": path.resolve(__dirname, "rhum"),
-        "/sockets": path.resolve(__dirname, "sockets"),
+        "/wocket": path.resolve(__dirname, "wocket"),
         "/cinco": path.resolve(__dirname, "cinco")
       }
     }
