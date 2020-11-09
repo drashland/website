@@ -25,8 +25,8 @@ module.exports = envVars => {
     wocket: Object.assign(repoConfigs.wocket, {
       base_url: getBaseUrl("wocket", envVars.environment),
     }),
-    cinco: Object.assign(repoConfigs.cinco, {
-      base_url: getBaseUrl("cinco", envVars.enviromennt)
+    sinco: Object.assign(repoConfigs.sinco, {
+      base_url: getBaseUrl("sinco", envVars.enviromennt)
     })
   };
 
@@ -36,7 +36,7 @@ module.exports = envVars => {
       drash_app: path.resolve(__dirname, "drash/assets/js/_app.js"),
       rhum_app: path.resolve(__dirname, "rhum/assets/js/_app.js"),
       wocket_app: path.resolve(__dirname, "wocket/assets/js/_app.js"),
-      cinco_app: path.resolve(__dirname, "cinco/assets/js/_app.js")
+      sinco_app: path.resolve(__dirname, "sinco/assets/js/_app.js")
     },
     mode: getMode(envVars.environment),
     output: {
@@ -91,7 +91,7 @@ module.exports = envVars => {
         "/drash": path.resolve(__dirname, "drash"),
         "/rhum": path.resolve(__dirname, "rhum"),
         "/wocket": path.resolve(__dirname, "wocket"),
-        "/cinco": path.resolve(__dirname, "cinco")
+        "/sinco": path.resolve(__dirname, "sinco")
       }
     }
   };

@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      base_url: this.$conf.cinco.base_url + "/#",
+      base_url: this.$conf.sinco.base_url + "/#",
       title: title,
       toc: [
         "Before You Get Started",
@@ -59,18 +59,18 @@ page(
     li
       p Create your test file.
       code-block(title="/path/to/your/project/app.ts" language="typescript")
-        | import { Cinco } from "https://deno.land/x/cinco@{{ $conf.cinco.latest_version }}/mod.ts";
+        | import { Sinco } from "https://deno.land/x/sinco@{{ $conf.sinco.latest_version }}/mod.ts";
         | import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
         |
         | Deno.test("My web app works as expected", function () {
-        |   const cinco = Cinco.build("https://chromestatus.com"); // using this page as an example
-        |   await cinco.assertUrlIs("https://chromestatus.com/features");
-        |   await cinco.type('input[placeholder="Filter"]', "hello world");
-        |   const val = await cinco.getInputValue('input[placeholder="Filter"]');
+        |   const sinco = Sinco.build("https://chromestatus.com"); // using this page as an example
+        |   await sinco.assertUrlIs("https://chromestatus.com/features");
+        |   await sinco.type('input[placeholder="Filter"]', "hello world");
+        |   const val = await sinco.getInputValue('input[placeholder="Filter"]');
         |   assertEquals(val, "hello world");
-        |   await cinco.click('a[href="/features/schedule"]');
-        |   await cinco.assertUrlIs("https://chromestatus.com/features/schedule");
-        |   await cinco.done(); // Must be used when finished
+        |   await sinco.click('a[href="/features/schedule"]');
+        |   await sinco.assertUrlIs("https://chromestatus.com/features/schedule");
+        |   await sinco.done(); // Must be used when finished
         | })
   hr
   h2-hash Verification

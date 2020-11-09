@@ -8,8 +8,8 @@ require("./scripts/drash_compile_vue_routes.js");
 // Compile Rhum files
 require("./scripts/rhum_compile_vue_routes.js");
 
-// Compile Cinco files
-require("./scripts/cinco_compile_vue_routes.js")
+// Compile Sinco files
+require("./scripts/sinco_compile_vue_routes.js")
 
 // Compile dmm files
 require("./scripts/dmm_compile_vue_routes.js")
@@ -80,8 +80,8 @@ function handleHttpRequest(request, response) {
       handleRhumApp(url, response);
     } else if (target(url) == "wocket") {
       handleWocketApp(url, response);
-    } else if (target(url) === "cinco") {
-      handleCincoApp(url, response)
+    } else if (target(url) === "sinco") {
+      handleSincoApp(url, response)
     } else {
       const file = fs.readFileSync(`${configs.root_directory}${url}`);
       response.writeHead(200, {"Content-Type": getContentTypeHeader(url)});
@@ -125,13 +125,13 @@ function handleWocketApp(url, response) {
   response.write(html);
 }
 
-function handleCincoApp(url, response) {
-  if (url === "/cinco/staging" || url === "/cinco/staging/") {
-    let html = fs.readFilesync("./cinco/staging.html", "utf8")
+function handleSincoApp(url, response) {
+  if (url === "/sinco/staging" || url === "/sinco/staging/") {
+    let html = fs.readFilesync("./sinco/staging.html", "utf8")
     response.write(html)
     return
   }
-  let html = fs.readFileSync("./cinco/index.template.html", "utf8");
+  let html = fs.readFileSync("./sinco/index.template.html", "utf8");
   html = html.replace(/\{\{ environment \}\}/g, "development");
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
   response.write(html);
@@ -203,11 +203,11 @@ function target(url) {
     return "wocket";
   }
   if (
-    url === "/cinco"
-    || url === "/cinco/"
-    || url === "/cinco/staging"
-    || url === "cinco/staging/"
+    url === "/sinco"
+    || url === "/sinco/"
+    || url === "/sinco/staging"
+    || url === "sinco/staging/"
   ) {
-    return "cinco"
+    return "sinco"
   }
 }

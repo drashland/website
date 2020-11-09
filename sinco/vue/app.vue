@@ -10,10 +10,10 @@ export default {
       build_date: this.$conf.build_date,
       environment: this.$conf.environment,
       sidebar: {
-        api_reference_href: "https://doc.deno.land/https/deno.land/x/cinco@" + this.$conf.cinco.latest_version + "/mod.ts",
-        base_url: this.$conf.cinco.base_url + "/#",
-        github_href: "https://github.com/drashland/cinco",
-        logo: "/assets/common/img/logo_cinco.svg",
+        api_reference_href: "https://doc.deno.land/https/deno.land/x/sinco@" + this.$conf.sinco.latest_version + "/mod.ts",
+        base_url: this.$conf.sinco.base_url + "/#",
+        github_href: "https://github.com/drashland/sinco",
+        logo: "/assets/common/img/logo_sinco.svg",
         menus: {
           "Getting Started": {
             Quickstart: "/#quickstart",
@@ -24,7 +24,7 @@ export default {
             "Creating an Extensive Test": "/tutorials/creating-an-extensive-test",
           }
         },
-        module: "Cinco",
+        module: "Sinco",
       }
     };
   },
@@ -36,6 +36,6 @@ app-root(
   :build_date="build_date"
   :environment="environment"
   :sidebar="sidebar"
-  module="Cinco"
+  module="Sinco"
 )
 </template>

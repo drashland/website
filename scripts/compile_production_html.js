@@ -32,8 +32,8 @@ html = html.replace(/\{\{ environment \}\}/g, "production");
 html = html.replace(/\{\{ version \}\}/g, buildVersion);
 fs.writeFileSync("./wocket/index.html", html);
 
-// Create Cinco's index.html file
-html = fs.readFileSync("./cinco/index.template.html", "utf8");
+// Create Sinco's index.html file
+html = fs.readFileSync("./sinco/index.template.html", "utf8");
 html = html.replace(/\{\{ environment \}\}/g, "production");
 html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
-fs.writeFileSync("./cinco/index.html", html);
+fs.writeFileSync("./sinco/index.html", html);

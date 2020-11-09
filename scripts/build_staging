@@ -18,8 +18,8 @@ node scripts/rhum_compile_vue_routes.js
 # Compile Wocket staging environment
 node scripts/wocket_compile_vue_routes.js
 
-# Compile Cinco staging environment
-node scripts/cinco_compile_vue_routes.js
+# Compile Sinco staging environment
+node scripts/sinco_compile_vue_routes.js
 
 # Compile all html files for all modules
 node scripts/compile_staging_html.js
