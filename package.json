@@ -4,11 +4,12 @@
   "description": "Drash Land",
   "main": "index.js",
   "scripts": {
-    "build:production": "scripts/build_production",
-    "build:staging": "scripts/build_staging",
+    "build:production": "scripts/build production",
+    "build:staging": "scripts/build staging",
+    "build:version": "scripts/build_version",
     "drash:copy-api-reference": "cp ../deno-drash/api_reference.json drash/assets/json/api_reference.json",
     "rm:ds_store": "find . -name '.DS_Store' -type f -delete",
-    "server": "nodemon ./src/server.js",
+    "server": "nodemon server.js",
     "test": "test",
     "webpack": "node_modules/.bin/webpack --hide-modules --env.environment=development --watch"
   },
