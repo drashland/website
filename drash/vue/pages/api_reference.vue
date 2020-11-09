@@ -42,6 +42,7 @@ page(
               li
                 p
                   a(:href="docDenoLandLink('/compilers/template_engine.ts')" target="_BLANK") TemplateEngine
+                  span  (Deprecated. Removal date: 01-01-2021. Find out more <a href="https://github.com/drashland/deno-drash/issues/430">here</a>.)
           li
             p CoreLoggers
             ul

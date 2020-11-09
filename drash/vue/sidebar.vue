@@ -22,6 +22,7 @@ div.c-sidebar
         a-base-url(href="/introduction#quickstart") Quickstart
         a-base-url(href="/introduction#importing") Importing
         a-base-url(href="/introduction#features") Features
+        a-base-url(href="/introduction#articles") Articles
         a-base-url(href="/about-drash") About Drash
         a-base-url(href="/lifecycle-diagram") Drash Lifecycle Diagram
         a(href="https://github.com/drashland/deno-drash" target="_BLANK") View On GitHub &mdash; Drash
@@ -72,6 +73,12 @@ div.c-sidebar
         div.l-submenu-1.hide--soft
           a-base-url(href="/tutorials/logging/logging-to-the-terminal") Logging To The Terminal
           a-base-url(href="/tutorials/logging/logging-to-files") Logging To Files
+        span.sun-heading
+          p.arrow.right
+          a CLI
+        div.l-submenu-1.hide--soft
+          a-base-url(href="/tutorials/cli/introduction") introduction
+          a-base-url(href="/tutorials/cli/create-app") Create App
         span.sub-heading
           p.arrow.right
           a Front-end
@@ -81,10 +88,10 @@ div.c-sidebar
           a-base-url(href="/tutorials/front-end/extending-a-template") Extending A Template
           a-base-url(href="/tutorials/front-end/adding-template-partials") Adding Template Partials
           a-base-url(href="/tutorials/front-end/in-template-javascript") In-Template JavaScript
-        //-span.sub-heading
+        span.sub-heading
           p.arrow.right
           a Testing
-        //-div.l-submenu-1.hide--soft
+        div.l-submenu-1.hide--soft
           a-base-url(href="/tutorials/testing/unit-testing") Unit Testing
         span.sub-heading
           p.arrow.right
@@ -95,7 +102,6 @@ div.c-sidebar
           a-base-url(href="/tutorials/misc/error-handling-angular-deep-linking") Error Handling: Angular Deep Linking
           a-base-url(href="/tutorials/misc/pretty-links") Pretty Links
           a-base-url(href="/tutorials/misc/redirects") Redirects
-          //- a-base-url(href="/tutorials/misc/adding-third-party-modules") Adding Third-Party Modules
       span.heading
         p.arrow.right
         span.heading-link Advanced Tutorials

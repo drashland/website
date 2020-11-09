@@ -16,7 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/part_4'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -43,7 +42,7 @@ page(
   h2-hash Before You Get Started
   p Currently, when clients make requests to your records, they receive the following response schema for <code>200</code> responses ...
   p
-    code-block(:header="false" language="javascript")
+    code-block(:header="false" language="json")
       | {
       |   "id": 50,
       |   "name": "Earl Gray",
@@ -51,11 +50,11 @@ page(
       | }
   p ... and the following response schema for error responses (like the <code>404</code> response below) ...
   p
-    code-block(:header="false" language="javascript")
+    code-block(:header="false" language="text")
       | "Tea with ID \"2710\" not found."
   p This is perfectly fine to some clients, but to others it does not contain enough information. Some clients want a <code>200</code> response schema like ...
   p
-    code-block(:header="false" language="javascript")
+    code-block(:header="false" language="json")
       | {
       |   "status_code": 200,
       |   "status_text": "OK",
@@ -71,7 +70,7 @@ page(
       | }
   p ... and an error response schema like ...
   p
-    code-block(:header="false" language="javascript")
+    code-block(:header="false" language="json")
       | {
       |   "status_code": 404,
       |   "status_text": "Not Found",
@@ -83,22 +82,38 @@ page(
       | }
   p In this tutorial part, you will override and replace <code>Drash.Http.Response</code> so it can send a more informative response schema.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     coffee.json
-    |     coffee_resource.ts
-    |     tea.json
-    |     tea_resource.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     coffee.json
+      |     coffee_resource.ts
+      |     tea.json
+      |     tea_resource.ts
   hr
   h2-hash Steps
   ol
     li
       p Create your <code>response.ts</code> file that will be used to override <code>Drash.Http.Response</code>.
       p
-        code-block(:title="example_code.response.filepath" language="typescript")
-          | {{ example_code.response.contents }}
+        code-block(title="response.ts" language="typescript")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | export default class Response extends Drash.Http.Response {
+          |   public generateResponse(): any {
+          |     let schema = {
+          |       status_code: this.status_code,
+          |       status_message: this.getStatusMessage(),
+          |       data: this.body,
+          |       request: {
+          |         method: this.request.method.toUpperCase(),
+          |         uri: this.request.uri
+          |       }
+          |     };
+          |
+          |     return JSON.stringify(schema);
+          |   }
+          | }
       p The only method you need to override is <code>generateResponse()</code>. The following methods and objects are accessible from the <code>Drash.Http.Response</code>.
       ul
         li
@@ -112,8 +127,27 @@ page(
     li
       p Import your <code>response.ts</code> file and replace <code>Drash.Http.Response</code> in your <code>app.ts</code>.
       p
-        code-block(:title="example_code.app.filepath" language="typescript" line_highlight="3,4")
-          | {{ example_code.app.contents }}
+        code-block(title="app.ts" language="typescript" line_highlight="3,4")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | import response from "./response.ts";
+          | Drash.Http.Response = response;
+          |
+          | import CoffeeResource from "./coffee_resource.ts";
+          | import TeaResource from "./tea_resource.ts";
+          |
+          | const server = new Drash.Http.Server({
+          |   response_output: "application/json",
+          |   resources: [
+          |     CoffeeResource,
+          |     TeaResource
+          |   ],
+          | });
+          |
+          | server.run({
+          |   hostname: "localhost",
+          |   port: 1447
+          | });
       p Now, when your Drash server runs, it will use your response class instead of its original <code>Drash.Http.Response</code>.
   hr
   h2-hash Verification
@@ -121,14 +155,14 @@ page(
   ol
     li Run your app.
       p
-        code-block(title="/path/to/your/project/app.ts")
-          | deno run --allow-net --allow-read app.ts
+        code-block(title="/path/to/your/project/app.ts" language="shell-session")
+          | $ deno run --allow-net --allow-read app.ts
     li Make a coffee request using <code>curl</code> like below or go to <code>localhost:1447/coffee/17</code> in your browser.
       p
-        code-block(title="Terminal")
-          | curl localhost:1447/coffee/17
+        code-block(title="Terminal" language="shell-session")
+          | $ curl localhost:1447/coffee/17
       p You should receive the following response (we pretty-printed the response for you):
-        code-block(:header="false" language="javascript")
+        code-block(:header="false" language="json")
           | {
           |   "status_code": 200,
           |   "status_message": "OK",
@@ -144,7 +178,7 @@ page(
           | }
     li Make a bad coffee request to <code>localhost:1447/coffee/9000</code>. You should receive the following response (we pretty-printed the response for you):
       p
-        code-block(:header="false" language="javascript")
+        code-block(:header="false" language="json")
           | {
           |   "status_code": 404,
           |   "status_message": "Not Found",
@@ -156,7 +190,7 @@ page(
           | }
     li Make a tea request to <code>localhost:1447/tea/50</code>. You should receive the following response (we pretty-printed the response for you):
       p
-        code-block(:header="false" language="javascript")
+        code-block(:header="false" language="json")
           | {
           |   "status_code": 200,
           |   "status_message": "OK",
@@ -172,7 +206,7 @@ page(
           | }
     li Make a bad tea request to <code>localhost:1447/tea/1337</code>. You should receive the following response (we pretty-printed the response for you):
       p
-        code-block(:header="false" language="javascript")
+        code-block(:header="false" language="json")
           | {
           |   "status_code": 404,
           |   "status_message": "Not Found",

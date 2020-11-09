@@ -20,8 +20,10 @@ export default {
             Quickstart: "/#quickstart",
             Importing: "/#importing",
             Features: "/#features",
+            Articles: "/#articles",
             FAQ: "/faq",
           },
+          "Latest News": {},
           Tutorials: {
             //Introduction: "/tutorials",
             "Writing Tests": "/tutorials/writing-tests",
@@ -41,6 +43,7 @@ app-root(
   :build_date="build_date"
   :environment="environment"
   :sidebar="sidebar"
+  news_tags="deno, rhum"
   module="Rhum"
 )
 </template>

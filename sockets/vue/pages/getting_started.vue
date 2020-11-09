@@ -62,25 +62,32 @@ div
           | );
       li
         p Run your server.
-        code-block(title="Terminal" language="text")
-          | deno run --allow-net app.ts
-          |
+        code-block(title="Terminal" language="shell-session")
+          | $ deno run --allow-net app.ts
+        code-block(title="Terminal" language="shell-session")
           | Server started on ws://127.0.0.1:1777
       li
         p Install <code>wscat</code> or similar client to interact with your server.
-        code-block(title="Terminal" language="text")
-          | npm install -g wscat
+        code-block(title="Terminal" language="shell-session")
+          | $ npm install -g wscat
       li
         p Connect to your server.
-        code-block(title="Terminal" language="text")
-          | wscat -c ws://127.0.0.1:1777
+        code-block(title="Terminal" language="shell-session")
+          | $ wscat -c ws://127.0.0.1:1777
       li
         p Ping your server.
-        code-block(title="Terminal" language="text")
+        code-block(title="Terminal" language="shell-session")
           | > ping
           |
           | < pong
     hr
     h2-hash Importing
     code-block-import(name="Server" repo="sockets" :version="$conf.sockets.latest_version")
+    hr
+    h2-hash Features
+    ul
+      li
+        p JSON encoding
+      li
+        p Zero dependencies
 </template>

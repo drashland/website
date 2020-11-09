@@ -49,24 +49,60 @@ page(
   ol
     li
       p Create your <code>ColaResource</code> file.
-      code-block(:title="example_code.cola_resource.filepath" language="typescript")
-        | {{ example_code.cola_resource.contents }}
+      code-block(title="/path/to/your/project/cola_resource.ts" language="typescript")
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | 
+        | export default class ColaResource extends Drash.Http.Resource {
+        |   protected COLAS: any = {
+        |     1: "Diet Cola",
+        |     2: "Vanilla Cola",
+        |     3: "Cherry Cola",
+        |   };
+        | 
+        |   static paths = ["/cola/:id"];
+        | 
+        |   public GET() {
+        |     let colaId = this.request.getPathParam("id");
+        | 
+        |     if (!COLAS[colaId]) {
+        |       return this.response.redirect(302, "/colas/1");
+        |     }
+        | 
+        |     this.response.body = this.getCola(colaId);
+        |     return this.response;
+        |   }
+        | 
+        |   protected getCola(colaId: string) {
+        |     return this.COLAS[colaId];
+        |   }
+        | }
     li
       p Create your app file.
-      code-block(:title="example_code.app.filepath" language="typescript")
-        | {{ example_code.app.contents }}
-
+      code-block(title="/path/to/your/project/app.ts" language="typescript")
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | 
+        | import ColaResource from "./home_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   response_output: "application/json",
+        |   resources: [ColaResource],
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
   hr
   h2-hash Verification
   ol
     li
       p Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Using <code>curl</code> (or similar command), make a <code>GET</code> request to <code>localhost:1447/cola?id=5</code> to be redirected to <code>/cola/1</code>.
-      code-block(title="Terminal")
-        | curl localhost:1447/cola?id=5
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447/cola?id=5
       p You should receive the following response:
       code-block(:header="false")
         | Diet Cola

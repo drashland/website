@@ -16,7 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_2'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -43,19 +42,42 @@ page(
   h2-hash Before You Get Started
   p Your server will not be able to serve your HTML file until you give it the resource that can do so. In Part 1, you made your server expect a home resource. You will create this file next and will verify your server runs properly with it in the Verification section.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     home_resource.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     home_resource.ts
   hr
   h2-hash Steps
   ol
     li
       p Create your home resource file.
       p
-        code-block(:title="example_code.home_resource.filepath" language="typescript")
-          | {{ example_code.home_resource.contents }}
+        code-block(title="home_resource.ts" language="typescript")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | const decoder = new TextDecoder();
+          |
+          | export default class HomeResource extends Drash.Http.Resource {
+          |
+          |   static paths = [
+          |     "/"
+          |   ];
+          |
+          |   public GET() {
+          |     try {
+          |       let fileContentsRaw = Deno.readFileSync("./index.html");
+          |       let template = decoder.decode(fileContentsRaw);
+          |       this.response.body = template;
+          |     } catch (error) {
+          |       throw new Drash.Exceptions.HttpException(
+          |         400,
+          |         `Error reading HTML template.`
+          |       );
+          |     }
+          |     return this.response;
+          |   }
+          | }
       p Your home resource will serve an HTML file and that file will display your Vue app. You will be creating this HTML file in the next tutorial part.
   hr
   h2-hash Verification
@@ -63,8 +85,8 @@ page(
   ol
     li Run your app.
       p
-        code-block(title="Terminal")
-          | deno run --allow-net --allow-read app.ts
+        code-block(title="Terminal" language="shell-session")
+          | $ deno run --allow-net --allow-read app.ts
     li
       p Go to <code>localhost:1447/</code> in your browser. You should receive the following response:
       p

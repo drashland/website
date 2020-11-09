@@ -47,10 +47,10 @@ page(
   h2-hash Before You Get Started
   p In this tutorial part, you will create a server and verify that it can respond.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
   hr
   h2-hash Steps
   ol
@@ -76,12 +76,12 @@ page(
   ol
     li
       p Run your server.
-      code-block(title="Terminal" language="text")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Connect to your server.
-      code-block(title="Terminal" language="text")
-        | wscat -c ws://127.0.0.1:1777
+      code-block(title="Terminal" language="shell-session")
+        | $ wscat -c ws://127.0.0.1:1777
     li
       p Send a <code>ping</code> packet.
       code-block(title="Terminal" language="text")

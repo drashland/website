@@ -7,6 +7,7 @@ export default {
   },
   data() {
     return {
+      articles: [],
       build_date: this.$conf.build_date,
       environment: this.$conf.environment,
       sidebar: {
@@ -23,6 +24,7 @@ export default {
             "About Drash": "/about-drash",
             "Lifecycle Diagram": "/lifecycle-diagram",
           },
+          "Latest News": {},
           "Tutorials": {
             "Introduction": "/tutorials",
             "Resources": {
@@ -32,6 +34,7 @@ export default {
               "Creating An HTTP Server": "/tutorials/servers/creating-an-http-server",
               "Creating An HTTPS Server": "/tutorials/servers/creating-an-https-server",
               "Serving Static Paths": "/tutorials/servers/serving-static-paths",
+              "Serving Virtual Paths": "/tutorials/servers/serving-virtual-paths",
             },
             "Requests": {
               "Handling JSON Bodies": "/tutorials/requests/handling-json-bodies",
@@ -39,6 +42,7 @@ export default {
               "Handling Multipart Bodies": "/tutorials/requests/handling-multipart-bodies",
               "Handling URL Query Params": "/tutorials/requests/handling-url-query-params",
               "Handling Path Params": "/tutorials/requests/handling-path-params",
+              "Get All Params": "/tutorials/requests/get-all-params"
             },
             "Responses": {
               //"Accept Header": "/tutorials/responses/accept-header",
@@ -55,11 +59,14 @@ export default {
               "Response Cookies": "/tutorials/cookies/response-cookies",
             },
             "Front-End": {
-              "Introduction": "/tutorials/front-end/introduction",
-              "Creating A Template": "/tutorials/front-end/creating-a-template",
-              "Extending A Template": "/tutorials/front-end/extending-a-template",
-              "Adding Template Partials": "/tutorials/front-end/adding-template-partials",
-              "In-Template JavaScript": "/tutorials/front-end/in-template-javascript",
+              "Using Jae": "/tutorials/front-end/using-jae",
+            },
+            "CLI": {
+              "Introduction": "/tutorials/cli/introduction",
+              "Create App": "/tutorials/cli/create-app"
+            },
+            "Testing": {
+              "Unit Testing": "/tutorials/testing/unit-testing",
             },
             "Error Handling": {
               //"Customizing Error Handling": "/tutorials/error-handling/customizing-error-handling",
@@ -79,7 +86,7 @@ export default {
             "Creating A Client Side Rendered App (React)": "/advanced-tutorials/creating-a-client-side-rendered-app-react",
             "Content Negotiation": "/advanced-tutorials/content-negotiation",
             "Using Drash With Docker Compose": "/advanced-tutorials/using-drash-with-docker-compose",
-          }
+          },
         },
         module: "drash",
       }
@@ -93,6 +100,7 @@ app-root(
   :build_date="build_date"
   :environment="environment"
   :sidebar="sidebar"
+  news_tags="deno, drash"
   module="Drash"
 )
 </template>

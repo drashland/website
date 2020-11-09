@@ -15,7 +15,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: "/advanced-tutorials/creating-a-server-side-rendered-app",
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_a_static_html_app/about_me/part_2'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -41,33 +40,102 @@ page(
   h2-hash Before You Get Started
   p Your server will not be able to serve HTML until you give it the resources that can do so. In Part 1, you made your server expect three resources. You will create these files next and will verify your server runs properly with them in the Verification section.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     about_resource.ts
-    |     app.ts
-    |     contact_resource.ts
-    |     home_resource.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     about_resource.ts
+      |     app.ts
+      |     contact_resource.ts
+      |     home_resource.ts
   hr
   h2-hash Steps
   ol
     li
       p Create your home resource file.
       p
-        code-block(:titlte="example_code.home_resource.filepath" language="typescript")
-          | {{ example_code.home_resource.contents }}
+        code-block(title="home_resource.ts" language="typescript")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | const decoder = new TextDecoder();
+          |
+          | export default class HomeResource extends Drash.Http.Resource {
+          |
+          |   static paths = [
+          |     "/"
+          |   ];
+          |
+          |   public GET() {
+          |     try {
+          |       let fileContentsRaw = Deno.readFileSync("./html/home.html");
+          |       let template = decoder.decode(fileContentsRaw);
+          |       this.response.body = template;
+          |     } catch (error) {
+          |       throw new Drash.Exceptions.HttpException(
+          |         400,
+          |         `Error reading HTML template.`
+          |       );
+          |     }
+          |     return this.response;
+          |   }
+          | }
       p Your home resource will serve an HTML file with the following text: This is the home page!
     li
       p Create your contact resource file.
       p
-        code-block(:title="example_code.contact_resource.filepath" language="typescript")
-          | {{ example_code.contact_resource.contents }}
+        code-block(title="contact_resource.ts" language="typescript")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | const decoder = new TextDecoder();
+          |
+          | export default class ContactResource extends Drash.Http.Resource {
+          |
+          |   static paths = [
+          |     "/contact"
+          |   ];
+          |
+          |   public GET() {
+          |     try {
+          |       let fileContentsRaw = Deno.readFileSync("./html/contact.html");
+          |       let template = decoder.decode(fileContentsRaw);
+          |       this.response.body = template;
+          |     } catch (error) {
+          |       throw new Drash.Exceptions.HttpException(
+          |         400,
+          |         `Error reading HTML template.`
+          |       );
+          |     }
+          |     return this.response;
+          |   }
+          | }
       p Your contact resource will serve an HTML file with the following text: This is the contact page!
     li
       p Create your about resource file.
       p
-        code-block(:title="example_code.about_resource.filepath" language="typescript")
-          | {{ example_code.about_resource.contents }}
+        code-block(title="about_resource.ts" language="typescript")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | const decoder = new TextDecoder();
+          |
+          | export default class AboutResource extends Drash.Http.Resource {
+          |
+          |   static paths = [
+          |     "/about"
+          |   ];
+          |
+          |   public GET() {
+          |     try {
+          |       let fileContentsRaw = Deno.readFileSync("./html/about.html");
+          |       let template = decoder.decode(fileContentsRaw);
+          |       this.response.body = template;
+          |     } catch (error) {
+          |       throw new Drash.Exceptions.HttpException(
+          |         400,
+          |         `Error reading HTML template.`
+          |       );
+          |     }
+          |     return this.response;
+          |   }
+          | }
       p Your about resource will serve an HTML file with the following text: This is the about page!
   hr
   h2-hash Verification
@@ -75,8 +143,8 @@ page(
   ol
     li Run your app.
       p
-        code-block(title="Terminal")
-          | deno run --allow-net --allow-read app.ts
+        code-block(title="Terminal" language="shell-session")
+          | $ deno run --allow-net --allow-read app.ts
     li Go to <code>localhost:1447/</code> in your browser.
       p You should receive the following response for all of your resources:
       p

@@ -9,7 +9,6 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/getting_started/quickstart']
     };
   },
 }
@@ -42,16 +41,33 @@ div
       li
         p Write your <code>app.ts</code> file.
         code-block(title="app.ts" language="typescript")
-          | {{ example_code.app.contents }}
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+          |
+          | class HomeResource extends Drash.Http.Resource {
+          |   static paths = ["/"];
+          |   public GET() {
+          |     this.response.body = "Hello World!";
+          |     return this.response;
+          |   }
+          | }
+          |
+          | const server = new Drash.Http.Server({
+          |   response_output: "text/html",
+          |   resources: [HomeResource]
+          | });
+          |
+          | server.run({
+          |   hostname: "localhost",
+          |   port: 1447
+          | });
       li
         p Run your <code>app.ts</code> file.
-        code-block(title="Terminal" language="text")
-          | deno run --allow-net app.ts
-
+        code-block(title="Terminal" language="shell-session")
+          | $ deno run --allow-net app.ts
       li
         p Make a request.
-        code-block(title="Terminal" language="text")
-          | curl localhost:1447
+        code-block(title="Terminal" language="shell-session")
+          | $ curl localhost:1447
           |
           | Hello World!
     hr

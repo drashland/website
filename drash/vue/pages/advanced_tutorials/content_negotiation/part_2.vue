@@ -16,7 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/content_negotiation/part_2'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -43,18 +42,31 @@ page(
   h2-hash Before You Get Started
   p Now that you have your user records from your "database" in place from Part 1, you need a server to handle requests for that data. The server you will create in this tutorial part will be very basic. It will only handle requests to one resource. This resource will be your users resource.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     users.json
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     users.json
   hr
   h2-hash Steps
   ol
     li
       p Create your app file.
       p
-        code-block(:title="example_code.app.filepath" language="javascript" line_highlight="3,7") | {{ example_code.app.contents }}
+        code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="3,7")
+          | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version}}/mod.ts";
+          |
+          | import UsersResource from "./users_resource.ts";
+          |
+          | const server = new Drash.Http.Server({
+          |   response_output: "application/json",
+          |   resources: [UsersResource],
+          | });
+          |
+          | server.run({
+          |   hostname: "localhost",
+          |   port: 1447
+          | });
       p When this file is run, it will load in Drash, set up your server, and start your server.
       p You will notice that there is an <code>import</code> statement for a <code>users_resource.ts</code> file (highlighted). You will be creating this file in the next tutorial part. For now, you just need to make sure your server expects and registers this resource file.
   hr
@@ -63,7 +75,7 @@ page(
   ol
     li Comment out the <code>import</code> statement and <code>resources</code> config.
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="3,7")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         |
         | // import UsersResource from "./users_resource.ts";
         |
@@ -77,18 +89,18 @@ page(
         |   port: 1447
         | });
     li Run your app.
-      code-block(title="Terminal")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li Make a request using <code>curl</code> like below or go to <code>localhost:1447</code> in your browser.
-      code-block(title="Terminal")
-        | curl localhost:1447
+      code-block(title="Terminal" language="shell-session")
+        | $ curl localhost:1447
       p You should receive the following response:
       code-block(:header="false")
         | "Not Found"
       p You will receive a <code>404 Not Found</code> error because your server does not have any resources. This is expected. You will be creating your resources next.
     li Uncomment the <code>import</code> statement and <code>resources</code> config before moving on to the next part.
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="3,7")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
         |
         | import UsersResource from "./users_resource.ts";
         |

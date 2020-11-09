@@ -54,11 +54,11 @@ page(
   h3 Test Cases
   p Test cases contain the assertions. They are the tests.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text")
-    | ▾ /path/to/your/project/
-    |     functions.ts
-    |     functions_test.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text")
+      | ▾ /path/to/your/project/
+      |     functions.ts
+      |     functions_test.ts
   hr
   h2-hash Steps
   ol
@@ -101,10 +101,10 @@ page(
   ol
     li
       p Run your tests.
-      code-block(title="Terminal" language="text")
-        | deno test
+      code-block(title="Terminal" language="shell-session")
+        | $ deno test
       p You should see the output similar to the following:
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | Compile file:///.deno.test.ts
         | running 1 tests
         | 

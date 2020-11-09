@@ -16,17 +16,18 @@ export default {
         menus: {
           "Getting Started": {
             Quickstart: "/#quickstart",
-            Installing: "/#installing",
+            Usage: "/#usage",
             Features: "/#features",
             FAQ: "/faq",
           },
+          "Latest News": {},
           "CLI Commands": {
             //Introduction: "/tutorials",
-            "info": "/cli_commands/info",
             "check": "/cli_commands/check",
+            "help": "/cli_commands/help",
+            "info": "/cli_commands/info",
             "update": "/cli_commands/update",
-            "--help": "/cli_commands/help",
-            "--version": "/cli_commands/version"
+            "version": "/cli_commands/version"
           },
         },
         module: "dmm",
@@ -41,6 +42,7 @@ app-root(
   :build_date="build_date"
   :environment="environment"
   :sidebar="sidebar"
+  news_tags="deno, dmm"
   module="dmm"
 )
 </template>

@@ -78,12 +78,12 @@ page(
   h2-hash Before You Get Started
   p In this tutorial part, you will create the front-end of your application.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
-    |     chat.js
-    |     index.html
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
+      |     chat.js
+      |     index.html
   hr
   h2-hash Steps
   ol
@@ -147,8 +147,8 @@ page(
   ol
     li
       p Run your server.
-      code-block(title="Terminal" language="text")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Open up your <code>index.html</code> file in your browser. This browser window will be your first client. If you open your browser's console, you should see that you are connected to the server and connected to the General channel.
     li

@@ -1,12 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-let repoConfigs = {};
-try {
-  repoConfigs = require("./configs.json");
-} catch (error) {
-  repoConfigs = require("./configs.sample.json");
-}
+const repoConfigs = require("./configs.json");
 
 console.log(repoConfigs);
 
@@ -16,6 +11,8 @@ module.exports = envVars => {
   const configs = {
     build_date: new Date().toISOString(),
     environment: envVars.environment,
+    deno: repoConfigs.deno,
+    deno_std: repoConfigs.deno_std,
     dmm: Object.assign(repoConfigs.dmm, {
       base_url: getBaseUrl("dmm", envVars.environment),
     }),
@@ -65,7 +62,7 @@ module.exports = envVars => {
         // this will apply to both plain `.css` files
         // AND `<style>` blocks in `.vue` files
         {
-          test: /\.scss$/,
+          test: /(\.scss|\.css)$/,
           use: [
             "style-loader", // creates style nodes from JS strings
             "css-loader", // translates CSS into CommonJS

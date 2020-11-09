@@ -16,8 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_5'],
-      example_code_docker: this.$example_code['drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_5/.docker'],
       title: title,
       subtitle: subtitle,
       toc: [
@@ -44,39 +42,39 @@ page(
   h2-hash Before You Get Started
   p Now that you have your configuration set up for the containers, you can now build and start your Docker environment.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     ▾ .docker/
-    |         ▾ conf/
-    |             apache.conf
-    |             nginx.conf
-    |         apache.dockerfile
-    |         drash.dockerfile
-    |         nginx.dockerfile
-    |     ▾ src/
-    |         app.ts
-    |     docker-compose.yml
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     ▾ .docker/
+      |         ▾ conf/
+      |             apache.conf
+      |             nginx.conf
+      |         apache.dockerfile
+      |         drash.dockerfile
+      |         nginx.dockerfile
+      |     ▾ src/
+      |         app.ts
+      |     docker-compose.yml
   hr
   h2-hash Steps
   ol
     li
       p Build the containers. This could take up to a few minutes.
-      code-block(title="Terminal" language="shell")
-        | docker-compose build
+      code-block(title="Terminal" language="shell-session")
+        | $ docker-compose build
   hr
   h2-hash Verification
   ol
     li
       p Start Docker. Running without the <code>-d</code> option will allow you to see all output of the container and Drash server.
       p
-        code-block(title="Terminal")
-          | docker-compose up
+        code-block(title="Terminal" language="shell-session")
+          | $ docker-compose up
     li
       p Make a request using <code>curl</code> like below or go to <code>localhost:8080</code> in your browser.
       p
-        code-block(title="Terminal")
-          | curl localhost:8080
+        code-block(title="Terminal" language="shell-session")
+          | $ curl localhost:8080
       p You should receive the following response:
       p
         code-block(:header="false")

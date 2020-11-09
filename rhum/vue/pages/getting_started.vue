@@ -33,7 +33,7 @@ div
       img.mr-1(alt="Drash Land Discord" src="https://img.shields.io/badge/Chat-on%20Discord-blue")
     a(href="https://twitter.com/drash_land" target="_BLANK")
       img.mr-1(alt="Drash Land Twitter" src="https://img.shields.io/twitter/url?label=%40drash_land&style=social&url=https%3A%2F%2Ftwitter.com%2Fdrash_land" width="auto" height="20")
-    //a(href="https://rb.gy/vxmeed" target="_BLANK")
+    a(href="https://www.youtube.com/watch?v=WhG5hLrcaVQ&list=PLlFUbR9MhiNU9VlCi97JkahXyDYcL_vUz&ab_channel=drashland" target="_BLANK")
       img(alt="Rhum YouTube" src="https://img.shields.io/badge/Tutorials-YouTube-red" width="auto" height="20")
   div
     hr
@@ -76,11 +76,11 @@ div
           | Rhum.run(); // <-- make sure to include this so that your tests run via `deno test`
       li
         p Run your tests.
-        code-block(title="Terminal" language="text")
-          | deno test --allow-env
+        code-block(title="Terminal" language="shell-session")
+          | $ deno test --allow-env
       li
         p View your output.
-        code-block(title="Terminal" language="text")
+        code-block(title="Terminal" language="shell-session")
           | app_test.ts
           |     run()
           |         Returns true ... ok (4ms)
@@ -110,4 +110,9 @@ div
         p Mock requests
       li
         p Hooks
+    hr
+    h2-hash Articles
+    ul
+      li
+        a(href="https://dev.to/crookse_/why-we-created-rhum-for-testing-deno-projects-33mf") Why We Created Rhum
 </template>

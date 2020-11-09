@@ -47,10 +47,10 @@ page(
   h2-hash Before You Get Started
   p In this tutorial part, you will open the channel that will be used by clients.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     app.ts
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     app.ts
   hr
   h2-hash Steps
   ol
@@ -72,10 +72,7 @@ page(
         |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
         |
-        | // Open the General channel
-        | server.openChannel("General");
-        |
-        | // Add the General channel's packet handler
+        | // Open the General channel and add the General channel's packet handler
         | server.on("General", (packet: Packet) => {
         |     // Send the incoming message to all clients in the General channel
         |     server.to("General", packet.message);
@@ -85,22 +82,22 @@ page(
   ol
     li
       p Run your server.
-      code-block(title="Terminal" language="text")
-        | deno run --allow-net app.ts
+      code-block(title="Terminal" language="shell-session")
+        | $ deno run --allow-net app.ts
     li
       p Connect to your server.
-      code-block(title="Terminal" language="text")
-        | wscat -c ws://127.0.0.1:1777
+      code-block(title="Terminal" language="shell-session")
+        | $ wscat -c ws://127.0.0.1:1777
     li
       p Connect to the General channel.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > {"connect_to":["General"]}
     li
       p Send a packet to the General channel.
-      code-block(title="Terminal" language="text")
+      code-block(title="Terminal" language="shell-session")
         | > {"send_packet":{"to":"General","message":"test"}}
       p You should receive the following response:
-      code-block(:header="false" language="text")
+      code-block(:header="false" language="shell-session")
         | < {"from":"Server","to":"General","message":"test"}
     p You can now move on to the next tutorial part.
   div-alert-next-tutorial-part
