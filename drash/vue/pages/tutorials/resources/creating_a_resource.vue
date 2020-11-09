@@ -13,7 +13,6 @@ export default {
   data() {
     return {
       title: title,
-      example_code: this.$example_code['drash/example_code/tutorials/resources/creating_a_resource'],
       toc: [
         "Before You Get Started",
         "Creating A Resource",
