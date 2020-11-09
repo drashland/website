@@ -4,6 +4,7 @@ class DevEnvHandler extends BaseHandler {
 
   getHtml(filepath, baseUrl, module) {
     let html = this.fs.readFileSync(filepath, "utf8");
+    html = html.replace(/\{\{ title \}\}/g, this.ucfirst(module));
     html = html.replace(/\{\{ base_url \}\}/g, baseUrl);
     html = html.replace(/\{\{ environment \}\}/g, "development");
     html = html.replace(/\{\{ module \}\}/g, module);
@@ -37,6 +38,10 @@ class DevEnvHandler extends BaseHandler {
     }
 
     return this.runNextHandler(request, response);
+  }
+
+  ucfirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 }
 
