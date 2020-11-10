@@ -20,6 +20,7 @@ export default {
             Importing: "/#importing",
             Features: "/#features"
           },
+          "Latest News": {},
           Tutorials: {
             "Click Elements": "/tutorials/clicking-elements",
             "Get And Set Input Value": "/tutorials/get-and-set-input-value",
