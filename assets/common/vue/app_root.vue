@@ -38,8 +38,6 @@ export default {
       this.toggleSidebar();
     });
 
-    const tags = this.news_tags.split(", ");
-
     if (this.sidebar.menus["Latest News"]) {
       const url = "https://dev.to/api/articles?username=drash_land&tag=" + this.news_tags;
       const res = await fetch(url);

@@ -30,7 +30,7 @@ export default {
             "Stubs": "/tutorials/stubs",
             "Mocks": "/tutorials/mocks",
           },
-          "Verisons": {
+          "Versions": {
             "v1.1.4": "/rhum/v1.1.4"
           }
         },

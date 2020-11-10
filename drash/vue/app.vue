@@ -87,7 +87,7 @@ export default {
             "Content Negotiation": "/advanced-tutorials/content-negotiation",
             "Using Drash With Docker Compose": "/advanced-tutorials/using-drash-with-docker-compose",
           },
-          "Verisons": {
+          "Versions": {
             "v1.3.0": "/drash/v1.3.0"
           }
         },
