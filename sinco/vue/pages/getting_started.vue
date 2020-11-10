@@ -81,8 +81,6 @@ div
       li
         p Get input field values
       li
-        p Wait for AJAX requests to finish
-      li
         p Assertions
         ul
           li Assert URL is
