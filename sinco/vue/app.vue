@@ -21,7 +21,9 @@ export default {
             Features: "/#features"
           },
           Tutorials: {
-            "Creating an Extensive Test": "/tutorials/creating-an-extensive-test",
+            "Click Elements": "/tutorials/clicking-elements",
+            "Get And Set Input Value": "/tutorials/get-and-set-input-value",
+            "Custom Assertions": "/tutorials/assertions",
           }
         },
         module: "Sinco",

@@ -46,11 +46,12 @@ div
       li
         p Create a test file and start interacting with the browser
         code-block(title="test.ts" language="typescript")
-          | import { Sinco } from "https://deno.land/x/sinco@{{ $conf.sinco.latest_version }}/mod.ts";
+          | import { HeadlessBrowser } from "https://deno.land/x/sinco@{{ $conf.sinco.latest_version }}/mod.ts";
           |
           | Deno.test("My test", async () => {
           |   // Setup
-          |   const sinco = Sinco.build("https://chromestatus.com");
+          |   const sinco = new Headlessbrowser();
+          |   await sinco.build("https://chromestatus.com");
           |
           |   // Do any actions and assertions, in any order
           |   await sinco.assertUrlIs("https://chromestatus.com/features")
@@ -61,7 +62,7 @@ div
           |   await sinco.assertSee("Release timeline")
           |
           |   // Once finished, close
-          |   await sinco.close()
+          |   await sinco.done()
           | })
       li
         p Run your test.
