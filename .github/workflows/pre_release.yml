@@ -1,13 +1,18 @@
 # Example on how to trigger this:
 # - name: Send Event to Website to Update Versions
 #   run: |
-#     curl -XPOST -u "${{ secrets.CI_USER_NAME }}:${{ secrets.CI_USER_PAT }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/drashland/copyright-free/dispatches --data '{"event_type": "update_docs", "client_payload": { "module_to_update": "drash", "version": "${{ github.event.release.tag_name }}" }}'
+#     curl -XPOST \
+#       -u "${{ secrets.CI_USER_NAME }}:${{ secrets.CI_USER_PAT }}" \
+#       -H "Accept: application/vnd.github.everest-preview+json" \
+#       -H "Content-Type: application/json"
+#       --data '{"event_type": "pre_release", "client_payload": { "module": "drash", "version": "${{ github.event.release.tag_name }}" }}' \
+#       https://api.github.com/repos/drashland/copyright-free/dispatches
 
-name: update-docs
+name: Pre-release
 
 on:
   repository_dispatch:
-    types: [update_docs]
+    types: [pre_release]
 
 jobs:
 
@@ -30,7 +35,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Update Versions for Docs
-        run: node scripts/update_module_versions.js --module ${{ github.event.client_payload.module_to_update }} --version ${{ github.event.client_payload.version }}
+        run: |
+          node scripts/update_module_versions.js \
+            --module ${{ github.event.client_payload.module }} \
+            --version ${{ github.event.client_payload.version }}
 
       - name: Create Pull Request
         if: ${{ github.event.event_type }} == "update_docs"
