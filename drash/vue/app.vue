@@ -15,6 +15,12 @@ export default {
         base_url: this.$conf.drash.base_url + "/#",
         github_href: "https://github.com/drashland/deno-drash",
         logo: "/assets/common/img/logo_drash.svg",
+        example_applications: [
+          {
+            title: "Realworld Example",
+            link: "https://github.com/drashland/deno-drash-realworld-example-app"
+          }
+        ],
         menus: {
           "Introduction": {
             "Drash In A Nutshell": "/#drash-in-a-nutshell",

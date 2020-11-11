@@ -11,6 +11,7 @@ export default {
       environment: this.$conf.environment,
       sidebar: {
         base_url: this.$conf.dmm.base_url + "/#",
+        example_applications: [],
         github_href: "https://github.com/drashland/dmm",
         logo: "/assets/common/img/logo_dmm.svg",
         menus: {
