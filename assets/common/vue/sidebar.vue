@@ -38,6 +38,16 @@ export default {
     closeSidebar() {
       this.$root.$emit("close-sidebar");
     },
+    toggleSubMenuItems(el) {
+      let target = el.target
+      const tagName = target.tagName
+      if (["p", "a"].includes(tagName.toLowerCase())) {
+        target = target.parentElement
+      }
+      target.nextElementSibling.classList.toggle("hide--soft")
+      const p = target.children[0]
+      p.classList.toggle("rotate-fortyfive-deg")
+    },
     getMenuItemLink(menuItemName, href) {
       if (menuItemName == "Latest News") {
         return href;
@@ -107,6 +117,10 @@ ul li ul li a {
   }
 }
 
+.rotate-fortyfive-deg {
+    transform: rotate(45deg);
+}
+
 .menu-item {
   margin-left: 0;
   &:last-of-type {
@@ -118,11 +132,39 @@ ul li ul li a {
 .menu2-item-link {
   display: block;
   color: #f4f4f4;
-  padding: 0rem 1.45rem;
   &:hover {
     color: #333333;
     background-color: #f4f4f4;
   }
+}
+
+span.menu-item-link:hover {
+    cursor: pointer;
+}
+span.menu-item-link:hover > a {
+    color: #333333;
+    background-color: #f4f4f4;
+}
+span.menu-item-link {
+    display: flex;
+}
+
+/* Menu items that are not 'collapsable' */
+.menu-item > .menu-item-link,
+.menu2-item-link {
+    padding: 0rem 1.45rem
+}
+
+.collapser {
+    padding-right: 0.5rem;
+    color: green;
+    margin: 0;
+    font-size: 1.2rem;
+    transform-origin: 7px; /* Because this elem doesnt have equal padding, so using rotate makes it look al skewiff */
+}
+
+.hide--soft {
+    display: none;
 }
 </style>
 
@@ -136,8 +178,10 @@ div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'
         a.menu-name-link {{ menu_item_name }}
       ul.mb-0
         li.menu-item(v-for="(href, link_text) in sub_menu_items")
-          a.no-hover.menu-item-link(v-if="typeof href == 'object'") {{ link_text }}
-          ul.mb-0(v-if="typeof href == 'object'")
+          span.flex.menu-item-link(v-if="typeof href == 'object'" @click="toggleSubMenuItems")
+            p.collapser +
+            a {{ link_text }}
+          ul.hide--soft.mb-0(v-if="typeof href == 'object'")
             li.menu2-item(v-for="(href, link_text) in sub_menu_items[link_text]")
               a.menu2-item-link(:href="base_url + href" @click="closeSidebar()") {{ link_text }}
           a(v-else).menu-item-link(
