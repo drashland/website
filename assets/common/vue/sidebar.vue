@@ -157,7 +157,7 @@ span.menu-item-link {
 
 .collapser {
     padding-right: 0.5rem;
-    color: green;
+    color: #019e01;
     margin: 0;
     font-size: 1.2rem;
     transform-origin: 7px; /* Because this elem doesnt have equal padding, so using rotate makes it look al skewiff */
