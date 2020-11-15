@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="508px" height="508px" viewBox="0 0 508 508" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>back</title>
-    <g id="sockets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="polygons" transform="translate(103.000000, 19.000000)">
-            <polygon id="Triangle" fill="#2A8735" points="35 371.203998 135 352 54.4380309 470"></polygon>
-            <polygon id="Triangle" fill="#109ED3" points="148 341.796002 48 361 128.561969 243"></polygon>
-            <polygon id="Triangle" fill="#10B0EC" points="48 362.203998 148 343 67.4380309 461"></polygon>
-            <polygon id="Triangle" fill="#2A8735" points="244.203812 213 160 156.341285 301 129"></polygon>
-            <polygon id="Triangle" fill="#1788B3" points="128 243.203998 227 224 147.243651 342"></polygon>
-            <polygon id="Triangle" fill="#279D34" points="116 238.633257 17 258 96.7563494 139"></polygon>
-            <polygon id="Triangle" fill="#32B240" points="189 19.3667432 288 0 208.243651 119"></polygon>
-            <polygon id="Triangle" fill="#D9BA06" points="238.203812 221 154 165.015793 295 138"></polygon>
-            <polygon id="Triangle" fill="#F4D002" points="155.796188 165 240 221.658715 99 249"></polygon>
-            <polygon id="Triangle" fill="#CB0806" points="85 149.366743 185 130 104.438031 249"></polygon>
-            <polygon id="Triangle" fill="#FF0000" points="165 31.2039975 264 12 184.243651 130"></polygon>
-            <polygon id="Triangle" fill="#E10709" points="185 130.796002 85 150 165.561969 32"></polygon>
-            <polygon id="Triangle" fill="#A7080A" points="100 247.796002 0 267 80.5619691 149"></polygon>
+    <g id="sinco" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="polygons" transform="translate(94.500000, 7.000000)">
+            <polygon id="Triangle" fill="#2A8735" points="37.5 390.180472 142.5 370 57.9099325 494"></polygon>
+            <polygon id="Triangle" fill="#109ED3" points="156.5 358.819528 51.5 379 136.090068 255"></polygon>
+            <polygon id="Triangle" fill="#10B0EC" points="51.5 381.180472 156.5 361 71.9099325 485"></polygon>
+            <polygon id="Triangle" fill="#2A8735" points="256.884143 224 168.5 164.643251 316.5 136"></polygon>
+            <polygon id="Triangle" fill="#1788B3" points="135.5 255.180472 239.5 235 155.715552 359"></polygon>
+            <polygon id="Triangle" fill="#279D34" points="122.5 250.656782 18.5 271 102.284448 146"></polygon>
+            <polygon id="Triangle" fill="#32B240" points="199.5 20.3432177 303.5 0 219.715552 125"></polygon>
+            <polygon id="Triangle" fill="#D9BA06" points="250.884143 232 162.5 173.317759 310.5 145"></polygon>
+            <polygon id="Triangle" fill="#F4D002" points="164.115857 174 252.5 233.356749 104.5 262"></polygon>
+            <polygon id="Triangle" fill="#CB0806" points="90.5 157.343218 195.5 137 110.909932 262"></polygon>
+            <polygon id="Triangle" fill="#FF0000" points="174.5 33.180472 278.5 13 194.715552 137"></polygon>
+            <polygon id="Triangle" fill="#E10709" points="195.5 137.819528 90.5 158 175.090068 34"></polygon>
+            <polygon id="Triangle" fill="#A7080A" points="105.5 260.819528 0.5 281 85.0900675 157"></polygon>
         </g>
     </g>
 </svg>
