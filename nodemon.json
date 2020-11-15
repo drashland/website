@@ -5,7 +5,7 @@
     "drash/*",
     "rhum/*",
     "server.js",
-    "sockets/",
+    "wocket/",
     "*.js",
     "*.vue"
   ],

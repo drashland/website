@@ -4,9 +4,6 @@ import Vue from "vue";
 // FILE MARKER - PROTOTYPES ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-import exampleCode from "/drash/assets/js/compiled_example_code.js";
-Vue.prototype.$example_code = exampleCode;
-
 let conf = process.env.conf; // This comes from webpack.config.js
 Vue.prototype.$conf = conf;
 

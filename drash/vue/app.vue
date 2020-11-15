@@ -59,11 +59,7 @@ export default {
               "Response Cookies": "/tutorials/cookies/response-cookies",
             },
             "Front-End": {
-              "Introduction": "/tutorials/front-end/introduction",
-              "Creating A Template": "/tutorials/front-end/creating-a-template",
-              "Extending A Template": "/tutorials/front-end/extending-a-template",
-              "Adding Template Partials": "/tutorials/front-end/adding-template-partials",
-              "In-Template JavaScript": "/tutorials/front-end/in-template-javascript",
+              "Using Jae": "/tutorials/front-end/using-jae",
             },
             "CLI": {
               "Introduction": "/tutorials/cli/introduction",
@@ -90,24 +86,11 @@ export default {
             "Creating A Client Side Rendered App (React)": "/advanced-tutorials/creating-a-client-side-rendered-app-react",
             "Content Negotiation": "/advanced-tutorials/content-negotiation",
             "Using Drash With Docker Compose": "/advanced-tutorials/using-drash-with-docker-compose",
-          }
+          },
         },
         module: "drash",
       }
     };
-  },
-  async mounted() {
-    const res = await fetch("https://dev.to/api/articles?username=drash_land&tags=deno, drash,");
-    let json = await res.json();
-    json = json.slice(0, 6);
-    let articles = {};
-    for (const index in json) {
-      const article = json[index];
-      if (article.tags.includes("drash")) {
-        articles[article.title] = article.url;
-      }
-    }
-    this.sidebar.menus["Latest News"] = articles;
   },
 }
 </script>
@@ -117,6 +100,7 @@ app-root(
   :build_date="build_date"
   :environment="environment"
   :sidebar="sidebar"
+  news_tags="deno, drash"
   module="Drash"
 )
 </template>

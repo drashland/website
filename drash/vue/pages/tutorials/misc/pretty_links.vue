@@ -9,7 +9,6 @@ export const resource = {
 export default {
   data() {
     return {
-      example_code: this.$example_code['drash/example_code/tutorials/misc/pretty_links'],
       title: resource.meta.title,
       toc: [
         "Before You Get Started",
@@ -35,10 +34,10 @@ page(
     li
       p Create your <code>app.ts</code> file. Take note of the highlighted code. Using this config will allow you to NOT have to specify <code>index.html</code> for any static path.
       code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="9")
-        | import { Drash } from "https://deno.land/x/drash@v1.2.5/mod.ts";
-        |
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | 
         | import HomeResource from "./home_resource.ts";
-        |
+        | 
         | const server = new Drash.Http.Server({
         |   directory: "/path/to/your/project",
         |   resources: [HomeResource],
@@ -46,9 +45,10 @@ page(
         |   pretty_links: true,
         |   static_paths: ["/public"]
         | });
-        |
+        | 
         | server.run({
         |   hostname: "localhost",
         |   port: 1447
         | });
+
 </template>

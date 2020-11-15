@@ -4,7 +4,6 @@ const configs = require("./configs.json");
 
 // Compile Drash files
 require("./scripts/drash_compile_vue_routes.js");
-require("./scripts/drash_compile_example_code.js");
 
 // Compile Rhum files
 require("./scripts/rhum_compile_vue_routes.js");
@@ -12,8 +11,8 @@ require("./scripts/rhum_compile_vue_routes.js");
 // Compile dmm files
 require("./scripts/dmm_compile_vue_routes.js")
 
-// Compile Sockets files
-require("./scripts/sockets_compile_vue_routes.js")
+// Compile Wockets files
+require("./scripts/wocket_compile_vue_routes.js")
 
 // Create the server
 http.createServer((request, response) => {
@@ -76,8 +75,8 @@ function handleHttpRequest(request, response) {
       handleDrashApp(url, response);
     } else if (target(url) == "rhum") {
       handleRhumApp(url, response);
-    } else if (target(url) == "sockets") {
-      handleSocketsApp(url, response);
+    } else if (target(url) == "wocket") {
+      handleWocketApp(url, response);
     } else {
       const file = fs.readFileSync(`${configs.root_directory}${url}`);
       response.writeHead(200, {"Content-Type": getContentTypeHeader(url)});
@@ -114,8 +113,8 @@ function handleRhumApp(url, response) {
 }
 
 // Handle the application at the /dmm URI
-function handleSocketsApp(url, response) {
-  let html = fs.readFileSync("./sockets/index.template.html", "utf8");
+function handleWocketApp(url, response) {
+  let html = fs.readFileSync("./wocket/index.template.html", "utf8");
   html = html.replace(/\{\{ environment \}\}/g, "development");
   html = html.replace(/\{\{ version \}\}/g, new Date().getTime());
   response.write(html);
@@ -179,9 +178,9 @@ function target(url) {
     return "rhum";
   }
   if (
-    url == "/sockets"
-    || url == "/sockets/"
+    url == "/wocket"
+    || url == "/wocket/"
   ) {
-    return "sockets";
+    return "wocket";
   }
 }

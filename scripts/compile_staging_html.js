@@ -26,8 +26,8 @@ html = html.replace(/\{\{ environment \}\}/g, "staging");
 html = html.replace(/\{\{ version \}\}/g, buildVersion);
 fs.writeFileSync("./staging/rhum/index.html", html);
 
-// Create Sockets's staging/index.html file
-html = fs.readFileSync("./sockets/index.template.html", "utf8");
+// Create Wockets staging/index.html file
+html = fs.readFileSync("./wocket/index.template.html", "utf8");
 html = html.replace(/\{\{ environment \}\}/g, "staging");
 html = html.replace(/\{\{ version \}\}/g, buildVersion);
-fs.writeFileSync("./staging/sockets/index.html", html);
+fs.writeFileSync("./staging/wocket/index.html", html);

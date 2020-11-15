@@ -1,3 +1,0 @@
-▾ /path/to/your/project/
-	coffee.json
-	tea.json

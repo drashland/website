@@ -13,7 +13,6 @@ export default {
   data() {
     return {
       title: title,
-      example_code: this.$example_code['drash/example_code/tutorials/servers/creating_an_https_server'],
       toc: [
         "Before You Get Started",
         "Server Syntax",
@@ -34,6 +33,22 @@ page(
   p HTTP servers use <code>server.run()</code> and HTTPS servers use <code>server.runTLS()</code> with two extra configs: <code>certFile</code> and <code>keyFile</code>.
   hr
   h2-hash Server Syntax
-  code-block(:title="example_code.app.filepath" language="typescript")
-    | {{ example_code.app.contents }}
+  code-block(title="/path/to/your/project/app.ts" language="typescript")
+    | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+    | 
+    | import HomeResource from "./home_resource.ts";
+    | 
+    | const server = new Drash.Http.Server({
+    |   response_output: "application/json",
+    |   resources: [HomeResource],
+    | });
+    | 
+    | server.runTLS({
+    |   hostname: "localhost",
+    |   port: 1447,
+    |   certFile: "/path/to/certFile.crt",
+    |   keyFile: "/path/to/keyFile.key"
+    | });
+
+
 </template>

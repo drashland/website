@@ -12,7 +12,6 @@ export default {
   data() {
     return {
       title: resource.meta.title,
-      example_code: this.$example_code['drash/example_code/tutorials/middleware/introduction'],
       toc: [
         "Basics",
         "Server-Level Middleware",
@@ -55,13 +54,54 @@ page(
     li <code>TemplateEngine</code> executes after a request is matched to a resource
     li <code>CleanUpData</code> executes after each request is made
   code-block(:header="false" language="typescript" line_highlight="2-15")
-    | {{ example_code.location_server_level.contents }}
+    | const server = new Drash.Http.Server({
+    |   middleware: {
+    |     compile_time: [
+    |       ServeTypeScript,
+    |     ],
+    |     before_request: [
+    |       Auth,
+    |     ],
+    |     after_resource: [
+    |       TemplateEngine,
+    |     ],
+    |     after_request: [
+    |       CleanUpData,
+    |     ]
+    |   },
+    |   resources: [
+    |     HomeResource
+    |   ],
+    |   response_output: "application/json",
+    | });
+
   hr
   h2-hash Resource-Level Middleware
   p Unlike server-level middleware, resource-level middleware is specified using <a href="https://www.typescriptlang.org/docs/handbook/decorators.html" target="_BLANK">decorators</a> and a <code>tsconfig.json</code> file. Resource-level middleware can only be executed by resources. That is, if a resource is decorated with middleware, then the middleware specified in the decorators will be executed.
   p Take the example below. This resource contains two types of resource-level middleware &mdash; class level and HTTP method level. With resource-level middleware, you can specify middleware to be more granular by decorating only HTTP methods or the resource class itself.
   code-block(:header="false" language="typescript" line_highlight="1-4,11-14")
-    | {{ example_code.location_resource_level.contents }}
+    | @Drash.Http.Middleware({
+    |   before_request: [VerifyTokenMiddleware],
+    |   after_request: []
+    | })
+    | export default class SecretResource extends Drash.Http.Resource {
+    | 
+    |   static paths = [
+    |     "/secret"
+    |   ];
+    | 
+    |   @Drash.Http.Middleware({
+    |     before_request: [LogAccessMiddleware],
+    |     after_request: []
+    |   })
+    |   public GET() {
+    |     this.response.body = {
+    |       method: "GET",
+    |       body: "You have accessed the secret resource!"
+    |     };
+    |     return this.response;
+    |   }
+    | }
   hr
   h2-hash Setting The Execution Point
   p There are four points where middleware is executed:
@@ -81,11 +121,54 @@ page(
   h3#setting-the-execution-point-of-server-level-middleware Setting The Execution Point Of Server-Level Middleware
   p You can have server-level middleware execute at compile time, before the request, after a request is matched to a resource, and after a request by placing your middleware in the appropriate array. See the example below to see middleware defined in these arrays.
   code-block(:header="false" language="typescript" line_highlight="3,6,9,12")
-    | {{ example_code.location_server_level.contents }}
+    | const server = new Drash.Http.Server({
+    |   middleware: {
+    |     compile_time: [
+    |       ServeTypeScript,
+    |     ],
+    |     before_request: [
+    |       Auth,
+    |     ],
+    |     after_resource: [
+    |       TemplateEngine,
+    |     ],
+    |     after_request: [
+    |       CleanUpData,
+    |     ]
+    |   },
+    |   resources: [
+    |     HomeResource
+    |   ],
+    |   response_output: "application/json",
+    | });
+
   h3#setting-the-execution-point-of-resource-level-middleware Setting The Execution Point Of Resource-Level Middleware
   p You can have resource-level middleware execute before and after the request by placing your middleware in the appropriate array in your resource class' middleware decorators.  See the example below to see middleware defined in these arays.
   code-block(:header="false" language="typescript" line_highlight="2,3,12,13")
-    | {{ example_code.location_resource_level.contents }}
+    | @Drash.Http.Middleware({
+    |   before_request: [VerifyTokenMiddleware],
+    |   after_request: []
+    | })
+    | export default class SecretResource extends Drash.Http.Resource {
+    | 
+    |   static paths = [
+    |     "/secret"
+    |   ];
+    | 
+    |   @Drash.Http.Middleware({
+    |     before_request: [LogAccessMiddleware],
+    |     after_request: []
+    |   })
+    |   public GET() {
+    |     this.response.body = {
+    |       method: "GET",
+    |       body: "You have accessed the secret resource!"
+    |     };
+    |     return this.response;
+    |   }
+    | }
+
+
   hr
   h2-hash Sorting Middleware
   p Middleware is executed in the order you define them. Take the examples below.
@@ -94,11 +177,41 @@ page(
     li <code>OneMiddleware</code>
     li <code>TwoMiddleware</code>
   code-block(:header="false" language="typescript" line_highlight="4-5")
-    | {{ example_code.sorting_server_level.contents }}
+    | const server = new Drash.Http.Server({
+    |   middleware: {
+    |     before_request: [
+    |       OneMiddleware,
+    |       TwoMiddleware
+    |     ]
+    |   },
+    |   resources: [
+    |     HomeResource
+    |   ],
+    |   response_output: "application/json",
+    | });
+
   p The following resource-level middleware would execute in the following order:
   ul
     li <code>RedMiddleware</code>
     li <code>BlueMiddleware</code>
   code-block(:header="false" language="typescript" line_highlight="3-4")
-    | {{ example_code.sorting_resource_level.contents }}
+    | @Drash.Http.Middleware({
+    |   before_request: [
+    |     RedMiddleware,
+    |     BlueMiddleware
+    |   ]
+    | })
+    | export default class HomeResource extends Drash.Http.Resource {
+    | 
+    |   static paths = [
+    |     "/"
+    |   ];
+    | 
+    |   public GET() {
+    |     this.response.body = "GET request received!";
+    |     return this.response;
+    |   }
+    | }
+
+
 </template>

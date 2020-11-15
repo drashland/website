@@ -12,7 +12,6 @@ export default {
   data() {
     return {
       title: title,
-      example_code: this.$example_code['drash/example_code/about_drash'],
       toc: [
         "What Is Drash?",
         "Why Use Drash?",
@@ -57,6 +56,6 @@ page(
       p <a href="https://dev.to/drash_land/what-makes-drash-different-idd" target="_BLANK">What Makes Drash Different?</a>
   hr
   h2-hash About These Documentation Pages
-  p We know the pain of using new software that is not extensively documented. Therefore, all released Drash code that is intended to be used is documented. Anything that will be released will be documented before being released. This is how we lower our barriers to usage, so you can continue coding your Drash (or non-Drash) project confidently without questions.
-  p Most of the pages on this site are written in a tutorial format. You are given an introduction to the page, example code, and an end state that you can work towards. These pages mostly assume you have no working knowledge of Drash and try to be explicit as possible in the instructions. Moreover, the example code can be downloaded from the documentation repository.
+  p We know the pain of using new software that is not extensively documented. Therefore, all released Drash code that is intended to be used is documented. Anything that will be released will be documented before being released. This is how we lower our barriers to usage, so you can continue coding confidently without questions.
+  p Most of the pages on this site are written in a tutorial format. You are given an introduction to the page, example code, and an end state that you can work towards. These pages mostly assume you have no working knowledge of Drash and try to be explicit as possible in the instructions.
 </template>

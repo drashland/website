@@ -11,8 +11,6 @@ export default {
   data() {
     return {
       title: resource.meta.title,
-      example_code_front_end: this.$example_code['drash/example_code/tutorials/servers/serving_virtual_paths/front_end'],
-      example_code_back_end: this.$example_code['drash/example_code/tutorials/servers/serving_virtual_paths/back_end'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -46,17 +44,61 @@ page(
   h2-hash Steps
   ol
     li
-      p Create your app file. You will be using the <code>static_paths</code> config to define your virtual paths. Also, you will define the <code>directory</code> config to help your server map virtual paths to physical paths. In the example code block below, you are defining a virtual path of <code>/assets</code> to the physical path of <code>/front_end</code>. The physical path must be <em>relative</em> to the directory you specify in the <code>directory</code> config.
-      code-block(:title="example_code_back_end.app.filepath" language="typescript" line_highlight="6,9")
-        | {{ example_code_back_end.app.contents }}
+      p Create your app file. You will be using the <code>static_paths</code> config to define your virtual paths. Also, you will define the <code>directory</code> config to help your server map virtual paths to physical paths.
+      div.mt-5.mb-5.bg-blue-100.border-l-4.border-teal-500.rounded-b.text-blue-900.px-4.py-3.shadow-md(role="alert")
+        div.py-1
+          p.font-bold Wait! Please read this before continuing!
+          p.text-sm Your <code class="bg-transparent text-blue-900">directory</code> config SHOULD NOT HAVE a trailing slash and your physical paths SHOULD HAVE a leading slash. If you do not set this up properly, then your server will not map virtual paths to physical paths correctly.
+      p In the example code block below, you are defining a virtual path of <code>/assets</code> to the physical path of <code>/front_end</code> (the key is the virtual path and the value is the physical path). The physical path must be <em>relative</em> to the directory you specify in the <code>directory</code> config.
+      code-block(title="/path/to/your/project/back_end/app.ts" language="typescript" line_highlight="6,10")
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | 
+        | import HomeResource from "./home_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   directory: "/path/to/your/project",
+        |   resources: [HomeResource],
+        |   response_output: "text/html",
+        |   static_paths: {
+        |     "/assets": "/front_end", // The physical path needs to be relative to your directory config
+        |   }
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
     li
       p Create your <code>style.css</code> file in the physical path's location.
-      code-block(:title="example_code_front_end.style.filepath" language="css")
-        | {{ example_code_front_end.style.contents }}
+      code-block(title="/path/to/your/project/front_end/style.css" language="css")
+        | .my-text {
+        |     color: #ff0000;
+        | }
     li
       p Create your resource file. Your resource file will serve HTML; and your HTML will reference <code>/assets/style.css</code> &mdash; the virtual path.
-      code-block(:title="example_code_back_end.home_resource.filepath" language="typescript")
-        | {{ example_code_back_end.home_resource.contents }}
+      code-block(title="/path/to/your/project/back_end/home_resource.ts" language="typescript")
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | 
+        | export default class HomeResource extends Drash.Http.Resource {
+        | 
+        |   static paths = ["/"];
+        | 
+        |   public GET() {
+        |     this.response.body = `
+        |     <!DOCTYPE html>
+        |     <html>
+        |       <head>
+        |         <title>Drash</title>
+        |         <link href="/assets/style.css" rel="stylesheet">
+        |       </head>
+        |       <body>
+        |         <h1 class="my-text">This is my title and it is red.</h1>
+        |       </body>
+        |     </html>`;
+        | 
+        |     return this.response;
+        |   }
+        | }
   hr
   h2-hash Verification
   ol

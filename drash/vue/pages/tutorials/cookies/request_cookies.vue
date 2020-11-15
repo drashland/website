@@ -12,7 +12,6 @@ export default {
   data() {
     return {
       title: resource.meta.title,
-      example_code: this.$example_code['drash/example_code/tutorials/cookies/request_cookies'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -46,12 +45,36 @@ page(
   ol
     li
       p Create your resource file. This file will get the <code>my_cookie</code> cookie value and use it in the response body.
-      code-block(:title="example_code.home_resource.filepath" language="typescript")
-        | {{ example_code.home_resource.contents }}
+      code-block(title="/path/to/your/project/home_resource.ts" language="typescript")
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | 
+        | export default class HomeResource extends Drash.Http.Resource {
+        | 
+        |   static paths = ["/"];
+        | 
+        |   public GET() {
+        |     const cookieValue = this.request.getCookie("my_cookie");
+        |     this.response.body = `You passed in the following cookie value: ${cookieValue}`;
+        |     return this.response;
+        |   }
+        | }
     li
       p Create your app file.
-      code-block(:title="example_code.app.filepath" language="typescript")
-        | {{ example_code.app.contents }}
+      code-block(title="/path/to/your/project/app.ts" language="typescript")
+        | import { Drash } from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}/mod.ts";
+        | 
+        | import HomeResource from "./home_resource.ts";
+        | 
+        | const server = new Drash.Http.Server({
+        |   response_output: "application/json",
+        |   resources: [HomeResource],
+        | });
+        | 
+        | server.run({
+        |   hostname: "localhost",
+        |   port: 1447
+        | });
+
   hr
   h2-hash Verification
   ol

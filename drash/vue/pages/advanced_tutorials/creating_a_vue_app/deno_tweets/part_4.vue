@@ -16,7 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_4'],
       toc: [
         "Before You Get Started",
         "Folder Structure End State",
@@ -43,14 +42,14 @@ page(
   h2-hash Before You Get Started
   p By now, you should have your server serving an HTML file; and that HTML file should be displaying Deno's tweets. In this next tutorial part, you will create the Vue app and assign the following Vue variables: <code>title</code> and <code>description</code>.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     ▾ public/
-    |         vue_app.js
-    |     app.ts
-    |     home_resource.ts
-    |     index.html
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     ▾ public/
+      |         vue_app.js
+      |     app.ts
+      |     home_resource.ts
+      |     index.html
   hr
   h2-hash Steps
   ol

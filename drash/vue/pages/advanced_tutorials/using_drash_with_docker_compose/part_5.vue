@@ -16,8 +16,6 @@ export default {
     return {
       base_url: this.$conf.drash.base_url + "/#",
       base_uri: baseUri,
-      example_code: this.$example_code['drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_5'],
-      example_code_docker: this.$example_code['drash/example_code/advanced_tutorials/using_drash_with_docker_compose/part_5/.docker'],
       title: title,
       subtitle: subtitle,
       toc: [
@@ -44,19 +42,19 @@ page(
   h2-hash Before You Get Started
   p Now that you have your configuration set up for the containers, you can now build and start your Docker environment.
   hr
-  h2-hash Folder Structure End State
-  code-block(:header="false" language="text" :line_numbers="false")
-    | ▾ /path/to/your/project/
-    |     ▾ .docker/
-    |         ▾ conf/
-    |             apache.conf
-    |             nginx.conf
-    |         apache.dockerfile
-    |         drash.dockerfile
-    |         nginx.dockerfile
-    |     ▾ src/
-    |         app.ts
-    |     docker-compose.yml
+  folder-structure-end-state
+    code-block(:header="false" language="text" :line_numbers="false")
+      | ▾ /path/to/your/project/
+      |     ▾ .docker/
+      |         ▾ conf/
+      |             apache.conf
+      |             nginx.conf
+      |         apache.dockerfile
+      |         drash.dockerfile
+      |         nginx.dockerfile
+      |     ▾ src/
+      |         app.ts
+      |     docker-compose.yml
   hr
   h2-hash Steps
   ol

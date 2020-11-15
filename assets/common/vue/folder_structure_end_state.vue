@@ -1,3 +1,13 @@
+<script>
+  import CodeBlock from "/common/vue/code_block.vue";
+  import H2Hash from "/common/vue/h2_hash.vue"
+  export default {
+    components: {
+      CodeBlock,
+      H2Hash
+    },
+  }
+</script>
 <template lang="pug">
 div
   h2-hash Folder Structure End State

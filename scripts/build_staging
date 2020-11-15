@@ -10,14 +10,13 @@ cp ./index.template.html ./staging/index.html
 node scripts/dmm_compile_vue_routes.js
 
 # Compile Drash staging environment
-node scripts/drash_compile_example_code.js
 node scripts/drash_compile_vue_routes.js
 
 # Compile Rhum staging environment
 node scripts/rhum_compile_vue_routes.js
 
-# Compile Sockets staging environment
-node scripts/sockets_compile_vue_routes.js
+# Compile Wocket staging environment
+node scripts/wocket_compile_vue_routes.js
 
 # Compile all html files for all modules
 node scripts/compile_staging_html.js
