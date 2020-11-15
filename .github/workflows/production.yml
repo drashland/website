@@ -1,4 +1,4 @@
-name: production
+name: Production
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - production
 
 jobs:
-  build:
+  build-environment:
 
     env:
       CI: true
