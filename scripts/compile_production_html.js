@@ -5,7 +5,7 @@ let html;
 
 // Create the /index.html
 html = fs.readFileSync("./index.template.html", "utf8");
-html = html.replace(/\{\{ base_url \}\}/g, configs.base_urls.staging);
+html = html.replace(/\{\{ base_url \}\}/g, configs.base_urls.production);
 fs.writeFileSync("./index.html", html);
 
 // Create dmm's index.html file
