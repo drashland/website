@@ -3,7 +3,7 @@ const BaseHandler = require("./base_handler.js");
 class VersionEnvHandler extends BaseHandler {
 
   getBaseUrl(url) {
-    if (url.includes("sicno")) {
+    if (url.includes("sinco")) {
       return this.configs.sinco.base_url;
     }
     if (url.includes("dmm")) {
