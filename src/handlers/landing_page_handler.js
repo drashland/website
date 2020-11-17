@@ -1,6 +1,6 @@
 const BaseHandler = require("./base_handler.js");
 
-class DevEnvHandler extends BaseHandler {
+class LandingPageHandler extends BaseHandler {
   getHtml(filepath, baseUrl) {
     let html = this.fs.readFileSync(filepath, "utf8");
     html = html.replace(/\{\{ base_url \}\}/g, baseUrl);
