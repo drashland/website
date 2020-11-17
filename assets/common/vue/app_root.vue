@@ -22,7 +22,7 @@ export default {
     },
     news_tags: {
       type: String,
-      required: "",
+      default: ""
     },
     sidebar: {
       type: Object,
