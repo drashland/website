@@ -34,4 +34,4 @@ class LandingPageHandler extends BaseHandler {
   }
 }
 
-module.exports = DevEnvHandler;
+module.exports = LandingPageHandler;

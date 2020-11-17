@@ -30,7 +30,7 @@ export default {
             "version": "/cli_commands/version"
           },
           "Versions": {
-            "v1.2.0": "/dmm/v1.2.0"
+            "v1.2.0": "/dmm/v1.2.0/",
           }
         },
         module: "dmm",
