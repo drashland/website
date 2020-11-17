@@ -21,7 +21,7 @@ class DevEnvHandler extends BaseHandler {
 
     let module;
 
-    if (uri.includes("/dawn")) { module = "dawn"; }
+    if (uri.includes("/sinco")) { module = "sinco"; }
     if (uri.includes("/dmm")) { module = "dmm"; }
     if (uri.includes("/drash")) { module = "drash"; }
     if (uri.includes("/rhum")) { module = "rhum"; }
