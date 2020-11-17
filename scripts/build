@@ -27,3 +27,4 @@ node_modules/.bin/webpack --hide-modules --env.environment=$ENVIRONMENT
 scripts/build_version dmm v1.2.0
 scripts/build_version drash v1.3.0
 scripts/build_version rhum v1.1.4
+scripts/build_version wocket v0.5.0
