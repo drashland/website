@@ -19,7 +19,7 @@ function compile(module) {
   }
 
   html = fs.readFileSync("./index.template.dev.html", "utf8");
-  html = html.replace(/\{\{ environment \}\}/g, "production");
+  html = html.replace(/\{\{ environment \}\}/g, "staging");
   html = html.replace(/\{\{ module \}\}/g, module);
   html = html.replace(/\{\{ build \}\}/g, buildVersion);
   fs.writeFileSync(`./staging/${module}/index.html`, html);
