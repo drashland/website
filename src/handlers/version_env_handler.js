@@ -3,20 +3,20 @@ const BaseHandler = require("./base_handler.js");
 class VersionEnvHandler extends BaseHandler {
 
   getBaseUrl(url) {
-    if (url.includes("dawn")) {
-      return this.configs.drash.base_url;
+    if (url.includes("sicno")) {
+      return this.configs.sinco.base_url;
     }
     if (url.includes("dmm")) {
-      return this.configs.drash.base_url;
+      return this.configs.dmm.base_url;
     }
     if (url.includes("drash")) {
       return this.configs.drash.base_url;
     }
     if (url.includes("rhum")) {
-      return this.configs.drash.base_url;
+      return this.configs.rhum.base_url;
     }
     if (url.includes("wocket")) {
-      return this.configs.drash.base_url;
+      return this.configs.wocket.base_url;
     }
   }
 
