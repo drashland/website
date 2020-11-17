@@ -4,8 +4,8 @@
   "description": "Drash Land",
   "main": "index.js",
   "scripts": {
-    "build:production": "scripts/build_production",
-    "build:staging": "scripts/build_staging",
+    "build:production": "scripts/build production",
+    "build:staging": "scripts/build staging",
     "drash:copy-api-reference": "cp ../deno-drash/api_reference.json drash/assets/json/api_reference.json",
     "rm:ds_store": "find . -name '.DS_Store' -type f -delete",
     "server": "nodemon ./src/server.js",
