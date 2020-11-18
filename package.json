@@ -11,7 +11,8 @@
     "rm:ds_store": "find . -name '.DS_Store' -type f -delete",
     "server": "nodemon src/server.js",
     "test": "test",
-    "webpack": "node_modules/.bin/webpack --hide-modules --env.environment=development --watch"
+    "webpack": "node_modules/.bin/webpack --hide-modules --env.environment=development --watch",
+    "webpack:build": "node_modules/.bin/webpack --hide-modules"
   },
   "author": "Drash Land",
   "devDependencies": {
