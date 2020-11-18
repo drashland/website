@@ -5,7 +5,7 @@ VERSION="$2"
 
 echo -e "Building version files for $MODULE@$VERSION\n"
 
-scripts/compile_vue_routes $MODULE
+console/compile_vue_routes $MODULE
 
 node_modules/.bin/webpack \
   --config ./webpack.config.version.js \
