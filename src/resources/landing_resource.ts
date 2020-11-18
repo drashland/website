@@ -5,8 +5,7 @@ const decoder = new TextDecoder();
 
 export class LandingResource extends BaseResource {
   static paths = [
-    "/",
-    "/staging?/:module?",
+    "/(staging)?",
   ]
 
   public GET () {
