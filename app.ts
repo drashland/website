@@ -1,83 +1,9 @@
-import { Drash } from "https://deno.land/x/drash/mod.ts"
-
 const decoder = new TextDecoder()
 const encoder = new TextEncoder()
 
-function ucfirst(str: string) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+import { ModuleResource } from "./src/resources/module_resource.ts";
+import { ModuleResource } from "./src/resources/landing_resource.ts";
 
-class ModuleResource extends Drash.Http.Resource {
-  static paths = ["/:module/:version?"]
-
-  public GET() {
-    const moduleName = this.request.getPathParam("module") || "";
-    const version = this.request.getPathParam("version") || "";
-    const uri = this.request.url_path;
-    const environment = this.getEnvironment();
-    let content = decoder.decode(Deno.readFileSync("index.module.html"));
-    content = content
-        .replace("{{ environment }}", environment)
-        .replace("{{ title }}", "Drash Land - " + ucfirst(moduleName))
-        .replace(/\{\{ module \}\}/g, moduleName)
-        .replace("{{ version }}", version)
-        .replace("{{ drash }}", JSON.stringify({
-          environment: this.getEnvironment()
-        }));
-    this.response.body = content;
-    return this.response
-  }
-
-  protected getEnvironment() {
-      const uri = this.request.url_path;
-      const isDrashIo = this.request.headers.get("x-forwarded-host");
-      const isStaging = uri.includes("/staging");
-      if (isDrashIo) {
-        if (isStaging) {
-          return "staging";
-        }
-        return "production";
-      }
-
-      return "development";
-  }
-}
-
-class LandingResource extends Drash.Http.Resource {
-  static paths = ["/(staging)?"]
-
-  public GET () {
-    const uri = this.request.url_path;
-    const environment = this.getEnvironment();
-    let content = decoder.decode(Deno.readFileSync("index.html"));
-    content = content
-        .replace("{{ environment }}", environment)
-        .replace("{{ title }}", "Drash Land")
-        .replace("{{ module }}", "landing")
-        .replace("{{ version }}", "") // IF  we were using versions, do .replace(..., ".VERSION")
-        .replace("{{ drash }}", JSON.stringify({
-          environment: this.getEnvironment()
-        }));
-    this.response.body = content;
-    return this.response
-  }
-
-  protected getEnvironment() {
-      const uri = this.request.url_path;
-      const isDrashIo = this.request.headers.get("x-forwarded-host");
-      const isStaging = uri.includes("/staging");
-      if (isDrashIo) {
-        if (isStaging) {
-          return "staging";
-        }
-        return "production";
-      }
-
-      return "development";
-  }
-}
-
-// TODO :: Missing a catch all resource
 
 const server = new Drash.Http.Server({
   resources: [
