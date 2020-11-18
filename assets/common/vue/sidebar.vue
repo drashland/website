@@ -49,10 +49,10 @@ export default {
       p.classList.toggle("rotate-fortyfive-deg")
     },
     getMenuItemLink(menuItemName, href) {
-      if (
-        menuItemName == "Versions"
-        || menuItemName == "Latest News"
-      ) {
+      if (menuItemName == "Latest News") {
+        return href;
+      }
+      if (menuItemName == "Versions") {
         return href;
       }
       return this.base_url + href;

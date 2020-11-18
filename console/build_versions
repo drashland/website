@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Dmm
+scripts/build_version dmm v1.2.0
+
+# Drash
+scripts/build_version drash v1.3.0
+
+# Rhum
+scripts/build_version rhum v1.1.4
+
+# Wocket
+scripts/build_version wocket v0.5.0

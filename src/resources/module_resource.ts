@@ -34,10 +34,9 @@ export class ModuleResource extends Drash.Http.Resource {
       }
     }
     const uri = this.request.url_path;
-    const environment = this.getEnvironment();
-    let content = decoder.decode(Deno.readFileSync("index.module.html"));
+    let content = decoder.decode(Deno.readFileSync("./src/module.html"));
     content = content
-        .replace("{{ environment }}", environment)
+        .replace("{{ environment }}", this.getEnvironment())
         .replace("{{ title }}", "Drash Land - " + ucfirst(moduleName))
         .replace(/\{\{ module \}\}/g, moduleName)
         .replace("{{ version }}", version)

@@ -42,11 +42,10 @@ module.exports = (envVars) => {
 
   return {
     entry: {
-      dmm_app: path.resolve(__dirname, "dmm/assets/js/_app.js"),
-      drash_app: path.resolve(__dirname, "drash/assets/js/_app.js"),
-      rhum_app: path.resolve(__dirname, "rhum/assets/js/_app.js"),
-      wocket_app: path.resolve(__dirname, "wocket/assets/js/_app.js"),
-      landing_app: path.resolve(__dirname, "landing/assets/js/_app.js")
+      dmm_app:    path.resolve(__dirname, "src/modules/dmm/app.js"),
+      drash_app:  path.resolve(__dirname, "src/modules/drash/app.js"),
+      rhum_app:   path.resolve(__dirname, "src/modules/rhum/app.js"),
+      wocket_app: path.resolve(__dirname, "src/modules/wocket/app.js"),
     },
     mode: getMode(envVars.environment),
     output: {
@@ -96,12 +95,11 @@ module.exports = (envVars) => {
         vue: isPublicFacingEnv(envVars.environment)
           ? "vue/dist/vue.min.js"
           : "vue/dist/vue.js",
-        "/common": path.resolve(__dirname, "assets/common"),
-        "/dmm": path.resolve(__dirname, "dmm"),
-        "/drash": path.resolve(__dirname, "drash"),
-        "/rhum": path.resolve(__dirname, "rhum"),
-        "/wocket": path.resolve(__dirname, "wocket"),
-        "/landing": path.resolve(__dirname, "landing")
+        "/common":  path.resolve(__dirname, "assets/common"),
+        "/dmm":     path.resolve(__dirname, "src/modules/dmm"),
+        "/drash":   path.resolve(__dirname, "src/modules/drash"),
+        "/rhum":    path.resolve(__dirname, "src/modules/rhum"),
+        "/wocket":  path.resolve(__dirname, "src/modules/wocket"),
       }
     }
   };

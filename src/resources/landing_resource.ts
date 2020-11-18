@@ -10,15 +10,23 @@ export class LandingResource extends Drash.Http.Resource {
 
   public GET () {
     const uri = this.request.url_path;
-    const environment = this.getEnvironment();
-    let content = decoder.decode(Deno.readFileSync("index.html"));
+    let content = "";
+
+    try {
+      content = decoder.decode(Deno.readFileSync("./src/landing.html"));
+    } catch (error) {
+      console.log(error);
+    }
+
     content = content
-        .replace("{{ environment }}", environment)
+        .replace("{{ environment }}", this.getEnvironment())
         .replace("{{ title }}", "Drash Land")
         .replace("{{ drash }}", JSON.stringify({
           environment: this.getEnvironment()
         }));
+
     this.response.body = content;
+
     return this.response
   }
 
