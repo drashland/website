@@ -4,21 +4,20 @@ const decoder = new TextDecoder()
 const encoder = new TextEncoder()
 
 class DrashResource extends Drash.Http.Resource {
-  static paths = ["/(staging/)?drash(/v[0-9.]+[0-9.]+[0-9])?"]
+  static paths = ["/staging?/drash/:version?"]
 
   public GET() {
     const uri = this.request.url_path;
     const environment = this.getEnvironment();
-    console.log(uri, hostname, isStaging, environment, version)
     let content = decoder.decode(Deno.readFileSync("index.html"));
     content = content
         .replace("{{ environment }}", environment)
         .replace("{{ title }}", "Drash Land - Drash")
         .replace("{{ module }}", "drash")
-        .replace("{{ version }}", version)
-        .replace("drash", JSON.stringify({
+        .replace("{{ version }}", this.request.getPathParam("version") || "")
+        .replace("{{ drash }}", JSON.stringify({
           environment: this.getEnvironment()
-        });
+        }));
     this.response.body = content;
     return this.response
   }
@@ -50,9 +49,9 @@ class LandingResource extends Drash.Http.Resource {
         .replace("{{ title }}", "Drash Land")
         .replace("{{ module }}", "landing")
         .replace("{{ version }}", "") // IF  we were using versions, do .replace(..., ".VERSION")
-        .replace("drash", JSON.stringify({
+        .replace("{{ drash }}", JSON.stringify({
           environment: this.getEnvironment()
-        });
+        }));
     this.response.body = content;
     return this.response
   }
