@@ -11,12 +11,12 @@
     computed: {
       base_url() {
         if (window.drash.environment == "production") {
-          return "/";
+          return "";
         }
         if (window.drash.environment == "staging") {
           return "/staging";
         }
-        return "/";
+        return "";
       }
     },
     async mounted() {
@@ -29,250 +29,250 @@
 </script>
 
 <template lang="html">
-    <div>
-        <div id="loading">
-          <div class="ripple ripple1"></div>
-          <div class="ripple ripple2"></div>
-          <div class="ripple ripple3"></div>
-          <div class="ripple ripple4"></div>
-        </div>
+  <div>
+      <div id="loading">
+        <div class="ripple ripple1"></div>
+        <div class="ripple ripple2"></div>
+        <div class="ripple ripple3"></div>
+        <div class="ripple ripple4"></div>
+      </div>
 
-        <div id="app" style="margin-top: -3rem;">
+      <div id="app" style="margin-top: -3rem;">
 
-          <!-- ========== HEADER ========== -->
-          <nav class="navbar affix navbar-expand-lg fixed-top navbar-light">
-            <div class="container-fluid align-items-center">
-              <a class="navbar-brand" href="/">
-                Drash Land
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                      aria-controls="navbarSupportedContent"
-                      aria-expanded="false" aria-label="Toggle navigation">
-                <span class="menu-icon">
-                    <span class="menu-icon__bar"></span>
-                    <span class="menu-icon__bar"></span>
-                    <span class="menu-icon__bar"></span>
-                  </span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <div class="site-header--right d-flex align-items-center">
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <a href="#news" class="nav-link">News</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#modules" class="nav-link">Modules</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#discord" class="nav-link">Discord</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="https://github.com/drashland/" class="nav-link">GitHub</a>
-                    </li>
-                  </ul>
-                </div>
+        <!-- ========== HEADER ========== -->
+        <nav class="navbar affix navbar-expand-lg fixed-top navbar-light">
+          <div class="container-fluid align-items-center">
+            <a class="navbar-brand" href="/">
+              Drash Land
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+              <span class="menu-icon">
+                  <span class="menu-icon__bar"></span>
+                  <span class="menu-icon__bar"></span>
+                  <span class="menu-icon__bar"></span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+              <div class="site-header--right d-flex align-items-center">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a href="#news" class="nav-link">News</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#modules" class="nav-link">Modules</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#discord" class="nav-link">Discord</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://github.com/drashland/" class="nav-link">GitHub</a>
+                  </li>
+                </ul>
               </div>
             </div>
-          </nav>
-          <!-- ========== END HEADER ========== -->
-
-          <!-- ========== HERO SECTION ========== -->
-          <div class="intro" id="home">
-            <div class="screen-v-100">
-              <div class="l-v-center">
-                <div class="container">
-                  <div class="intro-content">
-                    <div class="row align-items-lg-center text-center">
-                      <div class="col-12">
-                        <img src="/assets/common/img/logo_drash.svg" class="img-fluid mb-3" alt="Drash" style="max-width: 200px">
-                        <h1 class="intro-lead-title mb-3">Drash Land</h1>
-                        <p class="lead">Develop With Confidence</p>
-                        <div class="intro-cta-group">
-                          <a href="#modules" class="btn btn-xl btn-primary">View modules</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <figure class="img-shape absolute-bottom">
-              <img src="/assets/common/img/wave.svg" alt="Image">
-            </figure>
           </div>
-          <!-- ========== END HERO SECTION ========== -->
+        </nav>
+        <!-- ========== END HEADER ========== -->
 
-          <!-- ========== OVERVIEW SECTION ========== -->
-          <section class="section-spacer">
-            <div class="container">
-              <div class="row mb-5 mb-md-0">
-                <div class="col-md-7">
-                  <div class="content">
-                    <div class="row">
-                      <div class="col-md-3 mb-3  mb-md-0">
-                        <span class="h5 text-muted">Get started</span>
-                        <h2 class="mt-0">quickly</h2>
-                      </div>
-                      <div class="col-md-9">
-                        <header class="section-header">
-                          <p class="lead">With documentation-driven development at its forefront, getting started with any Drash Land module is quick and painless.</p>
-                        </header>
-                        <div class="feature-boxes m-tb-40">
-                          <div class="feature-box mb-5">
-                            <h2 class="feature-box--title">Read</h2>
-                            <small class="feature-box--text">guided tutorials</small>
-                          </div>
-                          <div class="feature-box mb-5">
-                            <h2 class="feature-box--title">Develop</h2>
-                            <small class="feature-box--text">with confidence</small>
-                          </div>
-                          <div class="feature-box mb-5">
-                            <h2 class="feature-box--title">Deploy</h2>
-                            <small class="feature-box--text">awesome projects</small>
-                          </div>
-                        </div>
+        <!-- ========== HERO SECTION ========== -->
+        <div class="intro" id="home">
+          <div class="screen-v-100">
+            <div class="l-v-center">
+              <div class="container">
+                <div class="intro-content">
+                  <div class="row align-items-lg-center text-center">
+                    <div class="col-12">
+                      <img src="/assets/common/img/logo_drash.svg" class="img-fluid mb-3" alt="Drash" style="max-width: 200px">
+                      <h1 class="intro-lead-title mb-3">Drash Land</h1>
+                      <p class="lead">Develop With Confidence</p>
+                      <div class="intro-cta-group">
+                        <a href="#modules" class="btn btn-xl btn-primary">View modules</a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-5">
-                  <img class="img-fluid" src="/assets/common/img/logo_drash.svg" width="800" alt="Drash">
-                </div>
               </div>
             </div>
-          </section>
-          <!-- ========== END OVERVIEW SECTION ========== -->
+          </div>
+          <figure class="img-shape absolute-bottom">
+            <img src="/assets/common/img/wave.svg" alt="Image">
+          </figure>
+        </div>
+        <!-- ========== END HERO SECTION ========== -->
 
-          <!-- ========== LATEST NEWS SECTION ========== -->
-          <section class="section-spacer" id="news" style="background: #f4f4f4">
-            <div class="container">
-              <div class="row">
-                <div class="mx-auto">
-                  <header class="section-header text-center u-text--light">
-                    <h2 class="section-title h1" style="color: #333">News</h2>
-                  </header>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 mx-auto">
+        <!-- ========== OVERVIEW SECTION ========== -->
+        <section class="section-spacer">
+          <div class="container">
+            <div class="row mb-5 mb-md-0">
+              <div class="col-md-7">
+                <div class="content">
                   <div class="row">
-                    <div class="col-md-4" v-for="article in news">
-                      <a :href="article.canonical_url" class="card integration-card text-center p-3" target="_BLANK">
-                        <div class="card-header">
-                          <h4>{{ article.title }}</h4>
-                          <p class="date">{{ article.readable_publish_date }}</p>
-                          <p class="integration-type">{{ article.description }}</p>
+                    <div class="col-md-3 mb-3  mb-md-0">
+                      <span class="h5 text-muted">Get started</span>
+                      <h2 class="mt-0">quickly</h2>
+                    </div>
+                    <div class="col-md-9">
+                      <header class="section-header">
+                        <p class="lead">With documentation-driven development at its forefront, getting started with any Drash Land module is quick and painless.</p>
+                      </header>
+                      <div class="feature-boxes m-tb-40">
+                        <div class="feature-box mb-5">
+                          <h2 class="feature-box--title">Read</h2>
+                          <small class="feature-box--text">guided tutorials</small>
                         </div>
-                      </a>
+                        <div class="feature-box mb-5">
+                          <h2 class="feature-box--title">Develop</h2>
+                          <small class="feature-box--text">with confidence</small>
+                        </div>
+                        <div class="feature-box mb-5">
+                          <h2 class="feature-box--title">Deploy</h2>
+                          <small class="feature-box--text">awesome projects</small>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="row" style="margin-top: 4rem">
-                <div class="col-md-12 mx-auto text-center">
-                  <a class="btn btn-xl btn-primary" href="http://dev.to/drash_land" target="_BLANK">View all artices</a>
-                </div>
+              <div class="col-md-5">
+                <img class="img-fluid" src="/assets/common/img/logo_drash.svg" width="800" alt="Drash">
               </div>
             </div>
-          </section>
-          <!-- ========== END LATEST NEWS SECTION ========== -->
+          </div>
+        </section>
+        <!-- ========== END OVERVIEW SECTION ========== -->
 
-          <!-- ========== MODULES SECTION ========== -->
-          <section class="section-spacer u-bg-gradient--primary" id="modules">
-            <div class="container">
-              <div class="row">
-                <div class="mx-auto">
-                  <header class="section-header text-center u-text--light">
-                    <h2 class="section-title h1">Modules</h2>
-                  </header>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 mx-auto">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <a :href="/{{ base_url }}drash/" class="card integration-card text-center p-3">
-                        <img height="150" src="/assets/common/img/logo_drash.svg">
-                        <div class="card-header">
-                          <h4>Drash</h4>
-                          <span class="integration-type">A REST microframework</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="col-md-4">
-                      <a href="https://github.com/drashland/deno-drash-middleware" class="card integration-card text-center p-3">
-                        <img height="150" src="/assets/common/img/logo_drash_middleware.svg">
-                        <div class="card-header">
-                          <h4>Drash Middleware</h4>
-                          <span class="integration-type">A middleware library for Drash</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="col-md-4">
-                      <a :href="/{{ base_url }}wocket/" class="card integration-card text-center p-3">
-                        <img height="150" src="/assets/common/img/logo_wocket.svg">
-                        <div class="card-header">
-                          <h4>Wocket</h4>
-                          <span class="integration-type">A WebSocket library</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="col-md-4">
-                      <a :href="/{{ base_url }}dmm/" class="card integration-card text-center p-3">
-                        <img height="150" src="/assets/common/img/logo_dmm.svg">
-                        <div class="card-header">
-                          <h4>dmm</h4>
-                          <span class="integration-type">A lightweight module manager</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="col-md-4">
-                      <a :href="/{{ base_url }}rhum/" class="card integration-card text-center p-3">
-                        <img height="150" src="/assets/common/img/logo_rhum.svg">
-                        <div class="card-header">
-                          <h4>Rhum</h4>
-                          <span class="integration-type">A lightweight testing framework</span>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+        <!-- ========== LATEST NEWS SECTION ========== -->
+        <section class="section-spacer" id="news" style="background: #f4f4f4">
+          <div class="container">
+            <div class="row">
+              <div class="mx-auto">
+                <header class="section-header text-center u-text--light">
+                  <h2 class="section-title h1" style="color: #333">News</h2>
+                </header>
               </div>
             </div>
-          </section>
-          <!-- ========== END MODULES SECTION ========== -->
-
-          <!-- ========== DISCORD SECTION ========== -->
-          <section class="section-spacer u-bg--default" id="discord">
-            <div class="container">
-              <div class="row text-center">
-              <div class="col-md-12">
-                  <h2>Join The Discord Community</h2>
-                  <p class="lead">Join the community to discuss features, issues, or just to leave some feedback. Everyone is welcomed.</p>
-                  <a href="https://discord.gg/SgejNXq" class="btn btn-xl btn-primary" target="_BLANK">Join</a>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!-- ========== END DISCORD SECTION ========== -->
-
-          <!-- ========== CONTACT  SECTION ========== -->
-          <section class="section-spacer u-bg--primary bg-pattern-dots--light" id="sec-contact">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-7 mx-auto">
-                  <header class="section-header text-center u-text--light">
-                    <p class="lead">Develop with confidence.</p>
-                    <p>Released under the MIT License.</p>
-                    <a href="https://github.com/drashland" target="_BLANK" class="text-white mb-3">
-                      <i class="fab fa-github fa-3x"></i>
+            <div class="row">
+              <div class="col-md-12 mx-auto">
+                <div class="row">
+                  <div class="col-md-4" v-for="article in news">
+                    <a :href="article.canonical_url" class="card integration-card text-center p-3" target="_BLANK">
+                      <div class="card-header">
+                        <h4>{{ article.title }}</h4>
+                        <p class="date">{{ article.readable_publish_date }}</p>
+                        <p class="integration-type">{{ article.description }}</p>
+                      </div>
                     </a>
-                  </header>
+                  </div>
                 </div>
               </div>
             </div>
-          </section>
-          <!-- ========== END CONTACT SECTION ========== -->
-         </div>
-    </div>
+            <div class="row" style="margin-top: 4rem">
+              <div class="col-md-12 mx-auto text-center">
+                <a class="btn btn-xl btn-primary" href="http://dev.to/drash_land" target="_BLANK">View all artices</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ========== END LATEST NEWS SECTION ========== -->
+
+        <!-- ========== MODULES SECTION ========== -->
+        <section class="section-spacer u-bg-gradient--primary" id="modules">
+          <div class="container">
+            <div class="row">
+              <div class="mx-auto">
+                <header class="section-header text-center u-text--light">
+                  <h2 class="section-title h1">Modules</h2>
+                </header>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mx-auto">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a :href="base_url + '/drash/'" class="card integration-card text-center p-3">
+                      <img height="150" src="/assets/common/img/logo_drash.svg">
+                      <div class="card-header">
+                        <h4>Drash</h4>
+                        <span class="integration-type">A REST microframework</span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="https://github.com/drashland/deno-drash-middleware" class="card integration-card text-center p-3">
+                      <img height="150" src="/assets/common/img/logo_drash_middleware.svg">
+                      <div class="card-header">
+                        <h4>Drash Middleware</h4>
+                        <span class="integration-type">A middleware library for Drash</span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a :href="base_url + '/wocket/'" class="card integration-card text-center p-3">
+                      <img height="150" src="/assets/common/img/logo_wocket.svg">
+                      <div class="card-header">
+                        <h4>Wocket</h4>
+                        <span class="integration-type">A WebSocket library</span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a :href="base_url + '/dmm/'" class="card integration-card text-center p-3">
+                      <img height="150" src="/assets/common/img/logo_dmm.svg">
+                      <div class="card-header">
+                        <h4>dmm</h4>
+                        <span class="integration-type">A lightweight module manager</span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a :href="base_url + '/rhum/'" class="card integration-card text-center p-3">
+                      <img height="150" src="/assets/common/img/logo_rhum.svg">
+                      <div class="card-header">
+                        <h4>Rhum</h4>
+                        <span class="integration-type">A lightweight testing framework</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ========== END MODULES SECTION ========== -->
+
+        <!-- ========== DISCORD SECTION ========== -->
+        <section class="section-spacer u-bg--default" id="discord">
+          <div class="container">
+            <div class="row text-center">
+            <div class="col-md-12">
+                <h2>Join The Discord Community</h2>
+                <p class="lead">Join the community to discuss features, issues, or just to leave some feedback. Everyone is welcomed.</p>
+                <a href="https://discord.gg/SgejNXq" class="btn btn-xl btn-primary" target="_BLANK">Join</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ========== END DISCORD SECTION ========== -->
+
+        <!-- ========== CONTACT  SECTION ========== -->
+        <section class="section-spacer u-bg--primary bg-pattern-dots--light" id="sec-contact">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-7 mx-auto">
+                <header class="section-header text-center u-text--light">
+                  <p class="lead">Develop with confidence.</p>
+                  <p>Released under the MIT License.</p>
+                  <a href="https://github.com/drashland" target="_BLANK" class="text-white mb-3">
+                    <i class="fab fa-github fa-3x"></i>
+                  </a>
+                </header>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ========== END CONTACT SECTION ========== -->
+       </div>
+  </div>
 </template>

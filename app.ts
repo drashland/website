@@ -3,8 +3,8 @@ import { Drash } from "https://deno.land/x/drash/mod.ts"
 const decoder = new TextDecoder()
 const encoder = new TextEncoder()
 
-class DrashResource extends Drash.Http.Resource {
-  static paths = ["/staging?/drash/:version?"]
+class ModuleResource extends Drash.Http.Resource {
+  static paths = ["/:module/:version?"]
 
   public GET() {
     const uri = this.request.url_path;
@@ -13,7 +13,7 @@ class DrashResource extends Drash.Http.Resource {
     content = content
         .replace("{{ environment }}", environment)
         .replace("{{ title }}", "Drash Land - Drash")
-        .replace("{{ module }}", "drash")
+        .replace("{{ module }}", this.request.getPathParam("module") || "")
         .replace("{{ version }}", this.request.getPathParam("version") || "")
         .replace("{{ drash }}", JSON.stringify({
           environment: this.getEnvironment()
@@ -76,7 +76,7 @@ class LandingResource extends Drash.Http.Resource {
 const server = new Drash.Http.Server({
   resources: [
       LandingResource,
-      DrashResource
+      ModuleResource
   ],
   response_output: "text/html",
   static_paths: [
