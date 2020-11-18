@@ -1,4 +1,4 @@
-name: staging
+name: Staging
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - staging
 
 jobs:
-  build:
+  build-environment:
 
     env:
       CI: true

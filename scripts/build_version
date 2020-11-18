@@ -1,0 +1,21 @@
+#!/bin/bash
+
+MODULE="$1"
+VERSION="$2"
+
+echo -e "Building version files for $MODULE@$VERSION\n"
+
+scripts/compile_vue_routes $MODULE
+
+# Make the version's directory in case it doesn't exist
+mkdir -p ./$MODULE/$VERSION
+
+# Compile the HTML files for this version
+node ./scripts/compile_version_html.js $MODULE $VERSION
+
+node_modules/.bin/webpack \
+  --config ./webpack.config.version.js \
+  --hide-modules \
+  --env.environment=version \
+  --env.module=$MODULE \
+  --env.version=$VERSION

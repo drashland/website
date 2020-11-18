@@ -38,6 +38,9 @@ export default {
               "Part 2: Opening A Channel": "/advanced-tutorials/creating-a-chat-app/part-2",
               "Part 3: Creating The Front-End": "/advanced-tutorials/creating-a-chat-app/part-3",
             }
+          },
+          "Versions": {
+            "v0.5.0": "/wocket/v0.5.0/",
           }
         },
         module: "Wocket",
