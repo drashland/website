@@ -9,9 +9,30 @@ function ucfirst(str: string) {
 export class ModuleResource extends Drash.Http.Resource {
   static paths = ["/:module/:version?"]
 
+  protected recognized_version: {[key: string]: string[]} = {
+    drash: [
+      "v1.3.0",
+    ],
+    dmm: [
+      "v1.2.0",
+    ],
+    rhum: [
+      "v1.1.4",
+    ],
+    wocket: [
+      "v0.5.0",
+    ]
+  };
+
   public GET() {
     const moduleName = this.request.getPathParam("module") || "";
     const version = this.request.getPathParam("version") || "";
+    if (version) {
+      const result = this.validateVersion(moduleName, version);
+      if (!result) {
+        return this.response;
+      }
+    }
     const uri = this.request.url_path;
     const environment = this.getEnvironment();
     let content = decoder.decode(Deno.readFileSync("index.module.html"));
@@ -39,6 +60,20 @@ export class ModuleResource extends Drash.Http.Resource {
       }
 
       return "development";
+  }
+
+  protected validateVersion(moduleName: string, version: string): boolean {
+    if (!this.recognized_version[moduleName]) {
+      this.response.body = decoder.decode(Deno.readFileSync("404.html"));
+      return false;
+    }
+
+    if (this.recognized_version[moduleName].indexOf(version) == -1) {
+      this.response.body = decoder.decode(Deno.readFileSync("404.html"));
+      return false;
+    }
+
+    return true;
   }
 }
 
