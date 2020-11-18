@@ -242,5 +242,4 @@ div
         div.py-1
           p.font-bold Having issues with this page?
           p.text-sm This page was last updated on {{ $conf.build_date.replace("T", " at ").split(".")[0] }}. If you are having issues with this page (e.g., parts of the page are not loading, documentation does not make sense, etc.), please let us know <a class="cursor-pointer" :href="'https://github.com/drashland/website/issues/new?assignees=&labels=Priority: Medium, Remark: Investigation Needed%2C+documentation&template=documentation_page_issue.md&title=Issue on ' + module + ' ' + $route.path + ' page'" target="_BLANK">here</a>. We would love to help you out!
-  link(rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css")
 </template>
