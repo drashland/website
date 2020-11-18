@@ -16,7 +16,7 @@ class DrashResource extends Drash.Http.Resource {
         .replace("{{ title }}", "Drash Land - Drash")
         .replace("{{ module }}", "drash")
         .replace("{{ version }}", version)
-        .replace("", JSON.stringify({
+        .replace("drash", JSON.stringify({
           environment: this.getEnvironment()
         });
     this.response.body = content;
@@ -43,17 +43,32 @@ class LandingResource extends Drash.Http.Resource {
 
   public GET () {
     const uri = this.request.url_path;
-    const hostname = this.server.hostname
-    const isStaging = uri.indexOf("staging") > -1;
-    const environment = hostname === "localhost" ? "development" : isStaging ? "staging" : "production"
+    const environment = this.getEnvironment();
     let content = decoder.decode(Deno.readFileSync("index.html"));
     content = content
         .replace("{{ environment }}", environment)
         .replace("{{ title }}", "Drash Land")
         .replace("{{ module }}", "landing")
-        .replace("{{ version }}", ""); // IF  we were using versions, do .replace(..., ".VERSION")
+        .replace("{{ version }}", "") // IF  we were using versions, do .replace(..., ".VERSION")
+        .replace("drash", JSON.stringify({
+          environment: this.getEnvironment()
+        });
     this.response.body = content;
     return this.response
+  }
+
+  protected getEnvironment() {
+      const uri = this.request.url_path;
+      const isDrashIo = this.request.headers.get("x-forwarded-host");
+      const isStaging = uri.includes("/staging");
+      if (isDrashIo) {
+        if (isStaging) {
+          return "staging";
+        }
+        return "production";
+      }
+
+      return "development";
   }
 }
 
