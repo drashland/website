@@ -3,17 +3,22 @@ import { Drash } from "https://deno.land/x/drash/mod.ts"
 const decoder = new TextDecoder()
 const encoder = new TextEncoder()
 
+function ucfirst(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 class ModuleResource extends Drash.Http.Resource {
   static paths = ["/:module/:version?"]
 
   public GET() {
+    const moduleName = this.request.getPathParam("module") || "";
     const uri = this.request.url_path;
     const environment = this.getEnvironment();
-    let content = decoder.decode(Deno.readFileSync("index.html"));
+    let content = decoder.decode(Deno.readFileSync("index.module.html"));
     content = content
         .replace("{{ environment }}", environment)
-        .replace("{{ title }}", "Drash Land - Drash")
-        .replace("{{ module }}", this.request.getPathParam("module") || "")
+        .replace("{{ title }}", "Drash Land - " + ucfirst(moduleName))
+        .replace(/\{\{ module \}\}/g, moduleName)
         .replace("{{ version }}", this.request.getPathParam("version") || "")
         .replace("{{ drash }}", JSON.stringify({
           environment: this.getEnvironment()
