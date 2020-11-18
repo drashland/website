@@ -1,8 +1,9 @@
 import { Drash } from "../../deps.ts";
+import { BaseResource } from "./base_resource.ts";
 
 const decoder = new TextDecoder();
 
-export class LandingResource extends Drash.Http.Resource {
+export class LandingResource extends BaseResource {
   static paths = [
     "/",
     "/staging?/:module?",
@@ -10,13 +11,7 @@ export class LandingResource extends Drash.Http.Resource {
 
   public GET () {
     const uri = this.request.url_path;
-    let content = "";
-
-    try {
-      content = decoder.decode(Deno.readFileSync("./src/landing.html"));
-    } catch (error) {
-      console.log(error);
-    }
+    let content = decoder.decode(Deno.readFileSync("./src/landing.html"));
 
     content = content
         .replace("{{ environment }}", this.getEnvironment())
@@ -28,18 +23,5 @@ export class LandingResource extends Drash.Http.Resource {
     this.response.body = content;
 
     return this.response
-  }
-
-  protected getEnvironment() {
-      const uri = this.request.url_path;
-      const isDrashIo = this.request.headers.get("x-forwarded-host");
-      const isStaging = uri.includes("/staging");
-      if (isDrashIo) {
-        if (isStaging) {
-          return "staging";
-        }
-        return "production";
-      }
-      return "development";
   }
 }
