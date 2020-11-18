@@ -4,20 +4,21 @@ const decoder = new TextDecoder()
 const encoder = new TextEncoder()
 
 class DrashResource extends Drash.Http.Resource {
-  static paths = ["/(staging/)?drash"]
+  static paths = ["/(staging/)?drash(/v[0-9.]+[0-9.]+[0-9])?"]
 
   public GET() {
     const uri = this.request.url_path;
     const hostname = this.server.hostname
     const isStaging = uri.indexOf("staging") > -1;
+    const version = uri.indexOf("v") > -1 ? "v" + uri.split("v")[1] : ""
     const environment = hostname === "localhost" ? "development" : isStaging ? "staging" : "production"
-    console.log(uri, hostname, isStaging, environment)
+    console.log(uri, hostname, isStaging, environment, version)
     let content = decoder.decode(Deno.readFileSync("index.html"));
     content = content
         .replace("{{ environment }}", environment)
         .replace("{{ title }}", "Drash Land - Drash")
         .replace("{{ module }}", "drash")
-        .replace("{{ version }}", "");
+        .replace("{{ version }}", version);
     this.response.body = content;
     return this.response
   }
