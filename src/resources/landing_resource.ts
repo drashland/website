@@ -3,13 +3,17 @@ import { BaseResource } from "./base_resource.ts";
 
 const decoder = new TextDecoder();
 
+/**
+ * /
+ * /staging
+ */
 export class LandingResource extends BaseResource {
   static paths = [
     "/(staging)?",
   ]
 
   public GET () {
-    const uri = this.request.url_path;
+    console.log('GET LandingResource')
     let content = decoder.decode(Deno.readFileSync("./src/landing.html"));
 
     content = content

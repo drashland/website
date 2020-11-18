@@ -1,11 +1,14 @@
 import { Drash } from "./deps.ts";
-import { ModuleResource } from "./src/resources/module_resource.ts";
+import { DrashResource } from "./src/resources/drash_resource.ts";
 import { LandingResource } from "./src/resources/landing_resource.ts";
+import { Response } from "./src/response.ts";
+
+Drash.Http.Response = Response
 
 const server = new Drash.Http.Server({
   resources: [
       LandingResource,
-      ModuleResource
+      DrashResource
   ],
   response_output: "text/html",
   static_paths: [
