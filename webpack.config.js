@@ -46,6 +46,7 @@ module.exports = (envVars) => {
       drash_app: path.resolve(__dirname, "drash/assets/js/_app.js"),
       rhum_app: path.resolve(__dirname, "rhum/assets/js/_app.js"),
       wocket_app: path.resolve(__dirname, "wocket/assets/js/_app.js"),
+      landing_app: path.resolve(__dirname, "landing/assets/js/_app.js")
     },
     mode: getMode(envVars.environment),
     output: {
@@ -100,6 +101,7 @@ module.exports = (envVars) => {
         "/drash": path.resolve(__dirname, "drash"),
         "/rhum": path.resolve(__dirname, "rhum"),
         "/wocket": path.resolve(__dirname, "wocket"),
+        "/landing": path.resolve(__dirname, "landing")
       }
     }
   };
