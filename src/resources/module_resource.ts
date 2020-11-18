@@ -1,4 +1,5 @@
 import { Drash } from "../../deps.ts";
+import { BaseResource } from "./base_resource.ts";
 
 const decoder = new TextDecoder();
 
@@ -6,7 +7,7 @@ function ucfirst(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export class ModuleResource extends Drash.Http.Resource {
+export class ModuleResource extends BaseResource {
   static paths = ["/:module/:version?"]
 
   protected recognized_version: {[key: string]: string[]} = {
@@ -45,20 +46,6 @@ export class ModuleResource extends Drash.Http.Resource {
         }));
     this.response.body = content;
     return this.response
-  }
-
-  protected getEnvironment() {
-      const uri = this.request.url_path;
-      const isDrashIo = this.request.headers.get("x-forwarded-host");
-      const isStaging = uri.includes("/staging");
-      if (isDrashIo) {
-        if (isStaging) {
-          return "staging";
-        }
-        return "production";
-      }
-
-      return "development";
   }
 
   protected validateVersion(moduleName: string, version: string): boolean {

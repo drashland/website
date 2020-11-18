@@ -36,7 +36,7 @@ jobs:
 
       - name: Update version numbers for ${{ github.event.client_payload.module }}
         run: |
-          node scripts/update_module_versions.js \
+          node console/update_module_versions.js \
             --module ${{ github.event.client_payload.module }} \
             --version ${{ github.event.client_payload.version }}
 
