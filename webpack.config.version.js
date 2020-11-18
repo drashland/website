@@ -39,14 +39,14 @@ module.exports = (envVars) => {
     entry: {
       [envVars.module + "_app"]: path.resolve(
         __dirname,
-        envVars.module + "/assets/js/_app.js",
+        "src/modules/" + envVars.module + "/app.js",
       ),
     },
     mode: "production",
     output: {
       path: path.resolve(
         __dirname,
-        envVars.module + "/" + envVars.version + "/",
+        "assets/bundles/",
       ),
       filename: `[name].${envVars.version}.js`,
     },
@@ -92,7 +92,7 @@ module.exports = (envVars) => {
       alias: {
         vue: "vue/dist/vue.min.js",
         "/common": path.resolve(__dirname, "assets/common"),
-        ["/" + envVars.module]: path.resolve(__dirname, envVars.module),
+        ["/" + envVars.module]: path.resolve(__dirname, "src/modules/" + envVars.module),
       },
     },
   };
