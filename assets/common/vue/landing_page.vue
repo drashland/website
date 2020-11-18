@@ -8,6 +8,17 @@
         }
       }
     },
+    computed: {
+      base_url() {
+        if (window.drash.environment == "production") {
+          return "/";
+        }
+        if (window.drash.environment == "staging") {
+          return "/staging";
+        }
+        return "/";
+      }
+    },
     async mounted() {
       const res = await fetch("https://dev.to/api/articles?username=drash_land&top=14");
       let json = await res.json();
@@ -180,7 +191,7 @@
                 <div class="col-md-12 mx-auto">
                   <div class="row">
                     <div class="col-md-4">
-                      <a :href="/{{ env }}drash/" class="card integration-card text-center p-3">
+                      <a :href="/{{ base_url }}drash/" class="card integration-card text-center p-3">
                         <img height="150" src="/assets/common/img/logo_drash.svg">
                         <div class="card-header">
                           <h4>Drash</h4>
@@ -198,7 +209,7 @@
                       </a>
                     </div>
                     <div class="col-md-4">
-                      <a :href="/{{ env }}wocket/" class="card integration-card text-center p-3">
+                      <a :href="/{{ base_url }}wocket/" class="card integration-card text-center p-3">
                         <img height="150" src="/assets/common/img/logo_wocket.svg">
                         <div class="card-header">
                           <h4>Wocket</h4>
@@ -207,7 +218,7 @@
                       </a>
                     </div>
                     <div class="col-md-4">
-                      <a :href="/{{ env }}dmm/" class="card integration-card text-center p-3">
+                      <a :href="/{{ base_url }}dmm/" class="card integration-card text-center p-3">
                         <img height="150" src="/assets/common/img/logo_dmm.svg">
                         <div class="card-header">
                           <h4>dmm</h4>
@@ -216,7 +227,7 @@
                       </a>
                     </div>
                     <div class="col-md-4">
-                      <a :href="/{{ env }}rhum/" class="card integration-card text-center p-3">
+                      <a :href="/{{ base_url }}rhum/" class="card integration-card text-center p-3">
                         <img height="150" src="/assets/common/img/logo_rhum.svg">
                         <div class="card-header">
                           <h4>Rhum</h4>

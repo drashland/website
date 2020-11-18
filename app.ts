@@ -8,19 +8,33 @@ class DrashResource extends Drash.Http.Resource {
 
   public GET() {
     const uri = this.request.url_path;
-    const hostname = this.server.hostname
-    const isStaging = uri.indexOf("staging") > -1;
-    const version = uri.indexOf("v") > -1 ? "v" + uri.split("v")[1] : ""
-    const environment = hostname === "localhost" ? "development" : isStaging ? "staging" : "production"
+    const environment = this.getEnvironment();
     console.log(uri, hostname, isStaging, environment, version)
     let content = decoder.decode(Deno.readFileSync("index.html"));
     content = content
         .replace("{{ environment }}", environment)
         .replace("{{ title }}", "Drash Land - Drash")
         .replace("{{ module }}", "drash")
-        .replace("{{ version }}", version);
+        .replace("{{ version }}", version)
+        .replace("", JSON.stringify({
+          environment: this.getEnvironment()
+        });
     this.response.body = content;
     return this.response
+  }
+
+  protected getEnvironment() {
+      const uri = this.request.url_path;
+      const isDrashIo = this.request.headers.get("x-forwarded-host");
+      const isStaging = uri.includes("/staging");
+      if (isDrashIo) {
+        if (isStaging) {
+          return "staging";
+        }
+        return "production";
+      }
+
+      return "development";
   }
 }
 
