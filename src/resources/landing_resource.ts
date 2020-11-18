@@ -1,6 +1,8 @@
 import { Drash } from "../../deps.ts";
 
-class LandingResource extends Drash.Http.Resource {
+const decoder = new TextDecoder();
+
+export class LandingResource extends Drash.Http.Resource {
   static paths = [
     "/",
     "/staging?/:module?",

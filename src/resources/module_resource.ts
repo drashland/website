@@ -1,5 +1,7 @@
 import { Drash } from "../../deps.ts";
 
+const decoder = new TextDecoder();
+
 function ucfirst(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
