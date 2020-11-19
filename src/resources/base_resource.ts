@@ -4,6 +4,17 @@ const decoder = new TextDecoder();
 
 export class BaseResource extends Drash.Http.Resource {
 
+  /**
+   * A list of recognized modules that users can access pages for. If a user
+   * tries to access a page for a module that isn't in this list, then an error
+   * page will be shown.
+   */
+  protected recognized_modules: string[] = [
+    "dmm",
+    "drash",
+    "rhum",
+    "sockets",
+  ];
   protected getEnvironment() {
       const uri = this.request.url_path;
       const isDrashIo = this.request.headers.get("x-forwarded-host");
