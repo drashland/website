@@ -58,7 +58,7 @@
       <nav class="navbar affix navbar-expand-lg fixed-top navbar-light">
         <div class="container-fluid align-items-center">
           <a class="navbar-brand" href="/">
-            Drash Land
+            {{  branding }}
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                   aria-controls="navbarSupportedContent"
@@ -309,8 +309,16 @@
         data() {
           return {
             news: [],
-            baseModuleHref: environment === "development" ? "" : environment === "staging" ? "/staging" : ""
           };
+        },
+        computed: {
+          branding() {
+            let branding = "Drash Land";
+            if (drash.environment == "production") {
+              return branding;
+            }
+            return branding += ` [${environment}]`;
+          },
         },
         async mounted() {
           const res = await fetch("https://dev.to/api/articles?username=drash_land&top=14");
