@@ -1,15 +1,22 @@
-const a = await Deno.run({
-  cmd: ["console/compile_vue_routes"],
-  stderr: "piped",
-});
+const decoder = new TextDecoder();
 
-await a.status()
-a.close()
+await run(["console/compile_vue_routes"])
 
-const b = await Deno.run({
-  cmd: ["deno", "run", "-A", "app.ts"],
-  stderr: "piped",
-});
+await run(["pkill", "-f", "drash_website_server.ts"]);
 
-await b.status()
-b.close()
+await run(["deno", "run", "-A", "drash_website_server.ts"]);
+
+async function run(command: string[]) {
+  const p = Deno.run({
+    cmd: command,
+    stderr: "piped",
+  });
+
+  const status = await p.status()
+
+  if (status.code === 1) {
+    console.log(decoder.decode(await p.stderrOutput()));
+  }
+
+  p.close();
+}
