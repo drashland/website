@@ -1,8 +1,19 @@
 {
   "watcher": {
     "interval": 0,
-    "exts": ["js", "jsx", "ts", "tsx", "json"],
-    "match": ["*.*", "./src/*"],
+    "exts": [
+      "js",
+      "json",
+      "html",
+      "ts",
+      "vue"
+    ],
+    "match": [
+      "*.*",
+      "./src/*",
+      "./src/modules/*",
+      "./src/resources/*"
+    ],
     "skip": ["*/.git/*"],
     "legacy": false
   }
