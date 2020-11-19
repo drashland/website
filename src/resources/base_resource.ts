@@ -4,41 +4,23 @@ const decoder = new TextDecoder();
 
 export class BaseResource extends Drash.Http.Resource {
 
-  protected getEnvironment() {
-      const uri = this.request.url_path;
-      const isDrashIo = this.request.headers.get("x-forwarded-host");
-      const isStaging = uri.includes("/staging");
-      if (isDrashIo) {
-        if (isStaging) {
-          return "staging";
-        }
-        return "production";
-      }
+  /**
+   * A list of recognized modules that users can access pages for. If a user
+   * tries to access a page for a module that isn't in this list, then an error
+   * page will be shown.
+   */
+  protected recognized_modules: string[] = [
+    "dmm",
+    "drash",
+    "rhum",
+    "sockets",
+  ];
 
-      return "development";
-  }
+  //////////////////////////////////////////////////////////////////////////////
+  // FILE MARKER - METHODS - PROTECTED /////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
 
-  protected ucfirst(str: string): string {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
-  protected getModulePage(data: {
-    version: string,
-    module: string,
-  }): string {
-    let content = decoder.decode(Deno.readFileSync("./src/module.html"));
-    content = content
-        .replace("{{ environment }}", this.getEnvironment())
-        .replace("{{ title }}", "Drash Land - " + this.ucfirst(data.module))
-        .replace(/\{\{ module \}\}/g, data.module)
-        .replace("{{ version }}", data.version)
-        .replace("{{ drash }}", JSON.stringify({
-          environment: this.getEnvironment()
-        }));
-    return content
-  }
-
-  protected async fileExists (filename: string): Promise<boolean> {
+  protected async fileExists(filename: string): Promise<boolean> {
     try {
       await Deno.stat(filename);
       // successful, file or directory must exist
@@ -52,6 +34,67 @@ export class BaseResource extends Drash.Http.Resource {
         return false;
       }
     }
-  };
+  }
 
+  protected getEnvironment() {
+      const uri = this.request.url_path;
+      const isDrashIo = this.request.headers.get("x-forwarded-host");
+      const isStaging = uri.includes("/staging");
+      if (isDrashIo) {
+        if (isStaging) {
+          return "staging";
+        }
+        return "production";
+      }
+
+      if (isStaging) {
+        return "staging";
+      }
+
+      return "development";
+  }
+
+  protected log(message: string) {
+    console.log(`${this.constructor.name} | ${message}`);
+  }
+
+  /**
+   * Send documentation pages for a module.
+   */
+  protected sendDocsPage(moduleName: string, version: string = ""): Drash.Http.Response {
+    this.response.body = decoder.decode(Deno.readFileSync("./src/module.html"))
+        .replace("{{ environment }}", this.getEnvironment())
+        .replace("{{ title }}", "Drash Land - " + this.ucfirst(moduleName))
+        .replace(/\{\{ module \}\}/g, moduleName)
+        .replace("{{ version }}", version)
+        .replace("{{ drash }}", JSON.stringify({
+          environment: this.getEnvironment()
+        }));
+      return this.response;
+  }
+
+  protected sendError(code: number): Drash.Http.Response {
+    this.log(`Sending ${code} error response.`);
+    this.response.status_code = code;
+    return this.response;
+  }
+
+  protected async sendVersionedDocsPage(
+    moduleName: string,
+    version: string
+  ): Promise<Drash.Http.Response> {
+    const filename = `./assets/bundles/${moduleName}_app.${version}.js`;
+    this.log(`Getting Vue app: ${filename}`);
+
+    if (!await this.fileExists(filename)) {
+      this.log(`Module version "${version}" unknown.`);
+      return this.sendError(404);
+    }
+
+    return this.sendDocsPage(moduleName, version);
+  }
+
+  protected ucfirst(str: string): string {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 }
