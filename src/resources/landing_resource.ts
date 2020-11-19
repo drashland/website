@@ -1,25 +1,32 @@
-import { Drash } from "../../deps.ts";
 import { BaseResource } from "./base_resource.ts";
 
 const decoder = new TextDecoder();
 
-/**
- * /
- * /staging
- */
 export class LandingResource extends BaseResource {
   static paths = [
-    "/(staging)?",
+    "/",
+    "/staging",
   ]
 
-  public GET () {
-    console.log('GET LandingResource')
-    let content = decoder.decode(Deno.readFileSync("./src/landing.html"));
+  public async GET () {
+    this.log("Requested landing page.");
 
+    const filename = "./src/landing.html";
+
+    if (!await this.fileExists(filename)) {
+      return this.sendError(404);
+    }
+
+    let content = decoder.decode(Deno.readFileSync(filename));
+    const environment = this.getEnvironment();
+    const titleSuffix = environment != "production"
+      ? ` [${environment}]`
+      : "";
     content = content
-        .replace("{{ title }}", "Drash Land")
+        .replace("{{ environment }}", environment)
+        .replace("{{ title }}", "Drash Land" + titleSuffix)
         .replace("{{ drash }}", JSON.stringify({
-          environment: this.getEnvironment()
+          environment: environment
         }));
 
     this.response.body = content;
