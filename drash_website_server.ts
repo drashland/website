@@ -8,7 +8,7 @@ Drash.Http.Response = Response
 const server = new Drash.Http.Server({
   resources: [
       LandingResource,
-      DrashResource
+      DrashResource,
   ],
   response_output: "text/html",
   static_paths: [
