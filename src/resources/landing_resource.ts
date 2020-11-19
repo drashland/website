@@ -17,7 +17,6 @@ export class LandingResource extends BaseResource {
     let content = decoder.decode(Deno.readFileSync("./src/landing.html"));
 
     content = content
-        .replace("{{ environment }}", this.getEnvironment())
         .replace("{{ title }}", "Drash Land")
         .replace("{{ drash }}", JSON.stringify({
           environment: this.getEnvironment()
