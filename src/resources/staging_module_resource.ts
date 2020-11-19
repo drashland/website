@@ -12,7 +12,7 @@ export class StagingModuleResource extends BaseResource {
 
   public GET() {
     const moduleName = this.request.getPathParam("module") as string;
-    const version = this.request.getPathParam("version") as string;
+    let version = this.request.getPathParam("version") as string;
 
     this.log(`Requested staging docs for "${moduleName}" module.`);
 
@@ -27,7 +27,8 @@ export class StagingModuleResource extends BaseResource {
       return this.sendVersionedDocsPage(moduleName, version);
     }
 
-    return this.sendDocsPage(moduleName);
+    version = this.latest_versions[moduleName];
+    return this.response.redirect(302, `/${moduleName}/${version}/`);
   }
 }
 
