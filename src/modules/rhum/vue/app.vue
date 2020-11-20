@@ -13,6 +13,7 @@ export default {
       sidebar: {
         api_reference_href: "https://doc.deno.land/https/deno.land/x/rhum@" + this.$conf.rhum.latest_version + "/mod.ts",
         base_url: this.$conf.rhum.base_url + "/#",
+        example_applications: [],
         github_href: "https://github.com/drashland/rhum",
         logo: "/assets/common/img/logo_rhum.svg",
         menus: {

@@ -13,9 +13,13 @@ export default {
       type: String,
       required: true,
     },
+    example_applications: {
+      type: Array,
+      required: true
+    },
     menus: {
       type: Object,
-      required: true
+      required: true,
     },
     logo: {
       type: String,
@@ -197,7 +201,13 @@ div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'
             :href="getMenuItemLink(menu_item_name, href)"
             @click="closeSidebar()"
             :target="menu_item_name == 'Latest News' && link_text != 'No articles yet' ? '_BLANK' : ''"
-          ).menu-item-link {{ link_text }}
+          ).menu-link-item {{ link_text }}
+    div(v-if="example_applications.length")
+      div.menu-name
+        a.menu-name-link Example Applications
+      ul.mb-0(v-for="app in example_applications")
+        li.menu-item
+          a.no-hover.menu-item-link(:href="app.link") {{ app.title }}
     div.menu-name(v-if="api_reference_href")
       a.menu-name-link.is-link(:href="api_reference_href" @click="closeSidebar()") API Reference
     div.menu-name
