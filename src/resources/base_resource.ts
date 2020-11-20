@@ -16,6 +16,13 @@ export class BaseResource extends Drash.Http.Resource {
     "sockets",
   ];
 
+  protected latest_versions: { [key: string]: string } = {
+    "dmm": "v1.2.0",
+    "drash": "v1.3.0",
+    "rhum": "v1.1.4",
+    "sockets": "v0.5.0",
+  };
+
   //////////////////////////////////////////////////////////////////////////////
   // FILE MARKER - METHODS - PROTECTED /////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////

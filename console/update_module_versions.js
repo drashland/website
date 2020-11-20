@@ -1,43 +1,38 @@
 const fs = require("fs");
 
-let html;
 const moduleToUpdate = process.argv[3]
 const releaseVersion = process.argv[5].split('release-')[1]
 
 // update version in config
-const rawConfig = fs.readFileSync("./configs.json")
-let config = JSON.parse(rawConfig)
-const previousVersion = config[moduleToUpdate].latest_version
-const replaceRegex = {
-  from: new RegExp(`${moduleToUpdate}@${previousVersion}`, "g"),
-  to: `${moduleToUpdate}@${releaseVersion}`
-}
-config[moduleToUpdate].latest_version = `${releaseVersion}`
-if (config[moduleToUpdate].latest_url_deno_land) {
-  config[moduleToUpdate].latest_url_deno_land = config[moduleToUpdate].latest_url_deno_land.replace(previousVersion, releaseVersion)
-}
-if (config[moduleToUpdate].latest_url_nest_land) {
-  config[moduleToUpdate].latest_url_nest_land = config[moduleToUpdate].latest_url_nest_land.replace(previousVersion, releaseVersion)
-}
-fs.writeFileSync("./configs.json", JSON.stringify(config, 0, 2))
+updateConfigs();
+updateBaseResource();
 
-if (moduleToUpdate === "drash") {
-  // We dont need to update anything for drash as it has no example code, and all instances of the version are handled by the config
+///////////////////////////////////////////////////////////////////////////////
+// FILE MARKER - FUNCTIONS ////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
+function updateBaseResource() {
+  const filename = "./src/resources/base_resource.ts";
+  let contents = fs.readFileSync(filename).toString("utf-8");
+  console.log(contents);
+  const re = {
+    from: new RegExp(`"${moduleToUpdate}.+",`, "g"),
+    to: `"${moduleToUpdate}": "${releaseVersion}",`
+  };
+  contents = contents.replace(re.from, re.to);
+  fs.writeFileSync(filename, contents);
 }
 
-if (moduleToUpdate === "dmm") {
-  // We dont need to update anything for dmm as it has no example code, and all instances of the version are handled by the config
-}
-
-if (moduleToUpdate === "rhum") {
-  // skip rhum, as there isn't anything to update manually
-}
-
-if (moduleToUpdate === "wocket") {
-  // skip wocket, as no example code files
-}
-
-if (moduleToUpdate === "middleware") {
-  // don't need to do anything as the docs link just points to the repo
+function updateConfigs() {
+  const rawConfig = fs.readFileSync("./configs.json").toString("utf-8");
+  let config = JSON.parse(rawConfig)
+  const previousVersion = config[moduleToUpdate].latest_version
+  config[moduleToUpdate].latest_version = `${releaseVersion}`
+  if (config[moduleToUpdate].latest_url_deno_land) {
+    config[moduleToUpdate].latest_url_deno_land = config[moduleToUpdate].latest_url_deno_land.replace(previousVersion, releaseVersion)
+  }
+  if (config[moduleToUpdate].latest_url_nest_land) {
+    config[moduleToUpdate].latest_url_nest_land = config[moduleToUpdate].latest_url_nest_land.replace(previousVersion, releaseVersion)
+  }
+  fs.writeFileSync("./configs.json", JSON.stringify(config, 0, 2))
 }
