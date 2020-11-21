@@ -1,4 +1,5 @@
 import { Drash } from "../../deps.ts";
+import { configs } from "../../deps.ts";
 
 const decoder = new TextDecoder();
 
@@ -61,6 +62,12 @@ export class BaseResource extends Drash.Http.Resource {
       return "development";
   }
 
+  protected getServerConfigs(): string {
+    return JSON.stringify(Object.assign(configs, {
+      environment: this.getEnvironment(),
+    }));
+  }
+
   protected log(message: string) {
     console.log(`${this.constructor.name} | ${message}`);
   }
@@ -70,13 +77,14 @@ export class BaseResource extends Drash.Http.Resource {
    */
   protected sendDocsPage(moduleName: string, version: string = ""): Drash.Http.Response {
     this.response.body = decoder.decode(Deno.readFileSync("./src/module.html"))
-        .replace("{{ environment }}", this.getEnvironment())
         .replace("{{ title }}", "Drash Land - " + this.ucfirst(moduleName))
         .replace(/\{\{ module \}\}/g, moduleName)
-        .replace("{{ version }}", version)
-        .replace("{{ drash }}", JSON.stringify({
-          environment: this.getEnvironment()
-        }));
+        .replace("{{ server_configs }}", this.getServerConfigs());
+      if (this.getEnvironment() == "development") {
+        this.response.body = this.response.body.replace("{{ version }}", "development")
+      } else {
+        this.response.body = this.response.body.replace("{{ version }}", version)
+      }
       return this.response;
   }
 

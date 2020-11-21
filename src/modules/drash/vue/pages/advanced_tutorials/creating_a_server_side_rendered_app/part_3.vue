@@ -131,17 +131,17 @@ page(
       p Go to <code>localhost:1447/</code> in your browser.
       p You should receive a response similar to the following:
       p
-        img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/1.png'")
+        img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/1.png'")
     li
       p Go to <code>localhost:1447/contact</code> in your browser.
       p You should receive a response similar to the following:
       p
-        img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/2.png'")
+        img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/2.png'")
     li
       p Go to <code>localhost:1447/about</code> in your browser.
       p You should receive a response similar to the following:
       p
-        img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/3.png'")
+        img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/3.png'")
   div-alert-finished-tutorial-series
   hr
   breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="3")

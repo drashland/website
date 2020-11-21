@@ -1,4 +1,5 @@
 import { BaseResource } from "./base_resource.ts";
+import { configs } from "../../deps.ts";
 
 export class ModuleResource extends BaseResource {
 
