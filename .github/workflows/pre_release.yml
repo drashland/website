@@ -38,7 +38,7 @@ jobs:
         run: |
           npm install
 
-      - name: Build ${{ github.event.client_payload.version }} webpack bundle
+      - name: Build ${{ github.event.client_payload.module }}@${{ github.event.client_payload.version }} webpack bundle
       - run: |
           npm run build:version \
             ${{ github.event.client_payload.module }} \
