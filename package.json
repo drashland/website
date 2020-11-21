@@ -6,12 +6,9 @@
     "build:production": "console/build production",
     "build:staging": "console/build staging",
     "build:version": "console/build_version",
-    "build:versions": "console/build_versions",
     "rm:ds_store": "find . -name '.DS_Store' -type f -delete",
     "server": "denon run -A serve.ts",
-    "webpack": "node_modules/.bin/webpack --hide-modules --env.environment=development --watch",
-    "webpack:build": "node_modules/.bin/webpack --hide-modules",
-    "webpack:build-production": "node_modules/.bin/webpack --hide-modules --env.environment=production && git add . && git commit - m 'build prod bundles' && git push"
+    "webpack": "node_modules/.bin/webpack --hide-modules --watch"
   },
   "author": "Drash Land",
   "devDependencies": {

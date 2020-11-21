@@ -113,7 +113,7 @@ page(
       p Go to <code>localhost:1447/</code> in your browser.
       p You should the something similar to the following:
       p
-        img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
+        img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
   div-alert-finished-tutorial-series
   hr
   breadcrumbs(:base_url="base_url + base_uri" :part="5" :parts="5")

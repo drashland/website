@@ -9,11 +9,9 @@ export default {
   data() {
     return {
       build_date: this.$conf.build_date,
-      environment: this.$conf.environment,
       sidebar: {
         api_reference_href: "https://doc.deno.land/https/deno.land/x/rhum@" + this.$conf.rhum.latest_version + "/mod.ts",
         base_url: this.$conf.rhum.base_url + "/#",
-        example_applications: [],
         github_href: "https://github.com/drashland/rhum",
         logo: "/assets/common/img/logo_rhum.svg",
         menus: {
@@ -31,9 +29,7 @@ export default {
             "Stubs": "/tutorials/stubs",
             "Mocks": "/tutorials/mocks",
           },
-          "Versions": {
-            "v1.1.4": "/rhum/v1.1.4/"
-          }
+          "Versions": window.server_configs.rhum.versions
         },
         module: "Rhum",
       }
@@ -45,7 +41,6 @@ export default {
 <template lang="pug">
 app-root(
   :build_date="build_date"
-  :environment="environment"
   :sidebar="sidebar"
   news_tags="deno, rhum"
   module="Rhum"

@@ -291,7 +291,7 @@
     </div>
 
     <script>
-      window.drash = {{ drash }};
+      window.server_configs = {{ server_configs }};
     </script>
     <script src="/assets/common/js/vendors/jquery.min.js"></script>
     <script src="/assets/common/js/vendors/bootstrap.bundle.min.js"></script>
@@ -304,7 +304,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
     <script type="text/javascript">
-      const environment = drash.environment
+      const environment = server_configs.environment;
       const app = Vue.createApp({
         data() {
           return {
@@ -314,7 +314,7 @@
         computed: {
           branding() {
             let branding = "Drash Land";
-            if (drash.environment == "production") {
+            if (server_configs.environment == "production") {
               return branding;
             }
             return branding += ` [${environment}]`;

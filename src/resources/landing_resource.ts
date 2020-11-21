@@ -29,9 +29,7 @@ export class LandingResource extends BaseResource {
     content = content
         .replace("{{ environment }}", environment)
         .replace("{{ title }}", "Drash Land" + titleSuffix)
-        .replace("{{ drash }}", JSON.stringify({
-          environment: environment
-        }));
+        .replace("{{ server_configs }}", this.getServerConfigs());
 
     this.response.body = content;
 
