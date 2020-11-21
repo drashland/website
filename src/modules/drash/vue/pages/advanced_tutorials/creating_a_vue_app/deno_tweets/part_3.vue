@@ -89,7 +89,7 @@ page(
     li
       p Go to <code>localhost:1447/</code> in your browser. You should receive a response similar to the following:
       p
-        img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_3.png'")
+        img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_3.png'")
   div-alert-next-tutorial-part
   hr
   breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="4")

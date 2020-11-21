@@ -1,4 +1,4 @@
-{
+export const configs = {
   "base_urls": {
     "development": "",
     "staging": "/staging",
@@ -11,30 +11,30 @@
   "deno_std": {
     "latest_version": "0.77.0"
   },
+  "dmm": {
+    "latest_version": "v1.2.0",
+    "versions": [
+      "v1.2.0"
+    ]
+  },
   "drash": {
     "latest_version": "v1.3.0",
     "latest_url_deno_land": "https://deno.land/x/drash@v1.3.0/mod.ts",
     "latest_url_nest_land": "https://x.nest.land/deno-drash@v1.3.0/mod.ts",
-    "versions": {
-      "v1.3.0": "/drash/v1.3.0"
-    }
-  },
-  "dmm": {
-    "latest_version": "v1.2.0",
-    "versions": {
-      "v1.2.0": "/dmm/v1.2.0/"
-    }
+    "versions": [
+      "v1.3.0"
+    ]
   },
   "rhum": {
     "latest_version": "v1.1.4",
-    "versions": {
-      "v1.1.4": "/rhum/v1.1.4"
-    }
+    "versions": [
+      "v1.1.4"
+    ]
   },
   "wocket": {
     "latest_version": "v0.5.0",
-    "versions": {
-      "v0.5.0": "/wocket/v0.5.0"
-    }
+    "versions": [
+      "v0.5.0"
+    ]
   }
-}
+};

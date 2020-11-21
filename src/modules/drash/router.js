@@ -47,11 +47,7 @@ router.beforeEach((to, from, next) => {
   if (!to.meta.title) {
     to.meta.title = "404 (Not Found)";
   }
-  let env = "";
-  if (conf.environment != "production") {
-    env = ` [${conf.environment}]`;
-  }
-  document.title = "Drash" + env + " - " + to.meta.title;
+  document.title = "Drash - " + to.meta.title;
   next();
 });
 

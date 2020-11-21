@@ -42,11 +42,11 @@ page(
   h2-hash End State
   p Below are samples of what you will create.
   p
-    img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/1.png'")
+    img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/1.png'")
   p
-    img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/2.png'")
+    img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/2.png'")
   p
-    img(:src="'/drash/assets/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/3.png'")
+    img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/3.png'")
   hr
   breadcrumbs(:base_url="base_url + base_uri" :part="-1" :parts="3")
 </template>

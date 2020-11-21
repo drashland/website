@@ -8,10 +8,8 @@ export default {
   data() {
     return {
       build_date: this.$conf.build_date,
-      environment: this.$conf.environment,
       sidebar: {
         base_url: this.$conf.dmm.base_url + "/#",
-        example_applications: [],
         github_href: "https://github.com/drashland/dmm",
         logo: "/assets/common/img/logo_dmm.svg",
         menus: {
@@ -30,7 +28,7 @@ export default {
             "update": "/cli_commands/update",
             "version": "/cli_commands/version"
           },
-          "Versions": this.$conf.dmm.versions
+          "Versions": window.server_configs.dmm.versions
         },
         module: "dmm",
       }
@@ -42,7 +40,6 @@ export default {
 <template lang="pug">
 app-root(
   :build_date="build_date"
-  :environment="environment"
   :sidebar="sidebar"
   news_tags="deno, dmm"
   module="dmm"

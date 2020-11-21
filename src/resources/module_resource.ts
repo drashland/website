@@ -1,4 +1,5 @@
 import { BaseResource } from "./base_resource.ts";
+import { configs } from "../../deps.ts";
 
 export class ModuleResource extends BaseResource {
 
@@ -25,7 +26,10 @@ export class ModuleResource extends BaseResource {
       return this.sendVersionedDocsPage(moduleName, version);
     }
 
-    version = this.latest_versions[moduleName];
+    // @ts-ignore (crookse) We ignore this because we can't use a dynami
+    // variable to index the configs which are not typed.
+    version = configs[moduleName].latest_version;
+
     return this.response.redirect(302, `/${moduleName}/${version}/`);
   }
 }
