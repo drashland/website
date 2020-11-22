@@ -28,7 +28,6 @@ export default {
             "update": "/cli_commands/update",
             "version": "/cli_commands/version"
           },
-          "Versions": window.server_configs.dmm.versions
         },
         module: "dmm",
       }

@@ -89,7 +89,6 @@ export default {
           "Example Applications": {
             "Realworld Example": "https://github.com/drashland/deno-drash-realworld-example-app",
           },
-          "Versions": window.server_configs.drash.versions
         },
         module: "drash",
       }
