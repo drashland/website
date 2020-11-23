@@ -63,7 +63,7 @@ export default {
       if (menuItemName == "Latest News") {
         return href;
       }
-      if (menuItemName == "Versions") {
+      if (menuItemName == "Example Applications") {
         return href;
       }
       return this.base_url + href;
@@ -251,7 +251,7 @@ span.menu-item-link:hover > a {
 div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'")
   a(:href="base_url + '/'")
     img(:alt="module" :src="logo" style="height: 150px").mx-auto.m-10
-  div.version-selector.mx-5.mb-10.cursor-pointer.relative
+  div.version-selector.mx-5.mb-5.cursor-pointer.relative
     div.current-version.relative
       p#current_version_item.self-center.mb-0.block.px-5.rounded-lg(
         @click="toggleVersionSelector()"
