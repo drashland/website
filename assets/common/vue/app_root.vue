@@ -249,7 +249,6 @@ div(
         i.fa.fa-times(
           :class="{'hide': !open_sidebar}"
         )
-  //-
     environment-badge.environment-badge(:build_date="build_date")
   sidebar(
     :class="{'hide': is_mobile && !open_sidebar, 'is-mobile': is_mobile}"
