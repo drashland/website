@@ -16,6 +16,7 @@ module.exports = (envVars) => {
 
   const configs = {
     build_date: new Date().toISOString(),
+    copyright_year: serverConfigs.copyright_year,
     deno: serverConfigs.deno,
     deno_std: serverConfigs.deno_std,
     dmm: Object.assign(serverConfigs.dmm, {

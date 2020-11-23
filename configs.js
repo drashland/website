@@ -4,6 +4,7 @@ export const configs = {
     "staging": "/staging",
     "production": ""
   },
+  "copyright_year": "2020",
   "root_directory": ".",
   "deno": {
     "latest_version": "v1.5.3"

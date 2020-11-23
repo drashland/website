@@ -29,7 +29,6 @@ export default {
             "Stubs": "/tutorials/stubs",
             "Mocks": "/tutorials/mocks",
           },
-          "Versions": window.server_configs.rhum.versions
         },
         module: "Rhum",
       }

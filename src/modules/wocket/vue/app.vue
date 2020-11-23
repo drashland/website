@@ -37,7 +37,6 @@ export default {
               "Part 3: Creating The Front-End": "/advanced-tutorials/creating-a-chat-app/part-3",
             }
           },
-          "Versions": window.server_configs.wocket.versions
         },
         module: "Wocket",
       }
