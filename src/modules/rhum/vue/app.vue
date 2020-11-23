@@ -30,7 +30,7 @@ export default {
             "Mocks": "/tutorials/mocks",
           },
         },
-        module: "Rhum",
+        module: "rhum",
       }
     };
   },

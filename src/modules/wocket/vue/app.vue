@@ -38,7 +38,7 @@ export default {
             }
           },
         },
-        module: "Wocket",
+        module: "wocket",
       }
     };
   },
