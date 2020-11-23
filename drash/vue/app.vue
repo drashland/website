@@ -15,12 +15,6 @@ export default {
         base_url: this.$conf.drash.base_url + "/#",
         github_href: "https://github.com/drashland/deno-drash",
         logo: "/assets/common/img/logo_drash.svg",
-        example_applications: [
-          {
-            title: "Realworld Example",
-            link: "https://github.com/drashland/deno-drash-realworld-example-app"
-          }
-        ],
         menus: {
           "Introduction": {
             "Drash In A Nutshell": "/#drash-in-a-nutshell",
@@ -93,9 +87,9 @@ export default {
             "Content Negotiation": "/advanced-tutorials/content-negotiation",
             "Using Drash With Docker Compose": "/advanced-tutorials/using-drash-with-docker-compose",
           },
-          "Versions": {
-            "v1.3.0": "/drash/v1.3.0"
-          }
+          "Example Applications": {
+            "Realworld Example": "https://github.com/drashland/deno-drash-realworld-example-app"
+          },
         },
         module: "drash",
       }

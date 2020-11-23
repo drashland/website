@@ -13,10 +13,6 @@ export default {
       type: String,
       required: true,
     },
-    example_applications: {
-      type: Array,
-      required: true
-    },
     menus: {
       type: Object,
       required: true,
@@ -43,18 +39,11 @@ export default {
       this.$root.$emit("close-sidebar");
     },
     toggleSubMenuItems(el) {
-      let target = el.target
-      const tagName = target.tagName
-      if (["p", "a"].includes(tagName.toLowerCase())) {
-        target = target.parentElement
-      }
-      target.nextElementSibling.classList.toggle("hide--soft")
-      const p = target.children[0]
-      p.classList.toggle("rotate-fortyfive-deg")
+      el.target.parentElement.classList.toggle("active");
     },
     getMenuItemLink(menuItemName, href) {
       if (
-        menuItemName == "Versions"
+        menuItemName == "Example Applications"
         || menuItemName == "Latest News"
       ) {
         return href;
@@ -124,8 +113,8 @@ ul li ul li a {
   }
 }
 
-.rotate-fortyfive-deg {
-    transform: rotate(45deg);
+.active .collapser {
+  transform: rotate(45deg);
 }
 
 .menu-item {
@@ -135,43 +124,76 @@ ul li ul li a {
   }
 }
 
-.menu-item-link,
-.menu2-item-link {
-  display: block;
-  color: #f4f4f4;
+.menu-item {
+  background-color: #282633;
+  transition-property: background-color;
+  transition: .15s ease;
   &:hover {
-    color: #333333;
     background-color: #f4f4f4;
   }
 }
 
-span.menu-item-link:hover {
-    cursor: pointer;
-}
-span.menu-item-link:hover > a {
+.menu-item-link,
+.menu2-item-link {
+  display: block;
+  color: #f4f4f4;
+  padding: 0 1.45rem;
+  transition-property: color;
+  transition: .15s ease;
+  &:hover {
     color: #333333;
-    background-color: #f4f4f4;
-}
-span.menu-item-link {
-    display: flex;
+  }
 }
 
-/* Menu items that are not 'collapsable' */
-.menu-item > .menu-item-link,
-.menu2-item-link {
-    padding: 0rem 1.45rem
+span.menu-item-link:hover {
+  cursor: pointer;
+}
+span.menu-item-link:hover > a {
+  color: #333333;
 }
 
 .collapser {
-    padding-right: 0.5rem;
-    color: #019e01;
-    margin: 0;
-    font-size: 1.2rem;
-    transform-origin: 7px; /* Because this elem doesnt have equal padding, so using rotate makes it look al skewiff */
+  padding-right: 0.5rem;
+  color: #019e01;
+  display: inline-block;
+  margin: 0;
+  font-size: 1.2rem;
+  transition: .2s transform ease;
+  transform-origin: 6px; // Because this elem doesnt have equal padding, so
+                         // using rotate makes it look al skewiff
 }
 
-.hide--soft {
-    display: none;
+.menu-item.active:hover a {
+  color: #333333;
+}
+
+.menu-items-list {
+  li {
+    transition-property: opacity height;
+    transition: .15s ease;
+    opacity: 0;
+    height: 0;
+  }
+}
+
+.menu-item:hover .menu-items-shown {
+  a, .menu-item-link a {
+    color: #333333;
+  }
+}
+
+.menu-item.active {
+  a {
+    color: #f4f4f4;
+    &:hover {
+      color: #ff7700;
+    }
+  }
+  li {
+    color: #333333;
+    opacity: 1;
+    height: 2.5rem;
+  }
 }
 </style>
 
@@ -185,29 +207,23 @@ div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'
         a.menu-name-link {{ menu_item_name }}
       ul.mb-0
         li.menu-item(v-for="(href, link_text) in sub_menu_items")
-          span.flex.menu-item-link(v-if="typeof href == 'object'" @click="toggleSubMenuItems")
-            p.collapser +
-            a {{ link_text }}
-          ul.hide--soft.mb-0(v-if="typeof href == 'object'")
+          span.menu-item-link(v-if="typeof href == 'object'" @click="toggleSubMenuItems")
+            span.collapser.pointer-events-none +
+            a.pointer-events-none {{ link_text }}
+          ul.menu-items-list.overflow-hidden.mb-0(v-if="typeof href == 'object'")
             li.menu2-item(v-for="(href, link_text) in sub_menu_items[link_text]")
               a.menu2-item-link(:href="base_url + href" @click="closeSidebar()") {{ link_text }}
-          a(
-            v-else-if="menu_item_name == 'Versions'"
-            :href="getMenuItemLink(menu_item_name, href)"
-            @click="closeSidebar()"
-          ).menu-item-link {{ link_text }}
-          a(
-            v-else
+          a.menu-item-link(
+            v-else-if="menu_item_name == 'Latest News'"
             :href="getMenuItemLink(menu_item_name, href)"
             @click="closeSidebar()"
             :target="menu_item_name == 'Latest News' && link_text != 'No articles yet' ? '_BLANK' : ''"
-          ).menu-link-item {{ link_text }}
-    div(v-if="example_applications.length")
-      div.menu-name
-        a.menu-name-link Example Applications
-      ul.mb-0(v-for="app in example_applications")
-        li.menu-item
-          a.no-hover.menu-item-link(:href="app.link") {{ app.title }}
+          ) {{ link_text }}
+          a.menu-item-link(
+            v-else
+            :href="getMenuItemLink(menu_item_name, href)"
+            @click="closeSidebar()"
+          ) {{ link_text }}
     div.menu-name(v-if="api_reference_href")
       a.menu-name-link.is-link(:href="api_reference_href" @click="closeSidebar()") API Reference
     div.menu-name
