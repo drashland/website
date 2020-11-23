@@ -294,6 +294,8 @@ div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'
       a.menu-name-link.is-link(:href="github_href" @click="closeSidebar()") GitHub
     div.menu-name
       a.menu-name-link.is-link(href="/") Back To Drash Land
-  p(style="color: #f4f4f4").mt-5.text-sm.text-center
-    a(href="https://drash.land") &copy; 2019-2020 Drash Land
+  div(style="color: #f4f4f4").mt-5.text-sm.text-center
+    p.mb-2
+      a(href="https://drash.land") &copy; 2019-{{ $conf.copyright_year }} Drash Land
+    p.mb-10 Built with Deno &amp; Drash
 </template>
