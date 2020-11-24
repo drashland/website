@@ -6,10 +6,10 @@
   },
   "root_directory": ".",
   "deno": {
-    "latest_version": "v1.5.3"
+    "latest_version": "v1.5.4"
   },
   "deno_std": {
-    "latest_version": "0.78.0"
+    "latest_version": "0.79.0"
   },
   "drash": {
     "latest_version": "v1.3.0",
