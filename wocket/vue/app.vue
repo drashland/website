@@ -12,6 +12,7 @@ export default {
       sidebar: {
         api_reference_href: "https://doc.deno.land/https/deno.land/x/wocket@" + this.$conf.wocket.latest_version + "/mod.ts",
         base_url: this.$conf.wocket.base_url + "/#",
+        example_applications: [],
         github_href: "https://github.com/drashland/wocket",
         logo: "/assets/common/img/logo_wocket.svg",
         menus: {
@@ -37,6 +38,9 @@ export default {
               "Part 2: Opening A Channel": "/advanced-tutorials/creating-a-chat-app/part-2",
               "Part 3: Creating The Front-End": "/advanced-tutorials/creating-a-chat-app/part-3",
             }
+          },
+          "Versions": {
+            "v0.5.0": "/wocket/v0.5.0/",
           }
         },
         module: "Wocket",

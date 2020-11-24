@@ -22,7 +22,7 @@ export default {
     },
     news_tags: {
       type: String,
-      default: "",
+      default: ""
     },
     sidebar: {
       type: Object,
@@ -228,6 +228,7 @@ div
     :module="sidebar.module"
     :github_href="sidebar.github_href"
     :api_reference_href="sidebar.api_reference_href"
+    :example_applications="sidebar.example_applications"
   )
   div.main(
     :class="{'is-mobile': is_mobile}"

@@ -11,6 +11,7 @@ export default {
       environment: this.$conf.environment,
       sidebar: {
         base_url: this.$conf.dmm.base_url + "/#",
+        example_applications: [],
         github_href: "https://github.com/drashland/dmm",
         logo: "/assets/common/img/logo_dmm.svg",
         menus: {
@@ -29,6 +30,9 @@ export default {
             "update": "/cli_commands/update",
             "version": "/cli_commands/version"
           },
+          "Versions": {
+            "v1.2.0": "/dmm/v1.2.0/",
+          }
         },
         module: "dmm",
       }
