@@ -12,10 +12,6 @@ export default {
       type: String,
       required: true,
     },
-    environment: {
-      type: String,
-      required: true,
-    },
     module: {
       type: String,
       required: true,
@@ -88,6 +84,11 @@ export default {
         this.open_sidebar = false;
       } else {
         this.open_sidebar = true;
+      }
+    },
+    toggleElements(e) {
+      if (e.srcElement.id != "current_version_item") {
+        this.$root.$emit("close-version-selector");
       }
     }
   }
@@ -189,9 +190,11 @@ button {
   padding: 1rem;
   width: 75px;
 }
+
 .hide {
   display: none;
 }
+
 .buttons {
   bottom: 1rem;
   color: #f4f4f4;
@@ -199,10 +202,37 @@ button {
   right: 1rem;
   z-index: 1000;
 }
+
+.version-selector {
+  .current-version {
+    color: #333333 !important;
+    .fa-caret-down {
+      top: .75rem;
+      right: .75rem;
+    }
+  }
+  .version-menu {
+    opacity: 0;
+    pointer-events: none;
+    transition: .2s opacity ease;
+    &.active {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+  .version-link {
+    color: #333333 !important;
+    &:hover {
+      background: #f4f4f4;
+    }
+  }
+}
 </style>
 
 <template lang="pug">
-div
+div(
+  @click="toggleElements"
+)
   div.buttons.flex
     button(
       :class="{'mr-3': is_mobile, 'hide': !can_scroll_to_top}"
@@ -219,7 +249,7 @@ div
         i.fa.fa-times(
           :class="{'hide': !open_sidebar}"
         )
-  environment-badge.environment-badge(:environment="environment" :build_date="build_date")
+  environment-badge.environment-badge(:build_date="build_date")
   sidebar(
     :class="{'hide': is_mobile && !open_sidebar, 'is-mobile': is_mobile}"
     :base_url="sidebar.base_url"

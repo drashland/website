@@ -7,7 +7,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-let repoConfigs = require("./configs.json");
+let serverConfigs = require("./configs_node.js");
 
 module.exports = (envVars) => {
   console.log(
@@ -16,10 +16,10 @@ module.exports = (envVars) => {
 
   const configs = {
     build_date: new Date().toISOString(),
-    environment: envVars.environment,
-    deno: repoConfigs.deno,
-    deno_std: repoConfigs.deno_std,
-    [envVars.module]: Object.assign(repoConfigs[envVars.module], {
+    copyright_year: serverConfigs.copyright_year,
+    deno: serverConfigs.deno,
+    deno_std: serverConfigs.deno_std,
+    [envVars.module]: Object.assign(serverConfigs[envVars.module], {
       base_url: "/" + envVars.module + "/" + envVars.version,
     }),
   };
@@ -28,7 +28,7 @@ module.exports = (envVars) => {
   // case. If we don't add Drash in, then dmm's Vue app won't render.
   if (envVars.module == "dmm") {
     configs.drash = {
-      latest_version: repoConfigs.drash.latest_version,
+      latest_version: serverConfigs.drash.latest_version,
     };
   }
 
@@ -39,14 +39,14 @@ module.exports = (envVars) => {
     entry: {
       [envVars.module + "_app"]: path.resolve(
         __dirname,
-        envVars.module + "/assets/js/_app.js",
+        "src/modules/" + envVars.module + "/app.js",
       ),
     },
-    mode: "production",
+    mode: "development",
     output: {
       path: path.resolve(
         __dirname,
-        envVars.module + "/" + envVars.version + "/",
+        "assets/bundles/",
       ),
       filename: `[name].${envVars.version}.js`,
     },
@@ -92,7 +92,7 @@ module.exports = (envVars) => {
       alias: {
         vue: "vue/dist/vue.min.js",
         "/common": path.resolve(__dirname, "assets/common"),
-        ["/" + envVars.module]: path.resolve(__dirname, envVars.module),
+        ["/" + envVars.module]: path.resolve(__dirname, "src/modules/" + envVars.module),
       },
     },
   };

@@ -2,38 +2,34 @@
  * This webpack config file handles building the following environments:
  *
  *     - development
- *     - staging
- *     - production
  */
 
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-const repoConfigs = require("./configs.json");
+const serverConfigs = require("./configs_node.js");
 
 module.exports = (envVars) => {
   console.log(
-    `\nRunning webpack in ${
-      getMode(envVars.environment)
-    } mode for the ${envVars.environment} environment.\n`,
+    `\nRunning webpack in development mode for the development environment.\n`,
   );
 
   const configs = {
     build_date: new Date().toISOString(),
-    environment: envVars.environment,
-    deno: repoConfigs.deno,
-    deno_std: repoConfigs.deno_std,
-    dmm: Object.assign(repoConfigs.dmm, {
-      base_url: getBaseUrl("dmm", envVars.environment),
+    copyright_year: serverConfigs.copyright_year,
+    deno: serverConfigs.deno,
+    deno_std: serverConfigs.deno_std,
+    dmm: Object.assign(serverConfigs.dmm, {
+      base_url: getBaseUrl("dmm"),
     }),
-    drash: Object.assign(repoConfigs.drash, {
-      base_url: getBaseUrl("drash", envVars.environment),
+    drash: Object.assign(serverConfigs.drash, {
+      base_url: getBaseUrl("drash"),
     }),
-    rhum: Object.assign(repoConfigs.rhum, {
-      base_url: getBaseUrl("rhum", envVars.environment),
+    rhum: Object.assign(serverConfigs.rhum, {
+      base_url: getBaseUrl("rhum"),
     }),
-    wocket: Object.assign(repoConfigs.wocket, {
-      base_url: getBaseUrl("wocket", envVars.environment),
+    wocket: Object.assign(serverConfigs.wocket, {
+      base_url: getBaseUrl("wocket"),
     }),
   };
 
@@ -42,15 +38,15 @@ module.exports = (envVars) => {
 
   return {
     entry: {
-      dmm_app: path.resolve(__dirname, "dmm/assets/js/_app.js"),
-      drash_app: path.resolve(__dirname, "drash/assets/js/_app.js"),
-      rhum_app: path.resolve(__dirname, "rhum/assets/js/_app.js"),
-      wocket_app: path.resolve(__dirname, "wocket/assets/js/_app.js"),
+      dmm_app:    path.resolve(__dirname, "src/modules/dmm/app.js"),
+      drash_app:  path.resolve(__dirname, "src/modules/drash/app.js"),
+      rhum_app:   path.resolve(__dirname, "src/modules/rhum/app.js"),
+      wocket_app: path.resolve(__dirname, "src/modules/wocket/app.js"),
     },
-    mode: getMode(envVars.environment),
+    mode: "development",
     output: {
       path: path.resolve(__dirname, "assets/bundles/"),
-      filename: `[name].${envVars.environment}.js`,
+      filename: `[name].development.js`,
     },
     module: {
       rules: [
@@ -92,38 +88,17 @@ module.exports = (envVars) => {
     ],
     resolve: {
       alias: {
-        vue: isPublicFacingEnv(envVars.environment)
-          ? "vue/dist/vue.min.js"
-          : "vue/dist/vue.js",
-        "/common": path.resolve(__dirname, "assets/common"),
-        "/dmm": path.resolve(__dirname, "dmm"),
-        "/drash": path.resolve(__dirname, "drash"),
-        "/rhum": path.resolve(__dirname, "rhum"),
-        "/wocket": path.resolve(__dirname, "wocket"),
+        vue: "vue/dist/vue.js",
+        "/common":  path.resolve(__dirname, "assets/common"),
+        "/dmm":     path.resolve(__dirname, "src/modules/dmm"),
+        "/drash":   path.resolve(__dirname, "src/modules/drash"),
+        "/rhum":    path.resolve(__dirname, "src/modules/rhum"),
+        "/wocket":  path.resolve(__dirname, "src/modules/wocket"),
       }
     }
   };
 };
 
-function getBaseUrl(module, environment) {
-  if (environment == "staging") {
-    return `/staging/${module}`;
-  }
-  return `/${module}`;
-}
-
-function getMode(environment) {
-  if (environment == "development") {
-    return "development";
-  }
-  return "production";
-}
-
-function isPublicFacingEnv(environment) {
-  let publicFacingEnvs = [
-    "production",
-    "staging",
-  ];
-
-  return publicFacingEnvs.indexOf(environment) != -1;
+function getBaseUrl(module) {
+  return `/${module}/${serverConfigs[module].latest_version}`;
 }

@@ -34,6 +34,27 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      version_selector_is_active: false,
+      versions: window.server_configs[this.module].versions,
+    };
+  },
+  computed: {
+    copyright_year() {
+      return window.server_configs.copyright_year
+    },
+    current_version() {
+      return window.location.href
+        .match(/v[0-9].+\//)[0]
+        .replace(/\/#.+/, "");
+    },
+  },
+  mounted() {
+    this.$root.$on("close-version-selector", () => {
+      this.toggleVersionSelector(true);
+    });
+  },
   methods: {
     closeSidebar() {
       this.$root.$emit("close-sidebar");
@@ -42,14 +63,21 @@ export default {
       el.target.parentElement.classList.toggle("active");
     },
     getMenuItemLink(menuItemName, href) {
-      if (
-        menuItemName == "Example Applications"
-        || menuItemName == "Latest News"
-      ) {
+      if (menuItemName == "Latest News") {
+        return href;
+      }
+      if (menuItemName == "Example Applications") {
         return href;
       }
       return this.base_url + href;
-    }
+    },
+    toggleVersionSelector(forceClose = false) {
+      if (forceClose) {
+        this.version_selector_is_active = false;
+        return;
+      }
+      this.version_selector_is_active = !this.version_selector_is_active;
+    },
   }
 }
 </script>
@@ -195,12 +223,51 @@ span.menu-item-link:hover > a {
     height: 2.5rem;
   }
 }
+
+.version-selector {
+  .current-version {
+    color: #333333 !important;
+    .fa-caret-down {
+      top: .75rem;
+      right: .75rem;
+    }
+  }
+  .version-menu {
+    opacity: 0;
+    pointer-events: none;
+    transition: .2s opacity ease;
+    &.active {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+  .version-link {
+    color: #333333 !important;
+    &:hover {
+      background: #f4f4f4;
+    }
+  }
+}
 </style>
 
 <template lang="pug">
 div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'")
   a(:href="base_url + '/'")
     img(:alt="module" :src="logo" style="height: 150px").mx-auto.m-10
+  div.version-selector.mx-5.mb-5.cursor-pointer.relative
+    div.current-version.relative
+      p#current_version_item.self-center.mb-0.block.px-5.rounded-lg(
+        @click="toggleVersionSelector()"
+        style="background-color: #f4f4f4"
+      ) {{ current_version }}
+        span.absolute.ml-2.fas.fa-caret-down
+    div.version-menu.bg-white.rounded-lg.overflow-hidden.absolute.w-full.shadow-lg(
+      :class="{'active': version_selector_is_active}"
+    )
+      a.version-link.block.px-5(
+        v-for="(version) in versions"
+        :href="'/' + module + '/' + version + '/'"
+      ) {{ version }}
   div(style="border-top: 1px solid #3f3955;")
     div(v-for="(sub_menu_items, menu_item_name) in menus")
       div.menu-name
@@ -230,6 +297,7 @@ div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'
       a.menu-name-link.is-link(:href="github_href" @click="closeSidebar()") GitHub
     div.menu-name
       a.menu-name-link.is-link(href="/") Back To Drash Land
-  p(style="color: #f4f4f4").mt-5.text-sm.text-center
-    a(href="https://drash.land") &copy; 2019-2020 Drash Land
+  div(style="color: #f4f4f4").mt-5.text-sm.text-center
+    p.mb-2 &copy; 2019-{{ copyright_year }} Drash Land
+    p.mb-10 Built with Deno &amp; Drash
 </template>
