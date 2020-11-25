@@ -17,6 +17,7 @@ export const configs = {
     "latest_url_deno_land": "https://deno.land/x/dmm@v1.2.0/mod.ts",
     "latest_url_nest_land": "https://x.nest.land/dmm@v1.2.0/mod.ts",
     "versions": [
+      "v1.3.0",
       "v1.2.0"
     ]
   },
@@ -39,6 +40,8 @@ export const configs = {
   "wocket": {
     "latest_version": "v0.5.0",
     "versions": [
+      "v0.6.1",
+      "v0.6.0",
       "v0.5.0"
     ]
   }
