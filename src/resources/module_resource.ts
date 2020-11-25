@@ -26,7 +26,7 @@ export class ModuleResource extends BaseResource {
       return this.sendVersionedDocsPage(moduleName, version);
     }
 
-    // @ts-ignore (crookse) We ignore this because we can't use a dynami
+    // @ts-ignore (crookse) We ignore this because we can't use a dynamic
     // variable to index the configs which are not typed.
     version = configs[moduleName].latest_version;
 
