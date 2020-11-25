@@ -80,7 +80,9 @@ export class BaseResource extends Drash.Http.Resource {
    * @returns The configs as stringified JSON.
    */
   protected getServerConfigs(): string {
-    return JSON.stringify(Object.assign(configs, {
+    let sanitizedConfigs = configs;
+    delete sanitizedConfigs.root_directory;
+    return JSON.stringify(Object.assign(sanitizedConfigs, {
       environment: this.getEnvironment(),
     }));
   }
