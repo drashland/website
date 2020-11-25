@@ -7,34 +7,11 @@
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-const serverConfigs = require("./configs_node.js");
 
 module.exports = (envVars) => {
   console.log(
     `\nRunning webpack in development mode for the development environment.\n`,
   );
-
-  const configs = {
-    build_date: new Date().toISOString(),
-    copyright_year: serverConfigs.copyright_year,
-    deno: serverConfigs.deno,
-    deno_std: serverConfigs.deno_std,
-    dmm: Object.assign(serverConfigs.dmm, {
-      base_url: getBaseUrl("dmm"),
-    }),
-    drash: Object.assign(serverConfigs.drash, {
-      base_url: getBaseUrl("drash"),
-    }),
-    rhum: Object.assign(serverConfigs.rhum, {
-      base_url: getBaseUrl("rhum"),
-    }),
-    wocket: Object.assign(serverConfigs.wocket, {
-      base_url: getBaseUrl("wocket"),
-    }),
-  };
-
-  console.log("Using the following configs for the webpack build(s):");
-  console.log(configs);
 
   return {
     entry: {
@@ -79,12 +56,6 @@ module.exports = (envVars) => {
     plugins: [
       // make sure to include the plugin!
       new VueLoaderPlugin(),
-      // Add compile time vars
-      new webpack.DefinePlugin({
-        "process.env": {
-          conf: JSON.stringify(configs),
-        },
-      }),
     ],
     resolve: {
       alias: {
@@ -98,7 +69,3 @@ module.exports = (envVars) => {
     }
   };
 };
-
-function getBaseUrl(module) {
-  return `/${module}/${serverConfigs[module].latest_version}`;
-}

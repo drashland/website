@@ -7,47 +7,22 @@
 const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-let serverConfigs = require("./configs_node.js");
 
 module.exports = (envVars) => {
   console.log(
     `\nRunning webpack in production mode for the ${envVars.module}@${envVars.version} bundle.\n`,
   );
 
-  const configs = {
-    build_date: new Date().toISOString(),
-    copyright_year: serverConfigs.copyright_year,
-    deno: serverConfigs.deno,
-    deno_std: serverConfigs.deno_std,
-    [envVars.module]: Object.assign(serverConfigs[envVars.module], {
-      base_url: "/" + envVars.module + "/" + envVars.version,
-    }),
-  };
-
-  // dmm's example blocks use Drash's latest version, so it's required in this
-  // case. If we don't add Drash in, then dmm's Vue app won't render.
-  if (envVars.module == "dmm") {
-    configs.drash = {
-      latest_version: serverConfigs.drash.latest_version,
-    };
-  }
-
-  console.log("Using the following configs for the webpack build(s):");
-  console.log(configs);
-
   return {
     entry: {
       [envVars.module + "_app"]: path.resolve(
         __dirname,
-        "src/modules/" + envVars.module + "/app.js",
+        `src/modules/${envVars.module}/app.js`,
       ),
     },
     mode: "development",
     output: {
-      path: path.resolve(
-        __dirname,
-        "assets/bundles/",
-      ),
+      path: path.resolve(__dirname, "assets/bundles/"),
       filename: `[name].${envVars.version}.js`,
     },
     module: {
@@ -81,18 +56,12 @@ module.exports = (envVars) => {
     plugins: [
       // make sure to include the plugin!
       new VueLoaderPlugin(),
-      // Add compile time vars
-      new webpack.DefinePlugin({
-        "process.env": {
-          conf: JSON.stringify(configs),
-        },
-      }),
     ],
     resolve: {
       alias: {
         vue: "vue/dist/vue.min.js",
         "/common": path.resolve(__dirname, "assets/common"),
-        ["/" + envVars.module]: path.resolve(__dirname, "src/modules/" + envVars.module),
+        [`/${envVars.module}`]: path.resolve(__dirname, `src/modules/${envVars.module}`),
       },
     },
   };

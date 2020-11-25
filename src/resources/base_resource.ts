@@ -74,8 +74,8 @@ export class BaseResource extends Drash.Http.Resource {
 
   /**
    * Get the server configs that can be used server-side or client-side. When
-   * used client-side, we set a {{ server_configs }} variable in the .html files
-   * to the value of this method.
+   * used client-side, we set a {{ drash_api_configs }} variable in the .html
+   * files to the value of this method.
    *
    * @returns The configs as stringified JSON.
    */
@@ -111,7 +111,7 @@ export class BaseResource extends Drash.Http.Resource {
     this.response.body = decoder.decode(Deno.readFileSync("./src/module.html"))
         .replace("{{ title }}", "Drash Land - " + this.ucfirst(moduleName))
         .replace(/\{\{ module \}\}/g, moduleName)
-        .replace("{{ server_configs }}", this.getServerConfigs());
+        .replace("{{ drash_api_configs }}", this.getServerConfigs());
       if (this.getEnvironment() == "development") {
         this.response.body = this.response.body.replace("{{ version }}", "development")
       } else {

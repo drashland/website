@@ -8,7 +8,6 @@ export default {
   },
   data() {
     return {
-      build_date: this.$conf.build_date,
       sidebar: {
         api_reference_href: "https://doc.deno.land/https/deno.land/x/rhum@" + this.$conf.rhum.latest_version + "/mod.ts",
         base_url: this.$conf.rhum.base_url + "/#",
@@ -39,7 +38,6 @@ export default {
 
 <template lang="pug">
 app-root(
-  :build_date="build_date"
   :sidebar="sidebar"
   news_tags="deno, rhum"
   module="Rhum"

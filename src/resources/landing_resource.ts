@@ -29,7 +29,7 @@ export class LandingResource extends BaseResource {
     content = content
         .replace("{{ environment }}", environment)
         .replace("{{ title }}", "Drash Land" + titleSuffix)
-        .replace("{{ server_configs }}", this.getServerConfigs());
+        .replace("{{ drash_api_configs }}", this.getServerConfigs());
 
     this.response.body = content;
 
