@@ -48,11 +48,11 @@ div
         p Update your dependencies.
         code-block(title="Terminal" language="shell-session")
           | $ deno run \
-          |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land' \
-          |   --allow-read='.' \
-          |   --allow-write='deps.ts' \
-          |   https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts \
-          |   update
+          |     --allow-net='cdn.deno.land,api.deno.land,x.nest.land,raw.githubusercontent.com,github.com,api.github.com' \
+          |     --allow-read='.' \
+          |     --allow-write='deps.ts' \
+          |     https://deno.land/x/dmm@v1.3.0/mod.ts \
+          |     update
         code-block(title="Terminal" language="shell-session")
           | INFO Reading deps.ts to gather your dependencies...
           | INFO Checking if your modules can be updated...
@@ -68,10 +68,10 @@ div
         p
           code-block(title="Terminal" language="shell-session")
             | $ deno install \
-            |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land' \
+            |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land,raw.githubusercontent.com,github.com,api.github.com' \
             |   --allow-read='.' \
             |   --allow-write='deps.ts' \
-            |   https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts
+            |   https://deno.land/x/dmm@v1.3.0/mod.ts
         p
           code-block(title="Terminal" language="shell-session")
             | $ dmm help
@@ -80,10 +80,10 @@ div
         p
           code-block(title="Terminal" language="shell-session")
             | $ deno run \
-            |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land' \
+            |   --allow-net='cdn.deno.land,api.deno.land,x.nest.land,raw.githubusercontent.com,github.com,api.github.com' \
             |   --allow-read='.' \
             |   --allow-write='deps.ts' \
-            |   https://deno.land/x/dmm@{{ $conf.dmm.latest_version }}/mod.ts \
+            |   https://deno.land/x/dmm@v1.3.0/mod.ts \
             |   help
     hr
     h2-hash Features
@@ -104,4 +104,5 @@ div
             li <code>https://deno.land/std/</code>
             li <code>https://deno.land/x/</code>
             li <code>https://x.nest.land/</code>
+            li <code>https://raw.githubusercontent.com</code>
 </template>
