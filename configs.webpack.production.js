@@ -17,7 +17,7 @@ Bundle: ${envVars.module}@${envVars.version}.js`);
     entry: {
       [envVars.module]: path.resolve(
         __dirname,
-        `src/modules/${envVars.module}/app.js`,
+        `src/${envVars.module}/app.js`,
       ),
     },
     mode: envVars.mode,
@@ -29,7 +29,7 @@ Bundle: ${envVars.module}@${envVars.version}.js`);
       alias: {
         vue: "vue/dist/vue.min.js",
         "/common": path.resolve(__dirname, "assets/common"),
-        [`/${envVars.module}`]: path.resolve(__dirname, `src/modules/${envVars.module}`),
+        [`/${envVars.module}`]: path.resolve(__dirname, `src/${envVars.module}`),
       },
     },
   });
