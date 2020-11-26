@@ -26,7 +26,7 @@ export default {
 
 <template lang="pug">
 page(
-  :base_url="this.$base_url"
+  :base_url="this.$conf.drash.base_url"
   :title="title"
   :toc="toc"
 )

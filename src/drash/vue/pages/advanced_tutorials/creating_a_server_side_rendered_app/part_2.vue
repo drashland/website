@@ -13,7 +13,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: "/advanced-tutorials/creating-a-server-side-rendered-app",
       toc: [
         "Before You Get Started",
@@ -35,7 +35,7 @@ page(
   :subtitle="subtitle"
   :title="title"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="3")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="2" :parts="3")
   hr
   h2-hash Before You Get Started
   p Your server will not be able to serve HTML until you give it the resources that can do so. In Part 1, you made your server expect three resources. You will create these files next and will verify your server runs properly with them in the Verification section.
@@ -153,5 +153,5 @@ page(
       p This is the proper response since you have not written your HTML files yet.
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="3")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="2" :parts="3")
 </template>

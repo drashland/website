@@ -13,7 +13,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: "/advanced-tutorials/creating-a-server-side-rendered-app",
       toc: [
         "Before You Get Started",
@@ -35,7 +35,7 @@ page(
   :subtitle="subtitle"
   :title="title"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="3")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="1" :parts="3")
   hr
   h2-hash Before You Get Started
   p The server you will create in this tutorial part will handle requests to three resources. These resources will serve HTML documents.
@@ -130,5 +130,5 @@ page(
         | });
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="3")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="1" :parts="3")
 </template>

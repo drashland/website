@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       toc: [
         "Before You Get Started",
@@ -91,7 +91,7 @@ page(
   :title="title"
   :toc="toc"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="4" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="4" :parts="4")
   hr
   h2-hash Before You Get Started
   p
@@ -230,5 +230,5 @@ page(
         img(:src="'/assets/drash/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
   div-alert-finished-tutorial-series
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="4" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="4" :parts="4")
 </template>

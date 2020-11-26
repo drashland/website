@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       toc: [
         "Folder Structure End State",
@@ -59,7 +59,7 @@ page(
   :title="title"
   :toc="toc"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="3" :parts="4")
   hr
   folder-structure-end-state
     code-block(:header="false" language="text" :line_numbers="false")
@@ -92,5 +92,5 @@ page(
         img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_3.png'")
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="3" :parts="4")
 </template>

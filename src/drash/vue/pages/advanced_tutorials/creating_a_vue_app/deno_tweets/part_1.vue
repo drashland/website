@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       toc: [
         "Before You Get Started",
@@ -37,7 +37,7 @@ page(
   :title="title"
   :toc="toc"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="1" :parts="4")
   hr
   h2-hash Before You Get Started
   p The server you will create in this tutorial part will handle requests to a single resource. That resource will serve an HTML template and that HTML template will serve your Vue app.
@@ -120,5 +120,5 @@ page(
         | });
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="1" :parts="4")
 </template>

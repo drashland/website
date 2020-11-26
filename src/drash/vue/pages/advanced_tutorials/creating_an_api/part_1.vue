@@ -13,7 +13,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: "/advanced-tutorials/creating-an-api",
       title: title,
       subtitle: subtitle,
@@ -36,7 +36,7 @@ page(
   :subtitle="subtitle"
   :title="title"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="1" :parts="4")
   hr
   h2-hash Before You Get Started
   p Before you start building your application, you need the data that will drive this tutorial. For simplicity, you will simulate retrieving records from a database. You will pretend that you have queried a database for coffee and tea records. This data will be parsable as JSON.
@@ -119,5 +119,5 @@ page(
         | >
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="1" :parts="4")
 </template>

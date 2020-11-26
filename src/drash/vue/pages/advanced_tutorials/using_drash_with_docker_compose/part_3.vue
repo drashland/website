@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       title: title,
       subtitle: subtitle,
@@ -37,7 +37,7 @@ page(
   :subtitle="subtitle"
   :title="title"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="3" :parts="6")
   hr
   h2-hash Before You Get Started
   p Now that you have your <code>docker-compose.yml</code> file set up, you now need your <code>.dockerfile</code> files (also known as <code>Dockerfile</code> files). These files will tell Docker how it should build. The <code>Dockerfile</code> files you will create in this tutorial part will be used by each container.
@@ -100,5 +100,5 @@ page(
   p There are no verification steps for this tutorial part.
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="3" :parts="6")
 </template>

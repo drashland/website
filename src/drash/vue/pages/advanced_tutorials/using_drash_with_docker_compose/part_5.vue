@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       title: title,
       subtitle: subtitle,
@@ -37,7 +37,7 @@ page(
   :subtitle="subtitle"
   :title="title"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="5" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="5" :parts="6")
   hr
   h2-hash Before You Get Started
   p Now that you have your configuration set up for the containers, you can now build and start your Docker environment.
@@ -81,5 +81,5 @@ page(
           | "Hello World!"
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="5" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="5" :parts="6")
 </template>

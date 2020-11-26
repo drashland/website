@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       title: title,
       subtitle: subtitle,
@@ -37,7 +37,7 @@ page(
   :subtitle="subtitle"
   :title="title"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="1" :parts="6")
   hr
   h2-hash Before You Get Started
   p You will be creating a basic Drash server. If you haven't read the #[a( href="/#/tutorials/servers/creating-a-server") Creating A Server] section then do so before reading this tutorial.
@@ -94,5 +94,5 @@ page(
         | $ deno run --allow-net src/app.ts
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="1" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="1" :parts="6")
 </template>

@@ -13,7 +13,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: "/advanced-tutorials/creating-a-server-side-rendered-app",
       toc: [
         "Folder Structure End State",
@@ -88,7 +88,7 @@ page(
   :subtitle="subtitle"
   :title="title"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="3")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="3" :parts="3")
   hr
   folder-structure-end-state
     code-block(:header="false" language="text" :line_numbers="false")
@@ -144,5 +144,5 @@ page(
         img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_static_html_app/about_me/3.png'")
   div-alert-finished-tutorial-series
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="3")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="3" :parts="3")
 </template>

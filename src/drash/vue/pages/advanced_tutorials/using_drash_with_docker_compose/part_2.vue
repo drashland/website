@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       title: title,
       subtitle: subtitle,
@@ -37,7 +37,7 @@ page(
   :subtitle="subtitle"
   :title="title"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="2" :parts="6")
   hr
   h2-hash Before You Get Started
   p Now that you have a working Drash server, you can add it to the docker orchestration. In this tutorial part, you will be creating new services for Docker to build and start, such as a Drash container and an Nginx or Apache container.
@@ -120,5 +120,5 @@ page(
       p You should not see any errors when running the above command. Instead, you should see the contents of your <code>docker-compose.yml</code> file. That is how you know it is properly configured.
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="2" :parts="6")
 </template>

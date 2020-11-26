@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       toc: [
         "Before You Get Started",
@@ -37,7 +37,7 @@ page(
   :title="title"
   :toc="toc"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="4" :parts="5")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="4" :parts="5")
   hr
   h2-hash Before You Get Started
   p By now, you should have your server serving an HTML file. In this tutorial part, you will configure Webpack and Typescript to transpile your React component to set the title and description for the page.
@@ -123,5 +123,5 @@ page(
       p This is the correct output because you have not created your components yet. You will do this in the next tutorial part.
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="4" :parts="5")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="4" :parts="5")
 </template>

@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       toc: [
         "Before You Get Started",
@@ -37,7 +37,7 @@ page(
   :title="title"
   :toc="toc"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="4" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="4" :parts="4")
   hr
   h2-hash Before You Get Started
   p By now, you should have your server serving an HTML file; and that HTML file should be displaying Deno's tweets. In this next tutorial part, you will create the Vue app and assign the following Vue variables: <code>title</code> and <code>description</code>.
@@ -81,5 +81,5 @@ page(
         img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_4.png'")
   div-alert-finished-tutorial-series
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="4" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="4" :parts="4")
 </template>

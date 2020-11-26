@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       subtitle: subtitle,
       title: title,
@@ -37,7 +37,7 @@ page(
   :title="title"
   :toc="toc"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="2" :parts="4")
   hr
   h2-hash Before You Get Started
   p Now that you have your "database" records in place from Part 1, you need a server to handle requests for that data. The server you will create in this tutorial part will handle requests via the following resources:
@@ -131,5 +131,5 @@ page(
         | });
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="2" :parts="4")
 </template>

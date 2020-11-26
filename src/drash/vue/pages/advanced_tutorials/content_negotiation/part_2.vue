@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       toc: [
         "Before You Get Started",
@@ -37,7 +37,7 @@ page(
   :title="title"
   :toc="toc"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="2" :parts="4")
   hr
   h2-hash Before You Get Started
   p Now that you have your user records from your "database" in place from Part 1, you need a server to handle requests for that data. The server you will create in this tutorial part will be very basic. It will only handle requests to one resource. This resource will be your users resource.
@@ -115,5 +115,5 @@ page(
         | });
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="2" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="2" :parts="4")
 </template>

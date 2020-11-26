@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       toc: [
         "Before You Get Started",
@@ -37,7 +37,7 @@ page(
   :subtitle="subtitle"
   :toc="toc"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="4" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="4" :parts="4")
   hr
   h2-hash Before You Get Started
   p Currently, when clients make requests to your records, they receive the following response schema for <code>200</code> responses ...
@@ -218,5 +218,5 @@ page(
           | }
   div-alert-finished-tutorial-series
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="4" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="4" :parts="4")
 </template>

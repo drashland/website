@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       toc: [
         "Before You Get Started",
@@ -37,7 +37,7 @@ page(
   :title="title"
   :toc="toc"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="5" :parts="5")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="5" :parts="5")
   hr
   h2-hash Before You Get Started
   p Now that you have everything set up, you can start writing your React components in TSX.
@@ -116,5 +116,5 @@ page(
         img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
   div-alert-finished-tutorial-series
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="5" :parts="5")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="5" :parts="5")
 </template>

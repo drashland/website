@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       toc: [
         "Before You Get Started",
@@ -37,7 +37,7 @@ page(
   :subtitle="subtitle"
   :toc="toc"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="3" :parts="4")
   hr
   h2-hash Before You Get Started
   p Your server will not be able to handle requests for coffee and tea records until you give it resources that can send your records back to clients. In Part 2, you made your server expect a coffee and tea resource. You will create these files next and will verify your server runs properly with them in the Verification section.
@@ -204,5 +204,5 @@ page(
           | "Tea with ID \"2710\" not found."
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="4")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="3" :parts="4")
 </template>

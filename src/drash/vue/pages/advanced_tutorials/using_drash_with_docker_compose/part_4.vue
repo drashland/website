@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       title: title,
       subtitle: subtitle,
@@ -37,7 +37,7 @@ page(
   :subtitle="subtitle"
   :title="title"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="4" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="4" :parts="6")
   hr
   h2-hash Before You Get Started
   p Now that you have your <code>Dockerfile</code> files set up for the containers, you now need to create the configuration file for your selected proxy server. If you are using Nginx, then you will create an Nginx configuration file. If you are using Apache, then you will create an Apache configuration file.
@@ -93,5 +93,5 @@ page(
   p There are no verification steps for this tutorial part.
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="4" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="4" :parts="6")
 </template>

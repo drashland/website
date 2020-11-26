@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       toc: [
         "Folder Structure End State",
@@ -57,7 +57,7 @@ page(
   :title="title"
   :toc="toc"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="5")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="3" :parts="5")
   hr
   folder-structure-end-state
     code-block(:header="false" language="text" :line_numbers="false")
@@ -82,5 +82,5 @@ page(
   p This is because all the content of the page is going to come from your React component which has not been created yet.
   div-alert-next-tutorial-part
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="3" :parts="5")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="3" :parts="5")
 </template>

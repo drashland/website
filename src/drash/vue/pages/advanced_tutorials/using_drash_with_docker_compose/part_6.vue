@@ -14,7 +14,7 @@ export const resource = {
 export default {
   data() {
     return {
-      base_url: this.$conf.drash.base_url + "/#",
+      base_url: this.$conf.drash.base_url,
       base_uri: baseUri,
       title: title,
       subtitle: subtitle,
@@ -56,7 +56,7 @@ page(
   :subtitle="subtitle"
   :title="title"
 )
-  breadcrumbs(:base_url="base_url + base_uri" :part="6" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="6" :parts="6")
   hr
   h2-hash Before You Get Started
   p Now that you have a working Docker environment, you can try linking client-side assets.
@@ -201,5 +201,5 @@ page(
         img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/2.png'")
   div-alert-finished-tutorial-series
   hr
-  breadcrumbs(:base_url="base_url + base_uri" :part="6" :parts="6")
+  breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="6" :parts="6")
 </template>
