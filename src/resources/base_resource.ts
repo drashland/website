@@ -106,9 +106,9 @@ export class BaseResource extends Drash.Http.Resource {
         .replace(/\{\{ module \}\}/g, moduleName)
         .replace("{{ drash_api_configs }}", this.getServerConfigs());
       if (this.getEnvironment() == "development") {
-        this.response.body = this.response.body.replace("{{ version }}", `${version}.development`)
+        this.response.body = this.response.body.replace(/\{\{ version \}\}/g, `${version}.development`)
       } else {
-        this.response.body = this.response.body.replace("{{ version }}", version)
+        this.response.body = this.response.body.replace(/\{\{ version \}\}/g, version)
       }
       return this.response;
   }
@@ -132,7 +132,7 @@ export class BaseResource extends Drash.Http.Resource {
    * Send versioned documentation pages. Versioned documentation pages are just
    * Vue apps with the name of the module and the version. For example:
    *
-   *     drash_app.v1.3.0.js
+   *     drash.v1.3.0.js
    *
    * See /assets/bundles for all versioned documentation.
    *
