@@ -106,7 +106,7 @@ export class BaseResource extends Drash.Http.Resource {
         .replace(/\{\{ module \}\}/g, moduleName)
         .replace("{{ drash_api_configs }}", this.getServerConfigs());
       if (this.getEnvironment() == "development") {
-        this.response.body = this.response.body.replace("{{ version }}", "development")
+        this.response.body = this.response.body.replace("{{ version }}", `${version}.development`)
       } else {
         this.response.body = this.response.body.replace("{{ version }}", version)
       }
