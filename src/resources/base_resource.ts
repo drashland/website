@@ -50,15 +50,15 @@ export class BaseResource extends Drash.Http.Resource {
    * @returns The environment name.
    */
   protected getEnvironment(): string {
-      const host = this.request.headers.get("x-forwarded-host");
-      const isProduction = host!.includes("drash") && !host!.includes("staging");
-      const isStaging = host!.includes("staging");
+      const host = this.request.headers.get("host") || "";
+      const isRunningOnLiveServer = this.request.headers.get("x-forwarded-host");
+      const isStaging = host.includes("staging");
 
       if (isStaging) {
         return "staging";
       }
 
-      if (isProduction) {
+      if (isRunningOnLiveServer) {
         return "production";
       }
 
@@ -144,7 +144,11 @@ export class BaseResource extends Drash.Http.Resource {
     moduleName: string,
     version: string
   ): Promise<Drash.Http.Response> {
-    const filename = `./assets/bundles/${moduleName}_app.${version}.js`;
+    let filename = `./assets/bundles/${moduleName}.${version}.js`;
+    if (this.getEnvironment() == "development") {
+      filename = `./assets/bundles/${moduleName}.${version}.development.js`;
+    }
+
     this.log(`Getting Vue app: ${filename}`);
 
     if (!await this.fileExists(filename)) {
