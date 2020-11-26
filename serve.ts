@@ -1,6 +1,6 @@
 const decoder = new TextDecoder();
 
-await run(["console/compile_vue_routes"])
+await run(["console/compile_vue_routes", Deno.args[0]])
 
 await run(["pkill", "-f", "drash_website_server.ts"]);
 
