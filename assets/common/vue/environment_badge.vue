@@ -1,19 +1,16 @@
 <script>
 export default {
-  props: {
-    build_date: {
-      type: String,
-      required: true
-    }
-  },
   data() {
     return {
-      environment: window.server_configs.environment,
+      environment: this.$conf.environment,
     };
   },
   computed: {
+    build_date() {
+      return new Date().toLocaleString();
+    },
     is_production() {
-      return window.server_configs.environment == 'production';
+      return this.$conf.environment == 'production';
     }
   },
 }

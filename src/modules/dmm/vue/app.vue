@@ -7,7 +7,6 @@ export default {
   },
   data() {
     return {
-      build_date: this.$conf.build_date,
       sidebar: {
         base_url: this.$conf.dmm.base_url + "/#",
         github_href: "https://github.com/drashland/dmm",
@@ -38,7 +37,6 @@ export default {
 
 <template lang="pug">
 app-root(
-  :build_date="build_date"
   :sidebar="sidebar"
   news_tags="deno, dmm"
   module="dmm"

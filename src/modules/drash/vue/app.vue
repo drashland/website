@@ -8,7 +8,6 @@ export default {
   data() {
     return {
       articles: [],
-      build_date: this.$conf.build_date,
       sidebar: {
         api_reference_href: "/drash/#/api-reference",
         base_url: this.$conf.drash.base_url + "/#",
@@ -99,7 +98,6 @@ export default {
 
 <template lang="pug">
 app-root(
-  :build_date="build_date"
   :sidebar="sidebar"
   news_tags="deno, drash"
   module="Drash"

@@ -37,13 +37,10 @@ export default {
   data() {
     return {
       version_selector_is_active: false,
-      versions: window.server_configs[this.module].versions,
+      versions: this.$conf[this.module].versions,
     };
   },
   computed: {
-    copyright_year() {
-      return window.server_configs.copyright_year
-    },
     current_version() {
       return window.location.href
         .match(/v[0-9].+\//)[0]
@@ -298,6 +295,6 @@ div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'
     div.menu-name
       a.menu-name-link.is-link(href="/") Back To Drash Land
   div(style="color: #f4f4f4").mt-5.text-sm.text-center
-    p.mb-2 &copy; 2019-{{ copyright_year }} Drash Land
+    p.mb-2 &copy; 2019-{{ $conf.copyright_year }} Drash Land
     p.mb-10 Built with Deno &amp; Drash
 </template>
