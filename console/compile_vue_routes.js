@@ -3,8 +3,8 @@ const fs = require("fs");
 const moduleName = process.argv[2];
 const path = require("path");
 
-const directory = configs.root_directory + "/src/modules/" + moduleName + "/vue/pages";
-const outFile = configs.root_directory + "/src/modules/" + moduleName +"/compiled_vue_routes.js";
+const directory = configs.root_directory + "/src/" + moduleName + "/vue/pages";
+const outFile = configs.root_directory + "/src/" + moduleName +"/compiled_vue_routes.js";
 
 console.log(`Compiling ${outFile}`);
 
@@ -26,7 +26,7 @@ function walk(directory) {
       walk(filepath);
     } else if (stats.isFile()) {
       importString += `
-import * as ${filenameWithoutExtension}_${count} from "/${filepath.replace("src/modules/", "")}";`;
+import * as ${filenameWithoutExtension}_${count} from "/${filepath.replace("src/", "")}";`;
       exportString += `  ${filenameWithoutExtension}_${count},\n`;
     }
     count += 1;
