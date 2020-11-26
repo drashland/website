@@ -45,28 +45,21 @@ export class BaseResource extends Drash.Http.Resource {
   }
 
   /**
-   * Get the current environment based on headers and URIs. The only
-   * environments we support are:
-   *
-   *     - production
-   *     - staging
-   *     - development
+   * Get the current environment based on headers and URIs.
    *
    * @returns The environment name.
    */
   protected getEnvironment(): string {
-      const uri = this.request.url_path;
-      const isDrashIo = this.request.headers.get("x-forwarded-host");
-      const isStaging = uri.includes("/staging");
-      if (isDrashIo) {
-        if (isStaging) {
-          return "staging";
-        }
-        return "production";
-      }
+      const host = this.request.headers.get("x-forwarded-host");
+      const isProduction = host!.includes("drash") && !host!.includes("staging");
+      const isStaging = host!.includes("staging");
 
       if (isStaging) {
         return "staging";
+      }
+
+      if (isProduction) {
+        return "production";
       }
 
       return "development";

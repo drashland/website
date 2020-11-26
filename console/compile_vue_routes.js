@@ -1,7 +1,8 @@
+const configs = require("../configs.node.js");
 const fs = require("fs");
-const path = require("path");
-const configs = require("../configs_node.js");
 const moduleName = process.argv[2];
+const path = require("path");
+
 const directory = configs.root_directory + "/src/modules/" + moduleName + "/vue/pages";
 const outFile = configs.root_directory + "/src/modules/" + moduleName +"/compiled_vue_routes.js";
 

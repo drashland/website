@@ -8,7 +8,7 @@
     "build:version": "console/build_version",
     "rm:ds_store": "find . -name '.DS_Store' -type f -delete",
     "server": "denon run -A serve.ts",
-    "webpack": "node_modules/.bin/webpack --hide-modules --watch"
+    "webpack": "console/webpack"
   },
   "author": "Drash Land",
   "devDependencies": {
