@@ -74,7 +74,7 @@ div
           | $ deno test --allow-net --allow-run test.ts
     hr
     h2-hash Importing
-    code-block-import(name="Sinco" repo="sinco" :version="$conf.sinco.latest_version")
+    code-block-import(name="HeadlessBrowser" repo="sinco" :version="$conf.sinco.latest_version")
     hr
     h2-hash Features
     ul

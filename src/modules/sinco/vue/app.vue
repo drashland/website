@@ -26,7 +26,7 @@ export default {
             "Custom Assertions": "/tutorials/assertions",
           }
         },
-        module: "Sinco",
+        module: "sinco",
       }
     };
   },
@@ -36,6 +36,6 @@ export default {
 <template lang="pug">
 app-root(
   :sidebar="sidebar"
-  module="Sinco"
+  module="sinco"
 )
 </template>
