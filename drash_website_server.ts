@@ -15,7 +15,7 @@ const server = new Drash.Http.Server({
   ],
   response_output: "text/html",
   static_paths: {
-      [`${module}-assets`]: `/assets`
+      [`/${module}-assets`]: `/assets`
   },
   directory: "."
 })
