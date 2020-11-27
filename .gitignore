@@ -5,8 +5,8 @@
 bundle.js
 compiled_*.js
 compiled_*.json
+configs.server.ts
 drash/conf/app.ts
-drash_website_server_options.ts
 
 # directories
 .sass-cache
