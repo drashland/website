@@ -85,6 +85,8 @@ div
       li
         p Get input field values
       li
+        p Visit Pages
+      li
         p Assertions
         ul
           li Assert url is

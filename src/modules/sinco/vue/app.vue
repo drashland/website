@@ -22,6 +22,7 @@ export default {
           Tutorials: {
             "Click Elements": "/tutorials/clicking-elements",
             "Get And Set Input Value": "/tutorials/get-and-set-input-value",
+            "Visit Pages": "/tutorials/visit-pages",
             "Custom Assertions": "/tutorials/assertions",
           }
         },
