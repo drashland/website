@@ -2,15 +2,13 @@
   "name": "website",
   "version": "0.0.1",
   "description": "Drash Land",
-  "main": "index.js",
   "scripts": {
-    "build:production": "scripts/build_production",
-    "build:staging": "scripts/build_staging",
-    "drash:copy-api-reference": "cp ../deno-drash/api_reference.json drash/assets/json/api_reference.json",
+    "build:production": "console/build production",
+    "build:staging": "console/build staging",
+    "build:version": "console/build_version",
     "rm:ds_store": "find . -name '.DS_Store' -type f -delete",
-    "server": "nodemon server.js",
-    "test": "test",
-    "webpack": "node_modules/.bin/webpack --hide-modules --env.environment=development --watch"
+    "server": "denon run -A serve.ts",
+    "webpack": "node_modules/.bin/webpack --hide-modules --watch"
   },
   "author": "Drash Land",
   "devDependencies": {

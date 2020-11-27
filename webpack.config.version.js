@@ -1,7 +1,7 @@
 /**
- * This webpack config file handles building the following environments:
- *
- *     - development
+ * This webpack config file handles building a specific version of docs for a
+ * specific module. For example, if I want to build Drash docs v1.3.0, then I
+ * would use this file and not the default webpack.config.js file.
  */
 
 const webpack = require("webpack");
@@ -10,21 +10,20 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = (envVars) => {
   console.log(
-    `\nRunning webpack in development mode for the development environment.\n`,
+    `\nRunning webpack in production mode for the ${envVars.module}@${envVars.version} bundle.\n`,
   );
 
   return {
     entry: {
-      dmm_app:    path.resolve(__dirname, "src/modules/dmm/app.js"),
-      drash_app:  path.resolve(__dirname, "src/modules/drash/app.js"),
-      rhum_app:   path.resolve(__dirname, "src/modules/rhum/app.js"),
-      wocket_app: path.resolve(__dirname, "src/modules/wocket/app.js"),
-      sinco_app: path.resolve(__dirname, "src/modules/sinco/app.js")
+      [envVars.module + "_app"]: path.resolve(
+        __dirname,
+        `src/modules/${envVars.module}/app.js`,
+      ),
     },
     mode: "development",
     output: {
       path: path.resolve(__dirname, "assets/bundles/"),
-      filename: `[name].development.js`,
+      filename: `[name].${envVars.version}.js`,
     },
     module: {
       rules: [
@@ -60,14 +59,10 @@ module.exports = (envVars) => {
     ],
     resolve: {
       alias: {
-        vue: "vue/dist/vue.js",
-        "/common":  path.resolve(__dirname, "assets/common"),
-        "/dmm":     path.resolve(__dirname, "src/modules/dmm"),
-        "/drash":   path.resolve(__dirname, "src/modules/drash"),
-        "/rhum":    path.resolve(__dirname, "src/modules/rhum"),
-        "/wocket":  path.resolve(__dirname, "src/modules/wocket"),
-        "/sinco": path.resolve(__dirname, "src/modules/sinco")
-      }
-    }
+        vue: "vue/dist/vue.min.js",
+        "/common": path.resolve(__dirname, "assets/common"),
+        [`/${envVars.module}`]: path.resolve(__dirname, `src/modules/${envVars.module}`),
+      },
+    },
   };
 };

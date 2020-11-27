@@ -1,15 +1,18 @@
 <script>
 export default {
-  props: {
-    environment: {
-      type: String,
-      required: true
+  data() {
+    return {
+      environment: this.$conf.environment,
+    };
+  },
+  computed: {
+    build_date() {
+      return new Date().toLocaleString();
     },
-    build_date: {
-      type: String,
-      required: true
+    is_production() {
+      return this.$conf.environment == 'production';
     }
-  }
+  },
 }
 </script>
 
@@ -26,7 +29,7 @@ p {
 </style>
 
 <template lang="pug">
-div.environment-badge(v-if="environment != 'production'" style="position:fixed; right: 0; top: 0; text-align: right; z-index: 1000")
+div.environment-badge(v-if="!is_production" style="position:fixed; right: 0; top: 0; text-align: right; z-index: 1000")
   p.mb-0 ENVIRONMENT: {{ environment }}
   p.mb-0(style="font-size: .65rem") Build Date: {{ build_date }}
 </template>
