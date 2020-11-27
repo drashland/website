@@ -60,11 +60,12 @@ page(
         | import { HeadlessBrowser } from "https://deno.land/x/sinco@{{ $conf.sinco.latest_version }}/mod.ts";
         |
         | Deno.test("My web app works as expected", function () {
-        |   const sinco = new HeadlessBrowser();
-        |   await sinco.build("https://chromestatus.com");
-        |   await sinco.click('a[href="/features/schedule"]');
-        |   await sinco.assertUrlIs("https://chromestatus.com/features/schedule");
-        |   await sinco.done();
+        |   const Sinco = new HeadlessBrowser();
+        |   await Sinco.build();
+        |   await Sinco.goTo("https://chromestatus.com");
+        |   await Sinco.click('a[href="/features/schedule"]');
+        |   await Sinco.assertUrlIs("https://chromestatus.com/features/schedule");
+        |   await Sinco.done();
         | })
       p Here you are going to create your headless browser instance, and navigate to <code>https://chromestatus.com</code>. Once the page has loaded, you will click an element matching the <code>a[href="/features/schedule"]</code> selector, which will send you to a different page. To assert this, you are going to use <code>.assertUrlIs()</code> to assert the page you are currently on, has now changed.
   hr

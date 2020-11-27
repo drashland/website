@@ -7,8 +7,6 @@ export default {
   },
   data() {
     return {
-      build_date: this.$conf.build_date,
-      environment: this.$conf.environment,
       sidebar: {
         api_reference_href: "https://doc.deno.land/https/deno.land/x/sinco@" + this.$conf.sinco.latest_version + "/mod.ts",
         base_url: this.$conf.sinco.base_url + "/#",
@@ -36,8 +34,6 @@ export default {
 
 <template lang="pug">
 app-root(
-  :build_date="build_date"
-  :environment="environment"
   :sidebar="sidebar"
   module="Sinco"
 )

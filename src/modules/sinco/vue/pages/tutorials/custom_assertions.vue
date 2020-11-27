@@ -59,11 +59,12 @@ page(
         | import { HeadlessBrowser } from "https://deno.land/x/sinco@{{ $conf.sinco.latest_version }}/mod.ts";
         |
         | Deno.test("My web app works as expected", function () {
-        |   const sinco = new HeadlessBrowser();
-        |   await sinco.build("https://chromestatus.com");
-        |   await sinco.assertUrlIs("https://chromestatus.com/features");
-        |   await sinco.assertSee("Chrome Versions");
-        |   await sinco.done();
+        |   const Sinco = new HeadlessBrowser();
+        |   await Sinco.build();
+        |   await Sinco.goTo("https://chromestatus.com");
+        |   await Sinco.assertUrlIs("https://chromestatus.com/features");
+        |   await Sinco.assertSee("Chrome Versions");
+        |   await Sinco.done();
         | })
       p Here you are going to create your headless browser instance, and navigate to <code>https://chromestatus.com</code>. Once the page has loaded, you are going to assert that the page you are on is as expected. Note that <code>https://chromestatus.com</code> will redirect to <code>https://chromestatus.com/features</code>, which is why you have added the <code>/features</code> value to the end of the expected URL. You will assert that and also assert that you can see some given text on the page, and in this example, it is <code>Chrome Versions</code>.
   hr

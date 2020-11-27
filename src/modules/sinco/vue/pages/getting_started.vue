@@ -29,7 +29,7 @@ export default {
 div
   introduction-header(heading="Sinco" description="Sinco is a browser testing and automation tool for Deno")
   div.flex.mb-5
-    a(href="https://github.com/drashland/cino/releases" target="_BLANK")
+    a(href="https://github.com/drashland/sinco/releases" target="_BLANK")
       img.mr-1(alt="Latest Sinco Release" src="https://img.shields.io/github/release/drashland/sinco.svg?color=brightgreen&label=Latest" width="auto" height="20")
     a(href="https://github.com/drashland/sinco/actions" target="_BLANK")
       img.mr-1(alt="Sinco CI" src="https://img.shields.io/github/workflow/status/drashland/sinco/master?label=CI" width="auto" height="20")
@@ -47,22 +47,26 @@ div
         p Create a test file and start interacting with the browser
         code-block(title="test.ts" language="typescript")
           | import { HeadlessBrowser } from "https://deno.land/x/sinco@{{ $conf.sinco.latest_version }}/mod.ts";
+          | import { assertEquals } from "https://deno.land/std@{{ $conf.deno_std.latest_version }}/testing/asserts.ts";
           |
           | Deno.test("My test", async () => {
           |   // Setup
-          |   const sinco = new Headlessbrowser();
-          |   await sinco.build("https://chromestatus.com");
+          |   const Sinco = new Headlessbrowser();
+          |   await Sinco.build(); // Creates the headless browser
+          |   await Sinco.goto("https://chromestatus.com"); // Go to this page
           |
           |   // Do any actions and assertions, in any order
-          |   await sinco.assertUrlIs("https://chromestatus.com/features")
-          |   await sinco.type('input[placeholder="Filter"]', "Hello");
-          |   await sinco.assertUrlIs("https://chromestatus.com/features#hello")
-          |   await sinco.click('a[href="/features/schedule"]')
-          |   await sinco.assertUrlIs("https://chromestatus.com/features/schedule")
-          |   await sinco.assertSee("Release timeline")
+          |   await Sinco.assertUrlIs("https://chromestatus.com/features");
+          |   await Sinco.type('input[placeholder="Filter"]', "Hello");
+          |   const value = await Sinco.getInputValue('input[placeholder="Filter"]');
+          |   assertEquals(value, "Hello");
+          |   await Sinco.assertUrlIs("https://chromestatus.com/features#hello");
+          |   await Sinco.click('a[href="/features/schedule"]');
+          |   await Sinco.assertUrlIs("https://chromestatus.com/features/schedule");
+          |   await Sinco.assertSee("Release timeline");
           |
           |   // Once finished, close
-          |   await sinco.done()
+          |   await sinco.done();
           | })
       li
         p Run your test.
@@ -83,6 +87,6 @@ div
       li
         p Assertions
         ul
-          li Assert URL is
+          li Assert url is
           li Assert see
 </template>

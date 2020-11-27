@@ -43,5 +43,12 @@ export const configs = {
       "v0.6.0",
       "v0.5.0"
     ]
+  },
+  "sinco": {
+    "base_url": "/sinco/v1.0.0",
+    "latest_version": "v1.0.0",
+    "versions": [
+      "v1.0.0"
+    ]
   }
 };
