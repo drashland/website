@@ -8,8 +8,9 @@ echo -e "Building version files for $MODULE@$VERSION\n"
 console/compile_vue_routes $MODULE
 
 node_modules/.bin/webpack \
-  --config ./webpack.config.version.js \
+  --config ./configs.webpack.production.js \
   --hide-modules \
   --env.environment=version \
+  --env.mode=production \
   --env.module=$MODULE \
   --env.version=$VERSION
