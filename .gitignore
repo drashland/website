@@ -7,6 +7,7 @@ compiled_*.js
 compiled_*.json
 configs.server.js
 drash/conf/app.ts
+ecosystem.config.js
 
 # directories
 .sass-cache
