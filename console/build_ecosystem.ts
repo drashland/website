@@ -2,6 +2,8 @@ import { run } from "../console/run.ts";
 
 console.log("Building ecosystem");
 
+await run(["npm", "install"]);
+
 await buildWebpackBundles("dmm", "v1.x");
 await buildWebpackBundles("drash", "v1.x");
 await buildWebpackBundles("rhum", "v1.x");
