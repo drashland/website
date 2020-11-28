@@ -11,7 +11,7 @@ module.exports = (envVars) => {
   console.log(
     `Building webpack bundle...
 Mode: development (JS code will not be minified)
-Bundle: ${envVars.module}.${envVars.version}.development.js`);
+Bundle: ${envVars.module}.${envVars.version}.js`);
 
   return Object.assign(configsCommon, {
     entry: {
@@ -23,7 +23,7 @@ Bundle: ${envVars.module}.${envVars.version}.development.js`);
     mode: envVars.mode,
     output: {
       path: path.resolve(__dirname, "assets/bundles/"),
-      filename: `[name].${envVars.version}.development.js`,
+      filename: `[name].${envVars.version}.js`,
     },
     resolve: {
       alias: {
