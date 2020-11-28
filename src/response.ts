@@ -13,7 +13,7 @@ export class Response extends Drash.Http.Response {
   ];
 
   public generateResponse (): string {
-    if (this.error_codes.indexOf(this.status_code)) {
+    if (this.error_codes.indexOf(this.status_code) != -1) {
       try {
         this.body = decoder.decode(Deno.readFileSync(`./Error${this.status_code}.html`));
       } catch (error) {
