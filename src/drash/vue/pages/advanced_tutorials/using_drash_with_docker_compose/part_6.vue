@@ -198,7 +198,7 @@ page(
     li
       p Go to <code>localhost:8080</code> in your browser and you should see the following:
       p
-        img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/2.png'")
+        img(:src="'/drash-assets/drash/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/2.png'")
   div-alert-finished-tutorial-series
   hr
   breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="6" :parts="6")
