@@ -2,11 +2,12 @@
 !*.webpack.development.js
 *.development.js
 .DS_Store
-bundles/*.js
+assets/bundles/*.js
 compiled_*.js
 compiled_*.json
 configs.server.js
 drash/conf/app.ts
+ecosystem.config.js
 
 # directories
 .sass-cache
