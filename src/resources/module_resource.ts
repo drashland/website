@@ -23,7 +23,7 @@ export class ModuleResource extends BaseResource {
     }
 
     if (version) {
-      return this.response.redirect(302, `/${moduleName}/${version}/`);
+      return this.sendVersionedDocsPage(moduleName, version);
     }
 
     // @ts-ignore (crookse) We ignore this because we can't use a dynamic
