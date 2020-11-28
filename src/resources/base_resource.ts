@@ -102,15 +102,11 @@ export class BaseResource extends Drash.Http.Resource {
    */
   protected sendDocsPage(moduleName: string, version: string = ""): Drash.Http.Response {
     this.response.body = decoder.decode(Deno.readFileSync("./src/module.html"))
-        .replace("{{ title }}", "Drash Land - " + this.ucfirst(moduleName))
-        .replace(/\{\{ module \}\}/g, moduleName)
-        .replace("{{ drash_api_configs }}", this.getServerConfigs());
-      if (this.getEnvironment() == "development") {
-        this.response.body = this.response.body.replace(/\{\{ version \}\}/g, `${version}.development`)
-      } else {
-        this.response.body = this.response.body.replace(/\{\{ version \}\}/g, version)
-      }
-      return this.response;
+      .replace("{{ title }}", "Drash Land - " + this.ucfirst(moduleName))
+      .replace(/\{\{ module \}\}/g, moduleName)
+      .replace("{{ drash_api_configs }}", this.getServerConfigs());
+      this.response.body = this.response.body.replace(/\{\{ version \}\}/g, version)
+    return this.response;
   }
 
   /**
@@ -145,9 +141,6 @@ export class BaseResource extends Drash.Http.Resource {
     version: string
   ): Promise<Drash.Http.Response> {
     let filename = `./assets/bundles/${moduleName}.${version}.js`;
-    if (this.getEnvironment() == "development") {
-      filename = `./assets/bundles/${moduleName}.${version}.development.js`;
-    }
 
     this.log(`Getting Vue app: ${filename}`);
 
