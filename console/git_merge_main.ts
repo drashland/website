@@ -22,4 +22,5 @@ await run(["git", "checkout", "main"]);
 async function mergeMainInto(branch: string) {
   await run(["git", "checkout", branch]);
   await run(["git", "merge", "--no-ff", "main"]);
+  await run(["git", "push"]);
 }
