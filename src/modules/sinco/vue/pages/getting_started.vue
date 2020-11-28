@@ -59,7 +59,7 @@ div
           |   await Sinco.assertUrlIs("https://chromestatus.com/features");
           |   await Sinco.type('input[placeholder="Filter"]', "Hello");
           |   await Sinco.waitForAnchorChange();
-          |   await Sinco.assertUrlIs("https://chromestatus.com/features#hello");
+          |   await Sinco.assertUrlIs("https://chromestatus.com/features#Hello");
           |   const value = await Sinco.getInputValue('input[placeholder="Filter"]');
           |   assertEquals(value, "Hello");
           |   await Sinco.click('a[href="/features/schedule"]');
@@ -86,6 +86,8 @@ div
         p Type into input fields
       li
         p Get input field values
+      li
+        p Waiting
       li
         p Visit Pages
       li

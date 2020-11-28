@@ -57,7 +57,7 @@ page(
         | import { HeadlessBrowser } from "https://deno.land/x/sinco@{{ $conf.sinco.latest_version }}/mod.ts";
         | import { assertEquals } from "https://deno.land/std@{{ $conf.deno_std.latest_version }}/testing/asserts.ts";
         |
-        | Deno.test("My web app works as expected", function () {
+        | Deno.test("My web app works as expected", async () => {
         |   const Sinco = new HeadlessBrowser();
         |   await Sinco.build();
         |   await Sinco.goTo("https://chromestatus.com");
