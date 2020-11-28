@@ -64,6 +64,7 @@ page(
         |   await Sinco.build();
         |   await Sinco.goTo("https://chromestatus.com");
         |   await Sinco.click('a[href="/features/schedule"]');
+        |   await Sinco.waitForPageChange();
         |   await Sinco.assertUrlIs("https://chromestatus.com/features/schedule");
         |   await Sinco.done();
         | })

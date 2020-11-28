@@ -62,9 +62,9 @@ page(
         |   await Sinco.build();
         |   await Sinco.goTo("https://chromestatus.com");
         |   await Sinco.type('input[placeholder="Filter"]', "hello world");
-        |   const val = await sinco.getInputValue('input[placeholder="Filter"]');
+        |   const val = await Sinco.getInputValue('input[placeholder="Filter"]');
         |   assertEquals(val, "hello world");
-        |   await sinco.done();
+        |   await Sinco.done();
         | })
       p In this tutorial, you are creating a new browser instance that is pointing to <code>https://chromestatus.com</code>, then you will type a value into an input field, just so the field is populated with a value. After, you will get the value from that input field and assert it equals the value you typed.
   hr

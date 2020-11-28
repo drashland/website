@@ -51,22 +51,24 @@ div
           |
           | Deno.test("My test", async () => {
           |   // Setup
-          |   const Sinco = new Headlessbrowser();
+          |   const Sinco = new HeadlessBrowser();
           |   await Sinco.build(); // Creates the headless browser
-          |   await Sinco.goto("https://chromestatus.com"); // Go to this page
+          |   await Sinco.goTo("https://chromestatus.com"); // Go to this page
           |
           |   // Do any actions and assertions, in any order
           |   await Sinco.assertUrlIs("https://chromestatus.com/features");
           |   await Sinco.type('input[placeholder="Filter"]', "Hello");
+          |   await Sinco.waitForAnchorChange();
+          |   await Sinco.assertUrlIs("https://chromestatus.com/features#hello");
           |   const value = await Sinco.getInputValue('input[placeholder="Filter"]');
           |   assertEquals(value, "Hello");
-          |   await Sinco.assertUrlIs("https://chromestatus.com/features#hello");
           |   await Sinco.click('a[href="/features/schedule"]');
+          |   await Sinco.waitForPageChange();
           |   await Sinco.assertUrlIs("https://chromestatus.com/features/schedule");
           |   await Sinco.assertSee("Release timeline");
           |
           |   // Once finished, close
-          |   await sinco.done();
+          |   await Sinco.done();
           | })
       li
         p Run your test.
