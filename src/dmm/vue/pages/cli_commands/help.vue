@@ -7,7 +7,7 @@
 
   export const resource = {
     paths: [
-      "/cli_commands/help",
+      "/cli-commands/help",
     ],
     meta: {
       title: title
@@ -22,7 +22,7 @@
     },
     data() {
       return {
-        base_url: this.$conf.dmm.base_url + "/#",
+        base_url: this.$conf.dmm.base_url,
         title: title,
         toc: [
           "Description",

@@ -21,11 +21,11 @@ export default {
           "Latest News": {},
           "CLI Commands": {
             //Introduction: "/tutorials",
-            "check": "/cli_commands/check",
-            "help": "/cli_commands/help",
-            "info": "/cli_commands/info",
-            "update": "/cli_commands/update",
-            "version": "/cli_commands/version"
+            "check": "/cli-commands/check",
+            "help": "/cli-commands/help",
+            "info": "/cli-commands/info",
+            "update": "/cli-commands/update",
+            "version": "/cli-commands/version"
           },
         },
         module: "dmm",

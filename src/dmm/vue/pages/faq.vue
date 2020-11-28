@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      base_url: this.$conf.dmm.base_url + "/#",
+      base_url: this.$conf.dmm.base_url,
       title: title,
     };
   }
