@@ -5,7 +5,7 @@
 bundle.js
 compiled_*.js
 compiled_*.json
-configs.server.ts
+configs.server.js
 drash/conf/app.ts
 
 # directories
