@@ -6,6 +6,10 @@ git pull
 
 git checkout drash-v1.x
 git merge --no-ff main -m "updating branch with main"
+git push
 
 git checkout dmm-v1.x
 git merge --no-ff main -m "updating branch with main"
+git push
+
+git checkout main
