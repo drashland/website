@@ -14,10 +14,7 @@ const server = new Drash.Http.Server({
   ],
   response_output: "text/html",
   static_paths: {
-    "/dmm-assets": "/assets",
-    "/drash-assets": "/assets",
-    "/rhum-assets": "/assets",
-    "/wocket-assets": "/assets",
+    "/assets": "/assets",
   },
   directory: "."
 })
