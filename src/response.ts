@@ -7,6 +7,10 @@ export class Response extends Drash.Http.Response {
     try {
       this.body = decoder.decode(Deno.readFileSync(`./Error${this.status_code}.html`));
     } catch (error) {
+      console.log(error);
+    }
+
+    if (!this.body) {
       this.body = decoder.decode(Deno.readFileSync(`./Error400.html`));
     }
 
