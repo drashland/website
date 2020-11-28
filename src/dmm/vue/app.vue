@@ -8,7 +8,7 @@ export default {
   data() {
     return {
       sidebar: {
-        base_url: this.$conf.dmm.base_url + "/#",
+        base_url: this.$conf.dmm.base_url,
         github_href: "https://github.com/drashland/dmm",
         logo: "/assets/common/img/logo_dmm.svg",
         menus: {
