@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "Drash Land",
   "scripts": {
-    "build:production": "console/build production",
-    "build:staging": "console/build staging",
+    "build:ecosystem": "deno run --allow-read --allow-run --allow-write console/build_ecosystem.ts",
     "build:version": "console/build_version",
     "rm:ds_store": "find . -name '.DS_Store' -type f -delete",
     "server": "denon run -A serve.ts",
