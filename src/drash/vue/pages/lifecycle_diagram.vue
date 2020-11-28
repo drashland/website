@@ -30,6 +30,6 @@ page(
     li Runtime middleware only executes if compile time middleware is defined at server creation.
   p You can click the diagram to enlarge it.
   p
-    a(:href="'/drash-assets/drash/img/drash_lifecycle_diagram_v1.3.0.svg'" target="_BLANK")
-      img(:src="'/drash-assets/drash/img/drash_lifecycle_diagram_v1.3.0.svg'")
+    a(:href="'/assets/drash/img/drash_lifecycle_diagram_v1.3.0.svg'" target="_BLANK")
+      img(:src="'/assets/drash/img/drash_lifecycle_diagram_v1.3.0.svg'")
 </template>

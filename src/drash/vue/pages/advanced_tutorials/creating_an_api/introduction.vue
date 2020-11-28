@@ -41,13 +41,13 @@ page(
   h2-hash End State
   p Below are samples of what you will create.
   p
-    img(:src="'/drash-assets/drash/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/2.png'")
+    img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/2.png'")
   p
-    img(:src="'/drash-assets/drash/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/1.png'")
+    img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/1.png'")
   p
-    img(:src="'/drash-assets/drash/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/3.png'")
+    img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/3.png'")
   p
-    img(:src="'/drash-assets/drash/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/4.png'")
+    img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_an_api/coffee_and_tea/4.png'")
   hr
   breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="-1" :parts="4")
 </template>

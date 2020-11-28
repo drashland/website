@@ -42,7 +42,7 @@ page(
   hr
   h2-hash End State
   p Below is a sample of what you will create.
-  img(:src="'/drash-assets/drash/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
+  img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_react_app/deno_tweets/1.png'")
   hr
   breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="-1" :parts="5")
 </template>
