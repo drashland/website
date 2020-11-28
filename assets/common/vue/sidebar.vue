@@ -44,7 +44,7 @@ export default {
     current_version() {
       return window.location.href
         .match(/v[0-9].+\//)[0]
-        .replace(/\/#.+/, "");
+        .replace(/\/?#.+/, "");
     },
   },
   mounted() {
