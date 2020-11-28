@@ -2,7 +2,7 @@
 !*.webpack.development.js
 *.development.js
 .DS_Store
-bundle.js
+bundles/*.js
 compiled_*.js
 compiled_*.json
 configs.server.js
