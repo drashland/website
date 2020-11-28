@@ -36,7 +36,9 @@ export const configs = {
   },
   "wocket": {
     "base_url": "/wocket/v0.x",
-    "latest_version": "v0.5.0",
+    "latest_version": "v0.6.1",
+    "latest_url_deno_land": "https://deno.land/x/wocket@v0.6.1/mod.ts",
+    "latest_url_nest_land": "https://x.nest.land/wocket@v0.6.1/mod.ts",
     "versions": [
       "v0.x"
     ]
