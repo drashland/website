@@ -3,7 +3,7 @@
   import Page from "/common/vue/page.vue";
   import CodeBlock from "/common/vue/code_block.vue";
 
-  const title = "--version";
+  const title = "version";
 
   export const resource = {
     paths: [
