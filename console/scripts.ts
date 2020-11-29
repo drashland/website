@@ -34,7 +34,7 @@ export async function buildDocs(
  * @param moduleName - The name of the module.
  * @param moduleVersion - The version to build (e.g., v1.x).
  */
-async function mergeMainInto(branch: string) {
+export async function mergeMainInto(branch: string) {
   await run(["git", "checkout", branch]);
   await run(["git", "merge", "--no-ff", "main", "-m", "update with main branch"]);
   await run(["git", "push"]);
