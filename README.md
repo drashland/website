@@ -3,7 +3,9 @@
 ## Table Of Contents
 
 * [Running The Development Environment](#running-the-development-environment)
-* [Building An Environment](#building-an-environment)
+* [Setting Up An Environment](#setting-up-an-environment)
+    * [Build The Environment](#build-the-environment)
+    * [Run The Environment Online](#run-the-environment-online)
 * [Scripts](#scripts)
 * [Technology Stack](#technology-stack)
 
@@ -31,6 +33,64 @@ $ npm run dev:server
 
 ```
 $ npm run dev:webpack
+```
+
+## Setting Up An Evironment
+
+In the event you want to build an environment (e.g., staging, production, QA), you will need to take the following steps:
+
+### Build The Environment
+
+1. Clone the repo and go into it.
+
+```
+$ git clone https://github.com/drashland/website.git
+$ cd website
+```
+
+2. Check out the `main` branch.
+
+```
+$ git checkout main
+```
+
+3. Build the entire ecosystem.
+
+```
+$ npm run build:ecosystem
+```
+
+4. Test that the environment works.
+
+```
+$ deno run --allow-net --allow-read drash_website_server.ts
+```
+
+### Run The Environment Online
+
+1. Set up a web server to handle serving the website application. The website application runs on `localhost:1445`.
+
+    * For Apache: https://github.com/drashland/website/blob/main/apache.conf
+    * For Nginx: _In progress_
+
+2. Install [PM2](https://pm2.keymetrics.io/).
+
+3. Make a copy of `ecosystem.config.sample.js` to `ecosystem.config.js`. Edit your copied file as necessary. Make sure the `cwd` field properly points to your website repository clone.
+
+3. Run PM2. PM2 will use your `ecosystem.config.js` file to start the website application and keep your application online 24/7.
+
+```
+$ pm2 start
+
+[PM2] Spawning PM2 daemon with pm2_home=/home/someone/.pm2
+[PM2] PM2 Successfully daemonized
+[PM2][WARN] Applications Drash Land (localhost:1445) not running, starting...
+[PM2] App [Drash Land (localhost:1445)] launched (1 instances)
+┌─────┬────────────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name                           │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼────────────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0   │ Drash Land (localhost:1445)    │ default     │ N/A     │ fork    │ 228260   │ 0s     │ 0    │ online    │ 0%       │ 24.8mb   │ someone  │ enabled  │
+└─────┴────────────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
 ```
 
 ## Scripts
