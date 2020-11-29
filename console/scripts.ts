@@ -13,15 +13,15 @@ export async function buildWebpackBundles(
   moduleVersion: string
 ) {
   await run(["git", "checkout", `${moduleName}-${moduleVersion}`]);
-  // await run(["console/compile_vue_routes", moduleName]);
-  // await run([
-  //   "node_modules/.bin/webpack",
-  //   "--config ./configs.webpack.production.js",
-  //   "--hide-modules",
-  //   "--env.mode=production",
-  //   `--env.module=${moduleName}`,
-  //   `--env.version=${moduleVersion}`,
-  // ]);
+  await run(["console/compile_vue_routes", moduleName]);
+  await run([
+    "node_modules/.bin/webpack",
+    "--config ./configs.webpack.production.js",
+    "--hide-modules",
+    "--env.mode=production",
+    `--env.module=${moduleName}`,
+    `--env.version=${moduleVersion}`,
+  ]);
 }
 
 /**
