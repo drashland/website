@@ -5,7 +5,7 @@
   "scripts": {
     "build:docs": "deno run --allow-read --allow-run console/build_docs.ts",
     "build:ecosystem": "deno run --allow-read --allow-run --allow-write console/build_ecosystem.ts",
-    "dev:server": "deno run -A console/serve_dev.ts $(git branch --show-current)",
+    "dev:server": "denon run -A console/serve_dev.ts $(git branch --show-current)",
     "dev:webpack": "console/webpack",
     "git:merge-main": "deno run --allow-run console/git_merge_main.ts",
     "git:pull-all": "deno run --allow-run console/git_pull_all.ts",
