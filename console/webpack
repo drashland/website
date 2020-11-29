@@ -5,12 +5,11 @@ VERSION="$2"
 
 echo -e "Building $MODULE@$VERSION bundle"
 
-console/compile_vue_routes $MODULE
+node console/compile_vue_routes.js $MODULE
 
 node_modules/.bin/webpack \
   --config ./configs.webpack.development.js \
   --hide-modules \
-  --env.mode=development \
   --env.module=$MODULE \
   --env.version=$VERSION \
   --watch

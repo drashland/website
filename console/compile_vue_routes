@@ -1,5 +1,0 @@
-#!/bin/bash
-
-MODULE="$1"
-
-node console/compile_vue_routes.js $MODULE
