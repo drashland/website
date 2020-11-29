@@ -8,11 +8,6 @@ const configsCommon = require("./configs.webpack.common.js");
 const path = require("path");
 
 module.exports = (envVars) => {
-  console.log(
-    `Building webpack bundle...
-Mode: development (JS code will not be minified)
-Bundle: ${envVars.module}.${envVars.version}.js`);
-
   return Object.assign(configsCommon, {
     entry: {
       [envVars.module]: path.resolve(
