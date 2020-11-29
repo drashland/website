@@ -1,0 +1,17 @@
+#!/bin/bash
+
+MODULE="$1"
+VERSION="$2"
+
+git checkout $MODULE-$VERSION
+
+console/compile_vue_routes $MODULE
+
+node_modules/.bin/webpack \
+  --hide-modules \
+  --config ./configs.webpack.production.js \
+  --env.environment=production \
+  --env.module=$MODULE \
+  --env.version=$VERSION
+
+git checkout main
