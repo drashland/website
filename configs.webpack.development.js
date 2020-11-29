@@ -8,28 +8,32 @@ const configsCommon = require("./configs.webpack.common.js");
 const path = require("path");
 
 module.exports = (envVars) => {
+
+  const module = envVars.branch.split("-")[0];
+  const version = envVars.branch.split("-")[1];
+
   console.log(
     `Building webpack bundle...
 Mode: development (JS code will not be minified)
-Bundle: ${envVars.module}.${envVars.version}.js`);
+Bundle: ${module}.${version}.js`);
 
   return Object.assign(configsCommon, {
     entry: {
-      [envVars.module]: path.resolve(
+      [module]: path.resolve(
         __dirname,
-        `src/${envVars.module}/app.js`,
+        `src/${module}/app.js`,
       ),
     },
     mode: "development",
     output: {
       path: path.resolve(__dirname, "assets/bundles/"),
-      filename: `[name].${envVars.version}.js`,
+      filename: `[name].${version}.js`,
     },
     resolve: {
       alias: {
         vue: "vue/dist/vue.js",
         "/common": path.resolve(__dirname, "assets/common"),
-        [`/${envVars.module}`]: path.resolve(__dirname, `src/${envVars.module}`),
+        [`/${module}`]: path.resolve(__dirname, `src/${module}`),
       },
     },
   });
