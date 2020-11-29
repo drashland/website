@@ -1,4 +1,4 @@
-import { run } from "./console/run.ts";
+import { run } from "./console/scripts.ts";
 
 await run(["node", "console/compile_vue_routes.js", Deno.args[0]]);
 
