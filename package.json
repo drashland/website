@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Drash Land",
   "scripts": {
-    "build:docs": "deno run --allow-read --allow-run console/build_docs.ts",
+    "build:docs": "deno run --allow-read --allow-run console/build_docs.ts $(git branch --show-current)",
     "build:ecosystem": "deno run --allow-read --allow-run --allow-write console/build_ecosystem.ts",
     "dev:server": "denon run -A console/serve_dev.ts $(git branch --show-current)",
     "dev:webpack": "console/webpack",

@@ -1,13 +1,37 @@
 # Drash Land Website
 
-## Technology Stack
+## Table Of Contents
 
-* [Deno](https://deno.land)
-* [Drash](https://drash.land)
-* [Vue](https://vuejs.org)
-* [denon](https://github.com/denosaurs/denon)
-* [pug](https://pugjs.org/api/getting-started.html)
-* [webpack](https://webpack.js.org/)
+* [Running The Development Environment](#running-the-development-environment)
+* [Building An Environment](#building-an-environment)
+* [Scripts](#scripts)
+* [Technology Stack](#technology-stack)
+
+## Running The Development Environment
+
+1. Install npm dependencies.
+
+```
+$ npm install
+```
+
+2. Check out the branch you want to work on.
+
+```
+$ git checkout drash-v1.x
+```
+
+3. Run the development server.
+
+```
+$ npm run dev:server
+```
+
+4. Run webpack
+
+```
+$ npm run dev:webpack
+```
 
 ## Scripts
 
@@ -52,3 +76,12 @@
 * `npm run git:pull-all`
 
     Checks out and pulls down the latest changes from all `<module>-<version>` branches. Run this script before using `npm run build:ecosystem`. This ensures all documentation code is up to date.
+
+## Technology Stack
+
+* [Deno](https://deno.land)
+* [Drash](https://drash.land)
+* [Vue](https://vuejs.org)
+* [denon](https://github.com/denosaurs/denon)
+* [pug](https://pugjs.org/api/getting-started.html)
+* [webpack](https://webpack.js.org/)
