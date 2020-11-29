@@ -8,7 +8,6 @@ const configsCommon = require("./configs.webpack.common.js");
 const path = require("path");
 
 module.exports = (envVars) => {
-
   const module = envVars.branch.split("-")[0];
   const version = envVars.branch.split("-")[1];
 
