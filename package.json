@@ -5,11 +5,11 @@
   "scripts": {
     "build:docs": "deno run --allow-read --allow-run console/build_docs.ts",
     "build:ecosystem": "deno run --allow-read --allow-run --allow-write console/build_ecosystem.ts",
+    "dev:server": "denon run -A serve.ts",
+    "dev:webpack": "console/webpack",
     "git:merge-main": "deno run --allow-run console/git_merge_main.ts",
     "git:pull-all": "deno run --allow-run console/git_pull_all.ts",
-    "rm:ds_store": "find . -name '.DS_Store' -type f -delete",
-    "server": "denon run -A serve.ts",
-    "webpack": "console/webpack"
+    "rm:ds_store": "find . -name '.DS_Store' -type f -delete"
   },
   "author": "Drash Land",
   "devDependencies": {
