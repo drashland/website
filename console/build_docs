@@ -2,8 +2,6 @@
 
 BRANCH="$(git branch --show-current)"
 
-git checkout $BRANCH
-
 echo -e "Building bundles for $BRANCH"
 
 node console/compile_vue_routes.js $BRANCH
@@ -12,5 +10,3 @@ node_modules/.bin/webpack \
   --config ./configs.webpack.production.js \
   --hide-modules \
   --env.branch=$BRANCH \
-
-git checkout main
