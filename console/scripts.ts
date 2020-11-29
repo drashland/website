@@ -1,13 +1,10 @@
 const decoder = new TextDecoder();
 
 /**
- * Build documentation pages for the specified module and version.
- *
- * @param moduleName - The name of the module.
- * @param moduleVersion - The version to build (e.g., v1.x).
+ * Build documentation pages for the specified branch.
  */
-export async function buildDocs(moduleName: string, moduleVersion: string) {
-  await run(["console/build_docs", moduleName, moduleVersion]);
+export async function buildDocs(branch: string) {
+  await run(["console/build_docs", branch]);
 }
 
 /**

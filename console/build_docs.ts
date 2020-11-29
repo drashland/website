@@ -1,11 +1,10 @@
-import { buildWebpackBundles, run } from "./scripts.ts";
+import { buildDocs, run } from "./scripts.ts";
 
 const args = Deno.args.slice();
-const moduleName = args[0];
-const moduleVersion = args[1];
+const branch = args[0];
 
-console.log(`Building webpack bundles for ${moduleName} ${moduleVersion}`);
+console.log(`Building docs for ${branch}`);
 
 await run(["npm", "install"]);
 
-await buildWebpackBundles(moduleName, moduleVersion);
+await buildDocs(branch);
