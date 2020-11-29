@@ -16,7 +16,7 @@ export async function buildWebpackBundles(
     "node_modules/.bin/webpack",
     "--config ./configs.webpack.production.js",
     "--hide-modules",
-    "--env.environment=production",
+    "--env.mode=production",
     `--env.module=${moduleName}`,
     `--env.version=${moduleVersion}`,
   ]);
