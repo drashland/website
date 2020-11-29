@@ -1,4 +1,4 @@
-import { run } from "../console/run.ts";
+import { run } from "./scripts.ts";
 
 console.log("Merging main into all branches");
 
