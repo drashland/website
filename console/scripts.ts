@@ -35,7 +35,7 @@ export async function buildDocs(
  *
  * @param branch - The branch to pull.
  */
-export async function pullLatest(branch: string) {
+export async function gitPullLatest(branch: string) {
   await run(["git", "checkout", branch]);
   await run(["git", "pull"]);
 }
