@@ -1,12 +1,14 @@
 const configs = require("../configs.node.js");
 const fs = require("fs");
-const moduleName = process.argv[2];
 const path = require("path");
+
+const moduleName = process.argv[2].split("-")[0];
+const moduleVersion = process.argv[2].split("-")[1];
 
 const directory = configs.root_directory + "/src/" + moduleName + "/vue/pages";
 const outFile = configs.root_directory + "/src/" + moduleName +"/compiled_vue_routes.js";
 
-console.log(`Compiling ${outFile}`);
+console.log(`Compiling ${outFile} for ${moduleName}-${moduleVersion}`);
 
 let importString = ``;
 let exportString = `
