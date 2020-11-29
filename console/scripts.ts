@@ -31,6 +31,16 @@ export async function buildDocs(
 }
 
 /**
+ * Pull the latest change from the specified branch.
+ *
+ * @param branch - The branch to pull.
+ */
+export async function pullLatest(branch: string) {
+  await run(["git", "checkout", branch]);
+  await run(["git", "pull"]);
+}
+
+/**
  * Merge main into the specified branch
  *
  * @param moduleName - The name of the module.
