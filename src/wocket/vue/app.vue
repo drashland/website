@@ -9,7 +9,7 @@ export default {
     return {
       sidebar: {
         api_reference_href: "https://doc.deno.land/https/deno.land/x/wocket@" + this.$conf.wocket.latest_version + "/mod.ts",
-        base_url: this.$conf.wocket.base_url + "/#",
+        base_url: this.$conf.wocket.base_url,
         github_href: "https://github.com/drashland/wocket",
         logo: "/assets/common/img/logo_wocket.svg",
         menus: {
