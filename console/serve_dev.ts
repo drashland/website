@@ -2,13 +2,12 @@ import { run } from "./scripts.ts";
 
 const args = Deno.args.slice();
 
-const moduleName = args[0].split("-")[0];
-const moduleVersion = args[0].split("-")[1];
+const branch = args[0];
+const moduleName = branch.split("-")[0];
+const moduleVersion = branch.split("-")[1];
 
-await run(["node", "console/compile_vue_routes.js", moduleName]);
+await run(["node", "console/compile_vue_routes.js", args[0]]);
 
-await run(["npm", "run", "dev:webpack", moduleName, moduleVersion]);
+await run(["pkill", "-f", "drash_website_server.ts"]);
 
-await run(["pkill", "-f", "drash_website_server.ts", moduleName]);
-
-await run(["deno", "run", "-A", "--unstable", "--watch", "drash_website_server.ts"]);
+await run(["deno", "run", "-A", "drash_website_server.ts"]);
