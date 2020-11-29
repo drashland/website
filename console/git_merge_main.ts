@@ -1,10 +1,10 @@
-import { mergeMainInto, run } from "./scripts.ts";
+import { gitMergeMainInto, run } from "./scripts.ts";
 
 console.log("Merging main into all branches");
 
-await mergeMainInto("dmm-v1.x");
-await mergeMainInto("drash-v1.x");
-await mergeMainInto("rhum-v1.x");
-await mergeMainInto("wocket-v0.x");
+await gitMergeMainInto("dmm-v1.x");
+await gitMergeMainInto("drash-v1.x");
+await gitMergeMainInto("rhum-v1.x");
+await gitMergeMainInto("wocket-v0.x");
 
 await run(["git", "checkout", "main"]);

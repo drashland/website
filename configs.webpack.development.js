@@ -20,7 +20,7 @@ Bundle: ${envVars.module}.${envVars.version}.js`);
         `src/${envVars.module}/app.js`,
       ),
     },
-    mode: envVars.mode,
+    mode: "development",
     output: {
       path: path.resolve(__dirname, "assets/bundles/"),
       filename: `[name].${envVars.version}.js`,
