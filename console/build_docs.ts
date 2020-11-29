@@ -1,5 +1,4 @@
-import { run } from "./run.ts";
-import { buildWebpackBundles } from "./build_ecosystem.ts";
+import { buildWebpackBundles, run } from "./scripts.ts";
 
 const args = Deno.args.slice();
 const moduleName = args[0];
