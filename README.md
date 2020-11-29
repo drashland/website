@@ -35,7 +35,7 @@ $ npm run dev:server
 $ npm run dev:webpack
 ```
 
-## Setting Up An Evironment
+## Setting Up An Environment
 
 In the event you want to build an environment (e.g., staging, production, QA), you will need to take the following steps:
 
