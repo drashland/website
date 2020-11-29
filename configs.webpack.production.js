@@ -15,7 +15,7 @@ module.exports = (envVars) => {
         `src/${envVars.module}/app.js`,
       ),
     },
-    mode: envVars.mode,
+    mode: "production",
     output: {
       path: path.resolve(__dirname, "assets/bundles/"),
       filename: `[name].${envVars.version}.js`,
