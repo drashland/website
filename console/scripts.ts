@@ -15,6 +15,10 @@ export async function run(command: string[]) {
   p.close();
 }
 
+export async function buildDocs(moduleName: string, moduleVersion: string) {
+  await run(["console/build_docs", moduleName, moduleVersion]);
+}
+
 /**
  * Pull the latest change from the specified branch.
  *
