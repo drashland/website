@@ -9,5 +9,3 @@ console.log(`Building webpack bundles for ${moduleName} ${moduleVersion}`);
 await run(["npm", "install"]);
 
 await buildWebpackBundles(moduleName, moduleVersion);
-
-await run(["git", "checkout", "main"]);
