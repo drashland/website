@@ -10,7 +10,7 @@
 
 ## Scripts
 
-### Build Scripts
+### build
 
 * `npm run build:docs <module> <version>`
 
@@ -28,17 +28,7 @@
     
     Builds documentation pages for all modules -- storing all bundles in the `/assets/bundles` directory. Run `npm run git:pull-all` before running this script to ensure all documentation code is up to date.
 
-### Git Scripts
-
-* `npm run git:merge-main`
-
-    Merges the `main` branch into all `<module>-<version>` branches. All `<module>-<version>` branches should be kept up to date with the `main` branch. This script makes it easier to do this.
-
-* `npm run git:pull-all`
-
-    Checks out and pulls down the latest changes from all `<module>-<version>` branches. Run this script before using `npm run build:ecosystem`. This ensures all documentation code is up to date.
-
-### Development Scripts
+### dev
 
 * `npm run dev:server <module> <version>`
 
@@ -51,3 +41,13 @@
     ```shell
     $ npm run dev:server drash v1.x
     ```
+
+### git
+
+* `npm run git:merge-main`
+
+    Merges the `main` branch into all `<module>-<version>` branches. All `<module>-<version>` branches should be kept up to date with the `main` branch. This script makes it easier to do this.
+
+* `npm run git:pull-all`
+
+    Checks out and pulls down the latest changes from all `<module>-<version>` branches. Run this script before using `npm run build:ecosystem`. This ensures all documentation code is up to date.
