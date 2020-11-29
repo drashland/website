@@ -1,12 +1,10 @@
-import { buildWebpackBundles, run } from "./scripts.ts";
+import { buildDocs, run } from "./scripts.ts";
 
 console.log("Building ecosystem");
 
 await run(["npm", "install"]);
 
-await buildWebpackBundles("dmm", "v1.x");
-await buildWebpackBundles("drash", "v1.x");
-await buildWebpackBundles("rhum", "v1.x");
-await buildWebpackBundles("wocket", "v1.x");
-
-await run(["git", "checkout", "main"]);
+await buildDocs("dmm", "v1.x");
+await buildDocs("drash", "v1.x");
+await buildDocs("rhum", "v1.x");
+await buildDocs("wocket", "v0.x");
