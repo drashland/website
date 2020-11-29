@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Drash Land",
   "scripts": {
-    "build:docs-bundle": "deno run --allow-read --allow-run console/build_docs_bundle.ts",
+    "build:docs": "deno run --allow-read --allow-run console/build_docs.ts",
     "build:ecosystem": "deno run --allow-read --allow-run --allow-write console/build_ecosystem.ts",
     "git:merge-main": "deno run --allow-run console/git_merge_main.ts",
     "git:pull-all": "deno run --allow-run console/git_pull_all.ts",
