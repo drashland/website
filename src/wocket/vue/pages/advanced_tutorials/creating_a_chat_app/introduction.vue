@@ -52,7 +52,7 @@ page(
   h2-hash End State
   p Below is an example of what you will create.
   p
-    img(src="/wocket/assets/img/creating_a_chat_app/verification_1.png")
+    img(src="/assets/wocket/img/creating_a_chat_app/verification_1.png")
   hr
   breadcrumbs(:base_url="base_url + base_uri" :part="-1" :parts="3")
 </template>
