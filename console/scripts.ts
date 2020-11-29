@@ -1,3 +1,5 @@
+import { readLines } from "../deps.ts";
+
 const decoder = new TextDecoder();
 
 /**
@@ -30,13 +32,18 @@ export async function buildWebpackBundles(
 export async function run(command: string[]) {
   const p = Deno.run({
     cmd: command,
+    stdout: "piped",
     stderr: "piped",
   });
 
-  const status = await p.status()
+  const status = await p.status();
 
   if (status.code === 1) {
     console.log(decoder.decode(await p.stderrOutput()));
+  }
+
+  for await (const line of readLines(p.stdout)) {
+    console.log(line);
   }
 
   p.close();
