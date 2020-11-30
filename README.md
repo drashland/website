@@ -2,12 +2,19 @@
 
 ## Table Of Contents
 
+* [Requirements](#requirements)
 * [Running The Development Environment](#running-the-development-environment)
 * [Setting Up An Environment](#setting-up-an-environment)
     * [Build The Environment](#build-the-environment)
     * [Run The Environment Online](#run-the-environment-online)
 * [Scripts](#scripts)
 * [Technology Stack](#technology-stack)
+
+## Requirements
+
+* Git v2.22+
+* Node v12.x
+* Deno v1.5.4+
 
 ## Running The Development Environment
 
