@@ -4,9 +4,6 @@ import Description from "../description.vue";
 const title = "About Drash";
 
 export const resource = {
-  components: {
-    Description
-  },
   paths: ["/about-drash"],
   meta: {
     title: title,
@@ -14,6 +11,9 @@ export const resource = {
 }
 
 export default {
+  components: {
+    Description
+  },
   data() {
     return {
       title: title,
@@ -51,6 +51,7 @@ page(
     li Lowering barriers to usage
     li Zero dependencies
   p Want to know what makes Drash a unique framework? Read the article <a href="https://dev.to/drash_land/what-makes-drash-different-idd" target="_BLANK">here</a>.
+  hr
   h2-hash Versioning
   P Drash's versioning system will always follow <a href="https://semver.org/" target="_BLANK">semver.org</a>.
   hr

@@ -2,9 +2,6 @@
 import Description from "../description.vue";
 
 export const resource = {
-  components: {
-    Description
-  },
   paths: ["/", "/introduction"],
   meta: {
     title: "Introduction",
@@ -12,6 +9,9 @@ export const resource = {
 }
 
 export default {
+  components: {
+    Description
+  },
   data() {
     return {
     };
@@ -37,7 +37,7 @@ div
     hr
     h2-hash Drash In A Nutshell
     description
-    p Learn more about Drash #[a( href="/drash/#/about-drash") here].
+    p Want to learn more about Drash? Click #[a( href="/drash/#/about-drash") here].
   div
     hr
     h2-hash Quickstart
