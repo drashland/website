@@ -8,7 +8,6 @@ export async function buildDocs(branch: string = "") {
     await run(["git", "checkout", branch]);
   }
   await run(["console/build_docs"]);
-  await run(["git", "checkout", "main"]);
 }
 
 /**
