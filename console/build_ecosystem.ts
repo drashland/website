@@ -6,6 +6,9 @@ console.log("Building ecosystem...");
 console.log("Installing npm dependencies...");
 await run(["npm", "install"]);
 
+console.log("Building node-sass for current environment...");
+await run(["npm", "rebuild", "node-sass"]);
+
 // Build all documentation for all branches in the array
 const branches = [
   "dmm-v1.x",
@@ -24,3 +27,5 @@ console.log("Creating ecosystem.config.js for PM2...");
 let configs = decoder.decode(await Deno.readFile("ecosystem.config.sample.js"));
 configs = configs.replace(/\/path\/to\/website/g, Deno.cwd());
 await Deno.writeFile("./ecosystem.config.js", encoder.encode(configs));
+
+await run(["git", "checkout", "main"]);
