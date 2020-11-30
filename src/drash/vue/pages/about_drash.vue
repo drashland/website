@@ -15,7 +15,7 @@ export default {
       toc: [
         "What Is Drash?",
         "Why Use Drash?",
-        "Articles",
+        "Versioning",
         "About These Documentation Pages",
       ]
     };
@@ -29,9 +29,10 @@ page(
   :title="title"
   :toc="toc"
 )
-  h2-hash What is Drash?
+  h2-hash What Is Drash?
   p Drash is a REST microframework for <a href="https://deno.land" target="_BLANK">Deno</a>'s HTTP server with zero dependencies.
-  p Drash is designed to help you build your projects quickly with the ability to scale. You can build an API, a web app, an SPA (like these documentation pages), or even a static HTML site. How you use Drash is up to you, so it can be everything you need and nothing you don't &mdash; like a DRASH tent.
+  p Drash is designed to help you build your projects quickly with the ability to scale. You can build APIs, web apps, SPAs (like these documentation pages), or even static HTML sites. How you use Drash is up to you, so it can be everything you need and nothing you don't &mdash; like a DRASH tent.
+  p Want to know why Drash was built? Read the article <a href="https://dev.to/drash_land/why-was-drash-built-4bob" target="_BLANK">here</a>.
   hr
   h2-hash Why Use Drash?
   p Drash takes concepts from the following:
@@ -46,14 +47,9 @@ page(
     li Test-driven development
     li Lowering barriers to usage
     li Zero dependencies
-  P Drash's versioning system will always follow <a href="https://semver.org/" target="_BLANK">semver.org</a>. Also, Drash's versions will always be compatible with Deno's versions. That is, Drash v1.x will always be compatible with Deno v1.x, Drash v2.x will always be compatible with Deno v2.x, and so on.
-  hr
-  h2-hash Articles
-  ul
-    li
-      p <a href="https://dev.to/drash_land/why-was-drash-built-4bob" target="_BLANK">Why Was Drash Built?</a>
-    li
-      p <a href="https://dev.to/drash_land/what-makes-drash-different-idd" target="_BLANK">What Makes Drash Different?</a>
+  p Want to know what makes Drash a unique framework? Read the article <a href="https://dev.to/drash_land/what-makes-drash-different-idd" target="_BLANK">here</a>.
+  h2-hash Versioning
+  P Drash's versioning system will always follow <a href="https://semver.org/" target="_BLANK">semver.org</a>.
   hr
   h2-hash About These Documentation Pages
   p We know the pain of using new software that is not extensively documented. Therefore, all released Drash code that is intended to be used is documented. Anything that will be released will be documented before being released. This is how we lower our barriers to usage, so you can continue coding confidently without questions.
