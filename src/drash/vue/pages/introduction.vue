@@ -1,5 +1,10 @@
 <script>
+import Description from "../description.vue";
+
 export const resource = {
+  components: {
+    Description
+  },
   paths: ["/", "/introduction"],
   meta: {
     title: "Introduction",
@@ -31,8 +36,7 @@ div
   div
     hr
     h2-hash Drash In A Nutshell
-    p Drash is a REST microframework for <a href="https://deno.land" target="_BLANK">Deno</a>'s HTTP server with zero dependencies.
-    p Drash is designed to help you build your projects quickly with the ability to scale. You can build APIs, web apps (this site is powered by Drash), SPAs (these documentation pages are Vue applications), or even static HTML sites. How you use Drash is up to you, so it can be everything you need and nothing you don't &mdash; like a DRASH tent.
+    description
     p Learn more about Drash #[a( href="/drash/#/about-drash") here].
   div
     hr
