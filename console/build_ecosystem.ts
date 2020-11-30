@@ -13,10 +13,10 @@ const branches = [
   "rhum-v1.x",
   "wocket-v0.x"
 ];
-branches.forEach(async (branch) => {
-  console.log(`Building docs for "${branch}" docs...`);
+for (const i in branches) {
+  const branch = branches[i];
   await buildDocs(branch);
-});
+}
 
 // Create the PM2 ecosystem file so that we can run `pm2 start` after this
 // script is done running
