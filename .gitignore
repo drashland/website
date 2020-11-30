@@ -8,6 +8,7 @@ compiled_*.json
 configs.server.js
 drash/conf/app.ts
 ecosystem.config.js
+package-lock.json
 
 # directories
 .sass-cache
