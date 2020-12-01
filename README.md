@@ -12,8 +12,8 @@
 
 ## Requirements
 
-* Git v2.22+
-* Node v12.x
+* Git v2.22+ (our build scripts use `git branch --show-current` and this is a feature of v2.22+)
+* Node v12.x (use this version to prevent node-sass errors)
 * Deno v1.5.4+
 
 ## Running The Development Environment
