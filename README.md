@@ -113,6 +113,7 @@ $ pm2 start
     The following will build `/assets/bundles/drash.v1.x.js` and `/assets/bundles/vendors~drash.v1.x.js`.
     
     ```shell
+    $ git checkout drash-v1.x
     $ npm run build:docs drash v1.x
     ```
 
@@ -131,6 +132,7 @@ $ pm2 start
     The following will start the development environment for the `drash-v1.x` branch.
 
     ```shell
+    $ git checkout <module>-<version>
     $ npm run dev:server drash v1.x
     ```
 
