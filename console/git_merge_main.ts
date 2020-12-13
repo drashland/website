@@ -11,4 +11,5 @@ await gitMergeMainInto("rhum-v1.x");
 await gitMergeMainInto("wocket-v0.x");
 await gitMergeMainInto("sinco-v1.x");
 
+await run(["git", "pull"]);
 await run(["git", "checkout", "main"]);
