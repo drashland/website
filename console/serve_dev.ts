@@ -1,11 +1,7 @@
 import { run } from "./scripts.ts";
 
 const args = Deno.args.slice();
-
-const branch = args[0];
-const parentBranch = args[1];
-const moduleName = branch.split("-")[0];
-const moduleVersion = branch.split("-")[1];
+const parentBranch = args[1]; // e.g., rhum-v1.x
 
 await run(["node", "console/compile_vue_routes.js", parentBranch]);
 
