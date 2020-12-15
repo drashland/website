@@ -3,11 +3,11 @@ const decoder = new TextDecoder();
 /**
  * Build documentation pages for the specified branch.
  */
-export async function buildDocs(branch: string = "") {
+export async function buildDocs(branch: string = "", parentBranch: string = "") {
   if (branch != "") {
     await run(["git", "checkout", branch]);
   }
-  await run(["console/build_docs"]);
+  await run(["console/build_docs", parentBranch]);
 }
 
 /**
