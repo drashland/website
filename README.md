@@ -33,13 +33,13 @@ $ git checkout drash-v1.x
 3. Run the development server.
 
 ```
-$ npm run dev:server
+$ npm run dev:server <module>-<version>
 ```
 
 4. Run webpack
 
 ```
-$ npm run dev:webpack
+$ npm run dev:webpack <module>-<version>
 ```
 
 ## Setting Up An Environment
