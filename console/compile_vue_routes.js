@@ -4,6 +4,9 @@ const path = require("path");
 
 const moduleName = process.argv[2].split("-")[0];
 const moduleVersion = process.argv[2].split("-")[1];
+console.log('name and version:')
+console.log(moduleName, moduleVersion)
+console.log(process.argv[2])
 
 const directory = configs.root_directory + "/src/" + moduleName + "/vue/pages";
 const outFile = configs.root_directory + "/src/" + moduleName +"/compiled_vue_routes.js";
