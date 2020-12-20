@@ -1,6 +1,6 @@
 <script>
 
-const title = "Reservd Event Names";
+const title = "Reserved Event Names";
 
 export const resource = {
   paths: [
