@@ -36,19 +36,13 @@ page(
   h2-hash Before You Get Started
   p The following list of reserved event names are:
   ul
-    li <code>connect</code>
-    li <code>disconnect</code>
-    li <code>error</code>
-    li <code>listening_to</code>
-    li <code>pong</code>
-    li <code>reconnect</code>
-  p These events can be listened on by doing the following:
-  code-block(:header="false" language="typescript")
-    | server.on("<NAME>", (packet: Packet) => { ... })
+    li <code>connect</code> - Can be listened on, fires when a client connects to your Wocket server
+    li <code>disconnect</code> - Can be listened on, fires when a client disconnects from your Wocket server
+  p These events are handled internally by Wocket.
   p In this tutorial, you will:
   ul
     li create a server;
-    li Listen on all event names
+    li Listen on the <code>connect</code> and <code>disconnect</code> event names
   hr
   folder-structure-end-state
     code-block(:header="false" language="text" :line_numbers="false")
@@ -77,9 +71,9 @@ page(
         |
     li
       p Create your listeners for the reserved event names.
-      code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="21-40")
+      code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="16-25")
         | import { Packet, Server } from "https://deno.land/x/wocket@{{ $conf.wocket.latest_version }}/mod.ts";
-        | TODO HIGHLIGHT THE SPECIFIC LINES THAT WERE ADDED
+        |
         | // Create the server
         | const server = new Server();
         |
@@ -93,29 +87,20 @@ page(
         |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
         |
+        | // Channel is already open, but we can create a listener
         | server.on("connect", (packet: Packet) => {
         |   console.log("A client connected");
+        |   // Do something here...
         | });
+        | // Channel is already open, but we can create a listener
         | server.on("disconnect", (packet: Packet) => {
         |   console.log("A client disconnected");
-        | });
-        | server.on("listening_to", (packet: Packet) => {
-        |   console.log("A client is listening to a new channel");
-        | });
-        | server.on("error", (packet: Packet) => {
-        |   console.log("The server encountered an error :(");
-        | });
-        | server.on("pong", (packet: Packet) => {
-        |   console.log("Pong received");
-        | });
-        | server.on("reconnect", (packet: Packet) => {
-        |   console.log("Server reconnected");
+        |   // Do something here...
         | });
     li
-      p Create 'triggers', to trigger those events
-      code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="21-40")
+      p Create a client.
+      code-block(title="/path/to/your/project/app.ts" language="typescript" line_highlight="26-29")
         | import { Packet, Server } from "https://deno.land/x/wocket@{{ $conf.wocket.latest_version }}/mod.ts";
-        | TODO HIGHLIGHT THE SPECIFIC LINES THAT WERE ADDED
         | // Create the server
         | const server = new Server();
         |
@@ -129,36 +114,20 @@ page(
         |   `Server started on ws://${server.hostname}:${server.port}`,
         | );
         |
+        | // Channel is already open, but we can create a listener
         | server.on("connect", (packet: Packet) => {
         |   console.log("A client connected");
+        |   // Do something here...
         | });
+        | // Channel is already open, but we can create a listener
         | server.on("disconnect", (packet: Packet) => {
         |   console.log("A client disconnected");
+        |   // Do something here...
         | });
-        | server.on("listening_to", (packet: Packet) => {
-        |   console.log("A client is listening to a new channel");
-        | });
-        | server.on("error", (packet: Packet) => {
-        |   console.log("We encountered an error :(");
-        | });
-        | server.on("pong", (packet: Packet) => {
-        |   console.log("Pong received");
-        | });
-        | server.on("reconnect", (packet: Packet) => {
-        |   console.log("Server reconnected");
-        | });
-        | server.on("dummy channel", (packet: Packet) => {}) // To trigger the `listening_to` event
         |
         | const client = new WebSocket(`ws://${server.hostname}:${server.port}`);
         | client.onopen = function () {
-        |   client.send(JSON.stringify({
-        |     connect_to: ["dummy channel"]
-        |   })
-        | }
-        | client.onmessage = function (evt) {
-        |   if (evt.data === "Connected to dummy channel") {
-        |     client.close()
-        |   }
+        |   client.close()
         | }
   hr
   h2-hash Verification
@@ -170,11 +139,8 @@ page(
     li
       p The output in your shell should look like this:
       code-block(title="Terminal" language="shell-session")
+        | Server started on ws://127.0.0.1:1777
         | A client connected
-        | The client is listening to: dummy channel
         | The client disconnected
-        | The server encountered an error :(
-        | Server reconnected
-        | Pong received
 </template>
 
