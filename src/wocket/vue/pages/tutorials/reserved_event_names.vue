@@ -141,6 +141,6 @@ page(
       code-block(title="Terminal" language="shell-session")
         | Server started on ws://127.0.0.1:1777
         | A client connected
-        | The client disconnected
+        | A client disconnected
 </template>
 
