@@ -2,22 +2,23 @@ const decoder = new TextDecoder();
 
 /**
  * Build documentation pages for the specified branch.
+ *
+ * @param parentBranch - One of the parent branches (e.g., rhum-v1.x).
  */
-export async function buildDocs(branch: string = "") {
-  if (branch != "") {
-    await run(["git", "checkout", branch]);
+export async function buildDocs(parentBranch: string = "") {
+  if (parentBranch != "") {
+    await run(["git", "checkout", parentBranch]);
   }
-  await run(["console/build_docs"]);
+  await run(["console/build_docs", parentBranch]);
 }
 
 /**
  * Merge main into the specified branch
  *
- * @param moduleName - The name of the module.
- * @param moduleVersion - The version to build (e.g., v1.x).
+ * @param parentBranch - One of the parent branches (e.g., rhum-v1.x).
  */
-export async function gitMergeMainInto(branch: string) {
-  await run(["git", "checkout", branch]);
+export async function gitMergeMainInto(parentBranch: string) {
+  await run(["git", "checkout", parentBranch]);
   await run(["git", "merge", "--no-ff", "main", "-m", "update with main branch"]);
   await run(["git", "push"]);
 }
