@@ -1,0 +1,20 @@
+{
+  "watcher": {
+    "interval": 0,
+    "exts": [
+      "js",
+      "json",
+      "html",
+      "ts",
+      "vue"
+    ],
+    "match": [
+      "*.*",
+      "./src/*",
+      "./src/modules/*",
+      "./src/resources/*"
+    ],
+    "skip": ["*/.git/*"],
+    "legacy": false
+  }
+}

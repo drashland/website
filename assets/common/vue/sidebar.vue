@@ -15,7 +15,7 @@ export default {
     },
     menus: {
       type: Object,
-      required: true
+      required: true,
     },
     logo: {
       type: String,
@@ -34,16 +34,47 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      version_selector_is_active: false,
+      versions: this.$conf[this.module].versions,
+    };
+  },
+  computed: {
+    current_version() {
+      return window.location.href
+        .match(/v[0-9].+\//)[0]
+        .replace(/\/?#.+/, "");
+    },
+  },
+  mounted() {
+    this.$root.$on("close-version-selector", () => {
+      this.toggleVersionSelector(true);
+    });
+  },
   methods: {
     closeSidebar() {
       this.$root.$emit("close-sidebar");
+    },
+    toggleSubMenuItems(el) {
+      el.target.parentElement.classList.toggle("active");
     },
     getMenuItemLink(menuItemName, href) {
       if (menuItemName == "Latest News") {
         return href;
       }
-      return this.base_url + href;
-    }
+      if (menuItemName == "Example Applications") {
+        return href;
+      }
+      return `${this.base_url}/#${href}`;
+    },
+    toggleVersionSelector(forceClose = false) {
+      if (forceClose) {
+        this.version_selector_is_active = false;
+        return;
+      }
+      this.version_selector_is_active = !this.version_selector_is_active;
+    },
   }
 }
 </script>
@@ -107,6 +138,10 @@ ul li ul li a {
   }
 }
 
+.active .collapser {
+  transform: rotate(45deg);
+}
+
 .menu-item {
   margin-left: 0;
   &:last-of-type {
@@ -114,14 +149,100 @@ ul li ul li a {
   }
 }
 
+.menu-item {
+  background-color: #282633;
+  transition-property: background-color;
+  transition: .15s ease;
+  &:hover {
+    background-color: #f4f4f4;
+  }
+}
+
 .menu-item-link,
 .menu2-item-link {
   display: block;
   color: #f4f4f4;
-  padding: 0rem 1.45rem;
+  padding: 0 1.45rem;
+  transition-property: color;
+  transition: .15s ease;
   &:hover {
     color: #333333;
-    background-color: #f4f4f4;
+  }
+}
+
+span.menu-item-link:hover {
+  cursor: pointer;
+}
+span.menu-item-link:hover > a {
+  color: #333333;
+}
+
+.collapser {
+  padding-right: 0.5rem;
+  color: #019e01;
+  display: inline-block;
+  margin: 0;
+  font-size: 1.2rem;
+  transition: .2s transform ease;
+  transform-origin: 6px; // Because this elem doesnt have equal padding, so
+                         // using rotate makes it look al skewiff
+}
+
+.menu-item.active:hover a {
+  color: #333333;
+}
+
+.menu-items-list {
+  li {
+    transition-property: opacity height;
+    transition: .15s ease;
+    opacity: 0;
+    height: 0;
+  }
+}
+
+.menu-item:hover .menu-items-shown {
+  a, .menu-item-link a {
+    color: #333333;
+  }
+}
+
+.menu-item.active {
+  a {
+    color: #f4f4f4;
+    &:hover {
+      color: #ff7700;
+    }
+  }
+  li {
+    color: #333333;
+    opacity: 1;
+    height: 2.5rem;
+  }
+}
+
+.version-selector {
+  .current-version {
+    color: #333333 !important;
+    .fa-caret-down {
+      top: .75rem;
+      right: .75rem;
+    }
+  }
+  .version-menu {
+    opacity: 0;
+    pointer-events: none;
+    transition: .2s opacity ease;
+    &.active {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+  .version-link {
+    color: #333333 !important;
+    &:hover {
+      background: #f4f4f4;
+    }
   }
 }
 </style>
@@ -130,20 +251,42 @@ ul li ul li a {
 div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'")
   a(:href="base_url + '/'")
     img(:alt="module" :src="logo" style="height: 150px").mx-auto.m-10
+  div.version-selector.mx-5.mb-5.cursor-pointer.relative
+    div.current-version.relative
+      p#current_version_item.self-center.mb-0.block.px-5.rounded-lg(
+        @click="toggleVersionSelector()"
+        style="background-color: #f4f4f4"
+      ) {{ current_version }}
+        span.absolute.ml-2.fas.fa-caret-down
+    div.version-menu.bg-white.rounded-lg.overflow-hidden.absolute.w-full.shadow-lg(
+      :class="{'active': version_selector_is_active}"
+    )
+      a.version-link.block.px-5(
+        v-for="(version) in versions"
+        :href="'/' + module + '/' + version + '/'"
+      ) {{ version }}
   div(style="border-top: 1px solid #3f3955;")
     div(v-for="(sub_menu_items, menu_item_name) in menus")
       div.menu-name
         a.menu-name-link {{ menu_item_name }}
       ul.mb-0
         li.menu-item(v-for="(href, link_text) in sub_menu_items")
-          a.no-hover.menu-item-link(v-if="typeof href == 'object'") {{ link_text }}
-          ul.mb-0(v-if="typeof href == 'object'")
+          span.menu-item-link(v-if="typeof href == 'object'" @click="toggleSubMenuItems")
+            span.collapser.pointer-events-none +
+            a.pointer-events-none {{ link_text }}
+          ul.menu-items-list.overflow-hidden.mb-0(v-if="typeof href == 'object'")
             li.menu2-item(v-for="(href, link_text) in sub_menu_items[link_text]")
-              a.menu2-item-link(:href="base_url + href" @click="closeSidebar()") {{ link_text }}
-          a(v-else).menu-item-link(
+              a.menu2-item-link(:href="base_url + '/#' + href" @click="closeSidebar()") {{ link_text }}
+          a.menu-item-link(
+            v-else-if="menu_item_name == 'Latest News'"
             :href="getMenuItemLink(menu_item_name, href)"
             @click="closeSidebar()"
             :target="menu_item_name == 'Latest News' && link_text != 'No articles yet' ? '_BLANK' : ''"
+          ) {{ link_text }}
+          a.menu-item-link(
+            v-else
+            :href="getMenuItemLink(menu_item_name, href)"
+            @click="closeSidebar()"
           ) {{ link_text }}
     div.menu-name(v-if="api_reference_href")
       a.menu-name-link.is-link(:href="api_reference_href" @click="closeSidebar()") API Reference
@@ -151,6 +294,7 @@ div.sidebar.text-sm(:style="'background-color: ' + styles.background_color + ';'
       a.menu-name-link.is-link(:href="github_href" @click="closeSidebar()") GitHub
     div.menu-name
       a.menu-name-link.is-link(href="/") Back To Drash Land
-  p(style="color: #f4f4f4").mt-5.text-sm.text-center
-    a(href="https://drash.land") &copy; 2019-2020 Drash Land
+  div(style="color: #f4f4f4").mt-5.text-sm.text-center
+    p.mb-2 &copy; 2019-{{ $conf.copyright_year }} Drash Land
+    p.mb-10 Built with Deno &amp; Drash
 </template>
