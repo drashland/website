@@ -57,7 +57,12 @@ page(
   p Getting a file from a form can be done using the following call:
   code-block(:header="false" language="typescript")
     | const file = this.request.getBodyFile("file_name");
-  p In this tutorial, you will be able to go to your browser; upload a file to a form; and send that form to your server, where your server can save the file.
+  p In this tutorial, you will be able to go to:
+  ul
+    li go to your browser;
+    li upload a file to a form; and
+    li send that form to your server
+  p Your server will save that file.
   hr
   folder-structure-end-state
     | ▾ /path/to/your/project/
