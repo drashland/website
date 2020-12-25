@@ -17,8 +17,8 @@ const public_index_html =
             <button id="submit" type="button">Submit</button>
        </form>
        <script>
-           window.addEventListener("DOMContentLoaded", function () {
-             document.getElementById("submit").addEventListener("click", async function () {
+           window.addEventListener("DOMContentLoaded", () => {
+             document.getElementById("submit").addEventListener("click", async () => {
                const form = document.querySelector('form');
                await fetch("http://localhost:1447/profile", {
                  method:  "POST",
