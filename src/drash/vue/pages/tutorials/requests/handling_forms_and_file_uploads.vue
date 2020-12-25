@@ -86,7 +86,10 @@ page(
         |   ];
         |
         |   public GET() {
-        |     this.response.body = this.response.render("/index.html")
+        |     const htmlFilePath = "./public/index.html";
+        |     const rawHtmlContents = Deno.readFileSync(htmlFilePath);
+        |     const decodedHtmlContents = new TextDecoder().decode(rawHtmlContents);
+        |     this.response.body = htmlContents;
         |     return this.response
         |   }
         | 
@@ -132,7 +135,6 @@ page(
         |   memory_allocation: {
         |     multipart_form_data: 128
         |   },
-        |   views_path: "./public"
         | });
         | 
         | server.run({
