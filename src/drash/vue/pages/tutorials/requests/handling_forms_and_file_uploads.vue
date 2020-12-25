@@ -120,7 +120,7 @@ page(
         | 
         | }
     li
-      p Create your <code>public/index.html</code> file so you can fill out a form and send it in the request to your server
+      p Create your <code>public/index.html</code> file so you can fill out a form and send it in the request to your server.
       code-block(title="/path/to/your/project/public/index.html" language="html")
         | {{ public_index_html }}
     li
