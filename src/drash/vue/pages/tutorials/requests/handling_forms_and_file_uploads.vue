@@ -53,7 +53,7 @@ page(
   :toc="toc"
 )
   h2-hash Before You Get Started
-  p Drash provides simple methods to handle requests with form data, and get the data from those forms.
+  p Drash provides simple methods to handle requests with form data to get the data from those forms.
   p Getting a file from a form can be done using the following call:
   code-block(:header="false" language="typescript")
     | const file = this.request.getBodyFile("file_name");
