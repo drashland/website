@@ -19,7 +19,7 @@ const public_index_html =
        <script>
            window.addEventListener("DOMContentLoaded", () => {
              document.getElementById("submit").addEventListener("click", async () => {
-               const form = document.querySelector('form');
+               const form = document.querySelector("form");
                await fetch("http://localhost:1447/profile", {
                  method:  "POST",
                  body: new FormData(form)
