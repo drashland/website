@@ -28,7 +28,9 @@ function updateConfigs() {
     configs[moduleToUpdate].latest_url_nest_land = configs[moduleToUpdate].latest_url_nest_land.replace(/v.+\//, releaseVersion + "/");
   }
 
-  configs[moduleToUpdate].versions.sort().reverse();
+  if (configs[moduleToUpdate].versions && configs[moduleToUpdate].versions.length) {
+    configs[ moduleToUpdate ].versions.sort().reverse();
+  }
 
   fs.writeFileSync("./configs.js", `export const configs = ${JSON.stringify(configs, null, 2)};\n`)
 }
