@@ -47,7 +47,7 @@ export const configs = {
     "base_url": "/sinco/v1.x",
     "latest_version": "v1.0.0",
     "versions": [
-      "v1.0.0"
+      "v1.x"
     ],
     "latest_url_deno_land": "https://deno.land/x/sinco@v1.0.0/mod.ts",
     "latest_url_nest_land": "https://x.nest.land/sinco@v1.0.0/mod.ts"
