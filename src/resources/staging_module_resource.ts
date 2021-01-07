@@ -31,7 +31,7 @@ export class StagingModuleResource extends BaseResource {
 
     // @ts-ignore (crookse) We ignore this because we can't use a dynami
     // variable to index the configs which are not typed.
-    version = configs[moduleName].latest_version;
+    version = configs[moduleName].latest_version.split(".")[0] + ".x";
 
     return this.response.redirect(302, `/${moduleName}/${version}/`);
   }
