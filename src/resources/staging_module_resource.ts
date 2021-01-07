@@ -4,10 +4,9 @@ import { configs } from "../../deps.ts";
 // TODO(any) The get method is the same as the module resource, make both use a single function to avoid duplication
 
 export class StagingModuleResource extends BaseResource {
-
   static paths = [
     "/staging/:module/:version?",
-  ]
+  ];
 
   //////////////////////////////////////////////////////////////////////////////
   // FILE MARKER - METHODS - HTTP //////////////////////////////////////////////
@@ -37,4 +36,3 @@ export class StagingModuleResource extends BaseResource {
     return this.response.redirect(302, `/${moduleName}/${version}/`);
   }
 }
-

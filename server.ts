@@ -4,7 +4,7 @@ import { ModuleResource } from "./src/resources/module_resource.ts";
 import { StagingModuleResource } from "./src/resources/staging_module_resource.ts";
 import { Response } from "./src/response.ts";
 
-Drash.Http.Response = Response
+Drash.Http.Response = Response;
 
 export const server = new Drash.Http.Server({
   resources: [
@@ -16,5 +16,5 @@ export const server = new Drash.Http.Server({
   static_paths: {
     "/assets": "/assets",
   },
-  directory: "."
-})
+  directory: ".",
+});
