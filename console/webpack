@@ -2,13 +2,22 @@
 
 BRANCH="$(git branch --show-current)"
 PARENT_BRANCH="$1"
+WATCH_IS_SET="$2"
 
 echo -e "Building bundles for $PARENT_BRANCH/$BRANCH"
 
 node console/compile_vue_routes.js $PARENT_BRANCH
 
-node_modules/.bin/webpack \
-  --config ./configs.webpack.development.js \
-  --hide-modules \
-  --env.branch=$PARENT_BRANCH \
-  --watch
+if [ "$WATCH_IS_SET" != "" ]; then
+  node_modules/.bin/webpack \
+    --config ./configs.webpack.development.js \
+    --hide-modules \
+    --env.branch=$PARENT_BRANCH \
+    --watch
+else
+  node_modules/.bin/webpack \
+    --config ./configs.webpack.development.js \
+    --hide-modules \
+    --env.branch=$PARENT_BRANCH \
+    --watch
+fi
