@@ -10,7 +10,8 @@ const outFile = configs.root_directory + "/src/" + moduleName +"/compiled_vue_ro
 
 console.log(`Compiling ${outFile} for ${moduleName}-${moduleVersion}`);
 
-let importString = ``;
+let importString = `// deno-lint-ignore-file
+`;
 let exportString = `
 export default [
 `;

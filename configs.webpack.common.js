@@ -38,11 +38,11 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      chunks: "all",
     },
   },
   plugins: [
     // make sure to include the plugin!
     new VueLoaderPlugin(),
-  ]
+  ],
 };

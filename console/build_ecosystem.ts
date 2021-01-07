@@ -1,5 +1,5 @@
 import { decoder, encoder } from "../deps.ts";
-import {buildDocs, exists, run} from "./scripts.ts";
+import { buildDocs, exists, run } from "./scripts.ts";
 
 console.log("Building ecosystem...");
 
@@ -15,7 +15,7 @@ const branches = [
   "drash-v1.x",
   "rhum-v1.x",
   "wocket-v0.x",
-  "sinco-v1.x"
+  "sinco-v1.x",
 ];
 for (const i in branches) {
   const branch = branches[i];
@@ -26,7 +26,9 @@ for (const i in branches) {
 // script is done running
 if (await exists("./ecosystem.config.js") === false) {
   console.log("Creating ecosystem.config.js for PM2...");
-  let configs = decoder.decode(await Deno.readFile("ecosystem.config.sample.js"));
+  let configs = decoder.decode(
+    await Deno.readFile("ecosystem.config.sample.js"),
+  );
   configs = configs.replace(/\/path\/to\/website/g, Deno.cwd());
   await Deno.writeFile("./ecosystem.config.js", encoder.encode(configs));
 }

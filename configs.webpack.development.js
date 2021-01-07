@@ -14,7 +14,8 @@ module.exports = (envVars) => {
   console.log(
     `Building webpack bundle...
 Mode: development (JS code will not be minified)
-Bundle: ${module}.${version}.js`);
+Bundle: ${module}.${version}.js`,
+  );
 
   return Object.assign(configsCommon, {
     entry: {
