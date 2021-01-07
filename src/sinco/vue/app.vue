@@ -24,7 +24,7 @@ export default {
             "Get And Set Input Value": "/tutorials/get-and-set-input-value",
             "Visit Pages": "/tutorials/visit-pages",
             "Waiting": "/tutorials/waiting",
-            "Custom Assertions": "/tutorials/assertions",
+            "Custom Assertions": "/tutorials/custom-assertions",
           }
         },
         module: "sinco",
