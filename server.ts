@@ -6,7 +6,7 @@ import { Response } from "./src/response.ts";
 
 Drash.Http.Response = Response
 
-const server = new Drash.Http.Server({
+export const server = new Drash.Http.Server({
   resources: [
     LandingResource,
     ModuleResource,
@@ -18,10 +18,3 @@ const server = new Drash.Http.Server({
   },
   directory: "."
 })
-
-await server.run({
-  hostname: "localhost",
-  port: 1445
-});
-
-console.log(`Running server on http://${server.hostname}:${server.port}`)

@@ -27,7 +27,7 @@ export class LandingResource extends BaseResource {
         ? ` [${environment}]`
         : "";
       content = content
-          .replace("{{ environment }}", environment)
+          .replace("{{ environment }}", environment) // TODO(any): I believe this is dead code - there is no `{{ environment }}` in `landing.html`
           .replace("{{ title }}", "Drash Land" + titleSuffix)
           .replace("{{ drash_api_configs }}", this.getServerConfigs());
 

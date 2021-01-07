@@ -77,7 +77,7 @@ $ npm run build:ecosystem
 4. Test that the environment works.
 
 ```
-$ deno run --allow-net --allow-read drash_website_server.ts
+$ deno run --allow-net --allow-read app.ts
 ```
 
 5. (optional) Setup for Staging/Production

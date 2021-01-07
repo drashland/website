@@ -1,0 +1,67 @@
+name: Master
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  tests:
+    runs-on: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Server Integration Tests
+        run: |
+          deno test -A tests/integration
+
+  builds:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: build:docs script works
+        run: |
+          git checkout rhum-v1.x
+          npm run build:docs rhum-v1.x
+          git checkout drash-v1.x
+          npm run build:docs drash-v1.x
+          git checkout wocket-v0.x
+          npm run build:docs wocket-v0.x
+          git checkout sinco-v1.x
+          npm run build:docs sinco-v1.x
+          git checkout main
+
+      - name: dev:webpack script works
+        run: |
+          git checkout rhum-v1.x
+          npm run dev:webpack rhum-v1.x
+          git checkout drash-v1.x
+          npm run dev:webpack drash-v1.x
+          git checkout wocket-v0.x
+          npm run dev:webpack wocket-v0.x
+          git checkout sinco-v1.x
+          npm run dev:webpack sinco-v1.x
+          git checkout main
+
+      - name: build:ecosystem script works
+        run: npm run build:ecosystem
+
+      - name: Drash Server Runs
+        run: |
+          echo "server.close()" >> app.ts
+          deno run -A app.ts
+
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Formatter
+        run: deno fmt --ignore=assets,console/compile_vue_routes.js,configs.webpack.js,console/update_module_versions.js,configs.node.js,ecosystem.config.sample.js
+
+      - name: Linter
+        run: deno lint --unstable --ignore=assets,console/compile_vue_routes.js,configs.webpack.js,console/update_module_versions.js,configs.node.js,ecosystem.config.sample.js

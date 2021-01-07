@@ -1,6 +1,8 @@
 import { BaseResource } from "./base_resource.ts";
 import { configs } from "../../deps.ts";
 
+// TODO(any) The get method is the same as the module resource, make both use a single function to avoid duplication
+
 export class StagingModuleResource extends BaseResource {
 
   static paths = [
