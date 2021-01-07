@@ -42,3 +42,5 @@ Rhum.testPlan("tests/integration/landing_resource_test.ts", () => {
     })
   })
 })
+
+Rhum.run()

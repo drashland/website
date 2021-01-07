@@ -7,7 +7,7 @@ const serverConfigs = {
 }
 const url = `http://${serverConfigs.hostname}:${serverConfigs.port}/staging`
 
-Rhum.testPlan("tests/integration/module_resource_test.ts", () => {
+Rhum.testPlan("tests/integration/staging_module_resource_test.ts", () => {
   Rhum.testSuite("GET /staging/:module", () => {
     Rhum.testCase("Responds with 302 and redirects to latest version when `module` is drash", async () => {
       await server.run(serverConfigs)
@@ -124,3 +124,5 @@ Rhum.testPlan("tests/integration/module_resource_test.ts", () => {
     })
   })
 })
+
+Rhum.run()
