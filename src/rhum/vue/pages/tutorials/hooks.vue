@@ -41,7 +41,7 @@ page(
   :toc="toc"
 )
   h2-hash Before You Get Started
-  p Hooks are functions that contain the code you place in them, that can be executed before or after tests.
+  p Hooks are functions that contain the code that can be executed before or after tests.
   P The benefit of this is, if you need to re-define a variable after each test, or if you need to create a user in the database before each test.
   p Hooks allow you re-use code, by running it before or after a test case. There are a total of 4 hooks you can use:
   ul
