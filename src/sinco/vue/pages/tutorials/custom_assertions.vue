@@ -63,7 +63,7 @@ page(
         |   await Sinco.build();
         |   await Sinco.goTo("https://chromestatus.com");
         |   await Sinco.assertUrlIs("https://chromestatus.com/features");
-        |   await Sinco.assertSee("Chrome Versions");
+        |   await Sinco.assertSee("Chrome versions");
         |   await Sinco.done();
         | })
       p Here you are going to create your headless browser instance, and navigate to <code>https://chromestatus.com</code>. Once the page has loaded, you are going to assert that the page you are on is as expected. Note that <code>https://chromestatus.com</code> will redirect to <code>https://chromestatus.com/features</code>, which is why you have added the <code>/features</code> value to the end of the expected URL. You will assert that and also assert that you can see some given text on the page, and in this example, it is <code>Chrome Versions</code>.
