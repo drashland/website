@@ -74,7 +74,7 @@ page(
     | })
   hr
   h2-hash Creating After Hooks
-  p After hooks are useful for many things such as cleaning up a database after a test case. An example of this, can be removing a test user in the database after each test case (if those test cases or before hooks create users)
+  p An example of this, can be removing a test user in the database after each test case (if those test cases or before hooks create users)
   p Creating after hooks can be done as follows:
   code-block(:header="false" language="typescript")
     | Rhum.testPlan("My Plan", () => {
