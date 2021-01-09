@@ -52,7 +52,7 @@ page(
   p Hooks can be applied to test cases or test suites, meaning before or after every test suite (which would also include every test case in that suite)
   hr
   h2-hash Creating Before Hooks
-  p Before hooks are useful for many things such as resetting or creating data before a test case runs. An example of this, can be creating a new user in the database for each test case to use (if those test cases update the user object)
+  p Before hooks have many useful purposes such as resetting or creating data before a test case runs. An example of this is creating a new user in the database for each test case to use (if those test cases update the user object)
   p Creating before hooks can be done as follows:
   code-block(:header="false" language="typescript")
     | Rhum.testPlan("My Plan", () => {
@@ -96,4 +96,3 @@ page(
     | })
   p Remember: all four types of hooks can be applied for any test suites or test cases.
 </template>
-
