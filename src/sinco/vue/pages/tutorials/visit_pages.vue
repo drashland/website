@@ -40,7 +40,6 @@ page(
   ul
     li <code>https://github.com</code>
     li <code>www.google.com</code>
-  p The <code>.click()</code> method will take any valid selector.
   p If there was an error navigating to the page (page doesn't exist), then Sinco will throw an error
   p In this tutorial, you will:
   ul
