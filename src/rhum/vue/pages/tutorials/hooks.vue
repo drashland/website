@@ -2,7 +2,7 @@
 import H2Hash from "/common/vue/h2_hash.vue";
 import Page from "/common/vue/page.vue";
 import CodeBlock from "/common/vue/code_block.vue";
-import Tip from "/common/vue/tip.vue"
+import Notify from "/common/vue/notify.vue"
 
 const title = "Hooks";
 
@@ -20,7 +20,7 @@ export default {
     CodeBlock,
     H2Hash,
     Page,
-    Tip
+    Notify
   },
   data() {
     return {
@@ -96,5 +96,5 @@ page(
     |     })
     |   })
     | })
-  tip All four types of hooks can be applied for any test suites or test cases.
+  notify(type="tip") All four types of hooks can be applied for any test suites or test cases.
 </template>
