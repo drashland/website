@@ -29,20 +29,23 @@ export default {
 
 <style lang="scss" scoped>
 div#notify {
-    p.prefix {
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-    span {
-        margin: auto 0 auto .2em;
-        font-size: 1.5em;
+    div {
+        margin-bottom: 1rem;
+        p.prefix {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        span {
+            margin: auto 0 auto .2em;
+            font-size: 1.5em;
+        }
     }
 }
 </style>
 
 <template lang="pug">
-div.shadow-md.rounded-b.border-l-4.border-teal-500.bg-teal-100.px-4.py-3#tip
-  div.flex.text-teal-900
+div.shadow-md.rounded-b.border-l-4.border-teal-500.bg-teal-100.px-4.py-3#notify
+  div.flex
     p.prefix.font-bold {{ title }}
     span {{ icon }}
   p.message.text-sm.text-teal-900
