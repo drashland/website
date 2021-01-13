@@ -21,6 +21,7 @@ export default {
             "Features": "/#features",
             "About Drash": "/about-drash",
             "Lifecycle Diagram": "/lifecycle-diagram",
+            "Drash Middleware": "https://github.com/drashland/deno-drash-middleware"
           },
           "Latest News": {},
           "Tutorials": {

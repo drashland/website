@@ -8,4 +8,5 @@ div
     li Static HTML sites
   p How you use Drash is up to you, so it can be everything you need and nothing you don't &mdash; like a DRASH tent.
   p Want to know why Drash was built? Read the article <a href="https://dev.to/drash_land/why-was-drash-built-4bob" target="_BLANK">here</a>.
+  p We also supply Drash-approved middleware, which is official middleware developed by the Drash Land team, for Drash. You can see the middleware we provide on <a href="https://github.com/drashland/deno-drash-middleware">GitHub</a>
 </template>
