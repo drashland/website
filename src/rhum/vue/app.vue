@@ -27,6 +27,7 @@ export default {
             "Writing Tests": "/tutorials/writing-tests",
             "Stubs": "/tutorials/stubs",
             "Mocks": "/tutorials/mocks",
+            "Hooks": "/tutorials/hooks"
           },
         },
         module: "rhum",
