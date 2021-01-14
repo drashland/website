@@ -66,8 +66,8 @@ page(
           |   ];
           |
           |   public GET() {
-          |     let coffeeId = this.request.getPathParam("id");
-          |     this.response.body = this.getCoffee(coffeeId);
+          |     const coffeeId = this.request.getPathParam("id");
+          |     this.response.body = this.getCoffee(Number(coffeeId));
           |     return this.response;
           |   }
           |
@@ -111,7 +111,7 @@ page(
           |
           |   public GET() {
           |     let teaId = this.request.getPathParam("id");
-          |     this.response.body = this.getTea(teaId);
+          |     this.response.body = this.getTea(Number(teaId));
           |     return this.response;
           |   }
           |

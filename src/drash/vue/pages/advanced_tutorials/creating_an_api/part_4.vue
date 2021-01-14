@@ -65,7 +65,7 @@ page(
       |   },
       |   "request": {
       |     "method": "GET",
-      |     "uri": "/tea/50"
+      |     "url": "/tea/50"
       |   }
       | }
   p ... and an error response schema like ...
@@ -77,7 +77,7 @@ page(
       |   "data": null,
       |   "request": {
       |     "method": "GET",
-      |     "uri": "/tea/2710"
+      |     "url": "/tea/2710"
       |   }
       | }
   p In this tutorial part, you will override and replace <code>Drash.Http.Response</code> so it can send a more informative response schema.
@@ -107,7 +107,7 @@ page(
           |       data: this.body,
           |       request: {
           |         method: this.request.method.toUpperCase(),
-          |         uri: this.request.uri
+          |         url: this.request.url
           |       }
           |     };
           |
@@ -173,7 +173,7 @@ page(
           |   },
           |   "request": {
           |     "method": "GET",
-          |     "uri": "/coffee/17"
+          |     "url": "/coffee/17"
           |   }
           | }
     li Make a bad coffee request to <code>localhost:1447/coffee/9000</code>. You should receive the following response (we pretty-printed the response for you):
@@ -185,7 +185,7 @@ page(
           |   "data": "Coffee with ID \"9000\" not found.",
           |   "request": {
           |     "method": "GET",
-          |     "uri": "/coffee/9000"
+          |     "url": "/coffee/9000"
           |   }
           | }
     li Make a tea request to <code>localhost:1447/tea/50</code>. You should receive the following response (we pretty-printed the response for you):
@@ -201,7 +201,7 @@ page(
           |   },
           |   "request": {
           |     "method": "GET",
-          |     "uri": "/tea/50"
+          |     "url": "/tea/50"
           |   }
           | }
     li Make a bad tea request to <code>localhost:1447/tea/1337</code>. You should receive the following response (we pretty-printed the response for you):
@@ -213,7 +213,7 @@ page(
           |   "data": "Tea with ID \"1337\" not found.",
           |   "request": {
           |     "method": "GET",
-          |     "uri": "/tea/1337"
+          |     "url": "/tea/1337"
           |   }
           | }
   div-alert-finished-tutorial-series
