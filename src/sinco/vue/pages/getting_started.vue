@@ -91,6 +91,8 @@ div
       li
         p Visit Pages
       li
+        p Evaluating JavaScript onn the page
+      li
         p Assertions
         ul
           li Assert url is
