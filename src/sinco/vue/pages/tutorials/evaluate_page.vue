@@ -99,7 +99,7 @@ page(
       p Here you are going to create your headless browser instance, and navigate to <code>https://chromestatus.com</code>. Once the page has loaded, you will evaluate a few scripts that will get the document title and create a new element on the page. You will then assert that the page title is as expected, and also that a new element was added to the DOM.
     li
       p Create your config
-      p A <code>tsconfig.json</code> file is required, as you are targeting the DOM (using document syntax) to tell Deno that this is valid.
+      p A <code>tsconfig.json</code> file is required when targeting the DOM (using document syntax) to tell Deno that this is valid.
       code-block(title="tsconfig.json" language="json")
         | {
         |   "compilerOptions": {
@@ -116,4 +116,3 @@ page(
     li
       p All of your tests should pass.
 </template>
-
