@@ -70,17 +70,17 @@ page(
         |   await Sinco.build();
         |   await Sinco.goTo("https://chromestatus.com");
         |   const pageTitle = await Sinco.evaluatePage(() => {
-        |     return document.title
+        |     return document.title;
         |   })
         |   const sum = await Sinco.evaluatePage(`1 + 10`);
         |   const oldBodyLength = await Sinco.evaluatePage(() => {
-        |     return document.body.children.length
+        |     return document.body.children.length;
         |   })
         |   const newBodyLength = await Sinco.evaluatePage(() => {
         |     const p = document.createElement("p");
         |     p.textContent = "Hello world!"
         |     document.body.appendChild(p);
-        |     return document.body.children.length
+        |     return document.body.children.length;
         |   })
         |   await Sinco.done();
         |   assertEquals(pageTitle, "Chrome Platform Status");
@@ -92,9 +92,9 @@ page(
       code-block(title="" language="typescript")
         | await Sinco.evaluatePage(() => {
         |   const form = document.querySelector("form");
-        |   const submitButton = document.getElementById("submit")
-        |   const href = window.location.href
-        |   const savedValue = localStorage.getItem("id")
+        |   const submitButton = document.getElementById("submit");
+        |   const href = window.location.href;
+        |   const savedValue = localStorage.getItem("id");
         | })
       p Here you are going to create your headless browser instance, and navigate to <code>https://chromestatus.com</code>. Once the page has loaded, you will evaluate a few scripts that will get the document title and create a new element on the page. You will then assert that the page title is as expected, and also that a new element was added to the DOM.
     li
