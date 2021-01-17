@@ -91,7 +91,7 @@ div
       li
         p Visit Pages
       li
-        p Evaluating JavaScript onn the page
+        p Evaluating JavaScript on the page
       li
         p Assertions
         ul
