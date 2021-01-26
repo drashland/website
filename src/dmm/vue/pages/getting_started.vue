@@ -93,7 +93,7 @@ div
       li
         p Checks if your dependencies are out of date
       li
-        p Zero dependencies
+        p Zero 3rd party dependencies
       li
         p Updates dependencies in a simple manner
       li
