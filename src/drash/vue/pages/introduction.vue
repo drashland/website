@@ -93,7 +93,7 @@ div
     h2-hash Features
     ul
       li
-        p Zero Dependencies
+        p Zero 3rd Party Dependencies
       li
         p Extensively Documented
       li
