@@ -97,7 +97,7 @@ div
       li
         p Lightweight
       li
-        p Zero dependencies
+        p Zero 3rd party dependencies
       li
         p Simple and easy to use
       li
