@@ -81,6 +81,8 @@ div
     h2-hash Features
     ul
       li
+        p Zero 3rd party dependencies
+      li
         p Click elements
       li
         p Type into input fields
