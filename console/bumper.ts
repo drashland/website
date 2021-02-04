@@ -8,8 +8,12 @@ const versions: {
 } = await res.json();
 const latestDenoVersion = versions.cli[0]
 const latestStdVersion = versions.std[0]
-const rawConfigContent = new TextDecoder().decode(Deno.readFileSync("./configs.json"));
-const config = JSON.parse(rawConfigContent);
-config.deno.latest_version = latestDenoVersion
-config.deno_std.latest_version = latestStdVersion
-Deno.writeFileSync("./configs.json", new TextEncoder().encode(JSON.stringify(config, null, 2)));
+
+const p1 = Deno.run({
+  cmd: ["node", "console/update_module_versions.js", "--module", "deno", "--version", `release-${latestDenoVersion}`]
+})
+await p1.status()
+const p2 = Deno.run({
+  cmd: ["node", "console/update_module_versions.js", "--module", "deno_std", "--version", `release-${latestStdVersion}`]
+})
+await p2.status()
