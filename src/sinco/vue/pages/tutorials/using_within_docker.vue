@@ -37,13 +37,13 @@ page(
   h2-hash Before You Get Started
   p Sinco provides support for running your tests inside Docker. It only requires just over half a dozen lines inside a dockerfile to install the chrome-driver and you should be ready to go.
   p Other than that, there are no other changes required, and the rest of Sinco's documentation still applies.
-  P The ability to run your Browser tests from within a docker container is very useful, because (as containers can bee networked together), you could go to your website, test your <code>/register</code> page works when creating a user, and then clean up (delete the user) from your database - whether that's importing your 'User model' and deleting it manually.
+  P The ability to run your Browser tests from within a docker container is very useful, because (as containers can be networked together), you could go to your website, test your <code>/register</code> page works when creating a user, and then clean up (delete the user) from your database - whether that's importing your 'User model' and deleting it manually.
   p In this tutorial, you will:
   ul
     li Create a docker container, that installs Deno and chrome-driver; and
     li Create a headless browser instance from within Docker;
     li Go to a page;
-    li Assert that you on a the expected web page.
+    li Assert that you are on the expected web page.
   hr
   folder-structure-end-state
     | ▾ /path/to/your/project/
@@ -56,7 +56,7 @@ page(
   ol
     li
       p Create your dockerfile.
-      code-block(title="/path/to/your/project/app.dockerfile.ts" language="dockerfile")
+      code-block(title="/path/to/your/project/app.dockerfile" language="dockerfile")
         | FROM debian:stable-slim
         |
         | # Install chrome driver
@@ -75,11 +75,11 @@ page(
         | RUN curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh
         | RUN export DENO_INSTALL="/root/.local"
         | RUN export PATH="$DENO_INSTALL/bin:$PATH"
-      p Here, you are using a very small image (debian-slim) as your baseline for your docker container. Then you install the chrome-driver, which allows Sinco to create a headless browser instance. Then you install Deno, because whilsts you may have Deno installed on your host machine, it won't be from within docker unless you tell it to.
+      p Here, you are using a very small image (debian-slim) as your baseline for your docker container. Then you install the chrome-driver, which allows Sinco to create a headless browser instance. Then you install Deno, because whilst you may have Deno installed on your host machine, it won't be from within docker unless you tell it to.
 
     li
       p Create your docker compose file.
-      code-block(title="/path/to/your/project/docker-compose.yml.ts" language="yaml")
+      code-block(title="/path/to/your/project/docker-compose.yml" language="yaml")
         | version: '3'
         |
         | services:
