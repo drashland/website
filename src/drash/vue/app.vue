@@ -40,7 +40,8 @@ export default {
               "Handling Multipart Bodies": "/tutorials/requests/handling-multipart-bodies",
               "Handling URL Query Params": "/tutorials/requests/handling-url-query-params",
               "Handling Path Params": "/tutorials/requests/handling-path-params",
-              "Get All Params": "/tutorials/requests/get-all-params"
+              "Get All Params": "/tutorials/requests/get-all-params",
+              "Handling Forms And File Uploads": "/tutorials/requests/handling-forms-and-file-uploads"
             },
             "Responses": {
               //"Accept Header": "/tutorials/responses/accept-header",
