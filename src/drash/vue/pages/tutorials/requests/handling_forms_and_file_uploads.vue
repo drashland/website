@@ -89,7 +89,7 @@ page(
         |     const htmlFilePath = "./public/index.html";
         |     const rawHtmlContents = Deno.readFileSync(htmlFilePath);
         |     const decodedHtmlContents = new TextDecoder().decode(rawHtmlContents);
-        |     this.response.body = htmlContents;
+        |     this.response.body = decodedHtmlContents;
         |     return this.response
         |   }
         | 
