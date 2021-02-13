@@ -93,6 +93,8 @@ div
       li
         p Visit Pages
       li
+        p Evaluating JavaScript on the page
+      li
         p Docker support
       li
         p Assertions

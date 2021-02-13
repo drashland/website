@@ -25,6 +25,7 @@ export default {
             "Visit Pages": "/tutorials/visit-pages",
             "Waiting": "/tutorials/waiting",
             "Custom Assertions": "/tutorials/custom-assertions",
+            "Evaluate The Page": "/tutorials/evaluate-page",
             "Using Within Docker": "/tutorials/using-within-docker"
           }
         },
