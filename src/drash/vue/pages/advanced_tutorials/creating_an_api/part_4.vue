@@ -88,6 +88,7 @@ page(
       |     app.ts
       |     coffee.json
       |     coffee_resource.ts
+      |     response.ts
       |     tea.json
       |     tea_resource.ts
   hr

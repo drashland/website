@@ -51,6 +51,8 @@ page(
     code-block(:header="false" language="text" :line_numbers="false")
       | ▾ /path/to/your/project/
       |     app.ts
+      |     coffee.json
+      |     tea.json
   hr
   h2-hash Steps
   ol
