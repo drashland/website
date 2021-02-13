@@ -93,6 +93,8 @@ div
       li
         p Visit Pages
       li
+        p Docker support
+      li
         p Assertions
         ul
           li Assert url is

@@ -25,6 +25,7 @@ export default {
             "Visit Pages": "/tutorials/visit-pages",
             "Waiting": "/tutorials/waiting",
             "Custom Assertions": "/tutorials/custom-assertions",
+            "Using Within Docker": "/tutorials/using-within-docker"
           }
         },
         module: "sinco",
