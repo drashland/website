@@ -151,10 +151,10 @@ page(
       code-block(title="Terminal" language="shell-session")
         | $ deno run --allow-net --allow-write --allow-read app.ts
     li
-      p Go to <code>http://localhost:1447/profile</code> in your browser, fill in the form and press the "Submit" button. Feel free to select any file, preferably an image as this tutorial is for saving a profile, and the profile holds a username and profile picture.
+      p Go to <code>http://localhost:1447/profile</code> in your browser, fill in the form (where the username is "Drashland") and press the "Submit" button. Feel free to select any file, preferably an image as this tutorial is for saving a profile, and the profile holds a username and profile picture.
       p You should receive the following response in your terminal (we have pretty printed it for you):
       code-block(:header="false")
-        | <username you inputted in the form>
+        | Drashland
         | {
         |   filename: "...",
         |   type: "image/...",
