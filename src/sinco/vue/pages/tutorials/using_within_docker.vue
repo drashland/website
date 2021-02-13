@@ -65,7 +65,6 @@ page(
         | ENV CHROME_VERSION "google-chrome-stable"
         | RUN sed -i -- 's&deb http://deb.debian.org/debian jessie-updates main&#deb http://deb.debian.org/debian jessie-updates main&g' /etc/apt/sources.list \
         |   && apt-get update && apt-get install wget -y
-        | ENV CHROME_VERSION "google-chrome-stable"
         | RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
         |   && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list \
         |   && apt-get update && apt-get -qqy install ${CHROME_VERSION:-google-chrome-stable}
@@ -90,12 +89,12 @@ page(
         |       dockerfile: app.dockerfile
         |     volumes:
         |       - ./src:/var/www/my-app
-        |     command: bash -c "deno test --allow-run"
+        |     command: bash -c "deno test --allow-run --allow-net"
         |     working_dir: /var/www/my-app
       p Here, you are creating your docker-compose file, which will start/run your container, and execute your test file.
 
       p Create your test file.
-      code-block(title="/path/to/your/project/app_test.ts" language="typescript")
+      code-block(title="/path/to/your/project/src/app_test.ts" language="typescript")
         | import { HeadlessBrowser } from "https://deno.land/x/sinco@{{ $conf.sinco.latest_version }}/mod.ts";
         |
         | Deno.test("My web app works as expected", async () => {
