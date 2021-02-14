@@ -66,6 +66,10 @@ export default {
       if (menuItemName == "Example Applications") {
         return href;
       }
+      // If a menu item is a direct link
+      if (href.indexOf("https://github.com/") === 0) {
+        return href
+      }
       return `${this.base_url}/#${href}`;
     },
     toggleVersionSelector(forceClose = false) {
