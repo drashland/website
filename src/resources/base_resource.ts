@@ -15,6 +15,7 @@ export class BaseResource extends Drash.Http.Resource {
     "drash",
     "rhum",
     "wocket",
+    "sinco",
   ];
 
   //////////////////////////////////////////////////////////////////////////////
