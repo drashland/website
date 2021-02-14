@@ -1,0 +1,13 @@
+#!/bin/bash
+
+(
+
+cd ../deno-drash
+
+deno run -A console/compile_api_reference_json.ts
+
+cp api_reference.json ../website/assets/drash-v1.x/js/api_reference.json
+
+cd -
+
+)
