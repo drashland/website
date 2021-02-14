@@ -22,4 +22,4 @@ await server.run({
   port: 1445
 });
 
-console.log(`Server running: http://${server.hostname}:${server.port}`)
+console.log(`Server started at: http://${server.hostname}:${server.port}`)

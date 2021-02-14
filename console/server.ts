@@ -4,4 +4,4 @@ console.log("Starting drash_website_server.ts...");
 // Kill it if it's running ...
 await run(["pkill", "-f", "drash_website_server.ts"]);
 // ... then re-run it
-await run(["deno", "run", "-A", "drash_website_server.ts"]);
+await run(["deno", "run", "-A", "--unstable", "--watch", "drash_website_server.ts"]);

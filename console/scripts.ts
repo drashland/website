@@ -1,3 +1,5 @@
+import { readLines } from "../deps.ts";
+
 const decoder = new TextDecoder();
 
 /**
@@ -10,6 +12,11 @@ export async function run(command: string[]) {
     cmd: command,
     stderr: "piped",
   });
+
+  for await (const stderrLine of readLines(p.stderr)) {
+    const line = stderrLine.trim();
+    console.log(line);
+  }
 
   const status = await p.status()
 
