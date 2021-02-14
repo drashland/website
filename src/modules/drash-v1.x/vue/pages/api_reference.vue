@@ -18,6 +18,11 @@ export default {
       json: this.$api_reference,
     };
   },
+  methods: {
+    getHashName(name) {
+      return name.toLowerCase().replace(/\./g, "-");
+    }
+  }
 }
 </script>
 
@@ -30,7 +35,7 @@ page(
   h2-hash Members List
   ul(v-for="(member1, name1) in json")
     li
-      a(:href="'#' + name1.toLowerCase()") {{ name1 }}
+      a(:href="'#/api-reference#' + getHashName(name1)") {{ name1 }}
   div(v-for="(member1, name1) in json")
     h2-hash.font-bold.bg-black.px-5.text-white {{ name1 }}
     div(v-for="(member2) in member1")
