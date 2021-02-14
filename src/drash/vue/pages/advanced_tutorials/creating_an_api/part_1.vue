@@ -44,7 +44,8 @@ page(
   folder-structure-end-state
     code-block(:header="false" language="text" :line_numbers="false")
       | ▾ /path/to/your/project/
-      |     app.ts
+      |     coffee.json
+      |     tea.json
   hr
   h2-hash Steps
   ol
@@ -101,10 +102,10 @@ page(
         | >
     li Parse your files.
       code-block(title="Terminal" language="shell-session")
-        | > let coffee = Deno.readFileSync("./coffee.json");
+        | > const coffee = Deno.readFileSync("./coffee.json");
         | undefined
         |
-        | > let tea = Deno.readFileSync("./tea.json");
+        | > const tea = Deno.readFileSync("./tea.json");
         | undefined
         |
         | > const decoder = new TextDecoder();
