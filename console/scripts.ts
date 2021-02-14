@@ -1,3 +1,5 @@
+import { readLines } from "../deps.ts";
+
 const decoder = new TextDecoder();
 
 /**

@@ -89,5 +89,5 @@ div
       li
         p JSON encoding
       li
-        p Zero dependencies
+        p Zero 3rd party dependencies
 </template>
