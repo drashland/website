@@ -41,7 +41,7 @@ page(
   hr
   h2-hash End State
   p Below is a sample of what you will create.
-  img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_4.png'")
+  img(:src="'/assets/drash-v1.x/img/example_code/advanced_tutorials/creating_a_vue_app/deno_tweets/part_4.png'")
   hr
   breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="-1" :parts="4")
 </template>

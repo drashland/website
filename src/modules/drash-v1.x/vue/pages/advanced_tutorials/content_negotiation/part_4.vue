@@ -206,12 +206,12 @@ page(
       p Make a request to <code>localhost:1447/users/1</code> in your browser.
       p You should receive the following response:
       p
-        img(:src="'/assets/drash/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3.png'")
+        img(:src="'/assets/drash-v1.x/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3.png'")
     li
       p Make a request to <code>localhost:1447/users/1</code> in Postman (or similar).
       p You should receive the following response:
       p
-        img(:src="'/assets/drash/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
+        img(:src="'/assets/drash-v1.x/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
     li
       p Make a request to <code>localhost:1447/users/1</code> in Postman (or similar) with the following header:
       p
@@ -219,7 +219,7 @@ page(
           | Accept: text/html
       p You should receive the following response:
       p
-        img(:src="'/assets/drash/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_html.png'")
+        img(:src="'/assets/drash-v1.x/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_html.png'")
     li
       p Make a request to <code>localhost:1447/users/1</code> in Postman (or similar) with the following header:
       p
@@ -227,7 +227,7 @@ page(
           | Accept: text/xml
       p You should receive the following response because the resource defaults to JSON responses.
       p
-        img(:src="'/assets/drash/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
+        img(:src="'/assets/drash-v1.x/img/example_code/advanced_tutorials/content_negotiation/user_profiles/part_4/verification_3_json.png'")
   div-alert-finished-tutorial-series
   hr
   breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="4" :parts="4")

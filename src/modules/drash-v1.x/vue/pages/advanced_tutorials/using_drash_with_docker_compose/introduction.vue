@@ -42,8 +42,8 @@ page(
   hr
   h2-hash End State
   p Below are samples of what you will create.
-  img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/1.png'")
-  img(:src="'/assets/drash/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/2.png'")
+  img(:src="'/assets/drash-v1.x/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/1.png'")
+  img(:src="'/assets/drash-v1.x/img/example_code/advanced_tutorials/creating_a_docker_container/docker_compose_setup/2.png'")
   hr
   breadcrumbs(:base_url="base_url + '/#' + base_uri" :part="-1" :parts="6")
 </template>
