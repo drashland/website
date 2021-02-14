@@ -5,7 +5,8 @@ export default {
       return this.$slots.default[0].text.toLowerCase()
         .replace(/ /g, '-')
         .replace(/\?/g, "")
-        .replace(/\,/g, "");
+        .replace(/\,/g, "")
+        .replace(/\./g, "-");
       ;
     }
   }
