@@ -15,7 +15,8 @@ const branches = [
   "drash-v1.x",
   "rhum-v1.x",
   "wocket-v0.x",
-  "sinco-v1.x"
+  "sinco-v1.x",
+  "wocket-v1.x"
 ];
 for (const i in branches) {
   const branch = branches[i];

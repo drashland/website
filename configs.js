@@ -2,10 +2,10 @@ export const configs = {
   "copyright_year": "2020",
   "root_directory": ".",
   "deno": {
-    "latest_version": "v1.7.0"
+    "latest_version": "v1.7.2"
   },
   "deno_std": {
-    "latest_version": "0.84.0"
+    "latest_version": "0.86.0"
   },
   "dmm": {
     "base_url": "/dmm/v1.x",
@@ -35,21 +35,22 @@ export const configs = {
     ]
   },
   "wocket": {
-    "base_url": "/wocket/v0.x",
-    "latest_version": "v0.6.2",
-    "latest_url_deno_land": "https://deno.land/x/wocket@v0.6.2/mod.ts",
-    "latest_url_nest_land": "https://x.nest.land/wocket@v0.6.2/mod.ts",
+    "base_url": "/wocket/v1.x",
+    "latest_version": "v1.0.0",
+    "latest_url_deno_land": "https://deno.land/x/wocket@v1.0.0/mod.ts",
+    "latest_url_nest_land": "https://x.nest.land/wocket@v1.0.0/mod.ts",
     "versions": [
+      "v1.x",
       "v0.x"
     ]
   },
   "sinco": {
     "base_url": "/sinco/v1.x",
-    "latest_version": "v1.0.0",
+    "latest_version": "v1.1.0",
     "versions": [
       "v1.x"
     ],
-    "latest_url_deno_land": "https://deno.land/x/sinco@v1.0.0/mod.ts",
-    "latest_url_nest_land": "https://x.nest.land/sinco@v1.0.0/mod.ts"
+    "latest_url_deno_land": "https://deno.land/x/sinco@v1.1.0/mod.ts",
+    "latest_url_nest_land": "https://x.nest.land/sinco@v1.1.0/mod.ts"
   }
 };
