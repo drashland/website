@@ -1,8 +1,8 @@
 <script>
-import H2Hash from "/common/vue/h2_hash.vue";
-import Page from "/common/vue/page.vue";
-import CodeBlock from "/common/vue/code_block.vue";
-import FolderStructureEndState from "/common/vue/folder_structure_end_state.vue"
+import H2Hash from "/assets/common/vue/h2_hash.vue";
+import Page from "/assets/common/vue/page.vue";
+import CodeBlock from "/assets/common/vue/code_block.vue";
+import FolderStructureEndState from "/assets/common/vue/folder_structure_end_state.vue"
 
 const title = "Removing Clients From Channels";
 

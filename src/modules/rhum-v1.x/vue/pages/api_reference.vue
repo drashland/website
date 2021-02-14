@@ -1,9 +1,9 @@
 <script>
-import H2Hash from "/common/vue/h2_hash.vue";
-import Page from "/common/vue/page.vue";
-import CodeBlock from "/common/vue/code_block.vue";
-import CodeHash from "/common/vue/code_hash.vue";
-import ACodeHash from "/common/vue/a_code_hash.vue";
+import H2Hash from "/assets/common/vue/h2_hash.vue";
+import Page from "/assets/common/vue/page.vue";
+import CodeBlock from "/assets/common/vue/code_block.vue";
+import CodeHash from "/assets/common/vue/code_hash.vue";
+import ACodeHash from "/assets/common/vue/a_code_hash.vue";
 
 const title = "API Reference";
 

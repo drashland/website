@@ -15,14 +15,14 @@ export class Response extends Drash.Http.Response {
   public generateResponse (): string {
     if (this.error_codes.indexOf(this.status_code) != -1) {
       try {
-        this.body = decoder.decode(Deno.readFileSync(`./src/Error${this.status_code}.html`));
+        this.body = decoder.decode(Deno.readFileSync(`./src/views/Error${this.status_code}.html`));
       } catch (error) {
         console.log(error);
       }
     }
 
     if (!this.body) {
-      this.body = decoder.decode(Deno.readFileSync(`./src/Error400.html`));
+      this.body = decoder.decode(Deno.readFileSync(`./src/views/Error400.html`));
     }
 
     return this.body as string

@@ -1,7 +1,7 @@
 <script>
-  import H2Hash from "/common/vue/h2_hash.vue";
-  import Page from "/common/vue/page.vue";
-  import CodeBlock from "/common/vue/code_block.vue";
+  import H2Hash from "/assets/common/vue/h2_hash.vue";
+  import Page from "/assets/common/vue/page.vue";
+  import CodeBlock from "/assets/common/vue/code_block.vue";
 
   const title = "update";
 

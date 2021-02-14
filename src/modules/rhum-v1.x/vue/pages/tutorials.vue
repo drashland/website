@@ -1,6 +1,6 @@
 <script>
-import H2Hash from "/common/vue/h2_hash.vue";
-import Page from "/common/vue/page.vue";
+import H2Hash from "/assets/common/vue/h2_hash.vue";
+import Page from "/assets/common/vue/page.vue";
 
 const title = "Tutorials: Introduction";
 

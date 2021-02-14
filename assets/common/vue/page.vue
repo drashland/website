@@ -13,7 +13,7 @@ div
 </template>
 
 <script>
-import H2Hash from "/common/vue/h2_hash.vue";
+import H2Hash from "/assets/common/vue/h2_hash.vue";
 
 export default {
   components: {

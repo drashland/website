@@ -2,40 +2,50 @@ const configs = require("../configs.node.js");
 const fs = require("fs");
 const path = require("path");
 
-const moduleName = process.argv[2].split("-")[0];
-const moduleVersion = process.argv[2].split("-")[1];
+const modules = [
+  "dmm-v1.x",
+  "drash-v1.x",
+  "rhum-v1.x",
+  "sinco-v1.x",
+  "wocket-v0.x",
+];
 
-const directory = configs.root_directory + "/src/" + moduleName + "/vue/pages";
-const outFile = configs.root_directory + "/src/" + moduleName +"/compiled_vue_routes.js";
+modules.forEach((moduleAndVersion) => {
+  const moduleName = moduleAndVersion.split("-")[0];
+  const moduleVersion = moduleAndVersion.split("-")[1];
 
-console.log(`Compiling ${outFile} for ${moduleName}-${moduleVersion}`);
+  const directory = configs.root_directory + "/src/modules/" + moduleName + "-" + moduleVersion + "/vue/pages";
+  const outFile = configs.root_directory + "/src/modules/" + moduleName + "-" + moduleVersion + "/compiled_vue_routes.js";
 
-let importString = ``;
-let exportString = `
-export default [
-`;
-let count = 0;
+  console.log(`Compiling ${outFile} for ${moduleName}-${moduleVersion}`);
 
-function walk(directory) {
-  const files = fs.readdirSync(directory);
-  for (let index in files) {
-    const file = files[index];
-    const filepath = path.join(directory, file);
-    const stats = fs.statSync(filepath);
-    const filenameWithoutExtension = path.basename(filepath).split(".")[0];
-    const filepathKebabCase = path.basename(filepath).replace("_", "-").split(".")[0];
-    if (stats.isDirectory()) {
-      walk(filepath);
-    } else if (stats.isFile()) {
-      importString += `
-import * as ${filenameWithoutExtension}_${count} from "/${filepath.replace("src/", "")}";`;
-      exportString += `  ${filenameWithoutExtension}_${count},\n`;
+  let importString = ``;
+  let exportString = `
+  export default [
+  `;
+  let count = 0;
+
+  function walk(directory) {
+    const files = fs.readdirSync(directory);
+    for (let index in files) {
+      const file = files[index];
+      const filepath = path.join(directory, file);
+      const stats = fs.statSync(filepath);
+      const filenameWithoutExtension = path.basename(filepath).split(".")[0];
+      const filepathKebabCase = path.basename(filepath).replace("_", "-").split(".")[0];
+      if (stats.isDirectory()) {
+        walk(filepath);
+      } else if (stats.isFile()) {
+        importString += `
+  import * as ${filenameWithoutExtension}_${count} from "/${filepath}";`;
+        exportString += `  ${filenameWithoutExtension}_${count},\n`;
+      }
+      count += 1;
     }
-    count += 1;
   }
-}
 
-walk(directory);
-exportString += `];`;
+  walk(directory);
+  exportString += `];`;
 
-fs.writeFileSync(outFile, importString + exportString);
+  fs.writeFileSync(outFile, importString + exportString);
+});

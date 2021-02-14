@@ -2,7 +2,7 @@ let conf = process.env.conf; // This variable comes from webpack.config.js under
 
 import VueRouter from "vue-router";
 
-import compiledRoutes from "/rhum/compiled_vue_routes.js"
+import compiledRoutes from "/src/modules/sinco-v1.x/compiled_vue_routes.js"
 
 let routes = [];
 let routesForErrors = {};
@@ -47,7 +47,7 @@ router.beforeEach((to, from, next) => {
   if (!to.meta.title) {
     to.meta.title = "404 (Not Found)";
   }
-  document.title = "Rhum - " + to.meta.title;
+  document.title = "Sinco - " + to.meta.title;
   next();
 });
 
@@ -56,4 +56,5 @@ router.afterEach((to, from) => {
 });
 
 export default router;
+
 

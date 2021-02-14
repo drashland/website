@@ -1,7 +1,7 @@
 <script>
-import H2Hash from "/common/vue/h2_hash.vue";
-import Page from "/common/vue/page.vue";
-import CodeBlock from "/common/vue/code_block.vue";
+import H2Hash from "/assets/common/vue/h2_hash.vue";
+import Page from "/assets/common/vue/page.vue";
+import CodeBlock from "/assets/common/vue/code_block.vue";
 
 const title = "info";
 
@@ -64,7 +64,7 @@ page(
         | INFO Information on drash
         |
         |   - Name: drash
-        |   - Description: A REST microframework for Deno's HTTP server with zero dependencies.
+        |   - Description: A REST microframework for Deno's HTTP server with zero 3rd party dependencies.
         |   - deno.land Link: https://deno.land/x/drash@{{ $conf.drash.latest_version }}
         |   - GitHub Repository: https://github.com/drashland/deno-drash
         |   - Import Statement: import * as drash from "https://deno.land/x/drash@{{ $conf.drash.latest_version }}";

@@ -1,17 +1,17 @@
 export const configs = {
-  "copyright_year": "2020",
+  "copyright_year": "2021",
   "root_directory": ".",
   "deno": {
-    "latest_version": "v1.7.2"
+    "latest_version": "v1.7.4"
   },
   "deno_std": {
-    "latest_version": "0.86.0"
+    "latest_version": "0.87.0"
   },
   "dmm": {
     "base_url": "/dmm/v1.x",
-    "latest_version": "v1.3.0",
-    "latest_url_deno_land": "https://deno.land/x/dmm@v1.2.0/mod.ts",
-    "latest_url_nest_land": "https://x.nest.land/dmm@v1.2.0/mod.ts",
+    "latest_version": "v1.3.1",
+    "latest_url_deno_land": "https://deno.land/x/dmm@v1.3.1/mod.ts",
+    "latest_url_nest_land": "https://x.nest.land/dmm@v1.3.1/mod.ts",
     "versions": [
       "v1.x"
     ]

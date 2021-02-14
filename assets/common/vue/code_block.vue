@@ -27,7 +27,7 @@
   // Support clipboard
   import "prismjs/plugins/toolbar/prism-toolbar.css"
   import "prismjs/plugins/toolbar/prism-toolbar.min.js"
-  import "/common/js/prism-copy-to-clipboard.js"
+  import "/assets/common/js/prism-copy-to-clipboard.js"
 
 export default {
   props: {

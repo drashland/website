@@ -1,6 +1,6 @@
 <script>
-  import CodeBlock from "/common/vue/code_block.vue";
-  import H2Hash from "/common/vue/h2_hash.vue"
+  import CodeBlock from "/assets/common/vue/code_block.vue";
+  import H2Hash from "/assets/common/vue/h2_hash.vue"
   export default {
     components: {
       CodeBlock,

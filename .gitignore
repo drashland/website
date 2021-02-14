@@ -8,7 +8,7 @@ compiled_*.json
 configs.server.js
 drash/conf/app.ts
 ecosystem.config.js
-package-lock.json
+package-lock.json # we ignore this because package.json is in charge of versioning
 
 # directories
 .sass-cache

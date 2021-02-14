@@ -2,7 +2,7 @@ let conf = process.env.conf; // This variable comes from webpack.config.js under
 
 import VueRouter from "vue-router";
 
-import compiledRoutes from "/drash/compiled_vue_routes.js"
+import compiledRoutes from "/src/modules/drash-v1.x/compiled_vue_routes.js"
 
 let routes = [];
 let routesForErrors = {};

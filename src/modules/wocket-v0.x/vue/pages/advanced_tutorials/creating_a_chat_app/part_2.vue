@@ -1,9 +1,9 @@
 <script>
-import H2Hash from "/common/vue/h2_hash.vue";
-import Page from "/common/vue/page.vue";
-import CodeBlock from "/common/vue/code_block.vue";
-import DivAlertNextTutorialPart from "/common/vue/div_alert_next_tutorial_part.vue";
-import Breadcrumbs from "/common/vue/breadcrumbs.vue";
+import H2Hash from "/assets/common/vue/h2_hash.vue";
+import Page from "/assets/common/vue/page.vue";
+import CodeBlock from "/assets/common/vue/code_block.vue";
+import DivAlertNextTutorialPart from "/assets/common/vue/div_alert_next_tutorial_part.vue";
+import Breadcrumbs from "/assets/common/vue/breadcrumbs.vue";
 
 const title = "Creating A Chat App";
 const subtitle = "Part 1: Opening A Channel";

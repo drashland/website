@@ -21,7 +21,7 @@ export default {
 
 <template lang="pug">
 div
-  introduction-header(heading="Drash" description="Drash is a REST microframework for Deno's HTTP server with zero dependencies")
+  introduction-header(heading="Drash" description="Drash is a REST microframework for Deno's HTTP server with zero 3rd party dependencies")
   div.flex.mb-5
     a(href="https://github.com/drashland/deno-drash/releases" target="_BLANK")
       img.mr-1(alt="Latest Drash Release" src="https://img.shields.io/github/release/drashland/deno-drash.svg?color=brightgreen&label=Latest" width="auto" height="20")

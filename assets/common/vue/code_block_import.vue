@@ -1,5 +1,5 @@
 <script>
-import CodeBlock from "/common/vue/code_block.vue";
+import CodeBlock from "/assets/common/vue/code_block.vue";
 
 export default {
   components: {

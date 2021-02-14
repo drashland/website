@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  p Drash is a REST microframework for Deno's HTTP server with zero dependencies. It is designed to help you build your projects quickly with the ability to scale. You can build:
+  p Drash is a REST microframework for Deno's HTTP server with zero 3rd party dependencies. It is designed to help you build your projects quickly with the ability to scale. You can build:
   ul
     li APIs
     li Web apps (this site is powered by Drash)

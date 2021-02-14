@@ -49,7 +49,7 @@ page(
     li Documentation-driven development
     li Test-driven development
     li Lowering barriers to usage
-    li Zero dependencies
+    li Zero 3rd party dependencies
   p Want to know what makes Drash a unique framework? Read the article <a href="https://dev.to/drash_land/what-makes-drash-different-idd" target="_BLANK">here</a>.
   hr
   h2-hash Versioning

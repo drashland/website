@@ -14,7 +14,7 @@ export class LandingResource extends BaseResource {
   public async GET () {
     this.log("Requested landing page.");
 
-    const filename = "./src/landing.html";
+    const filename = "./src/views/landing.html";
 
     if (!await this.fileExists(filename)) {
       return this.sendError(404);

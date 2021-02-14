@@ -1,7 +1,7 @@
 <script>
-import EnvironmentBadge from "/common/vue/environment_badge.vue";
-import Sidebar from "/common/vue/sidebar.vue";
-import Notify from "/common/vue/notify.vue"
+import EnvironmentBadge from "/assets/common/vue/environment_badge.vue";
+import Sidebar from "/assets/common/vue/sidebar.vue";
+import Notify from "/assets/common/vue/notify.vue"
 
 export default {
   components: {

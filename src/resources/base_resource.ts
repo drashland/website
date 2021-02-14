@@ -102,7 +102,7 @@ export class BaseResource extends Drash.Http.Resource {
    * @returns The repsonse object.
    */
   protected sendDocsPage(moduleName: string, version: string = ""): Drash.Http.Response {
-    this.response.body = decoder.decode(Deno.readFileSync("./src/module.html"))
+    this.response.body = decoder.decode(Deno.readFileSync("./src/views/module.html"))
       .replace("{{ title }}", "Drash Land - " + this.ucfirst(moduleName))
       .replace(/\{\{ module \}\}/g, moduleName)
       .replace("{{ drash_api_configs }}", this.getServerConfigs());
@@ -141,7 +141,7 @@ export class BaseResource extends Drash.Http.Resource {
     moduleName: string,
     version: string
   ): Promise<Drash.Http.Response> {
-    let filename = `./assets/bundles/${moduleName}.${version}.js`;
+    let filename = `./assets/bundles/${moduleName}-${version}.js`;
 
     this.log(`Getting Vue app: ${filename}`);
 

@@ -12,9 +12,8 @@
 
 ## Requirements
 
-* Git v2.22+ (the build scripts use `git branch --show-current` and this is a feature of v2.22+)
 * Node v12.x (use this version to prevent `node-sass` errors)
-* Deno v1.5.4+
+* Deno v1.x+
 
 ## Running The Development Environment
 
@@ -24,22 +23,16 @@
 $ npm install
 ```
 
-2. Check out the branch you want to work on.
+2. Run webpack.
 
 ```
-$ git checkout drash-v1.x
+$ npm run webpack:development
 ```
 
-3. Run the development server.
+3. Run the server.
 
 ```
-$ npm run dev:server <module>-<version>
-```
-
-4. Run webpack
-
-```
-$ npm run dev:webpack <module>-<version>
+$ npm run server
 ```
 
 ## Setting Up An Environment
@@ -55,22 +48,22 @@ $ git clone https://github.com/drashland/website.git
 $ cd website
 ```
 
-2. Check out the `main` branch.
+2. Install npm dependencies.
 
 ```
-$ git checkout main
+$ npm install
 ```
 
-3. Build the entire ecosystem.
+3. Run webpack.
 
 ```
-$ npm run build:ecosystem
+$ npm run webpack:development # or npm run webpack:production for production builds
 ```
 
-4. Test that the environment works.
+4. Run the server.
 
 ```
-$ deno run --allow-net --allow-read drash_website_server.ts
+$ npm run server
 ```
 
 ### Run The Environment Online
@@ -104,47 +97,27 @@ $ pm2 start
 
 ### build
 
-* `npm run build:docs <module> <version>`
+* `npm run compile:vue-routes`
 
-    Builds documentation pages for a specific module.
+    Compiles all Vue routes for all modules.
 
-    Example:
+### server
 
-    The following will build `/assets/bundles/drash.v1.x.js` and `/assets/bundles/vendors~drash.v1.x.js`.
-    
-    ```shell
-    $ git checkout drash-v1.x
-    $ npm run build:docs drash v1.x
-    ```
+* `npm run server`
 
-* `npm run build:ecosystem`
-    
-    Builds documentation pages for all modules -- storing all bundles in the `/assets/bundles` directory. Run `npm run git:pull-all` before running this script to ensure all documentation code is up to date.
+    Starts the server.
 
-### dev
+### webpack:development
 
-* `npm run dev:server <module> <version>`
+* `npm run webpack:development`
 
-    Starts the development environment for a specific module and version.
+    Runs webpack in development mode.
 
-    Example:
+### webpack:production
 
-    The following will start the development environment for the `drash-v1.x` branch.
+* `npm run webpack:production`
 
-    ```shell
-    $ git checkout <module>-<version>
-    $ npm run dev:server drash v1.x
-    ```
-
-### git
-
-* `npm run git:merge-main`
-
-    Merges the `main` branch into all `<module>-<version>` branches. All `<module>-<version>` branches should be kept up to date with the `main` branch. This script makes it easier to do this.
-
-* `npm run git:pull-all`
-
-    Checks out and pulls down the latest changes from all `<module>-<version>` branches. Run this script before using `npm run build:ecosystem`. This ensures all documentation code is up to date.
+    Runs webpack in production mode.
 
 ## Technology Stack
 

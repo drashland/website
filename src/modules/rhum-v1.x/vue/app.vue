@@ -1,5 +1,5 @@
 <script>
-import AppRoot from "/common/vue/app_root.vue";
+import AppRoot from "/assets/common/vue/app_root.vue";
 
 
 export default {
