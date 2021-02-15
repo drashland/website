@@ -9,7 +9,7 @@ export default {
     return {
       articles: [],
       sidebar: {
-        api_reference_href: "/drash/#/api-reference",
+        api_reference_href: "/drash/v1.x/#/api-reference",
         base_url: this.$conf.drash.base_url,
         github_href: "https://github.com/drashland/deno-drash",
         logo: "/assets/common/img/logo_drash.svg",
