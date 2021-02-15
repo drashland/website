@@ -21,8 +21,11 @@ export default {
   methods: {
     getHashName(name) {
       return name.toLowerCase().replace(/\./g, "-");
-    }
-  }
+    },
+    getMemberLink(filepath) {
+      return "https://github.com/drashland/deno-drash/blob/"  + this.$conf.drash.latest_version + filepath.replace(".", "");
+    },
+  },
 }
 </script>
 
@@ -33,14 +36,15 @@ page(
   :title="title"
 )
   h2-hash Members List
-  ul(v-for="(member1, name1) in json")
+  ul(v-for="(member, member_name) in json")
     li
-      a(:href="'#/api-reference#' + getHashName(name1)") {{ name1 }}
-  div(v-for="(member1, name1) in json")
-    h2-hash.font-bold.bg-black.px-5.text-white {{ name1 }}
-    div(v-for="(member2) in member1")
+      a(:href="'#/api-reference#' + getHashName(member_name)") {{ member_name }}
+  div(v-for="(member, member_name) in json")
+    h2-hash.font-bold.bg-black.px-5.text-white {{ member_name }}
+    p #[a(:href="getMemberLink(member.file)" target="_BLANK") View {{ member_name }} source code]
+    div(v-for="(info) in member.members")
       code-block(language="typescript")
-        | {{ member2 }}
+        | {{ info }}
 </template>
 
 <style lang="scss" scoped>
