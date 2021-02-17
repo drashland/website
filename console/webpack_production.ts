@@ -1,5 +1,8 @@
 import { run } from "./scripts.ts";
 
+console.log("Installing dependencies...\n");
+await run(["npm", "i"]);
+
 console.log("Compiling Vue routes...\n");
 await run(["node", "console/compile_vue_routes.js"]);
 
