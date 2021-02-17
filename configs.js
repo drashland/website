@@ -35,12 +35,11 @@ export const configs = {
     ]
   },
   "wocket": {
-    "base_url": "/wocket/v1.x",
+    "base_url": "/wocket/v0.x",
     "latest_version": "v0.6.2",
-    "latest_url_deno_land": "https://deno.land/x/wocket@v1.0.0/mod.ts",
-    "latest_url_nest_land": "https://x.nest.land/wocket@v1.0.0/mod.ts",
+    "latest_url_deno_land": "https://deno.land/x/wocket@v0.6.2/mod.ts",
+    "latest_url_nest_land": "https://x.nest.land/wocket@v0.6.2/mod.ts",
     "versions": [
-      "v1.x",
       "v0.x"
     ]
   },
