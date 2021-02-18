@@ -3,7 +3,7 @@ module.exports = {
     {
       cwd: "/path/to/website",
       name: "Drash Land",
-      script: "deno run --allow-net --allow-read ./drash_website_server.ts",
+      script: "deno run --allow-net --allow-read ./app.ts",
       watch: "true",
     },
   ]
