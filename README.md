@@ -40,33 +40,6 @@ $ npm run server
 In the event you want to build an environment (e.g., staging, production, QA),
 you will need to take the following steps:
 
-### Build The Environment
-
-1. Clone the repo and go into it.
-
-```
-$ git clone https://github.com/drashland/website.git
-$ cd website
-```
-
-2. Install npm dependencies.
-
-```
-$ npm install
-```
-
-3. Run webpack.
-
-```
-$ npm run webpack:development # or npm run webpack:production for production builds
-```
-
-4. Run the server.
-
-```
-$ npm run server
-```
-
 ### Run The Environment Online
 
 1. Set up a web server to handle serving the website application. The website
@@ -77,11 +50,15 @@ $ npm run server
 
 2. Install [PM2](https://pm2.keymetrics.io/).
 
-3. Make a copy of `ecosystem.config.sample.js` to `ecosystem.config.js`. Edit
+3. Install dependencies:  `npm i`
+
+4. Make a copy of `ecosystem.config.sample.js` to `ecosystem.config.js`. Edit
    your copied file as necessary. Make sure the `cwd` field properly points to
    your website repository clone.
+   
+5. Build bundles: `npm run webpack:development #  or :production`
 
-4. Run PM2. PM2 will use your `ecosystem.config.js` file to start the website
+6. Run (or restart if PM2 is already running) PM2. PM2 will use your `ecosystem.config.js` file to start the website
    application and keep your application online 24/7.
 
 ```
