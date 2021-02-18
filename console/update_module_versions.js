@@ -1,7 +1,7 @@
 const fs = require("fs");
 
-const moduleToUpdate = process.argv[3]
-const releaseVersion = process.argv[5].split('release-')[1]
+const moduleToUpdate = process.argv[3];
+const releaseVersion = process.argv[5].split("release-")[1];
 
 // update version in config
 updateConfigs();
@@ -21,16 +21,23 @@ function updateConfigs() {
   configs[moduleToUpdate].latest_version = releaseVersion;
 
   if (configs[moduleToUpdate].latest_url_deno_land) {
-    configs[moduleToUpdate].latest_url_deno_land = configs[moduleToUpdate].latest_url_deno_land.replace(/v.+\//, releaseVersion + "/");
+    configs[moduleToUpdate].latest_url_deno_land = configs[moduleToUpdate]
+      .latest_url_deno_land.replace(/v.+\//, releaseVersion + "/");
   }
 
   if (configs[moduleToUpdate].latest_url_nest_land) {
-    configs[moduleToUpdate].latest_url_nest_land = configs[moduleToUpdate].latest_url_nest_land.replace(/v.+\//, releaseVersion + "/");
+    configs[moduleToUpdate].latest_url_nest_land = configs[moduleToUpdate]
+      .latest_url_nest_land.replace(/v.+\//, releaseVersion + "/");
   }
 
-  if (configs[moduleToUpdate].versions && configs[moduleToUpdate].versions.length) {
-    configs[ moduleToUpdate ].versions.sort().reverse();
+  if (
+    configs[moduleToUpdate].versions && configs[moduleToUpdate].versions.length
+  ) {
+    configs[moduleToUpdate].versions.sort().reverse();
   }
 
-  fs.writeFileSync("./configs.js", `export const configs = ${JSON.stringify(configs, null, 2)};\n`)
+  fs.writeFileSync(
+    "./configs.js",
+    `export const configs = ${JSON.stringify(configs, null, 2)};\n`,
+  );
 }

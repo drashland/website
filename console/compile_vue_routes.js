@@ -14,8 +14,10 @@ modules.forEach((moduleAndVersion) => {
   const moduleName = moduleAndVersion.split("-")[0];
   const moduleVersion = moduleAndVersion.split("-")[1];
 
-  const directory = configs.root_directory + "/src/modules/" + moduleName + "-" + moduleVersion + "/vue/pages";
-  const outFile = configs.root_directory + "/src/modules/" + moduleName + "-" + moduleVersion + "/compiled_vue_routes.js";
+  const directory = configs.root_directory + "/src/modules/" + moduleName +
+    "-" + moduleVersion + "/vue/pages";
+  const outFile = configs.root_directory + "/src/modules/" + moduleName + "-" +
+    moduleVersion + "/compiled_vue_routes.js";
 
   console.log(`Compiling ${outFile} for ${moduleName}-${moduleVersion}`);
 
@@ -32,7 +34,8 @@ modules.forEach((moduleAndVersion) => {
       const filepath = path.join(directory, file);
       const stats = fs.statSync(filepath);
       const filenameWithoutExtension = path.basename(filepath).split(".")[0];
-      const filepathKebabCase = path.basename(filepath).replace("_", "-").split(".")[0];
+      const filepathKebabCase =
+        path.basename(filepath).replace("_", "-").split(".")[0];
       if (stats.isDirectory()) {
         walk(filepath);
       } else if (stats.isFile()) {

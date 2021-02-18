@@ -20,7 +20,7 @@ import "/assets/common/vue/global_components.js";
 
 import MarkdownIt from "markdown-it";
 const markdownIt = new MarkdownIt();
-Vue.filter('markdown-it', function(value) {
+Vue.filter("markdown-it", function (value) {
   return markdownIt.render(value);
 });
 
@@ -39,7 +39,7 @@ import router from "/src/modules/dmm-v1.x/router.js";
 window.app = new Vue({
   el: "#vue_app_mount",
   components: {
-    VueAppRoot
+    VueAppRoot,
   },
   router: router,
 });

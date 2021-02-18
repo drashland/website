@@ -2,7 +2,7 @@ let conf = process.env.conf; // This variable comes from webpack.config.js under
 
 import VueRouter from "vue-router";
 
-import compiledRoutes from "/src/modules/rhum-v1.x/compiled_vue_routes.js"
+import compiledRoutes from "/src/modules/rhum-v1.x/compiled_vue_routes.js";
 
 let routes = [];
 let routesForErrors = {};
@@ -11,18 +11,18 @@ compiledRoutes.forEach((component) => {
     routesForErrors[component.resource.meta.error_code] = component.default;
     return;
   }
-  component.resource.paths.forEach(path => {
+  component.resource.paths.forEach((path) => {
     routes.push({
       path: path,
       component: component.default,
-      meta: component.resource.meta
+      meta: component.resource.meta,
     });
   });
 });
 
 routes.push({
   path: "*",
-  component: routesForErrors['404']
+  component: routesForErrors["404"],
 });
 
 const router = new VueRouter({
@@ -32,16 +32,16 @@ const router = new VueRouter({
     if (to.hash) {
       return {
         selector: to.hash,
-        offset: { x: 0, y: 10 }
+        offset: { x: 0, y: 10 },
       };
     }
-  }
+  },
 });
 
 router.beforeEach((to, from, next) => {
   if (!to.meta) {
     to.meta = {
-      title: "404 (Not Found)"
+      title: "404 (Not Found)",
     };
   }
   if (!to.meta.title) {
@@ -56,4 +56,3 @@ router.afterEach((to, from) => {
 });
 
 export default router;
-

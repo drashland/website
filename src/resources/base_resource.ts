@@ -4,7 +4,6 @@ import { configs } from "../../deps.ts";
 const decoder = new TextDecoder();
 
 export class BaseResource extends Drash.Http.Resource {
-
   /**
    * A list of recognized modules that users can access pages for. If a user
    * tries to access a page for a module that isn't in this list, then an error
@@ -51,19 +50,19 @@ export class BaseResource extends Drash.Http.Resource {
    * @returns The environment name.
    */
   protected getEnvironment(): string {
-      const host = this.request.headers.get("host") || "";
-      const isRunningOnLiveServer = this.request.headers.get("x-forwarded-host");
-      const isStaging = host.includes("staging");
+    const host = this.request.headers.get("host") || "";
+    const isRunningOnLiveServer = this.request.headers.get("x-forwarded-host");
+    const isStaging = host.includes("staging");
 
-      if (isStaging) {
-        return "staging";
-      }
+    if (isStaging) {
+      return "staging";
+    }
 
-      if (isRunningOnLiveServer) {
-        return "production";
-      }
+    if (isRunningOnLiveServer) {
+      return "production";
+    }
 
-      return "development";
+    return "development";
   }
 
   /**
@@ -101,12 +100,20 @@ export class BaseResource extends Drash.Http.Resource {
    *
    * @returns The repsonse object.
    */
-  protected sendDocsPage(moduleName: string, version: string = ""): Drash.Http.Response {
-    this.response.body = decoder.decode(Deno.readFileSync("./src/views/module.html"))
+  protected sendDocsPage(
+    moduleName: string,
+    version: string = "",
+  ): Drash.Http.Response {
+    this.response.body = decoder.decode(
+      Deno.readFileSync("./src/views/module.html"),
+    )
       .replace("{{ title }}", "Drash Land - " + this.ucfirst(moduleName))
       .replace(/\{\{ module \}\}/g, moduleName)
       .replace("{{ drash_api_configs }}", this.getServerConfigs());
-      this.response.body = this.response.body.replace(/\{\{ version \}\}/g, version)
+    this.response.body = this.response.body.replace(
+      /\{\{ version \}\}/g,
+      version,
+    );
     return this.response;
   }
 
@@ -139,7 +146,7 @@ export class BaseResource extends Drash.Http.Resource {
    */
   protected async sendVersionedDocsPage(
     moduleName: string,
-    version: string
+    version: string,
   ): Promise<Drash.Http.Response> {
     let filename = `./assets/bundles/${moduleName}-${version}.js`;
 

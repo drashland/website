@@ -32,4 +32,5 @@ If applicable, add screenshots to help explain your problem.
 
 ## Additional Context
 
-Add any other context that will help the project maintainers investigate this issue.
+Add any other context that will help the project maintainers investigate this
+issue.

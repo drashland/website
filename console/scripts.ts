@@ -18,7 +18,7 @@ export async function run(command: string[]) {
     console.log(line);
   }
 
-  const status = await p.status()
+  const status = await p.status();
 
   if (status.code === 1) {
     console.log(decoder.decode(await p.stderrOutput()));

@@ -2,18 +2,18 @@
 
 ## Table Of Contents
 
-* [Requirements](#requirements)
-* [Running The Development Environment](#running-the-development-environment)
-* [Setting Up An Environment](#setting-up-an-environment)
-    * [Build The Environment](#build-the-environment)
-    * [Run The Environment Online](#run-the-environment-online)
-* [Scripts](#scripts)
-* [Technology Stack](#technology-stack)
+- [Requirements](#requirements)
+- [Running The Development Environment](#running-the-development-environment)
+- [Setting Up An Environment](#setting-up-an-environment)
+  - [Build The Environment](#build-the-environment)
+  - [Run The Environment Online](#run-the-environment-online)
+- [Scripts](#scripts)
+- [Technology Stack](#technology-stack)
 
 ## Requirements
 
-* Node v12.x (use this version to prevent `node-sass` errors)
-* Deno v1.x+
+- Node v12.x (use this version to prevent `node-sass` errors)
+- Deno v1.x+
 
 ## Running The Development Environment
 
@@ -37,7 +37,8 @@ $ npm run server
 
 ## Setting Up An Environment
 
-In the event you want to build an environment (e.g., staging, production, QA), you will need to take the following steps:
+In the event you want to build an environment (e.g., staging, production, QA),
+you will need to take the following steps:
 
 ### Build The Environment
 
@@ -68,16 +69,20 @@ $ npm run server
 
 ### Run The Environment Online
 
-1. Set up a web server to handle serving the website application. The website application runs on `localhost:1445`.
+1. Set up a web server to handle serving the website application. The website
+   application runs on `localhost:1445`.
 
-    * For Apache: https://github.com/drashland/website/blob/main/apache.conf
-    * For Nginx: _In progress_
+   - For Apache: https://github.com/drashland/website/blob/main/apache.conf
+   - For Nginx: _In progress_
 
 2. Install [PM2](https://pm2.keymetrics.io/).
 
-3. Make a copy of `ecosystem.config.sample.js` to `ecosystem.config.js`. Edit your copied file as necessary. Make sure the `cwd` field properly points to your website repository clone.
+3. Make a copy of `ecosystem.config.sample.js` to `ecosystem.config.js`. Edit
+   your copied file as necessary. Make sure the `cwd` field properly points to
+   your website repository clone.
 
-3. Run PM2. PM2 will use your `ecosystem.config.js` file to start the website application and keep your application online 24/7.
+4. Run PM2. PM2 will use your `ecosystem.config.js` file to start the website
+   application and keep your application online 24/7.
 
 ```
 $ pm2 start
@@ -97,33 +102,33 @@ $ pm2 start
 
 ### build
 
-* `npm run compile:vue-routes`
+- `npm run compile:vue-routes`
 
-    Compiles all Vue routes for all modules.
+  Compiles all Vue routes for all modules.
 
 ### server
 
-* `npm run server`
+- `npm run server`
 
-    Starts the server.
+  Starts the server.
 
 ### webpack:development
 
-* `npm run webpack:development`
+- `npm run webpack:development`
 
-    Runs webpack in development mode.
+  Runs webpack in development mode.
 
 ### webpack:production
 
-* `npm run webpack:production`
+- `npm run webpack:production`
 
-    Runs webpack in production mode.
+  Runs webpack in production mode.
 
 ## Technology Stack
 
-* [Deno](https://deno.land)
-* [Drash](https://drash.land)
-* [Vue](https://vuejs.org)
-* [denon](https://github.com/denosaurs/denon)
-* [pug](https://pugjs.org/api/getting-started.html)
-* [webpack](https://webpack.js.org/)
+- [Deno](https://deno.land)
+- [Drash](https://drash.land)
+- [Vue](https://vuejs.org)
+- [denon](https://github.com/denosaurs/denon)
+- [pug](https://pugjs.org/api/getting-started.html)
+- [webpack](https://webpack.js.org/)

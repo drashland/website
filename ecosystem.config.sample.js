@@ -6,5 +6,5 @@ module.exports = {
       script: "deno run --allow-net --allow-read ./app.ts",
       watch: "true",
     },
-  ]
+  ],
 };
