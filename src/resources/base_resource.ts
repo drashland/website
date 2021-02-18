@@ -73,7 +73,7 @@ export class BaseResource extends Drash.Http.Resource {
    * @returns The configs as stringified JSON.
    */
   protected getServerConfigs(): string {
-    let sanitizedConfigs = configs;
+    const sanitizedConfigs = configs;
     sanitizedConfigs.root_directory = "***";
     return JSON.stringify(Object.assign(sanitizedConfigs, {
       environment: this.getEnvironment(),
@@ -102,7 +102,7 @@ export class BaseResource extends Drash.Http.Resource {
    */
   protected sendDocsPage(
     moduleName: string,
-    version: string = "",
+    version = "",
   ): Drash.Http.Response {
     this.response.body = decoder.decode(
       Deno.readFileSync("./src/views/module.html"),
@@ -148,7 +148,7 @@ export class BaseResource extends Drash.Http.Resource {
     moduleName: string,
     version: string,
   ): Promise<Drash.Http.Response> {
-    let filename = `./assets/bundles/${moduleName}-${version}.js`;
+    const filename = `./assets/bundles/${moduleName}-${version}.js`;
 
     this.log(`Getting Vue app: ${filename}`);
 
