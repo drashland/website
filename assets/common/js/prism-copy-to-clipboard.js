@@ -5,93 +5,94 @@
  * are mentioned below
  */
 
-(function(){
-	if (typeof self === 'undefined' || !self.Prism || !self.document) {
-		return;
-	}
+(function () {
+  if (typeof self === "undefined" || !self.Prism || !self.document) {
+    return;
+  }
 
-	if (!Prism.plugins.toolbar) {
-		console.warn('Copy to Clipboard plugin loaded before Toolbar plugin.');
+  if (!Prism.plugins.toolbar) {
+    console.warn("Copy to Clipboard plugin loaded before Toolbar plugin.");
 
-		return;
-	}
+    return;
+  }
 
-	var ClipboardJS = window.ClipboardJS || undefined;
+  var ClipboardJS = window.ClipboardJS || undefined;
 
-	if (!ClipboardJS && typeof require === 'function') {
-		ClipboardJS = require('clipboard');
-	}
+  if (!ClipboardJS && typeof require === "function") {
+    ClipboardJS = require("clipboard");
+  }
 
-	var callbacks = [];
+  var callbacks = [];
 
-	if (!ClipboardJS) {
-		var script = document.createElement('script');
-		var head = document.querySelector('head');
+  if (!ClipboardJS) {
+    var script = document.createElement("script");
+    var head = document.querySelector("head");
 
-		script.onload = function() {
-			ClipboardJS = window.ClipboardJS;
+    script.onload = function () {
+      ClipboardJS = window.ClipboardJS;
 
-			if (ClipboardJS) {
-				while (callbacks.length) {
-					callbacks.pop()();
-				}
-			}
-		};
+      if (ClipboardJS) {
+        while (callbacks.length) {
+          callbacks.pop()();
+        }
+      }
+    };
 
-		script.src = 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js';
-		head.appendChild(script);
-	}
+    script.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js";
+    head.appendChild(script);
+  }
 
-	Prism.plugins.toolbar.registerButton('copy-to-clipboard', function (env) {
-		var linkCopy = document.createElement('button');
-		linkCopy.textContent = 'Copy';
+  Prism.plugins.toolbar.registerButton("copy-to-clipboard", function (env) {
+    var linkCopy = document.createElement("button");
+    linkCopy.textContent = "Copy";
 
-		var element = env.element;
+    var element = env.element;
 
-		if (!ClipboardJS) {
-			callbacks.push(registerClipboard);
-		} else {
-			registerClipboard();
-		}
+    if (!ClipboardJS) {
+      callbacks.push(registerClipboard);
+    } else {
+      registerClipboard();
+    }
 
-		return linkCopy;
+    return linkCopy;
 
-		function registerClipboard() {
-			var clip = new ClipboardJS(linkCopy, {
-				'text': function () {
-					// START OF MODIFICATION TO ORIGINAL FILE
-					if (element.className.indexOf("shell-session") > -1) {
-						const lines = element.textContent.split("\n")
-						const linesWithoutDollar = []
-						for (let line of lines) {
-							if (line.indexOf("$") === 0) {
-								line = line.slice(2)
-							}
-							linesWithoutDollar.push(line)
-						}
-						return linesWithoutDollar.join("\n")
-					}
-					// END OF MODIFICATION TO ORIGINAL FILE
-					return element.textContent;
-				}
-			});
+    function registerClipboard() {
+      var clip = new ClipboardJS(linkCopy, {
+        "text": function () {
+          // START OF MODIFICATION TO ORIGINAL FILE
+          if (element.className.indexOf("shell-session") > -1) {
+            const lines = element.textContent.split("\n");
+            const linesWithoutDollar = [];
+            for (let line of lines) {
+              if (line.indexOf("$") === 0) {
+                line = line.slice(2);
+              }
+              linesWithoutDollar.push(line);
+            }
+            return linesWithoutDollar.join("\n");
+          }
+          // END OF MODIFICATION TO ORIGINAL FILE
+          return element.textContent;
+        },
+      });
 
-			clip.on('success', function() {
-				linkCopy.textContent = 'Copied!';
+      clip.on("success", function () {
+        linkCopy.textContent = "Copied!";
 
-				resetText();
-			});
-			clip.on('error', function () {
-				linkCopy.textContent = 'Press Ctrl+C to copy';
+        resetText();
+      });
+      clip.on("error", function () {
+        linkCopy.textContent = "Press Ctrl+C to copy";
 
-				resetText();
-			});
-		}
+        resetText();
+      });
+    }
 
-		function resetText() {
-			setTimeout(function () {
-				linkCopy.textContent = 'Copy';
-			}, 5000);
-		}
-	});
+    function resetText() {
+      setTimeout(function () {
+        linkCopy.textContent = "Copy";
+      }, 5000);
+    }
+  });
 })();

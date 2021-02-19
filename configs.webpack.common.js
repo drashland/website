@@ -39,12 +39,12 @@ module.exports = {
   optimization: {
     // runtimeChunk: "single",
     splitChunks: {
-      name: 'common',
-      chunks: 'all',
+      name: "common",
+      chunks: "all",
     },
   },
   plugins: [
     // make sure to include the plugin!
     new VueLoaderPlugin(),
-  ]
+  ],
 };

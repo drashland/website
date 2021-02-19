@@ -5,7 +5,9 @@ import Vue from "vue";
 ////////////////////////////////////////////////////////////////////////////////
 
 Vue.prototype.$conf = window.drash_api_configs;
-Vue.prototype.$api_reference = require("../../../assets/drash-v1.x/js/api_reference.json");
+Vue.prototype.$api_reference = require(
+  "../../../assets/drash-v1.x/js/api_reference.json",
+);
 
 ////////////////////////////////////////////////////////////////////////////////
 // FILE MARKER - COMPONENTS ////////////////////////////////////////////////////
@@ -21,7 +23,7 @@ import "/assets/common/vue/global_components.js";
 
 import MarkdownIt from "markdown-it";
 const markdownIt = new MarkdownIt();
-Vue.filter('markdown-it', function(value) {
+Vue.filter("markdown-it", function (value) {
   return markdownIt.render(value);
 });
 
@@ -40,7 +42,7 @@ import router from "/src/modules/drash-v1.x/router.js";
 window.app = new Vue({
   el: "#vue_app_mount",
   components: {
-    VueAppRoot
+    VueAppRoot,
   },
   router: router,
 });

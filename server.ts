@@ -3,9 +3,9 @@ import { LandingResource } from "./src/resources/landing_resource.ts";
 import { ModuleResource } from "./src/resources/module_resource.ts";
 import { Response } from "./src/response.ts";
 
-Drash.Http.Response = Response
+Drash.Http.Response = Response;
 
-const server = new Drash.Http.Server({
+export const server = new Drash.Http.Server({
   resources: [
     LandingResource,
     ModuleResource,
@@ -14,12 +14,5 @@ const server = new Drash.Http.Server({
   static_paths: {
     "/assets": "/assets",
   },
-  directory: "."
-})
-
-await server.run({
-  hostname: "localhost",
-  port: 1445
+  directory: ".",
 });
-
-console.log(`Server started at: http://${server.hostname}:${server.port}`)
