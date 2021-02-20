@@ -3,24 +3,36 @@ name: Master
 on:
   pull_request:
     branches:
-      - master
+      - main
   push:
     branches:
-      - master
+      - main
 
 jobs:
   tests:
-    runs-on: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install Deno
+        uses: denolib/setup-deno@v2
+
       - name: Server Integration Tests
         run: |
+          npm run webpack:development
           deno test -A tests/integration
+
   builds:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Install Deno
+        uses: denolib/setup-deno@v2
+
+#      - run: |
+#          mkdir -p ~/.local/bin
+#          ln -s ~/.deno/bin/deno ~/.local/bin/deno
 
       - name: Compiling Vue Routes Works
         run: |
@@ -28,6 +40,7 @@ jobs:
 
       - name: Creating Drash API Reference Works
         run: |
+          git clone https://github.com/drashland/deno-drash  ../deno-drash
           npm run compile:drash-v1.x-api-reference
 
       - name: Bundling Frontend Works For Development
@@ -41,21 +54,25 @@ jobs:
       - name: Our Drash Server Works And Compiles
         run: |
           echo "server.close()" >> app.ts
-          npm run server
+          deno run -A app.ts
 
       - name: Can Start PM2
         run: |
-          npm i -g pm2
-          pm2 start
+          npm i pm2
+          cp ecosystem.config.sample.js ecosystem.config.js
+          node_modules/.bin/pm2 start
 
   linter:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install Deno
+        uses: denolib/setup-deno@v2
+
       - name: Formatter
         run: deno fmt --ignore=assets,console/compile_vue_routes.js,configs.webpack.js,console/update_module_versions.js,configs.node.js,ecosystem.config.sample.js
 
       - name: Linter
-      # command to use in dev (if you've ran builds and created compiled files): deno lint --unstable --ignore=assets,console/compile_vue_routes.js,configs.webpack.js,console/update_module_versions.js,configs.node.js,ecosystem.config.sample.js,configs.webpack.common.js,configs.webpack.development.js,ecosystem.config.js,node_modules,src/modules/drash-v1.x/router.js,src/modules/dmm-v1.x/router.js,src/modules/rhum-v1.x/router.js,src/modules/wocket-v0.x/router.js,src/modules/sinco-v1.x/router.js,configs.webpack.production.js,src/modules/drash-v1.x/app.js
-        run: deno lint --unstable --ignore=assets,console/compile_vue_routes.js,configs.webpack.js,console/update_module_versions.js,configs.node.js,ecosystem.config.sample.js,configs.webpack.common.js,configs.webpack.development.js,configs.production.webpack.js,src/modules/drash-v1.x/app.js,src/modules/drash-v1.x/router.js,src/modules/dmm-v1.x/router.js,src/modules/rhum-v1.x/router.js,src/modules/wocket-v0.x/router.js,src/modules/sinco-v1.x/router.js
+      # command to use in dev (if you've ran builds and created compiled files): deno lint --unstable --ignore=assets,console/compile_vue_routes.js,configs.webpack.js,console/update_module_versions.js,configs.js,configs.node.js,ecosystem.config.sample.js,configs.webpack.common.js,configs.webpack.development.js,ecosystem.config.js,node_modules,src/modules/drash-v1.x/router.js,src/modules/dmm-v1.x/router.js,src/modules/rhum-v1.x/router.js,src/modules/wocket-v0.x/router.js,src/modules/sinco-v1.x/router.js,configs.webpack.production.js,src/modules/drash-v1.x/app.js
+        run: deno lint --unstable --ignore=assets,console/compile_vue_routes.js,configs.webpack.js,configs.webpack.production.js,console/update_module_versions.js,configs.js,configs.node.js,ecosystem.config.sample.js,configs.webpack.common.js,configs.webpack.development.js,configs.production.webpack.js,src/modules/drash-v1.x/app.js,src/modules/drash-v1.x/router.js,src/modules/dmm-v1.x/router.js,src/modules/rhum-v1.x/router.js,src/modules/wocket-v0.x/router.js,src/modules/sinco-v1.x/router.js
