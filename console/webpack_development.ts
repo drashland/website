@@ -11,5 +11,6 @@ await run([
   "node_modules/.bin/webpack",
   "--config",
   "./configs.webpack.development.js",
+  "--watch",
   "--hide-modules",
 ].concat(Deno.args));

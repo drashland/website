@@ -71,6 +71,7 @@ jobs:
         uses: denolib/setup-deno@v2
 
       - name: Formatter
+        # for dev: deno fmt --ignore=assets,console/compile_vue_routes.js,configs.webpack.js,console/update_module_versions.js,configs.node.js,ecosystem.config.sample.js,node_modules,configs.js
         run: deno fmt --ignore=assets,console/compile_vue_routes.js,configs.webpack.js,console/update_module_versions.js,configs.node.js,ecosystem.config.sample.js
 
       - name: Linter
