@@ -32,7 +32,7 @@ page(
 )
   h2-hash Before You Get Started
   p By default, Drash will respond with a content type based on the requests <code>Accept</code> header. If the request accepts <code>*/*</code>, the response content type will be <code>application/json</code>. If the request accepts many types, Drash will grab the first one and use that. Otherwise, the default will be <code>application/json</code>.
-  p You can customise the default response content type inside your <code>server</code> instantiation, using the <code>response_output</code> property.
+  p You can customise the default response content type inside your <code>server</code> instantiation, using the <code>response_output</code> config.
   p You can also explicitly set the response content type on a per request basis, using <code>this.response.headers.set()</code> inside your resource method.
   hr
   folder-structure-end-state
