@@ -68,7 +68,6 @@ export default {
         background-color: var(--dark-black);
     }
     .code-block > pre.header {
-        border-bottom: 1px solid;
         opacity: 87%;
         background: var(--light-dark);
     }
@@ -82,6 +81,7 @@ export default {
     }
     .sidebar {
         background-color: var(--dark-black);
+        border-color: var(--light-dark);
     }
     .sidebar .menu-name {
         background-color: var(--light-dark);
@@ -99,6 +99,9 @@ export default {
     }
     .version-menu {
         opacity: 87%;
+    }
+    hr  {
+        border-color: var(--light-dark);
     }
 </style>
 
