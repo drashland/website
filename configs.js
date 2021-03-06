@@ -60,5 +60,5 @@ export const configs = {
     "versions": [
       "v1.x"
     ]
-  },
+  }
 };
